@@ -11,8 +11,8 @@ function App() {
   const name = keys[random];
   const songUnlock = songs[name];
   const [input, setInput] = useState('');
-  const [success, setSuccess] = useState(false);
-  const [failure, setFailure] = useState(false);
+  const [successVisible, setSuccessVisible] = useState(false);
+  const [failureVisible, setFailureVisible] = useState(false);
   const [song, setSong] = useState(name);
   const [hint, setHint] = useState(songUnlock);
 
@@ -25,7 +25,7 @@ function App() {
     audioHTML.load();
     audioHTML.play();
     console.log(song);
-  });
+  }, [hint, song]);
   return (
     <div className="App" >
       <div className="content">
@@ -35,7 +35,7 @@ function App() {
           </p>
         </Alert>
         <br />
-        <audio controls id="audio">
+        <audio controls autoplay id="audio">
           <source id="source" src={`https://oldschool.runescape.wiki/images/${name.replaceAll(' ', '_')}.ogg`} type="audio/ogg"></source>
         </audio>
         <br />
@@ -50,13 +50,15 @@ function App() {
             const userGuess = document.getElementById("guess").value;
             const songString = song.substring(40).replaceAll('_', ' ');
             if (songString.toLowerCase().includes(userGuess.toLowerCase()) && userGuess.length > 2) {
-              setSuccess("true");
+              setSuccessVisible(true);
+              setTimeout(() => setSuccessVisible(false), 2000);
               document.getElementById("guess").value = '';
               setRandom(Math.floor(Math.random() * 728 / 2) * 2);
               setSong(`https://oldschool.runescape.wiki/images/${name.replaceAll(' ', '_')}.ogg`);
               setHint(`${songUnlock}`)
             } else {
-              setFailure("true");
+              setFailureVisible(true);
+              setTimeout(() => setFailureVisible(false), 2000);
             }
             console.log(userGuess);
           }}>Guess</Button>
@@ -64,6 +66,7 @@ function App() {
           {/* song button */}
           <Button variant="secondary" className="songButton" onClick={function () {
             setRandom(Math.floor(Math.random() * 728 / 2) * 2);
+            console.log(random)
             setHint(`${songUnlock}`);
             setSong(`https://oldschool.runescape.wiki/images/${name.replaceAll(' ', '_')}.ogg`);
             const resultMessage = document.getElementById("resultMessage");
@@ -73,13 +76,14 @@ function App() {
             Skip
           </Button>
         </div>
-        {success && <div class="alert alert-success" role="alert" id="successMessage" style={{ display: 'block', animation: 'fade 2s linear forwards' }}>
-          Well done, you got it!
-        </div>}
-        {failure && <div class="alert alert-danger" role="alert" id="failMessage" style={{ display: 'block', animation: 'fade 2s linear forwards' }}>
-          Incorrect, try again!
-        </div>}
-
+        <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+          <div class="alert alert-success" role="alert" id="successMessage" style={{ pointerEvents: 'none', position: 'absolute', display: 'block', opacity: successVisible ? 1 : 0, transition: 'opacity 0.2s' }}>
+            Well done, you got it!
+          </div>
+          <div class="alert alert-danger" role="alert" id="failMessage" style={{ pointerEvents: 'none', position: 'absolute', display: 'block', opacity: failureVisible ? 1 : 0, transition: 'opacity 0.2s' }}>
+            Incorrect, try again!
+          </div>
+        </div>
       </div>
     </div >
   );

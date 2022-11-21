@@ -31,36 +31,3 @@
 #hint {
   margin-bottom: 0 !important;
 }
-
-#successMessage {
-  max-width: 30%;
-  margin: auto;
-  opacity: 1;
-}
-
-#failMessage {
-  max-width: 30%;
-  margin: auto;
-  opacity: 1;
-}
-
-@keyframes fade {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  20%,
-  80% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fade {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  20%,
-  80% {
-    opacity: 1;
-  }
-}
