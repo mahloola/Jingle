@@ -4,9 +4,12 @@ import './App.css';
 import * as songs from './songs';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
+import RunescapeMap from './Map';
+
 function App() {
 
-  const [random, setRandom] = useState(Math.floor(Math.random() * 728 / 2) * 2);
+  const maxSongs = 728;
+  const [random, setRandom] = useState(Math.floor(Math.random() * maxSongs / 2) * 2);
   const keys = Object.keys(songs)
   const name = keys[random];
   const songUnlock = songs[name];
@@ -29,6 +32,7 @@ function App() {
   return (
     <div className="App" >
       <div className="content">
+        <RunescapeMap/>
         <Alert variant="info" className="hintAlert">
           <Alert.Heading>Hint</Alert.Heading>
           <p id="hint">
@@ -53,7 +57,7 @@ function App() {
               setSuccessVisible(true);
               setTimeout(() => setSuccessVisible(false), 2000);
               document.getElementById("guess").value = '';
-              setRandom(Math.floor(Math.random() * 728 / 2) * 2);
+              setRandom(Math.floor(Math.random() * maxSongs / 2) * 2);
               setSong(`https://oldschool.runescape.wiki/images/${name.replaceAll(' ', '_')}.ogg`);
               setHint(`${songUnlock}`)
             } else {
@@ -65,7 +69,7 @@ function App() {
 
           {/* song button */}
           <Button variant="secondary" className="songButton" onClick={function () {
-            setRandom(Math.floor(Math.random() * 728 / 2) * 2);
+            setRandom(Math.floor(Math.random() * maxSongs / 2) * 2);
             console.log(random)
             setHint(`${songUnlock}`);
             setSong(`https://oldschool.runescape.wiki/images/${name.replaceAll(' ', '_')}.ogg`);

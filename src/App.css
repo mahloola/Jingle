@@ -3,7 +3,11 @@
 }
 
 .content {
-  margin-top: 15%;
+  margin-top: 2%;
+}
+
+.runescapeMap {
+  max-width: 50%;
 }
 
 .buttons {
@@ -21,6 +25,7 @@
 .hintAlert {
   max-width: 30%;
   margin: auto;
+  margin-top: 1%;
   padding: 1.5%;
 }
 
