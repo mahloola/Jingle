@@ -32,6 +32,10 @@ function App() {
     <div className="App">
       <div className="content">
         <RunescapeMap />
+        <div className="below-map"></div>
+        <div className="difficulty-increase-mods">
+          <h2>Difficulty Increase Mods</h2>
+        </div>
         <Alert variant="info" className="hintAlert">
           <Alert.Heading>Hint</Alert.Heading>
           <p id="hint"></p>
