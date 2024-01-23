@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "@turf/turf": "^6.5.0",
     "bootstrap": "^5.2.0",
     "fs": "^0.0.1-security",
     "leaflet": "^1.9.4",

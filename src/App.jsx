@@ -5,6 +5,7 @@ import * as songs from "./songs";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import RunescapeMap from "./Map";
+import geojsondata from "./data/GeoJSON";
 
 function App() {
   const maxSongs = 728;
@@ -18,6 +19,7 @@ function App() {
   const [song, setSong] = useState(name);
   const [hint, setHint] = useState(songUnlock);
 
+  console.log(geojsondata.features[0].geometry.coordinates);
   useEffect(() => {
     let audioHTML = document.getElementById("audio");
     let sourceHTML = document.getElementById("source");
@@ -33,9 +35,9 @@ function App() {
       <div className="content">
         <RunescapeMap />
         <div className="below-map"></div>
-        <div className="difficulty-increase-mods">
+        {/* <div className="difficulty-increase-mods">
           <h2>Difficulty Increase Mods</h2>
-        </div>
+        </div> */}
         <Alert variant="info" className="hintAlert">
           <Alert.Heading>Hint</Alert.Heading>
           <p id="hint"></p>
