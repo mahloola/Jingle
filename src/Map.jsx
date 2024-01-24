@@ -1,21 +1,26 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useState } from "react";
+import { MapClickHandler } from "./MapClickHandler";
 
 const RunescapeMap = () => {
 
-  const handleMapClick = (e) => {
-    console.log(`Clicked at: Lat ${e.lat}, Lng ${e.lng}`);
-  };
-
+  const bounds = [
+    [57.374, -179.961],
+    [85.053, 13.143],
+  ]
   return (
+
     <div style={{ display: "flex", justifyContent: "center" }}>
       <MapContainer
         center={[76, -30]}
         zoom={5}
-        style={{ height: "500px", width: "80%" }}
-        onClick={handleMapClick}
+        maxZoom={6}
+        style={{ height: "500px", width: "80%" }}    
+        bounds={{bounds}}  
       >
+
+        <MapClickHandler></MapClickHandler> 
         <TileLayer attribution="offline" url={`/rsmap-tiles/{z}/{x}/{y}.png`} />
       </MapContainer>
     </div>
