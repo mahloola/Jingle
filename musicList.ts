@@ -6,8 +6,8 @@ function getSong() {
     const buffer = fs.readFileSync(songDirectory);
     const fileContent = buffer.toString();
     const fileContentSplit = fileContent.split(/,[^\s]/);
-    const songUnlocks = [];
-    const songNames = [];
+    let songUnlocks : string[] = [];
+    const songNames : string[] = [];
     let songsCSV = '';
     let songsJSON = '';
     for (let i = 0; i < fileContentSplit.length; i++) {

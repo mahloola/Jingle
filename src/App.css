@@ -47,3 +47,10 @@
   background-color: #d4d4d4;
   border-radius: 5px;
 }
+
+.result-message {
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  transition: opacity 0.2s;
+}

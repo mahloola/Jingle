@@ -9,17 +9,17 @@ export const MapClickHandler = () => {
   const map = useMapEvents({
     click: (e) => {
       setPosition(e.latlng)
+      console.log(position);
     },
   });
   return (
-    <React.Fragment>
+    <>
       {position != null &&
         <Marker
           position={position}
           icon={new Icon({ iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41] })}
         ></Marker>
       }
-    </React.Fragment>
-
+    </>
   );
 };
