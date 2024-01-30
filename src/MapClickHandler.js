@@ -5,9 +5,9 @@ import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { polygon, booleanPointInPolygon } from "@turf/turf";
 import geojsondata from "./data/GeoJSON";
 
-export const MapClickHandler = () => {
+export const MapClickHandler = ({currentSong}) => {
   const [position, setPosition] = useState(null);
-
+  console.log({currentSong});
   const map = useMapEvents({
     click: (e) => {
       setPosition(e.latlng);
@@ -32,8 +32,15 @@ export const MapClickHandler = () => {
           const poly = polygon([coordinates]);
           const clickedPoint = [clickedPointPixels.x, clickedPointPixels.y];
           if (booleanPointInPolygon(clickedPoint, poly)) {
-            console.log("CLICKED ON FEATURE:", feature.properties.title);
+            const songNameString = feature.properties.title;
+            const contentInsideTags = songNameString.match(/>(.*?)</);
+            const result = contentInsideTags ? contentInsideTags[1] : null;
 
+            if (result == currentSong) {
+              console.log("good job")
+            } else {
+              console.log(result, currentSong);
+            }
             foundFeature = true;
             break;
           }

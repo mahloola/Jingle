@@ -19,7 +19,6 @@ function App() {
   const [failureVisible, setFailureVisible] = useState(false);
   const [song, setSong] = useState(name);
   const [hint, setHint] = useState(songUnlock);
-
   // when the song changes, update the audio and hint message
   useEffect(() => {
     let audioHTML = document.getElementById("audio");
@@ -35,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <div className="content">
-        <RunescapeMap />
+        <RunescapeMap currentSong={name}/>
         <div className="below-map">
           <Alert variant="info" className="hintAlert">
             <Alert.Heading>Hint</Alert.Heading>

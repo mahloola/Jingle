@@ -6,8 +6,8 @@ import geojsondata from "./data/GeoJSON";
 import { Point, CRS, bounds } from "leaflet";
 import L from "leaflet";
 
-const RunescapeMap = () => {
-
+const RunescapeMap = ({currentSong}) => {
+  console.log({currentSong})
   const outerBounds = new L.LatLngBounds([
     [-78, 0],
     [0, 136.696],
@@ -40,7 +40,7 @@ const RunescapeMap = () => {
         maxBoundsViscosity={1}
         crs={CRS.Simple}
       >
-        <MapClickHandler />
+        <MapClickHandler currentSong={currentSong}/>
         <TileLayer attribution="offline" url={`/rsmap-tiles/{z}/{x}/{y}.png`} />
       </MapContainer>
     </div>
