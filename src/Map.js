@@ -7,14 +7,11 @@ import { Point, CRS, bounds } from "leaflet";
 import L from "leaflet";
 
 const RunescapeMap = ({currentSong}) => {
-  console.log({currentSong})
   const outerBounds = new L.LatLngBounds([
     [-78, 0],
     [0, 136.696],
   ]);
-
   const musicAreas = [];
-  const musicAreaPoints = {};
   const musicAreaPolygons = [];
   for (let i = 0; i < geojsondata.features.length; i++) {
     musicAreas.push(geojsondata.features[i]);
@@ -34,7 +31,7 @@ const RunescapeMap = ({currentSong}) => {
         zoom={5}
         maxZoom={6}
         minZoom={4}
-        style={{ height: "500px", width: "80%" }}
+        style={{ height: "70vh", width: "95%" }}
         bounds={{ outerBounds }}
         boundsOptions={{ outerBounds }}
         maxBoundsViscosity={1}

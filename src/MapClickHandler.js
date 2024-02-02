@@ -1,18 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Marker, useMapEvents } from "react-leaflet";
 import { Icon } from "leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { polygon, booleanPointInPolygon } from "@turf/turf";
 import geojsondata from "./data/GeoJSON";
 
-export const MapClickHandler = ({currentSong}) => {
+export const MapClickHandler = ({ currentSong }) => {
   const [position, setPosition] = useState(null);
-  console.log({currentSong});
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  useEffect(() => {
+    if (showSuccess) {
+      const timer = setTimeout(() => {
+        setShowSuccess(false);
+      }, 2000); // Adjust the duration as needed
+
+      return () => clearTimeout(timer);
+    }
+  }, [showSuccess]);
+
   const map = useMapEvents({
     click: (e) => {
       setPosition(e.latlng);
       const zoom = map.getMaxZoom();
       const clickedPointPixels = map.project(e.latlng, zoom);
+      let success = false; // Initialize success status
+
       for (const feature of geojsondata.features) {
         const scaleFactor = 3;
         const adjustedCoordinates = ([x, y]) => [
@@ -36,10 +49,12 @@ export const MapClickHandler = ({currentSong}) => {
             const contentInsideTags = songNameString.match(/>(.*?)</);
             const result = contentInsideTags ? contentInsideTags[1] : null;
 
-            if (result == currentSong) {
-              console.log("good job")
+            if (result === currentSong) {
+              setShowSuccess(true); // Pass success status back up the call stack
+              console.log('Good Jobe You got it');
+              break;
             } else {
-              console.log(result, currentSong);
+              console.log(`Wrong! You clicked ${result}.`);
             }
             foundFeature = true;
             break;
@@ -49,21 +64,30 @@ export const MapClickHandler = ({currentSong}) => {
           break;
         }
       }
+
+      
     },
   });
 
-  return position ? (
-    <Marker
-      position={position}
-      icon={
-        new Icon({
-          iconUrl: markerIconPng,
-          iconSize: [25, 41],
-          iconAnchor: [12, 41],
-        })
-      }
-    />
-  ) : undefined;
+  return (
+    <>
+      {position && (
+        <Marker
+          position={position}
+          icon={
+            new Icon({
+              iconUrl: markerIconPng,
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+            })
+          }
+        />
+      )}
+      {showSuccess && (
+        <div className="success-text">Success</div>
+      )}
+    </>
+  );
 };
 
 export default MapClickHandler;
