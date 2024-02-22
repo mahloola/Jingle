@@ -31,7 +31,7 @@ const RunescapeMap = ({ currentSong, setGuessResult, setResultVisible }) => {
         zoom={5}
         maxZoom={6}
         minZoom={4}
-        style={{ height: "70vh", width: "95%" }}
+        style={{ height: "100vh", width: "100%" }}
         bounds={{ outerBounds }}
         boundsOptions={{ outerBounds }}
         maxBoundsViscosity={1}
