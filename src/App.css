@@ -2,12 +2,30 @@
   text-align: center;
 }
 
+.ui-box {
+  position: absolute;
+  top: 75%;
+  left: 40%;
+  width: 500px;
+  z-index: 999 !important; /* Ensure the button is above the blurred map */
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.8px);
+  -webkit-backdrop-filter: blur(3.8px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
 .content {
-  margin-top: 15%;
+  margin-top: 25px;
+}
+
+.runescapeMap {
+  max-width: 50%;
 }
 
 .buttons {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .songButton {
@@ -18,16 +36,41 @@
   margin-right: 1%;
 }
 
-.hintAlert {
-  max-width: 30%;
-  margin: auto;
-  padding: 1.5%;
-}
-
 #guessText {
   margin-top: 20px;
 }
 
-#hint {
-  margin-bottom: 0 !important;
+.leaflet-container {
+  height: calc(100vh - 400px);
+  width: 100%;
+  max-width: 1920px;
+}
+
+.difficulty-increase-mods {
+  background-color: #d4d4d4;
+  border-radius: 5px;
+}
+
+.result-message {
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.content {
+  position: relative;
+}
+
+.start-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;;
+  z-index: 3 !important; /* Ensure the button is above the blurred map */
+}
+
+.blur {
+  filter: blur(5px); /* Adjust the blur strength as needed */
 }
