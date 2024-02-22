@@ -12,25 +12,13 @@ const geojsondata = {
             [2688, 9472],
             [2624, 9472],
           ],
-          [
-            [1968, 8960],
-            [1968, 9024],
-            [1856, 9024],
-            [1856, 8960],
-          ],
-          [
-            [1901, 9005],
-            [1901, 9007],
-            [1902, 9007],
-            [1902, 9005],
-          ],
         ],
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/7th_Realm" title="7th Realm">7th Realm</a>',
+        title: '\u003Ca href="/w/7th_Realm" title="7th Realm"\u003E7th Realm\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:7th_Realm.ogg" title="File:7th Realm.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:7th_Realm.ogg" title="File:7th Realm.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -50,9 +38,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Adventure" title="Adventure">Adventure</a>',
+        title: '\u003Ca href="/w/Adventure" title="Adventure"\u003EAdventure\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Adventure.ogg" title="File:Adventure.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Adventure.ogg" title="File:Adventure.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -73,9 +61,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Al_Kharid_(music_track)" title="Al Kharid (music track)">Al Kharid </a>',
+          '\u003Ca href="/w/Al_Kharid_(music_track)" title="Al Kharid (music track)"\u003EAl Kharid \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Al_Kharid.ogg" title="File:Al Kharid.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Al_Kharid.ogg" title="File:Al Kharid.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -95,9 +83,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Alchemical_Attack!" title="Alchemical Attack!">Alchemical Attack!</a>',
+        title:
+          '\u003Ca href="/w/Alchemical_Attack!" title="Alchemical Attack!"\u003EAlchemical Attack!\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Alchemical_Attack!.ogg" title="File:Alchemical Attack!.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Alchemical_Attack!.ogg" title="File:Alchemical Attack!.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -118,9 +107,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/All%27s_Fairy_in_Love_%26_War" title="All&#39;s Fairy in Love &amp; War">All\'s Fairy in Love &amp; War</a>',
+          '\u003Ca href="/w/All%27s_Fairy_in_Love_%26_War" title="All\u0026#39;s Fairy in Love \u0026amp; War"\u003EAll\'s Fairy in Love \u0026amp; War\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:All%27s_Fairy_in_Love_%26_War.ogg" title="File:All&#39;s Fairy in Love &amp; War.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:All%27s_Fairy_in_Love_%26_War.ogg" title="File:All\u0026#39;s Fairy in Love \u0026amp; War.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -136,72 +125,13 @@ const geojsondata = {
             [2624, 9600],
             [2560, 9600],
           ],
-          [
-            [2994, 3520],
-            [2994, 3524],
-            [2998, 3528],
-            [2998, 3534],
-            [3008, 3544],
-            [3022, 3544],
-            [3029, 3537],
-            [3029, 3532],
-            [3041, 3520],
-            [3072, 3520],
-            [3072, 3456],
-            [3008, 3456],
-            [3008, 3462],
-            [2994, 3462],
-            [2990, 3458],
-            [2988, 3458],
-            [2988, 3457],
-            [2985, 3457],
-            [2979, 3463],
-            [2979, 3475],
-            [2990, 3486],
-            [2990, 3510],
-            [2994, 3514],
-          ],
-          [
-            [3008, 3518],
-            [3008, 3514],
-            [3009, 3513],
-            [3012, 3513],
-            [3013, 3514],
-            [3014, 3514],
-            [3015, 3515],
-            [3018, 3515],
-            [3019, 3514],
-            [3019, 3513],
-            [3021, 3513],
-            [3021, 3510],
-            [3025, 3510],
-            [3025, 3506],
-            [3027, 3506],
-            [3027, 3505],
-            [3028, 3504],
-            [3031, 3504],
-            [3033, 3506],
-            [3033, 3508],
-            [3031, 3510],
-            [3031, 3517],
-            [3029, 3519],
-            [3020, 3519],
-            [3018, 3517],
-            [3017, 3517],
-            [3017, 3520],
-            [3015, 3520],
-            [3015, 3517],
-            [3014, 3517],
-            [3012, 3519],
-            [3009, 3519],
-            [3008, 3518],
-          ],
         ],
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Alone" title="Alone">Alone</a>',
-        description: '<div><a href="/w/File:Alone.ogg" title="File:Alone.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Alone" title="Alone"\u003EAlone\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Alone.ogg" title="File:Alone.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -221,9 +151,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Altar_Ego" title="Altar Ego">Altar Ego</a>',
+        title: '\u003Ca href="/w/Altar_Ego" title="Altar Ego"\u003EAltar Ego\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Altar_Ego.ogg" title="File:Altar Ego.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Altar_Ego.ogg" title="File:Altar Ego.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -243,9 +173,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Alternative_Root" title="Alternative Root">Alternative Root</a>',
+        title:
+          '\u003Ca href="/w/Alternative_Root" title="Alternative Root"\u003EAlternative Root\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Alternative_Root.ogg" title="File:Alternative Root.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Alternative_Root.ogg" title="File:Alternative Root.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -261,6 +192,22 @@ const geojsondata = {
             [2880, 9344],
             [2816, 9344],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Ambient_Jungle" title="Ambient Jungle"\u003EAmbient Jungle\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Ambient_Jungle.ogg" title="File:Ambient Jungle.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2816, 2944],
             [2816, 3008],
@@ -272,9 +219,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Ambient_Jungle" title="Ambient Jungle">Ambient Jungle</a>',
+        title:
+          '\u003Ca href="/w/Ambient_Jungle" title="Ambient Jungle"\u003EAmbient Jungle\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Ambient_Jungle.ogg" title="File:Ambient Jungle.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Ambient_Jungle.ogg" title="File:Ambient Jungle.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -294,9 +242,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Ancient_Prison" title="The Ancient Prison">The Ancient Prison</a>',
+        title:
+          '\u003Ca href="/w/The_Ancient_Prison" title="The Ancient Prison"\u003EThe Ancient Prison\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Ancient_Prison.ogg" title="File:The Ancient Prison.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Ancient_Prison.ogg" title="File:The Ancient Prison.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -316,9 +265,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Angel%27s_Fury" title="The Angel&#39;s Fury">The Angel\'s Fury</a>',
+        title:
+          '\u003Ca href="/w/The_Angel%27s_Fury" title="The Angel\u0026#39;s Fury"\u003EThe Angel\'s Fury\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Angel%27s_Fury.ogg" title="File:The Angel&#39;s Fury.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Angel%27s_Fury.ogg" title="File:The Angel\u0026#39;s Fury.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -338,9 +288,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Anywhere" title="Anywhere">Anywhere</a>',
+        title: '\u003Ca href="/w/Anywhere" title="Anywhere"\u003EAnywhere\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Anywhere.ogg" title="File:Anywhere.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Anywhere.ogg" title="File:Anywhere.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -356,6 +306,21 @@ const geojsondata = {
             [3456, 3136],
             [3392, 3136],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Arabian" title="Arabian"\u003EArabian\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Arabian.ogg" title="File:Arabian.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3264, 3200],
             [3264, 3264],
@@ -367,9 +332,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Arabian" title="Arabian">Arabian</a>',
+        title: '\u003Ca href="/w/Arabian" title="Arabian"\u003EArabian\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Arabian.ogg" title="File:Arabian.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Arabian.ogg" title="File:Arabian.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -389,9 +354,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Arabian_2" title="Arabian 2">Arabian 2</a>',
+        title: '\u003Ca href="/w/Arabian_2" title="Arabian 2"\u003EArabian 2\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Arabian_2.ogg" title="File:Arabian 2.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Arabian_2.ogg" title="File:Arabian 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -411,9 +376,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Arabian_3" title="Arabian 3">Arabian 3</a>',
+        title: '\u003Ca href="/w/Arabian_3" title="Arabian 3"\u003EArabian 3\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Arabian_3.ogg" title="File:Arabian 3.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Arabian_3.ogg" title="File:Arabian 3.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -433,9 +398,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Arabique" title="Arabique">Arabique</a>',
+        title: '\u003Ca href="/w/Arabique" title="Arabique"\u003EArabique\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Arabique.ogg" title="File:Arabique.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Arabique.ogg" title="File:Arabique.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -456,9 +421,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Arachnids_of_Vampyrium_(music_track)" title="Arachnids of Vampyrium (music track)">Arachnids of Vampyrium </a>',
+          '\u003Ca href="/w/Arachnids_of_Vampyrium_(music_track)" title="Arachnids of Vampyrium (music track)"\u003EArachnids of Vampyrium \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Arachnids_of_Vampyrium.ogg" title="File:Arachnids of Vampyrium.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Arachnids_of_Vampyrium.ogg" title="File:Arachnids of Vampyrium.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -484,9 +449,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Arboretum" title="Arboretum">Arboretum</a>',
+        title: '\u003Ca href="/w/Arboretum" title="Arboretum"\u003EArboretum\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Arboretum.ogg" title="File:Arboretum.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Arboretum.ogg" title="File:Arboretum.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -590,6 +555,22 @@ const geojsondata = {
             [1603, 3855],
             [1603, 3876],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Arcane_(music_track)" title="Arcane (music track)"\u003EArcane \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Arcane.ogg" title="File:Arcane.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1568, 10240],
             [1536, 10240],
@@ -601,9 +582,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Arcane_(music_track)" title="Arcane (music track)">Arcane </a>',
+        title:
+          '\u003Ca href="/w/Arcane_(music_track)" title="Arcane (music track)"\u003EArcane \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Arcane.ogg" title="File:Arcane.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Arcane.ogg" title="File:Arcane.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -627,9 +609,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Armadyl_Alliance" title="Armadyl Alliance">Armadyl Alliance</a>',
+        title:
+          '\u003Ca href="/w/Armadyl_Alliance" title="Armadyl Alliance"\u003EArmadyl Alliance\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Armadyl_Alliance.ogg" title="File:Armadyl Alliance.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Armadyl_Alliance.ogg" title="File:Armadyl Alliance.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -653,6 +636,21 @@ const geojsondata = {
             [2848, 5288],
             [2848, 5336],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Armageddon" title="Armageddon"\u003EArmageddon\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Armageddon.ogg" title="File:Armageddon.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3008, 10112],
             [3008, 10176],
@@ -664,9 +662,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Armageddon" title="Armageddon">Armageddon</a>',
+        title: '\u003Ca href="/w/Armageddon" title="Armageddon"\u003EArmageddon\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Armageddon.ogg" title="File:Armageddon.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Armageddon.ogg" title="File:Armageddon.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -686,9 +684,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Army_of_Darkness" title="Army of Darkness">Army of Darkness</a>',
+        title:
+          '\u003Ca href="/w/Army_of_Darkness" title="Army of Darkness"\u003EArmy of Darkness\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Army_of_Darkness.ogg" title="File:Army of Darkness.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Army_of_Darkness.ogg" title="File:Army of Darkness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -708,9 +707,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Arrival" title="Arrival">Arrival</a>',
+        title: '\u003Ca href="/w/Arrival" title="Arrival"\u003EArrival\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Arrival.ogg" title="File:Arrival.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Arrival.ogg" title="File:Arrival.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -730,9 +729,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Artistry" title="Artistry">Artistry</a>',
+        title: '\u003Ca href="/w/Artistry" title="Artistry"\u003EArtistry\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Artistry.ogg" title="File:Artistry.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Artistry.ogg" title="File:Artistry.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -753,9 +752,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Assault_and_Battery" title="Assault and Battery">Assault and Battery</a>',
+          '\u003Ca href="/w/Assault_and_Battery" title="Assault and Battery"\u003EAssault and Battery\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Assault_and_Battery.ogg" title="File:Assault and Battery.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Assault_and_Battery.ogg" title="File:Assault and Battery.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -777,6 +776,21 @@ const geojsondata = {
             [2460, 3306],
             [2432, 3306],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Attack_1" title="Attack 1"\u003EAttack 1\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Attack_1.ogg" title="File:Attack 1.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2432, 3328],
             [2432, 3324],
@@ -788,9 +802,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Attack_1" title="Attack 1">Attack 1</a>',
+        title: '\u003Ca href="/w/Attack_1" title="Attack 1"\u003EAttack 1\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Attack_1.ogg" title="File:Attack 1.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Attack_1.ogg" title="File:Attack 1.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -810,9 +824,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Attack_2" title="Attack 2">Attack 2</a>',
+        title: '\u003Ca href="/w/Attack_2" title="Attack 2"\u003EAttack 2\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Attack_2.ogg" title="File:Attack 2.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Attack_2.ogg" title="File:Attack 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -832,9 +846,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Attack_3" title="Attack 3">Attack 3</a>',
+        title: '\u003Ca href="/w/Attack_3" title="Attack 3"\u003EAttack 3\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Attack_3.ogg" title="File:Attack 3.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Attack_3.ogg" title="File:Attack 3.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -850,6 +864,21 @@ const geojsondata = {
             [2624, 3136],
             [2560, 3136],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Attack_4" title="Attack 4"\u003EAttack 4\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Attack_4.ogg" title="File:Attack 4.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2560, 9536],
             [2560, 9600],
@@ -857,6 +886,21 @@ const geojsondata = {
             [2624, 9536],
             [2560, 9536],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Attack_4" title="Attack 4"\u003EAttack 4\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Attack_4.ogg" title="File:Attack 4.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2176, 9664],
             [2176, 9728],
@@ -868,9 +912,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Attack_4" title="Attack 4">Attack 4</a>',
+        title: '\u003Ca href="/w/Attack_4" title="Attack 4"\u003EAttack 4\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Attack_4.ogg" title="File:Attack 4.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Attack_4.ogg" title="File:Attack 4.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -890,9 +934,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Attack_5" title="Attack 5">Attack 5</a>',
+        title: '\u003Ca href="/w/Attack_5" title="Attack 5"\u003EAttack 5\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Attack_5.ogg" title="File:Attack 5.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Attack_5.ogg" title="File:Attack 5.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -912,9 +956,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Attack_6" title="Attack 6">Attack 6</a>',
+        title: '\u003Ca href="/w/Attack_6" title="Attack 6"\u003EAttack 6\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Attack_6.ogg" title="File:Attack 6.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Attack_6.ogg" title="File:Attack 6.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -936,9 +980,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Attention" title="Attention">Attention</a>',
+        title: '\u003Ca href="/w/Attention" title="Attention"\u003EAttention\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Attention.ogg" title="File:Attention.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Attention.ogg" title="File:Attention.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -958,9 +1002,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Autumn_Voyage" title="Autumn Voyage">Autumn Voyage</a>',
+        title:
+          '\u003Ca href="/w/Autumn_Voyage" title="Autumn Voyage"\u003EAutumn Voyage\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Autumn_Voyage.ogg" title="File:Autumn Voyage.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Autumn_Voyage.ogg" title="File:Autumn Voyage.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -980,9 +1025,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Aye_Car_Rum_Ba" title="Aye Car Rum Ba">Aye Car Rum Ba</a>',
+        title:
+          '\u003Ca href="/w/Aye_Car_Rum_Ba" title="Aye Car Rum Ba"\u003EAye Car Rum Ba\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Aye_Car_Rum_Ba.ogg" title="File:Aye Car Rum Ba.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Aye_Car_Rum_Ba.ogg" title="File:Aye Car Rum Ba.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1002,8 +1048,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Aztec" title="Aztec">Aztec</a>',
-        description: '<div><a href="/w/File:Aztec.ogg" title="File:Aztec.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Aztec" title="Aztec"\u003EAztec\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Aztec.ogg" title="File:Aztec.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1019,6 +1066,22 @@ const geojsondata = {
             [2816, 5184],
             [2816, 5152],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Back_to_Life" title="Back to Life"\u003EBack to Life\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Back_to_Life.ogg" title="File:Back to Life.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3264, 2748],
             [3264, 2810],
@@ -1030,9 +1093,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Back_to_Life" title="Back to Life">Back to Life</a>',
+        title:
+          '\u003Ca href="/w/Back_to_Life" title="Back to Life"\u003EBack to Life\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Back_to_Life.ogg" title="File:Back to Life.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Back_to_Life.ogg" title="File:Back to Life.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1048,6 +1112,21 @@ const geojsondata = {
             [1984, 4992],
             [1952, 4992],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Background" title="Background"\u003EBackground\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Background.ogg" title="File:Background.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2752, 3328],
             [2752, 3392],
@@ -1059,9 +1138,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Background" title="Background">Background</a>',
+        title: '\u003Ca href="/w/Background" title="Background"\u003EBackground\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Background.ogg" title="File:Background.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Background.ogg" title="File:Background.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1082,9 +1161,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Ballad_of_Enchantment" title="Ballad of Enchantment">Ballad of Enchantment</a>',
+          '\u003Ca href="/w/Ballad_of_Enchantment" title="Ballad of Enchantment"\u003EBallad of Enchantment\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Ballad_of_Enchantment.ogg" title="File:Ballad of Enchantment.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Ballad_of_Enchantment.ogg" title="File:Ballad of Enchantment.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1105,9 +1184,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Bandit_Camp_(music_track)" title="Bandit Camp (music track)">Bandit Camp </a>',
+          '\u003Ca href="/w/Bandit_Camp_(music_track)" title="Bandit Camp (music track)"\u003EBandit Camp \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Bandit_Camp.ogg" title="File:Bandit Camp.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Bandit_Camp.ogg" title="File:Bandit Camp.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1131,9 +1210,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Bandos_Battalion" title="Bandos Battalion">Bandos Battalion</a>',
+        title:
+          '\u003Ca href="/w/Bandos_Battalion" title="Bandos Battalion"\u003EBandos Battalion\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Bandos_Battalion.ogg" title="File:Bandos Battalion.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Bandos_Battalion.ogg" title="File:Bandos Battalion.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1153,8 +1233,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Bane" title="Bane">Bane</a>',
-        description: '<div><a href="/w/File:Bane.ogg" title="File:Bane.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Bane" title="Bane"\u003EBane\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Bane.ogg" title="File:Bane.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1175,9 +1256,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Bane_of_Ashihama" title="The Bane of Ashihama">The Bane of Ashihama</a>',
+          '\u003Ca href="/w/The_Bane_of_Ashihama" title="The Bane of Ashihama"\u003EThe Bane of Ashihama\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Bane_of_Ashihama.ogg" title="File:The Bane of Ashihama.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Bane_of_Ashihama.ogg" title="File:The Bane of Ashihama.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1193,6 +1274,21 @@ const geojsondata = {
             [1600, 4864],
             [1536, 4864],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Barb_Wire" title="Barb Wire"\u003EBarb Wire\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Barb_Wire.ogg" title="File:Barb Wire.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1728, 5248],
             [1728, 5376],
@@ -1204,9 +1300,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Barb_Wire" title="Barb Wire">Barb Wire</a>',
+        title: '\u003Ca href="/w/Barb_Wire" title="Barb Wire"\u003EBarb Wire\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Barb_Wire.ogg" title="File:Barb Wire.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Barb_Wire.ogg" title="File:Barb Wire.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1226,9 +1322,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Barbarianism" title="Barbarianism">Barbarianism</a>',
+        title:
+          '\u003Ca href="/w/Barbarianism" title="Barbarianism"\u003EBarbarianism\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Barbarianism.ogg" title="File:Barbarianism.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Barbarianism.ogg" title="File:Barbarianism.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1248,9 +1345,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Barking_Mad" title="Barking Mad">Barking Mad</a>',
+        title: '\u003Ca href="/w/Barking_Mad" title="Barking Mad"\u003EBarking Mad\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Barking_Mad.ogg" title="File:Barking Mad.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Barking_Mad.ogg" title="File:Barking Mad.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1270,9 +1367,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Baroque" title="Baroque">Baroque</a>',
+        title: '\u003Ca href="/w/Baroque" title="Baroque"\u003EBaroque\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Baroque.ogg" title="File:Baroque.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Baroque.ogg" title="File:Baroque.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1294,9 +1391,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Barren_Land" title="Barren Land">Barren Land</a>',
+        title: '\u003Ca href="/w/Barren_Land" title="Barren Land"\u003EBarren Land\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Barren_Land.ogg" title="File:Barren Land.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Barren_Land.ogg" title="File:Barren Land.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1316,9 +1413,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Beetle_Juice" title="Beetle Juice">Beetle Juice</a>',
+        title:
+          '\u003Ca href="/w/Beetle_Juice" title="Beetle Juice"\u003EBeetle Juice\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Beetle_Juice.ogg" title="File:Beetle Juice.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Beetle_Juice.ogg" title="File:Beetle Juice.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1336,6 +1434,22 @@ const geojsondata = {
             [1600, 10112],
             [1600, 9984],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Beneath_the_Kingdom" title="Beneath the Kingdom"\u003EBeneath the Kingdom\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Beneath_the_Kingdom.ogg" title="File:Beneath the Kingdom.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1408, 9920],
             [1472, 9920],
@@ -1348,9 +1462,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Beneath_the_Kingdom" title="Beneath the Kingdom">Beneath the Kingdom</a>',
+          '\u003Ca href="/w/Beneath_the_Kingdom" title="Beneath the Kingdom"\u003EBeneath the Kingdom\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Beneath_the_Kingdom.ogg" title="File:Beneath the Kingdom.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Beneath_the_Kingdom.ogg" title="File:Beneath the Kingdom.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1375,9 +1489,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Beneath_the_Stronghold" title="Beneath the Stronghold">Beneath the Stronghold</a>',
+          '\u003Ca href="/w/Beneath_the_Stronghold" title="Beneath the Stronghold"\u003EBeneath the Stronghold\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Beneath_the_Stronghold.ogg" title="File:Beneath the Stronghold.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Beneath_the_Stronghold.ogg" title="File:Beneath the Stronghold.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1399,9 +1513,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Beyond" title="Beyond">Beyond</a>',
+        title: '\u003Ca href="/w/Beyond" title="Beyond"\u003EBeyond\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Beyond.ogg" title="File:Beyond.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Beyond.ogg" title="File:Beyond.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1498,9 +1612,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Beyond_the_Meadow" title="Beyond the Meadow">Beyond the Meadow</a>',
+        title:
+          '\u003Ca href="/w/Beyond_the_Meadow" title="Beyond the Meadow"\u003EBeyond the Meadow\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Beyond_the_Meadow.ogg" title="File:Beyond the Meadow.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Beyond_the_Meadow.ogg" title="File:Beyond the Meadow.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1520,9 +1635,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Big_Chords" title="Big Chords">Big Chords</a>',
+        title: '\u003Ca href="/w/Big_Chords" title="Big Chords"\u003EBig Chords\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Big_Chords.ogg" title="File:Big Chords.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Big_Chords.ogg" title="File:Big Chords.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1543,9 +1658,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Blistering_Barnacles" title="Blistering Barnacles">Blistering Barnacles</a>',
+          '\u003Ca href="/w/Blistering_Barnacles" title="Blistering Barnacles"\u003EBlistering Barnacles\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Blistering_Barnacles.ogg" title="File:Blistering Barnacles.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Blistering_Barnacles.ogg" title="File:Blistering Barnacles.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1573,6 +1688,21 @@ const geojsondata = {
             [3680, 3264],
             [3680, 3239],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Bloodbath" title="Bloodbath"\u003EBloodbath\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Bloodbath.ogg" title="File:Bloodbath.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3200, 4800],
             [3200, 4864],
@@ -1584,9 +1714,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Bloodbath" title="Bloodbath">Bloodbath</a>',
+        title: '\u003Ca href="/w/Bloodbath" title="Bloodbath"\u003EBloodbath\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Bloodbath.ogg" title="File:Bloodbath.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Bloodbath.ogg" title="File:Bloodbath.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1606,9 +1736,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Body_Parts" title="Body Parts">Body Parts</a>',
+        title: '\u003Ca href="/w/Body_Parts" title="Body Parts"\u003EBody Parts\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Body_Parts.ogg" title="File:Body Parts.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Body_Parts.ogg" title="File:Body Parts.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1630,9 +1760,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Bone_Dance" title="Bone Dance">Bone Dance</a>',
+        title: '\u003Ca href="/w/Bone_Dance" title="Bone Dance"\u003EBone Dance\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Bone_Dance.ogg" title="File:Bone Dance.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Bone_Dance.ogg" title="File:Bone Dance.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1652,9 +1782,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Bone_Dry" title="Bone Dry">Bone Dry</a>',
+        title: '\u003Ca href="/w/Bone_Dry" title="Bone Dry"\u003EBone Dry\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Bone_Dry.ogg" title="File:Bone Dry.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Bone_Dry.ogg" title="File:Bone Dry.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1674,9 +1804,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Book_of_Spells" title="Book of Spells">Book of Spells</a>',
+        title:
+          '\u003Ca href="/w/Book_of_Spells" title="Book of Spells"\u003EBook of Spells\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Book_of_Spells.ogg" title="File:Book of Spells.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Book_of_Spells.ogg" title="File:Book of Spells.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1696,9 +1827,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Borderland" title="Borderland">Borderland</a>',
+        title: '\u003Ca href="/w/Borderland" title="Borderland"\u003EBorderland\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Borderland.ogg" title="File:Borderland.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Borderland.ogg" title="File:Borderland.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1718,9 +1849,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Box_of_Delights" title="Box of Delights">Box of Delights</a>',
+        title:
+          '\u003Ca href="/w/Box_of_Delights" title="Box of Delights"\u003EBox of Delights\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Box_of_Delights.ogg" title="File:Box of Delights.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Box_of_Delights.ogg" title="File:Box of Delights.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1740,9 +1872,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Breeze" title="Breeze">Breeze</a>',
+        title: '\u003Ca href="/w/Breeze" title="Breeze"\u003EBreeze\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Breeze.ogg" title="File:Breeze.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Breeze.ogg" title="File:Breeze.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1762,9 +1894,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Brew_Hoo_Hoo!" title="Brew Hoo Hoo!">Brew Hoo Hoo!</a>',
+        title:
+          '\u003Ca href="/w/Brew_Hoo_Hoo!" title="Brew Hoo Hoo!"\u003EBrew Hoo Hoo!\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Brew_Hoo_Hoo!.ogg" title="File:Brew Hoo Hoo!.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Brew_Hoo_Hoo!.ogg" title="File:Brew Hoo Hoo!.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1787,9 +1920,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Brimstail%27s_Scales" title="Brimstail&#39;s Scales">Brimstail\'s Scales</a>',
+          '\u003Ca href="/w/Brimstail%27s_Scales" title="Brimstail\u0026#39;s Scales"\u003EBrimstail\'s Scales\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Brimstail%27s_Scales.ogg" title="File:Brimstail&#39;s Scales.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Brimstail%27s_Scales.ogg" title="File:Brimstail\u0026#39;s Scales.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1809,9 +1942,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Bubble_and_Squeak" title="Bubble and Squeak">Bubble and Squeak</a>',
+        title:
+          '\u003Ca href="/w/Bubble_and_Squeak" title="Bubble and Squeak"\u003EBubble and Squeak\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Bubble_and_Squeak.ogg" title="File:Bubble and Squeak.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Bubble_and_Squeak.ogg" title="File:Bubble and Squeak.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1840,9 +1974,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Burning_Desire" title="Burning Desire">Burning Desire</a>',
+        title:
+          '\u003Ca href="/w/Burning_Desire" title="Burning Desire"\u003EBurning Desire\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Burning_Desire.ogg" title="File:Burning Desire.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Burning_Desire.ogg" title="File:Burning Desire.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1863,9 +1998,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Cabin_Fever_(music_track)" title="Cabin Fever (music track)">Cabin Fever </a>',
+          '\u003Ca href="/w/Cabin_Fever_(music_track)" title="Cabin Fever (music track)"\u003ECabin Fever \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Cabin_Fever.ogg" title="File:Cabin Fever.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Cabin_Fever.ogg" title="File:Cabin Fever.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1885,9 +2020,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Camelot_(music_track)" title="Camelot (music track)">Camelot </a>',
+        title:
+          '\u003Ca href="/w/Camelot_(music_track)" title="Camelot (music track)"\u003ECamelot \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Camelot.ogg" title="File:Camelot.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Camelot.ogg" title="File:Camelot.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1908,9 +2044,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Castle_Wars_(music_track)" title="Castle Wars (music track)">Castle Wars </a>',
+          '\u003Ca href="/w/Castle_Wars_(music_track)" title="Castle Wars (music track)"\u003ECastle Wars \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Castle_Wars.ogg" title="File:Castle Wars.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Castle_Wars.ogg" title="File:Castle Wars.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1931,9 +2067,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Catacombs_and_Tombs" title="Catacombs and Tombs">Catacombs and Tombs</a>',
+          '\u003Ca href="/w/Catacombs_and_Tombs" title="Catacombs and Tombs"\u003ECatacombs and Tombs\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Catacombs_and_Tombs.ogg" title="File:Catacombs and Tombs.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Catacombs_and_Tombs.ogg" title="File:Catacombs and Tombs.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1954,9 +2090,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Catch_Me_If_You_Can" title="Catch Me If You Can">Catch Me If You Can</a>',
+          '\u003Ca href="/w/Catch_Me_If_You_Can" title="Catch Me If You Can"\u003ECatch Me If You Can\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Catch_Me_If_You_Can.ogg" title="File:Catch Me If You Can.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Catch_Me_If_You_Can.ogg" title="File:Catch Me If You Can.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -1980,9 +2116,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Cave_Background" title="Cave Background">Cave Background</a>',
+        title:
+          '\u003Ca href="/w/Cave_Background" title="Cave Background"\u003ECave Background\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Cave_Background.ogg" title="File:Cave Background.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Cave_Background.ogg" title="File:Cave Background.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2002,9 +2139,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Cave_of_Beasts" title="Cave of Beasts">Cave of Beasts</a>',
+        title:
+          '\u003Ca href="/w/Cave_of_Beasts" title="Cave of Beasts"\u003ECave of Beasts\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Cave_of_Beasts.ogg" title="File:Cave of Beasts.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Cave_of_Beasts.ogg" title="File:Cave of Beasts.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2020,6 +2158,22 @@ const geojsondata = {
             [3264, 9536],
             [3136, 9536],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Cave_of_the_Goblins" title="Cave of the Goblins"\u003ECave of the Goblins\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Cave_of_the_Goblins.ogg" title="File:Cave of the Goblins.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2496, 5504],
             [2496, 5632],
@@ -2032,9 +2186,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Cave_of_the_Goblins" title="Cave of the Goblins">Cave of the Goblins</a>',
+          '\u003Ca href="/w/Cave_of_the_Goblins" title="Cave of the Goblins"\u003ECave of the Goblins\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Cave_of_the_Goblins.ogg" title="File:Cave of the Goblins.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Cave_of_the_Goblins.ogg" title="File:Cave of the Goblins.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2050,6 +2204,21 @@ const geojsondata = {
             [3072, 10304],
             [3008, 10304],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Cavern" title="Cavern"\u003ECavern\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Cavern.ogg" title="File:Cavern.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2560, 9472],
             [2560, 9536],
@@ -2061,9 +2230,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Cavern" title="Cavern">Cavern</a>',
+        title: '\u003Ca href="/w/Cavern" title="Cavern"\u003ECavern\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Cavern.ogg" title="File:Cavern.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Cavern.ogg" title="File:Cavern.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2090,9 +2259,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Cellar_Dwellers" title="The Cellar Dwellers">The Cellar Dwellers</a>',
+          '\u003Ca href="/w/The_Cellar_Dwellers" title="The Cellar Dwellers"\u003EThe Cellar Dwellers\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Cellar_Dwellers.ogg" title="File:The Cellar Dwellers.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Cellar_Dwellers.ogg" title="File:The Cellar Dwellers.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2112,9 +2281,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Cellar_Song" title="Cellar Song">Cellar Song</a>',
+        title: '\u003Ca href="/w/Cellar_Song" title="Cellar Song"\u003ECellar Song\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Cellar_Song.ogg" title="File:Cellar Song.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Cellar_Song.ogg" title="File:Cellar Song.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2134,9 +2303,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Chain_of_Command" title="Chain of Command">Chain of Command</a>',
+        title:
+          '\u003Ca href="/w/Chain_of_Command" title="Chain of Command"\u003EChain of Command\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Chain_of_Command.ogg" title="File:Chain of Command.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Chain_of_Command.ogg" title="File:Chain of Command.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2152,6 +2322,21 @@ const geojsondata = {
             [2816, 4480],
             [2752, 4480],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Chamber" title="Chamber"\u003EChamber\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Chamber.ogg" title="File:Chamber.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2688, 4416],
             [2688, 4480],
@@ -2163,9 +2348,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Chamber" title="Chamber">Chamber</a>',
+        title: '\u003Ca href="/w/Chamber" title="Chamber"\u003EChamber\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Chamber.ogg" title="File:Chamber.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Chamber.ogg" title="File:Chamber.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2185,9 +2370,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Chef_Surprise" title="Chef Surprise">Chef Surprise</a>',
+        title:
+          '\u003Ca href="/w/Chef_Surprise" title="Chef Surprise"\u003EChef Surprise\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Chef_Surprise.ogg" title="File:Chef Surprise.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Chef_Surprise.ogg" title="File:Chef Surprise.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2207,9 +2393,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Chickened_Out" title="Chickened Out">Chickened Out</a>',
+        title:
+          '\u003Ca href="/w/Chickened_Out" title="Chickened Out"\u003EChickened Out\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Chickened_Out.ogg" title="File:Chickened Out.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Chickened_Out.ogg" title="File:Chickened Out.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2225,6 +2412,21 @@ const geojsondata = {
             [2688, 9344],
             [2624, 9344],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Chompy_Hunt" title="Chompy Hunt"\u003EChompy Hunt\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Chompy_Hunt.ogg" title="File:Chompy Hunt.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2624, 2944],
             [2624, 3008],
@@ -2236,9 +2438,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Chompy_Hunt" title="Chompy Hunt">Chompy Hunt</a>',
+        title: '\u003Ca href="/w/Chompy_Hunt" title="Chompy Hunt"\u003EChompy Hunt\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Chompy_Hunt.ogg" title="File:Chompy Hunt.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Chompy_Hunt.ogg" title="File:Chompy Hunt.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2258,9 +2460,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Chosen" title="The Chosen">The Chosen</a>',
+        title: '\u003Ca href="/w/The_Chosen" title="The Chosen"\u003EThe Chosen\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Chosen.ogg" title="File:The Chosen.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Chosen.ogg" title="File:The Chosen.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2282,9 +2484,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/City_of_the_Dead" title="City of the Dead">City of the Dead</a>',
+        title:
+          '\u003Ca href="/w/City_of_the_Dead" title="City of the Dead"\u003ECity of the Dead\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:City_of_the_Dead.ogg" title="File:City of the Dead.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:City_of_the_Dead.ogg" title="File:City of the Dead.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2307,9 +2510,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Clan_Wars_(music_track)" title="Clan Wars (music track)">Clan Wars </a>',
+          '\u003Ca href="/w/Clan_Wars_(music_track)" title="Clan Wars (music track)"\u003EClan Wars \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Clan_Wars.ogg" title="File:Clan Wars.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Clan_Wars.ogg" title="File:Clan Wars.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2329,9 +2532,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Clanliness" title="Clanliness">Clanliness</a>',
+        title: '\u003Ca href="/w/Clanliness" title="Clanliness"\u003EClanliness\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Clanliness.ogg" title="File:Clanliness.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Clanliness.ogg" title="File:Clanliness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2351,9 +2554,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Claustrophobia" title="Claustrophobia">Claustrophobia</a>',
+        title:
+          '\u003Ca href="/w/Claustrophobia" title="Claustrophobia"\u003EClaustrophobia\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Claustrophobia.ogg" title="File:Claustrophobia.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Claustrophobia.ogg" title="File:Claustrophobia.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2373,9 +2577,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Close_Quarters" title="Close Quarters">Close Quarters</a>',
+        title:
+          '\u003Ca href="/w/Close_Quarters" title="Close Quarters"\u003EClose Quarters\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Close_Quarters.ogg" title="File:Close Quarters.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Close_Quarters.ogg" title="File:Close Quarters.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2395,8 +2600,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Coil" title="Coil">Coil</a>',
-        description: '<div><a href="/w/File:Coil.ogg" title="File:Coil.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Coil" title="Coil"\u003ECoil\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Coil.ogg" title="File:Coil.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2417,9 +2623,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Colossus_of_the_Deep" title="Colossus of the Deep">Colossus of the Deep</a>',
+          '\u003Ca href="/w/Colossus_of_the_Deep" title="Colossus of the Deep"\u003EColossus of the Deep\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Colossus_of_the_Deep.ogg" title="File:Colossus of the Deep.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Colossus_of_the_Deep.ogg" title="File:Colossus of the Deep.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2439,9 +2645,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Competition" title="Competition">Competition</a>',
+        title: '\u003Ca href="/w/Competition" title="Competition"\u003ECompetition\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Competition.ogg" title="File:Competition.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Competition.ogg" title="File:Competition.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2461,9 +2667,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Complication" title="Complication">Complication</a>',
+        title:
+          '\u003Ca href="/w/Complication" title="Complication"\u003EComplication\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Complication.ogg" title="File:Complication.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Complication.ogg" title="File:Complication.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2484,9 +2691,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Consortium_(music_track)" title="The Consortium (music track)">The Consortium </a>',
+          '\u003Ca href="/w/The_Consortium_(music_track)" title="The Consortium (music track)"\u003EThe Consortium \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Consortium.ogg" title="File:The Consortium.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Consortium.ogg" title="File:The Consortium.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2506,9 +2713,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Conspiracy" title="Conspiracy">Conspiracy</a>',
+        title: '\u003Ca href="/w/Conspiracy" title="Conspiracy"\u003EConspiracy\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Conspiracy.ogg" title="File:Conspiracy.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Conspiracy.ogg" title="File:Conspiracy.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2528,9 +2735,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Contest" title="Contest">Contest</a>',
+        title: '\u003Ca href="/w/Contest" title="Contest"\u003EContest\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Contest.ogg" title="File:Contest.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Contest.ogg" title="File:Contest.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2551,9 +2758,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Corporal_Punishment" title="Corporal Punishment">Corporal Punishment</a>',
+          '\u003Ca href="/w/Corporal_Punishment" title="Corporal Punishment"\u003ECorporal Punishment\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Corporal_Punishment.ogg" title="File:Corporal Punishment.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Corporal_Punishment.ogg" title="File:Corporal Punishment.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2575,9 +2782,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Corridors_of_Power" title="Corridors of Power">Corridors of Power</a>',
+        title:
+          '\u003Ca href="/w/Corridors_of_Power" title="Corridors of Power"\u003ECorridors of Power\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Corridors_of_Power.ogg" title="File:Corridors of Power.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Corridors_of_Power.ogg" title="File:Corridors of Power.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2667,6 +2875,21 @@ const geojsondata = {
             [1684, 3496],
             [1664, 3490],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Country_Jig" title="Country Jig"\u003ECountry Jig\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Country_Jig.ogg" title="File:Country Jig.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1920, 9912],
             [1920, 9984],
@@ -2678,9 +2901,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Country_Jig" title="Country Jig">Country Jig</a>',
+        title: '\u003Ca href="/w/Country_Jig" title="Country Jig"\u003ECountry Jig\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Country_Jig.ogg" title="File:Country Jig.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Country_Jig.ogg" title="File:Country Jig.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2700,9 +2923,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Courage" title="Courage">Courage</a>',
+        title: '\u003Ca href="/w/Courage" title="Courage"\u003ECourage\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Courage.ogg" title="File:Courage.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Courage.ogg" title="File:Courage.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2722,9 +2945,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Creature_Cruelty" title="Creature Cruelty">Creature Cruelty</a>',
+        title:
+          '\u003Ca href="/w/Creature_Cruelty" title="Creature Cruelty"\u003ECreature Cruelty\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Creature_Cruelty.ogg" title="File:Creature Cruelty.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Creature_Cruelty.ogg" title="File:Creature Cruelty.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2744,9 +2968,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Creeping_Vines" title="Creeping Vines">Creeping Vines</a>',
+        title:
+          '\u003Ca href="/w/Creeping_Vines" title="Creeping Vines"\u003ECreeping Vines\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Creeping_Vines.ogg" title="File:Creeping Vines.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Creeping_Vines.ogg" title="File:Creeping Vines.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2766,9 +2991,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Crystal_Castle" title="Crystal Castle">Crystal Castle</a>',
+        title:
+          '\u003Ca href="/w/Crystal_Castle" title="Crystal Castle"\u003ECrystal Castle\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Crystal_Castle.ogg" title="File:Crystal Castle.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Crystal_Castle.ogg" title="File:Crystal Castle.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2788,9 +3014,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Crystal_Cave" title="Crystal Cave">Crystal Cave</a>',
+        title:
+          '\u003Ca href="/w/Crystal_Cave" title="Crystal Cave"\u003ECrystal Cave\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Crystal_Cave.ogg" title="File:Crystal Cave.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Crystal_Cave.ogg" title="File:Crystal Cave.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2806,6 +3033,22 @@ const geojsondata = {
             [2688, 9664],
             [2624, 9664],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Crystal_Sword" title="Crystal Sword"\u003ECrystal Sword\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Crystal_Sword.ogg" title="File:Crystal Sword.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3200, 3520],
             [3200, 3584],
@@ -2817,9 +3060,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Crystal_Sword" title="Crystal Sword">Crystal Sword</a>',
+        title:
+          '\u003Ca href="/w/Crystal_Sword" title="Crystal Sword"\u003ECrystal Sword\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Crystal_Sword.ogg" title="File:Crystal Sword.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Crystal_Sword.ogg" title="File:Crystal Sword.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2835,6 +3079,21 @@ const geojsondata = {
             [2368, 4800],
             [2304, 4800],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Cursed" title="Cursed"\u003ECursed\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Cursed.ogg" title="File:Cursed.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3264, 12608],
             [3328, 12608],
@@ -2842,6 +3101,21 @@ const geojsondata = {
             [3264, 12544],
             [3264, 12608],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Cursed" title="Cursed"\u003ECursed\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Cursed.ogg" title="File:Cursed.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2368, 9664],
             [2368, 9728],
@@ -2853,9 +3127,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Cursed" title="Cursed">Cursed</a>',
+        title: '\u003Ca href="/w/Cursed" title="Cursed"\u003ECursed\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Cursed.ogg" title="File:Cursed.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Cursed.ogg" title="File:Cursed.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2875,9 +3149,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Curtain_Closes" title="The Curtain Closes">The Curtain Closes</a>',
+        title:
+          '\u003Ca href="/w/The_Curtain_Closes" title="The Curtain Closes"\u003EThe Curtain Closes\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Curtain_Closes.ogg" title="File:The Curtain Closes.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Curtain_Closes.ogg" title="File:The Curtain Closes.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2893,6 +3168,22 @@ const geojsondata = {
             [1984, 4352],
             [1920, 4352],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Dagannoth_Dawn" title="Dagannoth Dawn"\u003EDagannoth Dawn\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dagannoth_Dawn.ogg" title="File:Dagannoth Dawn.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1792, 4352],
             [1792, 4416],
@@ -2904,9 +3195,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dagannoth_Dawn" title="Dagannoth Dawn">Dagannoth Dawn</a>',
+        title:
+          '\u003Ca href="/w/Dagannoth_Dawn" title="Dagannoth Dawn"\u003EDagannoth Dawn\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dagannoth_Dawn.ogg" title="File:Dagannoth Dawn.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dagannoth_Dawn.ogg" title="File:Dagannoth Dawn.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2926,9 +3218,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dance_of_Death" title="Dance of Death">Dance of Death</a>',
+        title:
+          '\u003Ca href="/w/Dance_of_Death" title="Dance of Death"\u003EDance of Death\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dance_of_Death.ogg" title="File:Dance of Death.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dance_of_Death.ogg" title="File:Dance of Death.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2949,9 +3242,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Dance_of_the_Nylocas" title="Dance of the Nylocas">Dance of the Nylocas</a>',
+          '\u003Ca href="/w/Dance_of_the_Nylocas" title="Dance of the Nylocas"\u003EDance of the Nylocas\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dance_of_the_Nylocas.ogg" title="File:Dance of the Nylocas.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dance_of_the_Nylocas.ogg" title="File:Dance of the Nylocas.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2972,9 +3265,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Dance_of_the_Undead" title="Dance of the Undead">Dance of the Undead</a>',
+          '\u003Ca href="/w/Dance_of_the_Undead" title="Dance of the Undead"\u003EDance of the Undead\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dance_of_the_Undead.ogg" title="File:Dance of the Undead.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dance_of_the_Undead.ogg" title="File:Dance of the Undead.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -2990,6 +3283,21 @@ const geojsondata = {
             [3392, 3776],
             [3264, 3776],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Dangerous" title="Dangerous"\u003EDangerous\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dangerous.ogg" title="File:Dangerous.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3072, 3520],
             [3072, 3584],
@@ -3001,9 +3309,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dangerous" title="Dangerous">Dangerous</a>',
+        title: '\u003Ca href="/w/Dangerous" title="Dangerous"\u003EDangerous\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dangerous.ogg" title="File:Dangerous.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dangerous.ogg" title="File:Dangerous.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3023,9 +3331,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/A_Dangerous_Game" title="A Dangerous Game">A Dangerous Game</a>',
+        title:
+          '\u003Ca href="/w/A_Dangerous_Game" title="A Dangerous Game"\u003EA Dangerous Game\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:A_Dangerous_Game.ogg" title="File:A Dangerous Game.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:A_Dangerous_Game.ogg" title="File:A Dangerous Game.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3047,9 +3356,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dangerous_Road" title="Dangerous Road">Dangerous Road</a>',
+        title:
+          '\u003Ca href="/w/Dangerous_Road" title="Dangerous Road"\u003EDangerous Road\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dangerous_Road.ogg" title="File:Dangerous Road.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dangerous_Road.ogg" title="File:Dangerous Road.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3069,9 +3379,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dangerous_Way" title="Dangerous Way">Dangerous Way</a>',
+        title:
+          '\u003Ca href="/w/Dangerous_Way" title="Dangerous Way"\u003EDangerous Way\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dangerous_Way.ogg" title="File:Dangerous Way.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dangerous_Way.ogg" title="File:Dangerous Way.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3091,8 +3402,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dark" title="Dark">Dark</a>',
-        description: '<div><a href="/w/File:Dark.ogg" title="File:Dark.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Dark" title="Dark"\u003EDark\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dark.ogg" title="File:Dark.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3113,9 +3425,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Dark_Beast_Sotetseg" title="The Dark Beast Sotetseg">The Dark Beast Sotetseg</a>',
+          '\u003Ca href="/w/The_Dark_Beast_Sotetseg" title="The Dark Beast Sotetseg"\u003EThe Dark Beast Sotetseg\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Dark_Beast_Sotetseg.ogg" title="File:The Dark Beast Sotetseg.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Dark_Beast_Sotetseg.ogg" title="File:The Dark Beast Sotetseg.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3135,9 +3447,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Darkly_Altared" title="Darkly Altared">Darkly Altared</a>',
+        title:
+          '\u003Ca href="/w/Darkly_Altared" title="Darkly Altared"\u003EDarkly Altared\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Darkly_Altared.ogg" title="File:Darkly Altared.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Darkly_Altared.ogg" title="File:Darkly Altared.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3158,9 +3471,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Darkness_in_the_Depths" title="Darkness in the Depths">Darkness in the Depths</a>',
+          '\u003Ca href="/w/Darkness_in_the_Depths" title="Darkness in the Depths"\u003EDarkness in the Depths\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Darkness_in_the_Depths.ogg" title="File:Darkness in the Depths.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Darkness_in_the_Depths.ogg" title="File:Darkness in the Depths.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3181,9 +3494,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Davy_Jones%27_Locker" title="Davy Jones&#39; Locker">Davy Jones\' Locker</a>',
+          '\u003Ca href="/w/Davy_Jones%27_Locker" title="Davy Jones\u0026#39; Locker"\u003EDavy Jones\' Locker\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Davy_Jones%27_Locker.ogg" title="File:Davy Jones&#39; Locker.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Davy_Jones%27_Locker.ogg" title="File:Davy Jones\u0026#39; Locker.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3203,9 +3516,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dead_Can_Dance" title="Dead Can Dance">Dead Can Dance</a>',
+        title:
+          '\u003Ca href="/w/Dead_Can_Dance" title="Dead Can Dance"\u003EDead Can Dance\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dead_Can_Dance.ogg" title="File:Dead Can Dance.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dead_Can_Dance.ogg" title="File:Dead Can Dance.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3221,6 +3535,21 @@ const geojsondata = {
             [2208, 5024],
             [2176, 5024],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Dead_Quiet" title="Dead Quiet"\u003EDead Quiet\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dead_Quiet.ogg" title="File:Dead Quiet.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2368, 4992],
             [2368, 5056],
@@ -3228,6 +3557,21 @@ const geojsondata = {
             [2432, 4992],
             [2368, 4992],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Dead_Quiet" title="Dead Quiet"\u003EDead Quiet\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dead_Quiet.ogg" title="File:Dead Quiet.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2240, 5024],
             [2240, 5056],
@@ -3235,6 +3579,21 @@ const geojsondata = {
             [2272, 5024],
             [2240, 5024],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Dead_Quiet" title="Dead Quiet"\u003EDead Quiet\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dead_Quiet.ogg" title="File:Dead Quiet.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2304, 5024],
             [2304, 5056],
@@ -3242,6 +3601,21 @@ const geojsondata = {
             [2336, 5024],
             [2304, 5024],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Dead_Quiet" title="Dead Quiet"\u003EDead Quiet\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dead_Quiet.ogg" title="File:Dead Quiet.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1984, 5024],
             [1984, 5056],
@@ -3249,6 +3623,21 @@ const geojsondata = {
             [2016, 5024],
             [1984, 5024],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Dead_Quiet" title="Dead Quiet"\u003EDead Quiet\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dead_Quiet.ogg" title="File:Dead Quiet.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2048, 4992],
             [2048, 5024],
@@ -3256,6 +3645,21 @@ const geojsondata = {
             [2080, 4992],
             [2048, 4992],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Dead_Quiet" title="Dead Quiet"\u003EDead Quiet\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dead_Quiet.ogg" title="File:Dead Quiet.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3392, 3392],
             [3392, 3456],
@@ -3267,9 +3671,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dead_Quiet" title="Dead Quiet">Dead Quiet</a>',
+        title: '\u003Ca href="/w/Dead_Quiet" title="Dead Quiet"\u003EDead Quiet\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dead_Quiet.ogg" title="File:Dead Quiet.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dead_Quiet.ogg" title="File:Dead Quiet.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3297,9 +3701,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Deadlands" title="Deadlands">Deadlands</a>',
+        title: '\u003Ca href="/w/Deadlands" title="Deadlands"\u003EDeadlands\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Deadlands.ogg" title="File:Deadlands.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Deadlands.ogg" title="File:Deadlands.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3321,9 +3725,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Deep_Down" title="Deep Down">Deep Down</a>',
+        title: '\u003Ca href="/w/Deep_Down" title="Deep Down"\u003EDeep Down\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Deep_Down.ogg" title="File:Deep Down.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Deep_Down.ogg" title="File:Deep Down.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3343,9 +3747,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Deep_Wildy" title="Deep Wildy">Deep Wildy</a>',
+        title: '\u003Ca href="/w/Deep_Wildy" title="Deep Wildy"\u003EDeep Wildy\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Deep_Wildy.ogg" title="File:Deep Wildy.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Deep_Wildy.ogg" title="File:Deep Wildy.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3365,9 +3769,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Depths" title="The Depths">The Depths</a>',
+        title: '\u003Ca href="/w/The_Depths" title="The Depths"\u003EThe Depths\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Depths.ogg" title="File:The Depths.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Depths.ogg" title="File:The Depths.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3388,9 +3792,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Desert_Heat_(music_track)" title="Desert Heat (music track)">Desert Heat </a>',
+          '\u003Ca href="/w/Desert_Heat_(music_track)" title="Desert Heat (music track)"\u003EDesert Heat \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Desert_Heat.ogg" title="File:Desert Heat.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Desert_Heat.ogg" title="File:Desert Heat.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3412,9 +3816,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Desert_Voyage" title="Desert Voyage">Desert Voyage</a>',
+        title:
+          '\u003Ca href="/w/Desert_Voyage" title="Desert Voyage"\u003EDesert Voyage\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Desert_Voyage.ogg" title="File:Desert Voyage.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Desert_Voyage.ogg" title="File:Desert Voyage.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3434,9 +3839,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Desert" title="The Desert">The Desert</a>',
+        title: '\u003Ca href="/w/The_Desert" title="The Desert"\u003EThe Desert\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Desert.ogg" title="File:The Desert.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Desert.ogg" title="File:The Desert.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3452,27 +3857,14 @@ const geojsondata = {
             [2560, 3712],
             [2496, 3712],
           ],
-          [
-            [2240, 4032],
-            [2240, 4096],
-            [2304, 4096],
-            [2304, 4032],
-            [2240, 4032],
-          ],
-          [
-            [2260, 4053],
-            [2260, 4077],
-            [2285, 4077],
-            [2285, 4053],
-            [2260, 4053],
-          ],
         ],
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Desolate_Isle" title="The Desolate Isle">The Desolate Isle</a>',
+        title:
+          '\u003Ca href="/w/The_Desolate_Isle" title="The Desolate Isle"\u003EThe Desolate Isle\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Desolate_Isle.ogg" title="File:The Desolate Isle.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Desolate_Isle.ogg" title="File:The Desolate Isle.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3501,9 +3893,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Desolate_Mage" title="The Desolate Mage">The Desolate Mage</a>',
+        title:
+          '\u003Ca href="/w/The_Desolate_Mage" title="The Desolate Mage"\u003EThe Desolate Mage\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Desolate_Mage.ogg" title="File:The Desolate Mage.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Desolate_Mage.ogg" title="File:The Desolate Mage.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3523,9 +3916,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Devils_May_Care" title="Devils May Care">Devils May Care</a>',
+        title:
+          '\u003Ca href="/w/Devils_May_Care" title="Devils May Care"\u003EDevils May Care\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Devils_May_Care.ogg" title="File:Devils May Care.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Devils_May_Care.ogg" title="File:Devils May Care.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3545,9 +3939,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dimension_X" title="Dimension X">Dimension X</a>',
+        title: '\u003Ca href="/w/Dimension_X" title="Dimension X"\u003EDimension X\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dimension_X.ogg" title="File:Dimension X.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dimension_X.ogg" title="File:Dimension X.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3563,6 +3957,22 @@ const geojsondata = {
             [2056, 5024],
             [2048, 5024],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Distant_Land" title="Distant Land"\u003EDistant Land\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Distant_Land.ogg" title="File:Distant Land.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3520, 3136],
             [3520, 3152],
@@ -3576,9 +3986,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Distant_Land" title="Distant Land">Distant Land</a>',
+        title:
+          '\u003Ca href="/w/Distant_Land" title="Distant Land"\u003EDistant Land\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Distant_Land.ogg" title="File:Distant Land.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Distant_Land.ogg" title="File:Distant Land.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3599,9 +4010,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Distillery_Hilarity" title="Distillery Hilarity">Distillery Hilarity</a>',
+          '\u003Ca href="/w/Distillery_Hilarity" title="Distillery Hilarity"\u003EDistillery Hilarity\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Distillery_Hilarity.ogg" title="File:Distillery Hilarity.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Distillery_Hilarity.ogg" title="File:Distillery Hilarity.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3621,9 +4032,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dogs_of_War" title="Dogs of War">Dogs of War</a>',
+        title: '\u003Ca href="/w/Dogs_of_War" title="Dogs of War"\u003EDogs of War\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dogs_of_War.ogg" title="File:Dogs of War.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dogs_of_War.ogg" title="File:Dogs of War.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3651,9 +4062,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Doors_of_Dinh" title="The Doors of Dinh">The Doors of Dinh</a>',
+        title:
+          '\u003Ca href="/w/The_Doors_of_Dinh" title="The Doors of Dinh"\u003EThe Doors of Dinh\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Doors_of_Dinh.ogg" title="File:The Doors of Dinh.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Doors_of_Dinh.ogg" title="File:The Doors of Dinh.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3669,34 +4081,13 @@ const geojsondata = {
             [3328, 3456],
             [3264, 3456],
           ],
-          [
-            [2048, 2816],
-            [2048, 3008],
-            [2368, 3008],
-            [2368, 2816],
-            [2304, 2816],
-            [2304, 2752],
-            [2112, 2752],
-            [2112, 2816],
-            [2048, 2816],
-          ],
-          [
-            [2112, 2880],
-            [2112, 2944],
-            [2304, 2944],
-            [2304, 2880],
-            [2240, 2880],
-            [2240, 2816],
-            [2176, 2816],
-            [2176, 2880],
-          ],
         ],
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Doorways" title="Doorways">Doorways</a>',
+        title: '\u003Ca href="/w/Doorways" title="Doorways"\u003EDoorways\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Doorways.ogg" title="File:Doorways.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Doorways.ogg" title="File:Doorways.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3716,9 +4107,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dorgeshuun_City" title="Dorgeshuun City">Dorgeshuun City</a>',
+        title:
+          '\u003Ca href="/w/Dorgeshuun_City" title="Dorgeshuun City"\u003EDorgeshuun City\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dorgeshuun_City.ogg" title="File:Dorgeshuun City.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dorgeshuun_City.ogg" title="File:Dorgeshuun City.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3738,9 +4130,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dorgeshuun_Deep" title="Dorgeshuun Deep">Dorgeshuun Deep</a>',
+        title:
+          '\u003Ca href="/w/Dorgeshuun_Deep" title="Dorgeshuun Deep"\u003EDorgeshuun Deep\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dorgeshuun_Deep.ogg" title="File:Dorgeshuun Deep.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dorgeshuun_Deep.ogg" title="File:Dorgeshuun Deep.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3760,9 +4153,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Down_Below" title="Down Below">Down Below</a>',
+        title: '\u003Ca href="/w/Down_Below" title="Down Below"\u003EDown Below\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Down_Below.ogg" title="File:Down Below.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Down_Below.ogg" title="File:Down Below.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3782,9 +4175,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Down_and_Out" title="Down and Out">Down and Out</a>',
+        title:
+          '\u003Ca href="/w/Down_and_Out" title="Down and Out"\u003EDown and Out\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Down_and_Out.ogg" title="File:Down and Out.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Down_and_Out.ogg" title="File:Down and Out.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3828,9 +4222,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Down_by_the_Docks" title="Down by the Docks">Down by the Docks</a>',
+        title:
+          '\u003Ca href="/w/Down_by_the_Docks" title="Down by the Docks"\u003EDown by the Docks\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Down_by_the_Docks.ogg" title="File:Down by the Docks.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Down_by_the_Docks.ogg" title="File:Down by the Docks.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3850,9 +4245,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Down_to_Earth" title="Down to Earth">Down to Earth</a>',
+        title:
+          '\u003Ca href="/w/Down_to_Earth" title="Down to Earth"\u003EDown to Earth\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Down_to_Earth.ogg" title="File:Down to Earth.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Down_to_Earth.ogg" title="File:Down to Earth.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3873,9 +4269,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Dragontooth_Island_(music_track)" title="Dragontooth Island (music track)">Dragontooth Island </a>',
+          '\u003Ca href="/w/Dragontooth_Island_(music_track)" title="Dragontooth Island (music track)"\u003EDragontooth Island \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dragontooth_Island.ogg" title="File:Dragontooth Island.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dragontooth_Island.ogg" title="File:Dragontooth Island.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3895,8 +4291,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dream_(music_track)" title="Dream (music track)">Dream </a>',
-        description: '<div><a href="/w/File:Dream.ogg" title="File:Dream.ogg">Play track</a></div>',
+        title:
+          '\u003Ca href="/w/Dream_(music_track)" title="Dream (music track)"\u003EDream \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dream.ogg" title="File:Dream.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3918,9 +4316,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dunes_of_Eternity" title="Dunes of Eternity">Dunes of Eternity</a>',
+        title:
+          '\u003Ca href="/w/Dunes_of_Eternity" title="Dunes of Eternity"\u003EDunes of Eternity\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dunes_of_Eternity.ogg" title="File:Dunes of Eternity.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dunes_of_Eternity.ogg" title="File:Dunes of Eternity.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3940,9 +4339,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dunjun" title="Dunjun">Dunjun</a>',
+        title: '\u003Ca href="/w/Dunjun" title="Dunjun"\u003EDunjun\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dunjun.ogg" title="File:Dunjun.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dunjun.ogg" title="File:Dunjun.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3962,9 +4361,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dusk_in_Yu%27biusk" title="Dusk in Yu&#39;biusk">Dusk in Yu\'biusk</a>',
+        title:
+          '\u003Ca href="/w/Dusk_in_Yu%27biusk" title="Dusk in Yu\u0026#39;biusk"\u003EDusk in Yu\'biusk\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dusk_in_Yu%27biusk.ogg" title="File:Dusk in Yu&#39;biusk.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dusk_in_Yu%27biusk.ogg" title="File:Dusk in Yu\u0026#39;biusk.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -3984,9 +4384,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dwarf_Theme" title="Dwarf Theme">Dwarf Theme</a>',
+        title: '\u003Ca href="/w/Dwarf_Theme" title="Dwarf Theme"\u003EDwarf Theme\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dwarf_Theme.ogg" title="File:Dwarf Theme.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dwarf_Theme.ogg" title="File:Dwarf Theme.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4006,9 +4406,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Dynasty" title="Dynasty">Dynasty</a>',
+        title: '\u003Ca href="/w/Dynasty" title="Dynasty"\u003EDynasty\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Dynasty.ogg" title="File:Dynasty.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dynasty.ogg" title="File:Dynasty.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4029,9 +4429,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Eagles%27_Peak_(music_track)" title="Eagles&#39; Peak (music track)">Eagles\' Peak </a>',
+          '\u003Ca href="/w/Eagles%27_Peak_(music_track)" title="Eagles\u0026#39; Peak (music track)"\u003EEagles\' Peak \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Eagles%27_Peak.ogg" title="File:Eagles&#39; Peak.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Eagles%27_Peak.ogg" title="File:Eagles\u0026#39; Peak.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4051,8 +4451,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Egypt" title="Egypt">Egypt</a>',
-        description: '<div><a href="/w/File:Egypt.ogg" title="File:Egypt.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Egypt" title="Egypt"\u003EEgypt\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Egypt.ogg" title="File:Egypt.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4072,9 +4473,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Elven_Mist" title="Elven Mist">Elven Mist</a>',
+        title: '\u003Ca href="/w/Elven_Mist" title="Elven Mist"\u003EElven Mist\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Elven_Mist.ogg" title="File:Elven Mist.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Elven_Mist.ogg" title="File:Elven Mist.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4096,9 +4497,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Elven_Seed" title="Elven Seed">Elven Seed</a>',
+        title: '\u003Ca href="/w/Elven_Seed" title="Elven Seed"\u003EElven Seed\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Elven_Seed.ogg" title="File:Elven Seed.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Elven_Seed.ogg" title="File:Elven Seed.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4120,9 +4521,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Emir%27s_Arena" title="The Emir&#39;s Arena">The Emir\'s Arena</a>',
+        title:
+          '\u003Ca href="/w/The_Emir%27s_Arena" title="The Emir\u0026#39;s Arena"\u003EThe Emir\'s Arena\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Emir%27s_Arena.ogg" title="File:The Emir&#39;s Arena.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Emir%27s_Arena.ogg" title="File:The Emir\u0026#39;s Arena.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4138,6 +4540,21 @@ const geojsondata = {
             [2560, 3136],
             [2496, 3136],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Emotion" title="Emotion"\u003EEmotion\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Emotion.ogg" title="File:Emotion.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2496, 9536],
             [2496, 9600],
@@ -4145,6 +4562,21 @@ const geojsondata = {
             [2560, 9536],
             [2496, 9536],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Emotion" title="Emotion"\u003EEmotion\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Emotion.ogg" title="File:Emotion.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2752, 4672],
             [2752, 4736],
@@ -4156,9 +4588,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Emotion" title="Emotion">Emotion</a>',
+        title: '\u003Ca href="/w/Emotion" title="Emotion"\u003EEmotion\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Emotion.ogg" title="File:Emotion.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Emotion.ogg" title="File:Emotion.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4178,9 +4610,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Enchanter" title="The Enchanter">The Enchanter</a>',
+        title:
+          '\u003Ca href="/w/The_Enchanter" title="The Enchanter"\u003EThe Enchanter\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Enchanter.ogg" title="File:The Enchanter.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Enchanter.ogg" title="File:The Enchanter.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4196,6 +4629,21 @@ const geojsondata = {
             [3200, 9984],
             [3136, 9984],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/The_Enclave" title="The Enclave"\u003EThe Enclave\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Enclave.ogg" title="File:The Enclave.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3131, 3617],
             [3130, 3618],
@@ -4239,9 +4687,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Enclave" title="The Enclave">The Enclave</a>',
+        title: '\u003Ca href="/w/The_Enclave" title="The Enclave"\u003EThe Enclave\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Enclave.ogg" title="File:The Enclave.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Enclave.ogg" title="File:The Enclave.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4261,9 +4709,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Escape" title="Escape">Escape</a>',
+        title: '\u003Ca href="/w/Escape" title="Escape"\u003EEscape\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Escape.ogg" title="File:Escape.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Escape.ogg" title="File:Escape.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4283,9 +4731,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Espionage" title="Espionage">Espionage</a>',
+        title: '\u003Ca href="/w/Espionage" title="Espionage"\u003EEspionage\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Espionage.ogg" title="File:Espionage.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Espionage.ogg" title="File:Espionage.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4306,9 +4754,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Etceteria_(music_track)" title="Etceteria (music track)">Etceteria </a>',
+          '\u003Ca href="/w/Etceteria_(music_track)" title="Etceteria (music track)"\u003EEtceteria \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Etceteria.ogg" title="File:Etceteria.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Etceteria.ogg" title="File:Etceteria.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4328,9 +4776,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Everlasting" title="Everlasting">Everlasting</a>',
+        title: '\u003Ca href="/w/Everlasting" title="Everlasting"\u003EEverlasting\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Everlasting.ogg" title="File:Everlasting.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Everlasting.ogg" title="File:Everlasting.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4350,9 +4798,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Everlasting_Fire" title="Everlasting Fire">Everlasting Fire</a>',
+        title:
+          '\u003Ca href="/w/Everlasting_Fire" title="Everlasting Fire"\u003EEverlasting Fire\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Everlasting_Fire.ogg" title="File:Everlasting Fire.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Everlasting_Fire.ogg" title="File:Everlasting Fire.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4373,9 +4822,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Everlasting_Slumber" title="The Everlasting Slumber">The Everlasting Slumber</a>',
+          '\u003Ca href="/w/The_Everlasting_Slumber" title="The Everlasting Slumber"\u003EThe Everlasting Slumber\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Everlasting_Slumber.ogg" title="File:The Everlasting Slumber.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Everlasting_Slumber.ogg" title="File:The Everlasting Slumber.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4393,6 +4842,21 @@ const geojsondata = {
             [2304, 3456],
             [2221, 3456],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Everywhere" title="Everywhere"\u003EEverywhere\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Everywhere.ogg" title="File:Everywhere.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2112, 3392],
             [2184, 3392],
@@ -4404,9 +4868,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Everywhere" title="Everywhere">Everywhere</a>',
+        title: '\u003Ca href="/w/Everywhere" title="Everywhere"\u003EEverywhere\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Everywhere.ogg" title="File:Everywhere.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Everywhere.ogg" title="File:Everywhere.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4427,9 +4891,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Evil_Bob%27s_Island" title="Evil Bob&#39;s Island">Evil Bob\'s Island</a>',
+          '\u003Ca href="/w/Evil_Bob%27s_Island" title="Evil Bob\u0026#39;s Island"\u003EEvil Bob\'s Island\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Evil_Bob%27s_Island.ogg" title="File:Evil Bob&#39;s Island.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Evil_Bob%27s_Island.ogg" title="File:Evil Bob\u0026#39;s Island.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4445,6 +4909,21 @@ const geojsondata = {
             [3264, 3328],
             [3200, 3328],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Expanse" title="Expanse"\u003EExpanse\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Expanse.ogg" title="File:Expanse.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3200, 9728],
             [3200, 9792],
@@ -4456,9 +4935,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Expanse" title="Expanse">Expanse</a>',
+        title: '\u003Ca href="/w/Expanse" title="Expanse"\u003EExpanse\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Expanse.ogg" title="File:Expanse.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Expanse.ogg" title="File:Expanse.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4474,6 +4953,21 @@ const geojsondata = {
             [2496, 9600],
             [2432, 9600],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Expecting" title="Expecting"\u003EExpecting\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Expecting.ogg" title="File:Expecting.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2368, 3200],
             [2368, 3264],
@@ -4485,9 +4979,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Expecting" title="Expecting">Expecting</a>',
+        title: '\u003Ca href="/w/Expecting" title="Expecting"\u003EExpecting\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Expecting.ogg" title="File:Expecting.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Expecting.ogg" title="File:Expecting.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4503,6 +4997,21 @@ const geojsondata = {
             [2944, 9984],
             [2880, 9984],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Expedition" title="Expedition"\u003EExpedition\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Expedition.ogg" title="File:Expedition.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2304, 9344],
             [2304, 9408],
@@ -4514,9 +5023,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Expedition" title="Expedition">Expedition</a>',
+        title: '\u003Ca href="/w/Expedition" title="Expedition"\u003EExpedition\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Expedition.ogg" title="File:Expedition.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Expedition.ogg" title="File:Expedition.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4532,6 +5041,21 @@ const geojsondata = {
             [2496, 3968],
             [2432, 3968],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Exposed" title="Exposed"\u003EExposed\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Exposed.ogg" title="File:Exposed.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2176, 3072],
             [2176, 3136],
@@ -4543,9 +5067,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Exposed" title="Exposed">Exposed</a>',
+        title: '\u003Ca href="/w/Exposed" title="Exposed"\u003EExposed\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Exposed.ogg" title="File:Exposed.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Exposed.ogg" title="File:Exposed.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4565,9 +5089,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Faerie" title="Faerie">Faerie</a>',
+        title: '\u003Ca href="/w/Faerie" title="Faerie"\u003EFaerie\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Faerie.ogg" title="File:Faerie.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Faerie.ogg" title="File:Faerie.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4587,9 +5111,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Faithless" title="Faithless">Faithless</a>',
+        title: '\u003Ca href="/w/Faithless" title="Faithless"\u003EFaithless\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Faithless.ogg" title="File:Faithless.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Faithless.ogg" title="File:Faithless.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4610,9 +5134,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Fallen_Empire_(music_track)" title="The Fallen Empire (music track)">The Fallen Empire </a>',
+          '\u003Ca href="/w/The_Fallen_Empire_(music_track)" title="The Fallen Empire (music track)"\u003EThe Fallen Empire \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Fallen_Empire.ogg" title="File:The Fallen Empire.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Fallen_Empire.ogg" title="File:The Fallen Empire.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4632,9 +5156,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Fanfare" title="Fanfare">Fanfare</a>',
+        title: '\u003Ca href="/w/Fanfare" title="Fanfare"\u003EFanfare\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fanfare.ogg" title="File:Fanfare.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fanfare.ogg" title="File:Fanfare.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4654,9 +5178,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Fanfare_2" title="Fanfare 2">Fanfare 2</a>',
+        title: '\u003Ca href="/w/Fanfare_2" title="Fanfare 2"\u003EFanfare 2\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fanfare_2.ogg" title="File:Fanfare 2.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fanfare_2.ogg" title="File:Fanfare 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4676,9 +5200,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Fanfare_3" title="Fanfare 3">Fanfare 3</a>',
+        title: '\u003Ca href="/w/Fanfare_3" title="Fanfare 3"\u003EFanfare 3\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fanfare_3.ogg" title="File:Fanfare 3.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fanfare_3.ogg" title="File:Fanfare 3.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4699,9 +5223,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Fangs_for_the_Memory" title="Fangs for the Memory">Fangs for the Memory</a>',
+          '\u003Ca href="/w/Fangs_for_the_Memory" title="Fangs for the Memory"\u003EFangs for the Memory\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fangs_for_the_Memory.ogg" title="File:Fangs for the Memory.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fangs_for_the_Memory.ogg" title="File:Fangs for the Memory.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4721,9 +5245,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Far_Away" title="Far Away">Far Away</a>',
+        title: '\u003Ca href="/w/Far_Away" title="Far Away"\u003EFar Away\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Far_Away.ogg" title="File:Far Away.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Far_Away.ogg" title="File:Far Away.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4743,9 +5267,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Far_Side" title="The Far Side">The Far Side</a>',
+        title:
+          '\u003Ca href="/w/The_Far_Side" title="The Far Side"\u003EThe Far Side\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Far_Side.ogg" title="File:The Far Side.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Far_Side.ogg" title="File:The Far Side.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4773,9 +5298,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/A_Farmer%27s_Grind" title="A Farmer&#39;s Grind">A Farmer\'s Grind</a>',
+        title:
+          '\u003Ca href="/w/A_Farmer%27s_Grind" title="A Farmer\u0026#39;s Grind"\u003EA Farmer\'s Grind\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:A_Farmer%27s_Grind.ogg" title="File:A Farmer&#39;s Grind.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:A_Farmer%27s_Grind.ogg" title="File:A Farmer\u0026#39;s Grind.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4795,9 +5321,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Fat_Lady_Sings" title="The Fat Lady Sings">The Fat Lady Sings</a>',
+        title:
+          '\u003Ca href="/w/The_Fat_Lady_Sings" title="The Fat Lady Sings"\u003EThe Fat Lady Sings\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Fat_Lady_Sings.ogg" title="File:The Fat Lady Sings.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Fat_Lady_Sings.ogg" title="File:The Fat Lady Sings.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4817,9 +5344,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Fe_Fi_Fo_Fum" title="Fe Fi Fo Fum">Fe Fi Fo Fum</a>',
+        title:
+          '\u003Ca href="/w/Fe_Fi_Fo_Fum" title="Fe Fi Fo Fum"\u003EFe Fi Fo Fum\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fe_Fi_Fo_Fum.ogg" title="File:Fe Fi Fo Fum.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fe_Fi_Fo_Fum.ogg" title="File:Fe Fi Fo Fum.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4835,6 +5363,22 @@ const geojsondata = {
             [3072, 5216],
             [3040, 5216],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Fear_and_Loathing" title="Fear and Loathing"\u003EFear and Loathing\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fear_and_Loathing.ogg" title="File:Fear and Loathing.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3296, 9824],
             [3296, 9856],
@@ -4846,9 +5390,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Fear_and_Loathing" title="Fear and Loathing">Fear and Loathing</a>',
+        title:
+          '\u003Ca href="/w/Fear_and_Loathing" title="Fear and Loathing"\u003EFear and Loathing\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fear_and_Loathing.ogg" title="File:Fear and Loathing.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fear_and_Loathing.ogg" title="File:Fear and Loathing.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4869,9 +5414,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Fenkenstrain%27s_Refrain" title="Fenkenstrain&#39;s Refrain">Fenkenstrain\'s Refrain</a>',
+          '\u003Ca href="/w/Fenkenstrain%27s_Refrain" title="Fenkenstrain\u0026#39;s Refrain"\u003EFenkenstrain\'s Refrain\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fenkenstrain%27s_Refrain.ogg" title="File:Fenkenstrain&#39;s Refrain.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fenkenstrain%27s_Refrain.ogg" title="File:Fenkenstrain\u0026#39;s Refrain.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4891,9 +5436,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Fight_or_Flight" title="Fight or Flight">Fight or Flight</a>',
+        title:
+          '\u003Ca href="/w/Fight_or_Flight" title="Fight or Flight"\u003EFight or Flight\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fight_or_Flight.ogg" title="File:Fight or Flight.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fight_or_Flight.ogg" title="File:Fight or Flight.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4913,9 +5459,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Find_My_Way" title="Find My Way">Find My Way</a>',
+        title: '\u003Ca href="/w/Find_My_Way" title="Find My Way"\u003EFind My Way\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Find_My_Way.ogg" title="File:Find My Way.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Find_My_Way.ogg" title="File:Find My Way.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4935,9 +5481,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Fire_and_Brimstone" title="Fire and Brimstone">Fire and Brimstone</a>',
+        title:
+          '\u003Ca href="/w/Fire_and_Brimstone" title="Fire and Brimstone"\u003EFire and Brimstone\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fire_and_Brimstone.ogg" title="File:Fire and Brimstone.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fire_and_Brimstone.ogg" title="File:Fire and Brimstone.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4957,9 +5504,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Fire_in_the_Deep" title="Fire in the Deep">Fire in the Deep</a>',
+        title:
+          '\u003Ca href="/w/Fire_in_the_Deep" title="Fire in the Deep"\u003EFire in the Deep\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fire_in_the_Deep.ogg" title="File:Fire in the Deep.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fire_in_the_Deep.ogg" title="File:Fire in the Deep.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -4980,9 +5528,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Fires_of_Lletya" title="The Fires of Lletya">The Fires of Lletya</a>',
+          '\u003Ca href="/w/The_Fires_of_Lletya" title="The Fires of Lletya"\u003EThe Fires of Lletya\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Fires_of_Lletya.ogg" title="File:The Fires of Lletya.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Fires_of_Lletya.ogg" title="File:The Fires of Lletya.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5002,9 +5550,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Fishing_(music_track)" title="Fishing (music track)">Fishing </a>',
+        title:
+          '\u003Ca href="/w/Fishing_(music_track)" title="Fishing (music track)"\u003EFishing \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fishing.ogg" title="File:Fishing.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fishing.ogg" title="File:Fishing.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5024,9 +5573,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Flute_Salad" title="Flute Salad">Flute Salad</a>',
+        title: '\u003Ca href="/w/Flute_Salad" title="Flute Salad"\u003EFlute Salad\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Flute_Salad.ogg" title="File:Flute Salad.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Flute_Salad.ogg" title="File:Flute Salad.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5046,9 +5595,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Food_for_Thought" title="Food for Thought">Food for Thought</a>',
+        title:
+          '\u003Ca href="/w/Food_for_Thought" title="Food for Thought"\u003EFood for Thought\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Food_for_Thought.ogg" title="File:Food for Thought.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Food_for_Thought.ogg" title="File:Food for Thought.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5068,9 +5618,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Forbidden" title="Forbidden">Forbidden</a>',
+        title: '\u003Ca href="/w/Forbidden" title="Forbidden"\u003EForbidden\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Forbidden.ogg" title="File:Forbidden.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Forbidden.ogg" title="File:Forbidden.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5090,9 +5640,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Forest_(music_track)" title="Forest (music track)">Forest </a>',
+        title:
+          '\u003Ca href="/w/Forest_(music_track)" title="Forest (music track)"\u003EForest \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Forest.ogg" title="File:Forest.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Forest.ogg" title="File:Forest.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5321,9 +5872,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Forests_of_Shayzien" title="The Forests of Shayzien">The Forests of Shayzien</a>',
+          '\u003Ca href="/w/The_Forests_of_Shayzien" title="The Forests of Shayzien"\u003EThe Forests of Shayzien\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Forests_of_Shayzien.ogg" title="File:The Forests of Shayzien.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Forests_of_Shayzien.ogg" title="File:The Forests of Shayzien.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5339,6 +5890,21 @@ const geojsondata = {
             [3136, 9792],
             [3072, 9792],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Forever" title="Forever"\u003EForever\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Forever.ogg" title="File:Forever.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3072, 3456],
             [3072, 3520],
@@ -5350,9 +5916,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Forever" title="Forever">Forever</a>',
+        title: '\u003Ca href="/w/Forever" title="Forever"\u003EForever\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Forever.ogg" title="File:Forever.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Forever.ogg" title="File:Forever.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5372,9 +5938,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Forgettable_Melody" title="Forgettable Melody">Forgettable Melody</a>',
+        title:
+          '\u003Ca href="/w/Forgettable_Melody" title="Forgettable Melody"\u003EForgettable Melody\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Forgettable_Melody.ogg" title="File:Forgettable Melody.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Forgettable_Melody.ogg" title="File:Forgettable Melody.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5394,9 +5961,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Forgotten" title="Forgotten">Forgotten</a>',
+        title: '\u003Ca href="/w/Forgotten" title="Forgotten"\u003EForgotten\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Forgotten.ogg" title="File:Forgotten.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Forgotten.ogg" title="File:Forgotten.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5417,9 +5984,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/A_Forgotten_Religion" title="A Forgotten Religion">A Forgotten Religion</a>',
+          '\u003Ca href="/w/A_Forgotten_Religion" title="A Forgotten Religion"\u003EA Forgotten Religion\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:A_Forgotten_Religion.ogg" title="File:A Forgotten Religion.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:A_Forgotten_Religion.ogg" title="File:A Forgotten Religion.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5439,9 +6006,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Forgotten_Tomb" title="The Forgotten Tomb">The Forgotten Tomb</a>',
+        title:
+          '\u003Ca href="/w/The_Forgotten_Tomb" title="The Forgotten Tomb"\u003EThe Forgotten Tomb\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Forgotten_Tomb.ogg" title="File:The Forgotten Tomb.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Forgotten_Tomb.ogg" title="File:The Forgotten Tomb.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5555,9 +6123,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Forlorn_Homestead" title="The Forlorn Homestead">The Forlorn Homestead</a>',
+          '\u003Ca href="/w/The_Forlorn_Homestead" title="The Forlorn Homestead"\u003EThe Forlorn Homestead\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Forlorn_Homestead.ogg" title="File:The Forlorn Homestead.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Forlorn_Homestead.ogg" title="File:The Forlorn Homestead.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5583,6 +6151,22 @@ const geojsondata = {
             [1389, 3830],
             [1376, 3830],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/The_Forsaken_Tower_(music_track)" title="The Forsaken Tower (music track)"\u003EThe Forsaken Tower \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Forsaken_Tower.ogg" title="File:The Forsaken Tower.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1368, 10240],
             [1400, 10240],
@@ -5595,9 +6179,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Forsaken_Tower_(music_track)" title="The Forsaken Tower (music track)">The Forsaken Tower </a>',
+          '\u003Ca href="/w/The_Forsaken_Tower_(music_track)" title="The Forsaken Tower (music track)"\u003EThe Forsaken Tower \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Forsaken_Tower.ogg" title="File:The Forsaken Tower.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Forsaken_Tower.ogg" title="File:The Forsaken Tower.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5617,9 +6201,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Forsaken" title="The Forsaken">The Forsaken</a>',
+        title:
+          '\u003Ca href="/w/The_Forsaken" title="The Forsaken"\u003EThe Forsaken\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Forsaken.ogg" title="File:The Forsaken.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Forsaken.ogg" title="File:The Forsaken.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5639,9 +6224,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Fossilised" title="Fossilised">Fossilised</a>',
+        title: '\u003Ca href="/w/Fossilised" title="Fossilised"\u003EFossilised\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fossilised.ogg" title="File:Fossilised.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fossilised.ogg" title="File:Fossilised.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5661,9 +6246,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Foundry" title="The Foundry">The Foundry</a>',
+        title: '\u003Ca href="/w/The_Foundry" title="The Foundry"\u003EThe Foundry\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Foundry.ogg" title="File:The Foundry.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Foundry.ogg" title="File:The Foundry.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5683,9 +6268,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Fragment" title="The Fragment">The Fragment</a>',
+        title:
+          '\u003Ca href="/w/The_Fragment" title="The Fragment"\u003EThe Fragment\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Fragment.ogg" title="File:The Fragment.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Fragment.ogg" title="File:The Fragment.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5705,9 +6291,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Frogland" title="Frogland">Frogland</a>',
+        title: '\u003Ca href="/w/Frogland" title="Frogland"\u003EFrogland\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Frogland.ogg" title="File:Frogland.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Frogland.ogg" title="File:Frogland.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5727,9 +6313,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Frostbite" title="Frostbite">Frostbite</a>',
+        title: '\u003Ca href="/w/Frostbite" title="Frostbite"\u003EFrostbite\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Frostbite.ogg" title="File:Frostbite.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Frostbite.ogg" title="File:Frostbite.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5749,9 +6335,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Fruits_de_Mer" title="Fruits de Mer">Fruits de Mer</a>',
+        title:
+          '\u003Ca href="/w/Fruits_de_Mer" title="Fruits de Mer"\u003EFruits de Mer\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Fruits_de_Mer.ogg" title="File:Fruits de Mer.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Fruits_de_Mer.ogg" title="File:Fruits de Mer.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5771,9 +6358,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Ful_to_the_Brim" title="Ful to the Brim">Ful to the Brim</a>',
+        title:
+          '\u003Ca href="/w/Ful_to_the_Brim" title="Ful to the Brim"\u003EFul to the Brim\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Ful_to_the_Brim.ogg" title="File:Ful to the Brim.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Ful_to_the_Brim.ogg" title="File:Ful to the Brim.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5793,9 +6381,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Galleon" title="The Galleon">The Galleon</a>',
+        title: '\u003Ca href="/w/The_Galleon" title="The Galleon"\u003EThe Galleon\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Galleon.ogg" title="File:The Galleon.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Galleon.ogg" title="File:The Galleon.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5811,6 +6399,21 @@ const geojsondata = {
             [2560, 9408],
             [2496, 9408],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Gaol" title="Gaol"\u003EGaol\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Gaol.ogg" title="File:Gaol.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2496, 3008],
             [2496, 3072],
@@ -5822,8 +6425,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Gaol" title="Gaol">Gaol</a>',
-        description: '<div><a href="/w/File:Gaol.ogg" title="File:Gaol.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Gaol" title="Gaol"\u003EGaol\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Gaol.ogg" title="File:Gaol.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5841,6 +6445,22 @@ const geojsondata = {
             [3200, 3392],
             [3200, 3456],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Garden_(music_track)" title="Garden (music track)"\u003EGarden \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Garden.ogg" title="File:Garden.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3200, 9792],
             [3200, 9856],
@@ -5852,9 +6472,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Garden_(music_track)" title="Garden (music track)">Garden </a>',
+        title:
+          '\u003Ca href="/w/Garden_(music_track)" title="Garden (music track)"\u003EGarden \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Garden.ogg" title="File:Garden.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Garden.ogg" title="File:Garden.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5874,9 +6495,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Garden_of_Autumn" title="Garden of Autumn">Garden of Autumn</a>',
+        title:
+          '\u003Ca href="/w/Garden_of_Autumn" title="Garden of Autumn"\u003EGarden of Autumn\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Garden_of_Autumn.ogg" title="File:Garden of Autumn.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Garden_of_Autumn.ogg" title="File:Garden of Autumn.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5896,9 +6518,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Garden_of_Spring" title="Garden of Spring">Garden of Spring</a>',
+        title:
+          '\u003Ca href="/w/Garden_of_Spring" title="Garden of Spring"\u003EGarden of Spring\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Garden_of_Spring.ogg" title="File:Garden of Spring.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Garden_of_Spring.ogg" title="File:Garden of Spring.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5918,9 +6541,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Garden_of_Summer" title="Garden of Summer">Garden of Summer</a>',
+        title:
+          '\u003Ca href="/w/Garden_of_Summer" title="Garden of Summer"\u003EGarden of Summer\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Garden_of_Summer.ogg" title="File:Garden of Summer.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Garden_of_Summer.ogg" title="File:Garden of Summer.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5940,9 +6564,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Garden_of_Winter" title="Garden of Winter">Garden of Winter</a>',
+        title:
+          '\u003Ca href="/w/Garden_of_Winter" title="Garden of Winter"\u003EGarden of Winter\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Garden_of_Winter.ogg" title="File:Garden of Winter.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Garden_of_Winter.ogg" title="File:Garden of Winter.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5963,9 +6588,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Gauntlet_(music_track)" title="The Gauntlet (music track)">The Gauntlet </a>',
+          '\u003Ca href="/w/The_Gauntlet_(music_track)" title="The Gauntlet (music track)"\u003EThe Gauntlet \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Gauntlet.ogg" title="File:The Gauntlet.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Gauntlet.ogg" title="File:The Gauntlet.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -5985,9 +6610,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Genie" title="The Genie">The Genie</a>',
+        title: '\u003Ca href="/w/The_Genie" title="The Genie"\u003EThe Genie\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Genie.ogg" title="File:The Genie.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Genie.ogg" title="File:The Genie.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6007,9 +6632,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Gill_Bill" title="Gill Bill">Gill Bill</a>',
+        title: '\u003Ca href="/w/Gill_Bill" title="Gill Bill"\u003EGill Bill\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Gill_Bill.ogg" title="File:Gill Bill.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Gill_Bill.ogg" title="File:Gill Bill.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6029,9 +6654,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Gnome_King" title="Gnome King">Gnome King</a>',
+        title: '\u003Ca href="/w/Gnome_King" title="Gnome King"\u003EGnome King\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Gnome_King.ogg" title="File:Gnome King.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Gnome_King.ogg" title="File:Gnome King.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6051,9 +6676,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Gnome_Village" title="Gnome Village">Gnome Village</a>',
+        title:
+          '\u003Ca href="/w/Gnome_Village" title="Gnome Village"\u003EGnome Village\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Gnome_Village.ogg" title="File:Gnome Village.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Gnome_Village.ogg" title="File:Gnome Village.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6073,9 +6699,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Gnome_Village_2" title="Gnome Village 2">Gnome Village 2</a>',
+        title:
+          '\u003Ca href="/w/Gnome_Village_2" title="Gnome Village 2"\u003EGnome Village 2\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Gnome_Village_2.ogg" title="File:Gnome Village 2.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Gnome_Village_2.ogg" title="File:Gnome Village 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6096,9 +6723,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Gnomeball_(music_track)" title="Gnomeball (music track)">Gnomeball </a>',
+          '\u003Ca href="/w/Gnomeball_(music_track)" title="Gnomeball (music track)"\u003EGnomeball \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Gnomeball.ogg" title="File:Gnomeball.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Gnomeball.ogg" title="File:Gnomeball.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6118,9 +6745,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Goblin_Game" title="Goblin Game">Goblin Game</a>',
+        title: '\u003Ca href="/w/Goblin_Game" title="Goblin Game"\u003EGoblin Game\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Goblin_Game.ogg" title="File:Goblin Game.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Goblin_Game.ogg" title="File:Goblin Game.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6149,9 +6776,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Goblin_Village_(music_track)" title="Goblin Village (music track)">Goblin Village </a>',
+          '\u003Ca href="/w/Goblin_Village_(music_track)" title="Goblin Village (music track)"\u003EGoblin Village \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Goblin_Village.ogg" title="File:Goblin Village.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Goblin_Village.ogg" title="File:Goblin Village.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6171,9 +6798,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Golden_Touch" title="Golden Touch">Golden Touch</a>',
+        title:
+          '\u003Ca href="/w/Golden_Touch" title="Golden Touch"\u003EGolden Touch\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Golden_Touch.ogg" title="File:Golden Touch.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Golden_Touch.ogg" title="File:Golden Touch.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6196,9 +6824,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Golem_(music_track)" title="The Golem (music track)">The Golem </a>',
+          '\u003Ca href="/w/The_Golem_(music_track)" title="The Golem (music track)"\u003EThe Golem \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Golem.ogg" title="File:The Golem.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Golem.ogg" title="File:The Golem.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6218,9 +6846,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Greatness" title="Greatness">Greatness</a>',
+        title: '\u003Ca href="/w/Greatness" title="Greatness"\u003EGreatness\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Greatness.ogg" title="File:Greatness.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Greatness.ogg" title="File:Greatness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6240,9 +6868,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Grotto_(music_track)" title="Grotto (music track)">Grotto </a>',
+        title:
+          '\u003Ca href="/w/Grotto_(music_track)" title="Grotto (music track)"\u003EGrotto \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Grotto.ogg" title="File:Grotto.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Grotto.ogg" title="File:Grotto.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6287,9 +6916,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Grow_Grow_Grow" title="Grow Grow Grow">Grow Grow Grow</a>',
+        title:
+          '\u003Ca href="/w/Grow_Grow_Grow" title="Grow Grow Grow"\u003EGrow Grow Grow\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Grow_Grow_Grow.ogg" title="File:Grow Grow Grow.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Grow_Grow_Grow.ogg" title="File:Grow Grow Grow.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6309,6 +6939,21 @@ const geojsondata = {
             [1968, 9024],
             [1968, 8960],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Grumpy" title="Grumpy"\u003EGrumpy\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Grumpy.ogg" title="File:Grumpy.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2560, 2944],
             [2560, 3008],
@@ -6320,9 +6965,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Grumpy" title="Grumpy">Grumpy</a>',
+        title: '\u003Ca href="/w/Grumpy" title="Grumpy"\u003EGrumpy\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Grumpy.ogg" title="File:Grumpy.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Grumpy.ogg" title="File:Grumpy.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6343,9 +6988,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Guardians_Prepare" title="The Guardians Prepare">The Guardians Prepare</a>',
+          '\u003Ca href="/w/The_Guardians_Prepare" title="The Guardians Prepare"\u003EThe Guardians Prepare\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Guardians_Prepare.ogg" title="File:The Guardians Prepare.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Guardians_Prepare.ogg" title="File:The Guardians Prepare.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6366,9 +7011,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Guardians_of_the_Rift_(music_track)" title="Guardians of the Rift (music track)">Guardians of the Rift </a>',
+          '\u003Ca href="/w/Guardians_of_the_Rift_(music_track)" title="Guardians of the Rift (music track)"\u003EGuardians of the Rift \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Guardians_of_the_Rift.ogg" title="File:Guardians of the Rift.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Guardians_of_the_Rift.ogg" title="File:Guardians of the Rift.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6388,9 +7033,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/H.A.M._Attack" title="H.A.M. Attack">H.A.M. Attack</a>',
+        title:
+          '\u003Ca href="/w/H.A.M._Attack" title="H.A.M. Attack"\u003EH.A.M. Attack\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:H.A.M._Attack.ogg" title="File:H.A.M. Attack.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:H.A.M._Attack.ogg" title="File:H.A.M. Attack.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6410,9 +7056,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/H.A.M._Fisted" title="H.A.M. Fisted">H.A.M. Fisted</a>',
+        title:
+          '\u003Ca href="/w/H.A.M._Fisted" title="H.A.M. Fisted"\u003EH.A.M. Fisted\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:H.A.M._Fisted.ogg" title="File:H.A.M. Fisted.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:H.A.M._Fisted.ogg" title="File:H.A.M. Fisted.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6432,9 +7079,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/H.A.M._and_Seek" title="H.A.M. and Seek">H.A.M. and Seek</a>',
+        title:
+          '\u003Ca href="/w/H.A.M._and_Seek" title="H.A.M. and Seek"\u003EH.A.M. and Seek\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:H.A.M._and_Seek.ogg" title="File:H.A.M. and Seek.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:H.A.M._and_Seek.ogg" title="File:H.A.M. and Seek.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6454,9 +7102,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Harmony_(music_track)" title="Harmony (music track)">Harmony </a>',
+        title:
+          '\u003Ca href="/w/Harmony_(music_track)" title="Harmony (music track)"\u003EHarmony \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Harmony.ogg" title="File:Harmony.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Harmony.ogg" title="File:Harmony.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6478,9 +7127,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Harmony_2" title="Harmony 2">Harmony 2</a>',
+        title: '\u003Ca href="/w/Harmony_2" title="Harmony 2"\u003EHarmony 2\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Harmony_2.ogg" title="File:Harmony 2.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Harmony_2.ogg" title="File:Harmony 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6501,9 +7150,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Haunted_Mine_(music_track)" title="Haunted Mine (music track)">Haunted Mine </a>',
+          '\u003Ca href="/w/Haunted_Mine_(music_track)" title="Haunted Mine (music track)"\u003EHaunted Mine \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Haunted_Mine.ogg" title="File:Haunted Mine.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Haunted_Mine.ogg" title="File:Haunted Mine.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6523,9 +7172,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Have_a_Blast" title="Have a Blast">Have a Blast</a>',
+        title:
+          '\u003Ca href="/w/Have_a_Blast" title="Have a Blast"\u003EHave a Blast\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Have_a_Blast.ogg" title="File:Have a Blast.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Have_a_Blast.ogg" title="File:Have a Blast.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6545,9 +7195,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Have_an_Ice_Day" title="Have an Ice Day">Have an Ice Day</a>',
+        title:
+          '\u003Ca href="/w/Have_an_Ice_Day" title="Have an Ice Day"\u003EHave an Ice Day\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Have_an_Ice_Day.ogg" title="File:Have an Ice Day.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Have_an_Ice_Day.ogg" title="File:Have an Ice Day.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6567,9 +7218,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Head_to_Head" title="Head to Head">Head to Head</a>',
+        title:
+          '\u003Ca href="/w/Head_to_Head" title="Head to Head"\u003EHead to Head\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Head_to_Head.ogg" title="File:Head to Head.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Head_to_Head.ogg" title="File:Head to Head.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6589,9 +7241,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Heart_and_Mind" title="Heart and Mind">Heart and Mind</a>',
+        title:
+          '\u003Ca href="/w/Heart_and_Mind" title="Heart and Mind"\u003EHeart and Mind\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Heart_and_Mind.ogg" title="File:Heart and Mind.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Heart_and_Mind.ogg" title="File:Heart and Mind.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6611,9 +7264,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Hells_Bells" title="Hells Bells">Hells Bells</a>',
+        title: '\u003Ca href="/w/Hells_Bells" title="Hells Bells"\u003EHells Bells\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Hells_Bells.ogg" title="File:Hells Bells.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Hells_Bells.ogg" title="File:Hells Bells.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6633,9 +7286,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Hermit" title="Hermit">Hermit</a>',
+        title: '\u003Ca href="/w/Hermit" title="Hermit"\u003EHermit\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Hermit.ogg" title="File:Hermit.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Hermit.ogg" title="File:Hermit.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6655,9 +7308,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/High_Seas" title="High Seas">High Seas</a>',
+        title: '\u003Ca href="/w/High_Seas" title="High Seas"\u003EHigh Seas\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:High_Seas.ogg" title="File:High Seas.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:High_Seas.ogg" title="File:High Seas.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6711,9 +7364,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Hoe_Down" title="Hoe Down">Hoe Down</a>',
+        title: '\u003Ca href="/w/Hoe_Down" title="Hoe Down"\u003EHoe Down\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Hoe_Down.ogg" title="File:Hoe Down.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Hoe_Down.ogg" title="File:Hoe Down.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6733,9 +7386,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Home_Sweet_Home" title="Home Sweet Home">Home Sweet Home</a>',
+        title:
+          '\u003Ca href="/w/Home_Sweet_Home" title="Home Sweet Home"\u003EHome Sweet Home\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Home_Sweet_Home.ogg" title="File:Home Sweet Home.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Home_Sweet_Home.ogg" title="File:Home Sweet Home.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6751,6 +7405,21 @@ const geojsondata = {
             [2944, 3392],
             [2880, 3392],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Horizon" title="Horizon"\u003EHorizon\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Horizon.ogg" title="File:Horizon.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1920, 5024],
             [1920, 5056],
@@ -6762,9 +7431,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Horizon" title="Horizon">Horizon</a>',
+        title: '\u003Ca href="/w/Horizon" title="Horizon"\u003EHorizon\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Horizon.ogg" title="File:Horizon.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Horizon.ogg" title="File:Horizon.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6785,9 +7454,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Houses_of_Kourend" title="The Houses of Kourend">The Houses of Kourend</a>',
+          '\u003Ca href="/w/The_Houses_of_Kourend" title="The Houses of Kourend"\u003EThe Houses of Kourend\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Houses_of_Kourend.ogg" title="File:The Houses of Kourend.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Houses_of_Kourend.ogg" title="File:The Houses of Kourend.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6807,9 +7476,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Hypnotised" title="Hypnotised">Hypnotised</a>',
+        title: '\u003Ca href="/w/Hypnotised" title="Hypnotised"\u003EHypnotised\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Hypnotised.ogg" title="File:Hypnotised.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Hypnotised.ogg" title="File:Hypnotised.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6829,8 +7498,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Iban_(music_track)" title="Iban (music track)">Iban </a>',
-        description: '<div><a href="/w/File:Iban.ogg" title="File:Iban.ogg">Play track</a></div>',
+        title:
+          '\u003Ca href="/w/Iban_(music_track)" title="Iban (music track)"\u003EIban \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Iban.ogg" title="File:Iban.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6850,9 +7521,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Ice_Melody" title="Ice Melody">Ice Melody</a>',
+        title: '\u003Ca href="/w/Ice_Melody" title="Ice Melody"\u003EIce Melody\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Ice_Melody.ogg" title="File:Ice Melody.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Ice_Melody.ogg" title="File:Ice Melody.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6872,9 +7543,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Ice_and_Fire" title="Ice and Fire">Ice and Fire</a>',
+        title:
+          '\u003Ca href="/w/Ice_and_Fire" title="Ice and Fire"\u003EIce and Fire\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Ice_and_Fire.ogg" title="File:Ice and Fire.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Ice_and_Fire.ogg" title="File:Ice and Fire.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6894,9 +7566,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Illusive" title="Illusive">Illusive</a>',
+        title: '\u003Ca href="/w/Illusive" title="Illusive"\u003EIllusive\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Illusive.ogg" title="File:Illusive.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Illusive.ogg" title="File:Illusive.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6916,9 +7588,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Impetuous" title="Impetuous">Impetuous</a>',
+        title: '\u003Ca href="/w/Impetuous" title="Impetuous"\u003EImpetuous\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Impetuous.ogg" title="File:Impetuous.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Impetuous.ogg" title="File:Impetuous.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6938,9 +7610,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/In_Between" title="In Between">In Between</a>',
+        title: '\u003Ca href="/w/In_Between" title="In Between"\u003EIn Between\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:In_Between.ogg" title="File:In Between.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:In_Between.ogg" title="File:In Between.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6960,9 +7632,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/In_the_Brine" title="In the Brine">In the Brine</a>',
+        title:
+          '\u003Ca href="/w/In_the_Brine" title="In the Brine"\u003EIn the Brine\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:In_the_Brine.ogg" title="File:In the Brine.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:In_the_Brine.ogg" title="File:In the Brine.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -6982,9 +7655,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/In_the_Clink" title="In the Clink">In the Clink</a>',
+        title:
+          '\u003Ca href="/w/In_the_Clink" title="In the Clink"\u003EIn the Clink\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:In_the_Clink.ogg" title="File:In the Clink.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:In_the_Clink.ogg" title="File:In the Clink.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7004,9 +7678,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/In_the_Manor" title="In the Manor">In the Manor</a>',
+        title:
+          '\u003Ca href="/w/In_the_Manor" title="In the Manor"\u003EIn the Manor\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:In_the_Manor.ogg" title="File:In the Manor.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:In_the_Manor.ogg" title="File:In the Manor.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7067,9 +7742,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/In_the_Pits" title="In the Pits">In the Pits</a>',
+        title: '\u003Ca href="/w/In_the_Pits" title="In the Pits"\u003EIn the Pits\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:In_the_Pits.ogg" title="File:In the Pits.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:In_the_Pits.ogg" title="File:In the Pits.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7089,9 +7764,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Inadequacy" title="Inadequacy">Inadequacy</a>',
+        title: '\u003Ca href="/w/Inadequacy" title="Inadequacy"\u003EInadequacy\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Inadequacy.ogg" title="File:Inadequacy.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Inadequacy.ogg" title="File:Inadequacy.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7111,9 +7786,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Inferno_(music_track)" title="Inferno (music track)">Inferno </a>',
+        title:
+          '\u003Ca href="/w/Inferno_(music_track)" title="Inferno (music track)"\u003EInferno \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Inferno.ogg" title="File:Inferno.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Inferno.ogg" title="File:Inferno.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7131,6 +7807,22 @@ const geojsondata = {
             [3264, 9472],
             [3264, 9600],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Insect_Queen" title="Insect Queen"\u003EInsect Queen\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Insect_Queen.ogg" title="File:Insect Queen.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3456, 9472],
             [3456, 9536],
@@ -7142,9 +7834,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Insect_Queen" title="Insect Queen">Insect Queen</a>',
+        title:
+          '\u003Ca href="/w/Insect_Queen" title="Insect Queen"\u003EInsect Queen\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Insect_Queen.ogg" title="File:Insect Queen.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Insect_Queen.ogg" title="File:Insect Queen.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7168,9 +7861,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Inspiration" title="Inspiration">Inspiration</a>',
+        title: '\u003Ca href="/w/Inspiration" title="Inspiration"\u003EInspiration\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Inspiration.ogg" title="File:Inspiration.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Inspiration.ogg" title="File:Inspiration.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7204,9 +7897,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Into_the_Abyss" title="Into the Abyss">Into the Abyss</a>',
+        title:
+          '\u003Ca href="/w/Into_the_Abyss" title="Into the Abyss"\u003EInto the Abyss\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Into_the_Abyss.ogg" title="File:Into the Abyss.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Into_the_Abyss.ogg" title="File:Into the Abyss.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7227,9 +7921,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Into_the_Tombs_(music_track)" title="Into the Tombs (music track)">Into the Tombs </a>',
+          '\u003Ca href="/w/Into_the_Tombs_(music_track)" title="Into the Tombs (music track)"\u003EInto the Tombs \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Into_the_Tombs.ogg" title="File:Into the Tombs.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Into_the_Tombs.ogg" title="File:Into the Tombs.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7249,9 +7943,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Intrepid" title="Intrepid">Intrepid</a>',
+        title: '\u003Ca href="/w/Intrepid" title="Intrepid"\u003EIntrepid\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Intrepid.ogg" title="File:Intrepid.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Intrepid.ogg" title="File:Intrepid.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7267,6 +7961,21 @@ const geojsondata = {
             [2944, 4752],
             [2944, 4800],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Invader" title="Invader"\u003EInvader\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Invader.ogg" title="File:Invader.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2944, 4864],
             [2944, 4808],
@@ -7276,6 +7985,21 @@ const geojsondata = {
             [3008, 4864],
             [2944, 4864],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Invader" title="Invader"\u003EInvader\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Invader.ogg" title="File:Invader.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3072, 4864],
             [3072, 4817],
@@ -7283,6 +8007,21 @@ const geojsondata = {
             [3136, 4864],
             [3072, 4864],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Invader" title="Invader"\u003EInvader\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Invader.ogg" title="File:Invader.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3096, 4800],
             [3136, 4800],
@@ -7294,9 +8033,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Invader" title="Invader">Invader</a>',
+        title: '\u003Ca href="/w/Invader" title="Invader"\u003EInvader\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Invader.ogg" title="File:Invader.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Invader.ogg" title="File:Invader.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7316,9 +8055,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Island_Life" title="Island Life">Island Life</a>',
+        title: '\u003Ca href="/w/Island_Life" title="Island Life"\u003EIsland Life\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Island_Life.ogg" title="File:Island Life.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Island_Life.ogg" title="File:Island Life.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7339,9 +8078,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Island_of_the_Trolls" title="Island of the Trolls">Island of the Trolls</a>',
+          '\u003Ca href="/w/Island_of_the_Trolls" title="Island of the Trolls"\u003EIsland of the Trolls\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Island_of_the_Trolls.ogg" title="File:Island of the Trolls.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Island_of_the_Trolls.ogg" title="File:Island of the Trolls.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7361,9 +8100,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Isle_of_Everywhere" title="Isle of Everywhere">Isle of Everywhere</a>',
+        title:
+          '\u003Ca href="/w/Isle_of_Everywhere" title="Isle of Everywhere"\u003EIsle of Everywhere\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Isle_of_Everywhere.ogg" title="File:Isle of Everywhere.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Isle_of_Everywhere.ogg" title="File:Isle of Everywhere.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7384,9 +8124,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/It%27s_not_over_%27til..." title="It&#39;s not over &#39;til...">It\'s not over \'til...</a>',
+          '\u003Ca href="/w/It%27s_not_over_%27til..." title="It\u0026#39;s not over \u0026#39;til..."\u003EIt\'s not over \'til...\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:It%27s_not_over_%27til....ogg" title="File:It&#39;s not over &#39;til....ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:It%27s_not_over_%27til....ogg" title="File:It\u0026#39;s not over \u0026#39;til....ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7406,9 +8146,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Itsy_Bitsy..." title="Itsy Bitsy...">Itsy Bitsy...</a>',
+        title:
+          '\u003Ca href="/w/Itsy_Bitsy..." title="Itsy Bitsy..."\u003EItsy Bitsy...\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Itsy_Bitsy....ogg" title="File:Itsy Bitsy....ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Itsy_Bitsy....ogg" title="File:Itsy Bitsy....ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7428,9 +8169,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Jolly_R" title="Jolly R">Jolly R</a>',
+        title: '\u003Ca href="/w/Jolly_R" title="Jolly R"\u003EJolly R\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Jolly_R.ogg" title="File:Jolly R.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Jolly_R.ogg" title="File:Jolly R.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7450,9 +8191,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Joy_of_the_Hunt" title="Joy of the Hunt">Joy of the Hunt</a>',
+        title:
+          '\u003Ca href="/w/Joy_of_the_Hunt" title="Joy of the Hunt"\u003EJoy of the Hunt\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Joy_of_the_Hunt.ogg" title="File:Joy of the Hunt.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Joy_of_the_Hunt.ogg" title="File:Joy of the Hunt.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7473,9 +8215,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Judgement_of_the_Depths" title="Judgement of the Depths">Judgement of the Depths</a>',
+          '\u003Ca href="/w/Judgement_of_the_Depths" title="Judgement of the Depths"\u003EJudgement of the Depths\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Judgement_of_the_Depths.ogg" title="File:Judgement of the Depths.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Judgement_of_the_Depths.ogg" title="File:Judgement of the Depths.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7497,6 +8239,21 @@ const geojsondata = {
             [2496, 2816],
             [2473, 2816],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Jungle_Hunt" title="Jungle Hunt"\u003EJungle Hunt\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Jungle_Hunt.ogg" title="File:Jungle Hunt.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2496, 9280],
             [2496, 9344],
@@ -7508,9 +8265,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Jungle_Hunt" title="Jungle Hunt">Jungle Hunt</a>',
+        title: '\u003Ca href="/w/Jungle_Hunt" title="Jungle Hunt"\u003EJungle Hunt\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Jungle_Hunt.ogg" title="File:Jungle Hunt.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Jungle_Hunt.ogg" title="File:Jungle Hunt.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7526,6 +8283,22 @@ const geojsondata = {
             [2880, 2880],
             [2816, 2880],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Jungle_Island" title="Jungle Island"\u003EJungle Island\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Jungle_Island.ogg" title="File:Jungle Island.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2816, 3136],
             [2816, 3216],
@@ -7537,9 +8310,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Jungle_Island" title="Jungle Island">Jungle Island</a>',
+        title:
+          '\u003Ca href="/w/Jungle_Island" title="Jungle Island"\u003EJungle Island\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Jungle_Island.ogg" title="File:Jungle Island.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Jungle_Island.ogg" title="File:Jungle Island.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7559,9 +8333,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Jungle_Troubles" title="Jungle Troubles">Jungle Troubles</a>',
+        title:
+          '\u003Ca href="/w/Jungle_Troubles" title="Jungle Troubles"\u003EJungle Troubles\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Jungle_Troubles.ogg" title="File:Jungle Troubles.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Jungle_Troubles.ogg" title="File:Jungle Troubles.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7577,6 +8352,21 @@ const geojsondata = {
             [2816, 9344],
             [2752, 9344],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Jungly_1" title="Jungly 1"\u003EJungly 1\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Jungly_1.ogg" title="File:Jungly 1.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2752, 2944],
             [2752, 3008],
@@ -7588,9 +8378,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Jungly_1" title="Jungly 1">Jungly 1</a>',
+        title: '\u003Ca href="/w/Jungly_1" title="Jungly 1"\u003EJungly 1\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Jungly_1.ogg" title="File:Jungly 1.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Jungly_1.ogg" title="File:Jungly 1.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7610,9 +8400,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Jungly_2" title="Jungly 2">Jungly 2</a>',
+        title: '\u003Ca href="/w/Jungly_2" title="Jungly 2"\u003EJungly 2\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Jungly_2.ogg" title="File:Jungly 2.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Jungly_2.ogg" title="File:Jungly 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7632,9 +8422,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Jungly_3" title="Jungly 3">Jungly 3</a>',
+        title: '\u003Ca href="/w/Jungly_3" title="Jungly 3"\u003EJungly 3\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Jungly_3.ogg" title="File:Jungly 3.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Jungly_3.ogg" title="File:Jungly 3.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7654,9 +8444,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Kanon_of_Kahlith" title="Kanon of Kahlith">Kanon of Kahlith</a>',
+        title:
+          '\u003Ca href="/w/Kanon_of_Kahlith" title="Kanon of Kahlith"\u003EKanon of Kahlith\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Kanon_of_Kahlith.ogg" title="File:Kanon of Kahlith.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Kanon_of_Kahlith.ogg" title="File:Kanon of Kahlith.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7676,9 +8467,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Karamja_Jam" title="Karamja Jam">Karamja Jam</a>',
+        title: '\u003Ca href="/w/Karamja_Jam" title="Karamja Jam"\u003EKaramja Jam\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Karamja_Jam.ogg" title="File:Karamja Jam.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Karamja_Jam.ogg" title="File:Karamja Jam.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7747,9 +8538,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Kingdom_(music_track)" title="Kingdom (music track)">Kingdom </a>',
+        title:
+          '\u003Ca href="/w/Kingdom_(music_track)" title="Kingdom (music track)"\u003EKingdom \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Kingdom.ogg" title="File:Kingdom.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Kingdom.ogg" title="File:Kingdom.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7765,6 +8557,21 @@ const geojsondata = {
             [2624, 3264],
             [2558, 3264],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Knightly" title="Knightly"\u003EKnightly\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Knightly.ogg" title="File:Knightly.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2560, 9694],
             [2560, 9728],
@@ -7776,9 +8583,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Knightly" title="Knightly">Knightly</a>',
+        title: '\u003Ca href="/w/Knightly" title="Knightly"\u003EKnightly\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Knightly.ogg" title="File:Knightly.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Knightly.ogg" title="File:Knightly.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7794,6 +8601,21 @@ const geojsondata = {
             [1920, 4224],
             [1856, 4224],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Knightmare" title="Knightmare"\u003EKnightmare\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Knightmare.ogg" title="File:Knightmare.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3008, 3518],
             [3008, 3514],
@@ -7833,9 +8655,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Knightmare" title="Knightmare">Knightmare</a>',
+        title: '\u003Ca href="/w/Knightmare" title="Knightmare"\u003EKnightmare\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Knightmare.ogg" title="File:Knightmare.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Knightmare.ogg" title="File:Knightmare.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7973,9 +8795,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Kourend_the_Magnificent" title="Kourend the Magnificent">Kourend the Magnificent</a>',
+          '\u003Ca href="/w/Kourend_the_Magnificent" title="Kourend the Magnificent"\u003EKourend the Magnificent\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Kourend_the_Magnificent.ogg" title="File:Kourend the Magnificent.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Kourend_the_Magnificent.ogg" title="File:Kourend the Magnificent.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -7995,9 +8817,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/La_Mort" title="La Mort">La Mort</a>',
+        title: '\u003Ca href="/w/La_Mort" title="La Mort"\u003ELa Mort\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:La_Mort.ogg" title="File:La Mort.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:La_Mort.ogg" title="File:La Mort.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8017,9 +8839,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Labyrinth" title="Labyrinth">Labyrinth</a>',
+        title: '\u003Ca href="/w/Labyrinth" title="Labyrinth"\u003ELabyrinth\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Labyrinth.ogg" title="File:Labyrinth.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Labyrinth.ogg" title="File:Labyrinth.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8039,9 +8861,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lagoon" title="Lagoon">Lagoon</a>',
+        title: '\u003Ca href="/w/Lagoon" title="Lagoon"\u003ELagoon\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lagoon.ogg" title="File:Lagoon.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lagoon.ogg" title="File:Lagoon.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8061,8 +8883,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lair" title="Lair">Lair</a>',
-        description: '<div><a href="/w/File:Lair.ogg" title="File:Lair.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Lair" title="Lair"\u003ELair\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lair.ogg" title="File:Lair.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8083,9 +8906,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Lair_of_the_Basilisk" title="Lair of the Basilisk">Lair of the Basilisk</a>',
+          '\u003Ca href="/w/Lair_of_the_Basilisk" title="Lair of the Basilisk"\u003ELair of the Basilisk\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lair_of_the_Basilisk.ogg" title="File:Lair of the Basilisk.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lair_of_the_Basilisk.ogg" title="File:Lair of the Basilisk.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8105,9 +8928,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lament" title="Lament">Lament</a>',
+        title: '\u003Ca href="/w/Lament" title="Lament"\u003ELament\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lament.ogg" title="File:Lament.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lament.ogg" title="File:Lament.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8138,9 +8961,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Lament_for_the_Hallowed" title="Lament for the Hallowed">Lament for the Hallowed</a>',
+          '\u003Ca href="/w/Lament_for_the_Hallowed" title="Lament for the Hallowed"\u003ELament for the Hallowed\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lament_for_the_Hallowed.ogg" title="File:Lament for the Hallowed.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lament_for_the_Hallowed.ogg" title="File:Lament for the Hallowed.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8156,6 +8979,22 @@ const geojsondata = {
             [3616, 9681],
             [3616, 9728],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Lament_of_Meiyerditch" title="Lament of Meiyerditch"\u003ELament of Meiyerditch\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lament_of_Meiyerditch.ogg" title="File:Lament of Meiyerditch.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2368, 4608],
             [2368, 4672],
@@ -8163,6 +9002,22 @@ const geojsondata = {
             [2432, 4608],
             [2368, 4608],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Lament_of_Meiyerditch" title="Lament of Meiyerditch"\u003ELament of Meiyerditch\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lament_of_Meiyerditch.ogg" title="File:Lament of Meiyerditch.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3606, 3312],
             [3617, 3312],
@@ -8176,6 +9031,22 @@ const geojsondata = {
             [3606, 3311],
             [3606, 3312],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Lament_of_Meiyerditch" title="Lament of Meiyerditch"\u003ELament of Meiyerditch\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lament_of_Meiyerditch.ogg" title="File:Lament of Meiyerditch.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3584, 9600],
             [3584, 9664],
@@ -8188,9 +9059,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Lament_of_Meiyerditch" title="Lament of Meiyerditch">Lament of Meiyerditch</a>',
+          '\u003Ca href="/w/Lament_of_Meiyerditch" title="Lament of Meiyerditch"\u003ELament of Meiyerditch\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lament_of_Meiyerditch.ogg" title="File:Lament of Meiyerditch.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lament_of_Meiyerditch.ogg" title="File:Lament of Meiyerditch.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8210,9 +9081,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Land_Down_Under" title="Land Down Under">Land Down Under</a>',
+        title:
+          '\u003Ca href="/w/Land_Down_Under" title="Land Down Under"\u003ELand Down Under\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Land_Down_Under.ogg" title="File:Land Down Under.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Land_Down_Under.ogg" title="File:Land Down Under.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8233,9 +9105,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Land_of_the_Dwarves" title="Land of the Dwarves">Land of the Dwarves</a>',
+          '\u003Ca href="/w/Land_of_the_Dwarves" title="Land of the Dwarves"\u003ELand of the Dwarves\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Land_of_the_Dwarves.ogg" title="File:Land of the Dwarves.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Land_of_the_Dwarves.ogg" title="File:Land of the Dwarves.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8255,9 +9127,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Landlubber" title="Landlubber">Landlubber</a>',
+        title: '\u003Ca href="/w/Landlubber" title="Landlubber"\u003ELandlubber\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Landlubber.ogg" title="File:Landlubber.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Landlubber.ogg" title="File:Landlubber.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8278,9 +9150,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Last_King_of_the_Yarasa" title="Last King of the Yarasa">Last King of the Yarasa</a>',
+          '\u003Ca href="/w/Last_King_of_the_Yarasa" title="Last King of the Yarasa"\u003ELast King of the Yarasa\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Last_King_of_the_Yarasa.ogg" title="File:Last King of the Yarasa.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Last_King_of_the_Yarasa.ogg" title="File:Last King of the Yarasa.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8296,6 +9168,22 @@ const geojsondata = {
             [3520, 5760],
             [3392, 5760],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Last_Man_Standing_(music_track)" title="Last Man Standing (music track)"\u003ELast Man Standing \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Last_Man_Standing.ogg" title="File:Last Man Standing.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3456, 6208],
             [3648, 6208],
@@ -8308,9 +9196,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Last_Man_Standing_(music_track)" title="Last Man Standing (music track)">Last Man Standing </a>',
+          '\u003Ca href="/w/Last_Man_Standing_(music_track)" title="Last Man Standing (music track)"\u003ELast Man Standing \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Last_Man_Standing.ogg" title="File:Last Man Standing.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Last_Man_Standing.ogg" title="File:Last Man Standing.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8336,9 +9224,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Last_Shanty" title="The Last Shanty">The Last Shanty</a>',
+        title:
+          '\u003Ca href="/w/The_Last_Shanty" title="The Last Shanty"\u003EThe Last Shanty\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Last_Shanty.ogg" title="File:The Last Shanty.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Last_Shanty.ogg" title="File:The Last Shanty.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8358,9 +9247,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lasting" title="Lasting">Lasting</a>',
+        title: '\u003Ca href="/w/Lasting" title="Lasting"\u003ELasting\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lasting.ogg" title="File:Lasting.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lasting.ogg" title="File:Lasting.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8380,9 +9269,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lava_is_Mine" title="Lava is Mine">Lava is Mine</a>',
+        title:
+          '\u003Ca href="/w/Lava_is_Mine" title="Lava is Mine"\u003ELava is Mine\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lava_is_Mine.ogg" title="File:Lava is Mine.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lava_is_Mine.ogg" title="File:Lava is Mine.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8402,9 +9292,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Legend" title="Legend">Legend</a>',
+        title: '\u003Ca href="/w/Legend" title="Legend"\u003ELegend\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Legend.ogg" title="File:Legend.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Legend.ogg" title="File:Legend.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8420,6 +9310,21 @@ const geojsondata = {
             [2560, 9920],
             [2496, 9920],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Legion" title="Legion"\u003ELegion\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Legion.ogg" title="File:Legion.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2496, 3520],
             [2496, 3584],
@@ -8427,6 +9332,21 @@ const geojsondata = {
             [2560, 3520],
             [2496, 3520],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Legion" title="Legion"\u003ELegion\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Legion.ogg" title="File:Legion.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2560, 5248],
             [2560, 5312],
@@ -8438,9 +9358,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Legion" title="Legion">Legion</a>',
+        title: '\u003Ca href="/w/Legion" title="Legion"\u003ELegion\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Legion.ogg" title="File:Legion.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Legion.ogg" title="File:Legion.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8460,9 +9380,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Life%27s_a_Beach!" title="Life&#39;s a Beach!">Life\'s a Beach!</a>',
+        title:
+          '\u003Ca href="/w/Life%27s_a_Beach!" title="Life\u0026#39;s a Beach!"\u003ELife\'s a Beach!\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Life%27s_a_Beach!.ogg" title="File:Life&#39;s a Beach!.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Life%27s_a_Beach!.ogg" title="File:Life\u0026#39;s a Beach!.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8483,9 +9404,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Lighthouse_(music_track)" title="Lighthouse (music track)">Lighthouse </a>',
+          '\u003Ca href="/w/Lighthouse_(music_track)" title="Lighthouse (music track)"\u003ELighthouse \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lighthouse.ogg" title="File:Lighthouse.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lighthouse.ogg" title="File:Lighthouse.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8528,9 +9449,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lightness" title="Lightness">Lightness</a>',
+        title: '\u003Ca href="/w/Lightness" title="Lightness"\u003ELightness\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lightness.ogg" title="File:Lightness.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lightness.ogg" title="File:Lightness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8546,6 +9467,21 @@ const geojsondata = {
             [2816, 3392],
             [2752, 3392],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Lightwalk" title="Lightwalk"\u003ELightwalk\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lightwalk.ogg" title="File:Lightwalk.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1664, 4224],
             [1664, 4288],
@@ -8557,9 +9493,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lightwalk" title="Lightwalk">Lightwalk</a>',
+        title: '\u003Ca href="/w/Lightwalk" title="Lightwalk"\u003ELightwalk\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lightwalk.ogg" title="File:Lightwalk.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lightwalk.ogg" title="File:Lightwalk.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8582,9 +9518,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Little_Cave_of_Horrors" title="Little Cave of Horrors">Little Cave of Horrors</a>',
+          '\u003Ca href="/w/Little_Cave_of_Horrors" title="Little Cave of Horrors"\u003ELittle Cave of Horrors\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Little_Cave_of_Horrors.ogg" title="File:Little Cave of Horrors.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Little_Cave_of_Horrors.ogg" title="File:Little Cave of Horrors.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8604,9 +9540,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lonesome" title="Lonesome">Lonesome</a>',
+        title: '\u003Ca href="/w/Lonesome" title="Lonesome"\u003ELonesome\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lonesome.ogg" title="File:Lonesome.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lonesome.ogg" title="File:Lonesome.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8626,9 +9562,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Long_Ago" title="Long Ago">Long Ago</a>',
+        title: '\u003Ca href="/w/Long_Ago" title="Long Ago"\u003ELong Ago\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Long_Ago.ogg" title="File:Long Ago.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Long_Ago.ogg" title="File:Long Ago.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8648,9 +9584,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Long_Way_Home" title="Long Way Home">Long Way Home</a>',
+        title:
+          '\u003Ca href="/w/Long_Way_Home" title="Long Way Home"\u003ELong Way Home\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Long_Way_Home.ogg" title="File:Long Way Home.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Long_Way_Home.ogg" title="File:Long Way Home.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8666,6 +9603,22 @@ const geojsondata = {
             [1792, 4928],
             [1728, 4928],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Looking_Back" title="Looking Back"\u003ELooking Back\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Looking_Back.ogg" title="File:Looking Back.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3253, 3442],
             [3253, 3456],
@@ -8677,9 +9630,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Looking_Back" title="Looking Back">Looking Back</a>',
+        title:
+          '\u003Ca href="/w/Looking_Back" title="Looking Back"\u003ELooking Back\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Looking_Back.ogg" title="File:Looking Back.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Looking_Back.ogg" title="File:Looking Back.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8699,9 +9653,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lore_and_Order" title="Lore and Order">Lore and Order</a>',
+        title:
+          '\u003Ca href="/w/Lore_and_Order" title="Lore and Order"\u003ELore and Order\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lore_and_Order.ogg" title="File:Lore and Order.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lore_and_Order.ogg" title="File:Lore and Order.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8721,9 +9676,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Lost_Melody" title="The Lost Melody">The Lost Melody</a>',
+        title:
+          '\u003Ca href="/w/The_Lost_Melody" title="The Lost Melody"\u003EThe Lost Melody\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Lost_Melody.ogg" title="File:The Lost Melody.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Lost_Melody.ogg" title="File:The Lost Melody.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8748,9 +9704,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Lost_Soul_(music_track)" title="Lost Soul (music track)">Lost Soul </a>',
+          '\u003Ca href="/w/Lost_Soul_(music_track)" title="Lost Soul (music track)"\u003ELost Soul \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lost_Soul.ogg" title="File:Lost Soul.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lost_Soul.ogg" title="File:Lost Soul.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8771,9 +9727,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Lost_Tribe_(music_track)" title="The Lost Tribe (music track)">The Lost Tribe </a>',
+          '\u003Ca href="/w/The_Lost_Tribe_(music_track)" title="The Lost Tribe (music track)"\u003EThe Lost Tribe \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Lost_Tribe.ogg" title="File:The Lost Tribe.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Lost_Tribe.ogg" title="File:The Lost Tribe.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8789,6 +9745,22 @@ const geojsondata = {
             [1216, 9920],
             [1152, 9920],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Lower_Depths" title="Lower Depths"\u003ELower Depths\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lower_Depths.ogg" title="File:Lower Depths.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3264, 5760],
             [3360, 5760],
@@ -8800,9 +9772,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lower_Depths" title="Lower Depths">Lower Depths</a>',
+        title:
+          '\u003Ca href="/w/Lower_Depths" title="Lower Depths"\u003ELower Depths\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lower_Depths.ogg" title="File:Lower Depths.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lower_Depths.ogg" title="File:Lower Depths.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8822,9 +9795,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lucid_Dream" title="Lucid Dream">Lucid Dream</a>',
+        title: '\u003Ca href="/w/Lucid_Dream" title="Lucid Dream"\u003ELucid Dream\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lucid_Dream.ogg" title="File:Lucid Dream.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lucid_Dream.ogg" title="File:Lucid Dream.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8844,9 +9817,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lucid_Nightmare" title="Lucid Nightmare">Lucid Nightmare</a>',
+        title:
+          '\u003Ca href="/w/Lucid_Nightmare" title="Lucid Nightmare"\u003ELucid Nightmare\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lucid_Nightmare.ogg" title="File:Lucid Nightmare.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lucid_Nightmare.ogg" title="File:Lucid Nightmare.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8862,6 +9836,21 @@ const geojsondata = {
             [3392, 3392],
             [3328, 3392],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Lullaby" title="Lullaby"\u003ELullaby\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lullaby.ogg" title="File:Lullaby.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2624, 3520],
             [2624, 3584],
@@ -8873,9 +9862,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lullaby" title="Lullaby">Lullaby</a>',
+        title: '\u003Ca href="/w/Lullaby" title="Lullaby"\u003ELullaby\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lullaby.ogg" title="File:Lullaby.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lullaby.ogg" title="File:Lullaby.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8895,6 +9884,21 @@ const geojsondata = {
             [2943, 3904],
             [2816, 3904],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Lumbering" title="Lumbering"\u003ELumbering\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lumbering.ogg" title="File:Lumbering.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2816, 10304],
             [2816, 10368],
@@ -8906,9 +9910,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Lumbering" title="Lumbering">Lumbering</a>',
+        title: '\u003Ca href="/w/Lumbering" title="Lumbering"\u003ELumbering\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Lumbering.ogg" title="File:Lumbering.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Lumbering.ogg" title="File:Lumbering.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8928,9 +9932,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Lunar_Isle" title="The Lunar Isle">The Lunar Isle</a>',
+        title:
+          '\u003Ca href="/w/The_Lunar_Isle" title="The Lunar Isle"\u003EThe Lunar Isle\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Lunar_Isle.ogg" title="File:The Lunar Isle.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Lunar_Isle.ogg" title="File:The Lunar Isle.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8950,9 +9955,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Mad_Eadgar" title="Mad Eadgar">Mad Eadgar</a>',
+        title: '\u003Ca href="/w/Mad_Eadgar" title="Mad Eadgar"\u003EMad Eadgar\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Mad_Eadgar.ogg" title="File:Mad Eadgar.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mad_Eadgar.ogg" title="File:Mad Eadgar.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8972,9 +9977,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Mad_Mole" title="The Mad Mole">The Mad Mole</a>',
+        title:
+          '\u003Ca href="/w/The_Mad_Mole" title="The Mad Mole"\u003EThe Mad Mole\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Mad_Mole.ogg" title="File:The Mad Mole.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Mad_Mole.ogg" title="File:The Mad Mole.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -8995,9 +10001,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Mage_Arena_(music_track)" title="Mage Arena (music track)">Mage Arena </a>',
+          '\u003Ca href="/w/Mage_Arena_(music_track)" title="Mage Arena (music track)"\u003EMage Arena \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Mage_Arena.ogg" title="File:Mage Arena.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mage_Arena.ogg" title="File:Mage Arena.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9017,9 +10023,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Magic_Dance" title="Magic Dance">Magic Dance</a>',
+        title: '\u003Ca href="/w/Magic_Dance" title="Magic Dance"\u003EMagic Dance\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Magic_Dance.ogg" title="File:Magic Dance.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Magic_Dance.ogg" title="File:Magic Dance.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9039,9 +10045,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Magic_Magic_Magic" title="Magic Magic Magic">Magic Magic Magic</a>',
+        title:
+          '\u003Ca href="/w/Magic_Magic_Magic" title="Magic Magic Magic"\u003EMagic Magic Magic\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Magic_Magic_Magic.ogg" title="File:Magic Magic Magic.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Magic_Magic_Magic.ogg" title="File:Magic Magic Magic.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9061,9 +10068,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Magical_Journey" title="Magical Journey">Magical Journey</a>',
+        title:
+          '\u003Ca href="/w/Magical_Journey" title="Magical Journey"\u003EMagical Journey\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Magical_Journey.ogg" title="File:Magical Journey.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Magical_Journey.ogg" title="File:Magical Journey.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9084,9 +10092,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Maiden%27s_Anger" title="The Maiden&#39;s Anger">The Maiden\'s Anger</a>',
+          '\u003Ca href="/w/The_Maiden%27s_Anger" title="The Maiden\u0026#39;s Anger"\u003EThe Maiden\'s Anger\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Maiden%27s_Anger.ogg" title="File:The Maiden&#39;s Anger.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Maiden%27s_Anger.ogg" title="File:The Maiden\u0026#39;s Anger.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9107,9 +10115,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Maiden%27s_Sorrow" title="The Maiden&#39;s Sorrow">The Maiden\'s Sorrow</a>',
+          '\u003Ca href="/w/The_Maiden%27s_Sorrow" title="The Maiden\u0026#39;s Sorrow"\u003EThe Maiden\'s Sorrow\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Maiden%27s_Sorrow.ogg" title="File:The Maiden&#39;s Sorrow.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Maiden%27s_Sorrow.ogg" title="File:The Maiden\u0026#39;s Sorrow.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9129,9 +10137,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Major_Miner" title="Major Miner">Major Miner</a>',
+        title: '\u003Ca href="/w/Major_Miner" title="Major Miner"\u003EMajor Miner\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Major_Miner.ogg" title="File:Major Miner.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Major_Miner.ogg" title="File:Major Miner.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9151,9 +10159,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Making_Waves" title="Making Waves">Making Waves</a>',
+        title:
+          '\u003Ca href="/w/Making_Waves" title="Making Waves"\u003EMaking Waves\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Making_Waves.ogg" title="File:Making Waves.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Making_Waves.ogg" title="File:Making Waves.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9173,9 +10182,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Malady" title="Malady">Malady</a>',
+        title: '\u003Ca href="/w/Malady" title="Malady"\u003EMalady\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Malady.ogg" title="File:Malady.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Malady.ogg" title="File:Malady.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9195,8 +10204,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/March" title="March">March</a>',
-        description: '<div><a href="/w/File:March.ogg" title="File:March.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/March" title="March"\u003EMarch\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:March.ogg" title="File:March.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9263,6 +10273,22 @@ const geojsondata = {
             [1539, 3711],
             [1540, 3712],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/March_of_the_Shayzien" title="March of the Shayzien"\u003EMarch of the Shayzien\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:March_of_the_Shayzien.ogg" title="File:March of the Shayzien.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1462, 3736],
             [1458, 3732],
@@ -9281,6 +10307,22 @@ const geojsondata = {
             [1465, 3736],
             [1462, 3736],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/March_of_the_Shayzien" title="March of the Shayzien"\u003EMarch of the Shayzien\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:March_of_the_Shayzien.ogg" title="File:March of the Shayzien.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1390, 3482],
             [1415, 3507],
@@ -9300,6 +10342,22 @@ const geojsondata = {
             [1382, 3482],
             [1390, 3482],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/March_of_the_Shayzien" title="March of the Shayzien"\u003EMarch of the Shayzien\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:March_of_the_Shayzien.ogg" title="File:March of the Shayzien.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1280, 9920],
             [1280, 9984],
@@ -9312,9 +10370,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/March_of_the_Shayzien" title="March of the Shayzien">March of the Shayzien</a>',
+          '\u003Ca href="/w/March_of_the_Shayzien" title="March of the Shayzien"\u003EMarch of the Shayzien\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:March_of_the_Shayzien.ogg" title="File:March of the Shayzien.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:March_of_the_Shayzien.ogg" title="File:March of the Shayzien.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9330,6 +10388,21 @@ const geojsondata = {
             [3072, 5440],
             [3008, 5440],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Marooned" title="Marooned"\u003EMarooned\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Marooned.ogg" title="File:Marooned.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2880, 2688],
             [2880, 2752],
@@ -9341,9 +10414,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Marooned" title="Marooned">Marooned</a>',
+        title: '\u003Ca href="/w/Marooned" title="Marooned"\u003EMarooned\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Marooned.ogg" title="File:Marooned.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Marooned.ogg" title="File:Marooned.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9359,6 +10432,21 @@ const geojsondata = {
             [2816, 10112],
             [2752, 10112],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Marzipan" title="Marzipan"\u003EMarzipan\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Marzipan.ogg" title="File:Marzipan.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2816, 10048],
             [2816, 10112],
@@ -9370,9 +10458,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Marzipan" title="Marzipan">Marzipan</a>',
+        title: '\u003Ca href="/w/Marzipan" title="Marzipan"\u003EMarzipan\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Marzipan.ogg" title="File:Marzipan.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Marzipan.ogg" title="File:Marzipan.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9392,9 +10480,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Masquerade" title="Masquerade">Masquerade</a>',
+        title: '\u003Ca href="/w/Masquerade" title="Masquerade"\u003EMasquerade\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Masquerade.ogg" title="File:Masquerade.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Masquerade.ogg" title="File:Masquerade.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9415,9 +10503,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Mausoleum_(music_track)" title="Mausoleum (music track)">Mausoleum </a>',
+          '\u003Ca href="/w/Mausoleum_(music_track)" title="Mausoleum (music track)"\u003EMausoleum \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Mausoleum.ogg" title="File:Mausoleum.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mausoleum.ogg" title="File:Mausoleum.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9433,6 +10521,22 @@ const geojsondata = {
             [1344, 1280],
             [1280, 1280],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Maws_Jaws_%26_Claws" title="Maws Jaws \u0026amp; Claws"\u003EMaws Jaws \u0026amp; Claws\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Maws_Jaws_%26_Claws.ogg" title="File:Maws Jaws \u0026amp; Claws.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1216, 1216],
             [1216, 1280],
@@ -9440,6 +10544,22 @@ const geojsondata = {
             [1280, 1216],
             [1216, 1216],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Maws_Jaws_%26_Claws" title="Maws Jaws \u0026amp; Claws"\u003EMaws Jaws \u0026amp; Claws\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Maws_Jaws_%26_Claws.ogg" title="File:Maws Jaws \u0026amp; Claws.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1344, 1216],
             [1344, 1280],
@@ -9452,9 +10572,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Maws_Jaws_%26_Claws" title="Maws Jaws &amp; Claws">Maws Jaws &amp; Claws</a>',
+          '\u003Ca href="/w/Maws_Jaws_%26_Claws" title="Maws Jaws \u0026amp; Claws"\u003EMaws Jaws \u0026amp; Claws\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Maws_Jaws_%26_Claws.ogg" title="File:Maws Jaws &amp; Claws.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Maws_Jaws_%26_Claws.ogg" title="File:Maws Jaws \u0026amp; Claws.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9483,6 +10603,21 @@ const geojsondata = {
             [2923, 3251],
             [2923, 3240],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/The_Maze" title="The Maze"\u003EThe Maze\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Maze.ogg" title="File:The Maze.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2816, 9216],
             [2816, 9344],
@@ -9490,6 +10625,21 @@ const geojsondata = {
             [2880, 9216],
             [2816, 9216],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/The_Maze" title="The Maze"\u003EThe Maze\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Maze.ogg" title="File:The Maze.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2880, 9600],
             [2880, 9664],
@@ -9501,9 +10651,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Maze" title="The Maze">The Maze</a>',
+        title: '\u003Ca href="/w/The_Maze" title="The Maze"\u003EThe Maze\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Maze.ogg" title="File:The Maze.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Maze.ogg" title="File:The Maze.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9525,9 +10675,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Medieval" title="Medieval">Medieval</a>',
+        title: '\u003Ca href="/w/Medieval" title="Medieval"\u003EMedieval\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Medieval.ogg" title="File:Medieval.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Medieval.ogg" title="File:Medieval.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9547,9 +10697,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Mellow" title="Mellow">Mellow</a>',
+        title: '\u003Ca href="/w/Mellow" title="Mellow"\u003EMellow\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Mellow.ogg" title="File:Mellow.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mellow.ogg" title="File:Mellow.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9569,9 +10719,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Melodrama" title="Melodrama">Melodrama</a>',
+        title: '\u003Ca href="/w/Melodrama" title="Melodrama"\u003EMelodrama\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Melodrama.ogg" title="File:Melodrama.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Melodrama.ogg" title="File:Melodrama.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9591,9 +10741,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Meridian" title="Meridian">Meridian</a>',
+        title: '\u003Ca href="/w/Meridian" title="Meridian"\u003EMeridian\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Meridian.ogg" title="File:Meridian.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Meridian.ogg" title="File:Meridian.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9609,6 +10759,22 @@ const geojsondata = {
             [3072, 5184],
             [3040, 5184],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Method_of_Madness" title="Method of Madness"\u003EMethod of Madness\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Method_of_Madness.ogg" title="File:Method of Madness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3296, 9792],
             [3296, 9824],
@@ -9620,9 +10786,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Method_of_Madness" title="Method of Madness">Method of Madness</a>',
+        title:
+          '\u003Ca href="/w/Method_of_Madness" title="Method of Madness"\u003EMethod of Madness\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Method_of_Madness.ogg" title="File:Method of Madness.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Method_of_Madness.ogg" title="File:Method of Madness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9638,6 +10805,21 @@ const geojsondata = {
             [2688, 4672],
             [2624, 4672],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Miles_Away" title="Miles Away"\u003EMiles Away\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Miles_Away.ogg" title="File:Miles Away.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2880, 3264],
             [2880, 3328],
@@ -9649,9 +10831,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Miles_Away" title="Miles Away">Miles Away</a>',
+        title: '\u003Ca href="/w/Miles_Away" title="Miles Away"\u003EMiles Away\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Miles_Away.ogg" title="File:Miles Away.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Miles_Away.ogg" title="File:Miles Away.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9781,9 +10963,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Military_Life" title="Military Life">Military Life</a>',
+        title:
+          '\u003Ca href="/w/Military_Life" title="Military Life"\u003EMilitary Life\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Military_Life.ogg" title="File:Military Life.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Military_Life.ogg" title="File:Military Life.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9799,6 +10982,21 @@ const geojsondata = {
             [1408, 9920],
             [1408, 9984],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/The_Militia" title="The Militia"\u003EThe Militia\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Militia.ogg" title="File:The Militia.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1605, 3522],
             [1593, 3516],
@@ -9845,6 +11043,21 @@ const geojsondata = {
             [1605, 3548],
             [1605, 3522],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/The_Militia" title="The Militia"\u003EThe Militia\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Militia.ogg" title="File:The Militia.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1536, 9984],
             [1600, 9984],
@@ -9856,9 +11069,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Militia" title="The Militia">The Militia</a>',
+        title: '\u003Ca href="/w/The_Militia" title="The Militia"\u003EThe Militia\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Militia.ogg" title="File:The Militia.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Militia.ogg" title="File:The Militia.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9878,9 +11091,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Mind_over_Matter" title="Mind over Matter">Mind over Matter</a>',
+        title:
+          '\u003Ca href="/w/Mind_over_Matter" title="Mind over Matter"\u003EMind over Matter\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Mind_over_Matter.ogg" title="File:Mind over Matter.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mind_over_Matter.ogg" title="File:Mind over Matter.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9900,9 +11114,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Miracle_Dance" title="Miracle Dance">Miracle Dance</a>',
+        title:
+          '\u003Ca href="/w/Miracle_Dance" title="Miracle Dance"\u003EMiracle Dance\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Miracle_Dance.ogg" title="File:Miracle Dance.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Miracle_Dance.ogg" title="File:Miracle Dance.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9922,9 +11137,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Mirage" title="Mirage">Mirage</a>',
+        title: '\u003Ca href="/w/Mirage" title="Mirage"\u003EMirage\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Mirage.ogg" title="File:Mirage.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mirage.ogg" title="File:Mirage.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9945,9 +11160,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Miscellania_(music_track)" title="Miscellania (music track)">Miscellania </a>',
+          '\u003Ca href="/w/Miscellania_(music_track)" title="Miscellania (music track)"\u003EMiscellania \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Miscellania.ogg" title="File:Miscellania.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Miscellania.ogg" title="File:Miscellania.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9967,9 +11182,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Mollusc_Menace" title="The Mollusc Menace">The Mollusc Menace</a>',
+        title:
+          '\u003Ca href="/w/The_Mollusc_Menace" title="The Mollusc Menace"\u003EThe Mollusc Menace\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Mollusc_Menace.ogg" title="File:The Mollusc Menace.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Mollusc_Menace.ogg" title="File:The Mollusc Menace.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -9989,9 +11205,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Monarch_Waltz" title="Monarch Waltz">Monarch Waltz</a>',
+        title:
+          '\u003Ca href="/w/Monarch_Waltz" title="Monarch Waltz"\u003EMonarch Waltz\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Monarch_Waltz.ogg" title="File:Monarch Waltz.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Monarch_Waltz.ogg" title="File:Monarch Waltz.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10011,9 +11228,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Monkey_Business" title="Monkey Business">Monkey Business</a>',
+        title:
+          '\u003Ca href="/w/Monkey_Business" title="Monkey Business"\u003EMonkey Business\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Monkey_Business.ogg" title="File:Monkey Business.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Monkey_Business.ogg" title="File:Monkey Business.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10029,6 +11247,22 @@ const geojsondata = {
             [2816, 2752],
             [2752, 2752],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Monkey_Madness_(music_track)" title="Monkey Madness (music track)"\u003EMonkey Madness \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Monkey_Madness.ogg" title="File:Monkey Madness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2048, 5376],
             [2048, 5440],
@@ -10041,9 +11275,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Monkey_Madness_(music_track)" title="Monkey Madness (music track)">Monkey Madness </a>',
+          '\u003Ca href="/w/Monkey_Madness_(music_track)" title="Monkey Madness (music track)"\u003EMonkey Madness \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Monkey_Madness.ogg" title="File:Monkey Madness.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Monkey_Madness.ogg" title="File:Monkey Madness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10059,6 +11293,22 @@ const geojsondata = {
             [2240, 5440],
             [2176, 5440],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Monkey_Sadness" title="Monkey Sadness"\u003EMonkey Sadness\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Monkey_Sadness.ogg" title="File:Monkey Sadness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2880, 9088],
             [2880, 9152],
@@ -10070,9 +11320,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Monkey_Sadness" title="Monkey Sadness">Monkey Sadness</a>',
+        title:
+          '\u003Ca href="/w/Monkey_Sadness" title="Monkey Sadness"\u003EMonkey Sadness\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Monkey_Sadness.ogg" title="File:Monkey Sadness.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Monkey_Sadness.ogg" title="File:Monkey Sadness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10092,9 +11343,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Monkey_Trouble" title="Monkey Trouble">Monkey Trouble</a>',
+        title:
+          '\u003Ca href="/w/Monkey_Trouble" title="Monkey Trouble"\u003EMonkey Trouble\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Monkey_Trouble.ogg" title="File:Monkey Trouble.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Monkey_Trouble.ogg" title="File:Monkey Trouble.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10114,9 +11366,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Monster_Melee" title="Monster Melee">Monster Melee</a>',
+        title:
+          '\u003Ca href="/w/Monster_Melee" title="Monster Melee"\u003EMonster Melee\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Monster_Melee.ogg" title="File:Monster Melee.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Monster_Melee.ogg" title="File:Monster Melee.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10136,9 +11389,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Monsters_Below" title="The Monsters Below">The Monsters Below</a>',
+        title:
+          '\u003Ca href="/w/The_Monsters_Below" title="The Monsters Below"\u003EThe Monsters Below\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Monsters_Below.ogg" title="File:The Monsters Below.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Monsters_Below.ogg" title="File:The Monsters Below.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10154,6 +11408,21 @@ const geojsondata = {
             [3200, 3904],
             [3136, 3904],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Moody" title="Moody"\u003EMoody\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Moody.ogg" title="File:Moody.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3138, 3640],
             [3138, 3645],
@@ -10193,8 +11462,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Moody" title="Moody">Moody</a>',
-        description: '<div><a href="/w/File:Moody.ogg" title="File:Moody.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Moody" title="Moody"\u003EMoody\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Moody.ogg" title="File:Moody.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10258,9 +11528,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Mor_Ul_Rek_(music_track)" title="Mor Ul Rek (music track)">Mor Ul Rek </a>',
+          '\u003Ca href="/w/Mor_Ul_Rek_(music_track)" title="Mor Ul Rek (music track)"\u003EMor Ul Rek \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Mor_Ul_Rek.ogg" title="File:Mor Ul Rek.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mor_Ul_Rek.ogg" title="File:Mor Ul Rek.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10281,9 +11551,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Morytania_(music_track)" title="Morytania (music track)">Morytania </a>',
+          '\u003Ca href="/w/Morytania_(music_track)" title="Morytania (music track)"\u003EMorytania \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Morytania.ogg" title="File:Morytania.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Morytania.ogg" title="File:Morytania.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10303,9 +11573,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Mouse_Trap" title="Mouse Trap">Mouse Trap</a>',
+        title: '\u003Ca href="/w/Mouse_Trap" title="Mouse Trap"\u003EMouse Trap\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Mouse_Trap.ogg" title="File:Mouse Trap.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mouse_Trap.ogg" title="File:Mouse Trap.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10325,9 +11595,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Mudskipper_Melody" title="Mudskipper Melody">Mudskipper Melody</a>',
+        title:
+          '\u003Ca href="/w/Mudskipper_Melody" title="Mudskipper Melody"\u003EMudskipper Melody\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Mudskipper_Melody.ogg" title="File:Mudskipper Melody.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mudskipper_Melody.ogg" title="File:Mudskipper Melody.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10347,9 +11618,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Museum_Medley" title="Museum Medley">Museum Medley</a>',
+        title:
+          '\u003Ca href="/w/Museum_Medley" title="Museum Medley"\u003EMuseum Medley\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Museum_Medley.ogg" title="File:Museum Medley.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Museum_Medley.ogg" title="File:Museum Medley.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10369,9 +11641,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Mutant_Medley" title="Mutant Medley">Mutant Medley</a>',
+        title:
+          '\u003Ca href="/w/Mutant_Medley" title="Mutant Medley"\u003EMutant Medley\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Mutant_Medley.ogg" title="File:Mutant Medley.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mutant_Medley.ogg" title="File:Mutant Medley.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10391,9 +11664,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/My_Arm%27s_Journey" title="My Arm&#39;s Journey">My Arm\'s Journey</a>',
+        title:
+          '\u003Ca href="/w/My_Arm%27s_Journey" title="My Arm\u0026#39;s Journey"\u003EMy Arm\'s Journey\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:My_Arm%27s_Journey.ogg" title="File:My Arm&#39;s Journey.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:My_Arm%27s_Journey.ogg" title="File:My Arm\u0026#39;s Journey.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10413,9 +11687,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Mystics_of_Nature" title="Mystics of Nature">Mystics of Nature</a>',
+        title:
+          '\u003Ca href="/w/Mystics_of_Nature" title="Mystics of Nature"\u003EMystics of Nature\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Mystics_of_Nature.ogg" title="File:Mystics of Nature.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mystics_of_Nature.ogg" title="File:Mystics of Nature.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10431,6 +11706,21 @@ const geojsondata = {
             [1902, 9005],
             [1901, 9005],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Mythical" title="Mythical"\u003EMythical\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mythical.ogg" title="File:Mythical.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2452, 2862],
             [2452, 2880],
@@ -10444,9 +11734,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Mythical" title="Mythical">Mythical</a>',
+        title: '\u003Ca href="/w/Mythical" title="Mythical"\u003EMythical\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Mythical.ogg" title="File:Mythical.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Mythical.ogg" title="File:Mythical.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10466,9 +11756,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Narnode%27s_Theme" title="Narnode&#39;s Theme">Narnode\'s Theme</a>',
+        title:
+          '\u003Ca href="/w/Narnode%27s_Theme" title="Narnode\u0026#39;s Theme"\u003ENarnode\'s Theme\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Narnode%27s_Theme.ogg" title="File:Narnode&#39;s Theme.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Narnode%27s_Theme.ogg" title="File:Narnode\u0026#39;s Theme.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10484,6 +11775,21 @@ const geojsondata = {
             [3456, 3328],
             [3392, 3328],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Natural" title="Natural"\u003ENatural\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Natural.ogg" title="File:Natural.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2272, 5024],
             [2272, 5056],
@@ -10491,6 +11797,21 @@ const geojsondata = {
             [2304, 5024],
             [2272, 5024],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Natural" title="Natural"\u003ENatural\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Natural.ogg" title="File:Natural.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2336, 5024],
             [2336, 5056],
@@ -10498,6 +11819,21 @@ const geojsondata = {
             [2368, 5024],
             [2336, 5024],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Natural" title="Natural"\u003ENatural\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Natural.ogg" title="File:Natural.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2016, 5024],
             [2016, 5056],
@@ -10505,6 +11841,21 @@ const geojsondata = {
             [2048, 5024],
             [2016, 5024],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Natural" title="Natural"\u003ENatural\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Natural.ogg" title="File:Natural.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2208, 5024],
             [2208, 5056],
@@ -10516,9 +11867,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Natural" title="Natural">Natural</a>',
+        title: '\u003Ca href="/w/Natural" title="Natural"\u003ENatural\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Natural.ogg" title="File:Natural.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Natural.ogg" title="File:Natural.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10538,9 +11889,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Navigator" title="The Navigator">The Navigator</a>',
+        title:
+          '\u003Ca href="/w/The_Navigator" title="The Navigator"\u003EThe Navigator\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Navigator.ogg" title="File:The Navigator.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Navigator.ogg" title="File:The Navigator.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10560,9 +11912,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Nether_Realm" title="Nether Realm">Nether Realm</a>',
+        title:
+          '\u003Ca href="/w/Nether_Realm" title="Nether Realm"\u003ENether Realm\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Nether_Realm.ogg" title="File:Nether Realm.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Nether_Realm.ogg" title="File:Nether Realm.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10584,9 +11937,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Neverland" title="Neverland">Neverland</a>',
+        title: '\u003Ca href="/w/Neverland" title="Neverland"\u003ENeverland\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Neverland.ogg" title="File:Neverland.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Neverland.ogg" title="File:Neverland.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10610,9 +11963,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Newbie_Farming" title="Newbie Farming">Newbie Farming</a>',
+        title:
+          '\u003Ca href="/w/Newbie_Farming" title="Newbie Farming"\u003ENewbie Farming\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Newbie_Farming.ogg" title="File:Newbie Farming.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Newbie_Farming.ogg" title="File:Newbie Farming.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10634,9 +11988,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Newbie_Melody" title="Newbie Melody">Newbie Melody</a>',
+        title:
+          '\u003Ca href="/w/Newbie_Melody" title="Newbie Melody"\u003ENewbie Melody\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Newbie_Melody.ogg" title="File:Newbie Melody.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Newbie_Melody.ogg" title="File:Newbie Melody.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10667,9 +12022,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Night_of_the_Vampyre" title="Night of the Vampyre">Night of the Vampyre</a>',
+          '\u003Ca href="/w/Night_of_the_Vampyre" title="Night of the Vampyre"\u003ENight of the Vampyre\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Night_of_the_Vampyre.ogg" title="File:Night of the Vampyre.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Night_of_the_Vampyre.ogg" title="File:Night of the Vampyre.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10689,9 +12044,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Nightfall" title="Nightfall">Nightfall</a>',
+        title: '\u003Ca href="/w/Nightfall" title="Nightfall"\u003ENightfall\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Nightfall.ogg" title="File:Nightfall.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Nightfall.ogg" title="File:Nightfall.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10712,9 +12067,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Nightmare_Continues" title="The Nightmare Continues">The Nightmare Continues</a>',
+          '\u003Ca href="/w/The_Nightmare_Continues" title="The Nightmare Continues"\u003EThe Nightmare Continues\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Nightmare_Continues.ogg" title="File:The Nightmare Continues.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Nightmare_Continues.ogg" title="File:The Nightmare Continues.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10734,9 +12089,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/No_Pasaran" title="No Pasaran">No Pasaran</a>',
+        title: '\u003Ca href="/w/No_Pasaran" title="No Pasaran"\u003ENo Pasaran\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:No_Pasaran.ogg" title="File:No Pasaran.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:No_Pasaran.ogg" title="File:No Pasaran.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10752,6 +12107,21 @@ const geojsondata = {
             [3040, 5184],
             [3008, 5184],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/No_Way_Out" title="No Way Out"\u003ENo Way Out\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:No_Way_Out.ogg" title="File:No Way Out.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3264, 9792],
             [3264, 9824],
@@ -10759,6 +12129,21 @@ const geojsondata = {
             [3296, 9792],
             [3264, 9792],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/No_Way_Out" title="No Way Out"\u003ENo Way Out\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:No_Way_Out.ogg" title="File:No Way Out.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3072, 5184],
             [3072, 5216],
@@ -10770,9 +12155,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/No_Way_Out" title="No Way Out">No Way Out</a>',
+        title: '\u003Ca href="/w/No_Way_Out" title="No Way Out"\u003ENo Way Out\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:No_Way_Out.ogg" title="File:No Way Out.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:No_Way_Out.ogg" title="File:No Way Out.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10841,8 +12226,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Nomad_(music_track)" title="Nomad (music track)">Nomad </a>',
-        description: '<div><a href="/w/File:Nomad.ogg" title="File:Nomad.ogg">Play track</a></div>',
+        title:
+          '\u003Ca href="/w/Nomad_(music_track)" title="Nomad (music track)"\u003ENomad \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Nomad.ogg" title="File:Nomad.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10862,9 +12249,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Norse_Code" title="Norse Code">Norse Code</a>',
+        title: '\u003Ca href="/w/Norse_Code" title="Norse Code"\u003ENorse Code\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Norse_Code.ogg" title="File:Norse Code.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Norse_Code.ogg" title="File:Norse Code.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10910,9 +12297,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Not_a_Moment_of_Relief" title="Not a Moment of Relief">Not a Moment of Relief</a>',
+          '\u003Ca href="/w/Not_a_Moment_of_Relief" title="Not a Moment of Relief"\u003ENot a Moment of Relief\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Not_a_Moment_of_Relief.ogg" title="File:Not a Moment of Relief.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Not_a_Moment_of_Relief.ogg" title="File:Not a Moment of Relief.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10932,9 +12319,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Null_and_Void" title="Null and Void">Null and Void</a>',
+        title:
+          '\u003Ca href="/w/Null_and_Void" title="Null and Void"\u003ENull and Void\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Null_and_Void.ogg" title="File:Null and Void.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Null_and_Void.ogg" title="File:Null and Void.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10954,9 +12342,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Ogre_the_Top" title="Ogre the Top">Ogre the Top</a>',
+        title:
+          '\u003Ca href="/w/Ogre_the_Top" title="Ogre the Top"\u003EOgre the Top\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Ogre_the_Top.ogg" title="File:Ogre the Top.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Ogre_the_Top.ogg" title="File:Ogre the Top.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10976,9 +12365,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Oh_Rats!" title="Oh Rats!">Oh Rats!</a>',
+        title: '\u003Ca href="/w/Oh_Rats!" title="Oh Rats!"\u003EOh Rats!\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Oh_Rats!.ogg" title="File:Oh Rats!.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Oh_Rats!.ogg" title="File:Oh Rats!.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -10998,9 +12387,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/On_Thin_Ice" title="On Thin Ice">On Thin Ice</a>',
+        title: '\u003Ca href="/w/On_Thin_Ice" title="On Thin Ice"\u003EOn Thin Ice\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:On_Thin_Ice.ogg" title="File:On Thin Ice.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:On_Thin_Ice.ogg" title="File:On Thin Ice.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11020,9 +12409,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/On_the_Shore" title="On the Shore">On the Shore</a>',
+        title:
+          '\u003Ca href="/w/On_the_Shore" title="On the Shore"\u003EOn the Shore\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:On_the_Shore.ogg" title="File:On the Shore.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:On_the_Shore.ogg" title="File:On the Shore.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11038,6 +12428,21 @@ const geojsondata = {
             [2432, 3584],
             [2368, 3520],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/On_the_Wing" title="On the Wing"\u003EOn the Wing\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:On_the_Wing.ogg" title="File:On the Wing.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3008, 4480],
             [3008, 4544],
@@ -11049,9 +12454,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/On_the_Wing" title="On the Wing">On the Wing</a>',
+        title: '\u003Ca href="/w/On_the_Wing" title="On the Wing"\u003EOn the Wing\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:On_the_Wing.ogg" title="File:On the Wing.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:On_the_Wing.ogg" title="File:On the Wing.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11071,9 +12476,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Oriental" title="Oriental">Oriental</a>',
+        title: '\u003Ca href="/w/Oriental" title="Oriental"\u003EOriental\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Oriental.ogg" title="File:Oriental.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Oriental.ogg" title="File:Oriental.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11093,9 +12498,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Other_Side" title="The Other Side">The Other Side</a>',
+        title:
+          '\u003Ca href="/w/The_Other_Side" title="The Other Side"\u003EThe Other Side\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Other_Side.ogg" title="File:The Other Side.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Other_Side.ogg" title="File:The Other Side.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11133,9 +12539,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Out_at_the_Mines" title="Out at the Mines">Out at the Mines</a>',
+        title:
+          '\u003Ca href="/w/Out_at_the_Mines" title="Out at the Mines"\u003EOut at the Mines\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Out_at_the_Mines.ogg" title="File:Out at the Mines.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Out_at_the_Mines.ogg" title="File:Out at the Mines.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11151,6 +12558,22 @@ const geojsondata = {
             [2560, 4608],
             [2496, 4608],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Out_of_the_Deep" title="Out of the Deep"\u003EOut of the Deep\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Out_of_the_Deep.ogg" title="File:Out of the Deep.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2496, 9984],
             [2496, 10048],
@@ -11162,9 +12585,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Out_of_the_Deep" title="Out of the Deep">Out of the Deep</a>',
+        title:
+          '\u003Ca href="/w/Out_of_the_Deep" title="Out of the Deep"\u003EOut of the Deep\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Out_of_the_Deep.ogg" title="File:Out of the Deep.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Out_of_the_Deep.ogg" title="File:Out of the Deep.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11187,9 +12611,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Over_to_Nardah" title="Over to Nardah">Over to Nardah</a>',
+        title:
+          '\u003Ca href="/w/Over_to_Nardah" title="Over to Nardah"\u003EOver to Nardah\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Over_to_Nardah.ogg" title="File:Over to Nardah.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Over_to_Nardah.ogg" title="File:Over to Nardah.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11209,9 +12634,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Overpass" title="Overpass">Overpass</a>',
+        title: '\u003Ca href="/w/Overpass" title="Overpass"\u003EOverpass\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Overpass.ogg" title="File:Overpass.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Overpass.ogg" title="File:Overpass.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11231,9 +12656,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Overture" title="Overture">Overture</a>',
+        title: '\u003Ca href="/w/Overture" title="Overture"\u003EOverture\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Overture.ogg" title="File:Overture.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Overture.ogg" title="File:Overture.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11253,9 +12678,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Parade" title="Parade">Parade</a>',
+        title: '\u003Ca href="/w/Parade" title="Parade"\u003EParade\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Parade.ogg" title="File:Parade.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Parade.ogg" title="File:Parade.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11276,9 +12701,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Part_Where_You_Die" title="The Part Where You Die">The Part Where You Die</a>',
+          '\u003Ca href="/w/The_Part_Where_You_Die" title="The Part Where You Die"\u003EThe Part Where You Die\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Part_Where_You_Die.ogg" title="File:The Part Where You Die.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Part_Where_You_Die.ogg" title="File:The Part Where You Die.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11298,9 +12723,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Path_of_Peril" title="Path of Peril">Path of Peril</a>',
+        title:
+          '\u003Ca href="/w/Path_of_Peril" title="Path of Peril"\u003EPath of Peril\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Path_of_Peril.ogg" title="File:Path of Peril.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Path_of_Peril.ogg" title="File:Path of Peril.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11320,9 +12746,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Pathways" title="Pathways">Pathways</a>',
+        title: '\u003Ca href="/w/Pathways" title="Pathways"\u003EPathways\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Pathways.ogg" title="File:Pathways.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Pathways.ogg" title="File:Pathways.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11338,6 +12764,22 @@ const geojsondata = {
             [1728, 5504],
             [1600, 5504],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Pest_Control_(music_track)" title="Pest Control (music track)"\u003EPest Control \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Pest_Control.ogg" title="File:Pest Control.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2624, 2560],
             [2624, 2624],
@@ -11350,9 +12792,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Pest_Control_(music_track)" title="Pest Control (music track)">Pest Control </a>',
+          '\u003Ca href="/w/Pest_Control_(music_track)" title="Pest Control (music track)"\u003EPest Control \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Pest_Control.ogg" title="File:Pest Control.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Pest_Control.ogg" title="File:Pest Control.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11372,9 +12814,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Pharaoh%27s_Tomb" title="Pharaoh&#39;s Tomb">Pharaoh\'s Tomb</a>',
+        title:
+          '\u003Ca href="/w/Pharaoh%27s_Tomb" title="Pharaoh\u0026#39;s Tomb"\u003EPharaoh\'s Tomb\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Pharaoh%27s_Tomb.ogg" title="File:Pharaoh&#39;s Tomb.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Pharaoh%27s_Tomb.ogg" title="File:Pharaoh\u0026#39;s Tomb.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11394,9 +12837,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Phasmatys" title="Phasmatys">Phasmatys</a>',
+        title: '\u003Ca href="/w/Phasmatys" title="Phasmatys"\u003EPhasmatys\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Phasmatys.ogg" title="File:Phasmatys.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Phasmatys.ogg" title="File:Phasmatys.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11416,9 +12859,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Pheasant_Peasant" title="Pheasant Peasant">Pheasant Peasant</a>',
+        title:
+          '\u003Ca href="/w/Pheasant_Peasant" title="Pheasant Peasant"\u003EPheasant Peasant\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Pheasant_Peasant.ogg" title="File:Pheasant Peasant.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Pheasant_Peasant.ogg" title="File:Pheasant Peasant.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11438,9 +12882,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Pick_%26_Shovel" title="Pick &amp; Shovel">Pick &amp; Shovel</a>',
+        title:
+          '\u003Ca href="/w/Pick_%26_Shovel" title="Pick \u0026amp; Shovel"\u003EPick \u0026amp; Shovel\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Pick_%26_Shovel.ogg" title="File:Pick &amp; Shovel.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Pick_%26_Shovel.ogg" title="File:Pick \u0026amp; Shovel.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11460,9 +12905,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Pinball_Wizard" title="Pinball Wizard">Pinball Wizard</a>',
+        title:
+          '\u003Ca href="/w/Pinball_Wizard" title="Pinball Wizard"\u003EPinball Wizard\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Pinball_Wizard.ogg" title="File:Pinball Wizard.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Pinball_Wizard.ogg" title="File:Pinball Wizard.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11482,9 +12928,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Pirates_of_Penance" title="Pirates of Penance">Pirates of Penance</a>',
+        title:
+          '\u003Ca href="/w/Pirates_of_Penance" title="Pirates of Penance"\u003EPirates of Penance\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Pirates_of_Penance.ogg" title="File:Pirates of Penance.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Pirates_of_Penance.ogg" title="File:Pirates of Penance.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11504,9 +12951,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Pirates_of_Peril" title="Pirates of Peril">Pirates of Peril</a>',
+        title:
+          '\u003Ca href="/w/Pirates_of_Peril" title="Pirates of Peril"\u003EPirates of Peril\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Pirates_of_Peril.ogg" title="File:Pirates of Peril.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Pirates_of_Peril.ogg" title="File:Pirates of Peril.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11522,6 +12970,21 @@ const geojsondata = {
             [2752, 10176],
             [2688, 10176],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Poles_Apart" title="Poles Apart"\u003EPoles Apart\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Poles_Apart.ogg" title="File:Poles Apart.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2688, 3776],
             [2688, 3840],
@@ -11533,9 +12996,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Poles_Apart" title="Poles Apart">Poles Apart</a>',
+        title: '\u003Ca href="/w/Poles_Apart" title="Poles Apart"\u003EPoles Apart\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Poles_Apart.ogg" title="File:Poles Apart.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Poles_Apart.ogg" title="File:Poles Apart.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11555,9 +13018,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Power_of_Tears" title="The Power of Tears">The Power of Tears</a>',
+        title:
+          '\u003Ca href="/w/The_Power_of_Tears" title="The Power of Tears"\u003EThe Power of Tears\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Power_of_Tears.ogg" title="File:The Power of Tears.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Power_of_Tears.ogg" title="File:The Power of Tears.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11578,9 +13042,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Power_of_the_Shadow_Realm" title="Power of the Shadow Realm">Power of the Shadow Realm</a>',
+          '\u003Ca href="/w/Power_of_the_Shadow_Realm" title="Power of the Shadow Realm"\u003EPower of the Shadow Realm\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Power_of_the_Shadow_Realm.ogg" title="File:Power of the Shadow Realm.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Power_of_the_Shadow_Realm.ogg" title="File:Power of the Shadow Realm.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11600,9 +13064,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Predator_Xarpus" title="Predator Xarpus">Predator Xarpus</a>',
+        title:
+          '\u003Ca href="/w/Predator_Xarpus" title="Predator Xarpus"\u003EPredator Xarpus\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Predator_Xarpus.ogg" title="File:Predator Xarpus.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Predator_Xarpus.ogg" title="File:Predator Xarpus.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11624,9 +13089,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Preservation" title="Preservation">Preservation</a>',
+        title:
+          '\u003Ca href="/w/Preservation" title="Preservation"\u003EPreservation\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Preservation.ogg" title="File:Preservation.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Preservation.ogg" title="File:Preservation.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11642,6 +13108,21 @@ const geojsondata = {
             [3648, 3968],
             [3520, 3968],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Preserved" title="Preserved"\u003EPreserved\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Preserved.ogg" title="File:Preserved.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3776, 3840],
             [3840, 3840],
@@ -11655,9 +13136,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Preserved" title="Preserved">Preserved</a>',
+        title: '\u003Ca href="/w/Preserved" title="Preserved"\u003EPreserved\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Preserved.ogg" title="File:Preserved.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Preserved.ogg" title="File:Preserved.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11677,9 +13158,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Prime_Time" title="Prime Time">Prime Time</a>',
+        title: '\u003Ca href="/w/Prime_Time" title="Prime Time"\u003EPrime Time\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Prime_Time.ogg" title="File:Prime Time.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Prime_Time.ogg" title="File:Prime Time.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11699,9 +13180,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Principality" title="Principality">Principality</a>',
+        title:
+          '\u003Ca href="/w/Principality" title="Principality"\u003EPrincipality\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Principality.ogg" title="File:Principality.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Principality.ogg" title="File:Principality.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11721,8 +13203,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Quest_(music_track)" title="Quest (music track)">Quest </a>',
-        description: '<div><a href="/w/File:Quest.ogg" title="File:Quest.ogg">Play track</a></div>',
+        title:
+          '\u003Ca href="/w/Quest_(music_track)" title="Quest (music track)"\u003EQuest \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Quest.ogg" title="File:Quest.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11742,9 +13226,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Quizmaster" title="The Quizmaster">The Quizmaster</a>',
+        title:
+          '\u003Ca href="/w/The_Quizmaster" title="The Quizmaster"\u003EThe Quizmaster\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Quizmaster.ogg" title="File:The Quizmaster.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Quizmaster.ogg" title="File:The Quizmaster.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11765,9 +13250,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Race_Against_the_Clock" title="Race Against the Clock">Race Against the Clock</a>',
+          '\u003Ca href="/w/Race_Against_the_Clock" title="Race Against the Clock"\u003ERace Against the Clock\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Race_Against_the_Clock.ogg" title="File:Race Against the Clock.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Race_Against_the_Clock.ogg" title="File:Race Against the Clock.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11787,9 +13272,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Rat_Hunt" title="Rat Hunt">Rat Hunt</a>',
+        title: '\u003Ca href="/w/Rat_Hunt" title="Rat Hunt"\u003ERat Hunt\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Rat_Hunt.ogg" title="File:Rat Hunt.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Rat_Hunt.ogg" title="File:Rat Hunt.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11809,9 +13294,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Rat_a_Tat_Tat" title="Rat a Tat Tat">Rat a Tat Tat</a>',
+        title:
+          '\u003Ca href="/w/Rat_a_Tat_Tat" title="Rat a Tat Tat"\u003ERat a Tat Tat\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Rat_a_Tat_Tat.ogg" title="File:Rat a Tat Tat.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Rat_a_Tat_Tat.ogg" title="File:Rat a Tat Tat.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11831,9 +13317,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Ready_for_Battle" title="Ready for Battle">Ready for Battle</a>',
+        title:
+          '\u003Ca href="/w/Ready_for_Battle" title="Ready for Battle"\u003EReady for Battle\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Ready_for_Battle.ogg" title="File:Ready for Battle.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Ready_for_Battle.ogg" title="File:Ready for Battle.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11853,8 +13340,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Regal" title="Regal">Regal</a>',
-        description: '<div><a href="/w/File:Regal.ogg" title="File:Regal.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Regal" title="Regal"\u003ERegal\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Regal.ogg" title="File:Regal.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11874,9 +13362,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Regal_Pomp" title="Regal Pomp">Regal Pomp</a>',
+        title: '\u003Ca href="/w/Regal_Pomp" title="Regal Pomp"\u003ERegal Pomp\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Regal_Pomp.ogg" title="File:Regal Pomp.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Regal_Pomp.ogg" title="File:Regal Pomp.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11896,9 +13384,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Reggae" title="Reggae">Reggae</a>',
+        title: '\u003Ca href="/w/Reggae" title="Reggae"\u003EReggae\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Reggae.ogg" title="File:Reggae.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Reggae.ogg" title="File:Reggae.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11918,9 +13406,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Reggae_2" title="Reggae 2">Reggae 2</a>',
+        title: '\u003Ca href="/w/Reggae_2" title="Reggae 2"\u003EReggae 2\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Reggae_2.ogg" title="File:Reggae 2.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Reggae_2.ogg" title="File:Reggae 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11936,6 +13424,22 @@ const geojsondata = {
             [3584, 10368],
             [3520, 10368],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Relics_(music_track)" title="Relics (music track)"\u003ERelics \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Relics.ogg" title="File:Relics.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2816, 9664],
             [2816, 9728],
@@ -11943,6 +13447,22 @@ const geojsondata = {
             [2880, 9664],
             [2816, 9664],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Relics_(music_track)" title="Relics (music track)"\u003ERelics \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Relics.ogg" title="File:Relics.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2240, 10432],
             [2240, 10496],
@@ -11954,9 +13474,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Relics_(music_track)" title="Relics (music track)">Relics </a>',
+        title:
+          '\u003Ca href="/w/Relics_(music_track)" title="Relics (music track)"\u003ERelics \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Relics.ogg" title="File:Relics.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Relics.ogg" title="File:Relics.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -11978,9 +13499,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Rellekka_(music_track)" title="Rellekka (music track)">Rellekka </a>',
+        title:
+          '\u003Ca href="/w/Rellekka_(music_track)" title="Rellekka (music track)"\u003ERellekka \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Rellekka.ogg" title="File:Rellekka.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Rellekka.ogg" title="File:Rellekka.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12000,9 +13522,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Rest_in_Peace" title="Rest in Peace">Rest in Peace</a>',
+        title:
+          '\u003Ca href="/w/Rest_in_Peace" title="Rest in Peace"\u003ERest in Peace\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Rest_in_Peace.ogg" title="File:Rest in Peace.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Rest_in_Peace.ogg" title="File:Rest in Peace.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12023,9 +13546,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Revenants_(music_track)" title="Revenants (music track)">Revenants </a>',
+          '\u003Ca href="/w/Revenants_(music_track)" title="Revenants (music track)"\u003ERevenants \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Revenants.ogg" title="File:Revenants.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Revenants.ogg" title="File:Revenants.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12045,9 +13568,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Right_on_Track" title="Right on Track">Right on Track</a>',
+        title:
+          '\u003Ca href="/w/Right_on_Track" title="Right on Track"\u003ERight on Track\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Right_on_Track.ogg" title="File:Right on Track.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Right_on_Track.ogg" title="File:Right on Track.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12067,9 +13591,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Righteousness" title="Righteousness">Righteousness</a>',
+        title:
+          '\u003Ca href="/w/Righteousness" title="Righteousness"\u003ERighteousness\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Righteousness.ogg" title="File:Righteousness.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Righteousness.ogg" title="File:Righteousness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12089,9 +13614,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Rising_Damp" title="Rising Damp">Rising Damp</a>',
+        title: '\u003Ca href="/w/Rising_Damp" title="Rising Damp"\u003ERising Damp\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Rising_Damp.ogg" title="File:Rising Damp.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Rising_Damp.ogg" title="File:Rising Damp.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12111,9 +13636,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Riverside" title="Riverside">Riverside</a>',
+        title: '\u003Ca href="/w/Riverside" title="Riverside"\u003ERiverside\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Riverside.ogg" title="File:Riverside.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Riverside.ogg" title="File:Riverside.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12137,9 +13662,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Rogues%27_Den" title="The Rogues&#39; Den">The Rogues\' Den</a>',
+        title:
+          '\u003Ca href="/w/The_Rogues%27_Den" title="The Rogues\u0026#39; Den"\u003EThe Rogues\' Den\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Rogues%27_Den.ogg" title="File:The Rogues&#39; Den.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Rogues%27_Den.ogg" title="File:The Rogues\u0026#39; Den.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12159,9 +13685,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Roll_the_Bones" title="Roll the Bones">Roll the Bones</a>',
+        title:
+          '\u003Ca href="/w/Roll_the_Bones" title="Roll the Bones"\u003ERoll the Bones\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Roll_the_Bones.ogg" title="File:Roll the Bones.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Roll_the_Bones.ogg" title="File:Roll the Bones.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12182,9 +13709,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Romancing_the_Crone" title="Romancing the Crone">Romancing the Crone</a>',
+          '\u003Ca href="/w/Romancing_the_Crone" title="Romancing the Crone"\u003ERomancing the Crone\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Romancing_the_Crone.ogg" title="File:Romancing the Crone.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Romancing_the_Crone.ogg" title="File:Romancing the Crone.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12204,9 +13731,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Romper_Chomper" title="Romper Chomper">Romper Chomper</a>',
+        title:
+          '\u003Ca href="/w/Romper_Chomper" title="Romper Chomper"\u003ERomper Chomper\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Romper_Chomper.ogg" title="File:Romper Chomper.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Romper_Chomper.ogg" title="File:Romper Chomper.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12226,9 +13754,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Roots_and_Flutes" title="Roots and Flutes">Roots and Flutes</a>',
+        title:
+          '\u003Ca href="/w/Roots_and_Flutes" title="Roots and Flutes"\u003ERoots and Flutes\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Roots_and_Flutes.ogg" title="File:Roots and Flutes.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Roots_and_Flutes.ogg" title="File:Roots and Flutes.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12244,6 +13773,22 @@ const geojsondata = {
             [1152, 10240],
             [1152, 10304],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Rose_(music_track)" title="Rose (music track)"\u003ERose \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Rose.ogg" title="File:Rose.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1266, 3772],
             [1266, 3762],
@@ -12275,8 +13820,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Rose_(music_track)" title="Rose (music track)">Rose </a>',
-        description: '<div><a href="/w/File:Rose.ogg" title="File:Rose.ogg">Play track</a></div>',
+        title:
+          '\u003Ca href="/w/Rose_(music_track)" title="Rose (music track)"\u003ERose \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Rose.ogg" title="File:Rose.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12296,9 +13843,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Royale" title="Royale">Royale</a>',
+        title: '\u003Ca href="/w/Royale" title="Royale"\u003ERoyale\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Royale.ogg" title="File:Royale.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Royale.ogg" title="File:Royale.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12348,6 +13895,22 @@ const geojsondata = {
             [1365, 3757],
             [1344, 3757],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Rugged_Terrain" title="Rugged Terrain"\u003ERugged Terrain\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Rugged_Terrain.ogg" title="File:Rugged Terrain.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1227, 3477],
             [1241, 3491],
@@ -12373,6 +13936,22 @@ const geojsondata = {
             [1227, 3456],
             [1227, 3477],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Rugged_Terrain" title="Rugged Terrain"\u003ERugged Terrain\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Rugged_Terrain.ogg" title="File:Rugged Terrain.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1546, 3727],
             [1546, 3728],
@@ -12466,6 +14045,22 @@ const geojsondata = {
             [1540, 3713],
             [1546, 3727],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Rugged_Terrain" title="Rugged Terrain"\u003ERugged Terrain\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Rugged_Terrain.ogg" title="File:Rugged Terrain.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1728, 10048],
             [1728, 10112],
@@ -12477,9 +14072,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Rugged_Terrain" title="Rugged Terrain">Rugged Terrain</a>',
+        title:
+          '\u003Ca href="/w/Rugged_Terrain" title="Rugged Terrain"\u003ERugged Terrain\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Rugged_Terrain.ogg" title="File:Rugged Terrain.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Rugged_Terrain.ogg" title="File:Rugged Terrain.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12502,9 +14098,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Ruins_of_Camdozaal" title="The Ruins of Camdozaal">The Ruins of Camdozaal</a>',
+          '\u003Ca href="/w/The_Ruins_of_Camdozaal" title="The Ruins of Camdozaal"\u003EThe Ruins of Camdozaal\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Ruins_of_Camdozaal.ogg" title="File:The Ruins of Camdozaal.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Ruins_of_Camdozaal.ogg" title="File:The Ruins of Camdozaal.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12528,9 +14124,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Ruins_of_Isolation" title="Ruins of Isolation">Ruins of Isolation</a>',
+        title:
+          '\u003Ca href="/w/Ruins_of_Isolation" title="Ruins of Isolation"\u003ERuins of Isolation\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Ruins_of_Isolation.ogg" title="File:Ruins of Isolation.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Ruins_of_Isolation.ogg" title="File:Ruins of Isolation.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12551,9 +14148,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Rune_Essence_(music_track)" title="Rune Essence (music track)">Rune Essence </a>',
+          '\u003Ca href="/w/Rune_Essence_(music_track)" title="Rune Essence (music track)"\u003ERune Essence \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Rune_Essence.ogg" title="File:Rune Essence.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Rune_Essence.ogg" title="File:Rune Essence.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12569,6 +14166,21 @@ const geojsondata = {
             [2560, 9728],
             [2528, 9728],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Sad_Meadow" title="Sad Meadow"\u003ESad Meadow\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sad_Meadow.ogg" title="File:Sad Meadow.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2432, 3324],
             [2463, 3324],
@@ -12586,9 +14198,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Sad_Meadow" title="Sad Meadow">Sad Meadow</a>',
+        title: '\u003Ca href="/w/Sad_Meadow" title="Sad Meadow"\u003ESad Meadow\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Sad_Meadow.ogg" title="File:Sad Meadow.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sad_Meadow.ogg" title="File:Sad Meadow.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12608,9 +14220,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Safety_in_Numbers" title="Safety in Numbers">Safety in Numbers</a>',
+        title:
+          '\u003Ca href="/w/Safety_in_Numbers" title="Safety in Numbers"\u003ESafety in Numbers\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Safety_in_Numbers.ogg" title="File:Safety in Numbers.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Safety_in_Numbers.ogg" title="File:Safety in Numbers.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12630,8 +14243,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Saga" title="Saga">Saga</a>',
-        description: '<div><a href="/w/File:Saga.ogg" title="File:Saga.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Saga" title="Saga"\u003ESaga\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Saga.ogg" title="File:Saga.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12652,9 +14266,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Sarachnis_(music_track)" title="Sarachnis (music track)">Sarachnis </a>',
+          '\u003Ca href="/w/Sarachnis_(music_track)" title="Sarachnis (music track)"\u003ESarachnis \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Sarachnis.ogg" title="File:Sarachnis.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sarachnis.ogg" title="File:Sarachnis.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12670,6 +14284,22 @@ const geojsondata = {
             [2944, 4928],
             [2752, 4928],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Sarcophagus_(music_track)" title="Sarcophagus (music track)"\u003ESarcophagus \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sarcophagus.ogg" title="File:Sarcophagus.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3200, 9280],
             [3200, 9344],
@@ -12682,9 +14312,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Sarcophagus_(music_track)" title="Sarcophagus (music track)">Sarcophagus </a>',
+          '\u003Ca href="/w/Sarcophagus_(music_track)" title="Sarcophagus (music track)"\u003ESarcophagus \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Sarcophagus.ogg" title="File:Sarcophagus.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sarcophagus.ogg" title="File:Sarcophagus.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12704,9 +14334,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Sarim%27s_Vermin" title="Sarim&#39;s Vermin">Sarim\'s Vermin</a>',
+        title:
+          '\u003Ca href="/w/Sarim%27s_Vermin" title="Sarim\u0026#39;s Vermin"\u003ESarim\'s Vermin\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Sarim%27s_Vermin.ogg" title="File:Sarim&#39;s Vermin.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sarim%27s_Vermin.ogg" title="File:Sarim\u0026#39;s Vermin.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12722,6 +14353,21 @@ const geojsondata = {
             [3328, 9856],
             [3136, 9856],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Scape_Cave" title="Scape Cave"\u003EScape Cave\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Scape_Cave.ogg" title="File:Scape Cave.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3072, 9472],
             [3072, 9536],
@@ -12729,6 +14375,21 @@ const geojsondata = {
             [3136, 9472],
             [3072, 9472],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Scape_Cave" title="Scape Cave"\u003EScape Cave\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Scape_Cave.ogg" title="File:Scape Cave.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1536, 9856],
             [1536, 9920],
@@ -12740,9 +14401,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Scape_Cave" title="Scape Cave">Scape Cave</a>',
+        title: '\u003Ca href="/w/Scape_Cave" title="Scape Cave"\u003EScape Cave\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Scape_Cave.ogg" title="File:Scape Cave.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Scape_Cave.ogg" title="File:Scape Cave.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12762,9 +14423,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Scape_Main" title="Scape Main">Scape Main</a>',
+        title: '\u003Ca href="/w/Scape_Main" title="Scape Main"\u003EScape Main\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Scape_Main.ogg" title="File:Scape Main.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Scape_Main.ogg" title="File:Scape Main.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12784,9 +14445,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Scape_Sad" title="Scape Sad">Scape Sad</a>',
+        title: '\u003Ca href="/w/Scape_Sad" title="Scape Sad"\u003EScape Sad\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Scape_Sad.ogg" title="File:Scape Sad.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Scape_Sad.ogg" title="File:Scape Sad.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12806,9 +14467,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Scape_Soft" title="Scape Soft">Scape Soft</a>',
+        title: '\u003Ca href="/w/Scape_Soft" title="Scape Soft"\u003EScape Soft\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Scape_Soft.ogg" title="File:Scape Soft.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Scape_Soft.ogg" title="File:Scape Soft.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12824,6 +14485,21 @@ const geojsondata = {
             [3264, 3648],
             [3200, 3648],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Scape_Wild" title="Scape Wild"\u003EScape Wild\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Scape_Wild.ogg" title="File:Scape Wild.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3136, 3840],
             [3136, 3904],
@@ -12835,9 +14511,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Scape_Wild" title="Scape Wild">Scape Wild</a>',
+        title: '\u003Ca href="/w/Scape_Wild" title="Scape Wild"\u003EScape Wild\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Scape_Wild.ogg" title="File:Scape Wild.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Scape_Wild.ogg" title="File:Scape Wild.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12861,9 +14537,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Scar_Tissue" title="Scar Tissue">Scar Tissue</a>',
+        title: '\u003Ca href="/w/Scar_Tissue" title="Scar Tissue"\u003EScar Tissue\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Scar_Tissue.ogg" title="File:Scar Tissue.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Scar_Tissue.ogg" title="File:Scar Tissue.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12939,9 +14615,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Scarab" title="Scarab">Scarab</a>',
+        title: '\u003Ca href="/w/Scarab" title="Scarab"\u003EScarab\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Scarab.ogg" title="File:Scarab.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Scarab.ogg" title="File:Scarab.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12961,9 +14637,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/School%27s_Out" title="School&#39;s Out">School\'s Out</a>',
+        title:
+          '\u003Ca href="/w/School%27s_Out" title="School\u0026#39;s Out"\u003ESchool\'s Out\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:School%27s_Out.ogg" title="File:School&#39;s Out.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:School%27s_Out.ogg" title="File:School\u0026#39;s Out.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -12983,9 +14660,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Scorpia_Dances" title="Scorpia Dances">Scorpia Dances</a>',
+        title:
+          '\u003Ca href="/w/Scorpia_Dances" title="Scorpia Dances"\u003EScorpia Dances\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Scorpia_Dances.ogg" title="File:Scorpia Dances.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Scorpia_Dances.ogg" title="File:Scorpia Dances.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13008,9 +14686,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Sea_Shanty" title="Sea Shanty">Sea Shanty</a>',
+        title: '\u003Ca href="/w/Sea_Shanty" title="Sea Shanty"\u003ESea Shanty\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Sea_Shanty.ogg" title="File:Sea Shanty.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sea_Shanty.ogg" title="File:Sea Shanty.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13037,9 +14715,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Sea_Shanty_2" title="Sea Shanty 2">Sea Shanty 2</a>',
+        title:
+          '\u003Ca href="/w/Sea_Shanty_2" title="Sea Shanty 2"\u003ESea Shanty 2\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Sea_Shanty_2.ogg" title="File:Sea Shanty 2.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sea_Shanty_2.ogg" title="File:Sea Shanty 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13060,9 +14739,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Secrets_of_the_North_(music_track)" title="Secrets of the North (music track)">Secrets of the North </a>',
+          '\u003Ca href="/w/Secrets_of_the_North_(music_track)" title="Secrets of the North (music track)"\u003ESecrets of the North \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Secrets_of_the_North.ogg" title="File:Secrets of the North.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Secrets_of_the_North.ogg" title="File:Secrets of the North.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13082,9 +14761,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Serenade" title="Serenade">Serenade</a>',
+        title: '\u003Ca href="/w/Serenade" title="Serenade"\u003ESerenade\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Serenade.ogg" title="File:Serenade.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Serenade.ogg" title="File:Serenade.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13104,9 +14783,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Serene" title="Serene">Serene</a>',
+        title: '\u003Ca href="/w/Serene" title="Serene"\u003ESerene\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Serene.ogg" title="File:Serene.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Serene.ogg" title="File:Serene.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13122,6 +14801,22 @@ const geojsondata = {
             [1344, 10048],
             [1280, 10048],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Servants_of_Strife" title="Servants of Strife"\u003EServants of Strife\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Servants_of_Strife.ogg" title="File:Servants of Strife.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1280, 3690],
             [1272, 3682],
@@ -13150,9 +14845,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Servants_of_Strife" title="Servants of Strife">Servants of Strife</a>',
+        title:
+          '\u003Ca href="/w/Servants_of_Strife" title="Servants of Strife"\u003EServants of Strife\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Servants_of_Strife.ogg" title="File:Servants of Strife.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Servants_of_Strife.ogg" title="File:Servants of Strife.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13172,9 +14868,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Settlement" title="Settlement">Settlement</a>',
+        title: '\u003Ca href="/w/Settlement" title="Settlement"\u003ESettlement\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Settlement.ogg" title="File:Settlement.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Settlement.ogg" title="File:Settlement.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13196,9 +14892,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Shadow" title="The Shadow">The Shadow</a>',
+        title: '\u003Ca href="/w/The_Shadow" title="The Shadow"\u003EThe Shadow\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Shadow.ogg" title="File:The Shadow.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Shadow.ogg" title="File:The Shadow.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13214,6 +14910,21 @@ const geojsondata = {
             [3520, 3264],
             [3456, 3264],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Shadowland" title="Shadowland"\u003EShadowland\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Shadowland.ogg" title="File:Shadowland.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3424, 3200],
             [3424, 3264],
@@ -13221,6 +14932,21 @@ const geojsondata = {
             [3456, 3200],
             [3424, 3200],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Shadowland" title="Shadowland"\u003EShadowland\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Shadowland.ogg" title="File:Shadowland.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2112, 4992],
             [2112, 5056],
@@ -13232,9 +14958,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Shadowland" title="Shadowland">Shadowland</a>',
+        title: '\u003Ca href="/w/Shadowland" title="Shadowland"\u003EShadowland\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Shadowland.ogg" title="File:Shadowland.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Shadowland.ogg" title="File:Shadowland.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13255,9 +14981,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Sharp_End_of_the_Crystal" title="Sharp End of the Crystal">Sharp End of the Crystal</a>',
+          '\u003Ca href="/w/Sharp_End_of_the_Crystal" title="Sharp End of the Crystal"\u003ESharp End of the Crystal\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Sharp_End_of_the_Crystal.ogg" title="File:Sharp End of the Crystal.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sharp_End_of_the_Crystal.ogg" title="File:Sharp End of the Crystal.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13277,8 +15003,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Shine" title="Shine">Shine</a>',
-        description: '<div><a href="/w/File:Shine.ogg" title="File:Shine.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Shine" title="Shine"\u003EShine\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Shine.ogg" title="File:Shine.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13294,6 +15021,21 @@ const geojsondata = {
             [3008, 10304],
             [2944, 10304],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Shining" title="Shining"\u003EShining\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Shining.ogg" title="File:Shining.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3200, 3712],
             [3200, 3776],
@@ -13301,6 +15043,21 @@ const geojsondata = {
             [3264, 3712],
             [3200, 3712],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Shining" title="Shining"\u003EShining\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Shining.ogg" title="File:Shining.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2944, 3904],
             [2944, 3968],
@@ -13312,9 +15069,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Shining" title="Shining">Shining</a>',
+        title: '\u003Ca href="/w/Shining" title="Shining"\u003EShining\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Shining.ogg" title="File:Shining.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Shining.ogg" title="File:Shining.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13334,9 +15091,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Shining_Spirit" title="Shining Spirit">Shining Spirit</a>',
+        title:
+          '\u003Ca href="/w/Shining_Spirit" title="Shining Spirit"\u003EShining Spirit\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Shining_Spirit.ogg" title="File:Shining Spirit.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Shining_Spirit.ogg" title="File:Shining Spirit.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13356,9 +15114,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Shipwrecked" title="Shipwrecked">Shipwrecked</a>',
+        title: '\u003Ca href="/w/Shipwrecked" title="Shipwrecked"\u003EShipwrecked\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Shipwrecked.ogg" title="File:Shipwrecked.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Shipwrecked.ogg" title="File:Shipwrecked.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13378,9 +15136,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Showdown" title="Showdown">Showdown</a>',
+        title: '\u003Ca href="/w/Showdown" title="Showdown"\u003EShowdown\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Showdown.ogg" title="File:Showdown.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Showdown.ogg" title="File:Showdown.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13401,9 +15159,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Sigmund%27s_Showdown" title="Sigmund&#39;s Showdown">Sigmund\'s Showdown</a>',
+          '\u003Ca href="/w/Sigmund%27s_Showdown" title="Sigmund\u0026#39;s Showdown"\u003ESigmund\'s Showdown\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Sigmund%27s_Showdown.ogg" title="File:Sigmund&#39;s Showdown.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sigmund%27s_Showdown.ogg" title="File:Sigmund\u0026#39;s Showdown.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13423,9 +15181,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Slayer" title="The Slayer">The Slayer</a>',
+        title: '\u003Ca href="/w/The_Slayer" title="The Slayer"\u003EThe Slayer\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Slayer.ogg" title="File:The Slayer.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Slayer.ogg" title="File:The Slayer.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13446,9 +15204,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Slice_of_Silent_Movie" title="Slice of Silent Movie">Slice of Silent Movie</a>',
+          '\u003Ca href="/w/Slice_of_Silent_Movie" title="Slice of Silent Movie"\u003ESlice of Silent Movie\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Slice_of_Silent_Movie.ogg" title="File:Slice of Silent Movie.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Slice_of_Silent_Movie.ogg" title="File:Slice of Silent Movie.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13468,9 +15226,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Slice_of_Station" title="Slice of Station">Slice of Station</a>',
+        title:
+          '\u003Ca href="/w/Slice_of_Station" title="Slice of Station"\u003ESlice of Station\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Slice_of_Station.ogg" title="File:Slice of Station.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Slice_of_Station.ogg" title="File:Slice of Station.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13491,9 +15250,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Slither_and_Thither" title="Slither and Thither">Slither and Thither</a>',
+          '\u003Ca href="/w/Slither_and_Thither" title="Slither and Thither"\u003ESlither and Thither\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Slither_and_Thither.ogg" title="File:Slither and Thither.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Slither_and_Thither.ogg" title="File:Slither and Thither.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13513,9 +15272,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Slug_a_Bug_Ball" title="Slug a Bug Ball">Slug a Bug Ball</a>',
+        title:
+          '\u003Ca href="/w/Slug_a_Bug_Ball" title="Slug a Bug Ball"\u003ESlug a Bug Ball\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Slug_a_Bug_Ball.ogg" title="File:Slug a Bug Ball.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Slug_a_Bug_Ball.ogg" title="File:Slug a Bug Ball.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13535,9 +15295,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Sojourn" title="Sojourn">Sojourn</a>',
+        title: '\u003Ca href="/w/Sojourn" title="Sojourn"\u003ESojourn\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Sojourn.ogg" title="File:Sojourn.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sojourn.ogg" title="File:Sojourn.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13558,9 +15318,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Song_of_the_Elves_(music_track)" title="Song of the Elves (music track)">Song of the Elves </a>',
+          '\u003Ca href="/w/Song_of_the_Elves_(music_track)" title="Song of the Elves (music track)"\u003ESong of the Elves \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Song_of_the_Elves.ogg" title="File:Song of the Elves.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Song_of_the_Elves.ogg" title="File:Song of the Elves.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13584,9 +15344,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Soul_Fall" title="Soul Fall">Soul Fall</a>',
+        title: '\u003Ca href="/w/Soul_Fall" title="Soul Fall"\u003ESoul Fall\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Soul_Fall.ogg" title="File:Soul Fall.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Soul_Fall.ogg" title="File:Soul Fall.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13607,9 +15367,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Soul_Wars_(music_track)" title="Soul Wars (music track)">Soul Wars </a>',
+          '\u003Ca href="/w/Soul_Wars_(music_track)" title="Soul Wars (music track)"\u003ESoul Wars \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Soul_Wars.ogg" title="File:Soul Wars.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Soul_Wars.ogg" title="File:Soul Wars.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13629,9 +15389,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Soundscape" title="Soundscape">Soundscape</a>',
+        title: '\u003Ca href="/w/Soundscape" title="Soundscape"\u003ESoundscape\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Soundscape.ogg" title="File:Soundscape.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Soundscape.ogg" title="File:Soundscape.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13655,9 +15415,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Sphinx_(music_track)" title="Sphinx (music track)">Sphinx </a>',
+        title:
+          '\u003Ca href="/w/Sphinx_(music_track)" title="Sphinx (music track)"\u003ESphinx \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Sphinx.ogg" title="File:Sphinx.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sphinx.ogg" title="File:Sphinx.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13677,9 +15438,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Spirit_(music_track)" title="Spirit (music track)">Spirit </a>',
+        title:
+          '\u003Ca href="/w/Spirit_(music_track)" title="Spirit (music track)"\u003ESpirit \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Spirit.ogg" title="File:Spirit.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Spirit.ogg" title="File:Spirit.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13700,9 +15462,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Spirits_of_the_Elid_(music_track)" title="Spirits of the Elid (music track)">Spirits of the Elid </a>',
+          '\u003Ca href="/w/Spirits_of_the_Elid_(music_track)" title="Spirits of the Elid (music track)"\u003ESpirits of the Elid \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Spirits_of_the_Elid.ogg" title="File:Spirits of the Elid.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Spirits_of_the_Elid.ogg" title="File:Spirits of the Elid.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13722,9 +15484,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Splendour" title="Splendour">Splendour</a>',
+        title: '\u003Ca href="/w/Splendour" title="Splendour"\u003ESplendour\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Splendour.ogg" title="File:Splendour.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Splendour.ogg" title="File:Splendour.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13744,9 +15506,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Spooky" title="Spooky">Spooky</a>',
+        title: '\u003Ca href="/w/Spooky" title="Spooky"\u003ESpooky\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Spooky.ogg" title="File:Spooky.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Spooky.ogg" title="File:Spooky.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13762,6 +15524,21 @@ const geojsondata = {
             [2176, 9280],
             [2112, 9280],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Spooky_2" title="Spooky 2"\u003ESpooky 2\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Spooky_2.ogg" title="File:Spooky 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1920, 9408],
             [1920, 9472],
@@ -13769,6 +15546,21 @@ const geojsondata = {
             [1984, 9408],
             [1920, 9408],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Spooky_2" title="Spooky 2"\u003ESpooky 2\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Spooky_2.ogg" title="File:Spooky 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3392, 9600],
             [3392, 9664],
@@ -13780,9 +15572,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Spooky_2" title="Spooky 2">Spooky 2</a>',
+        title: '\u003Ca href="/w/Spooky_2" title="Spooky 2"\u003ESpooky 2\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Spooky_2.ogg" title="File:Spooky 2.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Spooky_2.ogg" title="File:Spooky 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13798,6 +15590,22 @@ const geojsondata = {
             [2944, 9472],
             [2880, 9472],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Spooky_Jungle" title="Spooky Jungle"\u003ESpooky Jungle\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Spooky_Jungle.ogg" title="File:Spooky Jungle.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2752, 2880],
             [2752, 2944],
@@ -13805,6 +15613,22 @@ const geojsondata = {
             [2816, 2880],
             [2752, 2880],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Spooky_Jungle" title="Spooky Jungle"\u003ESpooky Jungle\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Spooky_Jungle.ogg" title="File:Spooky Jungle.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2496, 4544],
             [2496, 4608],
@@ -13816,9 +15640,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Spooky_Jungle" title="Spooky Jungle">Spooky Jungle</a>',
+        title:
+          '\u003Ca href="/w/Spooky_Jungle" title="Spooky Jungle"\u003ESpooky Jungle\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Spooky_Jungle.ogg" title="File:Spooky Jungle.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Spooky_Jungle.ogg" title="File:Spooky Jungle.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13839,9 +15664,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Spurned_Demon_(music_track)" title="The Spurned Demon (music track)">The Spurned Demon </a>',
+          '\u003Ca href="/w/The_Spurned_Demon_(music_track)" title="The Spurned Demon (music track)"\u003EThe Spurned Demon \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Spurned_Demon.ogg" title="File:The Spurned Demon.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Spurned_Demon.ogg" title="File:The Spurned Demon.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13857,6 +15682,21 @@ const geojsondata = {
             [3520, 3328],
             [3456, 3328],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Stagnant" title="Stagnant"\u003EStagnant\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Stagnant.ogg" title="File:Stagnant.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1984, 4992],
             [1984, 5024],
@@ -13864,6 +15704,21 @@ const geojsondata = {
             [2048, 4992],
             [1984, 4992],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Stagnant" title="Stagnant"\u003EStagnant\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Stagnant.ogg" title="File:Stagnant.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2080, 4992],
             [2080, 5024],
@@ -13871,6 +15726,21 @@ const geojsondata = {
             [2112, 4992],
             [2080, 4992],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Stagnant" title="Stagnant"\u003EStagnant\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Stagnant.ogg" title="File:Stagnant.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2176, 4992],
             [2176, 5024],
@@ -13882,9 +15752,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Stagnant" title="Stagnant">Stagnant</a>',
+        title: '\u003Ca href="/w/Stagnant" title="Stagnant"\u003EStagnant\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Stagnant.ogg" title="File:Stagnant.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Stagnant.ogg" title="File:Stagnant.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13934,9 +15804,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Starlight_(music_track)" title="Starlight (music track)">Starlight </a>',
+          '\u003Ca href="/w/Starlight_(music_track)" title="Starlight (music track)"\u003EStarlight \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Starlight.ogg" title="File:Starlight.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Starlight.ogg" title="File:Starlight.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13956,8 +15826,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Start" title="Start">Start</a>',
-        description: '<div><a href="/w/File:Start.ogg" title="File:Start.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Start" title="Start"\u003EStart\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Start.ogg" title="File:Start.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13977,9 +15848,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Still_Night" title="Still Night">Still Night</a>',
+        title: '\u003Ca href="/w/Still_Night" title="Still Night"\u003EStill Night\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Still_Night.ogg" title="File:Still Night.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Still_Night.ogg" title="File:Still Night.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -13999,6 +15870,21 @@ const geojsondata = {
             [3392, 9856],
             [3392, 9792],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Stillness" title="Stillness"\u003EStillness\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Stillness.ogg" title="File:Stillness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3648, 9728],
             [3648, 9792],
@@ -14010,9 +15896,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Stillness" title="Stillness">Stillness</a>',
+        title: '\u003Ca href="/w/Stillness" title="Stillness"\u003EStillness\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Stillness.ogg" title="File:Stillness.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Stillness.ogg" title="File:Stillness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14032,9 +15918,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Storm_Brew" title="Storm Brew">Storm Brew</a>',
+        title: '\u003Ca href="/w/Storm_Brew" title="Storm Brew"\u003EStorm Brew\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Storm_Brew.ogg" title="File:Storm Brew.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Storm_Brew.ogg" title="File:Storm Brew.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14054,9 +15940,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Stranded" title="Stranded">Stranded</a>',
+        title: '\u003Ca href="/w/Stranded" title="Stranded"\u003EStranded\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Stranded.ogg" title="File:Stranded.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Stranded.ogg" title="File:Stranded.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14076,9 +15962,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Strange_Place" title="Strange Place">Strange Place</a>',
+        title:
+          '\u003Ca href="/w/Strange_Place" title="Strange Place"\u003EStrange Place\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Strange_Place.ogg" title="File:Strange Place.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Strange_Place.ogg" title="File:Strange Place.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14107,9 +15994,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Strangled_(music_track)" title="Strangled (music track)">Strangled </a>',
+          '\u003Ca href="/w/Strangled_(music_track)" title="Strangled (music track)"\u003EStrangled \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Strangled.ogg" title="File:Strangled.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Strangled.ogg" title="File:Strangled.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14129,9 +16016,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Stratosphere" title="Stratosphere">Stratosphere</a>',
+        title:
+          '\u003Ca href="/w/Stratosphere" title="Stratosphere"\u003EStratosphere\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Stratosphere.ogg" title="File:Stratosphere.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Stratosphere.ogg" title="File:Stratosphere.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14156,9 +16044,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Strength_of_Saradomin" title="Strength of Saradomin">Strength of Saradomin</a>',
+          '\u003Ca href="/w/Strength_of_Saradomin" title="Strength of Saradomin"\u003EStrength of Saradomin\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Strength_of_Saradomin.ogg" title="File:Strength of Saradomin.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Strength_of_Saradomin.ogg" title="File:Strength of Saradomin.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14195,9 +16083,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Stuck_in_the_Mire" title="Stuck in the Mire">Stuck in the Mire</a>',
+        title:
+          '\u003Ca href="/w/Stuck_in_the_Mire" title="Stuck in the Mire"\u003EStuck in the Mire\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Stuck_in_the_Mire.ogg" title="File:Stuck in the Mire.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Stuck_in_the_Mire.ogg" title="File:Stuck in the Mire.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14213,6 +16102,21 @@ const geojsondata = {
             [1728, 9728],
             [1600, 9728],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Subterranea" title="Subterranea"\u003ESubterranea\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Subterranea.ogg" title="File:Subterranea.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2496, 10112],
             [2496, 10176],
@@ -14224,9 +16128,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Subterranea" title="Subterranea">Subterranea</a>',
+        title: '\u003Ca href="/w/Subterranea" title="Subterranea"\u003ESubterranea\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Subterranea.ogg" title="File:Subterranea.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Subterranea.ogg" title="File:Subterranea.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14242,6 +16146,21 @@ const geojsondata = {
             [3392, 2880],
             [3328, 2880],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Sunburn" title="Sunburn"\u003ESunburn\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sunburn.ogg" title="File:Sunburn.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3200, 2944],
             [3200, 3008],
@@ -14253,9 +16172,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Sunburn" title="Sunburn">Sunburn</a>',
+        title: '\u003Ca href="/w/Sunburn" title="Sunburn"\u003ESunburn\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Sunburn.ogg" title="File:Sunburn.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Sunburn.ogg" title="File:Sunburn.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14271,6 +16190,22 @@ const geojsondata = {
             [2816, 9280],
             [2752, 9280],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Superstition" title="Superstition"\u003ESuperstition\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Superstition.ogg" title="File:Superstition.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1568, 10240],
             [1600, 10240],
@@ -14284,9 +16219,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Superstition" title="Superstition">Superstition</a>',
+        title:
+          '\u003Ca href="/w/Superstition" title="Superstition"\u003ESuperstition\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Superstition.ogg" title="File:Superstition.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Superstition.ogg" title="File:Superstition.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14306,9 +16242,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Suspicious" title="Suspicious">Suspicious</a>',
+        title: '\u003Ca href="/w/Suspicious" title="Suspicious"\u003ESuspicious\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Suspicious.ogg" title="File:Suspicious.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Suspicious.ogg" title="File:Suspicious.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14328,9 +16264,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Tale_of_Keldagrim" title="Tale of Keldagrim">Tale of Keldagrim</a>',
+        title:
+          '\u003Ca href="/w/Tale_of_Keldagrim" title="Tale of Keldagrim"\u003ETale of Keldagrim\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Tale_of_Keldagrim.ogg" title="File:Tale of Keldagrim.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tale_of_Keldagrim.ogg" title="File:Tale of Keldagrim.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14350,9 +16287,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Talking_Forest" title="Talking Forest">Talking Forest</a>',
+        title:
+          '\u003Ca href="/w/Talking_Forest" title="Talking Forest"\u003ETalking Forest\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Talking_Forest.ogg" title="File:Talking Forest.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Talking_Forest.ogg" title="File:Talking Forest.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14373,9 +16311,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/A_Taste_of_Hope_(music_track)" title="A Taste of Hope (music track)">A Taste of Hope </a>',
+          '\u003Ca href="/w/A_Taste_of_Hope_(music_track)" title="A Taste of Hope (music track)"\u003EA Taste of Hope \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:A_Taste_of_Hope.ogg" title="File:A Taste of Hope.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:A_Taste_of_Hope.ogg" title="File:A Taste of Hope.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14396,9 +16334,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Tears_of_Guthix_(music_track)" title="Tears of Guthix (music track)">Tears of Guthix </a>',
+          '\u003Ca href="/w/Tears_of_Guthix_(music_track)" title="Tears of Guthix (music track)"\u003ETears of Guthix \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Tears_of_Guthix.ogg" title="File:Tears of Guthix.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tears_of_Guthix.ogg" title="File:Tears of Guthix.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14418,9 +16356,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Technology" title="Technology">Technology</a>',
+        title: '\u003Ca href="/w/Technology" title="Technology"\u003ETechnology\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Technology.ogg" title="File:Technology.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Technology.ogg" title="File:Technology.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14440,9 +16378,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Tempest" title="Tempest">Tempest</a>',
+        title: '\u003Ca href="/w/Tempest" title="Tempest"\u003ETempest\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Tempest.ogg" title="File:Tempest.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tempest.ogg" title="File:Tempest.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14462,9 +16400,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Temple_(music_track)" title="Temple (music track)">Temple </a>',
+        title:
+          '\u003Ca href="/w/Temple_(music_track)" title="Temple (music track)"\u003ETemple \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Temple.ogg" title="File:Temple.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Temple.ogg" title="File:Temple.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14485,9 +16424,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Temple_of_Light_(music_track)" title="Temple of Light (music track)">Temple of Light </a>',
+          '\u003Ca href="/w/Temple_of_Light_(music_track)" title="Temple of Light (music track)"\u003ETemple of Light \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Temple_of_Light.ogg" title="File:Temple of Light.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Temple_of_Light.ogg" title="File:Temple of Light.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14507,9 +16446,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Temple_of_Tribes" title="Temple of Tribes">Temple of Tribes</a>',
+        title:
+          '\u003Ca href="/w/Temple_of_Tribes" title="Temple of Tribes"\u003ETemple of Tribes\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Temple_of_Tribes.ogg" title="File:Temple of Tribes.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Temple_of_Tribes.ogg" title="File:Temple of Tribes.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14530,9 +16470,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Temple_of_the_Eye_(music_track)" title="Temple of the Eye (music track)">Temple of the Eye </a>',
+          '\u003Ca href="/w/Temple_of_the_Eye_(music_track)" title="Temple of the Eye (music track)"\u003ETemple of the Eye \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Temple_of_the_Eye.ogg" title="File:Temple of the Eye.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Temple_of_the_Eye.ogg" title="File:Temple of the Eye.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14553,9 +16493,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Tempor_of_the_Storm" title="Tempor of the Storm">Tempor of the Storm</a>',
+          '\u003Ca href="/w/Tempor_of_the_Storm" title="Tempor of the Storm"\u003ETempor of the Storm\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Tempor_of_the_Storm.ogg" title="File:Tempor of the Storm.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tempor_of_the_Storm.ogg" title="File:Tempor of the Storm.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14571,6 +16511,22 @@ const geojsondata = {
             [3456, 9920],
             [3392, 9920],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/The_Terrible_Tower" title="The Terrible Tower"\u003EThe Terrible Tower\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Terrible_Tower.ogg" title="File:The Terrible Tower.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3392, 3520],
             [3392, 3584],
@@ -14582,9 +16538,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Terrible_Tower" title="The Terrible Tower">The Terrible Tower</a>',
+        title:
+          '\u003Ca href="/w/The_Terrible_Tower" title="The Terrible Tower"\u003EThe Terrible Tower\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Terrible_Tower.ogg" title="File:The Terrible Tower.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Terrible_Tower.ogg" title="File:The Terrible Tower.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14613,9 +16570,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/The_Terrible_Tunnels" title="The Terrible Tunnels">The Terrible Tunnels</a>',
+          '\u003Ca href="/w/The_Terrible_Tunnels" title="The Terrible Tunnels"\u003EThe Terrible Tunnels\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Terrible_Tunnels.ogg" title="File:The Terrible Tunnels.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Terrible_Tunnels.ogg" title="File:The Terrible Tunnels.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14635,9 +16592,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/That_Sullen_Hall" title="That Sullen Hall">That Sullen Hall</a>',
+        title:
+          '\u003Ca href="/w/That_Sullen_Hall" title="That Sullen Hall"\u003EThat Sullen Hall\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:That_Sullen_Hall.ogg" title="File:That Sullen Hall.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:That_Sullen_Hall.ogg" title="File:That Sullen Hall.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14653,6 +16611,21 @@ const geojsondata = {
             [2624, 3456],
             [2560, 3456],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Theme" title="Theme"\u003ETheme\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Theme.ogg" title="File:Theme.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2560, 9856],
             [2560, 9920],
@@ -14664,8 +16637,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Theme" title="Theme">Theme</a>',
-        description: '<div><a href="/w/File:Theme.ogg" title="File:Theme.ogg">Play track</a></div>',
+        title: '\u003Ca href="/w/Theme" title="Theme"\u003ETheme\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Theme.ogg" title="File:Theme.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14686,9 +16660,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Thrall_of_the_Serpent" title="Thrall of the Serpent">Thrall of the Serpent</a>',
+          '\u003Ca href="/w/Thrall_of_the_Serpent" title="Thrall of the Serpent"\u003EThrall of the Serpent\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Thrall_of_the_Serpent.ogg" title="File:Thrall of the Serpent.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Thrall_of_the_Serpent.ogg" title="File:Thrall of the Serpent.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14709,9 +16683,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Throne_of_the_Demon" title="Throne of the Demon">Throne of the Demon</a>',
+          '\u003Ca href="/w/Throne_of_the_Demon" title="Throne of the Demon"\u003EThrone of the Demon\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Throne_of_the_Demon.ogg" title="File:Throne of the Demon.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Throne_of_the_Demon.ogg" title="File:Throne of the Demon.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14731,9 +16705,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Time_Out" title="Time Out">Time Out</a>',
+        title: '\u003Ca href="/w/Time_Out" title="Time Out"\u003ETime Out\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Time_Out.ogg" title="File:Time Out.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Time_Out.ogg" title="File:Time Out.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14753,9 +16727,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Time_to_Mine" title="Time to Mine">Time to Mine</a>',
+        title:
+          '\u003Ca href="/w/Time_to_Mine" title="Time to Mine"\u003ETime to Mine\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Time_to_Mine.ogg" title="File:Time to Mine.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Time_to_Mine.ogg" title="File:Time to Mine.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14775,9 +16750,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Tiptoe" title="Tiptoe">Tiptoe</a>',
+        title: '\u003Ca href="/w/Tiptoe" title="Tiptoe"\u003ETiptoe\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Tiptoe.ogg" title="File:Tiptoe.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tiptoe.ogg" title="File:Tiptoe.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14798,9 +16773,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Tomb_Raider_(music_track)" title="Tomb Raider (music track)">Tomb Raider </a>',
+          '\u003Ca href="/w/Tomb_Raider_(music_track)" title="Tomb Raider (music track)"\u003ETomb Raider \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Tomb_Raider.ogg" title="File:Tomb Raider.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tomb_Raider.ogg" title="File:Tomb Raider.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14823,9 +16798,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Tomorrow" title="Tomorrow">Tomorrow</a>',
+        title: '\u003Ca href="/w/Tomorrow" title="Tomorrow"\u003ETomorrow\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Tomorrow.ogg" title="File:Tomorrow.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tomorrow.ogg" title="File:Tomorrow.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14845,9 +16820,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Too_Many_Cooks..." title="Too Many Cooks...">Too Many Cooks...</a>',
+        title:
+          '\u003Ca href="/w/Too_Many_Cooks..." title="Too Many Cooks..."\u003EToo Many Cooks...\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Too_Many_Cooks....ogg" title="File:Too Many Cooks....ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Too_Many_Cooks....ogg" title="File:Too Many Cooks....ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14865,6 +16841,21 @@ const geojsondata = {
             [2560, 3336],
             [2560, 3392],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/The_Tower" title="The Tower"\u003EThe Tower\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Tower.ogg" title="File:The Tower.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2496, 9728],
             [2528, 9728],
@@ -14880,9 +16871,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Tower" title="The Tower">The Tower</a>',
+        title: '\u003Ca href="/w/The_Tower" title="The Tower"\u003EThe Tower\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Tower.ogg" title="File:The Tower.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Tower.ogg" title="File:The Tower.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14902,9 +16893,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Trade_Parade" title="The Trade Parade">The Trade Parade</a>',
+        title:
+          '\u003Ca href="/w/The_Trade_Parade" title="The Trade Parade"\u003EThe Trade Parade\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Trade_Parade.ogg" title="File:The Trade Parade.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Trade_Parade.ogg" title="File:The Trade Parade.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14920,6 +16912,22 @@ const geojsondata = {
             [3072, 6062],
             [3008, 6062],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Trahaearn_Toil" title="Trahaearn Toil"\u003ETrahaearn Toil\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Trahaearn_Toil.ogg" title="File:Trahaearn Toil.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3200, 12480],
             [3200, 12544],
@@ -14927,6 +16935,22 @@ const geojsondata = {
             [3264, 12480],
             [3200, 12480],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Trahaearn_Toil" title="Trahaearn Toil"\u003ETrahaearn Toil\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Trahaearn_Toil.ogg" title="File:Trahaearn Toil.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3264, 12416],
             [3264, 12480],
@@ -14938,9 +16962,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Trahaearn_Toil" title="Trahaearn Toil">Trahaearn Toil</a>',
+        title:
+          '\u003Ca href="/w/Trahaearn_Toil" title="Trahaearn Toil"\u003ETrahaearn Toil\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Trahaearn_Toil.ogg" title="File:Trahaearn Toil.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Trahaearn_Toil.ogg" title="File:Trahaearn Toil.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14960,9 +16985,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Trawler_(music_track)" title="Trawler (music track)">Trawler </a>',
+        title:
+          '\u003Ca href="/w/Trawler_(music_track)" title="Trawler (music track)"\u003ETrawler \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Trawler.ogg" title="File:Trawler.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Trawler.ogg" title="File:Trawler.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -14982,9 +17008,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Trawler_Minor" title="Trawler Minor">Trawler Minor</a>',
+        title:
+          '\u003Ca href="/w/Trawler_Minor" title="Trawler Minor"\u003ETrawler Minor\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Trawler_Minor.ogg" title="File:Trawler Minor.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Trawler_Minor.ogg" title="File:Trawler Minor.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15004,9 +17031,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Tree_Spirits" title="Tree Spirits">Tree Spirits</a>',
+        title:
+          '\u003Ca href="/w/Tree_Spirits" title="Tree Spirits"\u003ETree Spirits\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Tree_Spirits.ogg" title="File:Tree Spirits.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tree_Spirits.ogg" title="File:Tree Spirits.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15026,9 +17054,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Tremble" title="Tremble">Tremble</a>',
+        title: '\u003Ca href="/w/Tremble" title="Tremble"\u003ETremble\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Tremble.ogg" title="File:Tremble.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tremble.ogg" title="File:Tremble.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15048,9 +17076,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Tribal" title="Tribal">Tribal</a>',
+        title: '\u003Ca href="/w/Tribal" title="Tribal"\u003ETribal\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Tribal.ogg" title="File:Tribal.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tribal.ogg" title="File:Tribal.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15070,9 +17098,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Tribal_2" title="Tribal 2">Tribal 2</a>',
+        title: '\u003Ca href="/w/Tribal_2" title="Tribal 2"\u003ETribal 2\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Tribal_2.ogg" title="File:Tribal 2.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tribal_2.ogg" title="File:Tribal 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15088,6 +17116,22 @@ const geojsondata = {
             [3008, 2880],
             [2944, 2880],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Tribal_Background" title="Tribal Background"\u003ETribal Background\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tribal_Background.ogg" title="File:Tribal Background.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2752, 3072],
             [2752, 3136],
@@ -15095,6 +17139,22 @@ const geojsondata = {
             [2880, 3072],
             [2752, 3072],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Tribal_Background" title="Tribal Background"\u003ETribal Background\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tribal_Background.ogg" title="File:Tribal Background.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2816, 9472],
             [2816, 9536],
@@ -15106,9 +17166,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Tribal_Background" title="Tribal Background">Tribal Background</a>',
+        title:
+          '\u003Ca href="/w/Tribal_Background" title="Tribal Background"\u003ETribal Background\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Tribal_Background.ogg" title="File:Tribal Background.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Tribal_Background.ogg" title="File:Tribal Background.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15124,6 +17185,21 @@ const geojsondata = {
             [2752, 3328],
             [2688, 3328],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Trinity" title="Trinity"\u003ETrinity\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Trinity.ogg" title="File:Trinity.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2688, 9728],
             [2688, 9792],
@@ -15135,9 +17211,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Trinity" title="Trinity">Trinity</a>',
+        title: '\u003Ca href="/w/Trinity" title="Trinity"\u003ETrinity\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Trinity.ogg" title="File:Trinity.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Trinity.ogg" title="File:Trinity.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15157,9 +17233,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Troll_Shuffle" title="Troll Shuffle">Troll Shuffle</a>',
+        title:
+          '\u003Ca href="/w/Troll_Shuffle" title="Troll Shuffle"\u003ETroll Shuffle\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Troll_Shuffle.ogg" title="File:Troll Shuffle.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Troll_Shuffle.ogg" title="File:Troll Shuffle.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15180,9 +17257,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Trouble_Brewing_(music_track)" title="Trouble Brewing (music track)">Trouble Brewing </a>',
+          '\u003Ca href="/w/Trouble_Brewing_(music_track)" title="Trouble Brewing (music track)"\u003ETrouble Brewing \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Trouble_Brewing.ogg" title="File:Trouble Brewing.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Trouble_Brewing.ogg" title="File:Trouble Brewing.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15202,9 +17279,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Troubled" title="Troubled">Troubled</a>',
+        title: '\u003Ca href="/w/Troubled" title="Troubled"\u003ETroubled\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Troubled.ogg" title="File:Troubled.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Troubled.ogg" title="File:Troubled.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15224,9 +17301,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Troubled_Waters" title="Troubled Waters">Troubled Waters</a>',
+        title:
+          '\u003Ca href="/w/Troubled_Waters" title="Troubled Waters"\u003ETroubled Waters\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Troubled_Waters.ogg" title="File:Troubled Waters.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Troubled_Waters.ogg" title="File:Troubled Waters.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15246,9 +17324,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Twilight" title="Twilight">Twilight</a>',
+        title: '\u003Ca href="/w/Twilight" title="Twilight"\u003ETwilight\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Twilight.ogg" title="File:Twilight.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Twilight.ogg" title="File:Twilight.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15268,9 +17346,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/TzHaar!" title="TzHaar!">TzHaar!</a>',
+        title: '\u003Ca href="/w/TzHaar!" title="TzHaar!"\u003ETzHaar!\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:TzHaar!.ogg" title="File:TzHaar!.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:TzHaar!.ogg" title="File:TzHaar!.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15290,9 +17368,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Undead_Dungeon" title="Undead Dungeon">Undead Dungeon</a>',
+        title:
+          '\u003Ca href="/w/Undead_Dungeon" title="Undead Dungeon"\u003EUndead Dungeon\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Undead_Dungeon.ogg" title="File:Undead Dungeon.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Undead_Dungeon.ogg" title="File:Undead Dungeon.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15312,9 +17391,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Undercurrent" title="Undercurrent">Undercurrent</a>',
+        title:
+          '\u003Ca href="/w/Undercurrent" title="Undercurrent"\u003EUndercurrent\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Undercurrent.ogg" title="File:Undercurrent.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Undercurrent.ogg" title="File:Undercurrent.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15330,6 +17410,22 @@ const geojsondata = {
             [3392, 3584],
             [3328, 3584],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Underground_(music_track)" title="Underground (music track)"\u003EUnderground \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Underground.ogg" title="File:Underground.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2816, 9728],
             [2816, 9792],
@@ -15342,9 +17438,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Underground_(music_track)" title="Underground (music track)">Underground </a>',
+          '\u003Ca href="/w/Underground_(music_track)" title="Underground (music track)"\u003EUnderground \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Underground.ogg" title="File:Underground.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Underground.ogg" title="File:Underground.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15365,9 +17461,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Underground_Pass_(music_track)" title="Underground Pass (music track)">Underground Pass </a>',
+          '\u003Ca href="/w/Underground_Pass_(music_track)" title="Underground Pass (music track)"\u003EUnderground Pass \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Underground_Pass.ogg" title="File:Underground Pass.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Underground_Pass.ogg" title="File:Underground Pass.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15387,9 +17483,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Understanding" title="Understanding">Understanding</a>',
+        title:
+          '\u003Ca href="/w/Understanding" title="Understanding"\u003EUnderstanding\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Understanding.ogg" title="File:Understanding.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Understanding.ogg" title="File:Understanding.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15412,9 +17509,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Unknown_Land" title="Unknown Land">Unknown Land</a>',
+        title:
+          '\u003Ca href="/w/Unknown_Land" title="Unknown Land"\u003EUnknown Land\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Unknown_Land.ogg" title="File:Unknown Land.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Unknown_Land.ogg" title="File:Unknown Land.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15434,9 +17532,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Untouchable" title="Untouchable">Untouchable</a>',
+        title: '\u003Ca href="/w/Untouchable" title="Untouchable"\u003EUntouchable\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Untouchable.ogg" title="File:Untouchable.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Untouchable.ogg" title="File:Untouchable.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15456,9 +17554,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Unturned_Stones" title="Unturned Stones">Unturned Stones</a>',
+        title:
+          '\u003Ca href="/w/Unturned_Stones" title="Unturned Stones"\u003EUnturned Stones\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Unturned_Stones.ogg" title="File:Unturned Stones.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Unturned_Stones.ogg" title="File:Unturned Stones.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15482,6 +17581,21 @@ const geojsondata = {
             [2624, 3264],
             [2624, 3200],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Upcoming" title="Upcoming"\u003EUpcoming\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Upcoming.ogg" title="File:Upcoming.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1824, 4896],
             [1824, 4928],
@@ -15493,9 +17607,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Upcoming" title="Upcoming">Upcoming</a>',
+        title: '\u003Ca href="/w/Upcoming" title="Upcoming"\u003EUpcoming\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Upcoming.ogg" title="File:Upcoming.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Upcoming.ogg" title="File:Upcoming.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15515,9 +17629,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Upir_Likhyi" title="Upir Likhyi">Upir Likhyi</a>',
+        title: '\u003Ca href="/w/Upir_Likhyi" title="Upir Likhyi"\u003EUpir Likhyi\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Upir_Likhyi.ogg" title="File:Upir Likhyi.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Upir_Likhyi.ogg" title="File:Upir Likhyi.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15537,9 +17651,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Upper_Depths" title="Upper Depths">Upper Depths</a>',
+        title:
+          '\u003Ca href="/w/Upper_Depths" title="Upper Depths"\u003EUpper Depths\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Upper_Depths.ogg" title="File:Upper Depths.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Upper_Depths.ogg" title="File:Upper Depths.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15559,9 +17674,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Vault" title="The Vault">The Vault</a>',
+        title: '\u003Ca href="/w/The_Vault" title="The Vault"\u003EThe Vault\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Vault.ogg" title="File:The Vault.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Vault.ogg" title="File:The Vault.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15581,9 +17696,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Venomous" title="Venomous">Venomous</a>',
+        title: '\u003Ca href="/w/Venomous" title="Venomous"\u003EVenomous\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Venomous.ogg" title="File:Venomous.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Venomous.ogg" title="File:Venomous.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15603,9 +17718,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Venture" title="Venture">Venture</a>',
+        title: '\u003Ca href="/w/Venture" title="Venture"\u003EVenture\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Venture.ogg" title="File:Venture.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Venture.ogg" title="File:Venture.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15625,9 +17740,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Venture_2" title="Venture 2">Venture 2</a>',
+        title: '\u003Ca href="/w/Venture_2" title="Venture 2"\u003EVenture 2\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Venture_2.ogg" title="File:Venture 2.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Venture_2.ogg" title="File:Venture 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15677,9 +17792,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Victory_is_Mine" title="Victory is Mine">Victory is Mine</a>',
+        title:
+          '\u003Ca href="/w/Victory_is_Mine" title="Victory is Mine"\u003EVictory is Mine\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Victory_is_Mine.ogg" title="File:Victory is Mine.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Victory_is_Mine.ogg" title="File:Victory is Mine.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15699,9 +17815,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Village" title="Village">Village</a>',
+        title: '\u003Ca href="/w/Village" title="Village"\u003EVillage\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Village.ogg" title="File:Village.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Village.ogg" title="File:Village.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15717,6 +17833,21 @@ const geojsondata = {
             [3136, 9536],
             [3085, 9536],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Vision" title="Vision"\u003EVision\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Vision.ogg" title="File:Vision.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3072, 3136],
             [3072, 3200],
@@ -15728,9 +17859,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Vision" title="Vision">Vision</a>',
+        title: '\u003Ca href="/w/Vision" title="Vision"\u003EVision\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Vision.ogg" title="File:Vision.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Vision.ogg" title="File:Vision.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15750,9 +17881,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Volcanic_Vikings" title="Volcanic Vikings">Volcanic Vikings</a>',
+        title:
+          '\u003Ca href="/w/Volcanic_Vikings" title="Volcanic Vikings"\u003EVolcanic Vikings\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Volcanic_Vikings.ogg" title="File:Volcanic Vikings.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Volcanic_Vikings.ogg" title="File:Volcanic Vikings.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15768,6 +17900,21 @@ const geojsondata = {
             [2944, 9280],
             [2880, 9280],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Voodoo_Cult" title="Voodoo Cult"\u003EVoodoo Cult\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Voodoo_Cult.ogg" title="File:Voodoo Cult.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2368, 4672],
             [2368, 4736],
@@ -15779,9 +17926,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Voodoo_Cult" title="Voodoo Cult">Voodoo Cult</a>',
+        title: '\u003Ca href="/w/Voodoo_Cult" title="Voodoo Cult"\u003EVoodoo Cult\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Voodoo_Cult.ogg" title="File:Voodoo Cult.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Voodoo_Cult.ogg" title="File:Voodoo Cult.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15801,9 +17948,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Voyage" title="Voyage">Voyage</a>',
+        title: '\u003Ca href="/w/Voyage" title="Voyage"\u003EVoyage\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Voyage.ogg" title="File:Voyage.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Voyage.ogg" title="File:Voyage.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15823,9 +17970,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Waiting_Game" title="The Waiting Game">The Waiting Game</a>',
+        title:
+          '\u003Ca href="/w/The_Waiting_Game" title="The Waiting Game"\u003EThe Waiting Game\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Waiting_Game.ogg" title="File:The Waiting Game.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Waiting_Game.ogg" title="File:The Waiting Game.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15841,6 +17989,22 @@ const geojsondata = {
             [1856, 5056],
             [1792, 5056],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Waking_Dream" title="Waking Dream"\u003EWaking Dream\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Waking_Dream.ogg" title="File:Waking Dream.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1744, 5072],
             [1744, 5104],
@@ -15852,9 +18016,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Waking_Dream" title="Waking Dream">Waking Dream</a>',
+        title:
+          '\u003Ca href="/w/Waking_Dream" title="Waking Dream"\u003EWaking Dream\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Waking_Dream.ogg" title="File:Waking Dream.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Waking_Dream.ogg" title="File:Waking Dream.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15917,6 +18082,22 @@ const geojsondata = {
             [1664, 3392],
             [1472, 3392],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/A_Walk_in_the_Woods" title="A Walk in the Woods"\u003EA Walk in the Woods\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:A_Walk_in_the_Woods.ogg" title="File:A Walk in the Woods.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1536, 9856],
             [1536, 9792],
@@ -15929,9 +18110,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/A_Walk_in_the_Woods" title="A Walk in the Woods">A Walk in the Woods</a>',
+          '\u003Ca href="/w/A_Walk_in_the_Woods" title="A Walk in the Woods"\u003EA Walk in the Woods\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:A_Walk_in_the_Woods.ogg" title="File:A Walk in the Woods.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:A_Walk_in_the_Woods.ogg" title="File:A Walk in the Woods.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15951,9 +18132,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/The_Walking_Dead" title="The Walking Dead">The Walking Dead</a>',
+        title:
+          '\u003Ca href="/w/The_Walking_Dead" title="The Walking Dead"\u003EThe Walking Dead\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:The_Walking_Dead.ogg" title="File:The Walking Dead.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Walking_Dead.ogg" title="File:The Walking Dead.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15973,9 +18155,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Wander" title="Wander">Wander</a>',
+        title: '\u003Ca href="/w/Wander" title="Wander"\u003EWander\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Wander.ogg" title="File:Wander.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wander.ogg" title="File:Wander.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -15997,9 +18179,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Warpath" title="Warpath">Warpath</a>',
+        title: '\u003Ca href="/w/Warpath" title="Warpath"\u003EWarpath\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Warpath.ogg" title="File:Warpath.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Warpath.ogg" title="File:Warpath.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16019,9 +18201,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Warrior_(music_track)" title="Warrior (music track)">Warrior </a>',
+        title:
+          '\u003Ca href="/w/Warrior_(music_track)" title="Warrior (music track)"\u003EWarrior \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Warrior.ogg" title="File:Warrior.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Warrior.ogg" title="File:Warrior.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16087,9 +18270,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Warriors%27_Guild_(music_track)" title="Warriors&#39; Guild (music track)">Warriors\' Guild </a>',
+          '\u003Ca href="/w/Warriors%27_Guild_(music_track)" title="Warriors\u0026#39; Guild (music track)"\u003EWarriors\' Guild \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Warriors%27_Guild.ogg" title="File:Warriors&#39; Guild.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Warriors%27_Guild.ogg" title="File:Warriors\u0026#39; Guild.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16109,9 +18292,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Waste_Defaced" title="Waste Defaced">Waste Defaced</a>',
+        title:
+          '\u003Ca href="/w/Waste_Defaced" title="Waste Defaced"\u003EWaste Defaced\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Waste_Defaced.ogg" title="File:Waste Defaced.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Waste_Defaced.ogg" title="File:Waste Defaced.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16135,9 +18319,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Watch_Your_Step" title="Watch Your Step">Watch Your Step</a>',
+        title:
+          '\u003Ca href="/w/Watch_Your_Step" title="Watch Your Step"\u003EWatch Your Step\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Watch_Your_Step.ogg" title="File:Watch Your Step.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Watch_Your_Step.ogg" title="File:Watch Your Step.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16153,6 +18338,22 @@ const geojsondata = {
             [2560, 9792],
             [2496, 9792],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Waterfall_(music_track)" title="Waterfall (music track)"\u003EWaterfall \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Waterfall.ogg" title="File:Waterfall.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2496, 3392],
             [2496, 3456],
@@ -16165,9 +18366,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Waterfall_(music_track)" title="Waterfall (music track)">Waterfall </a>',
+          '\u003Ca href="/w/Waterfall_(music_track)" title="Waterfall (music track)"\u003EWaterfall \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Waterfall.ogg" title="File:Waterfall.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Waterfall.ogg" title="File:Waterfall.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16183,6 +18384,21 @@ const geojsondata = {
             [2112, 5024],
             [2056, 5024],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Waterlogged" title="Waterlogged"\u003EWaterlogged\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Waterlogged.ogg" title="File:Waterlogged.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3456, 3392],
             [3456, 3456],
@@ -16194,9 +18410,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Waterlogged" title="Waterlogged">Waterlogged</a>',
+        title: '\u003Ca href="/w/Waterlogged" title="Waterlogged"\u003EWaterlogged\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Waterlogged.ogg" title="File:Waterlogged.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Waterlogged.ogg" title="File:Waterlogged.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16219,9 +18435,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Way_of_the_Enchanter" title="Way of the Enchanter">Way of the Enchanter</a>',
+          '\u003Ca href="/w/Way_of_the_Enchanter" title="Way of the Enchanter"\u003EWay of the Enchanter\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Way_of_the_Enchanter.ogg" title="File:Way of the Enchanter.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Way_of_the_Enchanter.ogg" title="File:Way of the Enchanter.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16243,9 +18459,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Way_of_the_Wyrm" title="Way of the Wyrm">Way of the Wyrm</a>',
+        title:
+          '\u003Ca href="/w/Way_of_the_Wyrm" title="Way of the Wyrm"\u003EWay of the Wyrm\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Way_of_the_Wyrm.ogg" title="File:Way of the Wyrm.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Way_of_the_Wyrm.ogg" title="File:Way of the Wyrm.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16265,9 +18482,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Wayward" title="Wayward">Wayward</a>',
+        title: '\u003Ca href="/w/Wayward" title="Wayward"\u003EWayward\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Wayward.ogg" title="File:Wayward.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wayward.ogg" title="File:Wayward.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16287,9 +18504,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/We_are_the_Fairies" title="We are the Fairies">We are the Fairies</a>',
+        title:
+          '\u003Ca href="/w/We_are_the_Fairies" title="We are the Fairies"\u003EWe are the Fairies\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:We_are_the_Fairies.ogg" title="File:We are the Fairies.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:We_are_the_Fairies.ogg" title="File:We are the Fairies.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16310,9 +18528,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Welcome_to_my_Nightmare" title="Welcome to my Nightmare">Welcome to my Nightmare</a>',
+          '\u003Ca href="/w/Welcome_to_my_Nightmare" title="Welcome to my Nightmare"\u003EWelcome to my Nightmare\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Welcome_to_my_Nightmare.ogg" title="File:Welcome to my Nightmare.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Welcome_to_my_Nightmare.ogg" title="File:Welcome to my Nightmare.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16341,9 +18559,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Welcome_to_the_Theatre" title="Welcome to the Theatre">Welcome to the Theatre</a>',
+          '\u003Ca href="/w/Welcome_to_the_Theatre" title="Welcome to the Theatre"\u003EWelcome to the Theatre\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Welcome_to_the_Theatre.ogg" title="File:Welcome to the Theatre.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Welcome_to_the_Theatre.ogg" title="File:Welcome to the Theatre.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16363,9 +18581,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Well_Hallowed_Air" title="Well Hallowed Air">Well Hallowed Air</a>',
+        title:
+          '\u003Ca href="/w/Well_Hallowed_Air" title="Well Hallowed Air"\u003EWell Hallowed Air\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Well_Hallowed_Air.ogg" title="File:Well Hallowed Air.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Well_Hallowed_Air.ogg" title="File:Well Hallowed Air.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16381,6 +18600,22 @@ const geojsondata = {
             [2048, 4672],
             [1984, 4672],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Well_of_Voyage_(music_track)" title="Well of Voyage (music track)"\u003EWell of Voyage \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Well_of_Voyage.ogg" title="File:Well of Voyage.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2304, 9536],
             [2304, 9664],
@@ -16393,9 +18628,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Well_of_Voyage_(music_track)" title="Well of Voyage (music track)">Well of Voyage </a>',
+          '\u003Ca href="/w/Well_of_Voyage_(music_track)" title="Well of Voyage (music track)"\u003EWell of Voyage \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Well_of_Voyage.ogg" title="File:Well of Voyage.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Well_of_Voyage.ogg" title="File:Well of Voyage.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16416,9 +18651,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/What_Happens_Below..." title="What Happens Below...">What Happens Below...</a>',
+          '\u003Ca href="/w/What_Happens_Below..." title="What Happens Below..."\u003EWhat Happens Below...\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:What_Happens_Below....ogg" title="File:What Happens Below....ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:What_Happens_Below....ogg" title="File:What Happens Below....ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16434,6 +18669,22 @@ const geojsondata = {
             [1984, 4864],
             [1920, 4864],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Where_Eagles_Lair" title="Where Eagles Lair"\u003EWhere Eagles Lair\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Where_Eagles_Lair.ogg" title="File:Where Eagles Lair.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1984, 4928],
             [1984, 4992],
@@ -16445,9 +18696,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Where_Eagles_Lair" title="Where Eagles Lair">Where Eagles Lair</a>',
+        title:
+          '\u003Ca href="/w/Where_Eagles_Lair" title="Where Eagles Lair"\u003EWhere Eagles Lair\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Where_Eagles_Lair.ogg" title="File:Where Eagles Lair.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Where_Eagles_Lair.ogg" title="File:Where Eagles Lair.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16467,9 +18719,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Wild_Isle" title="Wild Isle">Wild Isle</a>',
+        title: '\u003Ca href="/w/Wild_Isle" title="Wild Isle"\u003EWild Isle\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Wild_Isle.ogg" title="File:Wild Isle.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wild_Isle.ogg" title="File:Wild Isle.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16489,9 +18741,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Wild_Side" title="Wild Side">Wild Side</a>',
+        title: '\u003Ca href="/w/Wild_Side" title="Wild Side"\u003EWild Side\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Wild_Side.ogg" title="File:Wild Side.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wild_Side.ogg" title="File:Wild Side.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16507,6 +18759,22 @@ const geojsondata = {
             [3200, 3520],
             [3136, 3520],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Wilderness_(music_track)" title="Wilderness (music track)"\u003EWilderness \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wilderness.ogg" title="File:Wilderness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3520, 3968],
             [3520, 4160],
@@ -16514,6 +18782,22 @@ const geojsondata = {
             [3328, 3968],
             [3520, 3968],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Wilderness_(music_track)" title="Wilderness (music track)"\u003EWilderness \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wilderness.ogg" title="File:Wilderness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3072, 3712],
             [3072, 3776],
@@ -16521,6 +18805,22 @@ const geojsondata = {
             [3136, 3712],
             [3072, 3712],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Wilderness_(music_track)" title="Wilderness (music track)"\u003EWilderness \u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wilderness.ogg" title="File:Wilderness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2944, 3584],
             [2944, 3648],
@@ -16533,9 +18833,9 @@ const geojsondata = {
       properties: {
         mapID: "-1",
         title:
-          '<a href="/w/Wilderness_(music_track)" title="Wilderness (music track)">Wilderness </a>',
+          '\u003Ca href="/w/Wilderness_(music_track)" title="Wilderness (music track)"\u003EWilderness \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Wilderness.ogg" title="File:Wilderness.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wilderness.ogg" title="File:Wilderness.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16555,9 +18855,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Wilderness_2" title="Wilderness 2">Wilderness 2</a>',
+        title:
+          '\u003Ca href="/w/Wilderness_2" title="Wilderness 2"\u003EWilderness 2\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Wilderness_2.ogg" title="File:Wilderness 2.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wilderness_2.ogg" title="File:Wilderness 2.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16577,9 +18878,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Wilderness_3" title="Wilderness 3">Wilderness 3</a>',
+        title:
+          '\u003Ca href="/w/Wilderness_3" title="Wilderness 3"\u003EWilderness 3\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Wilderness_3.ogg" title="File:Wilderness 3.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wilderness_3.ogg" title="File:Wilderness 3.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16611,9 +18913,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Wildwood" title="Wildwood">Wildwood</a>',
+        title: '\u003Ca href="/w/Wildwood" title="Wildwood"\u003EWildwood\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Wildwood.ogg" title="File:Wildwood.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wildwood.ogg" title="File:Wildwood.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16633,9 +18935,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Witching" title="Witching">Witching</a>',
+        title: '\u003Ca href="/w/Witching" title="Witching"\u003EWitching\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Witching.ogg" title="File:Witching.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Witching.ogg" title="File:Witching.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16684,9 +18986,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Woe_of_the_Wyvern" title="Woe of the Wyvern">Woe of the Wyvern</a>',
+        title:
+          '\u003Ca href="/w/Woe_of_the_Wyvern" title="Woe of the Wyvern"\u003EWoe of the Wyvern\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Woe_of_the_Wyvern.ogg" title="File:Woe of the Wyvern.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Woe_of_the_Wyvern.ogg" title="File:Woe of the Wyvern.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16710,9 +19013,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Wonder" title="Wonder">Wonder</a>',
+        title: '\u003Ca href="/w/Wonder" title="Wonder"\u003EWonder\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Wonder.ogg" title="File:Wonder.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wonder.ogg" title="File:Wonder.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16732,9 +19035,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Wonderous" title="Wonderous">Wonderous</a>',
+        title: '\u003Ca href="/w/Wonderous" title="Wonderous"\u003EWonderous\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Wonderous.ogg" title="File:Wonderous.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wonderous.ogg" title="File:Wonderous.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16754,9 +19057,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Woodland_(music_track)" title="Woodland (music track)">Woodland </a>',
+        title:
+          '\u003Ca href="/w/Woodland_(music_track)" title="Woodland (music track)"\u003EWoodland \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Woodland.ogg" title="File:Woodland.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Woodland.ogg" title="File:Woodland.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16776,9 +19080,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Work_Work_Work" title="Work Work Work">Work Work Work</a>',
+        title:
+          '\u003Ca href="/w/Work_Work_Work" title="Work Work Work"\u003EWork Work Work\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Work_Work_Work.ogg" title="File:Work Work Work.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Work_Work_Work.ogg" title="File:Work Work Work.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16798,9 +19103,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Workshop_(music_track)" title="Workshop (music track)">Workshop </a>',
+        title:
+          '\u003Ca href="/w/Workshop_(music_track)" title="Workshop (music track)"\u003EWorkshop \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Workshop.ogg" title="File:Workshop.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Workshop.ogg" title="File:Workshop.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16816,6 +19122,22 @@ const geojsondata = {
             [3264, 9824],
             [3264, 9856],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title:
+          '\u003Ca href="/w/Wrath_and_Ruin" title="Wrath and Ruin"\u003EWrath and Ruin\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wrath_and_Ruin.ogg" title="File:Wrath and Ruin.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [2944, 5184],
             [2944, 5248],
@@ -16829,9 +19151,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Wrath_and_Ruin" title="Wrath and Ruin">Wrath and Ruin</a>',
+        title:
+          '\u003Ca href="/w/Wrath_and_Ruin" title="Wrath and Ruin"\u003EWrath and Ruin\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Wrath_and_Ruin.ogg" title="File:Wrath and Ruin.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Wrath_and_Ruin.ogg" title="File:Wrath and Ruin.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16847,6 +19170,21 @@ const geojsondata = {
             [2944, 4352],
             [2880, 4352],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Xenophobe" title="Xenophobe"\u003EXenophobe\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Xenophobe.ogg" title="File:Xenophobe.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [1856, 4352],
             [1856, 4416],
@@ -16858,9 +19196,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Xenophobe" title="Xenophobe">Xenophobe</a>',
+        title: '\u003Ca href="/w/Xenophobe" title="Xenophobe"\u003EXenophobe\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Xenophobe.ogg" title="File:Xenophobe.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Xenophobe.ogg" title="File:Xenophobe.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16880,9 +19218,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Yesteryear" title="Yesteryear">Yesteryear</a>',
+        title: '\u003Ca href="/w/Yesteryear" title="Yesteryear"\u003EYesteryear\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Yesteryear.ogg" title="File:Yesteryear.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Yesteryear.ogg" title="File:Yesteryear.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16906,9 +19244,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Zamorak_Zoo" title="Zamorak Zoo">Zamorak Zoo</a>',
+        title: '\u003Ca href="/w/Zamorak_Zoo" title="Zamorak Zoo"\u003EZamorak Zoo\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Zamorak_Zoo.ogg" title="File:Zamorak Zoo.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Zamorak_Zoo.ogg" title="File:Zamorak Zoo.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16928,9 +19266,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Zanik%27s_Theme" title="Zanik&#39;s Theme">Zanik\'s Theme</a>',
+        title:
+          '\u003Ca href="/w/Zanik%27s_Theme" title="Zanik\u0026#39;s Theme"\u003EZanik\'s Theme\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Zanik%27s_Theme.ogg" title="File:Zanik&#39;s Theme.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Zanik%27s_Theme.ogg" title="File:Zanik\u0026#39;s Theme.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16950,9 +19289,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Zaros_Zeitgeist" title="Zaros Zeitgeist">Zaros Zeitgeist</a>',
+        title:
+          '\u003Ca href="/w/Zaros_Zeitgeist" title="Zaros Zeitgeist"\u003EZaros Zeitgeist\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Zaros_Zeitgeist.ogg" title="File:Zaros Zeitgeist.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Zaros_Zeitgeist.ogg" title="File:Zaros Zeitgeist.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16972,9 +19312,10 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Zealot_(music_track)" title="Zealot (music track)">Zealot </a>',
+        title:
+          '\u003Ca href="/w/Zealot_(music_track)" title="Zealot (music track)"\u003EZealot \u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Zealot.ogg" title="File:Zealot.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Zealot.ogg" title="File:Zealot.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -16994,9 +19335,9 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Zogre_Dance" title="Zogre Dance">Zogre Dance</a>',
+        title: '\u003Ca href="/w/Zogre_Dance" title="Zogre Dance"\u003EZogre Dance\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Zogre_Dance.ogg" title="File:Zogre Dance.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Zogre_Dance.ogg" title="File:Zogre Dance.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
       },
     },
@@ -17012,6 +19353,21 @@ const geojsondata = {
             [3840, 2816],
             [3776, 2816],
           ],
+        ],
+      },
+      properties: {
+        mapID: "-1",
+        title: '\u003Ca href="/w/Zombiism" title="Zombiism"\u003EZombiism\u003C/a\u003E',
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Zombiism.ogg" title="File:Zombiism.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
           [
             [3776, 9216],
             [3776, 9280],
@@ -17023,10 +19379,114 @@ const geojsondata = {
       },
       properties: {
         mapID: "-1",
-        title: '<a href="/w/Zombiism" title="Zombiism">Zombiism</a>',
+        title: '\u003Ca href="/w/Zombiism" title="Zombiism"\u003EZombiism\u003C/a\u003E',
         description:
-          '<div><a href="/w/File:Zombiism.ogg" title="File:Zombiism.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Zombiism.ogg" title="File:Zombiism.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         plane: 0,
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        coordinates: [
+          [
+            [1968, 8960],
+            [1968, 9024],
+            [1856, 9024],
+            [1856, 8960],
+          ],
+          [
+            [1901, 9005],
+            [1901, 9007],
+            [1902, 9007],
+            [1902, 9005],
+          ],
+        ],
+        type: "Polygon",
+      },
+      properties: {
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:7th_Realm.ogg" title="File:7th Realm.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        mapID: "-1",
+        plane: 0,
+        title:
+          '\u003Ca href="/w/7th_Realm" title="7th Realm"\u003E7th Realm\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:7th_Realm" title="Map:7th Realm"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        coordinates: [
+          [
+            [2994, 3520],
+            [2994, 3524],
+            [2998, 3528],
+            [2998, 3534],
+            [3008, 3544],
+            [3022, 3544],
+            [3029, 3537],
+            [3029, 3532],
+            [3041, 3520],
+            [3072, 3520],
+            [3072, 3456],
+            [3008, 3456],
+            [3008, 3462],
+            [2994, 3462],
+            [2990, 3458],
+            [2988, 3458],
+            [2988, 3457],
+            [2985, 3457],
+            [2979, 3463],
+            [2979, 3475],
+            [2990, 3486],
+            [2990, 3510],
+            [2994, 3514],
+          ],
+          [
+            [3008, 3518],
+            [3008, 3514],
+            [3009, 3513],
+            [3012, 3513],
+            [3013, 3514],
+            [3014, 3514],
+            [3015, 3515],
+            [3018, 3515],
+            [3019, 3514],
+            [3019, 3513],
+            [3021, 3513],
+            [3021, 3510],
+            [3025, 3510],
+            [3025, 3506],
+            [3027, 3506],
+            [3027, 3505],
+            [3028, 3504],
+            [3031, 3504],
+            [3033, 3506],
+            [3033, 3508],
+            [3031, 3510],
+            [3031, 3517],
+            [3029, 3519],
+            [3020, 3519],
+            [3018, 3517],
+            [3017, 3517],
+            [3017, 3520],
+            [3015, 3520],
+            [3015, 3517],
+            [3014, 3517],
+            [3012, 3519],
+            [3009, 3519],
+            [3008, 3518],
+          ],
+        ],
+        type: "Polygon",
+      },
+      properties: {
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Alone.ogg" title="File:Alone.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        mapID: "-1",
+        plane: 0,
+        title:
+          '\u003Ca href="/w/Alone" title="Alone"\u003EAlone\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:Alone_(Classic)" title="Map:Alone (Classic)"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
       },
     },
     {
@@ -17085,11 +19545,11 @@ const geojsondata = {
       },
       properties: {
         description:
-          '<div><a href="/w/File:Ascent.ogg" title="File:Ascent.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Ascent.ogg" title="File:Ascent.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         mapID: "-1",
         plane: 0,
         title:
-          '<a href="/w/Ascent" title="Ascent">Ascent</a> <sup><a href="/w/Map:Ascent" title="Map:Ascent">(?)</a></sup>',
+          '\u003Ca href="/w/Ascent" title="Ascent"\u003EAscent\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:Ascent" title="Map:Ascent"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
       },
     },
     {
@@ -17135,11 +19595,48 @@ const geojsondata = {
       },
       properties: {
         description:
-          '<div><a href="/w/File:Darkmeyer.ogg" title="File:Darkmeyer.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Darkmeyer.ogg" title="File:Darkmeyer.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         mapID: "-1",
         plane: 0,
         title:
-          '<a href="/w/Darkmeyer" title="Darkmeyer">Darkmeyer</a> <sup><a href="/w/Map:Darkmeyer" title="Map:Darkmeyer">(?)</a></sup>',
+          '\u003Ca href="/w/Darkmeyer" title="Darkmeyer"\u003EDarkmeyer\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:Darkmeyer" title="Map:Darkmeyer"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        coordinates: [
+          [
+            [2048, 2816],
+            [2048, 3008],
+            [2368, 3008],
+            [2368, 2816],
+            [2304, 2816],
+            [2304, 2752],
+            [2112, 2752],
+            [2112, 2816],
+            [2048, 2816],
+          ],
+          [
+            [2112, 2880],
+            [2112, 2944],
+            [2304, 2944],
+            [2304, 2880],
+            [2240, 2880],
+            [2240, 2816],
+            [2176, 2816],
+            [2176, 2880],
+          ],
+        ],
+        type: "Polygon",
+      },
+      properties: {
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Doorways.ogg" title="File:Doorways.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        mapID: "-1",
+        plane: 0,
+        title:
+          '\u003Ca href="/w/Doorways" title="Doorways"\u003EDoorways\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:Doorways" title="Map:Doorways"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
       },
     },
     {
@@ -17163,11 +19660,11 @@ const geojsondata = {
       },
       properties: {
         description:
-          '<div><a href="/w/File:Dreamstate.ogg" title="File:Dreamstate.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dreamstate.ogg" title="File:Dreamstate.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         mapID: "-1",
         plane: 0,
         title:
-          '<a href="/w/Dreamstate" title="Dreamstate">Dreamstate</a> <sup><a href="/w/Map:Dreamstate" title="Map:Dreamstate">(?)</a></sup>',
+          '\u003Ca href="/w/Dreamstate" title="Dreamstate"\u003EDreamstate\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:Dreamstate" title="Map:Dreamstate"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
       },
     },
     {
@@ -17275,11 +19772,11 @@ const geojsondata = {
       },
       properties: {
         description:
-          '<div><a href="/w/File:Dwarven_Domain.ogg" title="File:Dwarven Domain.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Dwarven_Domain.ogg" title="File:Dwarven Domain.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         mapID: "-1",
         plane: 0,
         title:
-          '<a href="/w/Dwarven_Domain" title="Dwarven Domain">Dwarven Domain</a> <sup><a href="/w/Map:Dwarven_Domain" title="Map:Dwarven Domain">(?)</a></sup>',
+          '\u003Ca href="/w/Dwarven_Domain" title="Dwarven Domain"\u003EDwarven Domain\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:Dwarven_Domain" title="Map:Dwarven Domain"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
       },
     },
     {
@@ -17318,11 +19815,11 @@ const geojsondata = {
       },
       properties: {
         description:
-          '<div><a href="/w/File:Emperor.ogg" title="File:Emperor.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Emperor.ogg" title="File:Emperor.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         mapID: "-1",
         plane: 0,
         title:
-          '<a href="/w/Emperor" title="Emperor">Emperor</a> <sup><a href="/w/Map:Emperor" title="Map:Emperor">(?)</a></sup>',
+          '\u003Ca href="/w/Emperor" title="Emperor"\u003EEmperor\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:Emperor" title="Map:Emperor"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
       },
     },
     {
@@ -17468,11 +19965,11 @@ const geojsondata = {
       },
       properties: {
         description:
-          '<div><a href="/w/File:Getting_Down_to_Business.ogg" title="File:Getting Down to Business.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Getting_Down_to_Business.ogg" title="File:Getting Down to Business.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         mapID: "-1",
         plane: 0,
         title:
-          '<a href="/w/Getting_Down_to_Business" title="Getting Down to Business">Getting Down to Business</a> <sup><a href="/w/Map:Getting_Down_to_Business" title="Map:Getting Down to Business">(?)</a></sup>',
+          '\u003Ca href="/w/Getting_Down_to_Business" title="Getting Down to Business"\u003EGetting Down to Business\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:Getting_Down_to_Business" title="Map:Getting Down to Business"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
       },
     },
     {
@@ -17571,7 +20068,7 @@ const geojsondata = {
         mapID: "-1",
         plane: 0,
         title:
-          '<a href="/w/On_the_Frontline" title="On the Frontline">On the Frontline</a> <sup><a href="/w/Map:On_the_Frontline" title="Map:On the Frontline">(?)</a></sup>',
+          '\u003Ca href="/w/On_the_Frontline" title="On the Frontline"\u003EOn the Frontline\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:On_the_Frontline" title="Map:On the Frontline"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
       },
     },
     {
@@ -17590,11 +20087,41 @@ const geojsondata = {
       },
       properties: {
         description:
-          '<div><a href="/w/File:Iorwerth%27s_Lament.ogg" title="File:Iorwerth&#39;s Lament.ogg">Iorwerth&#x27;s Lament</a></div><div><a href="/w/File:Dance_of_the_Meilyr.ogg" title="File:Dance of the Meilyr.ogg">Dance of the Meilyr</a></div><div><a href="/w/File:Mystics_of_Nature.ogg" title="File:Mystics of Nature.ogg">Mystics of Nature</a></div><div><a href="/w/File:Architects_of_Prifddinas.ogg" title="File:Architects of Prifddinas.ogg">Architects of Prifddinas</a></div><div><a href="/w/File:Elven_Guardians.ogg" title="File:Elven Guardians.ogg">Elven Guardians</a></div><div><a href="/w/File:Faith_of_the_Hefin.ogg" title="File:Faith of the Hefin.ogg">Faith of the Hefin</a></div><div><a href="/w/File:Trahaearn_Toil.ogg" title="File:Trahaearn Toil.ogg">Trahaearn Toil</a></div><div><a href="/w/File:The_Tower_of_Voices.ogg" title="File:The Tower of Voices.ogg">The Tower of Voices</a></div><div><a href="/w/File:The_Seed_of_Crwys.ogg" title="File:The Seed of Crwys.ogg">The Seed of Crwys</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Iorwerth%27s_Lament.ogg" title="File:Iorwerth\u0026#39;s Lament.ogg"\u003EIorwerth\u0026#x27;s Lament\u003C/a\u003E\u003C/div\u003E\u003Cdiv\u003E\u003Ca href="/w/File:Dance_of_the_Meilyr.ogg" title="File:Dance of the Meilyr.ogg"\u003EDance of the Meilyr\u003C/a\u003E\u003C/div\u003E\u003Cdiv\u003E\u003Ca href="/w/File:Mystics_of_Nature.ogg" title="File:Mystics of Nature.ogg"\u003EMystics of Nature\u003C/a\u003E\u003C/div\u003E\u003Cdiv\u003E\u003Ca href="/w/File:Architects_of_Prifddinas.ogg" title="File:Architects of Prifddinas.ogg"\u003EArchitects of Prifddinas\u003C/a\u003E\u003C/div\u003E\u003Cdiv\u003E\u003Ca href="/w/File:Elven_Guardians.ogg" title="File:Elven Guardians.ogg"\u003EElven Guardians\u003C/a\u003E\u003C/div\u003E\u003Cdiv\u003E\u003Ca href="/w/File:Faith_of_the_Hefin.ogg" title="File:Faith of the Hefin.ogg"\u003EFaith of the Hefin\u003C/a\u003E\u003C/div\u003E\u003Cdiv\u003E\u003Ca href="/w/File:Trahaearn_Toil.ogg" title="File:Trahaearn Toil.ogg"\u003ETrahaearn Toil\u003C/a\u003E\u003C/div\u003E\u003Cdiv\u003E\u003Ca href="/w/File:The_Tower_of_Voices.ogg" title="File:The Tower of Voices.ogg"\u003EThe Tower of Voices\u003C/a\u003E\u003C/div\u003E\u003Cdiv\u003E\u003Ca href="/w/File:The_Seed_of_Crwys.ogg" title="File:The Seed of Crwys.ogg"\u003EThe Seed of Crwys\u003C/a\u003E\u003C/div\u003E',
         mapID: "-1",
         plane: 0,
         title:
-          '<a href="/w/Prifddinas" title="Prifddinas">Prifddinas</a> <sup><a href="/w/Map:Prifddinas_music" title="Map:Prifddinas music">(?)</a></sup>',
+          '\u003Ca href="/w/Prifddinas" title="Prifddinas"\u003EPrifddinas\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:Prifddinas_music" title="Map:Prifddinas music"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        coordinates: [
+          [
+            [2240, 4032],
+            [2240, 4096],
+            [2304, 4096],
+            [2304, 4032],
+            [2240, 4032],
+          ],
+          [
+            [2260, 4053],
+            [2260, 4077],
+            [2285, 4077],
+            [2285, 4053],
+            [2260, 4053],
+          ],
+        ],
+        type: "Polygon",
+      },
+      properties: {
+        description:
+          '\u003Cdiv\u003E\u003Ca href="/w/File:The_Desolate_Isle.ogg" title="File:The Desolate Isle.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
+        mapID: "-1",
+        plane: 0,
+        title:
+          '\u003Ca href="/w/The_Desolate_Isle" title="The Desolate Isle"\u003EThe Desolate Isle\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:The_Desolate_Isle" title="Map:The Desolate Isle"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
       },
     },
     {
@@ -17648,11 +20175,11 @@ const geojsondata = {
       },
       properties: {
         description:
-          '<div><a href="/w/File:Title_Fight.ogg" title="File:Title Fight.ogg">Play track</a></div>',
+          '\u003Cdiv\u003E\u003Ca href="/w/File:Title_Fight.ogg" title="File:Title Fight.ogg"\u003EPlay track\u003C/a\u003E\u003C/div\u003E',
         mapID: "-1",
         plane: 0,
         title:
-          '<a href="/w/Title_Fight" title="Title Fight">Title Fight</a> <sup><a href="/w/Map:Title_Fight" title="Map:Title Fight">(?)</a></sup>',
+          '\u003Ca href="/w/Title_Fight" title="Title Fight"\u003ETitle Fight\u003C/a\u003E \u003Csup\u003E\u003Ca href="/w/Map:Title_Fight" title="Map:Title Fight"\u003E(?)\u003C/a\u003E\u003C/sup\u003E',
       },
     },
   ],

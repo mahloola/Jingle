@@ -6,7 +6,7 @@ import geojsondata from "./data/GeoJSON";
 import { Point, CRS, bounds } from "leaflet";
 import L from "leaflet";
 
-const RunescapeMap = ({currentSong, guessResult, setGuessResult}) => {
+const RunescapeMap = ({ currentSong, setGuessResult, setResultVisible }) => {
   const outerBounds = new L.LatLngBounds([
     [-78, 0],
     [0, 136.696],
@@ -20,7 +20,7 @@ const RunescapeMap = ({currentSong, guessResult, setGuessResult}) => {
 
     // Create LatLng array and use it to create a Polygon
     const polygon = L.polygon(latLngArray);
-    
+
     musicAreaPolygons.push(polygon);
   }
 
@@ -37,7 +37,11 @@ const RunescapeMap = ({currentSong, guessResult, setGuessResult}) => {
         maxBoundsViscosity={1}
         crs={CRS.Simple}
       >
-        <MapClickHandler currentSong={currentSong} guessResult={guessResult} setGuessResult={setGuessResult}/>
+        <MapClickHandler
+          currentSong={currentSong}
+          setGuessResult={setGuessResult}
+          setResultVisible={setResultVisible}
+        />
         <TileLayer attribution="offline" url={`/rsmap-tiles/{z}/{x}/{y}.png`} />
       </MapContainer>
     </div>
