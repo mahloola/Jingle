@@ -14625,28 +14625,6 @@ const geojsondata = {
         type: "Polygon",
         coordinates: [
           [
-            [1280, 1216],
-            [1344, 1216],
-            [1344, 1280],
-            [1280, 1280],
-            [1280, 1216],
-          ],
-        ],
-      },
-      properties: {
-        mapID: "-1",
-        title: '<a href="/w/That_Sullen_Hall" title="That Sullen Hall">That Sullen Hall</a>',
-        description:
-          '<div><a href="/w/File:That_Sullen_Hall.ogg" title="File:That Sullen Hall.ogg">Play track</a></div>',
-        plane: 0,
-      },
-    },
-    {
-      type: "Feature",
-      geometry: {
-        type: "Polygon",
-        coordinates: [
-          [
             [2560, 3456],
             [2560, 3520],
             [2624, 3520],
