@@ -56,6 +56,8 @@ export const MapClickHandler = ({ currentSong, setGuessResult, setResultVisible 
     resultTimeout = setTimeout(() => setResultVisible(false), ms);
   };
 
+  const calculatePoints = (distance) => (1000 * 1) / Math.exp(0.0018 * distance);
+  
   const map = useMapEvents({
     click: (e) => {
       setPosition(e.latlng);
@@ -83,16 +85,16 @@ export const MapClickHandler = ({ currentSong, setGuessResult, setResultVisible 
         const distances = correctPolygonCenterPoints.map((point) =>
           calculateDistance(ourPixelCoordsClickedPoint, point)
         );
-        console.log(distances);
-        setGuessResult(Math.round(Math.min(...distances)));
+        const minDistance = Math.min(...distances);
+        setGuessResult(Math.round(calculatePoints(minDistance)));
         setResultVisible(true);
         hideResultAfterMs(2000);
       }
 
       // Create a GeoJSON feature for the nearest correct polygon
-      const correctPolygon = correctFeature.geometry.coordinates.sort((polygon) => {
-        const c1 = getCenterOfPolygon(polygon.map(toOurPixelCoordinates));
-        const c2 = getCenterOfPolygon(polygon.map(toOurPixelCoordinates));
+      const correctPolygon = correctFeature.geometry.coordinates.sort((polygon1, polygon2) => {
+        const c1 = getCenterOfPolygon(polygon1.map(toOurPixelCoordinates));
+        const c2 = getCenterOfPolygon(polygon2.map(toOurPixelCoordinates));
         const d1 = calculateDistance(ourPixelCoordsClickedPoint, c1);
         const d2 = calculateDistance(ourPixelCoordsClickedPoint, c2);
         return d1 - d2;

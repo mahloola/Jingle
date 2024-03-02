@@ -9,6 +9,7 @@ import RunescapeMap from "./RunescapeMap";
 import geojsondata from "./data/GeoJSON";
 import { toOurPixelCoordinates } from "./utils/coordinate-utils";
 import { decodeHTML } from "./utils/string-utils";
+import { FaDiscord, FaGithub } from "react-icons/fa";
 
 // TODO:
 // previous, show answer, guess, skip, next buttons laid out horizontally with rs-style buttons + simple icons
@@ -70,18 +71,89 @@ function App() {
     setHardMode(e.target.checked);
   };
 
-
   return (
     <div className="App">
-      <div className="content">
-        <div className={`content ${!startedGame ? "blur" : ""}`}>
+      <div>
+        <div
+          style={{
+            width: "100vw",
+            height: "100dvh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-end",
+            position: "absolute",
+            paddingBottom: "5vh",
+          }}
+        >
+          <div
+            className="ui-box"
+            style={{ display: startedGame ? "block" : "none" }}
+          >
+            <div className="below-map">
+              <audio controls id="audio" ref={audioRef}>
+                <source id="source" ref={sourceRef} type="audio/ogg"></source>
+              </audio>
+              <div className="buttons">
+                {/* hard mode button */}
+                {/* <input
+                  type="checkbox"
+                  id="hardModeCheckbox"
+                  checked={hardMode}
+                  onChange={handleHardModeChange}
+                />
+                <label htmlFor="hardModeCheckbox">3 Second Mode</label> */}
+                {/* guess button */}
+                <Button variant="primary" onClick={() => {}}>
+                  Guess
+                </Button>
+                {/* song button */}
+                <Button
+                variant="secondary"
+                className="songButton"
+                onClick={() => {
+                  const newSongName = getRandomSong();
+                  setCurrentSong(newSongName);
+                  playSong(newSongName);
+                }}
+              >
+                Skip
+              </Button>
+              </div>
+            </div>
+            <div className="credits">
+              <span >
+                <a className="icon"
+                  href="https://github.com/mahloola/osrs-music"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub />
+                </a>
+                <a className="icon" href="https://discord.gg/7sB8fyUS9W">
+                  <FaDiscord />
+                </a>
+              </span>
+              <div>
+                developed by{" "}
+                <a href="https://twitter.com/mahloola" className="link">
+                  mahloola
+                </a>{" "}
+                &amp;{" "}
+                <a href="https://twitter.com/FunOrange42" className="link">
+                  FunOrange
+                </a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div className={`${!startedGame ? "blur" : ""}`}>
           <RunescapeMap
             currentSong={currentSong}
             setGuessResult={setGuessResult}
             setResultVisible={setResultVisible}
           />
         </div>
-        <br />
         {!startedGame && (
           <Button
             variant="success"
@@ -102,7 +174,7 @@ function App() {
             opacity: successVisible ? 1 : 0,
             transition: "opacity 0.3s",
             position: "absolute",
-            top: "50%",
+            top: "20%",
             left: "50%",
             transform: "translate(-50%, -50%)",
             fontSize: "3rem",
@@ -124,6 +196,7 @@ function App() {
         >
           Good job!
         </div>
+
         <div
           className="alert result-message"
           role="alert"
@@ -132,7 +205,7 @@ function App() {
             transition: "opacity 0.3s",
             opacity: failureVisible ? 1 : 0,
             position: "absolute",
-            top: "50%",
+            top: "20%",
             left: "50%",
             transform: "translate(-50%, -50%)",
             fontSize: "3rem",
@@ -155,51 +228,6 @@ function App() {
           Score
           <br />
           {guessResult}
-        </div>
-        <div
-          className="ui-box"
-          style={{ display: startedGame ? "block" : "none" }}
-        >
-          <div className="below-map">
-            <audio controls id="audio" ref={audioRef}>
-              <source id="source" ref={sourceRef} type="audio/ogg"></source>
-            </audio>
-            <br />
-            <div className="buttons">
-              {/* hard mode button */}
-              <input
-                type="checkbox"
-                id="hardModeCheckbox"
-                checked={hardMode}
-                onChange={handleHardModeChange}
-              />
-              <label htmlFor="hardModeCheckbox">3 Second Mode</label>
-              {/* guess button */}
-              <Button variant="primary" onClick={() => { }}>
-                Guess
-              </Button>
-              {/* song button */}
-              <Button
-                variant="secondary"
-                className="songButton"
-                onClick={() => {
-                  const newSongName = getRandomSong();
-                  setCurrentSong(newSongName);
-                  playSong(newSongName);
-                }}
-              >
-                Skip
-              </Button>
-            </div>
-            {/* <div
-              className="grey-text"
-              style={{
-                color: "dimgray",
-              }}
-            >
-              Drop a pin where the music plays, then press the guess button.
-            </div> */}
-          </div>
         </div>
       </div>
     </div>
