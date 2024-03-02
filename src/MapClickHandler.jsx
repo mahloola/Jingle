@@ -83,6 +83,7 @@ export const MapClickHandler = ({ currentSong, setGuessResult, setResultVisible 
         const distances = correctPolygonCenterPoints.map((point) =>
           calculateDistance(ourPixelCoordsClickedPoint, point)
         );
+        console.log(distances);
         setGuessResult(Math.round(Math.min(...distances)));
         setResultVisible(true);
         hideResultAfterMs(2000);
@@ -116,6 +117,9 @@ export const MapClickHandler = ({ currentSong, setGuessResult, setResultVisible 
         ),
         zoom
       );
+      // console.log("hi")
+      // console.log(geojsonFeature.geometry.coordinates)
+      // console.log(`center: ${center}`)
       map.panTo(center, zoom);
     },
   });
