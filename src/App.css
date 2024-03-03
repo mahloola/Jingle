@@ -5,19 +5,14 @@
 .ui-box {
   top: 75%;
   left: 40%;
-  width: 420px;
+  width: 400px;
   z-index: 999 !important; /* Ensure the button is above the blurred map */
 }
 
 .below-map {
-  padding: 2.6% 0;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3.8px);
-  -webkit-backdrop-filter: blur(3.8px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  margin-bottom: 3%;
+  
+  margin-bottom:40px;
+  
 }
 .credits {
   z-index: 999 !important; /* Ensure the button is above the blurred map */
@@ -42,8 +37,11 @@
 .link:hover {
   text-decoration: underline; /* Underline on hover */
 }
-.buttons {
-  margin: 1% 0 0;
+.button {
+  margin: 0 0 20px;
+  width:250px;
+  border-radius: 30px !important;
+  font-style:italic;
 }
 
 .songButton {
@@ -79,7 +77,7 @@
 .icon {
 padding: 2%;
 width: 50px;
-color: rgb(1, 41, 82);
+color: #013d7a;
 }
 .content {
   position: relative;

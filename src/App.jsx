@@ -9,7 +9,7 @@ import RunescapeMap from "./RunescapeMap";
 import geojsondata from "./data/GeoJSON";
 import { toOurPixelCoordinates } from "./utils/coordinate-utils";
 import { decodeHTML } from "./utils/string-utils";
-import { FaDiscord, FaGithub } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaDonate } from "react-icons/fa";
 
 // TODO:
 // previous, show answer, guess, skip, next buttons laid out horizontally with rs-style buttons + simple icons
@@ -112,35 +112,20 @@ function App() {
             style={{ display: startedGame ? "block" : "none" }}
           >
             <div className="below-map">
+              {/* guess button */}
+              <Button className="button" variant={guessResult == 0 ? "info" : "success"} disabled={guessResult == 0 ? true : false} onClick={() => {
+                const newSongName = getRandomSong();
+                setCurrentSong(newSongName);
+                playSong(newSongName);
+                setResultVisible(true);
+              }}>
+                {guessResult == 0 ? "Place your pin on the map" : "Guess"}
+              </Button>
               <audio controls id="audio" ref={audioRef}>
                 <source id="source" ref={sourceRef} type="audio/ogg"></source>
               </audio>
-              <div className="buttons">
-                {/* hard mode button */}
-                {/* <input
-                  type="checkbox"
-                  id="hardModeCheckbox"
-                  checked={hardMode}
-                  onChange={handleHardModeChange}
-                />
-                <label htmlFor="hardModeCheckbox">3 Second Mode</label> */}
-                {/* guess button */}
-                <Button variant="primary" onClick={() => {}}>
-                  Guess
-                </Button>
-                {/* song button */}
-                <Button
-                variant="secondary"
-                className="songButton"
-                onClick={() => {
-                  const newSongName = getRandomSong();
-                  setCurrentSong(newSongName);
-                  playSong(newSongName);
-                }}
-              >
-                Skip
-              </Button>
-              </div>
+
+
             </div>
             <div className="credits">
               <span >
@@ -154,18 +139,19 @@ function App() {
                 <a className="icon" href="https://discord.gg/7sB8fyUS9W">
                   <FaDiscord />
                 </a>
+                <a className="icon" href="https://ko-fi.com/mahloola">
+                  <FaDonate />
+                </a>
               </span>
               <div>
                 developed by{" "}
                 <a href="https://twitter.com/mahloola" className="link">
                   mahloola
-                </a>{" "}
-                &amp;{" "}
-                <a href="https://twitter.com/FunOrange42" className="link">
+                </a> and <a href="https://twitter.com/FunOrange42" className="link">
                   FunOrange
                 </a>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -188,44 +174,13 @@ function App() {
             Start Game
           </Button>
         )}
-        <div
-          className="alert alert-success result-message"
-          role="alert"
-          id="successMessage"
-          style={{
-            opacity: successVisible ? 1 : 0,
-            transition: "opacity 0.3s",
-            position: "absolute",
-            top: "20%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            fontSize: "3rem",
-            fontWeight: "bold",
-            textAlign: "center",
-            zIndex: 9999,
-
-            // glass
-            background: "rgba(255, 255, 255, 0.2)",
-            borderRadius: "16px",
-            boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-            backdropFilter: "blur(5px)",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-
-            color: "rgb(19, 211, 64)",
-            textShadow: "1px 1px 13px rgba(0, 0, 0, 0.8)",
-            padding: "1rem 2rem",
-          }}
-        >
-          Good job!
-        </div>
 
         <div
           className="alert result-message"
           role="alert"
-          id="failMessage"
           style={{
             transition: "opacity 0.3s",
-            opacity: failureVisible ? 1 : 0,
+            opacity: resultVisible ? 1 : 0,
             position: "absolute",
             top: "20%",
             left: "50%",
