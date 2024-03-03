@@ -19,6 +19,9 @@ import { FaDiscord, FaGithub } from "react-icons/fa";
 // fix map bounds
 // difficulty settings
 
+const playedSongs = new Set();
+const playedSongsOrder = [];
+
 const isFeatureVisibleOnMap = (feature) =>
   feature.geometry.coordinates.some((polygon) =>
     polygon.every((point) => {
@@ -27,15 +30,34 @@ const isFeatureVisibleOnMap = (feature) =>
     })
   );
 const getRandomSong = () => {
+  let randomSongName = '';
   const visibleFeatures = geojsondata.features.filter(isFeatureVisibleOnMap);
-  const randomFeature = visibleFeatures.sort(
-    () => Math.random() - Math.random()
-  )[0];
-  const randomSongName = decodeHTML(
-    randomFeature.properties.title.match(/>(.*?)</)[1]
-  );
+  do {
+    const randomFeature = visibleFeatures.sort(
+      () => Math.random() - Math.random()
+    )[0];
+    randomSongName = decodeHTML(
+      randomFeature.properties.title.match(/>(.*?)</)[1]
+    );
+    console.log("ROLLED: ", randomSongName);
+  } while (playedSongs.has(randomSongName));
+  updatePlayedSongs(randomSongName);
+  console.log(playedSongs);
   console.log("Current song: ", randomSongName);
   return randomSongName;
+};
+
+const updatePlayedSongs = (newSongName) => {
+  console.log("updated!")
+  playedSongsOrder.push(newSongName);
+
+  // If limit is reached, remove the oldest song
+  if (playedSongsOrder.length > 100) { //change val based on how many songs should be shown without dupes
+    const oldestSong = playedSongsOrder.shift();
+    playedSongs.delete(oldestSong);
+  }
+
+  playedSongs.add(newSongName);
 };
 
 const initialSong = getRandomSong();
