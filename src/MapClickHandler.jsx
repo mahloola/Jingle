@@ -119,9 +119,6 @@ export const MapClickHandler = ({ currentSong, setGuessResult, setResultVisible 
         ),
         zoom
       );
-      // console.log("hi")
-      // console.log(geojsonFeature.geometry.coordinates)
-      // console.log(`center: ${center}`)
       map.panTo(center, zoom);
     },
   });

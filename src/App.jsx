@@ -72,8 +72,6 @@ function App() {
   const [hardMode, setHardMode] = useState(false);
   const exactMatch = guessResult === 1000;
   const [resultVisible, setResultVisible] = useState(false);
-  const successVisible = exactMatch && resultVisible;
-  const failureVisible = !exactMatch && resultVisible;
 
   const playSong = (songName) => {
     const src = `https://oldschool.runescape.wiki/images/${songName
@@ -113,13 +111,12 @@ function App() {
           >
             <div className="below-map">
               {/* guess button */}
-              <Button className="button" variant={guessResult == 0 ? "info" : "success"} disabled={guessResult == 0 ? true : false} onClick={() => {
+              <Button className="button" variant={guessResult == 0 ? "info" : "secondary"} disabled={guessResult == 0 ? true : false} onClick={() => {
                 const newSongName = getRandomSong();
                 setCurrentSong(newSongName);
                 playSong(newSongName);
-                setResultVisible(true);
               }}>
-                {guessResult == 0 ? "Place your pin on the map" : "Guess"}
+                {guessResult == 0 ? "Place your pin on the map" : "Skip"}
               </Button>
               <audio controls id="audio" ref={audioRef}>
                 <source id="source" ref={sourceRef} type="audio/ogg"></source>
