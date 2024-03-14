@@ -1,39 +1,44 @@
 import * as React from "react";
-import { ImageOverlay, MapContainer, Polygon, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapClickHandler } from "./MapClickHandler";
 import geojsondata from "./data/GeoJSON";
-import { Point, CRS, bounds } from "leaflet";
+import { CRS } from "leaflet";
 import L from "leaflet";
+import { handleMapMoveEnd } from "./utils/handleMapMoveEnd";
 
 const RunescapeMap = ({ currentSong, setGuessResult, setResultVisible }) => {
-  const outerBounds = new L.LatLngBounds([
-    [-78, 0],
-    [0, 136.696],
-  ]);
-  const musicAreas = [];
-  const musicAreaPolygons = [];
-  for (let i = 0; i < geojsondata.features.length; i++) {
-    musicAreas.push(geojsondata.features[i]);
-    const coordinates = geojsondata.features[i].geometry.coordinates[0];
-    const latLngArray = coordinates.map(([lat, lng]) => [lat, lng]);
+  const outerBounds = new L.LatLngBounds(
+    L.latLng(-78, 0),
+    L.latLng(0, 136.696)
+  );
 
-    // Create LatLng array and use it to create a Polygon
-    const polygon = L.polygon(latLngArray);
+  const mapRef = React.useRef(null);
 
-    musicAreaPolygons.push(polygon);
-  }
+  React.useEffect(() => {
+    const map = mapRef.current;
+
+    if (map) {
+      map.addEventListener("moveend", handleMapMoveEnd(mapRef, outerBounds));
+    }
+
+    return () => {
+      if (map) {
+        map.removeEventListener("moveend", handleMapMoveEnd(mapRef, outerBounds));
+      }
+    };
+  }, []);
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <MapContainer
+        ref={mapRef}
         center={[-35, 92.73]}
         zoom={5}
         maxZoom={6}
         minZoom={4}
         style={{ height: "100vh", width: "100%" }}
-        bounds={{ outerBounds }}
-        boundsOptions={{ outerBounds }}
+        maxBounds={outerBounds}
         maxBoundsViscosity={1}
         crs={CRS.Simple}
       >

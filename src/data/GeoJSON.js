@@ -8150,56 +8150,6 @@ const geojsondata = {
         type: "Polygon",
         coordinates: [
           [
-            [3616, 9728],
-            [3648, 9728],
-            [3648, 9681],
-            [3616, 9681],
-            [3616, 9728],
-          ],
-          [
-            [2368, 4608],
-            [2368, 4672],
-            [2432, 4672],
-            [2432, 4608],
-            [2368, 4608],
-          ],
-          [
-            [3606, 3312],
-            [3617, 3312],
-            [3617, 3330],
-            [3648, 3330],
-            [3648, 3264],
-            [3584, 3264],
-            [3584, 3328],
-            [3591, 3328],
-            [3591, 3311],
-            [3606, 3311],
-            [3606, 3312],
-          ],
-          [
-            [3584, 9600],
-            [3584, 9664],
-            [3648, 9664],
-            [3648, 9600],
-            [3584, 9600],
-          ],
-        ],
-      },
-      properties: {
-        mapID: "-1",
-        title:
-          '<a href="/w/Lament_of_Meiyerditch" title="Lament of Meiyerditch">Lament of Meiyerditch</a>',
-        description:
-          '<div><a href="/w/File:Lament_of_Meiyerditch.ogg" title="File:Lament of Meiyerditch.ogg">Play track</a></div>',
-        plane: 0,
-      },
-    },
-    {
-      type: "Feature",
-      geometry: {
-        type: "Polygon",
-        coordinates: [
-          [
             [2496, 10240],
             [2496, 10304],
             [2560, 10304],

@@ -5,19 +5,17 @@
 .ui-box {
   top: 75%;
   left: 40%;
-  width: 400px;
+  width: 350px;
   z-index: 999 !important; /* Ensure the button is above the blurred map */
 }
 
 .below-map {
-  
-  margin-bottom:40px;
-  
+  margin-bottom: 15px;
 }
 .credits {
   z-index: 999 !important; /* Ensure the button is above the blurred map */
   padding: 1.3% 0;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3.8px);
@@ -25,9 +23,85 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.runescapeMap {
-  max-width: 50%;
+@media (max-width: 600px) {
+  .statistics {
+    width: 170px;
+    padding: 2% 4%;
+  }
 }
+
+@media (min-width: 601px) {
+  .statistics {
+    width: 200px;
+    padding: 0.7% 1%;
+  }
+}
+.statistics {
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  z-index: 999 !important; /* Ensure the button is above the blurred map */
+  color: #004799;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.8px);
+  -webkit-backdrop-filter: blur(3.8px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.result-card {
+  transition: opacity 0.3s;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #03030c;
+  text-shadow: 1px 1px 13px rgba(0, 13, 254, 0.8);
+  padding: 1rem 2rem;
+}
+
+.statistics table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.link {
+  color: #013d7a;
+  text-decoration: none;
+  font-weight: bold;
+  transition: text-decoration 0.3s;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.button {
+  margin: 0 0 20px;
+  width: 250px;
+  border-radius: 30px !important;
+  font-style: italic;
+}
+
+.statistics table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
 .link {
   color: #013d7a; /* Dark blue color */
   text-decoration: none; /* Remove underline */
@@ -37,11 +111,12 @@
 .link:hover {
   text-decoration: underline; /* Underline on hover */
 }
+
 .button {
   margin: 0 0 20px;
-  width:250px;
+  width: 250px;
   border-radius: 30px !important;
-  font-style:italic;
+  font-style: italic;
 }
 
 .songButton {
@@ -75,9 +150,9 @@
 }
 
 .icon {
-padding: 2%;
-width: 50px;
-color: #013d7a;
+  padding: 2%;
+  width: 50px;
+  color: #013d7a;
 }
 .content {
   position: relative;
@@ -94,14 +169,4 @@ color: #013d7a;
 
 .blur {
   filter: blur(5px); /* Adjust the blur strength as needed */
-}
-
-.fire {
-  color: rgba(255, 255, 255, 0);
-  text-shadow: 0 0 1px #ffffff, 0 -3px 5px #fffc00, 0 -8px 15px #ff983d, 0 -15px 30px #ff983d;
-}
-
-.blurred {
-  color: rgba(255, 255, 255, 0);
-  text-shadow: 0 0 5px rgba(255, 255, 255, .6), 0 0 15px rgba(255, 255, 255, .6), 0 0 50px rgba(255, 255, 255, .6);
 }

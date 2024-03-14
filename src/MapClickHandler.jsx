@@ -6,6 +6,7 @@ import { polygon, booleanPointInPolygon } from "@turf/turf";
 import geojsondata from "./data/GeoJSON";
 import { toOurPixelCoordinates } from "./utils/coordinate-utils";
 import { decodeHTML } from "./utils/string-utils";
+import { incrementGuessCounter } from "./db/db";
 
 const closePolygon = (coordinates) => {
   let repairedPolygon = [...coordinates];
@@ -120,6 +121,7 @@ export const MapClickHandler = ({ currentSong, setGuessResult, setResultVisible 
         zoom
       );
       map.panTo(center, zoom);
+      incrementGuessCounter();
     },
   });
 
