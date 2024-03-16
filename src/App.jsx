@@ -22,7 +22,7 @@ function App() {
   const [guessResult, setGuessResult] = useState(0);
   const [startedGame, setStartedGame] = useState(false);
   const [resultVisible, setResultVisible] = useState(false);
-
+  let next = false;
   const playSong = (songName) => {
     const src = `https://oldschool.runescape.wiki/images/${songName
       .trim()
@@ -77,6 +77,7 @@ function App() {
                   const newSongName = getRandomSong();
                   setCurrentSong(newSongName);
                   playSong(newSongName);
+                  setResultVisible(true);
                 }}
               >
                 {guessResult == 0 ? "Place your pin on the map" : "Skip"}
@@ -120,6 +121,7 @@ function App() {
             currentSong={currentSong}
             setGuessResult={setGuessResult}
             setResultVisible={setResultVisible}
+            resultVisible={resultVisible}
           />
         </div>
         {!startedGame && (

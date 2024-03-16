@@ -7,7 +7,7 @@ import { CRS } from "leaflet";
 import L from "leaflet";
 import { handleMapMoveEnd } from "./utils/handleMapMoveEnd";
 
-const RunescapeMap = ({ currentSong, setGuessResult, setResultVisible }) => {
+const RunescapeMap = ({ currentSong, setGuessResult, setResultVisible, resultVisible }) => {
   const outerBounds = new L.LatLngBounds(
     L.latLng(-78, 0),
     L.latLng(0, 136.696)
@@ -46,6 +46,7 @@ const RunescapeMap = ({ currentSong, setGuessResult, setResultVisible }) => {
           currentSong={currentSong}
           setGuessResult={setGuessResult}
           setResultVisible={setResultVisible}
+          resultVisible={resultVisible}
         />
         <TileLayer attribution="offline" url={`/rsmap-tiles/{z}/{x}/{y}.png`} />
       </MapContainer>
