@@ -2,12 +2,11 @@ import * as React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapClickHandler } from "./MapClickHandler";
-import geojsondata from "./data/GeoJSON";
 import { CRS } from "leaflet";
 import L from "leaflet";
 import { handleMapMoveEnd } from "./utils/handleMapMoveEnd";
 
-const RunescapeMap = ({ currentSong, setGuessResult, setResultVisible, resultVisible }) => {
+const RunescapeMap = ({ currentSong, setGuessResult, setResultVisible, resultVisible, userGuessed }) => {
   const outerBounds = new L.LatLngBounds(
     L.latLng(-78, 0),
     L.latLng(0, 136.696)
@@ -47,6 +46,7 @@ const RunescapeMap = ({ currentSong, setGuessResult, setResultVisible, resultVis
           setGuessResult={setGuessResult}
           setResultVisible={setResultVisible}
           resultVisible={resultVisible}
+          userGuessed={userGuessed}
         />
         <TileLayer attribution="offline" url={`/rsmap-tiles/{z}/{x}/{y}.png`} />
       </MapContainer>

@@ -53,13 +53,13 @@ function App() {
             <table>
               <tr>
                 <td>Guesses</td>
-                <td style={{textAlign: "right"}}>
+                <td style={{ textAlign: "right" }}>
                   <GuessCountComponent />
                 </td>
               </tr>
               <tr>
                 <td>Users</td>
-                <td style={{textAlign: "right"}}>4</td>
+                <td style={{ textAlign: "right" }}>4</td>
               </tr>
             </table>
           </div>
@@ -125,23 +125,37 @@ function App() {
           />
         </div>
         {!startedGame && (
-          <Button
-            variant="success"
-            className="start-button"
-            onClick={() => {
-              setStartedGame(true);
-              playSong(currentSong);
-            }}
-          >
-            Start Game
-          </Button>
+          <div className="main-menu-container">
+            <img
+              className="main-menu-image"
+              src={process.env.PUBLIC_URL + "/assets/Jingle.png"}
+              alt="Jingle"
+            />
+            <h1 className="main-menu-text">Jingle</h1>
+            {/* <h1 className="main-menu-description">"It's like GeoGuessr, but for OSRS Music"</h1> */}
+            <h1 className="main-menu-option" style={{ left: "30%" }}>
+              Daily
+              <br />
+              Challenge
+            </h1>
+            <h1
+              className="main-menu-option"
+              style={{ left: "70%" }}
+              onClick={() => {
+                setStartedGame(true);
+                playSong(currentSong);
+              }}
+            >
+              Practice Mode
+            </h1>
+          </div>
         )}
 
         <div
           className="alert result-message result-card"
           role="alert"
           style={{
-            opacity: resultVisible ? 1 : 0
+            opacity: resultVisible ? 1 : 0,
           }}
         >
           Score

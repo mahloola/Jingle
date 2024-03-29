@@ -191,15 +191,70 @@
   position: relative;
 }
 
-.start-button {
+.main-menu-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200px;
+  width: 80vw;
   z-index: 3 !important; /* Ensure the button is above the blurred map */
+  max-height: 70vh;
+  max-width: 70vw;
 }
 
+.main-menu-image {
+  width: 70vw;
+}
+
+.main-menu-text {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12vw;
+  font-family: "Runescape UF";
+  color: #edfd07;
+  text-shadow: 5px 5px 10px black;
+  pointer-events: none;
+  /* text-shadow: 0px 0px 100px rgb(0, 0, 0); */
+}
+
+.main-menu-option {
+  position: absolute;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 5vw;
+  font-style: italic;
+  font-family: "Runescape UF";
+  color: #edfd07;
+  text-shadow: 2px 2px 10px black;
+}
+.main-menu-option:hover {
+  position: absolute;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 5vw;
+  font-style: italic;
+  font-family: "Runescape UF";
+  color: #f8ff98;
+  cursor: pointer;
+  text-shadow: 2px 2px 10px black;
+}
+
+@media screen and (max-width: 600px){
+  .main-menu-text {
+    font-size: 80px;
+    top: 20%;
+  }
+  .main-menu-option {
+    font-size: 25px;
+    
+  }
+  .main-menu-option:hover {
+    font-size: 25px;
+  }
+}
 .blur {
-  filter: blur(5px); /* Adjust the blur strength as needed */
+  filter: blur(40px); /* Adjust the blur strength as needed */
+  border: 0px solid transparent;
 }

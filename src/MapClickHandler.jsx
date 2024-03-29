@@ -1,50 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Marker, useMapEvents, GeoJSON } from "react-leaflet";
-import { Icon, point } from "leaflet";
+import { Icon } from "leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { polygon, booleanPointInPolygon } from "@turf/turf";
 import geojsondata from "./data/GeoJSON";
 import { toOurPixelCoordinates } from "./utils/coordinate-utils";
-import { decodeHTML } from "./utils/string-utils";
-import { incrementGuessCounter } from "./db/db";
-
-const closePolygon = (coordinates) => {
-  let repairedPolygon = [...coordinates];
-  if (
-    coordinates[0][0] !== coordinates[coordinates.length - 1][0] ||
-    coordinates[0][1] !== coordinates[coordinates.length - 1][1]
-  ) {
-    repairedPolygon.push(coordinates[0]);
-  }
-  return repairedPolygon;
-};
-
-const featureMatchesSong = (songName) => (feature) => {
-  const featureSongName = decodeHTML(
-    feature.properties.title.match(/>(.*?)</)[1]
-  );
-  return featureSongName === songName;
-};
-
-const calculateDistance = (point1, point2) => {
-  const dx = point2[0] - point1[0];
-  const dy = point2[1] - point1[1];
-  return Math.sqrt(dx * dx + dy * dy);
-}; // some basic euclidian mathematics
-
-const getCenterOfPolygon = (points) => {
-  const xSum = points.reduce((acc, [x, y]) => acc + x, 0);
-  const ySum = points.reduce((acc, [x, y]) => acc + y, 0);
-  return [xSum / points.length, ySum / points.length];
-};
+import { featureMatchesSong, calculateDistance, getCenterOfPolygon, closePolygon } from "./utils/clickHandler-utils";
+// import { incrementGuessCounter } from "./db/db";
 
 let resultTimeout = null;
+
+export const userGuessed = (geojsonFeature, center, zoom, setResultVisible, setCorrectPolygon, map) => {
+  setResultVisible(true);
+  setCorrectPolygon(geojsonFeature);
+  map.panTo(center, zoom);
+  // Additional logic if needed
+};
 
 export const MapClickHandler = ({
   currentSong,
   setGuessResult,
   setResultVisible,
-  resultVisible
+  userGuessed
 }) => {
   const [position, setPosition] = useState(null);
   const [correctPolygon, setCorrectPolygon] = useState(null);
@@ -52,17 +29,10 @@ export const MapClickHandler = ({
   let geojsonFeature;
   let center;
 
-  const userGuessed = (geojsonFeature, center, zoom) => {
-    setResultVisible(true);
-    setCorrectPolygon(geojsonFeature);
-    map.panTo(center, zoom);
-    incrementGuessCounter();
-  };
-
-  if (resultVisible) {
-    console.log(geojsonFeature)
-    userGuessed(geojsonFeature, center, zoom);
-  }
+  // if (resultVisible) {
+  //   console.log(geojsonFeature)
+  //   userGuessed(geojsonFeature, center, zoom);
+  // }
 
   useEffect(() => {
     if (correctPolygon) {
@@ -154,7 +124,7 @@ export const MapClickHandler = ({
         ),
         zoom
       );
-      //userGuessed(geojsonFeature, center, zoom);
+      userGuessed(geojsonFeature, center, zoom);
     },
   });
 
