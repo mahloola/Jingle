@@ -1,8 +1,20 @@
 .App {
   text-align: center;
 }
+.App-inner {
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  padding-bottom: 5vh;
+}
 
 .ui-box {
+  color: #edfd07;
+  font-family: "Runescape UF";
+  text-shadow: 1px 1px 1px black;
   top: 75%;
   left: 40%;
   width: 350px;
@@ -12,15 +24,13 @@
 .below-map {
   margin-bottom: 15px;
 }
-.credits {
+.footer {
+  background-image: url(../public/assets/osrsButtonCredits.png) !important;
   z-index: 999 !important; /* Ensure the button is above the blurred map */
   padding: 1.3% 0;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3.8px);
-  -webkit-backdrop-filter: blur(3.8px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: "Runescape UF";
+  color: #edfd07;
+  box-shadow: 0px 1px 2px black;
 }
 
 @media (max-width: 600px) {
@@ -37,39 +47,16 @@
   }
 }
 .statistics {
-  text-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+  background-image: url(../public/assets/osrsButtonStatistics.png) !important;
+  font-size: 20px;
   position: absolute;
-  top: 5%;
-  right: 5%;
+  top: 1%;
+  right: 1%;
   z-index: 999 !important; /* Ensure the button is above the blurred map */
-  color: #004799;
-  font-weight: bold;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3.8px);
-  -webkit-backdrop-filter: blur(3.8px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.result-card {
-  transition: opacity 0.3s;
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: center;
-  z-index: 9999;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #03030c;
-  text-shadow: 1px 1px 13px rgba(0, 13, 254, 0.8);
-  padding: 1rem 2rem;
+  color: #edfd07;
+  font-family: "Runescape UF";
+  box-shadow: -0.5px 1px 2px black;
+  text-shadow: 2px 2px 1px black;
 }
 
 .statistics table {
@@ -79,14 +66,25 @@
 }
 
 .link {
-  color: #013d7a;
+  color: #edfd07;
   text-decoration: none;
-  font-weight: bold;
   transition: text-decoration 0.3s;
 }
 
 .link:hover {
   text-decoration: underline;
+  color: #b7c400 !important;
+}
+.icon {
+  padding: 2%;
+  width: 50px;
+  color: #edfd07;
+}
+.icon:hover {
+  color: #b7c400 !important;
+}
+.content {
+  position: relative;
 }
 
 .button {
@@ -100,16 +98,6 @@
   width: 100%;
   text-align: left;
   border-collapse: collapse;
-}
-
-.link {
-  color: #013d7a; /* Dark blue color */
-  text-decoration: none; /* Remove underline */
-  font-weight: bold; /* Make text bold */
-  transition: text-decoration 0.3s; /* Smooth transition for underline */
-}
-.link:hover {
-  text-decoration: underline; /* Underline on hover */
 }
 
 .button {
@@ -123,12 +111,24 @@
   margin-left: 20px;
 }
 
-.guessButton {
-  margin-right: 1%;
+.guess-btn-container {
+  position: relative;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
-
-#guessText {
-  margin-top: 20px;
+.guess-btn-container:hover {
+  filter: brightness(80%);
+}
+.guess-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-style: italic;
+  font-family: "Runescape UF";
+  text-shadow: 1px 1px 1px black;
+  color: #edfd07;
 }
 
 .leaflet-container {
@@ -176,19 +176,20 @@
 }
 
 .result-message {
+  z-index: 9999;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 7rem;
+  font-style: italic;
   pointer-events: none;
   position: absolute;
   display: block;
-  transition: opacity 0.2s;
-}
-
-.icon {
-  padding: 2%;
-  width: 50px;
-  color: #013d7a;
-}
-.content {
-  position: relative;
+  transition: opacity 0.3s;
+  transition: margin-top 1s;
+  text-shadow: 2px 2px 5px black;
+  font-family: "Runescape UF";
+  color: #edfd07;
 }
 
 .main-menu-container {
@@ -241,14 +242,13 @@
   text-shadow: 2px 2px 10px black;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
   .main-menu-text {
     font-size: 80px;
     top: 20%;
   }
   .main-menu-option {
     font-size: 25px;
-    
   }
   .main-menu-option:hover {
     font-size: 25px;

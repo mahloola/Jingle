@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getGuessCount } from "../db/db";
+import { getStatistics } from "../db/db";
 import { Spinner } from "react-bootstrap";
 
 // Import your getGuessCount function here
@@ -9,8 +9,8 @@ const GuessCountComponent = () => {
 
   useEffect(() => {
     const interval = setInterval(async () => {
-      const count = await getGuessCount();
-      const formattedCount = count.toLocaleString();
+      const statistics = await getStatistics();
+      const formattedCount = (statistics.guesses).toLocaleString();
       setGuessCount(formattedCount);
     }, 2000);
 
