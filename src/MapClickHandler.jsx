@@ -66,7 +66,6 @@ export const MapClickHandler = ({ currentSong, setGuessResult, setResultVisible,
       const correctFeature = geojsondata.features.find(featureMatchesSong(currentSong));
       const correctClickedFeature = clickedFeatures.find(featureMatchesSong(currentSong));
       const dailyResultsTemp = dailyResults;
-      console.log(dailyResults)
       dailyResults.length > 3 ? setDailyComplete(true) : setDailyComplete(false);
       if (correctClickedFeature) {
         setGuessResult(1000);

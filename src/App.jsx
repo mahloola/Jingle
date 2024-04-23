@@ -7,6 +7,7 @@ import { getRandomSong } from "./utils/getSong";
 import GuessCountComponent from "./components/guessCount";
 import DailyGuessLabel from "./components/dailyGuessLabel";
 import Footer from "./components/footer";
+import { copyResultsToClipboard } from "./utils/copyResultsToClipboard";
 
 // TODO:
 // rs-stylize the volume control and the start button. overlay volume control on top left of map vertically
@@ -27,7 +28,6 @@ function App({ dailyChallenge }) {
   const [dailyChallengeIndex, setDailyChallengeIndex] = useState(0);
   const [dailyComplete, setDailyComplete] = useState(false);
 
-  let next = false;
   const playSong = (songName) => {
     const src = `https://oldschool.runescape.wiki/images/${songName
       .trim()
@@ -95,7 +95,8 @@ function App({ dailyChallenge }) {
                 onClick={() => {
                   if (dailyMode) {
                     if (dailyComplete) {
-
+                      copyResultsToClipboard(dailyResults); 
+                        document.getElementById("map").style.pointerEvents = "none";
                       return;                        
                     } else {
                       const newSongName = dailyChallenge.songs[dailyChallengeIndex + 1];
@@ -116,7 +117,7 @@ function App({ dailyChallenge }) {
                 <div
                   className="guess-btn">
                   {dailyComplete == true
-                    ? "Share Results"
+                    ? "Copy Results to Clipboard"
                     : guessResult == -1
                     ? "Place your pin on the map"
                     : "Next Song"}
@@ -171,22 +172,6 @@ function App({ dailyChallenge }) {
                 playSong(currentSong);
               }}>
               Practice Mode
-            </h1>
-          </div>
-        )}
-        {dailyComplete && (
-          <div className="main-menu-container">
-            <h1 className="main-menu-text">Copy Results to Clipboard</h1>
-            <h1 className="main-menu-option" style={{ left: "30%", pointerEvents: "none" }}>
-              {dailyResults[0]}
-              <br />
-              {dailyResults[1]}
-              <br />
-              {dailyResults[2]}
-              <br />
-              {dailyResults[3]}
-              <br />
-              {dailyResults[4]}
             </h1>
           </div>
         )}
