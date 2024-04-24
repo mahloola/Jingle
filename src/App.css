@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Runescape UF";
-  src: url("../public/fonts/runescape_uf.ttf");
+  src: url("../public/fonts/runescape.ttf");
 }
 .App {
   text-align: center;
@@ -126,7 +126,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 18px;
+  font-size: 16px;
   font-style: italic;
   text-shadow: 1px 1px 1px black;
   color: #edfd07;
