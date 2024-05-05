@@ -172,7 +172,7 @@ function App({ dailyChallenge }) {
               }}>
               Daily
               <br />
-              Challenge
+              Jingle
             </h1>
             <h1
               className="main-menu-option"

@@ -7,7 +7,6 @@ const LiveUserCount = () => {
 
   useEffect(() => {
     // Initialize Google Analytics
-    console.log(auth.analyticsTag)
     ReactGA.initialize(auth.analyticsTag);
 
     // Fetch real-time user count every 5 seconds
