@@ -8,6 +8,7 @@ import GuessCountComponent from "./components/guessCount";
 import DailyGuessLabel from "./components/dailyGuessLabel";
 import Footer from "./components/footer";
 import { copyResultsToClipboard } from "./utils/copyResultsToClipboard";
+import LiveUserCount from "./components/userCount";
 
 // TODO:
 // rs-stylize the volume control and the start button. overlay volume control on top left of map vertically
@@ -27,6 +28,7 @@ function App({ dailyChallenge }) {
   const [dailyResults, setDailyResults] = useState([]);
   const [dailyChallengeIndex, setDailyChallengeIndex] = useState(0);
   const [dailyComplete, setDailyComplete] = useState(false);
+  const [correctPolygon, setCorrectPolygon] = useState(null);
 
   const playSong = (songName) => {
     const src = `https://oldschool.runescape.wiki/images/${songName
@@ -36,13 +38,16 @@ function App({ dailyChallenge }) {
     audioRef.current.load();
     audioRef.current.play();
   };
-
+  let resultTimeout = null;
+  const hideResultAfterMs = (ms) => {
+    clearTimeout(resultTimeout);
+    resultTimeout = setTimeout(() => setResultVisible(false), ms);
+  };
   return (
     <div className="App">
       <div>
-        <div
-          className="App-inner">
-          <div className="statistics" style={{ display: startedGame ? "block" : "none" }}>
+        <div className="App-inner">
+          {/* <div className="statistics" style={{ display: startedGame ? "block" : "none" }}>
             <table>
               <tbody>
                 <tr>
@@ -53,11 +58,11 @@ function App({ dailyChallenge }) {
                 </tr>
                 <tr>
                   <td>Users</td>
-                  <td style={{ textAlign: "right" }}>4</td>
+                  <LiveUserCount style={{ textAlign: "right" }}></LiveUserCount>
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div> */}
           <div className="ui-box" style={{ display: startedGame ? "block" : "none" }}>
             <div className="below-map">
               {dailyMode && (
@@ -95,27 +100,30 @@ function App({ dailyChallenge }) {
                 onClick={() => {
                   if (dailyMode) {
                     if (dailyComplete) {
-                      copyResultsToClipboard(dailyResults); 
-                        document.getElementById("map").style.pointerEvents = "none";
-                      return;                        
+                      copyResultsToClipboard(dailyResults);
+                      // document.getElementById("map").style.pointerEvents = "none";
+                      return;
                     } else {
                       const newSongName = dailyChallenge.songs[dailyChallengeIndex + 1];
                       setCurrentSong(newSongName);
                       playSong(newSongName);
                       setDailyChallengeIndex(dailyChallengeIndex + 1);
+                      setCorrectPolygon(null);
+                      setResultVisible(false);
                     }
                   } else {
                     const newSongName = getRandomSong();
                     setCurrentSong(newSongName);
                     playSong(newSongName);
+                    setCorrectPolygon(null);
+                    setResultVisible(false);
                   }
                 }}>
                 <img
                   src={process.env.PUBLIC_URL + "../assets/osrsButtonWide.png"}
                   alt="OSRS Button"
                 />
-                <div
-                  className="guess-btn">
+                <div className="guess-btn">
                   {dailyComplete == true
                     ? "Copy Results to Clipboard"
                     : guessResult == -1
@@ -127,11 +135,13 @@ function App({ dailyChallenge }) {
                 <source id="source" ref={sourceRef} type="audio/ogg"></source>
               </audio>
             </div>
-            <Footer/>
+            <Footer />
           </div>
         </div>
         <div className={`${!startedGame ? "blur" : ""}`}>
           <RunescapeMap
+            setCorrectPolygon={setCorrectPolygon}
+            correctPolygon={correctPolygon}
             currentSong={currentSong}
             setGuessResult={setGuessResult}
             setResultVisible={setResultVisible}
@@ -180,7 +190,10 @@ function App({ dailyChallenge }) {
           role="alert"
           style={{
             opacity: resultVisible ? 1 : 0,
-            marginTop: resultVisible ? "-60px" : "0px"
+            
+            transition: "opacity 500ms, margin-top 500ms ease-in-out",
+            marginTop: resultVisible ? "-60px" : "0px",
+            color: guessResult === 1000 ? "#00FF00" : guessResult === 0 ? "#FF0000" : "yellow",
           }}>
           +{guessResult}
         </div>

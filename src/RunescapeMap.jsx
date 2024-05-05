@@ -6,7 +6,7 @@ import { CRS } from "leaflet";
 import L from "leaflet";
 import { handleMapMoveEnd } from "./utils/handleMapMoveEnd";
 
-const RunescapeMap = ({ currentSong, setGuessResult, setResultVisible, resultVisible, userGuessed, setDailyResults, dailyResults, dailyChallengeIndex, setDailyComplete }) => {
+const RunescapeMap = ({ setCorrectPolygon, correctPolygon, currentSong, setGuessResult, setResultVisible, resultVisible, userGuessed, setDailyResults, dailyResults, dailyChallengeIndex, setDailyComplete }) => {
   const outerBounds = new L.LatLngBounds(
     L.latLng(-78, 0),
     L.latLng(0, 136.696)
@@ -42,6 +42,8 @@ const RunescapeMap = ({ currentSong, setGuessResult, setResultVisible, resultVis
         crs={CRS.Simple}
       >
         <MapClickHandler
+          setCorrectPolygon={setCorrectPolygon}
+          correctPolygon={correctPolygon}
           currentSong={currentSong}
           setGuessResult={setGuessResult}
           setResultVisible={setResultVisible}

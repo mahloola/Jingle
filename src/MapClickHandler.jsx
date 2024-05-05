@@ -17,11 +17,8 @@ import {
   incrementSongSuccessCount,
 } from "./db/db";
 
-let resultTimeout = null;
-
-export const MapClickHandler = ({ currentSong, setGuessResult, setResultVisible, setDailyResults, dailyResults, dailyChallengeIndex, setDailyComplete }) => {
+export const MapClickHandler = ({ setCorrectPolygon, correctPolygon, currentSong, setGuessResult, resultVisible, setResultVisible, setDailyResults, dailyResults, dailyChallengeIndex, setDailyComplete }) => {
   const [position, setPosition] = useState(null);
-  const [correctPolygon, setCorrectPolygon] = useState(null);
   let zoom = 0;
   let geojsonFeature;
   let center;
@@ -31,25 +28,13 @@ export const MapClickHandler = ({ currentSong, setGuessResult, setResultVisible,
     map.panTo(center, zoom);
   };
 
-  useEffect(() => {
-    if (correctPolygon) {
-      // Clear the correct polygon after 2 seconds
-      const timeout = setTimeout(() => {
-        setCorrectPolygon(null);
-      }, 2000);
-      return () => clearTimeout(timeout);
-    }
-  }, [correctPolygon]);
-
-  const hideResultAfterMs = (ms) => {
-    clearTimeout(resultTimeout);
-    resultTimeout = setTimeout(() => setResultVisible(false), ms);
-  };
-
   const calculatePoints = (distance) => (1000 * 1) / Math.exp(0.0018 * distance);
 
   const map = useMapEvents({
     click: (e) => {
+      if (resultVisible) {
+        return;
+      }
       incrementGlobalGuessCounter();
       setPosition(e.latlng);
 
@@ -73,7 +58,6 @@ export const MapClickHandler = ({ currentSong, setGuessResult, setResultVisible,
         setDailyResults(dailyResultsTemp);
         incrementSongSuccessCount(currentSong);
         setResultVisible(true);
-        hideResultAfterMs(2000);
       } else {
         incrementSongFailureCount(currentSong);
         const correctPolygonCenterPoints = correctFeature.geometry.coordinates.map((polygon) =>
@@ -86,7 +70,6 @@ export const MapClickHandler = ({ currentSong, setGuessResult, setResultVisible,
         setGuessResult(Math.round(calculatePoints(minDistance)));    
         dailyResultsTemp[dailyChallengeIndex] = Math.round(calculatePoints(minDistance));
         setDailyResults(dailyResultsTemp);
-        hideResultAfterMs(2000);
       }
 
       // Create a GeoJSON feature for the nearest correct polygon
@@ -142,8 +125,8 @@ export const MapClickHandler = ({ currentSong, setGuessResult, setResultVisible,
             fillColor: "#0d6efd", // Fill color
             weight: 5, // Outline thickness
             fillOpacity: 0.5, // Opacity of fill
-            transition: "opacity 3s",
-            animation: "fade-out 3s",
+            opacity: correctPolygon == null ? 0 : 1, // Opacity of outline
+            transition: "all 2000ms",
           })}
         />
       )}
