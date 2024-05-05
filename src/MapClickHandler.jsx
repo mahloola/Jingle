@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Marker, useMapEvents, GeoJSON } from "react-leaflet";
 import { Icon } from "leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";

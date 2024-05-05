@@ -4,16 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import RunescapeMap from "./RunescapeMap";
 import { getRandomSong } from "./utils/getSong";
-import GuessCountComponent from "./components/guessCount";
 import DailyGuessLabel from "./components/dailyGuessLabel";
 import Footer from "./components/footer";
 import { copyResultsToClipboard } from "./utils/copyResultsToClipboard";
-import LiveUserCount from "./components/userCount";
-
-// TODO:
-// rs-stylize the volume control and the start button. overlay volume control on top left of map vertically
-// regenerate tile data for bigger zoom levels (maybe up to 7-8, and remove 0-1)
-// difficulty settings
 
 const initialSong = getRandomSong();
 let dailyMode = false;
@@ -38,31 +31,10 @@ function App({ dailyChallenge }) {
     audioRef.current.load();
     audioRef.current.play();
   };
-  let resultTimeout = null;
-  const hideResultAfterMs = (ms) => {
-    clearTimeout(resultTimeout);
-    resultTimeout = setTimeout(() => setResultVisible(false), ms);
-  };
   return (
     <div className="App">
       <div>
         <div className="App-inner">
-          {/* <div className="statistics" style={{ display: startedGame ? "block" : "none" }}>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Guesses</td>
-                  <td style={{ textAlign: "right" }}>
-                    <GuessCountComponent />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Users</td>
-                  <LiveUserCount style={{ textAlign: "right" }}></LiveUserCount>
-                </tr>
-              </tbody>
-            </table>
-          </div> */}
           <div className="ui-box" style={{ display: startedGame ? "block" : "none" }}>
             <div className="below-map">
               {dailyMode && (
@@ -101,7 +73,6 @@ function App({ dailyChallenge }) {
                   if (dailyMode) {
                     if (dailyComplete) {
                       copyResultsToClipboard(dailyResults);
-                      // document.getElementById("map").style.pointerEvents = "none";
                       return;
                     } else {
                       const newSongName = dailyChallenge.songs[dailyChallengeIndex + 1];
@@ -160,7 +131,6 @@ function App({ dailyChallenge }) {
               alt="Jingle"
             />
             <h1 className="main-menu-text">Jingle</h1>
-            {/* <h1 className="main-menu-description">"It's like GeoGuessr, but for OSRS Music"</h1> */}
             <h1
               className="main-menu-option"
               style={{ left: "30%" }}
@@ -189,11 +159,10 @@ function App({ dailyChallenge }) {
           className="alert result-message"
           role="alert"
           style={{
-            opacity: resultVisible ? 1 : 0,
-            
+            opacity: resultVisible ? 1 : 0,           
             transition: "opacity 500ms, margin-top 500ms ease-in-out",
             marginTop: resultVisible ? "-60px" : "0px",
-            color: guessResult === 1000 ? "#00FF00" : guessResult === 0 ? "#FF0000" : "yellow",
+            color: guessResult === 1000 ? "#00FF00" : guessResult === 0 ? "#FF0000" : "#edfd07",
           }}>
           +{guessResult}
         </div>
