@@ -1,10 +1,22 @@
-# OSRS Music
+[![image](https://github.com/mahloola/osrs-music/assets/61226619/e95fd1f5-263e-47db-aee6-e96da23bffa0)](https://jingle.rs)
 
-A music guessing game for Oldschool RuneScape.
+# About
 
-## Screenshots
-![image](https://user-images.githubusercontent.com/61226619/188118060-5b9ed64d-9b59-42f3-8e60-ef3411ec8ac4.png)
-![image](https://user-images.githubusercontent.com/61226619/188118227-2176bbfe-9ac1-49c9-b280-309f8c079af5.png)
+[**Jingle**](https://jingle.rs) is a GeoGuessr-inspired music guessing game for Oldschool RuneScape - the goal is to drop a pin on the map at the location where the current OSRS song is played in-game.
 
-## Video Demo
-https://streamable.com/nlzw7m
+## Gameplay
+At the moment, there are two modes:
+
+- Practice Mode (unlimited)
+- Daily Jingle (a global daily challenge consisting of 5 songs)
+
+The Daily Jingle resets at 00:00 ET (04:00 UTC).
+
+## Development
+
+- I opened a [Discord](https://discord.gg/AR2FDmWggU) for suggestions/issues, as well as pull request guidance.
+
+## Demo
+https://github.com/mahloola/osrs-music/assets/61226619/8fab475a-db16-4d2e-b123-5d2967c63c1e
+
+
