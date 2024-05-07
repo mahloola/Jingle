@@ -6,6 +6,7 @@ import RunescapeMap from "./RunescapeMap";
 import { getRandomSong } from "./utils/getSong";
 import DailyGuessLabel from "./components/dailyGuessLabel";
 import Footer from "./components/footer";
+import HomeButton from "./components/homeButton";
 import { copyResultsToClipboard } from "./utils/copyResultsToClipboard";
 
 const initialSong = getRandomSong();
@@ -36,6 +37,7 @@ function App({ dailyChallenge }) {
       <div>
         <div className="App-inner">
           <div className="ui-box" style={{ display: startedGame ? "block" : "none" }}>
+            <HomeButton />
             <div className="below-map">
               {dailyMode && (
                 <table
@@ -159,7 +161,7 @@ function App({ dailyChallenge }) {
           className="alert result-message"
           role="alert"
           style={{
-            opacity: resultVisible ? 1 : 0,           
+            opacity: resultVisible ? 1 : 0,
             transition: "opacity 500ms, margin-top 500ms ease-in-out",
             marginTop: resultVisible ? "-60px" : "0px",
             color: guessResult === 1000 ? "#00FF00" : guessResult === 0 ? "#FF0000" : "#edfd07",
