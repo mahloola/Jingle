@@ -24,6 +24,7 @@ function App({ dailyChallenge }) {
   const [dailyComplete, setDailyComplete] = useState(false);
   const [correctPolygon, setCorrectPolygon] = useState(null);
 
+  // Function to play audio
   const playSong = (songName) => {
     const src = `https://oldschool.runescape.wiki/images/${songName
       .trim()
@@ -32,6 +33,7 @@ function App({ dailyChallenge }) {
     audioRef.current.load();
     audioRef.current.play();
   };
+
   return (
     <div className="App">
       <div>
@@ -68,7 +70,7 @@ function App({ dailyChallenge }) {
                 </table>
               )}
 
-              {/* guess button */}
+              {/* Guess button */}
               <div
                 className="guess-btn-container"
                 onClick={() => {
@@ -104,7 +106,8 @@ function App({ dailyChallenge }) {
                     : "Next Song"}
                 </div>
               </div>
-              <audio controls id="audio" ref={audioRef}>
+              {/* Audio element */}
+              <audio controls id="audio" ref={audioRef} onClick={() => audioRef.current.play()}>
                 <source id="source" ref={sourceRef} type="audio/ogg"></source>
               </audio>
             </div>
@@ -139,12 +142,7 @@ function App({ dailyChallenge }) {
               onClick={() => {
                 setStartedGame(true);
                 setCurrentSong(dailyChallenge.songs[0]);
-                const src = `https://oldschool.runescape.wiki/images/${dailyChallenge.songs[0]
-                  .trim()
-                  .replaceAll(" ", "_")}.ogg`;
-                sourceRef.current.src = src;
-                audioRef.current.load();
-                audioRef.current.play();
+                playSong(dailyChallenge.songs[0]);
                 dailyMode = true;
               }}>
               Daily
@@ -156,11 +154,7 @@ function App({ dailyChallenge }) {
               style={{ left: "70%" }}
               onClick={() => {
                 setStartedGame(true);
-                const src = `https://oldschool.runescape.wiki/images/${currentSong
-                  .trim()
-                  .replaceAll(" ", "_")}.ogg`;
-                sourceRef.current.src = src;
-                audioRef.current.load();
+                playSong(currentSong);
               }}>
               Practice Mode
             </h1>
