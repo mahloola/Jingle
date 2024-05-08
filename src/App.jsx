@@ -139,7 +139,12 @@ function App({ dailyChallenge }) {
               onClick={() => {
                 setStartedGame(true);
                 setCurrentSong(dailyChallenge.songs[0]);
-                playSong(dailyChallenge.songs[0]);
+                const src = `https://oldschool.runescape.wiki/images/${dailyChallenge.songs[0]
+                  .trim()
+                  .replaceAll(" ", "_")}.ogg`;
+                sourceRef.current.src = src;
+                audioRef.current.load();
+                audioRef.current.play();
                 dailyMode = true;
               }}>
               Daily
@@ -151,7 +156,11 @@ function App({ dailyChallenge }) {
               style={{ left: "70%" }}
               onClick={() => {
                 setStartedGame(true);
-                playSong(currentSong);
+                const src = `https://oldschool.runescape.wiki/images/${currentSong
+                  .trim()
+                  .replaceAll(" ", "_")}.ogg`;
+                sourceRef.current.src = src;
+                audioRef.current.load();
               }}>
               Practice Mode
             </h1>
