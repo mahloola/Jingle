@@ -26,9 +26,8 @@ function App({ dailyChallenge }) {
 
   // Function to play audio
   const playSong = (songName) => {
-    const src = `https://oldschool.runescape.wiki/images/${songName
-      .trim()
-      .replaceAll(" ", "_")}.ogg`;
+    
+    const src = '/Zogre_Dance.ogg';
     sourceRef.current.src = src;
     audioRef.current.load();
     audioRef.current.play();
