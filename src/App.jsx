@@ -14,7 +14,6 @@ let dailyMode = false;
 
 function App({ dailyChallenge }) {
   const audioRef = useRef(null);
-  const sourceRef = useRef(null);
   const [currentSong, setCurrentSong] = useState(initialSong);
   const [guessResult, setGuessResult] = useState(-1);
   const [startedGame, setStartedGame] = useState(false);
@@ -29,7 +28,7 @@ function App({ dailyChallenge }) {
     const src = `https://oldschool.runescape.wiki/images/${songName
       .trim()
       .replaceAll(" ", "_")}.ogg`;
-    sourceRef.current.src = src;
+    audioRef.current.src = src;
     audioRef.current.load();
     audioRef.current.play();
   };
@@ -106,9 +105,8 @@ function App({ dailyChallenge }) {
                     : "Next Song"}
                 </div>
               </div>
-              {/* Audio element */}
               <audio controls id="audio" ref={audioRef} onClick={() => audioRef.current.play()}>
-                <source id="source" ref={sourceRef} type="audio/ogg"></source>
+                <source id="source" type="audio/ogg"></source>
               </audio>
             </div>
             <Footer />
