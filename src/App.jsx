@@ -33,27 +33,7 @@ function App({ dailyChallenge }) {
     audioRef.current.load();
     audioRef.current.play();
   };
-  const handlePlayButtonClick = () => {
-    if (dailyMode) {
-      if (dailyComplete) {
-        copyResultsToClipboard(dailyResults);
-        return;
-      } else {
-        const newSongName = dailyChallenge.songs[dailyChallengeIndex + 1];
-        setCurrentSong(newSongName);
-        playSong(newSongName);
-        setDailyChallengeIndex(dailyChallengeIndex + 1);
-        setCorrectPolygon(null);
-        setResultVisible(false);
-      }
-    } else {
-      const newSongName = getRandomSong();
-      setCurrentSong(newSongName);
-      playSong(newSongName);
-      setCorrectPolygon(null);
-      setResultVisible(false);
-    }
-  };
+
   return (
     <div className="App">
       <div>
@@ -91,25 +71,43 @@ function App({ dailyChallenge }) {
               )}
 
               {/* Guess button */}
-              <button className="guess-btn-container" onClick={handlePlayButtonClick}>
+              <div
+                className="guess-btn-container"
+                onClick={() => {
+                  if (dailyMode) {
+                    if (dailyComplete) {
+                      copyResultsToClipboard(dailyResults);
+                      return;
+                    } else {
+                      const newSongName = dailyChallenge.songs[dailyChallengeIndex + 1];
+                      setCurrentSong(newSongName);
+                      playSong(newSongName);
+                      setDailyChallengeIndex(dailyChallengeIndex + 1);
+                      setCorrectPolygon(null);
+                      setResultVisible(false);
+                    }
+                  } else {
+                    const newSongName = getRandomSong();
+                    setCurrentSong(newSongName);
+                    playSong(newSongName);
+                    setCorrectPolygon(null);
+                    setResultVisible(false);
+                  }
+                }}>
                 <img
                   src={process.env.PUBLIC_URL + "../assets/osrsButtonWide.png"}
                   alt="OSRS Button"
                 />
                 <div className="guess-btn">
-                  {dailyComplete === true
+                  {dailyComplete == true
                     ? "Copy Results to Clipboard"
-                    : guessResult === -1
+                    : guessResult == -1
                     ? "Place your pin on the map"
                     : "Next Song"}
                 </div>
-              </button>
+              </div>
               {/* Audio element */}
-              <audio controls ref={audioRef}>
-                <source ref={sourceRef} type="audio/ogg"></source>
-              </audio>
-              {/* Audio element */}
-              <audio controls id="audio" ref={audioRef} onclick="audioRef.current.plsdfsay()">
+              <audio controls id="audio" ref={audioRef} onClick={() => audioRef.current.play()}>
                 <source id="source" ref={sourceRef} type="audio/ogg"></source>
               </audio>
             </div>
