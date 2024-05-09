@@ -8,13 +8,13 @@ import DailyGuessLabel from "./components/dailyGuessLabel";
 import Footer from "./components/footer";
 import HomeButton from "./components/homeButton";
 import { copyResultsToClipboard } from "./utils/copyResultsToClipboard";
-import AudioPlayer from "./components/AudioPlayer";
 
 const initialSong = getRandomSong();
 let dailyMode = false;
 
 function App({ dailyChallenge }) {
   const audioRef = useRef(null);
+  const sourceRef = useRef(null);
   const [currentSong, setCurrentSong] = useState(initialSong);
   const [guessResult, setGuessResult] = useState(-1);
   const [startedGame, setStartedGame] = useState(false);
@@ -24,16 +24,14 @@ function App({ dailyChallenge }) {
   const [dailyComplete, setDailyComplete] = useState(false);
   const [correctPolygon, setCorrectPolygon] = useState(null);
 
-  // Function to play audio
   const playSong = (songName) => {
     const src = `https://oldschool.runescape.wiki/images/${songName
       .trim()
       .replaceAll(" ", "_")}.ogg`;
-    audioRef.current.src = src;
+    sourceRef.current.src = src;
     audioRef.current.load();
     audioRef.current.play();
   };
-
   return (
     <div className="App">
       <div>
@@ -70,7 +68,7 @@ function App({ dailyChallenge }) {
                 </table>
               )}
 
-              {/* Guess button */}
+              {/* guess button */}
               <div
                 className="guess-btn-container"
                 onClick={() => {
@@ -106,10 +104,9 @@ function App({ dailyChallenge }) {
                     : "Next Song"}
                 </div>
               </div>
-              {/* <audio controls id="audio" ref={audioRef} onClick={() => audioRef.current.play()}>
-                <source id="source" type="audio/ogg"></source>
-              </audio> */}
-              <AudioPlayer />
+              <audio controls id="audio" ref={audioRef}>
+                <source id="source" ref={sourceRef} type="audio/ogg"></source>
+              </audio>
             </div>
             <Footer />
           </div>
