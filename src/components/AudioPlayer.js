@@ -1,26 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { getRandomSong } from '../utils/getSong';
 
-const AudioPlayer = ({ src }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  let audio;
+const AudioPlayer = () => {
+  const audioRef = useRef(undefined);
+  const [playClicked, setPlayClicked] = useState(false);
 
-  const togglePlay = () => {
-    if (!audio) {
-      audio = new Audio(src);
-      audio.addEventListener('ended', () => setIsPlaying(false));
-    }
+  useEffect(() => {
+    const audio = new Audio();
+    const randomSong = getRandomSong();
+    const src = `https://oldschool.runescape.wiki/images/${randomSong
+      .trim()
+      .replaceAll(" ", "_")}.ogg`;
+    audio.src = src;
+    audio.load();
+    audioRef.current = audio;
+  }, []);
 
-    if (isPlaying) {
-      audio.pause();
-    } else {
-      audio.play();
-    }
-    setIsPlaying(!isPlaying);
+  const playNextTrack = () => {
+    const randomSong = getRandomSong();
+    const src = `https://oldschool.runescape.wiki/images/${randomSong
+      .trim()
+      .replaceAll(" ", "_")}.ogg`;
+    audioRef.current.src = src;
+    audioRef.current.load();
+    audioRef.current.play();
+  };
+
+  const play = () => {
+    audioRef.current.play();
+    setPlayClicked(true);
   };
 
   return (
     <div>
-      <button onClick={togglePlay}>{isPlaying ? 'Pause' : 'Play'}</button>
+      {!playClicked && <button onClick={play}>Play</button>}
+      <button onClick={playNextTrack}>Next</button>
     </div>
   );
 };
