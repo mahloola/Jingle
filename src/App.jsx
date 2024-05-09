@@ -109,7 +109,7 @@ function App({ dailyChallenge }) {
               {/* <audio controls id="audio" ref={audioRef} onClick={() => audioRef.current.play()}>
                 <source id="source" type="audio/ogg"></source>
               </audio> */}
-              <AudioPlayer currentSong={`https://oldschool.runescape.wiki/images/${currentSong.trim().replaceAll(" ", "_")}.ogg`} />
+              <AudioPlayer src={`https://oldschool.runescape.wiki/images/${currentSong.trim().replaceAll(" ", "_")}.ogg`} />
             </div>
             <Footer />
           </div>
