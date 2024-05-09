@@ -1,26 +1,25 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 const AudioPlayer = ({ src }) => {
-  const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  let audio;
 
   const togglePlay = () => {
+    if (!audio) {
+      audio = new Audio(src);
+      audio.addEventListener('ended', () => setIsPlaying(false));
+    }
+
     if (isPlaying) {
-      audioRef.current.pause();
+      audio.pause();
     } else {
-      audioRef.current.play();
+      audio.play();
     }
     setIsPlaying(!isPlaying);
   };
 
   return (
     <div>
-      <audio
-        ref={audioRef}
-        src={src}
-        onEnded={() => setIsPlaying(false)}
-        preload="none"
-      />
       <button onClick={togglePlay}>{isPlaying ? 'Pause' : 'Play'}</button>
     </div>
   );
