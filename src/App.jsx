@@ -8,6 +8,7 @@ import DailyGuessLabel from "./components/dailyGuessLabel";
 import Footer from "./components/footer";
 import HomeButton from "./components/homeButton";
 import { copyResultsToClipboard } from "./utils/copyResultsToClipboard";
+import AudioPlayer from "./components/AudioPlayer";
 
 const initialSong = getRandomSong();
 let dailyMode = false;
@@ -105,9 +106,10 @@ function App({ dailyChallenge }) {
                     : "Next Song"}
                 </div>
               </div>
-              <audio controls id="audio" ref={audioRef} onClick={() => audioRef.current.play()}>
+              {/* <audio controls id="audio" ref={audioRef} onClick={() => audioRef.current.play()}>
                 <source id="source" type="audio/ogg"></source>
-              </audio>
+              </audio> */}
+              <AudioPlayer currentSong={`https://oldschool.runescape.wiki/images/${currentSong.trim().replaceAll(" ", "_")}.ogg`} />
             </div>
             <Footer />
           </div>
