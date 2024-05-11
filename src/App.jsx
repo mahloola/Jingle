@@ -8,6 +8,7 @@ import DailyGuessLabel from "./components/dailyGuessLabel";
 import Footer from "./components/footer";
 import HomeButton from "./components/homeButton";
 import { copyResultsToClipboard } from "./utils/copyResultsToClipboard";
+import ResultScreen from "./components/resultScreen";
 
 const initialSong = getRandomSong();
 let dailyMode = false;
@@ -157,7 +158,11 @@ function App({ dailyChallenge }) {
             </h1>
           </div>
         )}
-        <div
+        {dailyComplete && (
+          <ResultScreen dailyResults={dailyResults}/>
+        )}
+        {!dailyComplete &&
+          <div
           className="alert result-message"
           role="alert"
           style={{
@@ -168,6 +173,7 @@ function App({ dailyChallenge }) {
           }}>
           +{guessResult}
         </div>
+        }
       </div>
     </div>
   );

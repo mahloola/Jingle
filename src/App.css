@@ -27,6 +27,18 @@
   cursor: pointer;
   opacity: 0.8;
 }
+.result-screen {
+  white-space: nowrap;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1200;
+  font-size: 4vw;
+  font-style: italic;
+  color: #edfd07;
+  text-shadow: 2px 2px 10px black;
+}
 .ui-box {
   color: #edfd07;
   text-shadow: 1px 1px 1px black;
@@ -254,14 +266,8 @@
   text-shadow: 2px 2px 10px black;
 }
 .main-menu-option:hover {
-  position: absolute;
-  top: 70%;
-  transform: translate(-50%, -50%);
-  font-size: 5vw;
-  font-style: italic;
   color: #f8ff98;
   cursor: pointer;
-  text-shadow: 2px 2px 10px black;
 }
 
 @media screen and (max-width: 600px) {
