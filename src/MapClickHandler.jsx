@@ -51,7 +51,7 @@ export const MapClickHandler = ({ setCorrectPolygon, correctPolygon, currentSong
       const correctFeature = geojsondata.features.find(featureMatchesSong(currentSong));
       const correctClickedFeature = clickedFeatures.find(featureMatchesSong(currentSong));
       const dailyResultsTemp = dailyResults;
-      dailyResults.length > 3 ? setDailyComplete(true) : setDailyComplete(false);
+      dailyResults.length > 3 ? setTimeout(() => setDailyComplete(true), 1500) : setDailyComplete(false);
       if (correctClickedFeature) {
         setGuessResult(1000);
         dailyResultsTemp[dailyChallengeIndex] = (1000);

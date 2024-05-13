@@ -136,7 +136,7 @@ function App({ dailyChallenge }) {
             <h1 className="main-menu-text">Jingle</h1>
             <h1
               className="main-menu-option"
-              style={{ left: "30%" }}
+              style={{left: "30%", top: "70%"}}
               onClick={() => {
                 setStartedGame(true);
                 setCurrentSong(dailyChallenge.songs[0]);
@@ -149,7 +149,7 @@ function App({ dailyChallenge }) {
             </h1>
             <h1
               className="main-menu-option"
-              style={{ left: "70%" }}
+              style={{ left: "70%", top: "70%" }}
               onClick={() => {
                 setStartedGame(true);
                 playSong(currentSong);
