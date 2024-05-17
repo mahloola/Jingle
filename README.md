@@ -8,7 +8,7 @@ At the moment, there are two modes:
 - Practice Mode (unlimited)
 - Daily Jingle (a global daily challenge consisting of 5 songs)
 
-The Daily Jingle resets at 00:00 ET (04:00 UTC).
+The Daily Jingle resets at 00:00 in London, UK (GMT/BST)
 
 ## Development
 
