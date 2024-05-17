@@ -16,6 +16,7 @@ import {
   getCenterOfPolygon,
 } from './utils/clickHandler-utils';
 import { toOurPixelCoordinates } from './utils/coordinate-utils';
+import getCurrentDateInBritain from './utils/getCurrentDateinBritain';
 
 export const MapClickHandler = ({
   setCorrectPolygon,
@@ -28,6 +29,7 @@ export const MapClickHandler = ({
   dailyResults,
   dailyChallengeIndex,
   setDailyComplete,
+  startedGame,
 }) => {
   const [position, setPosition] = useState(null);
   let zoom = 0;
@@ -51,7 +53,7 @@ export const MapClickHandler = ({
 
   const map = useMapEvents({
     click: (e) => {
-      if (resultVisible) {
+      if (resultVisible || !startedGame) {
         return;
       }
       incrementGlobalGuessCounter();
@@ -86,7 +88,7 @@ export const MapClickHandler = ({
           localStorage?.dailyComplete === undefined ||
           localStorage?.dailyComplete !== new Date().toLocaleDateString()
         ) {
-          const dailyComplete = new Date().toLocaleDateString();
+          const dailyComplete = getCurrentDateInBritain();
           localStorage.setItem('dailyComplete', dailyComplete);
         }
       } else {

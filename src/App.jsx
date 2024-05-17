@@ -7,6 +7,7 @@ import Footer from './components/footer';
 import HomeButton from './components/homeButton';
 import ResultScreen from './components/resultScreen';
 import { copyResultsToClipboard } from './utils/copyResultsToClipboard';
+import getCurrentDateInBritain from './utils/getCurrentDateinBritain';
 import { getRandomSong } from './utils/getSong';
 
 const initialSong = getRandomSong();
@@ -137,6 +138,7 @@ function App({ dailyChallenge }) {
             setDailyResults={setDailyResults}
             dailyChallengeIndex={dailyChallengeIndex}
             setDailyComplete={setDailyComplete}
+            startedGame={startedGame}
           />
         </div>
 
@@ -152,10 +154,7 @@ function App({ dailyChallenge }) {
               className='main-menu-option'
               style={{ left: '30%', top: '70%' }}
               onClick={() => {
-                if (
-                  localStorage?.dailyComplete ===
-                  new Date().toLocaleDateString()
-                ) {
+                if (localStorage?.dailyComplete === getCurrentDateInBritain()) {
                   setDailyComplete(true);
                   setDailyResults(JSON.parse(localStorage.dailyResults));
                 }
