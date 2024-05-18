@@ -14,7 +14,7 @@ const CountdownToFourAMUTC = () => {
           utcNow.getUTCFullYear(),
           utcNow.getUTCMonth(),
           utcNow.getUTCDate(),
-          4,
+          3,
           0,
           0,
         ),
