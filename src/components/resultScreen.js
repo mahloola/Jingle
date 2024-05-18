@@ -576,13 +576,24 @@ function ResultScreen({ dailyResults }) {
             <CountdownToMidnightUTC />
           </div>
           <hr />
-          <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
-            <div
-              className='result-screen-option'
-              onClick={() => copyResultsToClipboard(dailyResults)}
-            >
-              Copy Results
-            </div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              width: '100%',
+              justifyContent: 'center',
+            }}
+          >
+            {!navigator.userAgent.match(
+              /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i,
+            ) && (
+              <div
+                className='result-screen-option'
+                onClick={() => copyResultsToClipboard(dailyResults)}
+              >
+                Copy Results
+              </div>
+            )}
 
             <a
               href='/'

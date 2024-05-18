@@ -82,6 +82,13 @@
     width: 170px;
     padding: 2% 4%;
   }
+  .result-screen {
+    min-width: 50vw;
+    font-size: 5vw;
+  }
+  .result-screen-option {
+    font-size: 4vw !important;
+  }
 }
 
 @media (min-width: 601px) {

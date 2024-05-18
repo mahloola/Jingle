@@ -1,9 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+/public/songs
 data.csv
 musicList.ts
 src/db
 src/components/guessCount.js
+
 # dependencies
 /node_modules
 /.pnp

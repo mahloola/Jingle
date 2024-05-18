@@ -24,11 +24,10 @@ function App({ dailyChallenge }) {
   const [dailyChallengeIndex, setDailyChallengeIndex] = useState(0);
   const [dailyComplete, setDailyComplete] = useState(false);
   const [correctPolygon, setCorrectPolygon] = useState(null);
+  const hostingUrl = 'https://storage.googleapis.com/jingle-songs/';
 
   const playSong = (songName) => {
-    const src = `https://oldschool.runescape.wiki/images/${songName
-      .trim()
-      .replaceAll(' ', '_')}.ogg`;
+    const src = `${hostingUrl}${songName.trim().replaceAll(' ', '_')}.mp3`;
     sourceRef.current.src = src;
     audioRef.current.load();
     audioRef.current.play();
@@ -119,7 +118,7 @@ function App({ dailyChallenge }) {
                 <source
                   id='source'
                   ref={sourceRef}
-                  type='audio/ogg'
+                  type='audio/mpeg'
                 ></source>
               </audio>
             </div>
