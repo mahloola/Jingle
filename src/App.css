@@ -74,6 +74,7 @@
   padding: 1.3% 0;
   color: #edfd07;
   box-shadow: 0px 1px 2px black;
+  font-size: 14px;
   font-style: italic;
 }
 
@@ -116,22 +117,22 @@
 }
 
 .link {
-  color: #edfd07;
+  color: #f2fe51;
   text-decoration: none;
   transition: text-decoration 0.3s;
 }
 
 .link:hover {
   text-decoration: underline;
-  color: #b7c400 !important;
+  color: #f6fe85 !important;
 }
 .icon {
   padding: 2%;
   width: 100px;
-  color: #edfd07;
+  color: #f2fe51;
 }
 .icon:hover {
-  color: #b7c400 !important;
+  color: #f6fe85 !important;
 }
 .content {
   position: relative;
