@@ -30,6 +30,8 @@ export const MapClickHandler = ({
   dailyChallengeIndex,
   setDailyComplete,
   startedGame,
+  currentSongUi,
+  setCurrentSongUi
 }) => {
   const [position, setPosition] = useState(null);
   let zoom = 0;
@@ -46,6 +48,7 @@ export const MapClickHandler = ({
     setResultVisible(true);
     setCorrectPolygon(geojsonFeature);
     map.panTo(center, zoom);
+    setCurrentSongUi(currentSong)
   };
 
   const calculatePoints = (distance) =>

@@ -17,6 +17,7 @@ function App({ dailyChallenge }) {
   const audioRef = useRef(null);
   const sourceRef = useRef(null);
   const [currentSong, setCurrentSong] = useState(initialSong);
+  const [currentSongUi, setCurrentSongUi] = useState(initialSong);
   const [guessResult, setGuessResult] = useState(-1);
   const [startedGame, setStartedGame] = useState(false);
   const [resultVisible, setResultVisible] = useState(false);
@@ -138,6 +139,8 @@ function App({ dailyChallenge }) {
             dailyChallengeIndex={dailyChallengeIndex}
             setDailyComplete={setDailyComplete}
             startedGame={startedGame}
+            currentSongUi={currentSongUi}
+            setCurrentSongUi={setCurrentSongUi} 
           />
         </div>
 
@@ -201,6 +204,9 @@ function App({ dailyChallenge }) {
             }}
           >
             +{guessResult}
+            <div style={{fontSize: "70%"}}>
+              {currentSongUi}
+            </div>
           </div>
         )}
       </div>

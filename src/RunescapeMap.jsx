@@ -18,6 +18,8 @@ const RunescapeMap = ({
   dailyChallengeIndex,
   setDailyComplete,
   startedGame,
+  currentSongUi,
+  setCurrentSongUi,
 }) => {
   const outerBounds = new L.LatLngBounds(
     L.latLng(-78, 0),
@@ -69,6 +71,8 @@ const RunescapeMap = ({
           dailyChallengeIndex={dailyChallengeIndex}
           setDailyComplete={setDailyComplete}
           startedGame={startedGame}
+          currentSongUi={currentSongUi}
+          setCurrentSongUi={setCurrentSongUi}
         />
         <TileLayer
           attribution='offline'
