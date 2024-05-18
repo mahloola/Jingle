@@ -128,8 +128,9 @@
 }
 .icon {
   padding: 2%;
-  width: 100px;
+  width: 200px;
   color: #f2fe51;
+  font-size: 19px;
 }
 .icon:hover {
   color: #f6fe85 !important;

@@ -18,7 +18,7 @@ function ResultScreen({ dailyResults }) {
       >
         <div className='result-screen result-screen-results'>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            Jingle #1
+            Jingle #2
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div style={{ textAlign: 'left' }}>Score</div>
