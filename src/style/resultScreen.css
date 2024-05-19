@@ -1,0 +1,92 @@
+.result-screen-parent {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+.result-screen {
+  font-size: 4vw;
+  min-width: 30vw;
+  white-space: nowrap;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1200;
+  font-size: 3vw;
+  font-style: italic;
+  color: #edfd07;
+  text-shadow: 2px 2px 10px black;
+}
+
+.result-screen-results {
+  padding: 20px;
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.result-screen-title {
+  display: flex;
+  justify-content: center;
+}
+
+.result-screen-data-row {
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 2vw;
+}
+.result-screen-option {
+  font-size: 3vw;
+  z-index: 9999;
+  width: 50%;
+  text-wrap: wrap;
+  color: inherit;
+  text-decoration: none;
+}
+.result-screen-option:hover {
+  cursor: pointer;
+  color: #f8ff98;
+}
+.result-screen-time-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-svg {
+  max-height: 3.5vw;
+}
+.result-screen-link-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  font-size: 3vw;
+}
+
+@media (max-width: 600px) {
+  .result-screen-data-row {
+    font-size: 5vw;
+  }
+  .result-screen-title {
+    font-size: 7vw;
+  }
+  .result-screen {
+    min-width: 60vw;
+    font-size: 5vw;
+  }
+  .result-screen-option {
+    font-size: 4vw !important;
+  }
+  .result-screen-time-row {
+    margin-top: 3%;
+  }
+}

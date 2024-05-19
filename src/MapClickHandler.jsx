@@ -5,10 +5,12 @@ import React, { useState } from 'react';
 import { GeoJSON, Marker, useMapEvents } from 'react-leaflet';
 import geojsondata from './data/GeoJSON';
 import {
+  getDailyChallengePercentileAndIncrement,
   incrementGlobalGuessCounter,
   incrementSongFailureCount,
   incrementSongSuccessCount,
 } from './db/db';
+import { calculateTimeDifference } from './utils/calculateTimeDifference';
 import {
   calculateDistance,
   closePolygon,
@@ -25,13 +27,15 @@ export const MapClickHandler = ({
   setGuessResult,
   resultVisible,
   setResultVisible,
-  setDailyResults,
-  dailyResults,
+  setResultsArray,
+  resultsArray,
   dailyChallengeIndex,
   setDailyComplete,
   startedGame,
-  currentSongUi,
-  setCurrentSongUi
+  setCurrentSongUi,
+  setPercentile,
+  startTime,
+  setTimeTaken,
 }) => {
   const [position, setPosition] = useState(null);
   let zoom = 0;
@@ -48,14 +52,14 @@ export const MapClickHandler = ({
     setResultVisible(true);
     setCorrectPolygon(geojsonFeature);
     map.panTo(center, zoom);
-    setCurrentSongUi(currentSong)
+    setCurrentSongUi(currentSong);
   };
 
   const calculatePoints = (distance) =>
     (1000 * 1) / Math.exp(0.0018 * distance);
 
   const map = useMapEvents({
-    click: (e) => {
+    click: async (e) => {
       if (resultVisible || !startedGame) {
         return;
       }
@@ -83,27 +87,15 @@ export const MapClickHandler = ({
       const correctClickedFeature = clickedFeatures.find(
         featureMatchesSong(currentSong),
       );
-      const dailyResultsTemp = dailyResults;
-      console.log(dailyResults);
-      if (dailyResults.length > 3) {
-        setTimeout(() => setDailyComplete(true), 1500);
-        if (
-          localStorage?.dailyComplete === undefined ||
-          localStorage?.dailyComplete !== new Date().toLocaleDateString()
-        ) {
-          const dailyComplete = getCurrentDateInBritain();
-          localStorage.setItem('dailyComplete', dailyComplete);
-        }
-      } else {
-        setDailyComplete(false);
-      }
+      const resultsArrayTemp = resultsArray;
+
       if (correctClickedFeature) {
         setGuessResult(1000);
-        dailyResultsTemp[dailyChallengeIndex] = 1000;
-        setDailyResults(dailyResultsTemp);
+        resultsArrayTemp[dailyChallengeIndex] = 1000;
+        setResultsArray(resultsArrayTemp);
         incrementSongSuccessCount(currentSong);
         setResultVisible(true);
-        localStorage.setItem('dailyResults', JSON.stringify(dailyResults));
+        localStorage.setItem('dailyResults', JSON.stringify(resultsArray));
       } else {
         incrementSongFailureCount(currentSong);
         const correctPolygonCenterPoints =
@@ -115,13 +107,37 @@ export const MapClickHandler = ({
         );
         const minDistance = Math.min(...distances);
         setGuessResult(Math.round(calculatePoints(minDistance)));
-        dailyResultsTemp[dailyChallengeIndex] = Math.round(
+        resultsArrayTemp[dailyChallengeIndex] = Math.round(
           calculatePoints(minDistance),
         );
-        setDailyResults(dailyResultsTemp);
-        localStorage.setItem('dailyResults', JSON.stringify(dailyResults));
+        setResultsArray(resultsArrayTemp);
+        localStorage.setItem('dailyResults', JSON.stringify(resultsArray));
       }
-
+      if (resultsArray.length > 4) {
+        setTimeTaken(calculateTimeDifference(startTime, new Date()));
+        setTimeout(() => setDailyComplete(true), 1500);
+        if (
+          localStorage?.dailyComplete === undefined ||
+          localStorage?.dailyComplete !== getCurrentDateInBritain()
+        ) {
+          const dailyComplete = getCurrentDateInBritain();
+          localStorage.setItem('dailyComplete', dailyComplete);
+          localStorage.setItem(
+            'dailyTimeTaken',
+            calculateTimeDifference(startTime, new Date()),
+          );
+          const dailyResultTotal = resultsArray.reduce(
+            (total, result) => total + result,
+            0,
+          );
+          const percentile = await getDailyChallengePercentileAndIncrement(
+            dailyResultTotal ?? 0,
+          );
+          setPercentile(percentile);
+        }
+      } else {
+        setDailyComplete(false);
+      }
       // Create a GeoJSON feature for the nearest correct polygon
       const correctPolygon = correctFeature.geometry.coordinates.sort(
         (polygon1, polygon2) => {

@@ -13,13 +13,16 @@ const RunescapeMap = ({
   setResultVisible,
   resultVisible,
   userGuessed,
-  setDailyResults,
-  dailyResults,
+  setResultsArray,
+  resultsArray,
   dailyChallengeIndex,
   setDailyComplete,
   startedGame,
   currentSongUi,
   setCurrentSongUi,
+  setPercentile,
+  startTime,
+  setTimeTaken,
 }) => {
   const outerBounds = new L.LatLngBounds(
     L.latLng(-78, 0),
@@ -30,7 +33,6 @@ const RunescapeMap = ({
 
   React.useEffect(() => {
     const map = mapRef.current;
-
     if (map) {
       map.addEventListener('moveend', handleMapMoveEnd(mapRef, outerBounds));
     }
@@ -66,13 +68,16 @@ const RunescapeMap = ({
           setResultVisible={setResultVisible}
           resultVisible={resultVisible}
           userGuessed={userGuessed}
-          setDailyResults={setDailyResults}
-          dailyResults={dailyResults}
+          setResultsArray={setResultsArray}
+          resultsArray={resultsArray}
           dailyChallengeIndex={dailyChallengeIndex}
           setDailyComplete={setDailyComplete}
           startedGame={startedGame}
           currentSongUi={currentSongUi}
           setCurrentSongUi={setCurrentSongUi}
+          setPercentile={setPercentile}
+          startTime={startTime}
+          setTimeTaken={setTimeTaken}
         />
         <TileLayer
           attribution='offline'

@@ -2,10 +2,12 @@
   font-family: 'Runescape UF';
   src: url('../public/fonts/runescape.ttf');
 }
+
 .App {
   text-align: center;
   font-family: 'Runescape UF';
 }
+
 .App-inner {
   width: 100vw;
   height: 100dvh;
@@ -15,128 +17,12 @@
   position: absolute;
   padding-bottom: 5vh;
 }
-.home-btn-container {
-  background-image: url(../public/assets/homeButton.png);
-  position: absolute;
-  width: 44px;
-  height: 30px;
-  left: 10px;
-  top: 76px;
-}
-.home-btn-container:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-.result-screen {
-  font-size: 4vw;
-  min-width: 30vw;
-  white-space: nowrap;
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1200;
-  font-size: 3vw;
+
+.button {
+  margin: 0 0 20px;
+  width: 250px;
+  border-radius: 30px !important;
   font-style: italic;
-  color: #edfd07;
-  text-shadow: 2px 2px 10px black;
-}
-
-.result-screen-results {
-  padding: 20px;
-  /* From https://css.glass */
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(0, 0, 0, 0.35);
-}
-
-.ui-box {
-  color: #edfd07;
-  text-shadow: 1px 1px 1px black;
-  top: 75%;
-  left: 40%;
-  width: 350px;
-  z-index: 999 !important; /* Ensure the button is above the blurred map */
-}
-
-.below-map {
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.footer {
-  background-image: url(../public/assets/osrsButtonCredits.png) !important;
-  z-index: 999 !important; /* Ensure the button is above the blurred map */
-  padding: 1.3% 0;
-  color: #edfd07;
-  box-shadow: 0px 1px 2px black;
-  font-size: 14px;
-  font-style: italic;
-}
-
-@media (max-width: 600px) {
-  .statistics {
-    width: 170px;
-    padding: 2% 4%;
-  }
-  .result-screen {
-    min-width: 50vw;
-    font-size: 5vw;
-  }
-  .result-screen-option {
-    font-size: 4vw !important;
-  }
-}
-
-@media (min-width: 601px) {
-  .statistics {
-    width: 200px;
-    padding: 0.7% 1%;
-  }
-}
-.statistics {
-  background-image: url(../public/assets/osrsButtonStatistics.png) !important;
-  font-size: 20px;
-  position: absolute;
-  top: 1%;
-  right: 1%;
-  z-index: 999 !important; /* Ensure the button is above the blurred map */
-  color: #edfd07;
-  box-shadow: -0.5px 1px 2px black;
-  text-shadow: 1.5px 1.5px 1px black;
-}
-
-.statistics table {
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
-}
-
-.link {
-  color: #f2fe51;
-  text-decoration: none;
-  transition: text-decoration 0.3s;
-}
-
-.link:hover {
-  text-decoration: underline;
-  color: #f6fe85 !important;
-}
-.icon {
-  padding: 2%;
-  width: 200px;
-  color: #f2fe51;
-  font-size: 19px;
-}
-.icon:hover {
-  color: #f6fe85 !important;
-}
-.content {
-  position: relative;
 }
 
 .button {
@@ -146,180 +32,6 @@
   font-style: italic;
 }
 
-.statistics table {
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
-}
-
-.button {
-  margin: 0 0 20px;
-  width: 250px;
-  border-radius: 30px !important;
-  font-style: italic;
-}
-
-.songButton {
-  margin-left: 20px;
-}
-
-.guess-btn-container {
-  position: relative;
-  margin-bottom: 10px;
-  cursor: pointer;
-  max-width: 250px;
-}
-.guess-btn-container:hover {
-  filter: brightness(80%);
-}
-.guess-btn {
-  white-space: nowrap;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
-  text-shadow: 1px 1px 1px black;
-  color: #edfd07;
-}
-
-.leaflet-container {
-  height: calc(100vh - 400px);
-  width: 100%;
-}
-
-.leaflet-control-zoom {
-  box-shadow: none !important;
-  border: none !important;
-
-  .leaflet-control-zoom-out,
-  .leaflet-control-zoom-in {
-    background-size: contain !important;
-    color: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
-    width: 44px !important;
-    margin-bottom: 3px !important;
-  }
-
-  .leaflet-control-zoom-out {
-    background-image: url(../public/assets/osrs_map_zoom_out.webp) !important;
-
-    &:hover {
-      opacity: 0.8 !important;
-    }
-  }
-
-  .leaflet-control-zoom-in {
-    background-image: url(../public/assets/osrs_map_zoom_in.webp) !important;
-
-    &:hover {
-      opacity: 0.8 !important;
-      border: none !important;
-      background-color: transparent !important;
-    }
-  }
-}
-
-.difficulty-increase-mods {
-  background-color: #d4d4d4;
-  border-radius: 5px;
-}
-
-.result-message {
-  z-index: 9999;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 7rem;
-  font-style: italic;
-  pointer-events: none;
-  position: absolute;
-  display: block;
-  transition: opacity 0.3s;
-  transition: margin-top 1s;
-  text-shadow: 2px 2px 5px black;
-  color: #edfd07;
-}
-
-.main-menu-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80vw;
-  z-index: 3 !important; /* Ensure the button is above the blurred map */
-  height: 70vh;
-  max-width: 70vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.result-screen-option {
-  font-size: 3vw;
-  z-index: 9999;
-  width: 50%;
-  text-wrap: wrap;
-  color: inherit;
-  text-decoration: none;
-}
-.result-screen-option:hover {
-  cursor: pointer;
-  color: #f8ff98;
-}
-
-.current-song-ui {
-  font-size: 70%;
-}
-.main-menu-image {
-  width: 70vw;
-}
-
-.main-menu-text {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 12vw;
-  color: #edfd07;
-  text-shadow: 5px 5px 10px black;
-  pointer-events: none;
-  /* text-shadow: 0px 0px 100px rgb(0, 0, 0); */
-}
-
-.main-menu-option {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  font-size: 5vw;
-  font-style: italic;
-  color: #edfd07;
-  text-shadow: 2px 2px 10px black;
-}
-.main-menu-option:hover {
-  color: #f8ff98;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 600px) {
-  .main-menu-text {
-    font-size: 80px;
-    top: 20%;
-  }
-  .main-menu-option {
-    font-size: 25px;
-  }
-  .main-menu-option:hover {
-    font-size: 25px;
-  }
-  .main-menu-container {
-    height: 23vh;
-  }
-  .current-song-ui {
-    font-size: 50%;
-  }
-}
 .blur {
   filter: blur(40px); /* Adjust the blur strength as needed */
   border: 0px solid transparent;
