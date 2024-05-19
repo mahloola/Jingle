@@ -2,16 +2,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useRef, useState } from 'react';
 import './App.css';
 import RunescapeMap from './RunescapeMap';
-import DailyGuessLabel from './components/dailyGuessLabel';
-import Footer from './components/footer';
-import HomeButton from './components/homeButton';
-import ResultScreen from './components/resultScreen';
-import { copyResultsToClipboard } from './utils/copyResultsToClipboard';
-import getCurrentDateInBritain from './utils/getCurrentDateinBritain';
+import Footer from './components/Footer';
+import HomeButton from './components/HomeButton';
+import MainMenu from './components/MainMenu';
+import ResultMessage from './components/ResultMessage';
+import ResultScreen from './components/ResultScreen';
+import UiBox from './components/UiBox';
+import { songHostUrl } from './data/hostUrl';
+import './style/leaflet.css';
+import { calculateTimeDifference } from './utils/calculateTimeDifference';
 import { getRandomSong } from './utils/getSong';
 
 const initialSong = getRandomSong();
-let dailyMode = false;
 
 function App({ dailyChallenge }) {
   const audioRef = useRef(null);
@@ -21,14 +23,18 @@ function App({ dailyChallenge }) {
   const [guessResult, setGuessResult] = useState(-1);
   const [startedGame, setStartedGame] = useState(false);
   const [resultVisible, setResultVisible] = useState(false);
-  const [dailyResults, setDailyResults] = useState([]);
+  const [resultsArray, setResultsArray] = useState([]);
   const [dailyChallengeIndex, setDailyChallengeIndex] = useState(0);
   const [dailyComplete, setDailyComplete] = useState(false);
+  const [dailyMode, setDailyMode] = useState(false);
+  const [practiceRoundsMode, setPracticeRoundsMode] = useState(false);
+  const [percentile, setPercentile] = useState(0);
   const [correctPolygon, setCorrectPolygon] = useState(null);
-  const hostingUrl = 'https://storage.googleapis.com/jingle-songs/';
+  const [timeTaken, setTimeTaken] = useState(0);
+  const [startTime, setStartTime] = useState(0);
 
   const playSong = (songName) => {
-    const src = `${hostingUrl}${songName.trim().replaceAll(' ', '_')}.mp3`;
+    const src = `${songHostUrl}/${songName.trim().replaceAll(' ', '_')}.mp3`;
     sourceRef.current.src = src;
     audioRef.current.load();
     audioRef.current.play();
@@ -42,87 +48,22 @@ function App({ dailyChallenge }) {
             style={{ display: startedGame ? 'block' : 'none' }}
           >
             <HomeButton />
-            <div className='below-map'>
-              {dailyMode && (
-                <table
-                  style={{
-                    marginBottom: '10px',
-                    width: '100%',
-                    pointerEvents: 'none',
-                  }}
-                >
-                  <tbody>
-                    <tr>
-                      <td>
-                        <DailyGuessLabel number={dailyResults[0] || '-'} />
-                      </td>
-                      <td>
-                        <DailyGuessLabel number={dailyResults[1] || '-'} />
-                      </td>
-                      <td>
-                        <DailyGuessLabel number={dailyResults[2] || '-'} />
-                      </td>
-                      <td>
-                        <DailyGuessLabel number={dailyResults[3] || '-'} />
-                      </td>
-                      <td>
-                        <DailyGuessLabel number={dailyResults[4] || '-'} />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              )}
-
-              {/* guess button */}
-              <div
-                className='guess-btn-container'
-                onClick={() => {
-                  if (dailyMode) {
-                    if (dailyComplete) {
-                      copyResultsToClipboard(dailyResults);
-                      return;
-                    } else {
-                      const newSongName =
-                        dailyChallenge.songs[dailyChallengeIndex + 1];
-                      setCurrentSong(newSongName);
-                      playSong(newSongName);
-                      setDailyChallengeIndex(dailyChallengeIndex + 1);
-                      setCorrectPolygon(null);
-                      setResultVisible(false);
-                    }
-                  } else {
-                    const newSongName = getRandomSong();
-                    setCurrentSong(newSongName);
-                    playSong(newSongName);
-                    setCorrectPolygon(null);
-                    setResultVisible(false);
-                  }
-                }}
-              >
-                <img
-                  src={process.env.PUBLIC_URL + '../assets/osrsButtonWide.png'}
-                  alt='OSRS Button'
-                />
-                <div className='guess-btn'>
-                  {dailyComplete == true
-                    ? 'Copy Results to Clipboard'
-                    : guessResult == -1
-                    ? 'Place your pin on the map'
-                    : 'Next Song'}
-                </div>
-              </div>
-              <audio
-                controls
-                id='audio'
-                ref={audioRef}
-              >
-                <source
-                  id='source'
-                  ref={sourceRef}
-                  type='audio/mpeg'
-                ></source>
-              </audio>
-            </div>
+            <UiBox
+              dailyMode={dailyMode}
+              practiceRoundsMode={practiceRoundsMode}
+              resultsArray={resultsArray}
+              dailyComplete={dailyComplete}
+              dailyChallenge={dailyChallenge}
+              setCurrentSong={setCurrentSong}
+              guessResult={guessResult}
+              setResultVisible={setResultVisible}
+              setCorrectPolygon={setCorrectPolygon}
+              dailyChallengeIndex={dailyChallengeIndex}
+              playSong={playSong}
+              audioRef={audioRef}
+              sourceRef={sourceRef}
+              setDailyChallengeIndex={setDailyChallengeIndex}
+            ></UiBox>
             <Footer />
           </div>
         </div>
@@ -134,80 +75,53 @@ function App({ dailyChallenge }) {
             setGuessResult={setGuessResult}
             setResultVisible={setResultVisible}
             resultVisible={resultVisible}
-            dailyResults={dailyResults}
-            setDailyResults={setDailyResults}
+            resultsArray={resultsArray}
+            setResultsArray={setResultsArray}
             dailyChallengeIndex={dailyChallengeIndex}
             setDailyComplete={setDailyComplete}
             startedGame={startedGame}
             currentSongUi={currentSongUi}
-            setCurrentSongUi={setCurrentSongUi} 
+            setCurrentSongUi={setCurrentSongUi}
+            setPercentile={setPercentile}
+            startTime={startTime}
+            setTimeTaken={setTimeTaken}
           />
         </div>
 
         {!startedGame && (
-          <div className='main-menu-container'>
-            <img
-              className='main-menu-image'
-              src={process.env.PUBLIC_URL + '/assets/Jingle.png'}
-              alt='Jingle'
-            />
-            <h1 className='main-menu-text'>Jingle</h1>
-            <h1
-              className='main-menu-option'
-              style={{ left: '30%', top: '70%' }}
-              onClick={() => {
-                if (localStorage?.dailyComplete === getCurrentDateInBritain()) {
-                  setDailyComplete(true);
-                  setDailyResults(JSON.parse(localStorage.dailyResults));
-                }
-                if (dailyComplete) {
-                  setStartedGame(true);
-                  return;
-                }
-                setStartedGame(true);
-                setCurrentSong(dailyChallenge.songs[0]);
-                playSong(dailyChallenge.songs[0]);
-                dailyMode = true;
-              }}
-            >
-              Daily
-              <br />
-              Jingle
-            </h1>
-            <h1
-              className='main-menu-option'
-              style={{ left: '70%', top: '70%' }}
-              onClick={() => {
-                setStartedGame(true);
-                playSong(currentSong);
-              }}
-            >
-              Practice Mode
-            </h1>
-          </div>
+          <MainMenu
+            setDailyComplete={setDailyComplete}
+            setResultsArray={setResultsArray}
+            setTimeTaken={setTimeTaken}
+            setStartedGame={setStartedGame}
+            setStartTime={setStartTime}
+            setCurrentSong={setCurrentSong}
+            currentSong={currentSong}
+            playSong={playSong}
+            dailyChallenge={dailyChallenge}
+            dailyMode={dailyMode}
+            setDailyMode={setDailyMode}
+            dailyComplete={dailyComplete}
+            setPracticeRoundsMode={setPracticeRoundsMode}
+          ></MainMenu>
         )}
-        {dailyComplete && <ResultScreen dailyResults={dailyResults} />}
+        {dailyComplete && (
+          <ResultScreen
+            resultsArray={resultsArray}
+            percentile={percentile}
+            time={
+              timeTaken
+                ? timeTaken
+                : calculateTimeDifference(startTime, new Date())
+            }
+          />
+        )}
         {!dailyComplete && (
-          <div
-            className='alert result-message'
-            role='alert'
-            style={{
-              opacity: resultVisible ? 1 : 0,
-              transition: 'opacity 500ms, margin-top 500ms ease-in-out',
-              marginTop: resultVisible ? '-60px' : '0px',
-              color:
-                guessResult === 1000
-                  ? '#00FF00'
-                  : guessResult === 0
-                  ? '#FF0000'
-                  : '#edfd07',
-            }}
-          >
-            +{guessResult}
-            <div style={{fontSize: "70%"}}>
-              {currentSongUi}
-            </div>
-          </div>
+          <ResultMessage
+            resultVisible={resultVisible}
+            guessResult={guessResult}
+            currentSongUi={currentSongUi}
+          ></ResultMessage>
         )}
       </div>
     </div>

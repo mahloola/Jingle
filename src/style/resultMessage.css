@@ -1,0 +1,15 @@
+.result-message {
+  z-index: 9999;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 7rem;
+  font-style: italic;
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  transition: opacity 0.3s;
+  transition: margin-top 1s;
+  text-shadow: 2px 2px 5px black;
+  color: #edfd07;
+}

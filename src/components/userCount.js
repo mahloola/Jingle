@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactGA from 'react-ga';
 import auth from '../db/auth.json';
 
-const LiveUserCount = () => {
+const UserCount = () => {
   const [userCount, setUserCount] = useState(0);
 
   useEffect(() => {
@@ -13,7 +13,9 @@ const LiveUserCount = () => {
     const fetchUserCount = async () => {
       try {
         const response = await fetch(
-          `https://www.googleapis.com/analytics/v3/data/realtime?ids=ga:YOUR_VIEW_ID&metrics=rt:activeUsers&access_token=${ReactGA.ga().getAuthResponse().access_token}`
+          `https://www.googleapis.com/analytics/v3/data/realtime?ids=ga:YOUR_VIEW_ID&metrics=rt:activeUsers&access_token=${
+            ReactGA.ga().getAuthResponse().access_token
+          }`,
         );
         const data = await response.json();
         const activeUsers = data.rows ? parseInt(data.rows[0][0]) : 0;
@@ -27,11 +29,7 @@ const LiveUserCount = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <div>
-      {userCount}
-    </div>
-  );
+  return <div>{userCount}</div>;
 };
 
-export default LiveUserCount;
+export default UserCount;
