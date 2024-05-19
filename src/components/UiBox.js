@@ -23,8 +23,7 @@ export default function UiBox({
 }) {
   return (
     <div className='below-map'>
-      {dailyMode ||
-        (practiceRoundsMode && (
+      {dailyMode && (
           <table
             style={{
               marginBottom: '10px',
@@ -52,7 +51,7 @@ export default function UiBox({
               </tr>
             </tbody>
           </table>
-        ))}
+        )}
 
       {/* guess button */}
       <div
