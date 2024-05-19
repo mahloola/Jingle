@@ -9515,43 +9515,6 @@ const geojsondata = {
         type: 'Polygon',
         coordinates: [
           [
-            [1280, 1280],
-            [1280, 1344],
-            [1344, 1344],
-            [1344, 1280],
-            [1280, 1280],
-          ],
-          [
-            [1216, 1216],
-            [1216, 1280],
-            [1280, 1280],
-            [1280, 1216],
-            [1216, 1216],
-          ],
-          [
-            [1344, 1216],
-            [1344, 1280],
-            [1408, 1280],
-            [1408, 1216],
-            [1344, 1216],
-          ],
-        ],
-      },
-      properties: {
-        mapID: '-1',
-        title:
-          '<a href="/w/Maws_Jaws_%26_Claws" title="Maws Jaws &amp; Claws">Maws Jaws &amp; Claws</a>',
-        description:
-          '<div><a href="/w/File:Maws_Jaws_%26_Claws.ogg" title="File:Maws Jaws &amp; Claws.ogg">Play track</a></div>',
-        plane: 0,
-      },
-    },
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
             [2923, 3240],
             [2927, 3240],
             [2927, 3239],

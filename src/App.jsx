@@ -204,7 +204,7 @@ function App({ dailyChallenge }) {
             }}
           >
             +{guessResult}
-            <div style={{fontSize: "70%"}}>
+            <div className='current-song-ui'>
               {currentSongUi}
             </div>
           </div>
