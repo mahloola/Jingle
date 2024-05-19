@@ -74,6 +74,9 @@ export default function MainMenu({
       >
         Daily Jingle
         <Countdown style={{ color: 'orange' }} />
+        <div style={{ fontSize: '40%' }}>
+          {dailySubmissions.toLocaleString()} Completions
+        </div>
       </h1>
       {/* Practice Rounds Option */}
       {/* <h1
@@ -98,12 +101,12 @@ export default function MainMenu({
         }}
       >
         Unlimited Practice
+        <div style={{ fontSize: '40%' }}>∞</div>
       </h1>
       <div className='menu-statistics'>
         <div>
           {guessCount.toLocaleString()}
-          <br />
-          <span style={{ fontSize: '78%' }}>Guesses</span>
+          <div style={{ fontSize: '65%' }}>Guesses</div>
         </div>
         {/* <div>
           {dailySubmissions.toLocaleString()}
