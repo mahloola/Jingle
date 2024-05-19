@@ -1,4 +1,4 @@
-export function copyResultsToClipboard(resultsArray) {
+export function copyResultsToClipboard(resultsArray, time, percentile) {
   const sum = resultsArray.reduce((acc, result) => acc + parseInt(result), 0);
   let resultsString = '';
   for (let i = 0; i < resultsArray.length; i++) {
@@ -10,8 +10,15 @@ export function copyResultsToClipboard(resultsArray) {
     }
   }
 
-  navigator.clipboard.writeText(
-    `I scored ${sum} on today's Jingle challenge! Can you beat me? https://jingle.rs\n\n` +
-      resultsString,
-  );
+  if (percentile) {
+    navigator.clipboard.writeText(
+      `I scored ${sum} on today's Jingle challenge! I finished in ${time} and placed in the top ${percentile}%, can you beat me? https://jingle.rs\n\n` +
+        resultsString,
+    );
+  } else {
+    navigator.clipboard.writeText(
+      `I scored ${sum} on today's Jingle challenge! I finished in ${time}, can you beat me? https://jingle.rs\n\n` +
+        resultsString,
+    );
+  }
 }

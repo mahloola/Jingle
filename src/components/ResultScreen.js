@@ -29,7 +29,13 @@ function ResultScreen({ resultsArray, percentile, time }) {
             {!isMobile && (
               <div
                 className='result-screen-option'
-                onClick={() => copyResultsToClipboard(resultsArray)}
+                onClick={() =>
+                  copyResultsToClipboard(
+                    resultsArray,
+                    time,
+                    percentile.toFixed(1),
+                  )
+                }
               >
                 Copy Results
               </div>
