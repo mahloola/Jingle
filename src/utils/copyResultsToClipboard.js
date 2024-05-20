@@ -10,14 +10,14 @@ export function copyResultsToClipboard(resultsArray, time, percentile) {
     }
   }
 
-  if (percentile) {
+  if (percentile && time) {
     navigator.clipboard.writeText(
       `I scored ${sum} on today's Jingle challenge! I finished in ${time} and placed in the top ${percentile}%, can you beat me? https://jingle.rs\n\n` +
         resultsString,
     );
   } else {
     navigator.clipboard.writeText(
-      `I scored ${sum} on today's Jingle challenge! I finished in ${time}, can you beat me? https://jingle.rs\n\n` +
+      `I scored ${sum} on today's Jingle challenge, can you beat me? https://jingle.rs\n\n` +
         resultsString,
     );
   }
