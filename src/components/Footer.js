@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaDiscord, FaDonate } from 'react-icons/fa';
+import { FaDiscord, FaDonate, FaGithub } from 'react-icons/fa';
 import '../style/footer.css';
 
 function Footer() {
@@ -22,13 +22,14 @@ function Footer() {
         </a>
       </div>
       <span>
-        {/* <a
-          className="icon"
-          href="https://github.com/mahloola/osrs-music"
-          target="_blank"
-          rel="noopener noreferrer">
+        <a
+          className='icon'
+          href='https://github.com/mahloola/osrs-music'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           <FaGithub />
-        </a> */}
+        </a>
         <a
           className='icon'
           href='https://discord.gg/7sB8fyUS9W'

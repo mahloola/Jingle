@@ -122,7 +122,7 @@ export default function MainMenu({
       </div>
       <div className='main-menu-icon-container'>
         <a
-          className='icon'
+          className='main-menu-icon'
           href='https://github.com/mahloola/osrs-music'
           target='_blank'
           rel='noopener noreferrer'
@@ -130,13 +130,13 @@ export default function MainMenu({
           <FaGithub />
         </a>
         <a
-          className='icon'
+          className='main-menu-icon'
           href='https://discord.gg/7sB8fyUS9W'
         >
           <FaDiscord />
         </a>
         <a
-          className='icon'
+          className='main-menu-icon'
           href='https://ko-fi.com/mahloola'
         >
           <FaDonate />

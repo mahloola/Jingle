@@ -19,10 +19,10 @@
 
 .main-menu-text {
   position: absolute;
-  top: 30%;
+  top: 28%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 12vw;
+  font-size: 15vw;
   color: #edfd07;
   text-shadow: 5px 5px 10px black;
   pointer-events: none;
@@ -66,13 +66,22 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+.main-menu-icon {
+  padding: 2%;
+  width: 80px;
+  color: #f2fe51;
+  font-size: 1.7vw;
+}
+.main-menu-icon:hover {
+  color: #f6fe85 !important;
+}
 @media screen and (max-width: 800px) {
   .main-menu-container {
     height: 23vh;
   }
   .main-menu-text {
-    font-size: 80px;
-    top: 20%;
+    font-size: 110px;
+    top: 0%;
   }
   .main-menu-option {
     font-size: 25px;
@@ -87,5 +96,8 @@
   .main-menu-icon-container {
     position: absolute;
     bottom: -80%;
+  }
+  .main-menu-icon {
+    font-size: 5vw;
   }
 }
