@@ -1,6 +1,8 @@
 import React from 'react';
+import { FaDiscord, FaDonate, FaGithub } from 'react-icons/fa';
 import { mediaHostUrl } from '../data/hostUrl';
 import { getDailyChallenge, getStatistics } from '../db/db';
+import '../style/footer.css';
 import '../style/mainMenu.css';
 import getCurrentDateInBritain from '../utils/getCurrentDateinBritain';
 import Countdown from './Countdown';
@@ -49,11 +51,13 @@ export default function MainMenu({
         src={`${mediaHostUrl}/Jingle.png`}
         alt='Jingle'
       />
+
       <h1 className='main-menu-text'>Jingle</h1>
+
       {/* Daily Jingle Option */}
       <h1
         className='main-menu-option'
-        style={{ left: '30%', top: '70%' }}
+        style={{ left: '17vw', top: '70%' }}
         onClick={() => {
           if (localStorage?.dailyComplete === getCurrentDateInBritain()) {
             setDailyComplete(true);
@@ -94,7 +98,7 @@ export default function MainMenu({
       {/* Infinite Training Option */}
       <h1
         className='main-menu-option'
-        style={{ left: '70%', top: '70%' }}
+        style={{ left: '53vw', top: '70%' }}
         onClick={() => {
           setStartedGame(true);
           playSong(currentSong);
@@ -106,13 +110,37 @@ export default function MainMenu({
       <div className='menu-statistics'>
         <div>
           {guessCount.toLocaleString()}
-          <div style={{ fontSize: '65%' }}>Guesses</div>
+          <div style={{ fontSize: '65%', marginTop: '-7%' }}>
+            Global Guesses
+          </div>
         </div>
         {/* <div>
           {dailySubmissions.toLocaleString()}
           <br />
           <span style={{ fontSize: '78%' }}>Today</span>
         </div> */}
+      </div>
+      <div className='main-menu-icon-container'>
+        <a
+          className='icon'
+          href='https://github.com/mahloola/osrs-music'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <FaGithub />
+        </a>
+        <a
+          className='icon'
+          href='https://discord.gg/7sB8fyUS9W'
+        >
+          <FaDiscord />
+        </a>
+        <a
+          className='icon'
+          href='https://ko-fi.com/mahloola'
+        >
+          <FaDonate />
+        </a>
       </div>
     </div>
   );
