@@ -12,6 +12,7 @@ import { songHostUrl } from './data/hostUrl';
 import './style/leaflet.css';
 import { calculateTimeDifference } from './utils/calculateTimeDifference';
 import { getRandomSong } from './utils/getSong';
+import getJingleNumber from './utils/getJingleNumber';
 
 const initialSong = getRandomSong();
 
@@ -114,6 +115,7 @@ function App({ dailyChallenge }) {
                 ? timeTaken
                 : calculateTimeDifference(startTime, new Date())
             }
+            jingleNumber={getJingleNumber(dailyChallenge)}
           />
         )}
         {!dailyComplete && (

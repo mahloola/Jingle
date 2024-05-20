@@ -61,9 +61,9 @@ const Countdown = () => {
   return (
     <>
       {!dailyCompleted ? (
-        <p style={{ color: '#00FF00' }}>Ready</p>
+        <div style={{ color: '#00FF00' }}>Ready</div>
       ) : (
-        <div className='result-screen-time-row'>
+        <span className='result-screen-time-row'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             version='1.1'
@@ -608,7 +608,7 @@ const Countdown = () => {
           </svg>
 
           {countdown}
-        </div>
+        </span>
       )}
     </>
   );
