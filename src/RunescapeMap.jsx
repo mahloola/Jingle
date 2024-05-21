@@ -23,6 +23,7 @@ const RunescapeMap = ({
   setPercentile,
   startTime,
   setTimeTaken,
+  totalDailyResults
 }) => {
   const outerBounds = new L.LatLngBounds(
     L.latLng(-78, 0),
@@ -78,6 +79,7 @@ const RunescapeMap = ({
           setPercentile={setPercentile}
           startTime={startTime}
           setTimeTaken={setTimeTaken}
+          totalDailyResults={totalDailyResults}
         />
         <TileLayer
           attribution='offline'

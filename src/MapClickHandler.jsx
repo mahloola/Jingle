@@ -5,7 +5,10 @@ import React, { useState } from 'react';
 import { GeoJSON, Marker, useMapEvents } from 'react-leaflet';
 import geojsondata from './data/GeoJSON';
 import {
+  calculateDailyChallengePercentile,
   getDailyChallengePercentileAndIncrement,
+  getDailyChallengeResults,
+  incrementDailyChallenge,
   incrementGlobalGuessCounter,
   incrementSongFailureCount,
   incrementSongSuccessCount,
@@ -36,6 +39,7 @@ export const MapClickHandler = ({
   setPercentile,
   startTime,
   setTimeTaken,
+  totalDailyResults
 }) => {
   const [position, setPosition] = useState(null);
   let zoom = 0;
@@ -130,9 +134,11 @@ export const MapClickHandler = ({
             (total, result) => total + result,
             0,
           );
-          const percentile = await getDailyChallengePercentileAndIncrement(
-            dailyResultTotal ?? 0,
-          );
+          const percentile = calculateDailyChallengePercentile(totalDailyResults, dailyResultTotal);
+          // const percentile = await getDailyChallengePercentileAndIncrement(
+          //   dailyResultTotal ?? 0,
+          // );
+          incrementDailyChallenge(dailyResultTotal);
           setPercentile(percentile);
         }
       } else {

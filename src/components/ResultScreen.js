@@ -20,7 +20,7 @@ function ResultScreen({ resultsArray, percentile, time, jingleNumber }) {
             <div>{time}</div>
           </div>
           <div className="result-screen-data-row">
-            <div>Percentile</div>
+            <div>Top%</div>
             <div>{percentile ? percentile.toFixed(1) + "%" : "N/A"}</div>
           </div>
           <div className="result-screen-data-row">

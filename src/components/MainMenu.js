@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaDiscord, FaDonate, FaGithub } from 'react-icons/fa';
 import { mediaHostUrl } from '../data/hostUrl';
-import { getDailyChallenge, getStatistics } from '../db/db';
+import { getDailyChallenge, getDailyChallengeResults, getStatistics } from '../db/db';
 import '../style/footer.css';
 import '../style/mainMenu.css';
 import getCurrentDateInBritain from '../utils/getCurrentDateinBritain';
@@ -20,6 +20,7 @@ export default function MainMenu({
   setDailyMode,
   dailyComplete,
   setPracticeRoundsMode,
+  setTotalDailyResults
 }) {
   const [guessCount, setGuessCount] = React.useState(0);
   const [dailySubmissions, setDailySubmissions] = React.useState(0);
@@ -70,6 +71,9 @@ export default function MainMenu({
           } else {
             setStartTime(new Date());
             setStartedGame(true);
+            getDailyChallengeResults().then((response) => {
+              setTotalDailyResults(response);
+            });
             setCurrentSong(dailyChallenge.songs[0]);
             playSong(dailyChallenge.songs[0]);
             setDailyMode(true);
