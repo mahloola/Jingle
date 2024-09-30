@@ -19,6 +19,7 @@ import {
   closePolygon,
   featureMatchesSong,
   getCenterOfPolygon,
+  getDistanceToPolygon,
 } from './utils/clickHandler-utils';
 import { toOurPixelCoordinates } from './utils/coordinate-utils';
 import getCurrentDateInBritain from './utils/getCurrentDateinBritain';
@@ -102,18 +103,12 @@ export const MapClickHandler = ({
         localStorage.setItem('dailyResults', JSON.stringify(resultsArray));
       } else {
         incrementSongFailureCount(currentSong);
-        const correctPolygonCenterPoints =
-          correctFeature.geometry.coordinates.map((polygon) =>
-            getCenterOfPolygon(polygon.map(toOurPixelCoordinates)),
-          );
-        const distances = correctPolygonCenterPoints.map((point) =>
-          calculateDistance(ourPixelCoordsClickedPoint, point),
-        );
-        const minDistance = Math.min(...distances);
-        setGuessResult(Math.round(calculatePoints(minDistance)));
-        resultsArrayTemp[dailyChallengeIndex] = Math.round(
-          calculatePoints(minDistance),
-        );
+        const distanceToPolygon = Math.min(
+            ...correctFeature.geometry.coordinates.map((polygon) =>
+                getDistanceToPolygon(ourPixelCoordsClickedPoint, polygon.map(toOurPixelCoordinates))));
+        const points = Math.round(calculatePoints(distanceToPolygon));
+        setGuessResult(points);
+        resultsArrayTemp[dailyChallengeIndex] = points;
         setResultsArray(resultsArrayTemp);
         localStorage.setItem('dailyResults', JSON.stringify(resultsArray));
       }
