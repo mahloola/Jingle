@@ -23,7 +23,7 @@ const RunescapeMap = ({
   setPercentile,
   startTime,
   setTimeTaken,
-  totalDailyResults
+  totalDailyResults,
 }) => {
   const outerBounds = new L.LatLngBounds(
     L.latLng(-78, 0),

@@ -11,8 +11,8 @@ import UiBox from './components/UiBox';
 import { songHostUrl } from './data/hostUrl';
 import './style/leaflet.css';
 import { calculateTimeDifference } from './utils/calculateTimeDifference';
-import { getRandomSong } from './utils/getSong';
 import getJingleNumber from './utils/getJingleNumber';
+import { getRandomSong } from './utils/getSong';
 
 const initialSong = getRandomSong();
 
@@ -86,6 +86,7 @@ function App({ dailyChallenge }) {
             setPercentile={setPercentile}
             startTime={startTime}
             setTimeTaken={setTimeTaken}
+            totalDailyResults={dailyChallenge?.results}
           />
         </div>
 
