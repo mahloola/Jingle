@@ -10,6 +10,7 @@
     "@turf/turf": "^6.5.0",
     "@types/react-leaflet": "^3.0.0",
     "bootstrap": "^5.2.0",
+    "fetch": "^1.1.0",
     "firebase": "^10.8.1",
     "fs": "^0.0.1-security",
     "leaflet": "^1.9.4",

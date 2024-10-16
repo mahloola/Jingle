@@ -4,8 +4,6 @@
 /public/songs
 data.csv
 musicList.ts
-src/db
-src/components/guessCount.js
 
 # dependencies
 /node_modules
