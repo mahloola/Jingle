@@ -1,26 +1,26 @@
-import { toOurPixelCoordinates } from "./coordinate-utils";
-import { decodeHTML } from "./string-utils";
-import geojsondata from "../data/GeoJSON";
+import geojsondata from '../data/GeoJSON';
+import { toOurPixelCoordinates } from './coordinate-utils';
+import { decodeHTML } from './string-utils';
 const playedSongs = new Set();
 const playedSongsOrder = [];
 
 const isFeatureVisibleOnMap = (feature) =>
   feature.geometry.coordinates.some((polygon) =>
     polygon.every((point) => {
-      const [x, y] = toOurPixelCoordinates(point);
+      const [, y] = toOurPixelCoordinates(point);
       return y > 0;
-    })
+    }),
   );
 
 export const getRandomSong = () => {
-  let randomSongName = "";
+  let randomSongName = '';
   const visibleFeatures = geojsondata.features.filter(isFeatureVisibleOnMap);
   do {
     const randomFeature = visibleFeatures.sort(
-      () => Math.random() - Math.random()
+      () => Math.random() - Math.random(),
     )[0];
     randomSongName = decodeHTML(
-      randomFeature.properties.title.match(/>(.*?)</)[1]
+      randomFeature.properties.title.match(/>(.*?)</)[1],
     );
   } while (playedSongs.has(randomSongName));
   updatePlayedSongs(randomSongName);

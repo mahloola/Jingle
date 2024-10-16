@@ -76,19 +76,6 @@ export async function getWeekStats() {
   return weekStats;
 }
 
-const generateDailyChallenges = async () => {
-  const startDate = new Date('2024-06-01');
-  const endDate = new Date();
-  endDate.setFullYear(endDate.getFullYear() + 1);
-
-  const currentDate = new Date(startDate);
-  while (currentDate <= endDate) {
-    const formattedDate = currentDate.toISOString().split('T')[0];
-    await generateDailyChallenge(formattedDate);
-    currentDate.setDate(currentDate.getDate() + 1);
-  }
-};
-
 export async function getDailyChallengePercentileAndIncrement(result) {
   const response = await fetch(`${apiUrl}/api/daily-challenge/result`, {
     method: 'POST',

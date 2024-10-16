@@ -24,34 +24,34 @@ export default function UiBox({
   return (
     <div className='below-map'>
       {dailyMode && (
-          <table
-            style={{
-              marginBottom: '10px',
-              width: '100%',
-              pointerEvents: 'none',
-            }}
-          >
-            <tbody>
-              <tr>
-                <td>
-                  <DailyGuessLabel number={resultsArray[0] || '-'} />
-                </td>
-                <td>
-                  <DailyGuessLabel number={resultsArray[1] || '-'} />
-                </td>
-                <td>
-                  <DailyGuessLabel number={resultsArray[2] || '-'} />
-                </td>
-                <td>
-                  <DailyGuessLabel number={resultsArray[3] || '-'} />
-                </td>
-                <td>
-                  <DailyGuessLabel number={resultsArray[4] || '-'} />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        )}
+        <table
+          style={{
+            marginBottom: '10px',
+            width: '100%',
+            pointerEvents: 'none',
+          }}
+        >
+          <tbody>
+            <tr>
+              <td>
+                <DailyGuessLabel number={resultsArray[0] || '-'} />
+              </td>
+              <td>
+                <DailyGuessLabel number={resultsArray[1] || '-'} />
+              </td>
+              <td>
+                <DailyGuessLabel number={resultsArray[2] || '-'} />
+              </td>
+              <td>
+                <DailyGuessLabel number={resultsArray[3] || '-'} />
+              </td>
+              <td>
+                <DailyGuessLabel number={resultsArray[4] || '-'} />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      )}
 
       {/* guess button */}
       <div
@@ -83,9 +83,9 @@ export default function UiBox({
           alt='OSRS Button'
         />
         <div className='guess-btn'>
-          {dailyComplete == true
+          {dailyComplete === true
             ? 'Copy Results to Clipboard'
-            : guessResult == -1
+            : guessResult === -1
             ? 'Place your pin on the map'
             : 'Next Song'}
         </div>
