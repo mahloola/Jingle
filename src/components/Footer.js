@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaDiscord, FaDonate, FaGithub } from 'react-icons/fa';
+import { FaDiscord, FaDonate, FaEnvelope, FaGithub } from 'react-icons/fa';
 import '../style/footer.css';
 
 function Footer() {
@@ -41,6 +41,12 @@ function Footer() {
           href='https://ko-fi.com/mahloola'
         >
           <FaDonate />
+        </a>
+        <a
+          className='icon'
+          href='mailto:mahloola08@gmail.com'
+        >
+          <FaEnvelope />
         </a>
       </span>
     </div>

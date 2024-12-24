@@ -5,8 +5,12 @@ import RunescapeMap from './RunescapeMap';
 import Footer from './components/Footer';
 import HomeButton from './components/HomeButton';
 import MainMenu from './components/MainMenu';
+import NewsButton from './components/NewsButton';
 import ResultMessage from './components/ResultMessage';
 import ResultScreen from './components/ResultScreen';
+import SettingsButton from './components/SettingsButton';
+import SettingsModal from './components/SettingsModal';
+import StatsButton from './components/StatsButton';
 import UiBox from './components/UiBox';
 import { songHostUrl } from './data/hostUrl';
 import './style/leaflet.css';
@@ -49,6 +53,10 @@ function App({ dailyChallenge }) {
             style={{ display: startedGame ? 'block' : 'none' }}
           >
             <HomeButton />
+            <SettingsButton />
+            <NewsButton />
+            <StatsButton />
+            <SettingsModal />
             <UiBox
               dailyMode={dailyMode}
               practiceRoundsMode={practiceRoundsMode}

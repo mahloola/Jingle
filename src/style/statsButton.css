@@ -1,0 +1,24 @@
+.stats-btn-container {
+  background-image: url('https://storage.googleapis.com/jingle-media/osrsStatsButton2.png');
+  position: absolute;
+  width: 79px;
+  height: 54px;
+  right: 10px;
+  top: 10px;
+  transition: all 0.3s;
+}
+
+.stats-btn-container:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transform: translate(-5px, 0px);
+}
+
+@media (max-width: 768px) {
+  .stats-btn-container {
+    left: 5px;
+    top: 50px;
+    width: 44px;
+    height: 30px;
+  }
+}

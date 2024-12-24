@@ -1,0 +1,13 @@
+.modal-container {
+  background-image: url('https://storage.googleapis.com/jingle-media/modal.png');
+  background-size: 70%;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 324px;
+  height: 576px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
+}

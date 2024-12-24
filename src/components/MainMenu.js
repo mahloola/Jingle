@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaDiscord, FaDonate, FaGithub } from 'react-icons/fa';
+import { FaDiscord, FaDonate, FaEnvelope, FaGithub } from 'react-icons/fa';
 import { mediaHostUrl } from '../data/hostUrl';
 import { getStatistics } from '../db/db';
 import '../style/footer.css';
@@ -115,6 +115,12 @@ export default function MainMenu({
           href='https://ko-fi.com/mahloola'
         >
           <FaDonate />
+        </a>
+        <a
+          className='main-menu-icon'
+          href='mailto:mahloola08@gmail.com'
+        >
+          <FaEnvelope />
         </a>
       </div>
     </div>

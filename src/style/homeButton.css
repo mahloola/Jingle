@@ -11,3 +11,12 @@
   cursor: pointer;
   opacity: 0.8;
 }
+
+@media (max-width: 768px) {
+  .home-btn-container {
+    left: 5px;
+    top: 50px;
+    width: 44px;
+    height: 30px;
+  }
+}
