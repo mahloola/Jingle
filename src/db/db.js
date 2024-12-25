@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:8080';
+const apiUrl = 'http://159.203.48.137:8080';
 
 export async function getSong(songName) {
   const response = await fetch(`${apiUrl}/api/songs/${songName}`);

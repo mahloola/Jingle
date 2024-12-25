@@ -4,6 +4,7 @@
 /public/songs
 data.csv
 musicList.ts
+.env
 
 # dependencies
 /node_modules
