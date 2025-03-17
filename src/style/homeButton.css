@@ -1,5 +1,5 @@
 .home-btn-container {
-  background-image: url('https://storage.googleapis.com/jingle-media/homeButton.png');
+  background-image: url("https://storage.googleapis.com/jingle-media/homeButton.png");
   position: absolute;
   width: 44px;
   height: 30px;
@@ -10,4 +10,13 @@
 .home-btn-container:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .home-btn-container {
+    left: 5px;
+    top: 50px;
+    width: 44px;
+    height: 30px;
+  }
 }

@@ -4,7 +4,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80vw;
-  z-index: 3 !important; /* Ensure the button is above the blurred map */
+  z-index: 3 !important;
   height: 70vh;
   max-width: 70vw;
   display: flex;
@@ -28,6 +28,7 @@
   pointer-events: none;
   /* text-shadow: 0px 0px 100px rgb(0, 0, 0); */
 }
+
 .main-menu-option {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -38,10 +39,12 @@
   text-shadow: 2px 2px 10px black;
   max-width: 50%;
 }
+
 .main-menu-option:hover {
   filter: brightness(100%);
   cursor: pointer;
 }
+
 .menu-statistics {
   width: 50%;
   display: flex;
@@ -55,6 +58,7 @@
   top: 92%;
   left: 50%;
 }
+
 .main-menu-icon-container {
   position: absolute;
   bottom: -10%;
@@ -66,37 +70,46 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 .main-menu-icon {
   padding: 2%;
   width: 80px;
   color: #f2fe51;
   font-size: 1.7vw;
 }
+
 .main-menu-icon:hover {
   color: #f6fe85 !important;
 }
+
 @media screen and (max-width: 800px) {
   .main-menu-container {
     height: 23vh;
   }
+
   .main-menu-text {
     font-size: 110px;
     top: 0%;
   }
+
   .main-menu-option {
     font-size: 25px;
   }
+
   .main-menu-option:hover {
     font-size: 25px;
   }
+
   .menu-statistics {
     top: 120%;
     font-size: 20px;
   }
+
   .main-menu-icon-container {
     position: absolute;
     bottom: -80%;
   }
+
   .main-menu-icon {
     font-size: 5vw;
   }
