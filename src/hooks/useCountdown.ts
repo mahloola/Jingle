@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import dayjs, { Dayjs } from "dayjs";
 import duration from "dayjs/plugin/duration";
+import { calculateTimeDifference } from "../utils/date-utils";
 
 dayjs.extend(duration);
 
@@ -16,10 +17,5 @@ export default function useCountdown(end: Dayjs) {
 }
 
 function formatCountdown(end: Dayjs): string {
-  const start = dayjs();
-  const diff = dayjs.duration(dayjs(end).diff(start));
-  const hours = String(diff.hours()).padStart(2, "0");
-  const minutes = String(diff.minutes()).padStart(2, "0");
-  const seconds = String(diff.seconds()).padStart(2, "0");
-  return [hours, minutes, seconds].join(":");
+  return calculateTimeDifference(Date.now(), end.valueOf());
 }

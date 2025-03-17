@@ -1,5 +1,5 @@
 import { sum } from "ramda";
-import { DailyChallenge, GameState } from "../types/jingle";
+import { DailyChallenge, GameState, Song } from "../types/jingle";
 
 export const calculateDailyChallengePercentile = (
   dailyChallenge: Pick<DailyChallenge, "results">,
@@ -40,4 +40,16 @@ export function copyResultsToClipboard(gameState: GameState) {
         resultsString,
     );
   }
+}
+
+export function calculateSuccessRate(song: Song) {
+  if (!song) return 0;
+
+  const successRate = song.successRate ?? 0;
+  const totalGuesses = song.successCount + song.failureCount;
+  const successRateAverage = (
+    (successRate * totalGuesses + successRate) /
+    (totalGuesses + 1)
+  ).toFixed(3);
+  return Number(successRateAverage);
 }

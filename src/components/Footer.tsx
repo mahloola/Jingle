@@ -1,7 +1,7 @@
 import { FaDiscord, FaDonate, FaGithub } from "react-icons/fa";
 import "../style/footer.css";
 
-function Footer() {
+export default function Footer() {
   return (
     <div className="footer">
       <div>
@@ -33,5 +33,3 @@ function Footer() {
     </div>
   );
 }
-
-export default Footer;

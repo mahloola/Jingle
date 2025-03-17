@@ -110,14 +110,3 @@ export async function incrementSongSuccessCount(songName: string) {
 export async function incrementSongFailureCount(songName: string) {
   await post(`/songs/${songName}/failure`, {});
 }
-
-export function calculateSuccessRate(song: Song) {
-  if (!song) return 0;
-  const successRate = song.successRate ?? 0;
-  const totalGuesses = song.successCount + song.failureCount;
-  const successRateAverage = (
-    (successRate * totalGuesses + successRate) /
-    (totalGuesses + 1)
-  ).toFixed(3);
-  return successRateAverage;
-}

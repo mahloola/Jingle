@@ -28,7 +28,7 @@ export default function useGameLogic(
     },
   );
 
-  const guess = (guess: Guess) => {
+  const guess = (guess: Guess): GameState => {
     const score = Math.round(
       guess.correct ? 1000 : (1000 * 1) / Math.exp(0.0018 * guess.distance),
     );
@@ -41,7 +41,8 @@ export default function useGameLogic(
     };
     setGameState(newGameState);
 
-    if (gameState.round === gameState.songs.length - 1) {
+    const isLastRound = gameState.round === gameState.songs.length - 1;
+    if (isLastRound) {
       newGameState = {
         ...newGameState,
         timeTaken: calculateTimeDifference(gameState.startTime, Date.now()),
@@ -52,15 +53,17 @@ export default function useGameLogic(
     return newGameState;
   };
 
-  const nextSong = () => {
-    setGameState((prev) => ({
-      ...prev,
-      round: prev.round + 1,
+  const nextSong = (): GameState => {
+    const newGameState = {
+      ...gameState,
+      round: gameState.round + 1,
       status: GameStatus.Guessing,
-    }));
+    };
+    setGameState(newGameState);
+    return newGameState;
   };
 
-  const endGame = () => {
+  const endGame = (): GameState => {
     if (
       !(
         gameState.status === GameStatus.AnswerRevealed &&

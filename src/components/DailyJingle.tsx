@@ -58,7 +58,8 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     else incrementSongFailureCount(currentSong);
 
     saveGameState(gameState);
-    if (gameState.round === gameState.songs.length - 1) {
+    const isLastRound = gameState.round === gameState.songs.length - 1;
+    if (isLastRound) {
       // submit daily challenge
       localStorage.setItem(keys.dailyComplete, getCurrentDateInBritain());
       postDailyChallengeResult(sum(gameState.scores));
@@ -72,10 +73,10 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const nextSong = () => {
-    jingle.nextSong();
+    const gameState = jingle.nextSong();
 
     // play next song
-    const songName = gameState.songs[gameState.round + 1];
+    const songName = gameState.songs[gameState.round];
     const src = `https://mahloola.com/${songName.trim().replace(/ /g, "_")}.mp3`;
     audioRef.current!.src = src;
     audioRef.current!.load();

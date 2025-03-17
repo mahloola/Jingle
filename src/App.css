@@ -41,13 +41,3 @@
   border-radius: 30px !important;
   font-style: italic;
 }
-
-.blur {
-  filter: blur(40px);
-  /* Adjust the blur strength as needed */
-  border: 0px solid transparent;
-}
-
-.background-blur {
-  backdrop-filter: blur(40px);
-}

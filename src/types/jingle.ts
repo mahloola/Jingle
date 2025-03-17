@@ -9,7 +9,7 @@ export enum GameStatus {
 
 export interface GameState {
   status: GameStatus;
-  round: number;
+  round: number; // 0-4
   songs: string[];
   scores: number[];
   startTime: number;
