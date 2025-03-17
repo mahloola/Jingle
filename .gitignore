@@ -7,8 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+
 /misc
 /public/songs
+build/
 data.csv
 musicList.ts
 
