@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Runescape UF";
-  src: url("../public/fonts/runescape.ttf");
+  src: url("/fonts/runescape.ttf");
 }
 
 .App {

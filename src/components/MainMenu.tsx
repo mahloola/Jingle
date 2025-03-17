@@ -1,6 +1,5 @@
 import { FaDiscord, FaDonate, FaGithub } from "react-icons/fa";
 import { getStatistics } from "../data/jingle-api";
-import "../style/footer.css";
 import "../style/mainMenu.css";
 import NextDailyCountdown from "./NextDailyCountdown";
 import { getCurrentDateInBritain, getNextUtc4AM } from "../utils/date-utils";
