@@ -1,66 +1,43 @@
 {
-  "name": "front-end",
-  "homepage": "https://mahloola.github.io/",
-  "version": "0.1.0",
+  "name": "jingle-audit",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@turf/turf": "^6.5.0",
-    "@types/react-leaflet": "^3.0.0",
-    "bootstrap": "^5.2.0",
-    "fetch": "^1.1.0",
-    "firebase": "^10.8.1",
-    "fs": "^0.0.1-security",
-    "leaflet": "^1.9.4",
-    "papaparse": "^5.3.2",
-    "react": "^18.2.0",
-    "react-bootstrap": "^2.5.0",
-    "react-device-detect": "^2.2.3",
-    "react-dom": "^18.2.0",
-    "react-ga": "^3.3.1",
-    "react-icons": "^5.0.1",
-    "react-leaflet": "^4.2.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "browser": {
-    "crypto": false,
-    "fs": false,
-    "path": false,
-    "os": false,
-    "net": false,
-    "stream": false,
-    "tls": false
+  "dependencies": {
+    "@turf/turf": "^7.2.0",
+    "bootstrap": "^5.3.3",
+    "dayjs": "^1.11.13",
+    "dayjs-plugin-utc": "^0.1.2",
+    "firebase": "^10.8.1",
+    "geojson": "^0.5.0",
+    "leaflet": "^1.9.4",
+    "ramda": "^0.30.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "react-leaflet": "^5.0.0",
+    "swr": "^2.3.3",
+    "ts-pattern": "^5.6.2"
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
+    "@eslint/js": "^9.21.0",
+    "@types/leaflet": "^1.9.16",
+    "@types/ramda": "^0.30.2",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.2.0"
   }
 }

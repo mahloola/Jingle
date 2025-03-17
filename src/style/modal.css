@@ -1,0 +1,16 @@
+.modal-container {
+  background-size: 70%;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  background: #53493e;
+  padding: 20px;
+  outline: 2px solid #363029;
+  position: absolute;
+  width: 324px;
+  height: 576px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
+}
