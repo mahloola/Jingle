@@ -29,7 +29,6 @@ interface DailyJingleProps {
 export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
   const loadGameState = (): GameState | null => {
-    const jingleNumber = getJingleNumber(dailyChallenge);
     const gameStateJson = localStorage.getItem(keys.gameState(jingleNumber));
     try {
       const gameState = JSON.parse(gameStateJson ?? "null");
@@ -50,6 +49,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
 
   const guess = (guess: Guess) => {
     const gameState = jingle.guess(guess);
+    saveGameState(gameState);
 
     // update statistics
     incrementGlobalGuessCounter();
@@ -57,7 +57,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     if (guess.correct) incrementSongSuccessCount(currentSong);
     else incrementSongFailureCount(currentSong);
 
-    saveGameState(gameState);
     const isLastRound = gameState.round === gameState.songs.length - 1;
     if (isLastRound) {
       // submit daily challenge
@@ -74,6 +73,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const nextSong = () => {
     const gameState = jingle.nextSong();
+    saveGameState(gameState);
 
     // play next song
     const songName = gameState.songs[gameState.round];
