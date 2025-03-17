@@ -1,11 +1,17 @@
 @font-face {
-  font-family: 'Runescape UF';
-  src: url('../public/fonts/runescape.ttf');
+  font-family: "Runescape UF";
+  src: url("/fonts/runescape.ttf");
 }
 
 .App {
   text-align: center;
-  font-family: 'Runescape UF';
+  font-family: "Runescape UF";
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
 }
 
 .App-inner {
@@ -18,11 +24,8 @@
   padding-bottom: 5vh;
 }
 
-.button {
-  margin: 0 0 20px;
-  width: 250px;
-  border-radius: 30px !important;
-  font-style: italic;
+.absolute {
+  position: absolute;
 }
 
 .button {
@@ -32,7 +35,9 @@
   font-style: italic;
 }
 
-.blur {
-  filter: blur(40px); /* Adjust the blur strength as needed */
-  border: 0px solid transparent;
+.button {
+  margin: 0 0 20px;
+  width: 250px;
+  border-radius: 30px !important;
+  font-style: italic;
 }

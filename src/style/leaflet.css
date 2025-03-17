@@ -18,14 +18,14 @@
   }
 
   .leaflet-control-zoom-out {
-    background-image: url(../../public/assets/osrs_map_zoom_out.webp) !important;
+    background-image: url(/assets/osrs_map_zoom_out.webp) !important;
     &:hover {
       opacity: 0.8 !important;
     }
   }
 
   .leaflet-control-zoom-in {
-    background-image: url(../../public/assets/osrs_map_zoom_in.webp) !important;
+    background-image: url(/assets/osrs_map_zoom_in.webp) !important;
     &:hover {
       opacity: 0.8 !important;
       border: none !important;
