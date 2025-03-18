@@ -1,21 +1,22 @@
-import { useRef, useState } from "react";
-import { GameState, GameStatus } from "../types/jingle";
-import RunescapeMap from "./RunescapeMap";
-import HomeButton from "./HomeButton";
-import Footer from "./Footer";
-import "../style/uiBox.css";
-import { match } from "ts-pattern";
-import RoundResult from "./RoundResult";
-import { Guess } from "../hooks/useGameLogic";
-import { getRandomSong } from "../utils/getRandomSong";
+import { useEffect, useRef, useState } from 'react';
+import { match } from 'ts-pattern';
 import {
   incrementGlobalGuessCounter,
   incrementSongFailureCount,
   incrementSongSuccessCount,
-} from "../data/jingle-api";
-import NewsButton from "./NewsButton";
-import SettingsButton from "./SettingsButton";
-import StatsButton from "./StatsButton";
+} from '../data/jingle-api';
+import { Guess } from '../hooks/useGameLogic';
+import '../style/uiBox.css';
+import { GameState, GameStatus } from '../types/jingle';
+import { getRandomSong } from '../utils/getRandomSong';
+import { playSong } from '../utils/playSong';
+import Footer from './Footer';
+import HomeButton from './HomeButton';
+import NewsButton from './NewsButton';
+import RoundResult from './RoundResult';
+import RunescapeMap from './RunescapeMap';
+import SettingsButton from './SettingsButton';
+import StatsButton from './StatsButton';
 
 export default function Practice() {
   const [gameState, setGameState] = useState<GameState>({
@@ -28,6 +29,12 @@ export default function Practice() {
     guessedPosition: null,
     correctPolygon: null,
   });
+
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    playSong(audioRef, gameState.songs[gameState.round]);
+  }, []);
 
   const guess = (guess: Guess) => {
     const score = Math.round(
@@ -49,7 +56,6 @@ export default function Practice() {
     }));
   };
 
-  const audioRef = useRef<HTMLAudioElement>(null);
   const nextSong = () => {
     const newSong = getRandomSong();
     setGameState((prev) => ({
@@ -59,53 +65,59 @@ export default function Practice() {
       songs: [...prev.songs, newSong],
     }));
 
-    // play next song
-    const src = `https://mahloola.com/${newSong.trim().replace(/ /g, "_")}.mp3`;
-    audioRef.current!.src = src;
-    audioRef.current!.load();
-    audioRef.current!.play();
+    playSong(audioRef, newSong);
   };
 
   const button = (label: string, onClick?: () => any) => (
     <div
-      className="guess-btn-container"
+      className='guess-btn-container'
       onClick={onClick}
-      style={{ pointerEvents: onClick ? "auto" : "none" }}
+      style={{ pointerEvents: onClick ? 'auto' : 'none' }}
     >
-      <img src="https://mahloola.com/osrsButtonWide.png" alt="OSRS Button" />
-      <div className="guess-btn">{label}</div>
+      <img
+        src='https://mahloola.com/osrsButtonWide.png'
+        alt='OSRS Button'
+      />
+      <div className='guess-btn'>{label}</div>
     </div>
   );
 
   return (
     <>
-      <div className="App-inner">
-        <div className="ui-box">
+      <div className='App-inner'>
+        <div className='ui-box'>
           <HomeButton />
           <SettingsButton />
           <NewsButton />
           <StatsButton />
-          <div className="below-map">
+          <div className='below-map'>
             {match(gameState.status)
               .with(GameStatus.Guessing, () =>
-                button("Place your pin on the map"),
+                button('Place your pin on the map'),
               )
               .with(GameStatus.AnswerRevealed, () =>
-                button("Next Song", nextSong),
+                button('Next Song', nextSong),
               )
               .with(GameStatus.GameOver, () => {
-                throw new Error("Unreachable");
+                throw new Error('Unreachable');
               })
               .exhaustive()}
 
-            <audio controls id="audio" ref={audioRef} />
+            <audio
+              controls
+              id='audio'
+              ref={audioRef}
+            />
 
             <Footer />
           </div>
         </div>
       </div>
 
-      <RunescapeMap gameState={gameState} onGuess={guess} />
+      <RunescapeMap
+        gameState={gameState}
+        onGuess={guess}
+      />
 
       <RoundResult gameState={gameState} />
     </>

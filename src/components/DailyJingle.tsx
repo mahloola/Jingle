@@ -1,27 +1,28 @@
-import { useRef } from "react";
-import { DailyChallenge, GameState, GameStatus } from "../types/jingle";
-import RunescapeMap from "./RunescapeMap";
+import { sum } from 'ramda';
+import { useEffect, useRef } from 'react';
+import { match } from 'ts-pattern';
 import {
   incrementGlobalGuessCounter,
   incrementSongFailureCount,
   incrementSongSuccessCount,
   postDailyChallengeResult,
-} from "../data/jingle-api";
-import { getCurrentDateInBritain } from "../utils/date-utils";
-import { sum } from "ramda";
-import HomeButton from "./HomeButton";
-import DailyGuessLabel from "./DailyGuessLabel";
-import Footer from "./Footer";
-import "../style/uiBox.css";
-import { match } from "ts-pattern";
-import RoundResult from "./RoundResult";
-import useGameLogic, { Guess } from "../hooks/useGameLogic";
-import GameOver from "./GameOver";
-import { keys } from "../data/localstorage";
-import { copyResultsToClipboard, getJingleNumber } from "../utils/jingle-utils";
-import SettingsButton from "./SettingsButton";
-import NewsButton from "./NewsButton";
-import StatsButton from "./StatsButton";
+} from '../data/jingle-api';
+import { keys } from '../data/localstorage';
+import useGameLogic, { Guess } from '../hooks/useGameLogic';
+import '../style/uiBox.css';
+import { DailyChallenge, GameState, GameStatus } from '../types/jingle';
+import { getCurrentDateInBritain } from '../utils/date-utils';
+import { copyResultsToClipboard, getJingleNumber } from '../utils/jingle-utils';
+import { playSong } from '../utils/playSong';
+import DailyGuessLabel from './DailyGuessLabel';
+import Footer from './Footer';
+import GameOver from './GameOver';
+import HomeButton from './HomeButton';
+import NewsButton from './NewsButton';
+import RoundResult from './RoundResult';
+import RunescapeMap from './RunescapeMap';
+import SettingsButton from './SettingsButton';
+import StatsButton from './StatsButton';
 
 interface DailyJingleProps {
   dailyChallenge: DailyChallenge;
@@ -31,13 +32,14 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const loadGameState = (): GameState | null => {
     const gameStateJson = localStorage.getItem(keys.gameState(jingleNumber));
     try {
-      const gameState = JSON.parse(gameStateJson ?? "null");
+      const gameState = JSON.parse(gameStateJson ?? 'null');
       return gameState;
     } catch (e) {
-      console.error("Failed to parse saved game state: " + gameState);
+      console.error('Failed to parse saved game state: ' + gameState);
       return null;
     }
   };
+
   const saveGameState = (gameState: GameState) => {
     localStorage.setItem(
       keys.gameState(jingleNumber),
@@ -46,6 +48,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   };
   const jingle = useGameLogic(dailyChallenge, loadGameState());
   const gameState = jingle.gameState;
+
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    playSong(audioRef, gameState.songs[gameState.round]);
+  }, []);
 
   const guess = (guess: Guess) => {
     const gameState = jingle.guess(guess);
@@ -70,40 +78,38 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     saveGameState(gameState);
   };
 
-  const audioRef = useRef<HTMLAudioElement>(null);
   const nextSong = () => {
     const gameState = jingle.nextSong();
     saveGameState(gameState);
 
-    // play next song
     const songName = gameState.songs[gameState.round];
-    const src = `https://mahloola.com/${songName.trim().replace(/ /g, "_")}.mp3`;
-    audioRef.current!.src = src;
-    audioRef.current!.load();
-    audioRef.current!.play();
+    playSong(audioRef, songName);
   };
 
   const button = (label: string, onClick?: () => any) => (
     <div
-      className="guess-btn-container"
+      className='guess-btn-container'
       onClick={onClick}
-      style={{ pointerEvents: onClick ? "auto" : "none" }}
+      style={{ pointerEvents: onClick ? 'auto' : 'none' }}
     >
-      <img src="https://mahloola.com/osrsButtonWide.png" alt="OSRS Button" />
-      <div className="guess-btn">{label}</div>
+      <img
+        src='https://mahloola.com/osrsButtonWide.png'
+        alt='OSRS Button'
+      />
+      <div className='guess-btn'>{label}</div>
     </div>
   );
 
   return (
     <>
-      <div className="App-inner">
-        <div className="ui-box">
+      <div className='App-inner'>
+        <div className='ui-box'>
           <HomeButton />
           <SettingsButton />
           <NewsButton />
           <StatsButton />
-          <div className="below-map">
-            <div style={{ display: "flex", gap: "2px" }}>
+          <div className='below-map'>
+            <div style={{ display: 'flex', gap: '2px' }}>
               <DailyGuessLabel number={gameState.scores[0]} />
               <DailyGuessLabel number={gameState.scores[1]} />
               <DailyGuessLabel number={gameState.scores[2]} />
@@ -113,33 +119,43 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
 
             {match(gameState.status)
               .with(GameStatus.Guessing, () =>
-                button("Place your pin on the map"),
+                button('Place your pin on the map'),
               )
               .with(GameStatus.AnswerRevealed, () => {
                 if (gameState.round < gameState.songs.length - 1) {
-                  return button("Next Song", nextSong);
+                  return button('Next Song', nextSong);
                 } else {
-                  return button("End Game", endGame);
+                  return button('End Game', endGame);
                 }
               })
               .with(GameStatus.GameOver, () =>
-                button("Copy Results", () => copyResultsToClipboard(gameState)),
+                button('Copy Results', () => copyResultsToClipboard(gameState)),
               )
               .exhaustive()}
 
-            <audio controls id="audio" ref={audioRef} />
+            <audio
+              controls
+              id='audio'
+              ref={audioRef}
+            />
 
             <Footer />
           </div>
         </div>
       </div>
 
-      <RunescapeMap gameState={gameState} onGuess={guess} />
+      <RunescapeMap
+        gameState={gameState}
+        onGuess={guess}
+      />
 
       <RoundResult gameState={gameState} />
 
       {gameState.status === GameStatus.GameOver && (
-        <GameOver gameState={gameState} dailyChallenge={dailyChallenge} />
+        <GameOver
+          gameState={gameState}
+          dailyChallenge={dailyChallenge}
+        />
       )}
     </>
   );
