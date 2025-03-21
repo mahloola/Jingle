@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
+import { ASSETS } from '../constants/assets';
 import {
   incrementGlobalGuessCounter,
   incrementSongFailureCount,
@@ -7,16 +8,16 @@ import {
 } from '../data/jingle-api';
 import { Guess } from '../hooks/useGameLogic';
 import '../style/uiBox.css';
-import { GameState, GameStatus } from '../types/jingle';
+import { GameState, GameStatus, ModalType } from '../types/jingle';
 import { getRandomSong } from '../utils/getRandomSong';
 import { playSong } from '../utils/playSong';
 import Footer from './Footer';
-import HomeButton from './HomeButton';
-import NewsButton from './NewsButton';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
-import SettingsButton from './SettingsButton';
-import StatsButton from './StatsButton';
+import HomeButton from './buttons/HomeButton';
+import NewsModalButton from './buttons/NewsModalButton';
+import SettingsModalButton from './buttons/SettingsModalButton';
+import StatsModalButton from './buttons/StatsModalButton';
 
 export default function Practice() {
   const [gameState, setGameState] = useState<GameState>({
@@ -30,6 +31,13 @@ export default function Practice() {
     correctPolygon: null,
   });
 
+  const [openModalId, setOpenModalId] = useState<ModalType | null>(null);
+  const handleModalClick = (id: ModalType) => {
+    if (openModalId === id) setOpenModalId(null);
+    else setOpenModalId(id);
+  };
+  const closeModal = () => setOpenModalId(null);
+  console.log('Practice.tsx: openModalId', openModalId);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -75,7 +83,7 @@ export default function Practice() {
       style={{ pointerEvents: onClick ? 'auto' : 'none' }}
     >
       <img
-        src='https://mahloola.com/osrsButtonWide.png'
+        src={ASSETS['labelWide']}
         alt='OSRS Button'
       />
       <div className='guess-btn'>{label}</div>
@@ -86,10 +94,27 @@ export default function Practice() {
     <>
       <div className='App-inner'>
         <div className='ui-box'>
-          <HomeButton />
-          <SettingsButton />
-          <NewsButton />
-          <StatsButton />
+          <div className='modal-buttons-container'>
+            <HomeButton />
+            <SettingsModalButton
+              open={openModalId === ModalType.Settings}
+              onClose={closeModal}
+              onClick={() => handleModalClick(ModalType.Settings)}
+              currentSettings={undefined}
+              onApplySettings={() => {}}
+            />
+            <NewsModalButton
+              open={openModalId === ModalType.News}
+              onClose={closeModal}
+              onClick={() => handleModalClick(ModalType.News)}
+            />
+            <StatsModalButton
+              open={openModalId === ModalType.Stats}
+              onClose={closeModal}
+              onClick={() => handleModalClick(ModalType.Stats)}
+            />
+          </div>
+
           <div className='below-map'>
             {match(gameState.status)
               .with(GameStatus.Guessing, () =>

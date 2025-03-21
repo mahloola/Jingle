@@ -1,12 +1,17 @@
-import { GeoJsonObject } from "geojson";
-import L from "leaflet";
+import { GeoJsonObject } from 'geojson';
+import L from 'leaflet';
 
 export enum GameStatus {
-  Guessing = "guessing",
-  AnswerRevealed = "answer-revealed",
-  GameOver = "game-over",
+  Guessing = 'guessing',
+  AnswerRevealed = 'answer-revealed',
+  GameOver = 'game-over',
 }
 
+export enum ModalType {
+  Stats = 'stats',
+  News = 'news',
+  Settings = 'settings',
+}
 export interface GameState {
   status: GameStatus;
   round: number; // 0-4

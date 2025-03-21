@@ -1,6 +1,7 @@
 import { sum } from 'ramda';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
+import { ASSETS } from '../constants/assets';
 import {
   incrementGlobalGuessCounter,
   incrementSongFailureCount,
@@ -10,19 +11,24 @@ import {
 import { keys } from '../data/localstorage';
 import useGameLogic, { Guess } from '../hooks/useGameLogic';
 import '../style/uiBox.css';
-import { DailyChallenge, GameState, GameStatus } from '../types/jingle';
+import {
+  DailyChallenge,
+  GameState,
+  GameStatus,
+  ModalType,
+} from '../types/jingle';
 import { getCurrentDateInBritain } from '../utils/date-utils';
 import { copyResultsToClipboard, getJingleNumber } from '../utils/jingle-utils';
 import { playSong } from '../utils/playSong';
 import DailyGuessLabel from './DailyGuessLabel';
 import Footer from './Footer';
 import GameOver from './GameOver';
-import HomeButton from './HomeButton';
-import NewsButton from './NewsButton';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
-import SettingsButton from './SettingsButton';
-import StatsButton from './StatsButton';
+import HomeButton from './buttons/HomeButton';
+import NewsModalButton from './buttons/NewsModalButton';
+import SettingsModalButton from './buttons/SettingsModalButton';
+import StatsModalButton from './buttons/StatsModalButton';
 
 interface DailyJingleProps {
   dailyChallenge: DailyChallenge;
@@ -40,6 +46,13 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     }
   };
 
+  const [openModalId, setOpenModalId] = useState<ModalType | null>(null);
+  const handleModalClick = (id: ModalType) => {
+    if (openModalId === id) setOpenModalId(null);
+    else setOpenModalId(id);
+  };
+
+  const closeModal = () => setOpenModalId(null);
   const saveGameState = (gameState: GameState) => {
     localStorage.setItem(
       keys.gameState(jingleNumber),
@@ -93,7 +106,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       style={{ pointerEvents: onClick ? 'auto' : 'none' }}
     >
       <img
-        src='https://mahloola.com/osrsButtonWide.png'
+        src={ASSETS['labelWide']}
         alt='OSRS Button'
       />
       <div className='guess-btn'>{label}</div>
@@ -105,9 +118,23 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       <div className='App-inner'>
         <div className='ui-box'>
           <HomeButton />
-          <SettingsButton />
-          <NewsButton />
-          <StatsButton />
+          <SettingsModalButton
+            open={openModalId === ModalType.Settings}
+            onClose={closeModal}
+            onClick={() => handleModalClick(ModalType.Settings)}
+            currentSettings={undefined}
+            onApplySettings={() => {}}
+          />
+          <NewsModalButton
+            open={openModalId === ModalType.News}
+            onClose={closeModal}
+            onClick={() => handleModalClick(ModalType.News)}
+          />
+          <StatsModalButton
+            open={openModalId === ModalType.Stats}
+            onClose={closeModal}
+            onClick={() => handleModalClick(ModalType.Stats)}
+          />
           <div className='below-map'>
             <div style={{ display: 'flex', gap: '2px' }}>
               <DailyGuessLabel number={gameState.scores[0]} />

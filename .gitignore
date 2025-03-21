@@ -10,7 +10,6 @@ lerna-debug.log*
 
 /misc
 songs/
-build/
 data.csv
 musicList.ts
 
@@ -20,6 +19,7 @@ musicList.ts
 .env.test.local
 .env.production.local
 
+build/
 node_modules
 dist
 dist-ssr
