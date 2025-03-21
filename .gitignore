@@ -9,7 +9,7 @@ lerna-debug.log*
 
 
 /misc
-/public/songs
+songs/
 build/
 data.csv
 musicList.ts
