@@ -3,7 +3,7 @@ import L, { CRS, Icon } from "leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import "leaflet/dist/leaflet.css";
 import { GeoJSON, Marker, MapContainer, TileLayer } from "react-leaflet";
-import { booleanPointInPolygon, polygon } from "@turf/turf";
+import { booleanPointInPolygon, polygon, booleanContains } from "@turf/turf";
 import { useMapEvents } from "react-leaflet";
 import geojsondata from "../data/GeoJSON";
 import {
@@ -11,6 +11,7 @@ import {
   closePolygon,
   featureMatchesSong,
   getCenterOfPolygon,
+  getDistanceToPolygon,
   toOurPixelCoordinates,
 } from "../utils/map-utils";
 import { GameState, GameStatus } from "../types/jingle";
@@ -61,23 +62,13 @@ function RunescapeMap({ gameState, onGuess }: RunescapeMapProps) {
       const { x, y } = map.project(e.latlng, zoom);
       const ourPixelCoordsClickedPoint = [x, y] as Point;
 
-      const clickedFeatures = geojsondata.features.filter((feature) =>
-        feature.geometry.coordinates.some((poly) => {
-          const transformedPoly = polygon([
-            closePolygon(poly.map(toOurPixelCoordinates)),
-          ]);
-          return booleanPointInPolygon(
-            ourPixelCoordsClickedPoint,
-            transformedPoly,
-          );
-        }),
-      );
       const correctFeature = geojsondata.features.find(
-        featureMatchesSong(currentSong),
+        featureMatchesSong(currentSong)
       )!;
-      const correctClickedFeature = clickedFeatures.find(
-        featureMatchesSong(currentSong),
-      )!;
+
+      //all closed polys for current song
+      const repairedPolygons =
+        correctFeature.geometry.coordinates.map(closePolygon);
 
       // Create a GeoJSON feature for the nearest correct polygon
       const correctPolygon = correctFeature.geometry.coordinates.sort(
@@ -87,17 +78,61 @@ function RunescapeMap({ gameState, onGuess }: RunescapeMapProps) {
           const d1 = calculateDistance(ourPixelCoordsClickedPoint, c1);
           const d2 = calculateDistance(ourPixelCoordsClickedPoint, c2);
           return d1 - d2;
-        },
+        }
       )[0];
-      const convertedCoordinates = correctPolygon // 1. their pixel coords
-        .map(toOurPixelCoordinates) // 2. our pixel coords
-        .map((coordinate) => map.unproject(coordinate, zoom)) // 3. leaflet { latlng }
-        .map(({ lat, lng }) => [lng, lat]); // 4. leaflet [ latlng ]
+
+      //if closest correct polgy is a gap, set outerPolygon to the actual parent poly, else iteself.
+      const repairedCorrectPolygon = closePolygon(correctPolygon);
+
+      const outerPolygon =
+        repairedPolygons.find(
+          (repairedPolygon) =>{
+            if(JSON.stringify(repairedPolygon) !== JSON.stringify(repairedCorrectPolygon)){
+              return booleanContains(
+                polygon([repairedPolygon]),
+                polygon([repairedCorrectPolygon])
+              );
+            }
+            return false;
+          }
+        ) || repairedCorrectPolygon;
+
+      //find all gaps in this outer polygon
+      const gaps = repairedPolygons.filter(
+        (repairedPolygon) =>
+          JSON.stringify(repairedPolygon) !== JSON.stringify(outerPolygon) &&
+          booleanContains(polygon([outerPolygon]), polygon([repairedPolygon]))
+      );
+
+      const correctPolygons = [outerPolygon, ...gaps];
+
+      //check user click is right or wrong:
+      //for checking aginst click, convert everything to our coords
+      const ourOuterPolygon = outerPolygon.map(toOurPixelCoordinates);
+      const ourGaps = gaps?.map(gap => gap.map(toOurPixelCoordinates)) ?? [];
+      //check if in outer poly
+      const inOuterPoly = booleanPointInPolygon(ourPixelCoordsClickedPoint, polygon([ourOuterPolygon]));
+      // Check if the clicked point is inside any hole
+      const isInsideGap = ourGaps.some((gap) =>
+        booleanPointInPolygon(ourPixelCoordsClickedPoint, polygon([gap]))
+      );
+      //merge the two
+      const correctClickedFeature = inOuterPoly && !isInsideGap;
+      
+      //coords for <GeoJSON>
+      const convertedCoordinates = correctPolygons.map(
+        (polygon) =>
+          polygon //their pixel coords
+            .map(toOurPixelCoordinates) // 2.our pixel coords
+            .map((coordinate) => map.unproject(coordinate, zoom)) // 3. leaflet { latlng }
+            .map(({ lat, lng }) => [lng, lat]) // 4. leaflet [lat, lng]
+      );
+
       const correctPolygonData = {
         type: "Feature",
         geometry: {
           type: "Polygon",
-          coordinates: [convertedCoordinates],
+          coordinates: convertedCoordinates,
         },
       } as GeoJsonObject;
 
@@ -109,14 +144,16 @@ function RunescapeMap({ gameState, onGuess }: RunescapeMapProps) {
           correctPolygon: correctPolygonData,
         });
       } else {
-        const correctPolygonCenterPoints =
-          correctFeature.geometry.coordinates.map((polygon) =>
-            getCenterOfPolygon(polygon.map(toOurPixelCoordinates)),
-          );
-        const distances = correctPolygonCenterPoints.map((point) =>
-          calculateDistance(ourPixelCoordsClickedPoint, point as Point),
+        //restored border distance calcs
+        const closestDistance = Math.min(
+          ...correctFeature.geometry.coordinates.map((polygon) =>
+            getDistanceToPolygon(
+              ourPixelCoordsClickedPoint,
+              polygon.map(toOurPixelCoordinates)
+            )
+          )
         );
-        const closestDistance = Math.min(...distances);
+
         onGuess({
           correct: false,
           distance: closestDistance,
@@ -128,11 +165,10 @@ function RunescapeMap({ gameState, onGuess }: RunescapeMapProps) {
       map.panTo(
         map.unproject(
           getCenterOfPolygon(
-            correctPolygon // 1. their pixel coords
-              .map(toOurPixelCoordinates), // 2. our pixel coords
+            ourOuterPolygon //our pixel coords
           ),
-          zoom,
-        ),
+          zoom
+        )
       );
     },
   });
