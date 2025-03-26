@@ -20,8 +20,10 @@ export default function StatsModalButton({
     key.includes('jingle-'),
   );
   const gameStateObjects = gameStateKeys.map((key) => {
-    const gameState: GameState = localStorage.getItem(key);
-    const totalScore = gameState;
+    const gameState: GameState | null = JSON.parse(
+      localStorage.getItem(key) ?? '{}',
+    );
+    // todo: retrieve stats from local storage gamestate
   });
   return (
     <>
