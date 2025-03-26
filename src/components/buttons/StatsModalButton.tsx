@@ -1,5 +1,6 @@
 import { ASSETS } from '../../constants/assets';
 import '../../style/modal.css';
+import { GameState } from '../../types/jingle';
 import Modal from '../Modal';
 import IconButton from './IconButton';
 
@@ -14,6 +15,14 @@ export default function StatsModalButton({
   open,
   onClose,
 }: StatsModalButtonProps) {
+  const localStorageKeys = Object.keys(localStorage);
+  const gameStateKeys = localStorageKeys.filter((key) =>
+    key.includes('jingle-'),
+  );
+  const gameStateObjects = gameStateKeys.map((key) => {
+    const gameState: GameState = localStorage.getItem(key);
+    const totalScore = gameState;
+  });
   return (
     <>
       <IconButton
@@ -33,7 +42,6 @@ export default function StatsModalButton({
           <span>Success Rate</span>
           <span>19.37%</span>
         </div>
-        <br />
         <h2>Global Statistics</h2>
         <div className='modal-line'>
           <span>Total Guesses</span>

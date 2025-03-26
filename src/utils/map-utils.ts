@@ -1,12 +1,12 @@
-import { Feature, Position, Polygon } from "geojson";
-import { decodeHTML } from "./string-utils";
-import { Line, Point } from "../types/geometry";
+import { Feature, Polygon, Position } from 'geojson';
+import { Line, Point } from '../types/geometry';
+import { decodeHTML } from './string-utils';
 
 const scaleFactor = 3;
 // Ours refers to the pixel coordinates of the map grid we're using
 // Theirs refers to the pixel coordinates taken from osrs wiki music info GeoJSON
 export const toOurPixelCoordinates = ([x, y]: Position) =>
-  [x * scaleFactor - 3108, -(y * scaleFactor) + 12450] as Point;
+  [x * scaleFactor - 3152, -(y * scaleFactor) + 12400] as Point;
 
 export const closePolygon = (coordinates: number[][]) => {
   const repairedPolygon = [...coordinates];
@@ -23,7 +23,7 @@ export const featureMatchesSong = (songName: string) => (feature: Feature) => {
   const featureSongName = decodeHTML(
     feature.properties?.title.match(/>(.*?)</)[1],
   );
-  return featureSongName === songName;
+  return featureSongName?.trim() === songName.trim();
 };
 
 export const calculateDistance = (

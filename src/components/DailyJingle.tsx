@@ -59,6 +59,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       JSON.stringify(gameState),
     );
   };
+  const incrementLocalGuessCount = (correct: boolean) => {
+    const key = correct ? keys.correctGuesses : keys.incorrectGuesses;
+    const currentCount = parseInt(localStorage.getItem(key) ?? '0');
+    localStorage.setItem(key, (currentCount + 1).toString());
+  };
+
   const jingle = useGameLogic(dailyChallenge, loadGameState());
   const gameState = jingle.gameState;
 
@@ -75,8 +81,13 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     // update statistics
     incrementGlobalGuessCounter();
     const currentSong = gameState.songs[gameState.round];
-    if (guess.correct) incrementSongSuccessCount(currentSong);
-    else incrementSongFailureCount(currentSong);
+    if (guess.correct) {
+      incrementLocalGuessCount(true);
+      incrementSongSuccessCount(currentSong);
+    } else {
+      incrementLocalGuessCount(false);
+      incrementSongFailureCount(currentSong);
+    }
 
     const isLastRound = gameState.round === gameState.songs.length - 1;
     if (isLastRound) {

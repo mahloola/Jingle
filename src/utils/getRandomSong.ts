@@ -1,12 +1,12 @@
-import geojsondata from "../data/GeoJSON";
-import { isFeatureVisibleOnMap } from "./map-utils";
-import { decodeHTML } from "./string-utils";
+import geojsondata from '../data/GeoJSON';
+import { isFeatureVisibleOnMap } from './map-utils';
+import { decodeHTML } from './string-utils';
 
 const playedSongs = new Set();
 const playedSongsOrder: string[] = [];
 
 export const getRandomSong = () => {
-  let randomSongName: string | null = "";
+  let randomSongName: string | null = '';
   const visibleFeatures = geojsondata.features.filter(isFeatureVisibleOnMap);
   do {
     const randomFeature = visibleFeatures.sort(
@@ -17,7 +17,7 @@ export const getRandomSong = () => {
     );
   } while (playedSongs.has(randomSongName));
   updatePlayedSongs(randomSongName!);
-  return randomSongName!;
+  return randomSongName!.trim();
 };
 
 const updatePlayedSongs = (newSongName: string) => {

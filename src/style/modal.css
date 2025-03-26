@@ -1,23 +1,27 @@
-.modal-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-size: 70%;
-  background-repeat: no-repeat;
-  border-radius: 4px;
-  background: #53493e;
-  padding: 20px;
-  outline: 2px solid #363029;
-  position: fixed;
-  width: 324px;
-  height: auto;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  margin-left: auto;
-  margin-right: auto;
+.modal-close-button {
+  background-color: #363029 !important;
+  color: #edfd07;
+  padding: 5px;
+  margin-top: 10px;
+  min-width: 40% !important;
+  border-radius: 5px;
 }
+
+.modal-close-button:hover {
+  background-color: #928270 !important;
+  transition: 0.2s;
+}
+
+.ReactModal__Overlay {
+  position: fixed !important; /* Force override */
+  z-index: 1000; /* Higher than other elements */
+  background-color: rgba(255, 255, 255, 0.01) !important;
+  /* border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); */
+}
+
 button {
   background-color: transparent !important;
   border: none !important;
@@ -47,8 +51,11 @@ button {
 .modal-line {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
   width: 80%;
+  color: #edfd07;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
 
 .modal-buttons-container {

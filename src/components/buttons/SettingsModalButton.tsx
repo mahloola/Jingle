@@ -38,6 +38,9 @@ export default function SettingsModalButton({
             }}
           ></input>
         </div>
+        <div className='modal-line small-text-80'>
+          <span>The music pauses after the first 1 second</span>
+        </div>
       </Modal>
     </>
   );

@@ -1,4 +1,6 @@
 export const keys = {
   gameState: (jingleNumber: number) => `jingle-${jingleNumber}-gameState`,
-  dailyComplete: "dailyComplete",
+  dailyComplete: 'dailyComplete',
+  correctGuesses: 'correctGuesses',
+  incorrectGuesses: 'incorrectGuesses',
 };
