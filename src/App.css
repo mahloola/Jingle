@@ -28,6 +28,16 @@
   position: absolute;
 }
 
+input[type='checkbox'] {
+  accent-color: #edfd07;
+  height: 1.1em;
+  width: 1.1em;
+}
+input[type='checkbox']:hover {
+  transform: scale(1.4);
+  transition: all 0.1s;
+}
+
 .button {
   margin: 0 0 20px;
   width: 250px;

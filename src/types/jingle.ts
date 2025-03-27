@@ -13,6 +13,7 @@ export enum ModalType {
   Settings = 'settings',
 }
 export interface GameState {
+  settings: Settings;
   status: GameStatus;
   round: number; // 0-4
   songs: string[];
@@ -33,6 +34,11 @@ export interface DailyChallenge {
 
 export interface Statistics {
   guesses: number;
+}
+
+export interface Settings {
+  hardMode: boolean;
+  oldAudio: boolean;
 }
 
 export interface Song {

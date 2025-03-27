@@ -3,4 +3,5 @@ export const keys = {
   dailyComplete: 'dailyComplete',
   correctGuesses: 'correctGuesses',
   incorrectGuesses: 'incorrectGuesses',
+  openModalId: 'openModalId',
 };

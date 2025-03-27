@@ -8,7 +8,7 @@ import {
 } from '../data/jingle-api';
 import { Guess } from '../hooks/useGameLogic';
 import '../style/uiBox.css';
-import { GameState, GameStatus, ModalType } from '../types/jingle';
+import { GameState, GameStatus, ModalType, Settings } from '../types/jingle';
 import { getRandomSong } from '../utils/getRandomSong';
 import { playSong } from '../utils/playSong';
 import Footer from './Footer';
@@ -21,6 +21,10 @@ import StatsModalButton from './buttons/StatsModalButton';
 
 export default function Practice() {
   const [gameState, setGameState] = useState<GameState>({
+    settings: {
+      hardMode: false,
+      oldAudio: false,
+    },
     status: GameStatus.Guessing,
     round: 0,
     songs: [getRandomSong()],
@@ -37,11 +41,16 @@ export default function Practice() {
     else setOpenModalId(id);
   };
   const closeModal = () => setOpenModalId(null);
-  console.log('Practice.tsx: openModalId', openModalId);
+
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    playSong(audioRef, gameState.songs[gameState.round]);
+    playSong(
+      audioRef,
+      gameState.songs[gameState.round],
+      gameState.settings.oldAudio,
+      gameState.settings.hardMode,
+    );
   }, []);
 
   const guess = (guess: Guess) => {
@@ -73,7 +82,19 @@ export default function Practice() {
       songs: [...prev.songs, newSong],
     }));
 
-    playSong(audioRef, newSong);
+    playSong(
+      audioRef,
+      newSong,
+      gameState.settings.oldAudio,
+      gameState.settings.hardMode,
+    );
+  };
+
+  const updateSettings = (settings: Settings) => {
+    setGameState((prev) => ({
+      ...prev,
+      settings,
+    }));
   };
 
   const button = (label: string, onClick?: () => any) => (
@@ -100,8 +121,8 @@ export default function Practice() {
               open={openModalId === ModalType.Settings}
               onClose={closeModal}
               onClick={() => handleModalClick(ModalType.Settings)}
-              currentSettings={undefined}
-              onApplySettings={() => {}}
+              currentSettings={gameState.settings}
+              onApplySettings={(settings) => updateSettings(settings)}
             />
             <NewsModalButton
               open={openModalId === ModalType.News}

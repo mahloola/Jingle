@@ -13,12 +13,15 @@
     color: transparent !important;
     background-color: transparent !important;
     border: none !important;
-    width: 44px !important;
+    width: 71.1px !important;
+    height: 48.6px !important;
     margin-bottom: 3px !important;
   }
 
   .leaflet-control-zoom-out {
     background-image: url(/assets/osrs_map_zoom_out.webp) !important;
+    width: 71.1px !important;
+    height: 48.6px !important;
     &:hover {
       opacity: 0.8 !important;
     }

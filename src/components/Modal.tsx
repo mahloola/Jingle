@@ -6,16 +6,18 @@ interface ModalProps {
   open: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  onApplySettings?: () => void;
+  saveDisabled?: boolean;
 }
 
 const modalStyles: Styles = {
   content: {
     display: 'flex',
     background: '#53493e',
-    padding: '20px',
+    padding: '30px',
     outline: '2px solid #363029',
     position: 'fixed',
-    width: '324px',
+    width: '300px',
     height: 'auto',
     left: '50%',
     top: '50%',
@@ -28,12 +30,19 @@ const modalStyles: Styles = {
     alignItems: 'center',
     borderRadius: '4px',
     transition: 'all 0.3s ease',
+    gap: '10px',
   },
 };
 
 ReactModal.setAppElement('#root');
 
-export default function Modal({ open, onClose, children }: ModalProps) {
+export default function Modal({
+  open,
+  onClose,
+  onApplySettings,
+  saveDisabled,
+  children,
+}: ModalProps) {
   return (
     <ReactModal
       className='modal-container'
@@ -43,12 +52,23 @@ export default function Modal({ open, onClose, children }: ModalProps) {
       contentLabel='Example Modal'
     >
       {children}
-      <button
-        className='modal-close-button'
-        onClick={onClose}
-      >
-        Close
-      </button>
+      <div className={'modal-options'}>
+        {onApplySettings && (
+          <button
+            className='modal-close-button'
+            onClick={onApplySettings}
+            disabled={saveDisabled}
+          >
+            Save
+          </button>
+        )}
+        <button
+          className='modal-close-button'
+          onClick={onClose}
+        >
+          Close
+        </button>
+      </div>
     </ReactModal>
   );
 }

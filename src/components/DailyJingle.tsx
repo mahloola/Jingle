@@ -71,7 +71,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    playSong(audioRef, gameState.songs[gameState.round]);
+    playSong(
+      audioRef,
+      gameState.songs[gameState.round],
+      gameState.settings.oldAudio,
+      gameState.settings.hardMode,
+    );
   }, []);
 
   const guess = (guess: Guess) => {
@@ -107,7 +112,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     saveGameState(gameState);
 
     const songName = gameState.songs[gameState.round];
-    playSong(audioRef, songName);
+    playSong(
+      audioRef,
+      songName,
+      gameState.settings.oldAudio,
+      gameState.settings.hardMode,
+    );
   };
 
   const button = (label: string, onClick?: () => any) => (

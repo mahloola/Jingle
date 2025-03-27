@@ -14,7 +14,8 @@
 }
 
 .guess-btn-container:hover {
-  filter: brightness(80%);
+  filter: brightness(0.8);
+  transition: all 0.3s;
 }
 
 .guess-btn {

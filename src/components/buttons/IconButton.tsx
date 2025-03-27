@@ -6,7 +6,6 @@ interface IconButtonProps
   img: string;
 }
 export default function IconButton({ img, ...props }: IconButtonProps) {
-  console.log('Rendering IconButton: ', img);
   return (
     <button
       className={'icon-button'}
