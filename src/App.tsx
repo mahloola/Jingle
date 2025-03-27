@@ -1,19 +1,19 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import "./style/leaflet.css";
-import { useState } from "react";
-import MainMenu from "./components/MainMenu";
-import { match } from "ts-pattern";
-import DailyJingle from "./components/DailyJingle";
-import useSWR from "swr";
-import { getCurrentDateInBritain } from "./utils/date-utils";
-import { getDailyChallenge } from "./data/jingle-api";
-import Practice from "./components/Practice";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import useSWR from 'swr';
+import { match } from 'ts-pattern';
+import './App.css';
+import DailyJingle from './components/DailyJingle';
+import MainMenu from './components/MainMenu';
+import Practice from './components/Practice';
+import { getDailyChallenge } from './data/jingle-api';
+import './style/leaflet.css';
+import { getCurrentDateInBritain } from './utils/date-utils';
 
 enum Screen {
-  MainMenu = "main-menu",
-  DailyJingle = "daily-jingle",
-  Practice = "practice",
+  MainMenu = 'main-menu',
+  DailyJingle = 'daily-jingle',
+  Practice = 'practice',
 }
 
 function App() {
@@ -25,10 +25,10 @@ function App() {
 
   return (
     <div
-      className="App"
+      className='App'
       style={{
         backgroundImage: `url(/assets/background.jpg)`,
-        backgroundSize: "cover",
+        backgroundSize: 'cover',
       }}
     >
       {match(screen)
