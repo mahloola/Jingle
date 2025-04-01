@@ -18,6 +18,7 @@ import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
 import SettingsModalButton from './buttons/SettingsModalButton';
 import StatsModalButton from './buttons/StatsModalButton';
+const confirmGuess = true; //remove this and load through settings instead
 
 export default function Practice() {
   const [gameState, setGameState] = useState<GameState>({
@@ -30,6 +31,9 @@ export default function Practice() {
     guessedPosition: null,
     correctPolygon: null,
   });
+
+  const [confirmedGuess, setConfirmedGuess] = useState(false); 
+  const [showConfirmGuess, setShowConfirmGuess] = useState(false);
 
   const [openModalId, setOpenModalId] = useState<ModalType | null>(null);
   const handleModalClick = (id: ModalType) => {
@@ -54,6 +58,9 @@ export default function Practice() {
     const currentSong = gameState.songs[gameState.round];
     if (guess.correct) incrementSongSuccessCount(currentSong);
     else incrementSongFailureCount(currentSong);
+
+    setConfirmedGuess(false);
+    setShowConfirmGuess(false);
 
     setGameState((prev) => ({
       ...prev,
@@ -93,6 +100,28 @@ export default function Practice() {
   return (
     <>
       <div className='App-inner'>
+
+         {/* temp button styling coz i can't bear to see the deafult. Work your css magic here*/}
+         {confirmGuess && showConfirmGuess && <div style={{
+            display:"inline-block",
+            position: "fixed",
+            top: "15px",
+            zIndex: 999,
+            backgroundColor: "rgba(88,76,60,1)",
+            border: "0.1rem solid rgba(57, 48, 35, 1)",
+            borderRadius: "0.2rem"
+          }}>
+            <button 
+            onClick={()=>setConfirmedGuess(true)}
+            style={{
+              color: "rgb(255, 239, 91)", 
+              width:"100%", height:"100%", 
+              padding: "0.5rem 1rem 0.1rem 1rem",
+             }}>
+              <h5>Confirm Guess</h5>
+            </button>
+        </div>}
+
         <div className='ui-box'>
           <div className='modal-buttons-container'>
             <HomeButton />
@@ -142,6 +171,8 @@ export default function Practice() {
       <RunescapeMap
         gameState={gameState}
         onGuess={guess}
+        confirmedGuess={confirmedGuess}
+        setShowConfirmGuess={setShowConfirmGuess}
       />
 
       <RoundResult gameState={gameState} />
