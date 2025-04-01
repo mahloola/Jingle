@@ -12,6 +12,47 @@
   transition: 0.2s;
 }
 
+.regions-table {
+  display: flex;
+  transition: all 0.1s;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-left: 10px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+
+  max-height: 200px !important;
+}
+
+.rotated {
+  transform: rotate(-180deg);
+}
+.settings-table {
+  width: 100%;
+}
+.settings-table svg {
+  color: #928270;
+  font-size: 0.9em !important;
+  margin-left: 5px;
+}
+.settings-table tr {
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.settings-table td {
+  display: flex;
+  align-items: center;
+}
+.settings-table svg:hover {
+  filter: drop-shadow(0 0 3px #ffffff);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
 .ReactModal__Overlay {
   position: fixed !important; /* Force override */
   z-index: 1000; /* Higher than other elements */
@@ -31,9 +72,16 @@ button:disabled {
   opacity: 0.5;
 }
 
+::-webkit-scrollbar {
+  width: 3px !important;
+}
+.song-stats {
+  max-height: 130px;
+  overflow-y: auto;
+}
 .icon-button {
-  width: 71.1px;
-  height: 48.6px;
+  width: 61.44px;
+  height: 42px;
   transition: all 0.3s;
   z-index: 99999;
   background-size: cover;
@@ -66,16 +114,6 @@ button:disabled {
   justify-content: space-around;
 }
 
-.settings-table {
-  width: 100%;
-}
-.settings-row {
-  height: 35px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
 .modal-buttons-container {
   display: flex;
   flex-direction: column;
