@@ -1,4 +1,4 @@
-import { DailyChallenge, Song, Statistics } from "../types/jingle";
+import { DailyChallenge, Song, Statistics } from '../types/jingle';
 
 const apiHost = import.meta.env.VITE_API_HOST;
 
@@ -6,7 +6,7 @@ class FetchError extends Error {
   response: Response;
   constructor(response: Response) {
     super(response.statusText);
-    this.name = "FetchError";
+    this.name = 'FetchError';
     this.response = response;
   }
 }
@@ -22,9 +22,9 @@ async function get<T = any>(path: string) {
 
 async function post<T = any>(path: string, body: any) {
   const response = await fetch(apiHost + path, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(body),
   });
@@ -39,6 +39,10 @@ export async function getSong(songName: string) {
   return await get(`/api/songs/${songName}`);
 }
 
+export async function getSongList() {
+  return await get<Song[]>('/api/songs');
+}
+
 export async function generateDailyChallenge(date: string) {
   await post(`/api/daily-challenge`, { date });
 }
@@ -49,13 +53,13 @@ export async function getDailyChallenge(formattedDate: string) {
 
 export async function getWeekStats() {
   const weekDatesFormatted = [
-    "2024-05-27",
-    "2024-05-28",
-    "2024-05-29",
-    "2024-05-30",
-    "2024-05-31",
-    "2024-06-01",
-    "2024-06-02",
+    '2024-05-27',
+    '2024-05-28',
+    '2024-05-29',
+    '2024-05-30',
+    '2024-05-31',
+    '2024-06-01',
+    '2024-06-02',
   ];
   const weekStats: {
     date: string;
@@ -96,11 +100,11 @@ export async function postDailyChallengeResult(result: number) {
 }
 
 export async function getStatistics() {
-  return await get<Statistics>("/api/statistics");
+  return await get<Statistics>('/api/statistics');
 }
 
 export async function incrementGlobalGuessCounter() {
-  await post("/statistics/increment", {});
+  await post('/statistics/increment', {});
 }
 
 export async function incrementSongSuccessCount(songName: string) {
