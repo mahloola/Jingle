@@ -32,7 +32,8 @@ import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
 import SettingsModalButton from './buttons/PreferencesModalButton';
 import StatsModalButton from './buttons/StatsModalButton';
-const confirmGuess = true; //remove this and load through settings instead
+import ConfirmButton from './buttons/ConfirmButton';
+const settingsConfirm = true;
 
 export default function Practice() {
   const currentPreferences =
@@ -57,13 +58,10 @@ export default function Practice() {
     correctPolygon: null,
   });
 
-<<<<<<< HEAD
   const [confirmedGuess, setConfirmedGuess] = useState(false); 
   const [showConfirmGuess, setShowConfirmGuess] = useState(false);
-=======
-  const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {
-    refreshInterval: 300000,
-  });
+  
+  const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {});
 
   const sortedSongList = useMemo(() => {
     if (!data) return [];
@@ -74,7 +72,6 @@ export default function Practice() {
       return bSuccess - aSuccess;
     });
   }, [data]);
->>>>>>> 12ac6a09841c053aa0c5784404bb46c11b4628f6
 
   const [openModalId, setOpenModalId] = useState<ModalType | null>(null);
 
@@ -167,26 +164,9 @@ export default function Practice() {
     <>
       <div className='App-inner'>
 
-         {/* temp button styling coz i can't bear to see the deafult. Work your css magic here*/}
-         {confirmGuess && showConfirmGuess && <div style={{
-            display:"inline-block",
-            position: "fixed",
-            top: "15px",
-            zIndex: 999,
-            backgroundColor: "rgba(88,76,60,1)",
-            border: "0.1rem solid rgba(57, 48, 35, 1)",
-            borderRadius: "0.2rem"
-          }}>
-            <button 
-            onClick={()=>setConfirmedGuess(true)}
-            style={{
-              color: "rgb(255, 239, 91)", 
-              width:"100%", height:"100%", 
-              padding: "0.5rem 1rem 0.1rem 1rem",
-             }}>
-              <h5>Confirm Guess</h5>
-            </button>
-        </div>}
+
+         {settingsConfirm && showConfirmGuess && 
+         <ConfirmButton setConfirmedGuess={setConfirmedGuess}/>}
 
         <div className='ui-box'>
           <div className='modal-buttons-container'>
