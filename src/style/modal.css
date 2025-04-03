@@ -1,35 +1,111 @@
-.modal-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-size: 70%;
-  background-repeat: no-repeat;
-  border-radius: 4px;
-  background: #53493e;
-  padding: 20px;
-  outline: 2px solid #363029;
-  position: fixed;
-  width: 324px;
-  height: auto;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  margin-left: auto;
-  margin-right: auto;
+.modal-close-button {
+  background-color: #363029 !important;
+  color: #edfd07;
+  padding: 5px;
+  margin-top: 10px;
+  min-width: 40% !important;
+  border-radius: 5px;
 }
+
+.modal-close-button:hover {
+  background-color: #928270 !important;
+  transition: 0.2s;
+}
+
+.regions-table {
+  display: flex;
+  transition: all 0.1s;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-left: 10px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+  overflow: hidden;
+  max-height: 200px !important;
+}
+
+.rotated {
+  transform: rotate(-180deg);
+}
+.settings-table {
+  width: 100%;
+}
+.settings-table svg {
+  color: #928270;
+  font-size: 0.9em !important;
+  margin-left: 5px;
+}
+.settings-table tr {
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.settings-table td {
+  display: flex;
+  align-items: center;
+}
+.settings-table svg:hover {
+  filter: drop-shadow(0 0 3px #ffffff);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.ReactModal__Overlay {
+  position: fixed !important; /* Force override */
+  z-index: 1000; /* Higher than other elements */
+  background-color: rgba(255, 255, 255, 0.01) !important;
+  /* border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); */
+}
+
 button {
   background-color: transparent !important;
   border: none !important;
 }
+button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar {
+  width: 3px !important;
+}
+.song-stats {
+  height: 120px;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+/* create a rule to style text input fields across the app - make them smaller */
+
+input[type='text'],
+input[type='number'],
+input[type='search'] {
+  padding: 5px;
+  padding-left: 5px;
+  border-radius: 2px;
+  border: none;
+  background-color: #928270;
+  color: #edfd07;
+  width: 90%;
+  margin-bottom: 5px;
+  height: 32px;
+}
+input:focus {
+  outline: none;
+}
 .icon-button {
-  width: 79px;
-  height: 54px;
+  width: 61.44px;
+  height: 42px;
   transition: all 0.3s;
   z-index: 99999;
   background-size: cover;
 }
-
 .icon-button:hover {
   cursor: pointer;
   opacity: 0.8;
@@ -47,8 +123,15 @@ button {
 .modal-line {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  align-items: center;
+  width: 100%;
+  line-height: 1.8;
+}
+
+.modal-options {
   width: 80%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .modal-buttons-container {

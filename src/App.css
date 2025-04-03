@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "Runescape UF";
-  src: url("/fonts/runescape.ttf");
+  font-family: 'Runescape UF';
+  src: url('/fonts/runescape.ttf');
 }
 
 .App {
   text-align: center;
-  font-family: "Runescape UF";
+  font-family: 'Runescape UF';
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -26,6 +26,16 @@
 
 .absolute {
   position: absolute;
+}
+
+input[type='checkbox'] {
+  accent-color: #edfd07;
+  height: 1.1em;
+  width: 1.1em;
+}
+input[type='checkbox']:hover {
+  transform: scale(1.4);
+  transition: all 0.1s;
 }
 
 .button {

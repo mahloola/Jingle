@@ -1,8 +1,13 @@
-import { useState } from "react";
-import { DailyChallenge, GameState, GameStatus } from "../types/jingle";
-import { calculateTimeDifference } from "../utils/date-utils";
-import { GeoJsonObject } from "geojson";
-import { LatLng } from "leaflet";
+import { GeoJsonObject } from 'geojson';
+import { LatLng } from 'leaflet';
+import { useState } from 'react';
+import {
+  DailyChallenge,
+  GameSettings,
+  GameState,
+  GameStatus,
+} from '../types/jingle';
+import { calculateTimeDifference } from '../utils/date-utils';
 
 export interface Guess {
   correct: boolean;
@@ -18,6 +23,10 @@ export default function useGameLogic(
   const [gameState, setGameState] = useState<GameState>(
     initialGameState ?? {
       status: GameStatus.Guessing,
+      settings: {
+        hardMode: false, // or whatever default value you want
+        oldAudio: false,
+      },
       round: 0,
       songs: dailyChallenge.songs,
       scores: [],
@@ -70,7 +79,7 @@ export default function useGameLogic(
         gameState.round === gameState.songs.length - 1
       )
     ) {
-      throw new Error("Game is not over yet");
+      throw new Error('Game is not over yet');
     }
 
     const newGameState = {
@@ -81,5 +90,15 @@ export default function useGameLogic(
     return newGameState;
   };
 
-  return { gameState, guess, nextSong, endGame };
+  const updateGameSettings = (newSettings: GameSettings) => {
+    setGameState((prev) => ({
+      ...prev,
+      settings: {
+        ...prev.settings,
+        ...newSettings,
+      },
+    }));
+  };
+
+  return { gameState, guess, nextSong, endGame, updateGameSettings };
 }
