@@ -1,14 +1,28 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import useSWR from 'swr';
 import { match } from 'ts-pattern';
 import { ASSETS } from '../constants/assets';
+import { DEFAULT_PREFERENCES } from '../constants/defaultPreferences';
+import { Region } from '../constants/regions';
 import {
+  getSongList,
   incrementGlobalGuessCounter,
   incrementSongFailureCount,
   incrementSongSuccessCount,
 } from '../data/jingle-api';
 import { Guess } from '../hooks/useGameLogic';
 import '../style/uiBox.css';
-import { GameState, GameStatus, ModalType, Settings } from '../types/jingle';
+import {
+  GameState,
+  GameStatus,
+  ModalType,
+  Song,
+  UserPreferences,
+} from '../types/jingle';
+import {
+  loadPreferencesFromBrowser,
+  savePreferencesToBrowser,
+} from '../utils/browserUtil';
 import { getRandomSong } from '../utils/getRandomSong';
 import { playSong } from '../utils/playSong';
 import Footer from './Footer';
@@ -16,18 +30,25 @@ import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
 import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
-import SettingsModalButton from './buttons/SettingsModalButton';
+import SettingsModalButton from './buttons/PreferencesModalButton';
 import StatsModalButton from './buttons/StatsModalButton';
 
 export default function Practice() {
+  const currentPreferences =
+    loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
+  const enabledRegions = (
+    Object.keys(currentPreferences.regions) as Region[]
+  ).filter((region) => currentPreferences.regions[region]);
+  console.log('CURRENT: ', currentPreferences);
+  console.log('ENABLED: ', enabledRegions);
   const [gameState, setGameState] = useState<GameState>({
     settings: {
-      hardMode: false,
-      oldAudio: false,
+      hardMode: currentPreferences.preferHardMode,
+      oldAudio: currentPreferences.preferOldAudio,
     },
     status: GameStatus.Guessing,
     round: 0,
-    songs: [getRandomSong()],
+    songs: [getRandomSong(enabledRegions)],
     scores: [],
     startTime: Date.now(),
     timeTaken: null,
@@ -35,7 +56,22 @@ export default function Practice() {
     correctPolygon: null,
   });
 
+  const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {
+    refreshInterval: 300000,
+  });
+
+  const sortedSongList = useMemo(() => {
+    if (!data) return [];
+
+    return [...data].sort((a, b) => {
+      const aSuccess = a.successCount / (a.successCount + a.failureCount);
+      const bSuccess = b.successCount / (b.successCount + b.failureCount);
+      return bSuccess - aSuccess;
+    });
+  }, [data]);
+
   const [openModalId, setOpenModalId] = useState<ModalType | null>(null);
+
   const handleModalClick = (id: ModalType) => {
     if (openModalId === id) setOpenModalId(null);
     else setOpenModalId(id);
@@ -48,8 +84,8 @@ export default function Practice() {
     playSong(
       audioRef,
       gameState.songs[gameState.round],
-      gameState.settings.oldAudio,
-      gameState.settings.hardMode,
+      currentPreferences.preferOldAudio,
+      currentPreferences.preferHardMode,
     );
   }, []);
 
@@ -74,7 +110,7 @@ export default function Practice() {
   };
 
   const nextSong = () => {
-    const newSong = getRandomSong();
+    const newSong = getRandomSong(enabledRegions);
     setGameState((prev) => ({
       ...prev,
       round: prev.round + 1,
@@ -85,16 +121,23 @@ export default function Practice() {
     playSong(
       audioRef,
       newSong,
-      gameState.settings.oldAudio,
-      gameState.settings.hardMode,
+      currentPreferences.preferOldAudio,
+      currentPreferences.preferHardMode,
     );
   };
 
-  const updateSettings = (settings: Settings) => {
+  const updatePreferences = (preferences: UserPreferences) => {
+    const { preferHardMode, preferOldAudio } = preferences;
+
     setGameState((prev) => ({
       ...prev,
-      settings,
+      settings: {
+        ...prev.settings,
+        hardMode: preferHardMode,
+        oldAudio: preferOldAudio,
+      },
     }));
+    savePreferencesToBrowser(preferences);
   };
 
   const button = (label: string, onClick?: () => any) => (
@@ -121,8 +164,10 @@ export default function Practice() {
               open={openModalId === ModalType.Settings}
               onClose={closeModal}
               onClick={() => handleModalClick(ModalType.Settings)}
-              currentSettings={gameState.settings}
-              onApplySettings={(settings) => updateSettings(settings)}
+              currentPreferences={currentPreferences}
+              onApplyPreferences={(preferences: UserPreferences) =>
+                updatePreferences(preferences)
+              }
             />
             <NewsModalButton
               open={openModalId === ModalType.News}
@@ -133,6 +178,7 @@ export default function Practice() {
               open={openModalId === ModalType.Stats}
               onClose={closeModal}
               onClick={() => handleModalClick(ModalType.Stats)}
+              stats={sortedSongList}
             />
           </div>
 

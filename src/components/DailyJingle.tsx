@@ -1,22 +1,31 @@
 import { sum } from 'ramda';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import useSWR from 'swr';
 import { match } from 'ts-pattern';
 import { ASSETS } from '../constants/assets';
+import { DEFAULT_PREFERENCES } from '../constants/defaultPreferences';
+import { LOCAL_STORAGE } from '../constants/localStorage';
 import {
+  getSongList,
   incrementGlobalGuessCounter,
   incrementSongFailureCount,
   incrementSongSuccessCount,
   postDailyChallengeResult,
 } from '../data/jingle-api';
-import { keys } from '../data/localstorage';
 import useGameLogic, { Guess } from '../hooks/useGameLogic';
 import '../style/uiBox.css';
 import {
   DailyChallenge,
+  GameSettings,
   GameState,
   GameStatus,
   ModalType,
+  Song,
 } from '../types/jingle';
+import {
+  incrementLocalGuessCount,
+  loadGameStateFromBrowser,
+} from '../utils/browserUtil';
 import { getCurrentDateInBritain } from '../utils/date-utils';
 import { copyResultsToClipboard, getJingleNumber } from '../utils/jingle-utils';
 import { playSong } from '../utils/playSong';
@@ -27,7 +36,7 @@ import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
 import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
-import SettingsModalButton from './buttons/SettingsModalButton';
+import SettingsModalButton from './buttons/PreferencesModalButton';
 import StatsModalButton from './buttons/StatsModalButton';
 
 interface DailyJingleProps {
@@ -35,16 +44,32 @@ interface DailyJingleProps {
 }
 export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
-  const loadGameState = (): GameState | null => {
-    const gameStateJson = localStorage.getItem(keys.gameState(jingleNumber));
-    try {
-      const gameState = JSON.parse(gameStateJson ?? 'null');
-      return gameState;
-    } catch (e) {
-      console.error('Failed to parse saved game state: ' + gameState);
-      return null;
-    }
+  const existingGameState = loadGameStateFromBrowser(jingleNumber) || {
+    settings: {
+      hardMode: DEFAULT_PREFERENCES.preferHardMode,
+      oldAudio: DEFAULT_PREFERENCES.preferOldAudio,
+    },
+    status: GameStatus.Guessing,
+    round: 0,
+    songs: dailyChallenge.songs,
+    scores: [],
+    startTime: Date.now(),
+    timeTaken: null,
+    guessedPosition: null,
+    correctPolygon: null,
   };
+
+  const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {});
+
+  const sortedSongList = useMemo(() => {
+    if (!data) return [];
+
+    return [...data].sort((a, b) => {
+      const aSuccess = a.successCount / (a.successCount + a.failureCount);
+      const bSuccess = b.successCount / (b.successCount + b.failureCount);
+      return bSuccess - aSuccess;
+    });
+  }, [data]);
 
   const [openModalId, setOpenModalId] = useState<ModalType | null>(null);
   const handleModalClick = (id: ModalType) => {
@@ -55,17 +80,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const closeModal = () => setOpenModalId(null);
   const saveGameState = (gameState: GameState) => {
     localStorage.setItem(
-      keys.gameState(jingleNumber),
+      LOCAL_STORAGE.gameState(jingleNumber),
       JSON.stringify(gameState),
     );
   };
-  const incrementLocalGuessCount = (correct: boolean) => {
-    const key = correct ? keys.correctGuesses : keys.incorrectGuesses;
-    const currentCount = parseInt(localStorage.getItem(key) ?? '0');
-    localStorage.setItem(key, (currentCount + 1).toString());
-  };
 
-  const jingle = useGameLogic(dailyChallenge, loadGameState());
+  const jingle = useGameLogic(dailyChallenge, existingGameState);
   const gameState = jingle.gameState;
 
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -97,7 +117,10 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     const isLastRound = gameState.round === gameState.songs.length - 1;
     if (isLastRound) {
       // submit daily challenge
-      localStorage.setItem(keys.dailyComplete, getCurrentDateInBritain());
+      localStorage.setItem(
+        LOCAL_STORAGE.dailyComplete,
+        getCurrentDateInBritain(),
+      );
       postDailyChallengeResult(sum(gameState.scores));
     }
   };
@@ -120,6 +143,11 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     );
   };
 
+  const updateGameSettings = (settings: GameSettings) => {
+    const { hardMode, oldAudio } = settings;
+    const gameState = jingle.updateGameSettings(settings);
+  };
+
   const button = (label: string, onClick?: () => any) => (
     <div
       className='guess-btn-container'
@@ -138,24 +166,29 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     <>
       <div className='App-inner'>
         <div className='ui-box'>
-          <HomeButton />
-          <SettingsModalButton
-            open={openModalId === ModalType.Settings}
-            onClose={closeModal}
-            onClick={() => handleModalClick(ModalType.Settings)}
-            currentSettings={undefined}
-            onApplySettings={() => {}}
-          />
-          <NewsModalButton
-            open={openModalId === ModalType.News}
-            onClose={closeModal}
-            onClick={() => handleModalClick(ModalType.News)}
-          />
-          <StatsModalButton
-            open={openModalId === ModalType.Stats}
-            onClose={closeModal}
-            onClick={() => handleModalClick(ModalType.Stats)}
-          />
+          <div className='modal-buttons-container'>
+            <HomeButton />
+            <SettingsModalButton
+              open={openModalId === ModalType.Settings}
+              onClose={closeModal}
+              onClick={() => handleModalClick(ModalType.Settings)}
+              currentPreferences={jingle.gameState.settings}
+              onApplyPreferences={(settings: GameSettings) =>
+                updateGameSettings(settings)
+              }
+            />
+            <NewsModalButton
+              open={openModalId === ModalType.News}
+              onClose={closeModal}
+              onClick={() => handleModalClick(ModalType.News)}
+            />
+            <StatsModalButton
+              open={openModalId === ModalType.Stats}
+              onClose={closeModal}
+              onClick={() => handleModalClick(ModalType.Stats)}
+              stats={sortedSongList}
+            />
+          </div>
           <div className='below-map'>
             <div style={{ display: 'flex', gap: '2px' }}>
               <DailyGuessLabel number={gameState.scores[0]} />

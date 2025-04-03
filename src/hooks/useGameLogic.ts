@@ -1,7 +1,12 @@
 import { GeoJsonObject } from 'geojson';
 import { LatLng } from 'leaflet';
 import { useState } from 'react';
-import { DailyChallenge, GameState, GameStatus } from '../types/jingle';
+import {
+  DailyChallenge,
+  GameSettings,
+  GameState,
+  GameStatus,
+} from '../types/jingle';
 import { calculateTimeDifference } from '../utils/date-utils';
 
 export interface Guess {
@@ -19,7 +24,7 @@ export default function useGameLogic(
     initialGameState ?? {
       status: GameStatus.Guessing,
       settings: {
-        hardMode: false,
+        hardMode: false, // or whatever default value you want
         oldAudio: false,
       },
       round: 0,
@@ -85,5 +90,15 @@ export default function useGameLogic(
     return newGameState;
   };
 
-  return { gameState, guess, nextSong, endGame };
+  const updateGameSettings = (newSettings: GameSettings) => {
+    setGameState((prev) => ({
+      ...prev,
+      settings: {
+        ...prev.settings,
+        ...newSettings,
+      },
+    }));
+  };
+
+  return { gameState, guess, nextSong, endGame, updateGameSettings };
 }

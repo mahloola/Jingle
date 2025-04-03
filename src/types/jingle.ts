@@ -1,5 +1,6 @@
 import { GeoJsonObject } from 'geojson';
 import L from 'leaflet';
+import { Region } from '../constants/regions';
 
 export enum GameStatus {
   Guessing = 'guessing',
@@ -13,7 +14,7 @@ export enum ModalType {
   Settings = 'settings',
 }
 export interface GameState {
-  settings: Settings;
+  settings: GameSettings;
   status: GameStatus;
   round: number; // 0-4
   songs: string[];
@@ -23,6 +24,11 @@ export interface GameState {
 
   guessedPosition: L.LatLng | null;
   correctPolygon: GeoJsonObject | null;
+}
+
+export interface GameSettings {
+  hardMode: boolean;
+  oldAudio: boolean;
 }
 
 export interface DailyChallenge {
@@ -36,9 +42,11 @@ export interface Statistics {
   guesses: number;
 }
 
-export interface Settings {
-  hardMode: boolean;
-  oldAudio: boolean;
+export interface UserPreferences {
+  preferHardMode: boolean;
+  preferOldAudio: boolean;
+  preferConfirmation: boolean;
+  regions: Record<Region, boolean>;
 }
 
 export interface Song {

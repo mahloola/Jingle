@@ -851,7 +851,7 @@ const geojsondata = {
         mapID: '-1',
         plane: 0,
         title:
-          '<a href="/w/Aldarin" title="Prace and Prosperity">Peace and Prosperity</a>',
+          '<a href="/w/Aldarin" title="Peace and Prosperity">Peace and Prosperity</a>',
       },
     },
     //Isle_of_Serenity

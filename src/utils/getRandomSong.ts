@@ -1,23 +1,12 @@
-import geojsondata from '../data/GeoJSON';
-import { isFeatureVisibleOnMap } from './map-utils';
-import { decodeHTML } from './string-utils';
+import { Region, REGIONS } from '../constants/regions';
 
 const playedSongs = new Set();
 const playedSongsOrder: string[] = [];
 
-export const getRandomSong = () => {
-  let randomSongName: string | null = '';
-  const visibleFeatures = geojsondata.features.filter(isFeatureVisibleOnMap);
-  do {
-    const randomFeature = visibleFeatures.sort(
-      () => Math.random() - Math.random(),
-    )[0];
-    randomSongName = decodeHTML(
-      randomFeature.properties?.title.match(/>(.*?)</)[1],
-    );
-  } while (playedSongs.has(randomSongName));
-  updatePlayedSongs(randomSongName!);
-  return randomSongName!.trim();
+export const getRandomSong = (regions: Region[]) => {
+  const allSongs = regions.flatMap((region) => REGIONS[region]);
+  const randomIndex = Math.floor(Math.random() * allSongs.length);
+  return allSongs[randomIndex];
 };
 
 const updatePlayedSongs = (newSongName: string) => {

@@ -17,11 +17,11 @@
   transition: all 0.1s;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 100%;
   margin-left: 10px;
   margin-top: 5px;
   flex-wrap: wrap;
-
+  overflow: hidden;
   max-height: 200px !important;
 }
 
@@ -76,8 +76,28 @@ button:disabled {
   width: 3px !important;
 }
 .song-stats {
-  max-height: 130px;
+  height: 120px;
+  width: 100%;
   overflow-y: auto;
+  scrollbar-width: thin;
+}
+/* create a rule to style text input fields across the app - make them smaller */
+
+input[type='text'],
+input[type='number'],
+input[type='search'] {
+  padding: 5px;
+  padding-left: 5px;
+  border-radius: 2px;
+  border: none;
+  background-color: #928270;
+  color: #edfd07;
+  width: 90%;
+  margin-bottom: 5px;
+  height: 32px;
+}
+input:focus {
+  outline: none;
 }
 .icon-button {
   width: 61.44px;
@@ -86,7 +106,6 @@ button:disabled {
   z-index: 99999;
   background-size: cover;
 }
-
 .icon-button:hover {
   cursor: pointer;
   opacity: 0.8;
@@ -106,6 +125,7 @@ button:disabled {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  line-height: 1.8;
 }
 
 .modal-options {

@@ -21,6 +21,7 @@ export function getJingleNumber(dailyChallenge: Pick<DailyChallenge, 'date'>) {
 
 export function copyResultsToClipboard(gameState: GameState) {
   const score = sum(gameState.scores);
+  const hardMode = gameState.settings.hardMode === true;
   const resultsString = gameState.scores
     .map((score) =>
       score === 0 ? '0 🔴' : score === 1000 ? '1000 🟢' : score + ' 🟡',
@@ -28,7 +29,6 @@ export function copyResultsToClipboard(gameState: GameState) {
     .join('\n');
 
   const percentile = 0.5;
-
   if (percentile && gameState.timeTaken) {
     navigator.clipboard.writeText(
       `I scored ${score} on today's Jingle challenge! I finished in ${
@@ -37,11 +37,13 @@ export function copyResultsToClipboard(gameState: GameState) {
         1,
       )}%, can you beat me? https://jingle.rs\n\n` + resultsString,
     );
+    alert(`Copied results to clipboard!`);
   } else {
     navigator.clipboard.writeText(
       `I scored ${score} on today's Jingle challenge, can you beat me? https://jingle.rs\n\n` +
         resultsString,
     );
+    alert(`Copied results to clipboard!`);
   }
 }
 

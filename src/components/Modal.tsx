@@ -17,7 +17,7 @@ const modalStyles: Styles = {
     padding: '30px',
     outline: '2px solid #363029',
     position: 'fixed',
-    width: '300px',
+    width: '350px',
     height: 'auto',
     left: '50%',
     top: '50%',
@@ -30,7 +30,6 @@ const modalStyles: Styles = {
     alignItems: 'center',
     borderRadius: '4px',
     transition: 'all 0.3s ease',
-    gap: '10px',
   },
 };
 
