@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ASSETS } from '../../constants/assets';
 import '../../style/modal.css';
 import { GameState, Song } from '../../types/jingle';
@@ -29,7 +29,15 @@ export default function StatsModalButton({
     // todo: retrieve stats from local storage gamestate
   });
 
-  const [filteredStats, setFilteredStats] = useState<Song[]>(stats);
+  const [filteredStats, setFilteredStats] = useState<Song[]>([]);
+
+  // Update filteredStats whenever stats updates
+  useEffect(() => {
+    if (stats) {
+      setFilteredStats(stats);
+    }
+  }, [stats]);
+
   return (
     <>
       <IconButton
