@@ -35,10 +35,12 @@ import Footer from './Footer';
 import GameOver from './GameOver';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
+import ConfirmButton from './buttons/ConfirmButton';
 import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
 import SettingsModalButton from './buttons/PreferencesModalButton';
 import StatsModalButton from './buttons/StatsModalButton';
+const confirmGuess = true; //remove this and load through settings instead
 
 interface DailyJingleProps {
   dailyChallenge: DailyChallenge;
@@ -60,6 +62,8 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     correctPolygon: null,
   };
 
+  const [confirmedGuess, setConfirmedGuess] = useState(false);
+  const [showConfirmGuess, setShowConfirmGuess] = useState(false);
   const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {});
 
   const sortedSongList = useMemo(() => {
@@ -115,6 +119,9 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       incrementSongFailureCount(currentSong);
     }
 
+    setConfirmedGuess(false);
+    setShowConfirmGuess(false);
+
     const isLastRound = gameState.round === gameState.songs.length - 1;
     if (isLastRound) {
       // submit daily challenge
@@ -166,6 +173,11 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   return (
     <>
       <div className='App-inner'>
+        {/* temp button styling coz i can't bear to see the deafult. Work your css magic here*/}
+        {confirmGuess && showConfirmGuess && (
+          <ConfirmButton setConfirmedGuess={setConfirmedGuess} />
+        )}
+
         <div className='ui-box'>
           <div className='modal-buttons-container'>
             <HomeButton />
@@ -230,6 +242,8 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       <RunescapeMap
         gameState={gameState}
         onGuess={guess}
+        confirmedGuess={confirmedGuess}
+        setShowConfirmGuess={setShowConfirmGuess}
       />
 
       <RoundResult gameState={gameState} />

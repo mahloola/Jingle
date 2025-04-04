@@ -33,6 +33,8 @@ import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
 import SettingsModalButton from './buttons/PreferencesModalButton';
 import StatsModalButton from './buttons/StatsModalButton';
+import ConfirmButton from './buttons/ConfirmButton';
+const settingsConfirm = true;
 
 export default function Practice() {
   const currentPreferences =
@@ -56,9 +58,10 @@ export default function Practice() {
     correctPolygon: null,
   });
 
-  const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {
-    refreshInterval: 300000,
-  });
+  const [confirmedGuess, setConfirmedGuess] = useState(false); 
+  const [showConfirmGuess, setShowConfirmGuess] = useState(false);
+  
+  const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {});
 
   const sortedSongList = useMemo(() => {
     if (!data) return [];
@@ -99,6 +102,9 @@ export default function Practice() {
     const currentSong = gameState.songs[gameState.round];
     if (guess.correct) incrementSongSuccessCount(currentSong);
     else incrementSongFailureCount(currentSong);
+
+    setConfirmedGuess(false);
+    setShowConfirmGuess(false);
 
     setGameState((prev) => ({
       ...prev,
@@ -157,6 +163,11 @@ export default function Practice() {
   return (
     <>
       <div className='App-inner'>
+
+
+         {settingsConfirm && showConfirmGuess && 
+         <ConfirmButton setConfirmedGuess={setConfirmedGuess}/>}
+
         <div className='ui-box'>
           <div className='modal-buttons-container'>
             <HomeButton />
@@ -210,6 +221,8 @@ export default function Practice() {
       <RunescapeMap
         gameState={gameState}
         onGuess={guess}
+        confirmedGuess={confirmedGuess}
+        setShowConfirmGuess={setShowConfirmGuess}
       />
 
       <RoundResult gameState={gameState} />
