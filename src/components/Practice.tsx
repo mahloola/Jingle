@@ -16,6 +16,7 @@ import {
   GameState,
   GameStatus,
   ModalType,
+  Screen,
   Song,
   UserPreferences,
 } from '../types/jingle';
@@ -41,8 +42,7 @@ export default function Practice() {
   const enabledRegions = (
     Object.keys(currentPreferences.regions) as Region[]
   ).filter((region) => currentPreferences.regions[region]);
-  console.log('CURRENT: ', currentPreferences);
-  console.log('ENABLED: ', enabledRegions);
+
   const [gameState, setGameState] = useState<GameState>({
     settings: {
       hardMode: currentPreferences.preferHardMode,
@@ -179,6 +179,7 @@ export default function Practice() {
               onApplyPreferences={(preferences: UserPreferences) =>
                 updatePreferences(preferences)
               }
+              screen={Screen.Practice as Screen}
             />
             <NewsModalButton
               open={openModalId === ModalType.News}

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { FaChevronDown } from 'react-icons/fa6';
+import { IoWarning } from 'react-icons/io5';
 import { ASSETS } from '../../constants/assets';
 import { Region, REGIONS } from '../../constants/regions';
+import { COLORS } from '../../constants/theme';
 import '../../style/modal.css';
-import { UserPreferences } from '../../types/jingle';
+import { Screen, UserPreferences } from '../../types/jingle';
 import Modal from '../Modal';
 import IconButton from './IconButton';
 
@@ -14,6 +16,7 @@ interface PreferencesModalButtonProps {
   onClose: () => void;
   currentPreferences: any;
   onApplyPreferences: (settings: any) => void;
+  screen: Screen;
 }
 
 export default function SettingsModalButton({
@@ -22,6 +25,7 @@ export default function SettingsModalButton({
   onClose,
   currentPreferences,
   onApplyPreferences,
+  screen,
 }: PreferencesModalButtonProps) {
   const [preferences, setPreferences] = useState(currentPreferences);
   const [regionsOpen, setRegionsOpen] = useState(false);
@@ -117,42 +121,51 @@ export default function SettingsModalButton({
                 <FaChevronDown
                   onClick={toggleRegions}
                   className={regionsOpen ? 'rotated' : ''}
+                  pointerEvents={screen !== Screen.Practice ? 'none' : 'auto'}
                 />
+                {screen !== Screen.Practice && (
+                  <IoWarning
+                    style={{ color: COLORS.yellow, minHeight: '30px' }}
+                  />
+                )}
               </td>
             </tr>
           </tbody>
         </table>
-        <div
-          className={'regions-table'}
-          style={{
-            height: regionsOpen ? '200px' : '0px',
-          }}
-        >
-          {Object.keys(REGIONS).map((region) => (
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                minWidth: '130px',
-              }}
-              key={region}
-            >
-              <div>
-                {region} ({REGIONS[region as Region].length})
+        {screen === Screen.Practice && (
+          <div
+            className={'regions-table'}
+            style={{
+              height: regionsOpen ? '200px' : '0px',
+            }}
+          >
+            {Object.keys(REGIONS).map((region) => (
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  minWidth: '130px',
+                }}
+                key={region}
+              >
+                <div>
+                  {region} ({REGIONS[region as Region].length})
+                </div>
+                <div>
+                  <input
+                    type='checkbox'
+                    name={`regions.${region}`}
+                    disabled={(screen as Screen) === Screen.DailyJingle}
+                    defaultChecked={preferences.regions[region]}
+                    onChange={(e) => {
+                      handlePreferencesChange(e);
+                    }}
+                  ></input>
+                </div>
               </div>
-              <div>
-                <input
-                  type='checkbox'
-                  name={`regions.${region}`}
-                  defaultChecked={preferences.regions[region]}
-                  onChange={(e) => {
-                    handlePreferencesChange(e);
-                  }}
-                ></input>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </Modal>
     </>
   );

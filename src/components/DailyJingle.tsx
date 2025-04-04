@@ -20,6 +20,7 @@ import {
   GameState,
   GameStatus,
   ModalType,
+  Screen,
   Song,
 } from '../types/jingle';
 import {
@@ -188,6 +189,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
               onApplyPreferences={(settings: GameSettings) =>
                 updateGameSettings(settings)
               }
+              screen={Screen.DailyJingle as Screen}
             />
             <NewsModalButton
               open={openModalId === ModalType.News}
