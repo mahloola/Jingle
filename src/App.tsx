@@ -8,13 +8,8 @@ import MainMenu from './components/MainMenu';
 import Practice from './components/Practice';
 import { getDailyChallenge } from './data/jingle-api';
 import './style/leaflet.css';
+import { Screen } from './types/jingle';
 import { getCurrentDateInBritain } from './utils/date-utils';
-
-enum Screen {
-  MainMenu = 'main-menu',
-  DailyJingle = 'daily-jingle',
-  Practice = 'practice',
-}
 
 function App() {
   const { data: dailyChallenge } = useSWR(

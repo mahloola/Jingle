@@ -2,6 +2,12 @@ import { GeoJsonObject } from 'geojson';
 import L from 'leaflet';
 import { Region } from '../constants/regions';
 
+export enum Screen {
+  MainMenu = 'main-menu',
+  DailyJingle = 'daily-jingle',
+  Practice = 'practice',
+}
+
 export enum GameStatus {
   Guessing = 'guessing',
   AnswerRevealed = 'answer-revealed',

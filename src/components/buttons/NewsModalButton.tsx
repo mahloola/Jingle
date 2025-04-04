@@ -24,8 +24,19 @@ export default function NewsModalButton({
         open={open}
         onClose={onClose}
       >
-        <h2>March 21, 2025</h2>
-        <p>Hi, welcome to Jingle</p>
+        <h2>Some awesome news</h2>
+        <p>
+          Today is a great day, enjoy these updates:
+          <ul>
+            <li>Varlamore added</li>
+            <li>
+              Preference settings: region selection, 2004 audio, hard mode, and
+              a confirmation button (no more misclicks!)
+            </li>
+            <li>Stats (song success rates, your best streak, etc.)</li>
+          </ul>
+        </p>
+        <h6>Apr 4, 2025</h6>
       </Modal>
     </>
   );
