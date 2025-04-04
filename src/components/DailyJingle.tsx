@@ -34,6 +34,7 @@ import Footer from './Footer';
 import GameOver from './GameOver';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
+import ConfirmButton from './buttons/ConfirmButton';
 import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
 import SettingsModalButton from './buttons/PreferencesModalButton';
@@ -60,10 +61,8 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     correctPolygon: null,
   };
 
-<<<<<<< HEAD
-  const [confirmedGuess, setConfirmedGuess] = useState(false); 
+  const [confirmedGuess, setConfirmedGuess] = useState(false);
   const [showConfirmGuess, setShowConfirmGuess] = useState(false);
-=======
   const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {});
 
   const sortedSongList = useMemo(() => {
@@ -75,7 +74,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       return bSuccess - aSuccess;
     });
   }, [data]);
->>>>>>> 12ac6a09841c053aa0c5784404bb46c11b4628f6
 
   const [openModalId, setOpenModalId] = useState<ModalType | null>(null);
   const handleModalClick = (id: ModalType) => {
@@ -108,8 +106,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const guess = (guess: Guess) => {
     const gameState = jingle.guess(guess);
     saveGameState(gameState);
-
-    
 
     // update statistics
     incrementGlobalGuessCounter();
@@ -176,27 +172,10 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   return (
     <>
       <div className='App-inner'>
-
-         {/* temp button styling coz i can't bear to see the deafult. Work your css magic here*/}
-         {confirmGuess && showConfirmGuess && <div style={{
-            display:"inline-block",
-            position: "fixed",
-            top: "15px",
-            zIndex: 999,
-            backgroundColor: "rgba(88,76,60,1)",
-            border: "0.1rem solid rgba(57, 48, 35, 1)",
-            borderRadius: "0.2rem"
-          }}>
-            <button 
-            onClick={()=>setConfirmedGuess(true)}
-            style={{
-              color: "rgb(255, 239, 91)", 
-              width:"100%", height:"100%", 
-              padding: "0.5rem 1rem 0.1rem 1rem",
-             }}>
-              <h5>Confirm Guess</h5>
-            </button>
-        </div>}
+        {/* temp button styling coz i can't bear to see the deafult. Work your css magic here*/}
+        {confirmGuess && showConfirmGuess && (
+          <ConfirmButton setConfirmedGuess={setConfirmedGuess} />
+        )}
 
         <div className='ui-box'>
           <div className='modal-buttons-container'>
