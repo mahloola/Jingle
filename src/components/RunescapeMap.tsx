@@ -25,12 +25,12 @@ import {
   toOurPixelCoordinates,
 } from '../utils/map-utils';
 const outerBounds = new L.LatLngBounds(L.latLng(-78, 0), L.latLng(0, 136.696));
-const settingsConfirm = true;
 
 interface RunescapeMapProps {
   gameState: GameState;
   onGuess: (guess: Guess) => void;
   className?: string;
+  preferConfirmation: boolean;
   confirmedGuess: boolean;
   setShowConfirmGuess: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -65,6 +65,7 @@ export default function RunescapeMapWrapper({
 function RunescapeMap({
   gameState,
   onGuess,
+  preferConfirmation,
   confirmedGuess,
   setShowConfirmGuess,
 }: RunescapeMapProps) {
@@ -84,7 +85,7 @@ function RunescapeMap({
   });
 
   useEffect(() => {
-    if (settingsConfirm && !confirmedGuess) {
+    if (preferConfirmation && !confirmedGuess) {
       return;
     }
 
@@ -95,7 +96,14 @@ function RunescapeMap({
       currentSong,
       onGuess,
     );
-  }, [confirmedGuess, markerPosition]);
+  }, [
+    currentSong,
+    map,
+    onGuess,
+    confirmedGuess,
+    markerPosition,
+    preferConfirmation,
+  ]);
 
   function OnConfirmGuess(
     map: L.Map,
@@ -109,7 +117,6 @@ function RunescapeMap({
     } //TEMP SOL. TODO: MAKE IT SO CONFIRM GUESS BUTTON IS ONLY VISIBLE IF MARKER IS PLACED.
     const zoom = map.getMaxZoom();
     const { x, y } = map.project(markerPosition, zoom);
-    console.log(markerPosition);
     const ourPixelCoordsClickedPoint = [x, y] as Point;
 
     const correctFeature = geojsondata.features.find(

@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
+import { FaQuestionCircle } from 'react-icons/fa';
+import { Tooltip } from 'react-tooltip';
 import { ASSETS } from '../../constants/assets';
 import '../../style/modal.css';
-import { GameState, Song } from '../../types/jingle';
+import { Song } from '../../types/jingle';
+import { loadPersonalStatsFromBrowser } from '../../utils/browserUtil';
 import Modal from '../Modal';
 import IconButton from './IconButton';
 
@@ -18,16 +21,12 @@ export default function StatsModalButton({
   onClose,
   stats,
 }: StatsModalButtonProps) {
-  const localStorageKeys = Object.keys(localStorage);
-  const gameStateKeys = localStorageKeys.filter((key) =>
-    key.includes('jingle-'),
+  const { correctGuessCount, incorrectGuessCount, maxStreak, currentStreak } =
+    loadPersonalStatsFromBrowser();
+  const totalGuessCount = correctGuessCount + incorrectGuessCount;
+  const personalSuccessRate: number = parseFloat(
+    ((correctGuessCount / totalGuessCount) * 100).toFixed(2),
   );
-  const gameStateObjects = gameStateKeys.map((key) => {
-    const gameState: GameState | null = JSON.parse(
-      localStorage.getItem(key) ?? '{}',
-    );
-    // todo: retrieve stats from local storage gamestate
-  });
 
   const [filteredStats, setFilteredStats] = useState<Song[]>([]);
 
@@ -44,22 +43,50 @@ export default function StatsModalButton({
         onClick={onClick}
         img={ASSETS['stats']}
       />
+
       <Modal
         open={open}
         onClose={onClose}
       >
-        <h2>Your Stats</h2>
+        <img
+          className='modal-bg-image'
+          src='https://storage.googleapis.com/jingle-media/stats.png'
+        ></img>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          <h2>Your Stats</h2>
+          <span style={{ marginBottom: '10px' }}>
+            <FaQuestionCircle
+              data-tooltip-id='stats-tooltip'
+              data-tooltip-content='Since Apr 4, 2025'
+              className={'tooltip-icon'}
+            />
+            <Tooltip id='stats-tooltip' />
+          </span>
+        </div>
+
         <div className='modal-line'>
-          <span>Dailies Played</span>
-          <span>100</span>
+          <span>Songs Guessed</span>
+          <span>{totalGuessCount}</span>
         </div>
         <div className='modal-line'>
           <span>Success Rate</span>
-          <span>19.37%</span>
+          <span>
+            {!personalSuccessRate ? 'Not Played' : `${personalSuccessRate}%`}
+          </span>
+        </div>
+        <div className='modal-line'>
+          <span>Current Streak</span>
+          <span>{currentStreak}</span>
         </div>
         <div className='modal-line'>
           <span>Best Streak</span>
-          <span>32</span>
+          <span>{maxStreak}</span>
         </div>
         <h2>Global Song%</h2>
         <input

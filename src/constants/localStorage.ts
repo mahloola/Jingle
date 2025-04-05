@@ -2,7 +2,9 @@ export const LOCAL_STORAGE = {
   gameState: (jingleNumber: number) => `jingle-${jingleNumber}-gameState`,
   preferences: 'preferences',
   dailyComplete: 'dailyComplete',
-  correctGuesses: 'correctGuesses',
-  incorrectGuesses: 'incorrectGuesses',
+  currentStreak: 'currentStreak',
   openModalId: 'openModalId',
+  maxStreak: 'maxStreak',
+  correctGuessCount: 'correctGuessCount',
+  incorrectGuessCount: 'incorrectGuessCount',
 };
