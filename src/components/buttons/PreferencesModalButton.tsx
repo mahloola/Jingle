@@ -77,8 +77,8 @@ export default function SettingsModalButton({
               <td>
                 <input
                   type='checkbox'
-                  name='hardMode'
-                  defaultChecked={preferences.hardMode}
+                  name='preferHardMode'
+                  defaultChecked={preferences.preferHardMode}
                   onChange={(e) => {
                     handlePreferencesChange(e);
                   }}
@@ -92,8 +92,8 @@ export default function SettingsModalButton({
               <td>
                 <input
                   type='checkbox'
-                  name='oldAudio'
-                  defaultChecked={preferences.oldAudio}
+                  name='preferOldAudio'
+                  defaultChecked={preferences.preferOldAudio}
                   onChange={(e) => {
                     handlePreferencesChange(e);
                   }}

@@ -1,0 +1,6 @@
+.hide-scrubber::-webkit-media-controls-timeline,
+.hide-scrubber::-webkit-media-controls-current-time-display,
+.hide-scrubber::-webkit-media-controls-time-remaining-display {
+  display: none;
+  opacity: 0;
+}

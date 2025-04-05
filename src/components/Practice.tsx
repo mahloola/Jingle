@@ -11,6 +11,7 @@ import {
   incrementSongSuccessCount,
 } from '../data/jingle-api';
 import { Guess } from '../hooks/useGameLogic';
+import '../style/audio.css';
 import '../style/uiBox.css';
 import {
   GameState,
@@ -34,7 +35,6 @@ import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
 import SettingsModalButton from './buttons/PreferencesModalButton';
 import StatsModalButton from './buttons/StatsModalButton';
-const settingsConfirm = true;
 
 export default function Practice() {
   const currentPreferences =
@@ -101,7 +101,7 @@ export default function Practice() {
     setResultVisible(
       gameState.status === GameStatus.AnswerRevealed ? true : false,
     );
-  }, [gameState]);
+  }, [gameState.songs, gameState.status]);
 
   const guess = (guess: Guess) => {
     const score = Math.round(
@@ -174,10 +174,6 @@ export default function Practice() {
   return (
     <>
       <div className='App-inner'>
-        {settingsConfirm && showConfirmGuess && (
-          <ConfirmButton setConfirmedGuess={setConfirmedGuess} />
-        )}
-
         <div className='ui-box'>
           <div className='modal-buttons-container'>
             <HomeButton />
@@ -205,6 +201,9 @@ export default function Practice() {
           </div>
 
           <div className='below-map'>
+            {currentPreferences.preferConfirmation && showConfirmGuess && (
+              <ConfirmButton setConfirmedGuess={setConfirmedGuess} />
+            )}
             {match(gameState.status)
               .with(GameStatus.Guessing, () =>
                 button('Place your pin on the map'),
@@ -221,6 +220,7 @@ export default function Practice() {
               controls
               id='audio'
               ref={audioRef}
+              className={gameState.settings.hardMode ? 'hide-scrubber' : ''}
             />
 
             <Footer />

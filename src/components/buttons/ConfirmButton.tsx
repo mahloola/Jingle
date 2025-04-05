@@ -2,13 +2,13 @@ import React from 'react';
 import { ASSETS } from '../../constants/assets';
 import '../../style/confirmButton.css';
 //temp styling
-const ConfirmButton = ({
-  setConfirmedGuess,
-}: {
+
+interface ConfirmButtonProps {
   setConfirmedGuess: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+}
+
+const ConfirmButton = ({ setConfirmedGuess }: ConfirmButtonProps) => {
   const handleConfirmClick = () => {
-    console.log('Confirm button clicked!');
     setConfirmedGuess(true);
   };
 

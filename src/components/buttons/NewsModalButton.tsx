@@ -24,18 +24,16 @@ export default function NewsModalButton({
         open={open}
         onClose={onClose}
       >
-        <h2>Some awesome news</h2>
-        <p>
-          Today is a great day, enjoy these updates:
-          <ul>
-            <li>Varlamore added</li>
-            <li>
-              Preference settings: region selection, 2004 audio, hard mode, and
-              a confirmation button (no more misclicks!)
-            </li>
-            <li>Stats (song success rates, your best streak, etc.)</li>
-          </ul>
-        </p>
+        <p>Some updates 😃</p>
+        <ul>
+          <li>Varlamore added</li>
+          <li>
+            Preference settings: region selection, 2004 audio, hard mode, and a
+            confirmation button (no more misclicks!)
+          </li>
+          <li>Stats (song success rates, your best streak, etc.)</li>
+        </ul>
+
         <h6>Apr 4, 2025</h6>
       </Modal>
     </>

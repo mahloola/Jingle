@@ -22,10 +22,13 @@ import {
   ModalType,
   Screen,
   Song,
+  UserPreferences,
 } from '../types/jingle';
 import {
   incrementLocalGuessCount,
   loadGameStateFromBrowser,
+  loadPreferencesFromBrowser,
+  savePreferencesToBrowser,
 } from '../utils/browserUtil';
 import { getCurrentDateInBritain } from '../utils/date-utils';
 import { copyResultsToClipboard, getJingleNumber } from '../utils/jingle-utils';
@@ -40,17 +43,18 @@ import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
 import SettingsModalButton from './buttons/PreferencesModalButton';
 import StatsModalButton from './buttons/StatsModalButton';
-const confirmGuess = true; //remove this and load through settings instead
 
 interface DailyJingleProps {
   dailyChallenge: DailyChallenge;
 }
 export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
+  const currentPreferences =
+    loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
   const existingGameState = loadGameStateFromBrowser(jingleNumber) || {
     settings: {
-      hardMode: DEFAULT_PREFERENCES.preferHardMode,
-      oldAudio: DEFAULT_PREFERENCES.preferOldAudio,
+      hardMode: currentPreferences.preferHardMode,
+      oldAudio: currentPreferences.preferOldAudio,
     },
     status: GameStatus.Guessing,
     round: 0,
@@ -93,7 +97,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
 
   const jingle = useGameLogic(dailyChallenge, existingGameState);
   const gameState = jingle.gameState;
-
+  console.log(`Game state: `, gameState);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -104,6 +108,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       gameState.settings.hardMode,
     );
   }, []);
+
+  useEffect(() => {
+    setResultVisible(
+      gameState.status === GameStatus.AnswerRevealed ? true : false,
+    );
+  }, [gameState.songs, gameState.status]);
 
   const guess = (guess: Guess) => {
     const gameState = jingle.guess(guess);
@@ -152,9 +162,14 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     );
   };
 
-  const updateGameSettings = (settings: GameSettings) => {
-    const { hardMode, oldAudio } = settings;
-    const gameState = jingle.updateGameSettings(settings);
+  const updateGameSettings = (preferences: UserPreferences) => {
+    const newSettings: GameSettings = {
+      hardMode: preferences.preferHardMode,
+      oldAudio: preferences.preferOldAudio,
+    };
+    jingle.updateGameSettings(newSettings);
+
+    savePreferencesToBrowser(preferences);
   };
 
   const button = (label: string, onClick?: () => any) => (
@@ -174,10 +189,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   return (
     <>
       <div className='App-inner'>
-        {confirmGuess && showConfirmGuess && (
-          <ConfirmButton setConfirmedGuess={setConfirmedGuess} />
-        )}
-
         <div className='ui-box'>
           <div className='modal-buttons-container'>
             <HomeButton />
@@ -185,9 +196,9 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
               open={openModalId === ModalType.Settings}
               onClose={closeModal}
               onClick={() => handleModalClick(ModalType.Settings)}
-              currentPreferences={jingle.gameState.settings}
-              onApplyPreferences={(settings: GameSettings) =>
-                updateGameSettings(settings)
+              currentPreferences={currentPreferences}
+              onApplyPreferences={(preferences: UserPreferences) =>
+                updateGameSettings(preferences)
               }
               screen={Screen.DailyJingle as Screen}
             />
@@ -204,6 +215,9 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
             />
           </div>
           <div className='below-map'>
+            {currentPreferences.preferConfirmation && showConfirmGuess && (
+              <ConfirmButton setConfirmedGuess={setConfirmedGuess} />
+            )}
             <div style={{ display: 'flex', gap: '2px' }}>
               <DailyGuessLabel number={gameState.scores[0]} />
               <DailyGuessLabel number={gameState.scores[1]} />
