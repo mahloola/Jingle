@@ -22,8 +22,10 @@ import {
   UserPreferences,
 } from '../types/jingle';
 import {
+  incrementLocalGuessCount,
   loadPreferencesFromBrowser,
   savePreferencesToBrowser,
+  updateGuessStreak,
 } from '../utils/browserUtil';
 import { getRandomSong } from '../utils/getRandomSong';
 import { playSong } from '../utils/playSong';
@@ -62,16 +64,29 @@ export default function Practice() {
   const [showConfirmGuess, setShowConfirmGuess] = useState(false);
   const [resultVisible, setResultVisible] = useState(false);
 
-  const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {});
+  const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {
+    revalidateIfStale: false, // Don't revalidate if data is stale
+    revalidateOnFocus: false, // Don't revalidate when window gains focus
+    revalidateOnReconnect: false, // Don't revalidate on network reconnect
+    refreshInterval: 86400000, // 24 hours in milliseconds (only re-fetches after this interval)
+    dedupingInterval: 86400000, // Dedupe requests within 24 hours
+  });
 
   const sortedSongList = useMemo(() => {
     if (!data) return [];
 
-    return [...data].sort((a, b) => {
-      const aSuccess = a.successCount / (a.successCount + a.failureCount);
-      const bSuccess = b.successCount / (b.successCount + b.failureCount);
-      return bSuccess - aSuccess;
-    });
+    // remove songs with either 0% success or NaN
+    return data
+      .filter(
+        (song) =>
+          song.successCount > 100 &&
+          !isNaN(song.successCount / (song.successCount + song.failureCount)),
+      )
+      .sort((a, b) => {
+        const aSuccess = a.successCount / (a.successCount + a.failureCount);
+        const bSuccess = b.successCount / (b.successCount + b.failureCount);
+        return bSuccess - aSuccess;
+      });
   }, [data]);
 
   const [openModalId, setOpenModalId] = useState<ModalType | null>(null);
@@ -111,8 +126,15 @@ export default function Practice() {
     // update statistics
     incrementGlobalGuessCounter();
     const currentSong = gameState.songs[gameState.round];
-    if (guess.correct) incrementSongSuccessCount(currentSong);
-    else incrementSongFailureCount(currentSong);
+    if (guess.correct) {
+      incrementSongSuccessCount(currentSong);
+      incrementLocalGuessCount(true);
+      updateGuessStreak(true);
+    } else {
+      incrementSongFailureCount(currentSong);
+      incrementLocalGuessCount(false);
+      updateGuessStreak(false);
+    }
 
     setConfirmedGuess(false);
     setShowConfirmGuess(false);
@@ -231,6 +253,7 @@ export default function Practice() {
       <RunescapeMap
         gameState={gameState}
         onGuess={guess}
+        preferConfirmation={currentPreferences.preferConfirmation}
         confirmedGuess={confirmedGuess}
         setShowConfirmGuess={setShowConfirmGuess}
       />

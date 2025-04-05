@@ -37,6 +37,12 @@ export interface GameSettings {
   oldAudio: boolean;
 }
 
+export interface PersonalStats {
+  correctGuesses: number;
+  incorrectGuesses: number;
+  maxStreak: number;
+  currentStreak: number;
+}
 export interface DailyChallenge {
   date: string; // YYYY-MM-DD
   songs: string[];

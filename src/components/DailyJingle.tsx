@@ -83,8 +83,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
 
   const [openModalId, setOpenModalId] = useState<ModalType | null>(null);
   const handleModalClick = (id: ModalType) => {
-    if (openModalId === id) setOpenModalId(null);
-    else setOpenModalId(id);
+    if (openModalId === id) {
+      setOpenModalId(null);
+    } else {
+      setOpenModalId(id);
+      setResultVisible(false);
+    }
   };
 
   const closeModal = () => setOpenModalId(null);
@@ -97,7 +101,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
 
   const jingle = useGameLogic(dailyChallenge, existingGameState);
   const gameState = jingle.gameState;
-  console.log(`Game state: `, gameState);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -256,6 +259,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       <RunescapeMap
         gameState={gameState}
         onGuess={guess}
+        preferConfirmation={currentPreferences.preferConfirmation}
         confirmedGuess={confirmedGuess}
         setShowConfirmGuess={setShowConfirmGuess}
       />

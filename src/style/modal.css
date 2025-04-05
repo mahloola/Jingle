@@ -7,6 +7,10 @@
   border-radius: 5px;
 }
 
+.modal-container h2 {
+  margin-bottom: 10px;
+}
+
 .modal-close-button:hover {
   background-color: #928270 !important;
   transition: 0.2s;
@@ -30,6 +34,18 @@
 }
 .settings-table {
   width: 100%;
+}
+
+.tooltip-icon {
+  color: #928270;
+  font-size: 0.9em !important;
+  margin-left: 9.6px;
+}
+
+.tooltip-icon:hover {
+  filter: drop-shadow(0 0 3px #ffffff);
+  cursor: pointer;
+  transition: 0.2s;
 }
 .settings-table svg {
   color: #928270;
@@ -56,7 +72,7 @@
 .ReactModal__Overlay {
   position: fixed !important; /* Force override */
   z-index: 1000; /* Higher than other elements */
-  background-color: rgba(255, 255, 255, 0.01) !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
   /* border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(2px);
@@ -80,6 +96,12 @@ button:disabled {
   width: 100%;
   overflow-y: auto;
   scrollbar-width: thin;
+}
+.modal-bg-image {
+  z-index: -1;
+  opacity: 0.15;
+  position: fixed;
+  min-height: 100px;
 }
 /* create a rule to style text input fields across the app - make them smaller */
 
@@ -134,6 +156,9 @@ input:focus {
   justify-content: space-around;
 }
 
+.react-tooltip {
+  font-size: 1em !important;
+}
 .modal-buttons-container {
   display: flex;
   flex-direction: column;

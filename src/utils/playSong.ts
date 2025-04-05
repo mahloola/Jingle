@@ -1,4 +1,5 @@
 import { RefObject } from 'react';
+import { JINGLE_SETTINGS } from '../constants/jingleSettings';
 import { audio2004 } from '../data/audio2004';
 
 export const playSong = (
@@ -25,6 +26,6 @@ export const playSong = (
     setTimeout(() => {
       audioRef.current!.pause();
       audioRef.current!.currentTime = 0;
-    }, 3000);
+    }, JINGLE_SETTINGS.hardModeSeconds * 1000);
   }
 };

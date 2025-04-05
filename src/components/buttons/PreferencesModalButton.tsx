@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { FaChevronDown } from 'react-icons/fa6';
 import { IoWarning } from 'react-icons/io5';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 import { ASSETS } from '../../constants/assets';
 import { Region, REGIONS } from '../../constants/regions';
 import { COLORS } from '../../constants/theme';
@@ -9,7 +11,6 @@ import '../../style/modal.css';
 import { Screen, UserPreferences } from '../../types/jingle';
 import Modal from '../Modal';
 import IconButton from './IconButton';
-
 interface PreferencesModalButtonProps {
   onClick: () => void;
   open: boolean;
@@ -18,7 +19,6 @@ interface PreferencesModalButtonProps {
   onApplyPreferences: (settings: any) => void;
   screen: Screen;
 }
-
 export default function SettingsModalButton({
   onClick,
   open,
@@ -67,12 +67,21 @@ export default function SettingsModalButton({
         onApplySettings={() => onApplyPreferences(preferences)}
         saveDisabled={disabled}
       >
+        <img
+          className='modal-bg-image'
+          src='https://storage.googleapis.com/jingle-media/settings.png'
+        ></img>
         <h2>Settings</h2>
         <table className={'settings-table'}>
           <tbody>
             <tr>
               <td>
-                Hard Mode <FaQuestionCircle />
+                Hard Mode{' '}
+                <FaQuestionCircle
+                  data-tooltip-id='hard-mode-tooltip'
+                  data-tooltip-content='You only get the first 2 seconds of the song'
+                />
+                <Tooltip id='hard-mode-tooltip' />
               </td>
               <td>
                 <input
@@ -87,7 +96,12 @@ export default function SettingsModalButton({
             </tr>
             <tr>
               <td>
-                2004 Audio <FaQuestionCircle />
+                2004 Audio{' '}
+                <FaQuestionCircle
+                  data-tooltip-id='old-audio-tooltip'
+                  data-tooltip-content='Play 2004 mp3 alternatives when available'
+                />
+                <Tooltip id='old-audio-tooltip' />
               </td>
               <td>
                 <input
@@ -102,12 +116,17 @@ export default function SettingsModalButton({
             </tr>
             <tr>
               <td>
-                Confirmation <FaQuestionCircle />
+                Confirmation{' '}
+                <FaQuestionCircle
+                  data-tooltip-id='confirmation-tooltip'
+                  data-tooltip-content='Require confirmation while guessing songs'
+                />
+                <Tooltip id='confirmation-tooltip' />
               </td>
               <td>
                 <input
                   type='checkbox'
-                  name='confirmation'
+                  name='preferConfirmation'
                   defaultChecked={preferences.preferConfirmation}
                   onChange={(e) => {
                     handlePreferencesChange(e);
@@ -124,9 +143,18 @@ export default function SettingsModalButton({
                   pointerEvents={screen !== Screen.Practice ? 'none' : 'auto'}
                 />
                 {screen !== Screen.Practice && (
-                  <IoWarning
-                    style={{ color: COLORS.yellow, minHeight: '30px' }}
-                  />
+                  <>
+                    <IoWarning
+                      style={{
+                        color: COLORS.yellow,
+                        minHeight: '20px',
+                        minWidth: '20px',
+                      }}
+                      data-tooltip-id='regions-tooltip'
+                      data-tooltip-content='You must be in practice mode to set regions'
+                    />
+                    <Tooltip id='regions-tooltip' />
+                  </>
                 )}
               </td>
             </tr>
