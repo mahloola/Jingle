@@ -29,11 +29,11 @@ import { playSong } from '../utils/playSong';
 import Footer from './Footer';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
+import ConfirmButton from './buttons/ConfirmButton';
 import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
 import SettingsModalButton from './buttons/PreferencesModalButton';
 import StatsModalButton from './buttons/StatsModalButton';
-import ConfirmButton from './buttons/ConfirmButton';
 const settingsConfirm = true;
 
 export default function Practice() {
@@ -58,9 +58,10 @@ export default function Practice() {
     correctPolygon: null,
   });
 
-  const [confirmedGuess, setConfirmedGuess] = useState(false); 
+  const [confirmedGuess, setConfirmedGuess] = useState(false);
   const [showConfirmGuess, setShowConfirmGuess] = useState(false);
-  
+  const [resultVisible, setResultVisible] = useState(false);
+
   const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {});
 
   const sortedSongList = useMemo(() => {
@@ -76,8 +77,12 @@ export default function Practice() {
   const [openModalId, setOpenModalId] = useState<ModalType | null>(null);
 
   const handleModalClick = (id: ModalType) => {
-    if (openModalId === id) setOpenModalId(null);
-    else setOpenModalId(id);
+    if (openModalId === id) {
+      setOpenModalId(null);
+    } else {
+      setOpenModalId(id);
+      setResultVisible(false);
+    }
   };
   const closeModal = () => setOpenModalId(null);
 
@@ -91,6 +96,12 @@ export default function Practice() {
       currentPreferences.preferHardMode,
     );
   }, []);
+
+  useEffect(() => {
+    setResultVisible(
+      gameState.status === GameStatus.AnswerRevealed ? true : false,
+    );
+  }, [gameState]);
 
   const guess = (guess: Guess) => {
     const score = Math.round(
@@ -163,10 +174,9 @@ export default function Practice() {
   return (
     <>
       <div className='App-inner'>
-
-
-         {settingsConfirm && showConfirmGuess && 
-         <ConfirmButton setConfirmedGuess={setConfirmedGuess}/>}
+        {settingsConfirm && showConfirmGuess && (
+          <ConfirmButton setConfirmedGuess={setConfirmedGuess} />
+        )}
 
         <div className='ui-box'>
           <div className='modal-buttons-container'>
@@ -225,7 +235,10 @@ export default function Practice() {
         setShowConfirmGuess={setShowConfirmGuess}
       />
 
-      <RoundResult gameState={gameState} />
+      <RoundResult
+        gameState={gameState}
+        resultVisible={resultVisible}
+      />
     </>
   );
 }

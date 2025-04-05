@@ -4,10 +4,13 @@ import { GameState, GameStatus } from '../types/jingle';
 
 interface ResultMessageProps {
   gameState: GameState;
+  resultVisible: boolean;
 }
 
-export default function RoundResult({ gameState }: ResultMessageProps) {
-  const resultVisible = gameState.status === GameStatus.AnswerRevealed;
+export default function RoundResult({
+  gameState,
+  resultVisible,
+}: ResultMessageProps) {
   const [guessResult, setGuessResult] = useState<number>(0);
   const [correctSong, setCorrectSong] = useState<string>(gameState.songs[0]);
   useEffect(() => {

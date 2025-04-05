@@ -64,6 +64,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
 
   const [confirmedGuess, setConfirmedGuess] = useState(false);
   const [showConfirmGuess, setShowConfirmGuess] = useState(false);
+  const [resultVisible, setResultVisible] = useState(false);
   const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {});
 
   const sortedSongList = useMemo(() => {
@@ -173,7 +174,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   return (
     <>
       <div className='App-inner'>
-        {/* temp button styling coz i can't bear to see the deafult. Work your css magic here*/}
         {confirmGuess && showConfirmGuess && (
           <ConfirmButton setConfirmedGuess={setConfirmedGuess} />
         )}
@@ -246,7 +246,10 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
         setShowConfirmGuess={setShowConfirmGuess}
       />
 
-      <RoundResult gameState={gameState} />
+      <RoundResult
+        gameState={gameState}
+        resultVisible={resultVisible}
+      />
 
       {gameState.status === GameStatus.GameOver && (
         <GameOver

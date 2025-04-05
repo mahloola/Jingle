@@ -4,7 +4,7 @@ export const ASSETS = {
   stats: 'https://storage.googleapis.com/jingle-media/osrsStatsButton2.png',
   settings:
     'https://storage.googleapis.com/jingle-media/osrsSettingsButton3.png',
-  guess: 'https://storage.googleapis.com/jingle-media/osrsGuessButton.png',
+  confirm: 'https://storage.googleapis.com/jingle-media/osrsGuessButton.png',
   label: 'https://mahloola.com/osrsButton.png',
   labelWide: 'https://mahloola.com/osrsButtonWide.png',
 };

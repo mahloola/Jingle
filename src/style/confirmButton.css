@@ -1,0 +1,24 @@
+.confirm-btn-container:hover {
+  cursor: pointer;
+  z-index: 99999999;
+  filter: brightness(0.8);
+  transition: all 0.3s;
+}
+.confirm-btn-container {
+  position: absolute;
+  bottom: 22%;
+  cursor: pointer;
+  max-width: 250px;
+  z-index: 99999999;
+}
+
+.confirm-btn {
+  white-space: nowrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  text-shadow: 1px 1px 1px black;
+  color: #edfd07;
+}
