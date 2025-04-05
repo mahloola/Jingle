@@ -1,4 +1,4 @@
 export const COLORS = {
-  brown: '#fe971e',
+  brown: '#53493e',
   yellow: '#edfd07',
 };

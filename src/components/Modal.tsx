@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal, { Styles } from 'react-modal';
+import { COLORS } from '../constants/theme';
 import '../style/modal.css';
 
 interface ModalProps {
@@ -13,7 +14,7 @@ interface ModalProps {
 const modalStyles: Styles = {
   content: {
     display: 'flex',
-    background: '#53493e',
+    background: COLORS.brown,
     padding: '30px',
     outline: '2px solid #363029',
     position: 'fixed',
@@ -22,7 +23,7 @@ const modalStyles: Styles = {
     left: '50%',
     top: '50%',
     transform: 'translate(-50%, -50%)',
-    color: '#edfd07',
+    color: COLORS.yellow,
     zIndex: 9999999,
     fontFamily: 'Runescape UF',
     flexDirection: 'column',

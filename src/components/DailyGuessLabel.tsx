@@ -1,4 +1,5 @@
 import { ASSETS } from '../constants/assets';
+import { COLORS } from '../constants/theme';
 
 interface DailyGuessLabelProps {
   number?: number;
@@ -20,7 +21,7 @@ const DailyGuessLabel = ({ number, opacity }: DailyGuessLabelProps) => {
           fontSize: '18px',
           fontStyle: 'italic',
           fontFamily: 'Runescape UF',
-          color: '#edfd07',
+          color: COLORS.yellow,
           pointerEvents: 'none',
         }}
       >
