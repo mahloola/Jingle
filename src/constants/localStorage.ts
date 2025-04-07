@@ -3,6 +3,7 @@ export const LOCAL_STORAGE = {
   preferences: 'preferences',
   dailyComplete: 'dailyComplete',
   currentStreak: 'currentStreak',
+  seenAnnouncementId: 'announcementSeenId',
   openModalId: 'openModalId',
   maxStreak: 'maxStreak',
   correctGuessCount: 'correctGuessCount',

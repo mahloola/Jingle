@@ -28,7 +28,9 @@ import {
   incrementLocalGuessCount,
   loadGameStateFromBrowser,
   loadPreferencesFromBrowser,
+  loadSeenAnnouncementIdFromBrowser,
   savePreferencesToBrowser,
+  setSeenAnnouncementIdToBrowser,
 } from '../utils/browserUtil';
 import { getCurrentDateInBritain } from '../utils/date-utils';
 import { copyResultsToClipboard, getJingleNumber } from '../utils/jingle-utils';
@@ -51,6 +53,8 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
   const currentPreferences =
     loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
+  const seenAnnouncementId: string | null = loadSeenAnnouncementIdFromBrowser();
+
   const existingGameState = loadGameStateFromBrowser(jingleNumber) || {
     settings: {
       hardMode: currentPreferences.preferHardMode,
@@ -81,7 +85,9 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     });
   }, [data]);
 
-  const [openModalId, setOpenModalId] = useState<ModalType | null>(null);
+  const [openModalId, setOpenModalId] = useState<ModalType | null>(
+    seenAnnouncementId === null ? ModalType.News : null,
+  );
   const handleModalClick = (id: ModalType) => {
     if (openModalId === id) {
       setOpenModalId(null);
@@ -91,7 +97,15 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     }
   };
 
-  const closeModal = () => setOpenModalId(null);
+  const closeModal = () => {
+    setOpenModalId((prev) => {
+      if (prev === ModalType.News) {
+        setSeenAnnouncementIdToBrowser('1');
+      }
+      return null;
+    });
+  };
+
   const saveGameState = (gameState: GameState) => {
     localStorage.setItem(
       LOCAL_STORAGE.gameState(jingleNumber),
@@ -209,6 +223,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
               open={openModalId === ModalType.News}
               onClose={closeModal}
               onClick={() => handleModalClick(ModalType.News)}
+              seenAnnouncementId={seenAnnouncementId}
             />
             <StatsModalButton
               open={openModalId === ModalType.Stats}

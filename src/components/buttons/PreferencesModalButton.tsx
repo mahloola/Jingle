@@ -79,7 +79,7 @@ export default function SettingsModalButton({
                 Hard Mode{' '}
                 <FaQuestionCircle
                   data-tooltip-id='hard-mode-tooltip'
-                  data-tooltip-content='You only get the first 2 seconds of the song'
+                  data-tooltip-content='The music auto-pauses after 2 seconds'
                 />
                 <Tooltip id='hard-mode-tooltip' />
               </td>

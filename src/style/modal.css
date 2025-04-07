@@ -121,26 +121,6 @@ input[type='search'] {
 input:focus {
   outline: none;
 }
-.icon-button {
-  width: 61.44px;
-  height: 42px;
-  transition: all 0.3s;
-  z-index: 99999;
-  background-size: cover;
-}
-.icon-button:hover {
-  cursor: pointer;
-  opacity: 0.8;
-  transform: translate(-5px, 0px);
-}
-
-@media (max-width: 768px) {
-  .icon-button {
-    right: 10px;
-    width: 55px;
-    height: 37.5px;
-  }
-}
 
 .modal-line {
   display: flex;

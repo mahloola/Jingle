@@ -5,15 +5,15 @@
   transition: all 0.3s;
 }
 .confirm-btn-container {
-  cursor: pointer;
-  z-index: 99999999;
-  filter: brightness(
-    1
-  ); /* I don't know why but this is needed for positioning */
-  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* if you need this for other reasons */
 }
 
 .confirm-btn {
+  position: static; /* remove absolute positioning */
+  transform: none; /* remove transform */
   white-space: nowrap;
   position: absolute;
   top: 50%;

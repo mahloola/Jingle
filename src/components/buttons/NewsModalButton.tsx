@@ -7,18 +7,21 @@ interface NewsButtonModalProps {
   onClick: () => void;
   open: boolean;
   onClose: () => void;
+  seenAnnouncementId: string | null;
 }
 
 export default function NewsModalButton({
   onClick,
   open,
   onClose,
+  seenAnnouncementId,
 }: NewsButtonModalProps) {
   return (
     <>
       <IconButton
         onClick={onClick}
         img={ASSETS['news']}
+        unseenAnnouncement={seenAnnouncementId === null}
       />
       <Modal
         open={open}
@@ -51,6 +54,10 @@ export default function NewsModalButton({
           &emsp;- Hard mode
           <br />
           &emsp;- Confirmation button (no more misclicks)
+          <br />- QOL:
+          <br />
+          &emsp;- Edge distance calculation (vs center) &emsp;- Result copying
+          stats fixed for mobile
         </p>
         <p>
           Hi guys, this is mahloola.

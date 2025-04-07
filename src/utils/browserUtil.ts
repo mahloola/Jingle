@@ -15,6 +15,16 @@ export const savePreferencesToBrowser = (preferences: UserPreferences) => {
   localStorage.setItem(LOCAL_STORAGE.preferences, JSON.stringify(preferences));
 };
 
+export const loadSeenAnnouncementIdFromBrowser = () => {
+  const seenAnnouncementId: string | null =
+    localStorage.getItem(LOCAL_STORAGE.seenAnnouncementId) ?? null;
+  return seenAnnouncementId;
+};
+
+export const setSeenAnnouncementIdToBrowser = (id: string) => {
+  localStorage.setItem(LOCAL_STORAGE.seenAnnouncementId, id.toString());
+};
+
 export const loadGameStateFromBrowser = (
   jingleNumber: number,
 ): GameState | null => {

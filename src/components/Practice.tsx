@@ -24,7 +24,9 @@ import {
 import {
   incrementLocalGuessCount,
   loadPreferencesFromBrowser,
+  loadSeenAnnouncementIdFromBrowser,
   savePreferencesToBrowser,
+  setSeenAnnouncementIdToBrowser,
   updateGuessStreak,
 } from '../utils/browserUtil';
 import { getRandomSong } from '../utils/getRandomSong';
@@ -41,6 +43,7 @@ import StatsModalButton from './buttons/StatsModalButton';
 export default function Practice() {
   const currentPreferences =
     loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
+  const seenAnnouncementId: string | null = loadSeenAnnouncementIdFromBrowser();
   const enabledRegions = (
     Object.keys(currentPreferences.regions) as Region[]
   ).filter((region) => currentPreferences.regions[region]);
@@ -89,7 +92,9 @@ export default function Practice() {
       });
   }, [data]);
 
-  const [openModalId, setOpenModalId] = useState<ModalType | null>(null);
+  const [openModalId, setOpenModalId] = useState<ModalType | null>(
+    seenAnnouncementId === null ? ModalType.News : null,
+  );
 
   const handleModalClick = (id: ModalType) => {
     if (openModalId === id) {
@@ -99,7 +104,15 @@ export default function Practice() {
       setResultVisible(false);
     }
   };
-  const closeModal = () => setOpenModalId(null);
+
+  const closeModal = () => {
+    setOpenModalId((prev) => {
+      if (prev === ModalType.News) {
+        setSeenAnnouncementIdToBrowser('1');
+      }
+      return null;
+    });
+  };
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -213,6 +226,7 @@ export default function Practice() {
               open={openModalId === ModalType.News}
               onClose={closeModal}
               onClick={() => handleModalClick(ModalType.News)}
+              seenAnnouncementId={seenAnnouncementId}
             />
             <StatsModalButton
               open={openModalId === ModalType.Stats}
