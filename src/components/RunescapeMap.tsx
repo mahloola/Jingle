@@ -47,7 +47,7 @@ export default function RunescapeMapWrapper({
       zoom={5}
       maxZoom={6}
       minZoom={4}
-      style={{ height: '100vh', width: '100%' }}
+      style={{ height: '100dvh', width: '100%' }}
       maxBounds={outerBounds}
       maxBoundsViscosity={1}
       crs={CRS.Simple}
