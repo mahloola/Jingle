@@ -55,29 +55,21 @@ export const incrementLocalGuessCount = (correct: boolean) => {
 };
 
 export const updateGuessStreak = (success: boolean) => {
-  const streak = parseInt(
+  let currentStreak = parseInt(
     localStorage.getItem(LOCAL_STORAGE.currentStreak) ?? '0',
   );
-  let maxStreak;
-  if (LOCAL_STORAGE.maxStreak === undefined) {
-    maxStreak = 0;
-  } else {
-    maxStreak = parseInt(LOCAL_STORAGE.maxStreak) ?? 0;
-  }
+  let maxStreak = parseInt(
+    localStorage.getItem(LOCAL_STORAGE.maxStreak) ?? '0',
+  );
+
   if (success) {
-    localStorage.setItem(LOCAL_STORAGE.currentStreak, (streak + 1).toString());
-    console.log(
-      'updating current streak',
-      parseInt(LOCAL_STORAGE.maxStreak) ?? 0,
-      streak,
-    );
-    if (streak > parseInt(LOCAL_STORAGE.maxStreak ?? '0')) {
-      console.log('updating max streak', streak + 1);
-      localStorage.setItem(LOCAL_STORAGE.maxStreak, (streak + 1).toString());
-    }
+    currentStreak += 1;
+    maxStreak = Math.max(currentStreak, maxStreak);
   } else {
-    localStorage.setItem(LOCAL_STORAGE.currentStreak, '0');
+    currentStreak = 0;
   }
+  localStorage.setItem(LOCAL_STORAGE.currentStreak, currentStreak.toString());
+  localStorage.setItem(LOCAL_STORAGE.maxStreak, maxStreak.toString());
 };
 
 export const loadPersonalStatsFromBrowser = () => {
