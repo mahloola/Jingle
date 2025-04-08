@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { Tooltip } from 'react-tooltip';
 import { ASSETS } from '../../constants/assets';
@@ -24,18 +24,16 @@ export default function StatsModalButton({
   const { correctGuessCount, incorrectGuessCount, maxStreak, currentStreak } =
     loadPersonalStatsFromBrowser();
   const totalGuessCount = correctGuessCount + incorrectGuessCount;
-  const personalSuccessRate: number = parseFloat(
-    ((correctGuessCount / totalGuessCount) * 100).toFixed(2),
+  const personalSuccessRate: number | undefined = !totalGuessCount
+    ? undefined
+    : parseFloat(
+        (((correctGuessCount ?? 0) / totalGuessCount) * 100).toFixed(2),
+      );
+
+  const [filteredStats, setFilteredStats] = useState<Song[] | undefined>(
+    undefined,
   );
-
-  const [filteredStats, setFilteredStats] = useState<Song[]>([]);
-
-  // Update filteredStats whenever stats updates
-  useEffect(() => {
-    if (stats) {
-      setFilteredStats(stats);
-    }
-  }, [stats]);
+  const statsToDisplay = filteredStats ?? stats;
 
   return (
     <>
@@ -46,7 +44,10 @@ export default function StatsModalButton({
 
       <Modal
         open={open}
-        onClose={onClose}
+        onClose={() => {
+          onClose();
+          setFilteredStats(undefined); // reset filter when modal is closed
+        }}
       >
         <img
           className='modal-bg-image'
@@ -77,7 +78,9 @@ export default function StatsModalButton({
         <div className='modal-line'>
           <span>Success Rate</span>
           <span>
-            {!personalSuccessRate ? 'Not Played' : `${personalSuccessRate}%`}
+            {personalSuccessRate === undefined
+              ? 'Not Played'
+              : `${personalSuccessRate}%`}
           </span>
         </div>
         <div className='modal-line'>
@@ -100,11 +103,11 @@ export default function StatsModalButton({
                 song.name.toLowerCase().includes(searchTerm),
               ),
             );
-            // update the stats to show only the filtered stats
           }}
         />
+
         <div className='song-stats'>
-          {filteredStats.map((song) => (
+          {statsToDisplay.map((song) => (
             <div
               className='modal-line'
               key={song.name}
