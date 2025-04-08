@@ -13,7 +13,20 @@ export default function RoundResult({
   resultVisible,
 }: ResultMessageProps) {
   const { currentStreak, maxStreak } = loadPersonalStatsFromBrowser();
-  const [hasShownRecord, setHasShownRecord] = useState(false);
+  const [previousRecord, setPreviousRecord] = useState<number | undefined>(
+    undefined,
+  );
+  const streakOfFive = currentStreak % 5 === 0 && currentStreak > 0;
+  const justBeatPreviousRecord =
+    currentStreak > 1 && currentStreak === previousRecord;
+
+  useEffect(() => {
+    const isNewRecord = currentStreak === maxStreak;
+    if (isNewRecord && previousRecord === undefined) {
+      // when the previous record is hit, capture it once and do not update it again
+      setPreviousRecord(currentStreak);
+    }
+  }, [currentStreak, maxStreak, previousRecord]);
 
   const [guessResult, setGuessResult] = useState<number>(0);
   const [correctSong, setCorrectSong] = useState<string>(gameState.songs[0]);
@@ -42,26 +55,20 @@ export default function RoundResult({
     >
       +{guessResult}
       <div style={{ fontSize: '70%' }}>{correctSong}</div>
-      {(currentStreak % 5 === 0 ||
-        (currentStreak === maxStreak && !hasShownRecord)) &&
-      currentStreak > 1 ? (
+      {(streakOfFive || justBeatPreviousRecord) && (
         <div
           className='streak'
           key={`streak-${currentStreak}`}
         >
           {currentStreak} streak 🔥
-          {!hasShownRecord && currentStreak === maxStreak ? (
+          {justBeatPreviousRecord && (
             <>
-              {setHasShownRecord(true)}(
-              <div>
-                <br />
-                New record! 🎉
-              </div>
-              )
+              <br />
+              New record! 🎉
             </>
-          ) : null}
+          )}
         </div>
-      ) : null}
+      )}
     </div>
   );
 }
