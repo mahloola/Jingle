@@ -15,7 +15,7 @@ interface PreferencesModalButtonProps {
   onClick: () => void;
   open: boolean;
   onClose: () => void;
-  currentPreferences: any;
+  currentPreferences: UserPreferences;
   onApplyPreferences: (settings: any) => void;
   screen: Screen;
 }
@@ -34,7 +34,8 @@ export default function SettingsModalButton({
   };
 
   const disabled =
-    JSON.stringify(currentPreferences) === JSON.stringify(preferences);
+    JSON.stringify(currentPreferences) === JSON.stringify(preferences) ||
+    Object.values(preferences.regions).every((enabled) => !enabled);
 
   const handlePreferencesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
@@ -184,7 +185,7 @@ export default function SettingsModalButton({
                     type='checkbox'
                     name={`regions.${region}`}
                     disabled={(screen as Screen) === Screen.DailyJingle}
-                    defaultChecked={preferences.regions[region]}
+                    checked={preferences.regions[region as Region]}
                     onChange={(e) => {
                       handlePreferencesChange(e);
                     }}

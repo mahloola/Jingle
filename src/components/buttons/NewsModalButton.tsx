@@ -60,31 +60,13 @@ export default function NewsModalButton({
           stats fixed for mobile
         </p>
         <p>
-          Hi guys, this is mahloola.
+          Hi guys, this is <span className='link'>mahloola</span>.
           <br />
           Thank you for playing Jingle! We notice and appreciate you all. Big
-          thanks to{' '}
-          <a
-            href=''
-            className='link'
-          >
-            FunOrange
-          </a>
-          ,{' '}
-          <a
-            href=''
-            className='link'
-          >
-            Kunito Moe
-          </a>
-          , and the{' '}
-          <a
-            href=''
-            className='link'
-          >
-            wiki map editors
-          </a>{' '}
-          for helping me with these updates!
+          thanks to <span className='link'>FunOrange</span>,{' '}
+          <span className='link'>Kunito Moe</span>, and the{' '}
+          <span className='link'>wiki map editors</span> for helping me with
+          these updates!
           <br />
           Enjoy these new features, and feel free to join the{' '}
           <a
