@@ -40,7 +40,7 @@ export default function NewsModalButton({
           }}
         >
           <h2>News</h2>
-          <h6 className='news-date'>Apr 5, 2025</h6>
+          <h6 className='news-date'>Apr 7, 2025</h6>
         </div>
         <p>
           - Varlamore added

@@ -64,7 +64,7 @@ export default function StatsModalButton({
           <span style={{ marginBottom: '10px' }}>
             <FaQuestionCircle
               data-tooltip-id='stats-tooltip'
-              data-tooltip-content='Since Apr 4, 2025'
+              data-tooltip-content='Since Apr 7, 2025'
               className={'tooltip-icon'}
             />
             <Tooltip id='stats-tooltip' />

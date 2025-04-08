@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../style/resultMessage.css';
 import { GameState, GameStatus } from '../types/jingle';
+import { loadPersonalStatsFromBrowser } from '../utils/browserUtil';
 
 interface ResultMessageProps {
   gameState: GameState;
@@ -11,6 +12,9 @@ export default function RoundResult({
   gameState,
   resultVisible,
 }: ResultMessageProps) {
+  const { currentStreak, maxStreak } = loadPersonalStatsFromBrowser();
+  const [hasShownRecord, setHasShownRecord] = useState(false);
+
   const [guessResult, setGuessResult] = useState<number>(0);
   const [correctSong, setCorrectSong] = useState<string>(gameState.songs[0]);
   useEffect(() => {
@@ -38,6 +42,26 @@ export default function RoundResult({
     >
       +{guessResult}
       <div style={{ fontSize: '70%' }}>{correctSong}</div>
+      {(currentStreak % 5 === 0 ||
+        (currentStreak === maxStreak && !hasShownRecord)) &&
+      currentStreak > 1 ? (
+        <div
+          className='streak'
+          key={`streak-${currentStreak}`}
+        >
+          {currentStreak} streak 🔥
+          {!hasShownRecord && currentStreak === maxStreak ? (
+            <>
+              {setHasShownRecord(true)}(
+              <div>
+                <br />
+                New record! 🎉
+              </div>
+              )
+            </>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 }
