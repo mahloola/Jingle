@@ -31,15 +31,29 @@ export const loadGameStateFromBrowser = (
   const gameStateJson = localStorage.getItem(
     LOCAL_STORAGE.gameState(jingleNumber),
   );
+  if (!gameStateJson) return null;
+
   try {
-    const gameState = JSON.parse(gameStateJson ?? 'null');
+    const gameState = JSON.parse(gameStateJson ?? 'null') as unknown;
+    if (!isValidGameState(gameState)) {
+      throw new Error('invalid game state');
+    }
     return gameState;
   } catch (e) {
-    console.error(
+    console.warn(
       'Failed to parse saved game state for Jingle #' + jingleNumber,
     );
     return null;
   }
+};
+
+const isValidGameState = (object: unknown): object is GameState => {
+  if (!object) return false;
+  if (typeof (object as any).status !== 'string') return false;
+  if (typeof (object as any).round !== 'number') return false;
+  if (Array.isArray((object as any).songs)) return false;
+  if (Array.isArray((object as any).scores)) return false;
+  return true;
 };
 
 export const loadPreferencesFromBrowser = () => {

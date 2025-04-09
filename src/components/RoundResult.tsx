@@ -5,13 +5,9 @@ import { loadPersonalStatsFromBrowser } from '../utils/browserUtil';
 
 interface ResultMessageProps {
   gameState: GameState;
-  resultVisible: boolean;
 }
 
-export default function RoundResult({
-  gameState,
-  resultVisible,
-}: ResultMessageProps) {
+export default function RoundResult({ gameState }: ResultMessageProps) {
   const { currentStreak, maxStreak } = loadPersonalStatsFromBrowser();
   const [previousRecord, setPreviousRecord] = useState<number | undefined>(
     undefined,
@@ -28,38 +24,32 @@ export default function RoundResult({
     }
   }, [currentStreak, maxStreak, previousRecord]);
 
-  const [guessResult, setGuessResult] = useState<number>(0);
-  const [correctSong, setCorrectSong] = useState<string>(gameState.songs[0]);
+  // capture values to display on positive edge
+  const [score, setScore] = useState<number>(0);
+  const [song, setSong] = useState<string>(gameState.songs[0]);
   useEffect(() => {
     if (gameState.status === GameStatus.AnswerRevealed) {
-      setCorrectSong(gameState.songs[gameState.round]);
-      setGuessResult(gameState.scores[gameState.round]);
+      setSong(gameState.songs[gameState.round]);
+      setScore(gameState.scores[gameState.round]);
     }
   }, [gameState]);
 
+  const show = gameState.status === GameStatus.AnswerRevealed;
   return (
     <div
       className='alert result-message'
       role='alert'
       style={{
-        opacity: resultVisible ? 1 : 0,
+        opacity: show ? 1 : 0,
         transition: 'opacity 500ms, margin-top 500ms ease-in-out',
-        marginTop: resultVisible ? '-60px' : '0px',
-        color:
-          guessResult === 1000
-            ? '#00FF00'
-            : guessResult === 0
-            ? '#FF0000'
-            : '#edfd07',
+        marginTop: show ? '-60px' : '0px',
+        color: score === 1000 ? '#00FF00' : score === 0 ? '#FF0000' : '#edfd07',
       }}
     >
-      +{guessResult}
-      <div style={{ fontSize: '70%' }}>{correctSong}</div>
+      +{score}
+      <div style={{ fontSize: '70%' }}>{song}</div>
       {(streakOfFive || justBeatPreviousRecord) && (
-        <div
-          className='streak'
-          key={`streak-${currentStreak}`}
-        >
+        <div className='streak' key={`streak-${currentStreak}`}>
           {currentStreak} streak 🔥
           {justBeatPreviousRecord && (
             <>

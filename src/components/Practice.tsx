@@ -34,7 +34,6 @@ import { playSong } from '../utils/playSong';
 import Footer from './Footer';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
-import ConfirmButton from './buttons/ConfirmButton';
 import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
 import SettingsModalButton from './buttons/PreferencesModalButton';
@@ -48,7 +47,7 @@ export default function Practice() {
     Object.keys(currentPreferences.regions) as Region[]
   ).filter((region) => currentPreferences.regions[region]);
 
-  const [gameState, setGameState] = useState<GameState>({
+  const initialGameState = {
     settings: {
       hardMode: currentPreferences.preferHardMode,
       oldAudio: currentPreferences.preferOldAudio,
@@ -59,15 +58,12 @@ export default function Practice() {
     scores: [],
     startTime: Date.now(),
     timeTaken: null,
-    guessedPosition: null,
-    correctPolygon: null,
-  });
+    guess: null,
+  };
+  const [gameState, setGameState] = useState<GameState>(initialGameState);
 
-  const [confirmedGuess, setConfirmedGuess] = useState(false);
-  const [showConfirmGuess, setShowConfirmGuess] = useState(false);
-  const [resultVisible, setResultVisible] = useState(false);
-
-  const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {
+  // TODO: move this inside stats modal
+  const { data } = useSWR<Song[]>('/api/songs', getSongList, {
     revalidateIfStale: false, // Don't revalidate if data is stale
     revalidateOnFocus: false, // Don't revalidate when window gains focus
     revalidateOnReconnect: false, // Don't revalidate on network reconnect
@@ -101,7 +97,6 @@ export default function Practice() {
       setOpenModalId(null);
     } else {
       setOpenModalId(id);
-      setResultVisible(false);
     }
   };
 
@@ -119,27 +114,31 @@ export default function Practice() {
   useEffect(() => {
     playSong(
       audioRef,
-      gameState.songs[gameState.round],
+      initialGameState.songs[initialGameState.round],
       currentPreferences.preferOldAudio,
       currentPreferences.preferHardMode,
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    setResultVisible(
-      gameState.status === GameStatus.AnswerRevealed ? true : false,
-    );
-  }, [gameState.songs, gameState.status]);
+  const setGuess = (guess: Guess): GameState => {
+    const newGameState = { ...gameState, guess };
+    setGameState(newGameState);
+    return newGameState;
+  };
 
-  const guess = (guess: Guess) => {
+  const confirmGuess = (latestGameState?: GameState) => {
+    const newGameState = latestGameState ?? gameState;
     const score = Math.round(
-      guess.correct ? 1000 : (1000 * 1) / Math.exp(0.0018 * guess.distance),
+      newGameState.guess!.correct
+        ? 1000
+        : (1000 * 1) / Math.exp(0.0018 * newGameState.guess!.distance),
     );
 
     // update statistics
     incrementGlobalGuessCounter();
-    const currentSong = gameState.songs[gameState.round];
-    if (guess.correct) {
+    const currentSong = newGameState.songs[newGameState.round];
+    if (newGameState.guess!.correct) {
       incrementSongSuccessCount(currentSong);
       incrementLocalGuessCount(true);
       updateGuessStreak(true);
@@ -149,15 +148,10 @@ export default function Practice() {
       updateGuessStreak(false);
     }
 
-    setConfirmedGuess(false);
-    setShowConfirmGuess(false);
-
     setGameState((prev) => ({
       ...prev,
       status: GameStatus.AnswerRevealed,
       scores: [...prev.scores, score],
-      guessedPosition: guess.guessedPosition,
-      correctPolygon: guess.correctPolygon,
     }));
   };
 
@@ -168,6 +162,7 @@ export default function Practice() {
       round: prev.round + 1,
       status: GameStatus.Guessing,
       songs: [...prev.songs, newSong],
+      guess: null,
     }));
 
     playSong(
@@ -192,18 +187,22 @@ export default function Practice() {
     savePreferencesToBrowser(preferences);
   };
 
-  const button = (label: string, onClick?: () => any) => (
-    <div
+  const button = (props: {
+    label: string;
+    disabled?: boolean;
+    onClick?: () => any;
+  }) => (
+    <button
       className='guess-btn-container'
-      onClick={onClick}
-      style={{ pointerEvents: onClick ? 'auto' : 'none' }}
+      onClick={props.onClick}
+      style={{
+        pointerEvents: !props.onClick || props.disabled ? 'none' : 'auto',
+        opacity: props.disabled ? 0.5 : 1,
+      }}
     >
-      <img
-        src={ASSETS['labelWide']}
-        alt='OSRS Button'
-      />
-      <div className='guess-btn'>{label}</div>
-    </div>
+      <img src={ASSETS['labelWide']} alt='OSRS Button' />
+      <div className='guess-btn'>{props.label}</div>
+    </button>
   );
 
   return (
@@ -237,15 +236,20 @@ export default function Practice() {
           </div>
 
           <div className='below-map'>
-            {currentPreferences.preferConfirmation && showConfirmGuess && (
-              <ConfirmButton setConfirmedGuess={setConfirmedGuess} />
-            )}
             {match(gameState.status)
-              .with(GameStatus.Guessing, () =>
-                button('Place your pin on the map'),
-              )
+              .with(GameStatus.Guessing, () => {
+                if (currentPreferences.preferConfirmation) {
+                  return button({
+                    label: 'Confirm guess',
+                    onClick: () => confirmGuess(),
+                    disabled: !gameState.guess,
+                  });
+                } else {
+                  return button({ label: 'Place your pin on the map' });
+                }
+              })
               .with(GameStatus.AnswerRevealed, () =>
-                button('Next Song', nextSong),
+                button({ label: 'Next Song', onClick: nextSong }),
               )
               .with(GameStatus.GameOver, () => {
                 throw new Error('Unreachable');
@@ -266,16 +270,15 @@ export default function Practice() {
 
       <RunescapeMap
         gameState={gameState}
-        onGuess={guess}
-        preferConfirmation={currentPreferences.preferConfirmation}
-        confirmedGuess={confirmedGuess}
-        setShowConfirmGuess={setShowConfirmGuess}
+        onMapClick={(guess: Guess) => {
+          const newGameState = setGuess(guess);
+          if (!currentPreferences.preferConfirmation) {
+            confirmGuess(newGameState); // confirm immediately
+          }
+        }}
       />
 
-      <RoundResult
-        gameState={gameState}
-        resultVisible={resultVisible}
-      />
+      <RoundResult gameState={gameState} />
     </>
   );
 }

@@ -40,7 +40,6 @@ import Footer from './Footer';
 import GameOver from './GameOver';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
-import ConfirmButton from './buttons/ConfirmButton';
 import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
 import SettingsModalButton from './buttons/PreferencesModalButton';
@@ -55,7 +54,9 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
   const seenAnnouncementId: string | null = loadSeenAnnouncementIdFromBrowser();
 
-  const existingGameState = loadGameStateFromBrowser(jingleNumber) || {
+  const initialGameState: GameState = loadGameStateFromBrowser(
+    jingleNumber,
+  ) || {
     settings: {
       hardMode: currentPreferences.preferHardMode,
       oldAudio: currentPreferences.preferOldAudio,
@@ -66,15 +67,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     scores: [],
     startTime: Date.now(),
     timeTaken: null,
-    guessedPosition: null,
-    correctPolygon: null,
+    guess: null,
   };
+  const jingle = useGameLogic(dailyChallenge, initialGameState);
 
-  const [confirmedGuess, setConfirmedGuess] = useState(false);
-  const [showConfirmGuess, setShowConfirmGuess] = useState(false);
-  const [resultVisible, setResultVisible] = useState(false);
-  const { data, error } = useSWR<Song[]>('/api/songs', getSongList, {});
-
+  // TODO: move this inside stats modal
+  const { data } = useSWR<Song[]>('/api/songs', getSongList, {});
   const sortedSongList = useMemo(() => {
     if (!data) return [];
 
@@ -93,7 +91,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       setOpenModalId(null);
     } else {
       setOpenModalId(id);
-      setResultVisible(false);
     }
   };
 
@@ -107,48 +104,42 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   };
 
   const saveGameState = (gameState: GameState) => {
+    if (!gameState) {
+      throw new Error('trying to save undefined game state');
+    }
     localStorage.setItem(
       LOCAL_STORAGE.gameState(jingleNumber),
       JSON.stringify(gameState),
     );
   };
 
-  const jingle = useGameLogic(dailyChallenge, existingGameState);
   const gameState = jingle.gameState;
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     playSong(
       audioRef,
-      gameState.songs[gameState.round],
-      gameState.settings.oldAudio,
-      gameState.settings.hardMode,
+      initialGameState.songs[gameState.round],
+      initialGameState.settings.oldAudio,
+      initialGameState.settings.hardMode,
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    setResultVisible(
-      gameState.status === GameStatus.AnswerRevealed ? true : false,
-    );
-  }, [gameState.songs, gameState.status]);
-
-  const guess = (guess: Guess) => {
-    const gameState = jingle.guess(guess);
+  const confirmGuess = (latestGameState?: GameState) => {
+    const gameState = jingle.confirmGuess(latestGameState);
     saveGameState(gameState);
 
     // update statistics
     incrementGlobalGuessCounter();
     const currentSong = gameState.songs[gameState.round];
-    if (guess.correct) {
+    if (gameState.guess!.correct) {
       incrementLocalGuessCount(true);
       incrementSongSuccessCount(currentSong);
     } else {
       incrementLocalGuessCount(false);
       incrementSongFailureCount(currentSong);
     }
-
-    setConfirmedGuess(false);
-    setShowConfirmGuess(false);
 
     const isLastRound = gameState.round === gameState.songs.length - 1;
     if (isLastRound) {
@@ -189,18 +180,22 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     savePreferencesToBrowser(preferences);
   };
 
-  const button = (label: string, onClick?: () => any) => (
-    <div
+  const button = (props: {
+    label: string;
+    disabled?: boolean;
+    onClick?: () => any;
+  }) => (
+    <button
       className='guess-btn-container'
-      onClick={onClick}
-      style={{ pointerEvents: onClick ? 'auto' : 'none' }}
+      onClick={props.onClick}
+      style={{
+        pointerEvents: !props.onClick || props.disabled ? 'none' : 'auto',
+        opacity: props.disabled ? 0.5 : 1,
+      }}
     >
-      <img
-        src={ASSETS['labelWide']}
-        alt='OSRS Button'
-      />
-      <div className='guess-btn'>{label}</div>
-    </div>
+      <img src={ASSETS['labelWide']} alt='OSRS Button' />
+      <div className='guess-btn'>{props.label}</div>
+    </button>
   );
 
   return (
@@ -233,9 +228,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
             />
           </div>
           <div className='below-map'>
-            {currentPreferences.preferConfirmation && showConfirmGuess && (
-              <ConfirmButton setConfirmedGuess={setConfirmedGuess} />
-            )}
             <div style={{ display: 'flex', gap: '2px' }}>
               <DailyGuessLabel number={gameState.scores[0]} />
               <DailyGuessLabel number={gameState.scores[1]} />
@@ -245,26 +237,33 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
             </div>
 
             {match(gameState.status)
-              .with(GameStatus.Guessing, () =>
-                button('Place your pin on the map'),
-              )
+              .with(GameStatus.Guessing, () => {
+                if (currentPreferences.preferConfirmation) {
+                  return button({
+                    label: 'Confirm guess',
+                    onClick: () => confirmGuess(),
+                    disabled: !gameState.guess,
+                  });
+                } else {
+                  return button({ label: 'Place your pin on the map' });
+                }
+              })
               .with(GameStatus.AnswerRevealed, () => {
                 if (gameState.round < gameState.songs.length - 1) {
-                  return button('Next Song', nextSong);
+                  return button({ label: 'Next Song', onClick: nextSong });
                 } else {
-                  return button('End Game', endGame);
+                  return button({ label: 'End Game', onClick: endGame });
                 }
               })
               .with(GameStatus.GameOver, () =>
-                button('Copy Results', () => copyResultsToClipboard(gameState)),
+                button({
+                  label: 'Copy Results',
+                  onClick: () => copyResultsToClipboard(gameState),
+                }),
               )
               .exhaustive()}
 
-            <audio
-              controls
-              id='audio'
-              ref={audioRef}
-            />
+            <audio controls id='audio' ref={audioRef} />
 
             <Footer />
           </div>
@@ -273,22 +272,18 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
 
       <RunescapeMap
         gameState={gameState}
-        onGuess={guess}
-        preferConfirmation={currentPreferences.preferConfirmation}
-        confirmedGuess={confirmedGuess}
-        setShowConfirmGuess={setShowConfirmGuess}
+        onMapClick={(guess: Guess) => {
+          const newGameState = jingle.setGuess(guess);
+          if (!currentPreferences.preferConfirmation) {
+            confirmGuess(newGameState); // confirm immediately
+          }
+        }}
       />
 
-      <RoundResult
-        gameState={gameState}
-        resultVisible={resultVisible}
-      />
+      <RoundResult gameState={gameState} />
 
       {gameState.status === GameStatus.GameOver && (
-        <GameOver
-          gameState={gameState}
-          dailyChallenge={dailyChallenge}
-        />
+        <GameOver gameState={gameState} dailyChallenge={dailyChallenge} />
       )}
     </>
   );

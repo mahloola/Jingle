@@ -1,5 +1,5 @@
 .result-message {
-  z-index: 9999;
+  z-index: 400;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -30,6 +30,7 @@
   0% {
     transform: scale(0.1);
   }
+
   100% {
     transform: scale(1);
   }
