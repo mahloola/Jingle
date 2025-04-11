@@ -12,21 +12,17 @@ import { Screen, UserPreferences } from '../../types/jingle';
 import Modal from '../Modal';
 import IconButton from './IconButton';
 interface PreferencesModalButtonProps {
-  onClick: () => void;
-  open: boolean;
-  onClose: () => void;
   currentPreferences: UserPreferences;
   onApplyPreferences: (settings: any) => void;
   screen: Screen;
 }
 export default function SettingsModalButton({
-  onClick,
-  open,
-  onClose,
   currentPreferences,
   onApplyPreferences,
   screen,
 }: PreferencesModalButtonProps) {
+  const [open, setOpen] = useState(false);
+
   const [preferences, setPreferences] = useState(currentPreferences);
   const [regionsOpen, setRegionsOpen] = useState(false);
   const toggleRegions = () => {
@@ -58,13 +54,10 @@ export default function SettingsModalButton({
 
   return (
     <>
-      <IconButton
-        onClick={onClick}
-        img={ASSETS['settings']}
-      />
+      <IconButton onClick={() => setOpen(true)} img={ASSETS['settings']} />
       <Modal
         open={open}
-        onClose={onClose}
+        onClose={() => setOpen(false)}
         onApplySettings={() => onApplyPreferences(preferences)}
         saveDisabled={disabled}
       >

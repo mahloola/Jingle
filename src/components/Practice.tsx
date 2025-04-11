@@ -42,7 +42,6 @@ import StatsModalButton from './buttons/StatsModalButton';
 export default function Practice() {
   const currentPreferences =
     loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
-  const seenAnnouncementId: string | null = loadSeenAnnouncementIdFromBrowser();
   const enabledRegions = (
     Object.keys(currentPreferences.regions) as Region[]
   ).filter((region) => currentPreferences.regions[region]);
@@ -61,30 +60,6 @@ export default function Practice() {
     guess: null,
   };
   const [gameState, setGameState] = useState<GameState>(initialGameState);
-
-  // TODO: move this inside each modal
-  const [openModalId, setOpenModalId] = useState<ModalType | null>(
-    seenAnnouncementId === null ? ModalType.News : null,
-  );
-
-  // TODO: move this inside each modal
-  const handleModalClick = (id: ModalType) => {
-    if (openModalId === id) {
-      setOpenModalId(null);
-    } else {
-      setOpenModalId(id);
-    }
-  };
-
-  // TODO: move this inside each modal
-  const closeModal = () => {
-    setOpenModalId((prev) => {
-      if (prev === ModalType.News) {
-        setSeenAnnouncementIdToBrowser('1');
-      }
-      return null;
-    });
-  };
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -189,26 +164,14 @@ export default function Practice() {
           <div className='modal-buttons-container'>
             <HomeButton />
             <SettingsModalButton
-              open={openModalId === ModalType.Settings}
-              onClose={closeModal}
-              onClick={() => handleModalClick(ModalType.Settings)}
               currentPreferences={currentPreferences}
               onApplyPreferences={(preferences: UserPreferences) =>
                 updatePreferences(preferences)
               }
               screen={Screen.Practice as Screen}
             />
-            <NewsModalButton
-              open={openModalId === ModalType.News}
-              onClose={closeModal}
-              onClick={() => handleModalClick(ModalType.News)}
-              seenAnnouncementId={seenAnnouncementId}
-            />
-            <StatsModalButton
-              open={openModalId === ModalType.Stats}
-              onClose={closeModal}
-              onClick={() => handleModalClick(ModalType.Stats)}
-            />
+            <NewsModalButton />
+            <StatsModalButton />
           </div>
 
           <div className='below-map'>

@@ -52,7 +52,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
   const currentPreferences =
     loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
-  const seenAnnouncementId: string | null = loadSeenAnnouncementIdFromBrowser();
 
   const initialGameState: GameState = loadGameStateFromBrowser(
     jingleNumber,
@@ -70,26 +69,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     guess: null,
   };
   const jingle = useGameLogic(dailyChallenge, initialGameState);
-
-  const [openModalId, setOpenModalId] = useState<ModalType | null>(
-    seenAnnouncementId === null ? ModalType.News : null,
-  );
-  const handleModalClick = (id: ModalType) => {
-    if (openModalId === id) {
-      setOpenModalId(null);
-    } else {
-      setOpenModalId(id);
-    }
-  };
-
-  const closeModal = () => {
-    setOpenModalId((prev) => {
-      if (prev === ModalType.News) {
-        setSeenAnnouncementIdToBrowser('1');
-      }
-      return null;
-    });
-  };
 
   const saveGameState = (gameState: GameState) => {
     if (!gameState) {
@@ -193,26 +172,14 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
           <div className='modal-buttons-container'>
             <HomeButton />
             <SettingsModalButton
-              open={openModalId === ModalType.Settings}
-              onClose={closeModal}
-              onClick={() => handleModalClick(ModalType.Settings)}
               currentPreferences={currentPreferences}
               onApplyPreferences={(preferences: UserPreferences) =>
                 updateGameSettings(preferences)
               }
               screen={Screen.DailyJingle as Screen}
             />
-            <NewsModalButton
-              open={openModalId === ModalType.News}
-              onClose={closeModal}
-              onClick={() => handleModalClick(ModalType.News)}
-              seenAnnouncementId={seenAnnouncementId}
-            />
-            <StatsModalButton
-              open={openModalId === ModalType.Stats}
-              onClose={closeModal}
-              onClick={() => handleModalClick(ModalType.Stats)}
-            />
+            <NewsModalButton />
+            <StatsModalButton />
           </div>
           <div className='below-map'>
             <div style={{ display: 'flex', gap: '2px' }}>

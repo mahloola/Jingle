@@ -7,21 +7,12 @@ import { Song } from '../../types/jingle';
 import { loadPersonalStatsFromBrowser } from '../../utils/browserUtil';
 import Modal from '../Modal';
 import IconButton from './IconButton';
-import useSWR from 'swr';
 import { getSongList } from '../../data/jingle-api';
 import useSWRImmutable from 'swr/immutable';
 
-interface StatsModalButtonProps {
-  onClick: () => void;
-  open: boolean;
-  onClose: () => void;
-}
+export default function StatsModalButton() {
+  const [open, setOpen] = useState(false);
 
-export default function StatsModalButton({
-  onClick,
-  open,
-  onClose,
-}: StatsModalButtonProps) {
   const { correctGuessCount, incorrectGuessCount, maxStreak, currentStreak } =
     loadPersonalStatsFromBrowser();
   const totalGuessCount = correctGuessCount + incorrectGuessCount;
@@ -45,12 +36,12 @@ export default function StatsModalButton({
 
   return (
     <>
-      <IconButton onClick={onClick} img={ASSETS['stats']} />
+      <IconButton onClick={() => setOpen(true)} img={ASSETS['stats']} />
 
       <Modal
         open={open}
         onClose={() => {
-          onClose();
+          setOpen(false);
           setFilteredStats(undefined); // reset filter when modal is closed
         }}
       >
