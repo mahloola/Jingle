@@ -32,6 +32,7 @@
 .rotated {
   transform: rotate(-180deg);
 }
+
 .settings-table {
   width: 100%;
 }
@@ -47,11 +48,13 @@
   cursor: pointer;
   transition: 0.2s;
 }
+
 .settings-table svg {
   color: #928270;
   font-size: 0.9em !important;
   margin-left: 5px;
 }
+
 .settings-table tr {
   height: 35px;
   display: flex;
@@ -59,10 +62,12 @@
   align-items: center;
   width: 100%;
 }
+
 .settings-table td {
   display: flex;
   align-items: center;
 }
+
 .settings-table svg:hover {
   filter: drop-shadow(0 0 3px #ffffff);
   cursor: pointer;
@@ -70,9 +75,11 @@
 }
 
 .ReactModal__Overlay {
-  position: fixed !important; /* Force override */
-  z-index: 1000; /* Higher than other elements */
-  background-color: rgba(0, 0, 0, 0.2) !important;
+  position: fixed !important;
+  /* Force override */
+  z-index: 1000;
+  /* Higher than other elements */
+  background-color: rgba(0, 0, 0, 0.5) !important;
   /* border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(2px);
@@ -83,6 +90,7 @@ button {
   background-color: transparent !important;
   border: none !important;
 }
+
 button:disabled {
   pointer-events: none;
   opacity: 0.5;
@@ -91,18 +99,21 @@ button:disabled {
 ::-webkit-scrollbar {
   width: 3px !important;
 }
+
 .song-stats {
   height: 120px;
   width: 100%;
   overflow-y: auto;
   scrollbar-width: thin;
 }
+
 .modal-bg-image {
   z-index: -1;
   opacity: 0.15;
   position: fixed;
   min-height: 100px;
 }
+
 /* create a rule to style text input fields across the app - make them smaller */
 
 input[type='text'],
@@ -118,6 +129,7 @@ input[type='search'] {
   margin-bottom: 5px;
   height: 32px;
 }
+
 input:focus {
   outline: none;
 }
@@ -139,6 +151,7 @@ input:focus {
 .react-tooltip {
   font-size: 1em !important;
 }
+
 .modal-buttons-container {
   display: flex;
   flex-direction: column;

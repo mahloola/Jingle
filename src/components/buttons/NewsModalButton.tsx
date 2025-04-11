@@ -1,36 +1,36 @@
+import { useState } from 'react';
 import { ASSETS } from '../../constants/assets';
 import '../../style/modal.css';
 import Modal from '../Modal';
 import IconButton from './IconButton';
+import {
+  loadSeenAnnouncementIdFromBrowser,
+  setSeenAnnouncementIdToBrowser,
+} from '../../utils/browserUtil';
 
-interface NewsButtonModalProps {
-  onClick: () => void;
-  open: boolean;
-  onClose: () => void;
-  seenAnnouncementId: string | null;
-}
+export default function NewsModalButton() {
+  const seenAnnouncementId = loadSeenAnnouncementIdFromBrowser();
+  const [open, setOpen] = useState(
+    // TODO: change this so that it shows when we make a new announcement
+    seenAnnouncementId === null,
+  );
+  const closeModal = () => {
+    setOpen(false);
+    setSeenAnnouncementIdToBrowser('1');
+  };
 
-export default function NewsModalButton({
-  onClick,
-  open,
-  onClose,
-  seenAnnouncementId,
-}: NewsButtonModalProps) {
   return (
     <>
       <IconButton
-        onClick={onClick}
+        onClick={() => setOpen(true)}
         img={ASSETS['news']}
         unseenAnnouncement={seenAnnouncementId === null}
       />
-      <Modal
-        open={open}
-        onClose={onClose}
-      >
+      <Modal open={open} onClose={closeModal}>
         <img
           className='modal-bg-image'
           src='https://storage.googleapis.com/jingle-media/newspaper.png'
-        ></img>
+        />
         <div
           style={{
             display: 'flex',
@@ -69,10 +69,7 @@ export default function NewsModalButton({
           these updates!
           <br />
           Enjoy these new features, and feel free to join the{' '}
-          <a
-            href='https://discord.gg/7sB8fyUS9W'
-            className='link'
-          >
+          <a href='https://discord.gg/7sB8fyUS9W' className='link'>
             discord! 😊
           </a>
         </p>

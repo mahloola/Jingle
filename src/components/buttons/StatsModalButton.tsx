@@ -7,20 +7,16 @@ import { Song } from '../../types/jingle';
 import { loadPersonalStatsFromBrowser } from '../../utils/browserUtil';
 import Modal from '../Modal';
 import IconButton from './IconButton';
+import { getSongList } from '../../data/jingle-api';
+import useSWRImmutable from 'swr/immutable';
 
-interface StatsModalButtonProps {
-  onClick: () => void;
-  open: boolean;
-  onClose: () => void;
-  stats: Song[];
-}
+export default function StatsModalButton() {
+  const [open, setOpen] = useState(false);
+  const closeModal = () => {
+    setOpen(false);
+    setSearchString(''); // reset filter when modal is closed
+  };
 
-export default function StatsModalButton({
-  onClick,
-  open,
-  onClose,
-  stats,
-}: StatsModalButtonProps) {
   const { correctGuessCount, incorrectGuessCount, maxStreak, currentStreak } =
     loadPersonalStatsFromBrowser();
   const totalGuessCount = correctGuessCount + incorrectGuessCount;
@@ -30,29 +26,29 @@ export default function StatsModalButton({
         (((correctGuessCount ?? 0) / totalGuessCount) * 100).toFixed(2),
       );
 
-  const [filteredStats, setFilteredStats] = useState<Song[] | undefined>(
-    undefined,
-  );
-  const statsToDisplay = filteredStats ?? stats;
+  const { data: songs } = useSWRImmutable<Song[]>('/api/songs', getSongList);
+  const [searchString, setSearchString] = useState('');
+  const successRate = (song: Song) =>
+    (100 * song.successCount) / (song.successCount + song.failureCount);
+  const sortedAndFilteredSongs =
+    songs
+      ?.filter((song) => Boolean(successRate(song)))
+      ?.filter((song) =>
+        searchString.trim()
+          ? song.name.toLowerCase().includes(searchString.toLowerCase())
+          : true,
+      )
+      ?.sort((a, b) => successRate(b) - successRate(a)) ?? [];
 
   return (
     <>
-      <IconButton
-        onClick={onClick}
-        img={ASSETS['stats']}
-      />
+      <IconButton onClick={() => setOpen(true)} img={ASSETS['stats']} />
 
-      <Modal
-        open={open}
-        onClose={() => {
-          onClose();
-          setFilteredStats(undefined); // reset filter when modal is closed
-        }}
-      >
+      <Modal open={open} onClose={closeModal}>
         <img
           className='modal-bg-image'
           src='https://storage.googleapis.com/jingle-media/stats.png'
-        ></img>
+        />
         <div
           style={{
             display: 'flex',
@@ -96,31 +92,15 @@ export default function StatsModalButton({
           type='text'
           placeholder='🔍 Search for a song...'
           className='search-bar'
-          onChange={(e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            setFilteredStats(
-              stats.filter((song) =>
-                song.name.toLowerCase().includes(searchTerm),
-              ),
-            );
-          }}
+          value={searchString}
+          onChange={(e) => setSearchString(e.target.value)}
         />
 
         <div className='song-stats'>
-          {statsToDisplay.map((song) => (
-            <div
-              className='modal-line'
-              key={song.name}
-            >
+          {sortedAndFilteredSongs.map((song) => (
+            <div className='modal-line' key={song.name}>
               <span>{song.name}</span>
-              <span>
-                {(
-                  (song.successCount /
-                    (song.successCount + song.failureCount)) *
-                  100
-                ).toFixed(2)}
-                %
-              </span>
+              <span>{successRate(song).toFixed(2)}%</span>
             </div>
           ))}
         </div>

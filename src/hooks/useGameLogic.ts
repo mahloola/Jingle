@@ -8,6 +8,7 @@ import {
   GameStatus,
 } from '../types/jingle';
 import { calculateTimeDifference } from '../utils/date-utils';
+import { clone } from 'ramda';
 
 export interface Guess {
   correct: boolean;
@@ -32,31 +33,39 @@ export default function useGameLogic(
       scores: [],
       startTime: Date.now(),
       timeTaken: null,
-      guessedPosition: null,
-      correctPolygon: null,
+      guess: null,
     },
   );
 
-  const guess = (guess: Guess): GameState => {
-    const score = Math.round(
-      guess.correct ? 1000 : (1000 * 1) / Math.exp(0.0018 * guess.distance),
-    );
-    let newGameState = {
-      ...gameState,
-      status: GameStatus.AnswerRevealed,
-      scores: [...gameState.scores, score],
-      guessedPosition: guess.guessedPosition,
-      correctPolygon: guess.correctPolygon,
-    };
+  const setGuess = (guess: Guess): GameState => {
+    const newGameState = { ...gameState, guess };
     setGameState(newGameState);
+    return newGameState;
+  };
 
-    const isLastRound = gameState.round === gameState.songs.length - 1;
+  // latestGameState is required if called immediately after setGuess
+  const confirmGuess = (latestGameState?: GameState): GameState => {
+    const newGameState = latestGameState ?? gameState;
+    if (newGameState.guess === null) {
+      throw new Error('guess cannot be null');
+    }
+
+    const score = Math.round(
+      newGameState.guess.correct
+        ? 1000
+        : (1000 * 1) / Math.exp(0.0018 * newGameState.guess.distance),
+    );
+    newGameState.status = GameStatus.AnswerRevealed;
+    newGameState.scores.push(score);
+    setGameState(clone(newGameState));
+
+    const isLastRound = newGameState.round === newGameState.songs.length - 1;
     if (isLastRound) {
-      newGameState = {
-        ...newGameState,
-        timeTaken: calculateTimeDifference(gameState.startTime, Date.now()),
-      };
-      setGameState(newGameState);
+      newGameState.timeTaken = calculateTimeDifference(
+        newGameState.startTime,
+        Date.now(),
+      );
+      setGameState(clone(newGameState));
     }
 
     return newGameState;
@@ -67,25 +76,14 @@ export default function useGameLogic(
       ...gameState,
       round: gameState.round + 1,
       status: GameStatus.Guessing,
+      guess: null,
     };
     setGameState(newGameState);
     return newGameState;
   };
 
   const endGame = (): GameState => {
-    if (
-      !(
-        gameState.status === GameStatus.AnswerRevealed &&
-        gameState.round === gameState.songs.length - 1
-      )
-    ) {
-      throw new Error('Game is not over yet');
-    }
-
-    const newGameState = {
-      ...gameState,
-      status: GameStatus.GameOver,
-    };
+    const newGameState = { ...gameState, status: GameStatus.GameOver };
     setGameState(newGameState);
     return newGameState;
   };
@@ -100,5 +98,12 @@ export default function useGameLogic(
     }));
   };
 
-  return { gameState, guess, nextSong, endGame, updateGameSettings };
+  return {
+    gameState,
+    setGuess,
+    confirmGuess,
+    nextSong,
+    endGame,
+    updateGameSettings,
+  };
 }

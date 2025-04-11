@@ -1,5 +1,5 @@
 import { GeoJsonObject } from 'geojson';
-import L from 'leaflet';
+import { LatLng } from 'leaflet';
 import { Region } from '../constants/regions';
 
 export enum Screen {
@@ -28,8 +28,13 @@ export interface GameState {
   startTime: number;
   timeTaken: string | null;
 
-  guessedPosition: L.LatLng | null;
-  correctPolygon: GeoJsonObject | null;
+  guess: Guess | null;
+}
+export interface Guess {
+  correct: boolean;
+  distance: number;
+  guessedPosition: LatLng;
+  correctPolygon: GeoJsonObject;
 }
 
 export interface GameSettings {
