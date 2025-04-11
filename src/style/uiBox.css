@@ -10,7 +10,6 @@
 .guess-btn-container {
   position: relative;
   cursor: pointer;
-  max-width: 250px;
 }
 
 .guess-btn-container:hover {
