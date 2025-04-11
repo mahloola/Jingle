@@ -62,36 +62,12 @@ export default function Practice() {
   };
   const [gameState, setGameState] = useState<GameState>(initialGameState);
 
-  // TODO: move this inside stats modal
-  const { data } = useSWR<Song[]>('/api/songs', getSongList, {
-    revalidateIfStale: false, // Don't revalidate if data is stale
-    revalidateOnFocus: false, // Don't revalidate when window gains focus
-    revalidateOnReconnect: false, // Don't revalidate on network reconnect
-    refreshInterval: 86400000, // 24 hours in milliseconds (only re-fetches after this interval)
-    dedupingInterval: 86400000, // Dedupe requests within 24 hours
-  });
-
-  const sortedSongList = useMemo(() => {
-    if (!data) return [];
-
-    // remove songs with either 0% success or NaN
-    return data
-      .filter(
-        (song) =>
-          song.successCount > 100 &&
-          !isNaN(song.successCount / (song.successCount + song.failureCount)),
-      )
-      .sort((a, b) => {
-        const aSuccess = a.successCount / (a.successCount + a.failureCount);
-        const bSuccess = b.successCount / (b.successCount + b.failureCount);
-        return bSuccess - aSuccess;
-      });
-  }, [data]);
-
+  // TODO: move this inside each modal
   const [openModalId, setOpenModalId] = useState<ModalType | null>(
     seenAnnouncementId === null ? ModalType.News : null,
   );
 
+  // TODO: move this inside each modal
   const handleModalClick = (id: ModalType) => {
     if (openModalId === id) {
       setOpenModalId(null);
@@ -100,6 +76,7 @@ export default function Practice() {
     }
   };
 
+  // TODO: move this inside each modal
   const closeModal = () => {
     setOpenModalId((prev) => {
       if (prev === ModalType.News) {
@@ -231,7 +208,6 @@ export default function Practice() {
               open={openModalId === ModalType.Stats}
               onClose={closeModal}
               onClick={() => handleModalClick(ModalType.Stats)}
-              stats={sortedSongList}
             />
           </div>
 

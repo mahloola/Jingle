@@ -7,19 +7,20 @@ import { Song } from '../../types/jingle';
 import { loadPersonalStatsFromBrowser } from '../../utils/browserUtil';
 import Modal from '../Modal';
 import IconButton from './IconButton';
+import useSWR from 'swr';
+import { getSongList } from '../../data/jingle-api';
+import useSWRImmutable from 'swr/immutable';
 
 interface StatsModalButtonProps {
   onClick: () => void;
   open: boolean;
   onClose: () => void;
-  stats: Song[];
 }
 
 export default function StatsModalButton({
   onClick,
   open,
   onClose,
-  stats,
 }: StatsModalButtonProps) {
   const { correctGuessCount, incorrectGuessCount, maxStreak, currentStreak } =
     loadPersonalStatsFromBrowser();
@@ -30,17 +31,21 @@ export default function StatsModalButton({
         (((correctGuessCount ?? 0) / totalGuessCount) * 100).toFixed(2),
       );
 
+  const { data: songs } = useSWRImmutable<Song[]>('/api/songs', getSongList);
+  const successRate = (song: Song) =>
+    song.successCount / (song.successCount + song.failureCount);
+  const sortedSongList =
+    songs
+      ?.sort((a, b) => successRate(b) - successRate(a))
+      ?.filter((song) => Boolean(successRate(song))) ?? [];
   const [filteredStats, setFilteredStats] = useState<Song[] | undefined>(
     undefined,
   );
-  const statsToDisplay = filteredStats ?? stats;
+  const statsToDisplay = filteredStats ?? sortedSongList;
 
   return (
     <>
-      <IconButton
-        onClick={onClick}
-        img={ASSETS['stats']}
-      />
+      <IconButton onClick={onClick} img={ASSETS['stats']} />
 
       <Modal
         open={open}
@@ -108,10 +113,7 @@ export default function StatsModalButton({
 
         <div className='song-stats'>
           {statsToDisplay.map((song) => (
-            <div
-              className='modal-line'
-              key={song.name}
-            >
+            <div className='modal-line' key={song.name}>
               <span>{song.name}</span>
               <span>
                 {(

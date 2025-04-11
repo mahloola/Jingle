@@ -71,18 +71,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   };
   const jingle = useGameLogic(dailyChallenge, initialGameState);
 
-  // TODO: move this inside stats modal
-  const { data } = useSWR<Song[]>('/api/songs', getSongList, {});
-  const sortedSongList = useMemo(() => {
-    if (!data) return [];
-
-    return [...data].sort((a, b) => {
-      const aSuccess = a.successCount / (a.successCount + a.failureCount);
-      const bSuccess = b.successCount / (b.successCount + b.failureCount);
-      return bSuccess - aSuccess;
-    });
-  }, [data]);
-
   const [openModalId, setOpenModalId] = useState<ModalType | null>(
     seenAnnouncementId === null ? ModalType.News : null,
   );
@@ -224,7 +212,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
               open={openModalId === ModalType.Stats}
               onClose={closeModal}
               onClick={() => handleModalClick(ModalType.Stats)}
-              stats={sortedSongList}
             />
           </div>
           <div className='below-map'>
