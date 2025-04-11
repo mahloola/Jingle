@@ -12,6 +12,10 @@ import useSWRImmutable from 'swr/immutable';
 
 export default function StatsModalButton() {
   const [open, setOpen] = useState(false);
+  const closeModal = () => {
+    setOpen(false);
+    setSearchString(''); // reset filter when modal is closed
+  };
 
   const { correctGuessCount, incorrectGuessCount, maxStreak, currentStreak } =
     loadPersonalStatsFromBrowser();
@@ -23,32 +27,28 @@ export default function StatsModalButton() {
       );
 
   const { data: songs } = useSWRImmutable<Song[]>('/api/songs', getSongList);
+  const [searchString, setSearchString] = useState('');
   const successRate = (song: Song) =>
-    song.successCount / (song.successCount + song.failureCount);
-  const sortedSongList =
+    (100 * song.successCount) / (song.successCount + song.failureCount);
+  const sortedAndFilteredSongs =
     songs
-      ?.sort((a, b) => successRate(b) - successRate(a))
-      ?.filter((song) => Boolean(successRate(song))) ?? [];
-  const [filteredStats, setFilteredStats] = useState<Song[] | undefined>(
-    undefined,
-  );
-  const statsToDisplay = filteredStats ?? sortedSongList;
+      ?.filter((song) => Boolean(successRate(song)))
+      ?.filter((song) =>
+        searchString.trim()
+          ? song.name.toLowerCase().includes(searchString.toLowerCase())
+          : true,
+      )
+      ?.sort((a, b) => successRate(b) - successRate(a)) ?? [];
 
   return (
     <>
       <IconButton onClick={() => setOpen(true)} img={ASSETS['stats']} />
 
-      <Modal
-        open={open}
-        onClose={() => {
-          setOpen(false);
-          setFilteredStats(undefined); // reset filter when modal is closed
-        }}
-      >
+      <Modal open={open} onClose={closeModal}>
         <img
           className='modal-bg-image'
           src='https://storage.googleapis.com/jingle-media/stats.png'
-        ></img>
+        />
         <div
           style={{
             display: 'flex',
@@ -92,28 +92,15 @@ export default function StatsModalButton() {
           type='text'
           placeholder='🔍 Search for a song...'
           className='search-bar'
-          onChange={(e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            setFilteredStats(
-              stats.filter((song) =>
-                song.name.toLowerCase().includes(searchTerm),
-              ),
-            );
-          }}
+          value={searchString}
+          onChange={(e) => setSearchString(e.target.value)}
         />
 
         <div className='song-stats'>
-          {statsToDisplay.map((song) => (
+          {sortedAndFilteredSongs.map((song) => (
             <div className='modal-line' key={song.name}>
               <span>{song.name}</span>
-              <span>
-                {(
-                  (song.successCount /
-                    (song.successCount + song.failureCount)) *
-                  100
-                ).toFixed(2)}
-                %
-              </span>
+              <span>{successRate(song).toFixed(2)}%</span>
             </div>
           ))}
         </div>
