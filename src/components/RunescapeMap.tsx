@@ -183,7 +183,10 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
     L.LatLng | undefined
   >();
   useEffect(() => {
-    if (gameState.status === GameStatus.AnswerRevealed) {
+    if (
+      panToOnAnswerRevealed &&
+      gameState.status === GameStatus.AnswerRevealed
+    ) {
       map.panTo(panToOnAnswerRevealed!);
     }
   }, [map, gameState.status, panToOnAnswerRevealed]);
