@@ -168,7 +168,7 @@ export default function Practice() {
               onApplyPreferences={(preferences: UserPreferences) =>
                 updatePreferences(preferences)
               }
-              screen={Screen.Practice as Screen}
+              screen={Screen.Practice}
             />
             <NewsModalButton />
             <StatsModalButton />

@@ -176,7 +176,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
               onApplyPreferences={(preferences: UserPreferences) =>
                 updateGameSettings(preferences)
               }
-              screen={Screen.DailyJingle as Screen}
+              screen={Screen.DailyJingle}
             />
             <NewsModalButton />
             <StatsModalButton />

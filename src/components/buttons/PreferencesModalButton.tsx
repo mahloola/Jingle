@@ -11,11 +11,13 @@ import '../../style/modal.css';
 import { Screen, UserPreferences } from '../../types/jingle';
 import Modal from '../Modal';
 import IconButton from './IconButton';
+
 interface PreferencesModalButtonProps {
   currentPreferences: UserPreferences;
   onApplyPreferences: (settings: any) => void;
-  screen: Screen;
+  screen: Screen.DailyJingle | Screen.Practice;
 }
+
 export default function SettingsModalButton({
   currentPreferences,
   onApplyPreferences,
