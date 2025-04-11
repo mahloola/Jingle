@@ -51,8 +51,8 @@ const isValidGameState = (object: unknown): object is GameState => {
   if (!object) return false;
   if (typeof (object as any).status !== 'string') return false;
   if (typeof (object as any).round !== 'number') return false;
-  if (Array.isArray((object as any).songs)) return false;
-  if (Array.isArray((object as any).scores)) return false;
+  if (!Array.isArray((object as any).songs)) return false;
+  if (!Array.isArray((object as any).scores)) return false;
   return true;
 };
 
