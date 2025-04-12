@@ -3,6 +3,7 @@ import { Line, Point } from '../types/geometry';
 import { decodeHTML } from './string-utils';
 import { ConvertedFeature } from '../data/GeoJSON';
 import { LINKLESS_MAP_IDS } from './map-config';
+import { booleanContains, polygon } from '@turf/turf';
 
 const scaleFactor = 3;
 // Ours refers to the pixel coordinates of the map grid we're using
@@ -98,4 +99,37 @@ export const getDistanceToLine = (point: [number, number], line: Line) => {
 export const isFeatureVisibleOnMap = (feature: ConvertedFeature) => {
   return feature.convertedGeometry.some(polyData => LINKLESS_MAP_IDS.includes(polyData.mapId)) == false 
   && feature.convertedGeometry.length > 0
+}
+
+const FindGaps = (repairedPolygons: Point[][]) => {
+  return repairedPolygons.filter(innerPolygon => 
+   repairedPolygons.find(outerPolygon =>
+     innerPolygon !== outerPolygon && booleanContains(polygon([outerPolygon]), polygon([innerPolygon]))
+   )
+  )
+}
+
+const FindOuters = (repairedPolygons: Point[][]): Point[][] => {
+ return repairedPolygons.filter(candidate =>
+   !repairedPolygons.some(other =>
+     candidate !== other &&
+     booleanContains(polygon([other]), polygon([candidate]))
+   )
+ );
+};
+
+export const FindPolyGroups = (repairedPolygons : Point[][]) => {
+ const groups : Point[][][] = [];
+
+ const gaps = FindGaps(repairedPolygons);
+ const outers = FindOuters(repairedPolygons);
+
+ outers.forEach(poly => {
+   const innerGaps = gaps.filter( (gap) => 
+     booleanContains(polygon([poly]), polygon([gap]))
+   )
+   groups.push([poly, ...innerGaps])
+ })
+
+ return groups;
 }

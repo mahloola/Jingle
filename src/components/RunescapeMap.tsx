@@ -1,5 +1,5 @@
 import { booleanContains, booleanPointInPolygon, polygon } from '@turf/turf';
-import { Feature, Polygon } from 'geojson';
+import { Feature, GeoJsonObject, Polygon } from 'geojson';
 import L, { CRS, Icon } from 'leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/leaflet.css';
@@ -8,7 +8,6 @@ import {
   GeoJSON,
   MapContainer,
   Marker,
-  TileLayer,
   useMap,
   useMapEvents,
 } from 'react-leaflet';
@@ -19,12 +18,12 @@ import {
   calculateDistance,
   closePolygon,
   featureMatchesSong,
+  FindPolyGroups,
   getCenterOfPolygon,
   getDistanceToPolygon,
   toOurPixelCoordinates,
 } from '../utils/map-utils';
 import { 
-   ConfigureNearestNeighbor,
    HandleMapZoom, 
    InternalMapState
 } from '../utils/map-config';
@@ -32,6 +31,7 @@ import basemaps from '../data/basemaps';
 import { groupedLinks } from '../data/GroupedLinks';
 import LinkClickboxes from './LinkClickboxes';
 import CustomTileLayer from './CustomTileLayer';
+import { GetClosestMapIdPolys, GetTotalDistanceToPoly } from '../utils/score-dist-utils';
 
 interface RunescapeMapProps {
   gameState: GameState;
@@ -90,11 +90,11 @@ export default function RunescapeMapWrapper({
 function RunescapeMap({ 
     gameState, onMapClick, 
     currentMapId, setCurrentMapId, 
-    markerState, setMarkerState,
     zoom, setZoom,
     setMapCenter
 }: InternalMapState
 ) {
+
   const map = useMap();
   const currentMap = basemaps[currentMapId];
 
@@ -128,139 +128,112 @@ function RunescapeMap({
       } 
 
       const markerPosition = e.latlng;
-      const zoom = map.getMaxZoom();
-      const { x, y } = map.project(markerPosition, zoom);
-      const ourPixelCoordsClickedPoint = [x, y] as Point;
+      const markerMapId = currentMapId;
+      const ourPixelCoordsClickedPoint = [e.latlng.lng, e.latlng.lat] as Point
 
       const currentSong = gameState.songs[gameState.round];
       const correctFeature = geojsondata.features.find(
         featureMatchesSong(currentSong),
       )!;
 
-      //all closed polys for current song
-      const repairedPolygons =
-        correctFeature.geometry.coordinates.map(closePolygon);
+      //all polys for for current song as per our mapId priorities - needed for donut polys.
+      const [musicPolys, songMapId] = GetClosestMapIdPolys(correctFeature, markerPosition, markerMapId);
+      const repairedPolygons = musicPolys.map((musicPoly)=>closePolygon(musicPoly)) as Point[][];
 
-      // Create a GeoJSON feature for the nearest correct polygon
-      const correctPolygon = correctFeature.geometry.coordinates.sort(
+      //find nearest correct poly
+      const correctPolygon = repairedPolygons.sort(
         (polygon1, polygon2) => {
-          const c1 = getCenterOfPolygon(polygon1.map(toOurPixelCoordinates));
-          const c2 = getCenterOfPolygon(polygon2.map(toOurPixelCoordinates));
-          const d1 = calculateDistance(ourPixelCoordsClickedPoint, c1);
-          const d2 = calculateDistance(ourPixelCoordsClickedPoint, c2);
+          const d1 = GetTotalDistanceToPoly(ourPixelCoordsClickedPoint, markerMapId, polygon1, songMapId);
+          const d2 = GetTotalDistanceToPoly(ourPixelCoordsClickedPoint, markerMapId, polygon2, songMapId);
           return d1 - d2;
-        },
+        }
       )[0];
 
-      //if closest correct polgy is a gap, set outerPolygon to the actual parent poly, else iteself.
-      const repairedCorrectPolygon = closePolygon(correctPolygon);
+      const polyGroups = FindPolyGroups(repairedPolygons);
+      const [outerPolygon, ...gaps] = polyGroups.find(polyGroup => polyGroup.includes(correctPolygon)) ?? [correctPolygon]
 
-      const outerPolygon =
-        repairedPolygons.find((repairedPolygon) => {
-          if (
-            JSON.stringify(repairedPolygon) !==
-            JSON.stringify(repairedCorrectPolygon)
-          ) {
-            return booleanContains(
-              polygon([repairedPolygon]),
-              polygon([repairedCorrectPolygon]),
-            );
-          }
-          return false;
-        }) || repairedCorrectPolygon;
-
-      //find all gaps in this outer polygon
-      const gaps = repairedPolygons.filter(
-        (repairedPolygon) =>
-          JSON.stringify(repairedPolygon) !== JSON.stringify(outerPolygon) &&
-          booleanContains(polygon([outerPolygon]), polygon([repairedPolygon])),
-      );
-
-      const correctPolygons = [outerPolygon, ...gaps];
-
-      //check user click is right or wrong:
-      //for checking aginst click, convert everything to our coords
-      const ourOuterPolygon = outerPolygon.map(toOurPixelCoordinates);
-      const ourGaps = gaps?.map((gap) => gap.map(toOurPixelCoordinates)) ?? [];
       //check if in outer poly
       const inOuterPoly = booleanPointInPolygon(
         ourPixelCoordsClickedPoint,
-        polygon([ourOuterPolygon]),
+        polygon([outerPolygon])
       );
-      // Check if the clicked point is inside any hole
-      const isInsideGap = ourGaps.some((gap) =>
-        booleanPointInPolygon(ourPixelCoordsClickedPoint, polygon([gap])),
+  
+      // Check if the clicked point is inside any gap
+      const isInsideGap = gaps.some((gap) => booleanPointInPolygon(ourPixelCoordsClickedPoint, polygon([gap]))
       );
-      //merge the two
-      const correctClickedFeature = inOuterPoly && !isInsideGap;
+      //merge the two. mapId check needed to filter overlapping coords in diff mapIds.
+      const correctClickedFeature = inOuterPoly && !isInsideGap && markerMapId == songMapId;
 
-      //coords for <GeoJSON>
-      const convertedCoordinates = correctPolygons.map((polygon) =>
-        polygon //their pixel coords
-          .map(toOurPixelCoordinates) // 2.our pixel coords
-          .map((coordinate) => map.unproject(coordinate, zoom)) // 3. leaflet { latlng }
-          .map(({ lat, lng }) => [lng, lat]),
-      );
-
-      const correctPolygonData = {
+      const correctPolygonsData = polyGroups.map((polyGroup)=> {
+        return({
         type: 'Feature',
         geometry: {
           type: 'Polygon',
-          coordinates: convertedCoordinates,
+          coordinates: polyGroup,
         },
-      } as Feature<Polygon>;
+        properties: {}
+      } as Feature<Polygon>);})
 
       if (correctClickedFeature) {
         onMapClick({
           correct: true,
           distance: 0,
-          guessedPosition: markerPosition,
-          correctPolygon: correctPolygonData,
+          guessedPosition: {mapId: markerMapId, position: markerPosition},
+          correctPolygons: {mapId: songMapId , polygons: correctPolygonsData},
         });
       } else {
         //restored border distance calcs
-        const closestDistance = Math.min(
-          ...correctFeature.geometry.coordinates.map((polygon) =>
-            getDistanceToPolygon(
-              ourPixelCoordsClickedPoint,
-              polygon.map(toOurPixelCoordinates),
-            ),
-          ),
-        );
+        const closestDistance = GetTotalDistanceToPoly([markerPosition.lng, markerPosition.lat], markerMapId,
+           correctPolygon, songMapId)
 
         onMapClick({
           correct: false,
           distance: closestDistance,
-          guessedPosition: markerPosition,
-          correctPolygon: correctPolygonData,
+          guessedPosition: {mapId: markerMapId, position: markerPosition},
+          correctPolygons: {mapId: songMapId ,polygons: correctPolygonsData},
         });
       }
+      
+      const outerPolyCenter = getCenterOfPolygon(outerPolygon);
+
       setPanToOnAnswerRevealed(
-        map.unproject(getCenterOfPolygon(ourOuterPolygon), zoom),
+        {outerPolyCenter, songMapId}
       );
     },
   });
 
-  const [panToOnAnswerRevealed, setPanToOnAnswerRevealed] = useState<
-    L.LatLng | undefined
-  >();
+  const [panToOnAnswerRevealed, setPanToOnAnswerRevealed] = useState(
+    {outerPolyCenter: [0,0] as Point, 
+    songMapId: 0}
+  );
+
   useEffect(() => {
     if (
       panToOnAnswerRevealed &&
       gameState.status === GameStatus.AnswerRevealed
     ) {
-      map.panTo(panToOnAnswerRevealed!);
+        const outerPolyCenter = panToOnAnswerRevealed.outerPolyCenter;
+        const songMapId = panToOnAnswerRevealed.songMapId;
+        if(songMapId == currentMapId){
+          map.panTo([outerPolyCenter[1], outerPolyCenter[0]]);
+        }
+        else
+        {
+          setCurrentMapId(songMapId);
+          setMapCenter([outerPolyCenter[0], outerPolyCenter[1]]);
+        }    
     }
   }, [map, gameState.status, panToOnAnswerRevealed]);
 
   const renderGuessMarker = () => {
     if (
-      (gameState.status === GameStatus.Guessing && gameState.guess) ||
-      gameState.status === GameStatus.AnswerRevealed
+      ((gameState.status === GameStatus.Guessing && gameState.guess)
+      || gameState.status === GameStatus.AnswerRevealed)
+      && gameState.guess?.guessedPosition.mapId == currentMapId
     ) {
       return (
         <Marker
-          position={gameState.guess!.guessedPosition}
+          position={gameState.guess!.guessedPosition.position!}
           icon={
             new Icon({
               iconUrl: markerIconPng,
@@ -273,28 +246,32 @@ function RunescapeMap({
     }
   };
 
-  const renderCorrectPolygon = () => {
+  const renderCorrectPolygons = () => {
     if (gameState.status !== GameStatus.AnswerRevealed) return;
 
-    return (
-      <GeoJSON
-        data={gameState.guess!.correctPolygon}
-        style={() => ({
-          color: '#0d6efd', // Outline color
-          fillColor: '#0d6efd', // Fill color
-          weight: 5, // Outline thickness
-          fillOpacity: 0.5, // Opacity of fill
-          transition: 'all 2000ms',
-        })}
-      />
-    );
+    {/* render all polys on current mapId */}
+    {currentMapId == gameState.guess?.correctPolygons.mapId &&
+      gameState.guess?.correctPolygons.polygons!.map(correctPolygon => { 
+       console.log(correctPolygon);
+       return <GeoJSON
+         data={correctPolygon}
+         interactive={false}
+         style={() => ({
+           color: '#0d6efd', // Outline color
+           fillColor: '#0d6efd', // Fill color
+           weight: 5, // Outline thickness
+           fillOpacity: 0.5, // Opacity of fill
+           transition: 'all 2000ms',
+         })}
+       />
+    })}
   };
 
   return (
     <>
       <LinkClickboxes {...linksData}/>
       {renderGuessMarker()}
-      {renderCorrectPolygon()}
+      {renderCorrectPolygons()}
     </>
   );
 }
