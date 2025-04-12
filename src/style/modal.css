@@ -87,8 +87,8 @@
 }
 
 button {
-  background-color: transparent !important;
-  border: none !important;
+  background-color: transparent;
+  border: none;
 }
 
 button:disabled {
