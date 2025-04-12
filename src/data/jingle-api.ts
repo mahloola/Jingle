@@ -104,13 +104,13 @@ export async function getStatistics() {
 }
 
 export async function incrementGlobalGuessCounter() {
-  await post('/statistics/increment', {});
+  await post('api/statistics/increment', {});
 }
 
 export async function incrementSongSuccessCount(songName: string) {
-  await post(`/songs/${songName}/success`, {});
+  await post(`/api/songs/${songName}/success`, {});
 }
 
 export async function incrementSongFailureCount(songName: string) {
-  await post(`/songs/${songName}/failure`, {});
+  await post(`/api/songs/${songName}/failure`, {});
 }
