@@ -1,4 +1,4 @@
-import { GeoJsonObject } from 'geojson';
+import { Feature, Polygon } from 'geojson';
 import { LatLng } from 'leaflet';
 import { Region } from '../constants/regions';
 
@@ -34,7 +34,7 @@ export interface Guess {
   correct: boolean;
   distance: number;
   guessedPosition: LatLng;
-  correctPolygon: GeoJsonObject;
+  correctPolygon: Feature<Polygon>;
 }
 
 export interface GameSettings {
