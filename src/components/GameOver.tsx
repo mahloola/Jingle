@@ -1,7 +1,7 @@
 import { sum } from 'ramda';
 import '../style/resultScreen.css';
 import { DailyChallenge, GameState } from '../types/jingle';
-import { getNextUtc4AM } from '../utils/date-utils';
+import { getNextUtcMidnight } from '../utils/date-utils';
 import { isMobile } from '../utils/isMobile';
 import {
   calculateDailyChallengePercentile,
@@ -38,7 +38,7 @@ export default function GameOver({ gameState, dailyChallenge }: GameOverProps) {
         <div className='result-screen-data-row'>
           <div style={{ alignContent: 'center' }}>Next in</div>
           <div>
-            <NextDailyCountdown end={getNextUtc4AM()} />
+            <NextDailyCountdown end={getNextUtcMidnight()} />
           </div>
         </div>
         <hr />
@@ -52,10 +52,7 @@ export default function GameOver({ gameState, dailyChallenge }: GameOverProps) {
             </div>
           )}
 
-          <a
-            href='/'
-            className='result-screen-option'
-          >
+          <a href='/' className='result-screen-option'>
             Back to Home
           </a>
         </div>

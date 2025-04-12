@@ -7,13 +7,13 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(duration);
 
-export function getNextUtc4AM() {
+export function getNextUtcMidnight() {
   const now = dayjs().utc();
-  const next4AM =
-    now.hour() < 4
-      ? now.hour(4).minute(0).second(0)
-      : now.add(1, 'day').hour(4).minute(0).second(0);
-  return next4AM;
+  const nextMidnight =
+    now.hour() < 0
+      ? now.hour(0).minute(0).second(0)
+      : now.add(1, 'day').hour(0).minute(0).second(0);
+  return nextMidnight;
 }
 
 export const calculateTimeDifference = (startMs: number, endMs: number) => {

@@ -4,7 +4,10 @@ import { LOCAL_STORAGE } from '../constants/localStorage';
 import { getStatistics } from '../data/jingle-api';
 import '../style/mainMenu.css';
 import { DailyChallenge } from '../types/jingle';
-import { getCurrentDateInBritain, getNextUtc4AM } from '../utils/date-utils';
+import {
+  getCurrentDateInBritain,
+  getNextUtcMidnight,
+} from '../utils/date-utils';
 import NextDailyCountdown from './NextDailyCountdown';
 
 interface MainMenuProps {
@@ -42,7 +45,7 @@ export default function MainMenu({
         onClick={onDailyJingleClick}
       >
         Daily Jingle
-        {dailyCompleted && <NextDailyCountdown end={getNextUtc4AM()} />}
+        {dailyCompleted && <NextDailyCountdown end={getNextUtcMidnight()} />}
         {!dailyCompleted && <div style={{ color: '#00FF00' }}>Ready</div>}{' '}
         <div style={{ fontSize: '40%' }}>
           {dailyChallenge?.results.length.toLocaleString()} Completions
@@ -76,16 +79,10 @@ export default function MainMenu({
         >
           <FaGithub />
         </a>
-        <a
-          className='main-menu-icon'
-          href='https://discord.gg/7sB8fyUS9W'
-        >
+        <a className='main-menu-icon' href='https://discord.gg/7sB8fyUS9W'>
           <FaDiscord />
         </a>
-        <a
-          className='main-menu-icon'
-          href='https://ko-fi.com/mahloola'
-        >
+        <a className='main-menu-icon' href='https://ko-fi.com/mahloola'>
           <FaDonate />
         </a>
       </div>
