@@ -96,13 +96,18 @@ export default function StatsModalButton() {
           onChange={(e) => setSearchString(e.target.value)}
         />
 
-        <div className='song-stats'>
-          {sortedAndFilteredSongs.map((song) => (
-            <div className='modal-line' key={song.name}>
-              <span>{song.name}</span>
-              <span>{successRate(song).toFixed(2)}%</span>
-            </div>
-          ))}
+        <div
+          className='osrs-frame-dark'
+          style={{ width: '100%', padding: '6px 7px 6px 0' }}
+        >
+          <div className='song-stats'>
+            {sortedAndFilteredSongs.map((song) => (
+              <div className='modal-line' key={song.name}>
+                <span>{song.name}</span>
+                <span>{successRate(song).toFixed(2)}%</span>
+              </div>
+            ))}
+          </div>
         </div>
       </Modal>
     </>

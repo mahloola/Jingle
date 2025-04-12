@@ -15,7 +15,7 @@ const modalStyles: Styles = {
   content: {
     display: 'flex',
     background: COLORS.brown,
-    padding: '30px',
+    padding: '16px 24px 24px 24px',
     outline: '2px solid #363029',
     position: 'fixed',
     width: '350px',
@@ -45,29 +45,26 @@ export default function Modal({
 }: ModalProps) {
   return (
     <ReactModal
-      className='modal-container'
+      className='osrs-frame modal-container'
       isOpen={open}
       onRequestClose={onClose}
       style={modalStyles}
       contentLabel='Example Modal'
     >
       {children}
-      <div className={'modal-options'}>
+      <div className='modal-options'>
+        <button className='osrs-btn modal-action-btn' onClick={onClose}>
+          Close
+        </button>
         {onApplySettings && (
           <button
-            className='modal-close-button'
+            className='osrs-btn modal-action-btn'
             onClick={onApplySettings}
             disabled={saveDisabled}
           >
             Save
           </button>
         )}
-        <button
-          className='modal-close-button'
-          onClick={onClose}
-        >
-          Close
-        </button>
       </div>
     </ReactModal>
   );

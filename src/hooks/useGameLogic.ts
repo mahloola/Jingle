@@ -1,21 +1,13 @@
-import { GeoJsonObject } from 'geojson';
-import { LatLng } from 'leaflet';
 import { useState } from 'react';
 import {
   DailyChallenge,
   GameSettings,
   GameState,
   GameStatus,
+  Guess,
 } from '../types/jingle';
 import { calculateTimeDifference } from '../utils/date-utils';
 import { clone } from 'ramda';
-
-export interface Guess {
-  correct: boolean;
-  distance: number;
-  guessedPosition: LatLng;
-  correctPolygon: GeoJsonObject;
-}
 
 export default function useGameLogic(
   dailyChallenge: DailyChallenge,

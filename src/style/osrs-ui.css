@@ -1,0 +1,41 @@
+.osrs-btn {
+  color: #edfd07;
+  text-shadow: 1px 1px 1px black;
+  white-space: nowrap;
+
+  transition: all 0.2s;
+
+  border-image-source: url('/assets/osrs_button.png');
+  border-image-slice: 36 fill;
+  border-image-repeat: round;
+  border-image-width: 10px;
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+  &:disabled {
+    color: #000;
+    text-shadow: none;
+    filter: saturate(0.0) brightness(1.40) contrast(0.45) ;
+  }
+}
+
+div.osrs-stone-btn {
+  background: url('/assets/osrs_chat_button.png');
+  background-size: contain;
+  aspect-ratio: 57/24;
+}
+
+.osrs-frame {
+  border-image-source: url('/assets/osrs_frame.png');
+  border-image-slice: 36 fill;
+  border-image-repeat: repeat;
+  border-image-width: 8px;
+}
+
+.osrs-frame-dark {
+  border-image-source: url('/assets/osrs_frame_dark.png');
+  border-image-slice: 36 fill;
+  border-image-repeat: repeat;
+  border-image-width: 8px;
+}

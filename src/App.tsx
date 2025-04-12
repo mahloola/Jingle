@@ -1,13 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './style/leaflet.css';
+import './App.css';
+import './style/audio.css';
+import './style/uiBox.css';
+import './style/osrs-ui.css';
 import { useState } from 'react';
 import useSWR from 'swr';
 import { match } from 'ts-pattern';
-import './App.css';
 import DailyJingle from './components/DailyJingle';
 import MainMenu from './components/MainMenu';
 import Practice from './components/Practice';
 import { getDailyChallenge } from './data/jingle-api';
-import './style/leaflet.css';
 import { Screen } from './types/jingle';
 import { getCurrentDateInBritain } from './utils/date-utils';
 

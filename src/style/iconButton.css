@@ -1,24 +1,25 @@
-.icon-button {
+.osrs-btn.icon-button {
   position: relative;
-  width: 61.44px;
+  width: 62px;
   height: 42px;
-  transition: all 0.3s;
   z-index: 99999;
-  background-size: cover;
-}
-.icon-button:hover {
-  cursor: pointer;
-  opacity: 0.8;
-  transform: translate(-5px, 0px);
-}
+  border-image-width: 14px;
 
-@media (max-width: 768px) {
-  .icon-button {
-    right: 10px;
+  padding: 6px;
+
+  img {
+    width: auto;
+    height: 100%;
+  }
+  &:hover {
+    transform: translate(-5px, 0px);
+  }
+  @media (max-width: 768px) {
     width: 55px;
-    height: 37.5px;
+    height: 38px;
   }
 }
+
 
 .notification-badge {
   position: absolute;

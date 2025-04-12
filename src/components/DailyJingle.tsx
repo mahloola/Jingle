@@ -1,7 +1,6 @@
 import { sum } from 'ramda';
 import { useEffect, useRef } from 'react';
 import { match } from 'ts-pattern';
-import { ASSETS } from '../constants/assets';
 import { DEFAULT_PREFERENCES } from '../constants/defaultPreferences';
 import { LOCAL_STORAGE } from '../constants/localStorage';
 import {
@@ -10,13 +9,13 @@ import {
   incrementSongSuccessCount,
   postDailyChallengeResult,
 } from '../data/jingle-api';
-import useGameLogic, { Guess } from '../hooks/useGameLogic';
-import '../style/uiBox.css';
+import useGameLogic from '../hooks/useGameLogic';
 import {
   DailyChallenge,
   GameSettings,
   GameState,
   GameStatus,
+  Guess,
   Screen,
   UserPreferences,
 } from '../types/jingle';
@@ -30,7 +29,6 @@ import {
 import { getCurrentDateInBritain } from '../utils/date-utils';
 import { copyResultsToClipboard, getJingleNumber } from '../utils/jingle-utils';
 import { playSong } from '../utils/playSong';
-import DailyGuessLabel from './DailyGuessLabel';
 import Footer from './Footer';
 import GameOver from './GameOver';
 import RoundResult from './RoundResult';
@@ -49,7 +47,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
 
   const initialGameState: GameState = loadGameStateFromBrowser(
-    jingleNumber
+    jingleNumber,
   ) || {
     settings: {
       hardMode: currentPreferences.preferHardMode,
@@ -71,7 +69,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     }
     localStorage.setItem(
       LOCAL_STORAGE.gameState(jingleNumber),
-      JSON.stringify(gameState)
+      JSON.stringify(gameState),
     );
   };
 
@@ -83,7 +81,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       audioRef,
       initialGameState.songs[gameState.round],
       initialGameState.settings.oldAudio,
-      initialGameState.settings.hardMode
+      initialGameState.settings.hardMode,
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -110,7 +108,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       // submit daily challenge
       localStorage.setItem(
         LOCAL_STORAGE.dailyComplete,
-        getCurrentDateInBritain()
+        getCurrentDateInBritain(),
       );
       postDailyChallengeResult(sum(gameState.scores));
     }
@@ -130,7 +128,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       audioRef,
       songName,
       gameState.settings.oldAudio,
-      gameState.settings.hardMode
+      gameState.settings.hardMode,
     );
   };
 
@@ -147,19 +145,20 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const button = (props: {
     label: string;
     disabled?: boolean;
-    onClick?: () => any;
+    onClick: () => any;
   }) => (
     <button
-      className='guess-btn-container'
+      className='osrs-btn guess-btn'
       onClick={props.onClick}
-      style={{
-        pointerEvents: !props.onClick || props.disabled ? 'none' : 'auto',
-        opacity: props.disabled ? 0.5 : 1,
-      }}
+      disabled={props.disabled}
+      style={{ pointerEvents: !props.onClick ? 'none' : 'auto' }}
     >
-      <img src={ASSETS['labelWide']} alt='OSRS Button' />
-      <div className='guess-btn'>{props.label}</div>
+      {props.label}
     </button>
+  );
+
+  const scoreLabel = (score: number | undefined) => (
+    <div className='osrs-stone-btn score-label'>{score ?? '-'}</div>
   );
 
   return (
@@ -179,14 +178,6 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
             <StatsModalButton />
           </div>
           <div className='below-map'>
-            <div style={{ display: 'flex', gap: '2px' }}>
-              <DailyGuessLabel number={gameState.scores[0]} />
-              <DailyGuessLabel number={gameState.scores[1]} />
-              <DailyGuessLabel number={gameState.scores[2]} />
-              <DailyGuessLabel number={gameState.scores[3]} />
-              <DailyGuessLabel number={gameState.scores[4]} />
-            </div>
-
             {match(gameState.status)
               .with(GameStatus.Guessing, () => {
                 if (currentPreferences.preferConfirmation) {
@@ -196,7 +187,11 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
                     disabled: !gameState.guess,
                   });
                 } else {
-                  return button({ label: 'Place your pin on the map' });
+                  return (
+                    <div className='osrs-frame guess-btn'>
+                      Place your pin on the map
+                    </div>
+                  );
                 }
               })
               .with(GameStatus.AnswerRevealed, () => {
@@ -210,9 +205,17 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
                 button({
                   label: 'Copy Results',
                   onClick: () => copyResultsToClipboard(gameState),
-                })
+                }),
               )
               .exhaustive()}
+
+            <div style={{ width: '100%', display: 'flex', gap: '2px' }}>
+              {scoreLabel(gameState.scores[0])}
+              {scoreLabel(gameState.scores[1])}
+              {scoreLabel(gameState.scores[2])}
+              {scoreLabel(gameState.scores[3])}
+              {scoreLabel(gameState.scores[4])}
+            </div>
 
             <audio controls id='audio' ref={audioRef} />
 

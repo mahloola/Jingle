@@ -3,29 +3,22 @@
   text-shadow: 1px 1px 1px black;
   top: 75%;
   left: 40%;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   z-index: 999 !important;
 }
 
-.guess-btn-container {
-  position: relative;
-  cursor: pointer;
-}
-
-.guess-btn-container:hover {
-  filter: brightness(0.8);
-  transition: all 0.3s;
+.score-label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .guess-btn {
-  white-space: nowrap;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
-  text-shadow: 1px 1px 1px black;
-  color: #edfd07;
+  width: 100%;
+  max-width: 250px;
+  padding: 6px 0px;
 }
 
 .below-map {

@@ -23,7 +23,7 @@ export default function NewsModalButton() {
     <>
       <IconButton
         onClick={() => setOpen(true)}
-        img={ASSETS['news']}
+        img={ASSETS['newsIcon']}
         unseenAnnouncement={seenAnnouncementId === null}
       />
       <Modal open={open} onClose={closeModal}>
@@ -59,7 +59,7 @@ export default function NewsModalButton() {
           &emsp;- Edge distance calculation (vs center) &emsp;- Result copying
           stats fixed for mobile
         </p>
-        <p>
+        <p style={{ margin: '0' }}>
           Hi guys, this is <span className='link'>mahloola</span>.
           <br />
           Thank you for playing Jingle! We notice and appreciate you all. Big

@@ -1,32 +1,23 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import useSWR from 'swr';
+import { useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
-import { ASSETS } from '../constants/assets';
 import { DEFAULT_PREFERENCES } from '../constants/defaultPreferences';
 import { Region } from '../constants/regions';
 import {
-  getSongList,
   incrementGlobalGuessCounter,
   incrementSongFailureCount,
   incrementSongSuccessCount,
 } from '../data/jingle-api';
-import { Guess } from '../hooks/useGameLogic';
-import '../style/audio.css';
-import '../style/uiBox.css';
 import {
   GameState,
   GameStatus,
-  ModalType,
+  Guess,
   Screen,
-  Song,
   UserPreferences,
 } from '../types/jingle';
 import {
   incrementLocalGuessCount,
   loadPreferencesFromBrowser,
-  loadSeenAnnouncementIdFromBrowser,
   savePreferencesToBrowser,
-  setSeenAnnouncementIdToBrowser,
   updateGuessStreak,
 } from '../utils/browserUtil';
 import { getRandomSong } from '../utils/getRandomSong';
@@ -60,6 +51,7 @@ export default function Practice() {
     guess: null,
   };
   const [gameState, setGameState] = useState<GameState>(initialGameState);
+  console.log('gameState:', gameState);
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -142,18 +134,15 @@ export default function Practice() {
   const button = (props: {
     label: string;
     disabled?: boolean;
-    onClick?: () => any;
+    onClick: () => any;
   }) => (
     <button
-      className='guess-btn-container'
+      className='osrs-btn guess-btn'
       onClick={props.onClick}
-      style={{
-        pointerEvents: !props.onClick || props.disabled ? 'none' : 'auto',
-        opacity: props.disabled ? 0.5 : 1,
-      }}
+      disabled={props.disabled}
+      style={{ pointerEvents: !props.onClick ? 'none' : 'auto' }}
     >
-      <img src={ASSETS['labelWide']} alt='OSRS Button' />
-      <div className='guess-btn'>{props.label}</div>
+      {props.label}
     </button>
   );
 
@@ -184,7 +173,11 @@ export default function Practice() {
                     disabled: !gameState.guess,
                   });
                 } else {
-                  return button({ label: 'Place your pin on the map' });
+                  return (
+                    <div className='osrs-frame guess-btn'>
+                      Place your pin on the map
+                    </div>
+                  );
                 }
               })
               .with(GameStatus.AnswerRevealed, () =>

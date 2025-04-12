@@ -12,11 +12,8 @@ export default function IconButton({
   ...props
 }: IconButtonProps) {
   return (
-    <button
-      className={'icon-button'}
-      style={{ backgroundImage: `url(${img})` }}
-      {...props}
-    >
+    <button className='osrs-btn icon-button' {...props}>
+      <img src={img} alt='OSRS Button' />
       {unseenAnnouncement && <span className='notification-badge'>1</span>}
     </button>
   );

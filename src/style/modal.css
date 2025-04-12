@@ -1,20 +1,8 @@
-.modal-close-button {
-  background-color: #363029 !important;
-  color: #edfd07;
-  padding: 5px;
-  margin-top: 10px;
-  min-width: 40% !important;
-  border-radius: 5px;
-}
 
 .modal-container h2 {
   margin-bottom: 10px;
 }
 
-.modal-close-button:hover {
-  background-color: #928270 !important;
-  transition: 0.2s;
-}
 
 .regions-table {
   display: flex;
@@ -91,16 +79,12 @@ button {
   border: none;
 }
 
-button:disabled {
-  pointer-events: none;
-  opacity: 0.5;
-}
-
 ::-webkit-scrollbar {
   width: 3px !important;
 }
 
 .song-stats {
+  padding: 0 12px;
   height: 120px;
   width: 100%;
   overflow-y: auto;
@@ -129,6 +113,9 @@ input[type='search'] {
   margin-bottom: 5px;
   height: 32px;
 }
+input::placeholder {
+  color: #edfd0788;
+}
 
 input:focus {
   outline: none;
@@ -143,9 +130,14 @@ input:focus {
 }
 
 .modal-options {
-  width: 80%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 16px;
+}
+
+.osrs-btn.modal-action-btn {
+  padding: 4px 16px;
+  margin-top: 10px;
 }
 
 .react-tooltip {

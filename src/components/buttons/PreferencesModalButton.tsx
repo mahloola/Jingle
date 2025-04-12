@@ -56,7 +56,7 @@ export default function SettingsModalButton({
 
   return (
     <>
-      <IconButton onClick={() => setOpen(true)} img={ASSETS['settings']} />
+      <IconButton onClick={() => setOpen(true)} img={ASSETS['settingsIcon']} />
       <Modal
         open={open}
         onClose={() => setOpen(false)}

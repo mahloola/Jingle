@@ -3,20 +3,14 @@ import '../style/footer.css';
 
 export default function Footer() {
   return (
-    <div className='footer'>
+    <div className='osrs-frame footer'>
       <div>
         developed by{' '}
-        <a
-          href='https://twitter.com/mahloola'
-          className='link'
-        >
+        <a href='https://twitter.com/mahloola' className='link'>
           mahloola
         </a>{' '}
         and{' '}
-        <a
-          href='https://twitter.com/FunOrange42'
-          className='link'
-        >
+        <a href='https://twitter.com/FunOrange42' className='link'>
           FunOrange
         </a>
       </div>
@@ -29,16 +23,10 @@ export default function Footer() {
         >
           <FaGithub />
         </a>
-        <a
-          className='icon'
-          href='https://discord.gg/7sB8fyUS9W'
-        >
+        <a className='icon' href='https://discord.gg/7sB8fyUS9W'>
           <FaDiscord />
         </a>
-        <a
-          className='icon'
-          href='https://ko-fi.com/mahloola'
-        >
+        <a className='icon' href='https://ko-fi.com/mahloola'>
           <FaDonate />
         </a>
       </span>
