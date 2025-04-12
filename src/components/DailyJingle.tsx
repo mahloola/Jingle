@@ -1,12 +1,10 @@
 import { sum } from 'ramda';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import useSWR from 'swr';
+import { useEffect, useRef } from 'react';
 import { match } from 'ts-pattern';
 import { ASSETS } from '../constants/assets';
 import { DEFAULT_PREFERENCES } from '../constants/defaultPreferences';
 import { LOCAL_STORAGE } from '../constants/localStorage';
 import {
-  getSongList,
   incrementGlobalGuessCounter,
   incrementSongFailureCount,
   incrementSongSuccessCount,
@@ -19,18 +17,15 @@ import {
   GameSettings,
   GameState,
   GameStatus,
-  ModalType,
   Screen,
-  Song,
   UserPreferences,
 } from '../types/jingle';
 import {
   incrementLocalGuessCount,
   loadGameStateFromBrowser,
   loadPreferencesFromBrowser,
-  loadSeenAnnouncementIdFromBrowser,
   savePreferencesToBrowser,
-  setSeenAnnouncementIdToBrowser,
+  updateGuessStreak,
 } from '../utils/browserUtil';
 import { getCurrentDateInBritain } from '../utils/date-utils';
 import { copyResultsToClipboard, getJingleNumber } from '../utils/jingle-utils';
@@ -54,7 +49,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
 
   const initialGameState: GameState = loadGameStateFromBrowser(
-    jingleNumber,
+    jingleNumber
   ) || {
     settings: {
       hardMode: currentPreferences.preferHardMode,
@@ -76,7 +71,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     }
     localStorage.setItem(
       LOCAL_STORAGE.gameState(jingleNumber),
-      JSON.stringify(gameState),
+      JSON.stringify(gameState)
     );
   };
 
@@ -88,7 +83,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       audioRef,
       initialGameState.songs[gameState.round],
       initialGameState.settings.oldAudio,
-      initialGameState.settings.hardMode,
+      initialGameState.settings.hardMode
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -103,9 +98,11 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     if (gameState.guess!.correct) {
       incrementLocalGuessCount(true);
       incrementSongSuccessCount(currentSong);
+      updateGuessStreak(true);
     } else {
       incrementLocalGuessCount(false);
       incrementSongFailureCount(currentSong);
+      updateGuessStreak(false);
     }
 
     const isLastRound = gameState.round === gameState.songs.length - 1;
@@ -113,7 +110,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       // submit daily challenge
       localStorage.setItem(
         LOCAL_STORAGE.dailyComplete,
-        getCurrentDateInBritain(),
+        getCurrentDateInBritain()
       );
       postDailyChallengeResult(sum(gameState.scores));
     }
@@ -133,7 +130,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       audioRef,
       songName,
       gameState.settings.oldAudio,
-      gameState.settings.hardMode,
+      gameState.settings.hardMode
     );
   };
 
@@ -213,7 +210,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
                 button({
                   label: 'Copy Results',
                   onClick: () => copyResultsToClipboard(gameState),
-                }),
+                })
               )
               .exhaustive()}
 
