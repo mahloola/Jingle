@@ -65,8 +65,9 @@ export default function SettingsModalButton({
       >
         <img
           className='modal-bg-image'
-          src='https://storage.googleapis.com/jingle-media/settings.png'
-        ></img>
+          src={ASSETS['settingsIcon']}
+          style={{ width: '100px' }}
+        />
         <h2>Settings</h2>
         <table className={'settings-table'}>
           <tbody>

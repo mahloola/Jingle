@@ -13,9 +13,8 @@ import {
   useMapEvents,
 } from 'react-leaflet';
 import geojsondata from '../data/GeoJSON';
-import { Guess } from '../hooks/useGameLogic';
 import { Point } from '../types/geometry';
-import { GameState, GameStatus } from '../types/jingle';
+import { GameState, GameStatus, Guess } from '../types/jingle';
 import {
   calculateDistance,
   closePolygon,

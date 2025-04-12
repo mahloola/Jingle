@@ -4,7 +4,7 @@ export const ASSETS = {
   // statsIcon: 'https://storage.googleapis.com/jingle-media/stats.png',
   newsIcon: '/assets/osrs_newspaper.png',
   // settingsIcon: 'https://storage.googleapis.com/jingle-media/settings.png',
-  settingsIcon: '/assets/osrs_settings_cog.png',
+  settingsIcon: '/assets/osrs_wrench.png',
   // stats: 'https://storage.googleapis.com/jingle-media/osrsStatsButton2.png',
   stats: '/assets/osrs_skills.png',
   // settings:
