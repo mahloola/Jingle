@@ -1,9 +1,9 @@
 import { booleanContains, booleanPointInPolygon, polygon } from '@turf/turf';
-import { GeoJsonObject } from 'geojson';
+import { Feature, Polygon } from 'geojson';
 import L, { CRS, Icon } from 'leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/leaflet.css';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   GeoJSON,
   MapContainer,
@@ -145,7 +145,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
           type: 'Polygon',
           coordinates: convertedCoordinates,
         },
-      } as GeoJsonObject;
+      } as Feature<Polygon>;
 
       if (correctClickedFeature) {
         onMapClick({
