@@ -6,16 +6,18 @@ interface IconButtonProps
   img: string;
   unseenAnnouncement?: boolean;
 }
-export default function IconButton({ img, ...props }: IconButtonProps) {
+export default function IconButton({
+  img,
+  unseenAnnouncement,
+  ...props
+}: IconButtonProps) {
   return (
     <button
       className={'icon-button'}
       style={{ backgroundImage: `url(${img})` }}
       {...props}
     >
-      {props.unseenAnnouncement && (
-        <span className='notification-badge'>1</span>
-      )}
+      {unseenAnnouncement && <span className='notification-badge'>1</span>}
     </button>
   );
 }
