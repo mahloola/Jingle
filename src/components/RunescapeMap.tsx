@@ -23,7 +23,15 @@ import {
   getDistanceToPolygon,
   toOurPixelCoordinates,
 } from '../utils/map-utils';
-const outerBounds = new L.LatLngBounds(L.latLng(-78, 0), L.latLng(0, 136.696));
+import { 
+   ConfigureNearestNeighbor,
+   HandleMapZoom, 
+   InternalMapState
+} from '../utils/map-config';
+import basemaps from '../data/basemaps';
+import { groupedLinks } from '../data/GroupedLinks';
+import LinkClickboxes from './LinkClickboxes';
+import CustomTileLayer from './CustomTileLayer';
 
 interface RunescapeMapProps {
   gameState: GameState;
@@ -31,38 +39,93 @@ interface RunescapeMapProps {
   className?: string;
 }
 
+const mapIdPadding = 256; //in game tiles
+
+
 export default function RunescapeMapWrapper({
   className,
   ...props
 }: RunescapeMapProps) {
   const mapRef = useRef<L.Map>(null);
+
+  //map state 
+  const [currentMapId, setCurrentMapId] = useState(0);
+  const [zoom, setZoom] = useState(1); 
+  const [mapCenter, setMapCenter] = useState([3222, 3218]); //lumby
+  const [markerState, setMarkerState] = useState({
+    markerPosition: null as L.LatLng | null,
+    markerMapId: 0,
+  });
+
+  const currentMap = basemaps[currentMapId];
   return (
     <MapContainer
       ref={mapRef}
-      center={[-35, 92.73]}
-      zoom={5}
-      maxZoom={6}
-      minZoom={4}
-      style={{ height: '100dvh', width: '100%' }}
-      maxBounds={outerBounds}
-      maxBoundsViscosity={1}
+      key={currentMapId} 
+      center={[mapCenter[1], mapCenter[0]]}
+      zoom={zoom}
+      maxZoom={3}
+      minZoom={0}
+      style={{ height: '100dvh', width: '100%', background: "black" }}
+      maxBoundsViscosity={0.5} //necessary for smooth dungeon...eering experience.
       crs={CRS.Simple}
       className={className}
+      maxBounds={[
+        [currentMap.bounds[0][1] - mapIdPadding, currentMap.bounds[0][0] - mapIdPadding],                                     
+        [currentMap.bounds[1][1] + mapIdPadding, currentMap.bounds[1][0] + mapIdPadding],
+      ]}
     >
-      <RunescapeMap {...props} />
-      <TileLayer attribution='offline' url={`/rsmap-tiles/{z}/{x}/{y}.png`} />
+      <CustomTileLayer currentMapId={currentMapId}/>
+      <RunescapeMap 
+        {...props} 
+        setMapCenter={setMapCenter} 
+        zoom={zoom} setZoom={setZoom} 
+        markerState={markerState} setMarkerState={setMarkerState}
+        currentMapId={currentMapId} setCurrentMapId={setCurrentMapId}  
+      />
     </MapContainer>
   );
 }
 
-function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
+function RunescapeMap({ 
+    gameState, onMapClick, 
+    currentMapId, setCurrentMapId, 
+    markerState, setMarkerState,
+    zoom, setZoom,
+    setMapCenter
+}: InternalMapState
+) {
   const map = useMap();
+  const currentMap = basemaps[currentMapId];
 
+  //trigger. better solutions?
+  const linkClick = useRef(false); 
+
+  //map links
+  const linksData = {
+    mapIdLinks: groupedLinks[currentMap.name],
+    setCurrentMapId: setCurrentMapId,
+    setMapCenter: setMapCenter,
+    linkClick: linkClick,
+    map: map,
+  }
+
+  //override map zoom, to not reset when changing mapIds
+  useEffect(()=>{
+    HandleMapZoom(map, setZoom);
+  },[zoom])
+ 
   useMapEvents({
     click: async (e) => {
       if (gameState.status !== GameStatus.Guessing) {
         return;
       }
+
+      //maplink consume click event
+      if(linkClick.current){
+        linkClick.current = false; 
+        return; 
+      } 
 
       const markerPosition = e.latlng;
       const zoom = map.getMaxZoom();
@@ -229,9 +292,9 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
 
   return (
     <>
+      <LinkClickboxes {...linksData}/>
       {renderGuessMarker()}
       {renderCorrectPolygon()}
-      <TileLayer attribution='offline' url={`/rsmap-tiles/{z}/{x}/{y}.png`} />
     </>
   );
 }

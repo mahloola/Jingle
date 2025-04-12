@@ -1,6 +1,8 @@
 import { Feature, Polygon, Position } from 'geojson';
 import { Line, Point } from '../types/geometry';
 import { decodeHTML } from './string-utils';
+import { ConvertedFeature } from '../data/GeoJSON';
+import { LINKLESS_MAP_IDS } from './map-config';
 
 const scaleFactor = 3;
 // Ours refers to the pixel coordinates of the map grid we're using
@@ -85,10 +87,15 @@ export const getDistanceToLine = (point: [number, number], line: Line) => {
   return Math.sqrt(dx * dx + dy * dy);
 };
 
-export const isFeatureVisibleOnMap = (feature: Feature<Polygon>) =>
-  feature.geometry.coordinates.some((polygon) =>
-    polygon.every((point) => {
-      const [, y] = toOurPixelCoordinates(point);
-      return y > 0;
-    }),
-  );
+// export const isFeatureVisibleOnMap = (feature: Feature<Polygon>) =>
+//   feature.geometry.coordinates.some((polygon) =>
+//     polygon.every((point) => {
+//       const [, y] = toOurPixelCoordinates(point);
+//       return y > 0;
+//     }),
+//   );
+
+export const isFeatureVisibleOnMap = (feature: ConvertedFeature) => {
+  return feature.convertedGeometry.some(polyData => LINKLESS_MAP_IDS.includes(polyData.mapId)) == false 
+  && feature.convertedGeometry.length > 0
+}
