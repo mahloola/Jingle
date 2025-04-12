@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { match } from 'ts-pattern';
 import { DEFAULT_PREFERENCES } from '../constants/defaultPreferences';
 import { Region } from '../constants/regions';
@@ -8,12 +8,13 @@ import {
   incrementSongSuccessCount,
 } from '../data/jingle-api';
 import {
+  GameSettings,
   GameState,
   GameStatus,
-  Guess,
   Screen,
   UserPreferences,
 } from '../types/jingle';
+import L from 'leaflet';
 import {
   incrementLocalGuessCount,
   loadPreferencesFromBrowser,
@@ -29,8 +30,11 @@ import HomeButton from './buttons/HomeButton';
 import NewsModalButton from './buttons/NewsModalButton';
 import SettingsModalButton from './buttons/PreferencesModalButton';
 import StatsModalButton from './buttons/StatsModalButton';
+import useGameLogic from '../hooks/useGameLogic';
 
 export default function Practice() {
+  const mapRef = useRef<L.Map>(null);
+
   const currentPreferences =
     loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
   const enabledRegions = (
@@ -48,13 +52,12 @@ export default function Practice() {
     scores: [],
     startTime: Date.now(),
     timeTaken: null,
-    guess: null,
+    leaflet_ll_click: null,
   };
-  const [gameState, setGameState] = useState<GameState>(initialGameState);
-  console.log('gameState:', gameState);
+  const jingle = useGameLogic(mapRef, initialGameState);
+  const gameState = jingle.gameState;
 
   const audioRef = useRef<HTMLAudioElement>(null);
-
   useEffect(() => {
     playSong(
       audioRef,
@@ -65,24 +68,14 @@ export default function Practice() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const setGuess = (guess: Guess): GameState => {
-    const newGameState = { ...gameState, guess };
-    setGameState(newGameState);
-    return newGameState;
-  };
-
   const confirmGuess = (latestGameState?: GameState) => {
-    const newGameState = latestGameState ?? gameState;
-    const score = Math.round(
-      newGameState.guess!.correct
-        ? 1000
-        : (1000 * 1) / Math.exp(0.0018 * newGameState.guess!.distance),
-    );
+    const gameState = jingle.confirmGuess(latestGameState);
 
     // update statistics
     incrementGlobalGuessCounter();
-    const currentSong = newGameState.songs[newGameState.round];
-    if (newGameState.guess!.correct) {
+    const currentSong = gameState.songs[gameState.round];
+    const correct = gameState.scores[gameState.round] === 1000;
+    if (correct) {
       incrementSongSuccessCount(currentSong);
       incrementLocalGuessCount(true);
       updateGuessStreak(true);
@@ -91,24 +84,12 @@ export default function Practice() {
       incrementLocalGuessCount(false);
       updateGuessStreak(false);
     }
-
-    setGameState((prev) => ({
-      ...prev,
-      status: GameStatus.AnswerRevealed,
-      scores: [...prev.scores, score],
-    }));
   };
 
   const nextSong = () => {
     const newSong = getRandomSong(enabledRegions);
-    setGameState((prev) => ({
-      ...prev,
-      round: prev.round + 1,
-      status: GameStatus.Guessing,
-      songs: [...prev.songs, newSong],
-      guess: null,
-    }));
-
+    const gameState = jingle.addSong(newSong);
+    jingle.nextSong(gameState);
     playSong(
       audioRef,
       newSong,
@@ -118,16 +99,12 @@ export default function Practice() {
   };
 
   const updatePreferences = (preferences: UserPreferences) => {
-    const { preferHardMode, preferOldAudio } = preferences;
+    const newSettings: GameSettings = {
+      hardMode: preferences.preferHardMode,
+      oldAudio: preferences.preferOldAudio,
+    };
+    jingle.updateGameSettings(newSettings);
 
-    setGameState((prev) => ({
-      ...prev,
-      settings: {
-        ...prev.settings,
-        hardMode: preferHardMode,
-        oldAudio: preferOldAudio,
-      },
-    }));
     savePreferencesToBrowser(preferences);
   };
 
@@ -170,7 +147,7 @@ export default function Practice() {
                   return button({
                     label: 'Confirm guess',
                     onClick: () => confirmGuess(),
-                    disabled: !gameState.guess,
+                    disabled: !gameState.leaflet_ll_click,
                   });
                 } else {
                   return (
@@ -201,9 +178,10 @@ export default function Practice() {
       </div>
 
       <RunescapeMap
+        mapRef={mapRef}
         gameState={gameState}
-        onMapClick={(guess: Guess) => {
-          const newGameState = setGuess(guess);
+        onMapClick={(leaflet_ll_click: L.LatLng) => {
+          const newGameState = jingle.setClickedPosition(leaflet_ll_click);
           if (!currentPreferences.preferConfirmation) {
             confirmGuess(newGameState); // confirm immediately
           }

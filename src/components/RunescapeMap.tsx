@@ -1,7 +1,7 @@
 import L, { CRS, Icon } from 'leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/leaflet.css';
-import { useEffect, useRef } from 'react';
+import { RefObject, useEffect, useMemo, useRef } from 'react';
 import {
   GeoJSON,
   MapContainer,
@@ -10,7 +10,7 @@ import {
   useMap,
   useMapEvents,
 } from 'react-leaflet';
-import { GameState, GameStatus, Guess } from '../types/jingle';
+import { GameState, GameStatus } from '../types/jingle';
 import {
   findNearestPolygonWhereSongPlays,
   getCenterOfPolygon,
@@ -21,15 +21,13 @@ const outerBounds = new L.LatLngBounds(L.latLng(-78, 0), L.latLng(0, 136.696));
 
 interface RunescapeMapProps {
   gameState: GameState;
-  onMapClick: (guess: Guess) => void;
-  className?: string;
+  onMapClick: (leaflet_ll_click: L.LatLng) => void;
 }
 
 export default function RunescapeMapWrapper({
-  className,
+  mapRef,
   ...props
-}: RunescapeMapProps) {
-  const mapRef = useRef<L.Map>(null);
+}: RunescapeMapProps & { mapRef: RefObject<L.Map | null> }) {
   return (
     <MapContainer
       ref={mapRef}
@@ -41,7 +39,6 @@ export default function RunescapeMapWrapper({
       maxBounds={outerBounds}
       maxBoundsViscosity={1}
       crs={CRS.Simple}
-      className={className}
     >
       <RunescapeMap {...props} />
       <TileLayer attribution='offline' url={`/rsmap-tiles/{z}/{x}/{y}.png`} />
@@ -55,21 +52,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
   useMapEvents({
     click: async (e) => {
       if (gameState.status !== GameStatus.Guessing) return;
-
-      const song = gameState.songs[gameState.round];
-      const leaflet_ll_click = e.latlng;
-      const { polygon, distance } = findNearestPolygonWhereSongPlays(
-        map,
-        song,
-        leaflet_ll_click,
-      );
-
-      onMapClick({
-        correct: distance === 0,
-        distance: distance,
-        guessedPosition: leaflet_ll_click,
-        correctPolygon: polygon,
-      });
+      onMapClick(e.latlng);
     },
   });
 
@@ -80,7 +63,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
       const { polygon } = findNearestPolygonWhereSongPlays(
         map,
         song,
-        gameState.guess!.guessedPosition,
+        gameState.leaflet_ll_click!,
       );
 
       const leaflet_ll_correctPolygon = polygon.geometry.coordinates[0];
@@ -100,14 +83,27 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
   }, [map, gameState.status]);
 
   const showGuessMarker =
-    (gameState.status === GameStatus.Guessing && gameState.guess) ||
+    (gameState.status === GameStatus.Guessing && gameState.leaflet_ll_click) ||
     gameState.status === GameStatus.AnswerRevealed;
+
+  const song = gameState.songs[gameState.round];
+  const leaflet_ll_click = gameState.leaflet_ll_click;
+  const correctPolygon = useMemo(() => {
+    if (!map || !song || !leaflet_ll_click) return undefined;
+
+    const { polygon } = findNearestPolygonWhereSongPlays(
+      map,
+      song,
+      leaflet_ll_click!,
+    );
+    return polygon;
+  }, [map, song, leaflet_ll_click]);
 
   return (
     <>
       {showGuessMarker && (
         <Marker
-          position={gameState.guess!.guessedPosition}
+          position={gameState.leaflet_ll_click!}
           icon={
             new Icon({
               iconUrl: markerIconPng,
@@ -120,7 +116,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
 
       {gameState.status === GameStatus.AnswerRevealed && (
         <GeoJSON
-          data={gameState.guess!.correctPolygon}
+          data={correctPolygon!}
           style={() => ({
             color: '#0d6efd', // Outline color
             fillColor: '#0d6efd', // Fill color

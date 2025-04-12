@@ -1,5 +1,4 @@
-import { Feature, Polygon } from 'geojson';
-import { LatLng } from 'leaflet';
+import L from 'leaflet';
 import { Region } from '../constants/regions';
 
 export enum Screen {
@@ -28,14 +27,22 @@ export interface GameState {
   startTime: number;
   timeTaken: string | null;
 
-  guess: Guess | null;
+  leaflet_ll_click: L.LatLng | null;
 }
-export interface Guess {
-  correct: boolean;
-  distance: number;
-  guessedPosition: LatLng;
-  correctPolygon: Feature<Polygon>;
-}
+export const isValidGameState = (object: unknown): object is GameState => {
+  if (!object) return false;
+  if (typeof (object as any).status !== 'string') return false;
+  if (typeof (object as any).round !== 'number') return false;
+  if (!Array.isArray((object as any).songs)) return false;
+  if (!Array.isArray((object as any).scores)) return false;
+  if ('guess' in (object as any)) return false;
+  if (
+    (object as any).status === GameStatus.AnswerRevealed &&
+    !(object as any).leaflet_ll_click
+  )
+    return false;
+  return true;
+};
 
 export interface GameSettings {
   hardMode: boolean;
