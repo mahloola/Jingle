@@ -18,7 +18,6 @@ import {
   Screen,
   UserPreferences,
 } from '../types/jingle';
-import L from 'leaflet';
 import {
   incrementLocalGuessCount,
   loadGameStateFromBrowser,
@@ -42,7 +41,6 @@ interface DailyJingleProps {
   dailyChallenge: DailyChallenge;
 }
 export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
-  const mapRef = useRef<L.Map>(null);
   const jingleNumber = getJingleNumber(dailyChallenge);
   const currentPreferences =
     loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
@@ -68,10 +66,10 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       scores: [],
       startTime: Date.now(),
       timeTaken: null,
-      leaflet_ll_click: null,
+      clickedPosition: null,
     };
   })();
-  const jingle = useGameLogic(mapRef, initialGameState);
+  const jingle = useGameLogic(initialGameState);
   const gameState = jingle.gameState;
 
   const saveGameState = (gameState: GameState) => {
@@ -194,7 +192,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
                   return button({
                     label: 'Confirm guess',
                     onClick: () => confirmGuess(),
-                    disabled: !gameState.leaflet_ll_click,
+                    disabled: !gameState.clickedPosition,
                   });
                 } else {
                   return (
@@ -235,10 +233,9 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       </div>
 
       <RunescapeMap
-        mapRef={mapRef}
         gameState={gameState}
-        onMapClick={(leaflet_ll_click: L.LatLng) => {
-          const newGameState = jingle.setClickedPosition(leaflet_ll_click);
+        onMapClick={(clickedPosition) => {
+          const newGameState = jingle.setClickedPosition(clickedPosition);
           if (!currentPreferences.preferConfirmation) {
             confirmGuess(newGameState); // confirm immediately
           }

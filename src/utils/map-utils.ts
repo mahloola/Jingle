@@ -4,46 +4,14 @@ import geojsondata from '../data/GeoJSON';
 import L from 'leaflet';
 import { equals } from 'ramda';
 import { booleanContains, booleanPointInPolygon, polygon } from '@turf/turf';
+import mapMetadata from '../data/map-metadata';
 
-type Line = [Position, Position];
+export type Line = [Position, Position];
 
-//-----------------------------------------------------------------------------
-// Prefixes represent 3 coordinate systems:
-// 1. geojson_xy_* geojson coordinates [x, y]
-//   - song->location data (/data/GeoJSON.ts)
-// 2. leaflet_xy_* leaflet coordinates [x, y]
-//   - used as an intermediary between the two
-//   - used for calculations
-// 3. leaflet_ll_* leaflet coordinates { lat, lng } OR [lng, lat] typed as Position[] (don't get tripped up by this!!)
-//   - received as input in onClick event
-//   - used to display points and polygons on the map
-// Below are conversion functions to convert between the three
-//-----------------------------------------------------------------------------
-const conversion = { x: -3152, y: 12400, scale: 3 };
-export const geojson_xy_to_leaflet_xy = ([x, y]: Position): Position => [
-  x * conversion.scale + conversion.x,
-  -(y * conversion.scale) + conversion.y,
-];
-export const leaflet_xy_to_geojson_xy = ([x, y]: Position): Position => [
-  (x - conversion.x) / conversion.scale,
-  (y - conversion.y) / conversion.scale,
-];
-
-export const leaflet_ll_to_leaflet_xy = (
-  map: L.Map,
-  leaflet_ll: L.LatLng,
-): Position => {
-  const zoom = map.getMaxZoom();
-  const { x, y } = map.project(leaflet_ll, zoom);
-  return [x, y];
-};
-export const leaflet_xy_to_leaflet_ll = (
-  map: L.Map,
-  leaflet_xy: Position,
-): L.LatLng => {
-  const zoom = map.getMaxZoom();
-  const [x, y] = leaflet_xy;
-  return map.unproject(L.point(x, y), zoom);
+// these functions apply for CRS.Simple
+export const convert = {
+  ll_to_xy: (ll: L.LatLng): Position => [ll.lng, ll.lat],
+  xy_to_ll: ([x, y]: Position): L.LatLng => L.latLng(y, x),
 };
 
 export const closePolygon = (coordinates: Position[]) => {
@@ -64,7 +32,7 @@ export const featureMatchesSong = (songName: string) => (feature: Feature) => {
   return featureSongName?.trim() === songName.trim();
 };
 
-export const calculateDistance = (point1: Position, point2: Position) => {
+export const getDistance = (point1: Position, point2: Position) => {
   const dx = point2[0] - point1[0];
   const dy = point2[1] - point1[1];
   return Math.sqrt(dx * dx + dy * dy);
@@ -117,111 +85,98 @@ export const getDistanceToLine = (point: Position, line: Line) => {
   return Math.sqrt(dx * dx + dy * dy);
 };
 
-export const isFeatureVisibleOnMap = (feature: Feature<Polygon>) =>
-  feature.geometry.coordinates.some((polygon) =>
-    polygon.every((geojson_xy) => {
-      const [, y] = geojson_xy_to_leaflet_xy(geojson_xy);
-      return y > 0;
-    }),
-  );
+// export const isFeatureVisibleOnMap = (feature: Feature<Polygon>) =>
+//   feature.geometry.coordinates.some((polygon) =>
+//     polygon.every((geojson_xy) => {
+//       const [, y] = geojson_xy_to_leaflet_xy(geojson_xy);
+//       return y > 0;
+//     }),
+//   );
 
 export const findNearestPolygonWhereSongPlays = (
-  map: L.Map,
   song: string,
-  leaflet_ll_click: L.LatLng,
+  clickedPosition: Position,
 ): {
   polygon: Feature<Polygon>;
   distance: number; // 0 if clicked inside polygon
 } => {
-  const leaflet_xy_click = leaflet_ll_to_leaflet_xy(map, leaflet_ll_click);
-  const correctFeature = geojsondata.features.find(featureMatchesSong(song))!;
-  const geojson_xy_correctPolygons = correctFeature.geometry.coordinates;
-  const geojson_xy_repairedPolygons =
-    geojson_xy_correctPolygons.map(closePolygon);
+  const songFeature = geojsondata.features.find(featureMatchesSong(song))!;
+  const songPolygons = songFeature.geometry.coordinates.map(closePolygon);
 
-  const geojson_xy_nearestPolygon = geojson_xy_repairedPolygons.sort(
-    (polygon1, polygon2) => {
-      const c1 = getCenterOfPolygon(polygon1.map(geojson_xy_to_leaflet_xy));
-      const c2 = getCenterOfPolygon(polygon2.map(geojson_xy_to_leaflet_xy));
-      const d1 = calculateDistance(leaflet_xy_click, c1);
-      const d2 = calculateDistance(leaflet_xy_click, c2);
-      return d1 - d2;
-    },
-  )[0];
+  const nearestPolygon = songPolygons.sort((polygon1, polygon2) => {
+    const c1 = getCenterOfPolygon(polygon1);
+    const c2 = getCenterOfPolygon(polygon2);
+    const d1 = getDistance(clickedPosition, c1);
+    const d2 = getDistance(clickedPosition, c2);
+    return d1 - d2;
+  })[0];
 
   //if closest correct polgy is a gap, set outerPolygon to the actual parent poly, else iteself.
-  const geojson_xy_outerPolygon =
-    geojson_xy_repairedPolygons.find((repairedPolygon) => {
-      if (!equals(repairedPolygon, geojson_xy_nearestPolygon)) {
+  const outerPolygon =
+    songPolygons.find((repairedPolygon) => {
+      if (!equals(repairedPolygon, nearestPolygon)) {
         return booleanContains(
           polygon([repairedPolygon]),
-          polygon([geojson_xy_nearestPolygon]),
+          polygon([nearestPolygon]),
         );
       }
       return false;
-    }) || geojson_xy_nearestPolygon;
+    }) || nearestPolygon;
 
   //find all gaps in this outer polygon
-  const geojson_xy_gaps = geojson_xy_repairedPolygons.filter(
-    (geojson_xy_repairedPolygon) =>
-      !equals(geojson_xy_repairedPolygon, geojson_xy_outerPolygon) &&
-      booleanContains(
-        polygon([geojson_xy_outerPolygon]),
-        polygon([geojson_xy_repairedPolygon]),
-      ),
+  const gaps = songPolygons.filter(
+    (repairedPolygon) =>
+      !equals(repairedPolygon, outerPolygon) &&
+      booleanContains(polygon([outerPolygon]), polygon([repairedPolygon])),
   );
-
-  const geojson_xy_correctPolygonsWithGapsFilled = [
-    geojson_xy_outerPolygon,
-    ...geojson_xy_gaps,
-  ];
 
   //check user click is right or wrong:
   //for checking aginst click, convert everything to our coords
-  const leaflet_xy_outerPolygon = geojson_xy_outerPolygon.map(
-    geojson_xy_to_leaflet_xy,
-  );
-  const leaflet_xy_gaps =
-    geojson_xy_gaps?.map((gap) => gap.map(geojson_xy_to_leaflet_xy)) ?? [];
   //check if in outer poly
   const inOuterPoly = booleanPointInPolygon(
-    leaflet_xy_click,
-    polygon([leaflet_xy_outerPolygon]),
+    clickedPosition,
+    polygon([outerPolygon]),
   );
   // Check if the clicked point is inside any hole
-  const isInsideGap = leaflet_xy_gaps.some((gap) =>
-    booleanPointInPolygon(leaflet_xy_click, polygon([gap])),
+  const isInsideGap = gaps.some((gap) =>
+    booleanPointInPolygon(clickedPosition, polygon([gap])),
   );
   //merge the two
   const correct = inOuterPoly && !isInsideGap;
 
   const distance = correct
     ? 0
-    : Math.min(
-        ...correctFeature.geometry.coordinates.map((polygon) =>
-          getDistanceToPolygon(
-            leaflet_xy_click,
-            polygon.map(([x, y]) => geojson_xy_to_leaflet_xy([x, y])),
-          ),
-        ),
-      );
-
-  const leaflet_ll_correctPolygons =
-    geojson_xy_correctPolygonsWithGapsFilled.map((geojson_xy_polygon) =>
-      geojson_xy_polygon
-        .map(([x, y]) => geojson_xy_to_leaflet_xy([x, y]))
-        .map((leaflet_xy) => leaflet_xy_to_leaflet_ll(map, leaflet_xy))
-        .map(({ lat, lng }) => [lng, lat]),
-    );
+    : getDistanceToPolygon(clickedPosition, nearestPolygon);
 
   return {
     polygon: {
       type: 'Feature',
       geometry: {
         type: 'Polygon',
-        coordinates: leaflet_ll_correctPolygons,
+        coordinates: [nearestPolygon],
       },
     } as Feature<Polygon>,
     distance: distance,
   };
+};
+
+export const switchLayer = (
+  map: L.Map,
+  tileLayer: L.TileLayer,
+  mapId: number,
+) => {
+  const { bounds } = mapMetadata[mapId];
+
+  const padding = 256;
+  map.setMaxBounds([
+    [bounds[0][1] - padding, bounds[0][0] - padding],
+    [bounds[1][1] + padding, bounds[1][0] + padding],
+  ]);
+
+  tileLayer.getTileUrl = (coords: L.Coords) => {
+    const { x, y, z } = coords;
+    const tmsY = -y - 1;
+    return `/rsmap-tiles/mapIdTiles/${mapId}/${z}/0_${x}_${tmsY}.png`;
+  };
+  tileLayer.redraw();
 };

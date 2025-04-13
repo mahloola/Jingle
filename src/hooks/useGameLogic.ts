@@ -1,23 +1,15 @@
-import { RefObject, useState } from 'react';
-import {
-  DailyChallenge,
-  GameSettings,
-  GameState,
-  GameStatus,
-} from '../types/jingle';
+import { useState } from 'react';
+import { GameSettings, GameState, GameStatus } from '../types/jingle';
 import { calculateTimeDifference } from '../utils/date-utils';
 import { clone } from 'ramda';
-import L from 'leaflet';
 import { findNearestPolygonWhereSongPlays } from '../utils/map-utils';
+import { Position } from 'geojson';
 
-export default function useGameLogic(
-  mapRef: RefObject<L.Map | null>,
-  initialGameState: GameState,
-) {
+export default function useGameLogic(initialGameState: GameState) {
   const [gameState, setGameState] = useState<GameState>(initialGameState);
 
-  const setClickedPosition = (leaflet_ll_click: L.LatLng): GameState => {
-    const newGameState = { ...gameState, leaflet_ll_click };
+  const setClickedPosition = (clickedPosition: Position): GameState => {
+    const newGameState = { ...gameState, clickedPosition };
     setGameState(newGameState);
     return newGameState;
   };
@@ -25,15 +17,14 @@ export default function useGameLogic(
   // latestGameState is required when called immediately after setGuess
   const confirmGuess = (latestGameState?: GameState): GameState => {
     const newGameState = latestGameState ?? gameState;
-    if (newGameState.leaflet_ll_click === null) {
-      throw new Error('leaflet_ll_click cannot be null');
+    if (newGameState.clickedPosition === null) {
+      throw new Error('clickedPosition cannot be null');
     }
 
     const song = newGameState.songs[newGameState.round];
     const { distance } = findNearestPolygonWhereSongPlays(
-      mapRef.current!,
       song,
-      newGameState.leaflet_ll_click,
+      newGameState.clickedPosition,
     );
     const correct = distance === 0;
     const score = Math.round(
@@ -62,7 +53,7 @@ export default function useGameLogic(
       ...prev,
       round: prev.round + 1,
       status: GameStatus.Guessing,
-      leaflet_ll_click: null,
+      clickedPosition: null,
     };
     setGameState(newGameState);
     return newGameState;

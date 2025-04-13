@@ -1,5 +1,6 @@
 import L from 'leaflet';
 import { Region } from '../constants/regions';
+import { Position } from 'geojson';
 
 export enum Screen {
   MainMenu = 'main-menu',
@@ -27,7 +28,7 @@ export interface GameState {
   startTime: number;
   timeTaken: string | null;
 
-  leaflet_ll_click: L.LatLng | null;
+  clickedPosition: Position | null;
 }
 export const isValidGameState = (object: unknown): object is GameState => {
   if (!object) return false;
@@ -38,7 +39,7 @@ export const isValidGameState = (object: unknown): object is GameState => {
   if ('guess' in (object as any)) return false;
   if (
     (object as any).status === GameStatus.AnswerRevealed &&
-    !(object as any).leaflet_ll_click
+    !(object as any).clickedPosition
   )
     return false;
   return true;

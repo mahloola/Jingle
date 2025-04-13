@@ -14,7 +14,6 @@ import {
   Screen,
   UserPreferences,
 } from '../types/jingle';
-import L from 'leaflet';
 import {
   incrementLocalGuessCount,
   loadPreferencesFromBrowser,
@@ -33,8 +32,6 @@ import StatsModalButton from './buttons/StatsModalButton';
 import useGameLogic from '../hooks/useGameLogic';
 
 export default function Practice() {
-  const mapRef = useRef<L.Map>(null);
-
   const currentPreferences =
     loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
   const enabledRegions = (
@@ -52,9 +49,9 @@ export default function Practice() {
     scores: [],
     startTime: Date.now(),
     timeTaken: null,
-    leaflet_ll_click: null,
+    clickedPosition: null,
   };
-  const jingle = useGameLogic(mapRef, initialGameState);
+  const jingle = useGameLogic(initialGameState);
   const gameState = jingle.gameState;
 
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -147,7 +144,7 @@ export default function Practice() {
                   return button({
                     label: 'Confirm guess',
                     onClick: () => confirmGuess(),
-                    disabled: !gameState.leaflet_ll_click,
+                    disabled: !gameState.clickedPosition,
                   });
                 } else {
                   return (
@@ -178,10 +175,9 @@ export default function Practice() {
       </div>
 
       <RunescapeMap
-        mapRef={mapRef}
         gameState={gameState}
-        onMapClick={(leaflet_ll_click: L.LatLng) => {
-          const newGameState = jingle.setClickedPosition(leaflet_ll_click);
+        onMapClick={(clickedPosition) => {
+          const newGameState = jingle.setClickedPosition(clickedPosition);
           if (!currentPreferences.preferConfirmation) {
             confirmGuess(newGameState); // confirm immediately
           }
