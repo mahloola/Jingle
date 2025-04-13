@@ -28,8 +28,13 @@ export interface GameState {
   startTime: number;
   timeTaken: string | null;
 
-  clickedPosition: Position | null;
+  clickedPosition: ClickedPosition | null;
 }
+export interface ClickedPosition {
+  point: Position;
+  mapId: number;
+}
+
 export const isValidGameState = (object: unknown): object is GameState => {
   if (!object) return false;
   if (typeof (object as any).status !== 'string') return false;

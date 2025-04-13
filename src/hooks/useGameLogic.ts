@@ -1,14 +1,18 @@
 import { useState } from 'react';
-import { GameSettings, GameState, GameStatus } from '../types/jingle';
+import {
+  ClickedPosition,
+  GameSettings,
+  GameState,
+  GameStatus,
+} from '../types/jingle';
 import { calculateTimeDifference } from '../utils/date-utils';
 import { clone } from 'ramda';
 import { findNearestPolygonWhereSongPlays } from '../utils/map-utils';
-import { Position } from 'geojson';
 
 export default function useGameLogic(initialGameState: GameState) {
   const [gameState, setGameState] = useState<GameState>(initialGameState);
 
-  const setClickedPosition = (clickedPosition: Position): GameState => {
+  const setClickedPosition = (clickedPosition: ClickedPosition): GameState => {
     const newGameState = { ...gameState, clickedPosition };
     setGameState(newGameState);
     return newGameState;

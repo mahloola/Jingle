@@ -5,6 +5,7 @@ import L from 'leaflet';
 import { equals } from 'ramda';
 import { booleanContains, booleanPointInPolygon, polygon } from '@turf/turf';
 import mapMetadata from '../data/map-metadata';
+import { ClickedPosition, GameState } from '../types/jingle';
 
 export type Line = [Position, Position];
 
@@ -95,8 +96,9 @@ export const getDistanceToLine = (point: Position, line: Line) => {
 
 export const findNearestPolygonWhereSongPlays = (
   song: string,
-  clickedPosition: Position,
+  clickedPosition: ClickedPosition,
 ): {
+  mapId: number;
   polygon: Feature<Polygon>;
   distance: number; // 0 if clicked inside polygon
 } => {
@@ -106,8 +108,8 @@ export const findNearestPolygonWhereSongPlays = (
   const nearestPolygon = songPolygons.sort((polygon1, polygon2) => {
     const c1 = getCenterOfPolygon(polygon1);
     const c2 = getCenterOfPolygon(polygon2);
-    const d1 = getDistance(clickedPosition, c1);
-    const d2 = getDistance(clickedPosition, c2);
+    const d1 = getDistance(clickedPosition.point, c1);
+    const d2 = getDistance(clickedPosition.point, c2);
     return d1 - d2;
   })[0];
 
@@ -134,21 +136,22 @@ export const findNearestPolygonWhereSongPlays = (
   //for checking aginst click, convert everything to our coords
   //check if in outer poly
   const inOuterPoly = booleanPointInPolygon(
-    clickedPosition,
+    clickedPosition.point,
     polygon([outerPolygon]),
   );
   // Check if the clicked point is inside any hole
   const isInsideGap = gaps.some((gap) =>
-    booleanPointInPolygon(clickedPosition, polygon([gap])),
+    booleanPointInPolygon(clickedPosition.point, polygon([gap])),
   );
   //merge the two
   const correct = inOuterPoly && !isInsideGap;
 
   const distance = correct
     ? 0
-    : getDistanceToPolygon(clickedPosition, nearestPolygon);
+    : getDistanceToPolygon(clickedPosition.point, nearestPolygon);
 
   return {
+    mapId: 0, // TODO: get mapId of correct polygon
     polygon: {
       type: 'Feature',
       geometry: {

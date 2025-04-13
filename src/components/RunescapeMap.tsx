@@ -1,7 +1,7 @@
 import L, { CRS, Icon } from 'leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/leaflet.css';
-import { RefObject, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   GeoJSON,
   MapContainer,
@@ -10,23 +10,19 @@ import {
   useMap,
   useMapEvents,
 } from 'react-leaflet';
-import { GameState, GameStatus } from '../types/jingle';
+import { ClickedPosition, GameState, GameStatus } from '../types/jingle';
 import {
   convert,
-  featureMatchesSong,
   findNearestPolygonWhereSongPlays,
   getCenterOfPolygon,
   switchLayer,
 } from '../utils/map-utils';
 import LayerPortals from './LayerPortals';
 import { MapLink } from '../data/map-links';
-import geojsondata from '../data/GeoJSON';
-import { assocPath } from 'ramda';
-import { Position } from 'geojson';
 
 interface RunescapeMapProps {
   gameState: GameState;
-  onMapClick: (clickedPosition: Position) => void;
+  onMapClick: (clickedPosition: ClickedPosition) => void;
 }
 
 export default function RunescapeMapWrapper(props: RunescapeMapProps) {
@@ -47,11 +43,14 @@ export default function RunescapeMapWrapper(props: RunescapeMapProps) {
 
 function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
   const map = useMap();
+  const tileLayerRef = useRef<L.TileLayer>(null);
+  const [currentMapId, setCurrentMapId] = useState(0);
 
   useMapEvents({
     click: async (e) => {
       if (gameState.status !== GameStatus.Guessing) return;
-      onMapClick(convert.ll_to_xy(e.latlng));
+      const point = convert.ll_to_xy(e.latlng);
+      onMapClick({ point, mapId: currentMapId });
     },
   });
 
@@ -59,42 +58,45 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
   useEffect(() => {
     if (gameState.status === GameStatus.AnswerRevealed) {
       const song = gameState.songs[gameState.round];
-      const { polygon } = findNearestPolygonWhereSongPlays(
+      const { polygon, mapId } = findNearestPolygonWhereSongPlays(
         song,
         gameState.clickedPosition!,
       );
-
+      if (currentMapId !== mapId) {
+        switchLayer(map, tileLayerRef.current!, mapId);
+      }
       const center = getCenterOfPolygon(polygon.geometry.coordinates[0]);
       map.panTo(convert.xy_to_ll(center));
+      setCurrentMapId(mapId);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, gameState.status]);
 
   const showGuessMarker =
-    (gameState.status === GameStatus.Guessing && gameState.clickedPosition) ||
+    ((gameState.status === GameStatus.Guessing && gameState.clickedPosition) ||
+      gameState.status === GameStatus.AnswerRevealed) &&
+    gameState.clickedPosition?.mapId === currentMapId;
+
+  const { correctPolygon, correctMapId } = useMemo(() => {
+    const song = gameState.songs[gameState.round];
+    if (!map || !song || !gameState.clickedPosition) return {};
+
+    const { polygon, mapId } = findNearestPolygonWhereSongPlays(
+      song,
+      gameState.clickedPosition!,
+    );
+    return { correctPolygon: polygon, correctMapId: mapId };
+  }, [map, gameState]);
+  const showCorrectPolygon =
+    correctPolygon &&
+    correctMapId === currentMapId &&
     gameState.status === GameStatus.AnswerRevealed;
 
-  const song = gameState.songs[gameState.round];
-  const clickedPosition = gameState.clickedPosition;
-  const correctPolygon = useMemo(() => {
-    if (!map || !song || !clickedPosition) return undefined;
-
-    const { polygon } = findNearestPolygonWhereSongPlays(
-      song,
-      clickedPosition!,
-    );
-    return polygon;
-  }, [map, song, clickedPosition]);
-
-  // #region map layers
-  const tileLayerRef = useRef<L.TileLayer>(null);
-  const [currentmapId, setCurrentmapId] = useState(0);
-
-  // initally set the map to the first layer. subsequent
+  // initially load the first tile layer
   useEffect(() => {
     setTimeout(() => {
       if (map && tileLayerRef.current) {
-        switchLayer(map, tileLayerRef.current, currentmapId);
+        switchLayer(map, tileLayerRef.current, currentMapId);
       }
     }, 0); // this waits until tileLayerRef is set (this is why i'm a senior dev)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -105,15 +107,14 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
       switchLayer(map, tileLayerRef.current!, link.end.mapId);
     }
     map.panTo([link.end.y, link.end.x], { animate: false });
-    setCurrentmapId(link.end.mapId);
+    setCurrentMapId(link.end.mapId);
   };
-  // #endregion map layers
 
   return (
     <>
       {showGuessMarker && (
         <Marker
-          position={convert.xy_to_ll(gameState.clickedPosition!)}
+          position={convert.xy_to_ll(gameState.clickedPosition!.point)}
           icon={
             new Icon({
               iconUrl: markerIconPng,
@@ -124,7 +125,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
         />
       )}
 
-      {gameState.status === GameStatus.AnswerRevealed && (
+      {showCorrectPolygon && (
         <GeoJSON
           data={correctPolygon!}
           style={() => ({
@@ -136,7 +137,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
           })}
         />
       )}
-      <LayerPortals currentmapId={currentmapId} onPortalClick={onPortalClick} />
+      <LayerPortals currentmapId={currentMapId} onPortalClick={onPortalClick} />
       <TileLayer
         ref={tileLayerRef}
         url='placeholder' // set by switchLayer
