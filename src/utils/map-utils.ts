@@ -93,6 +93,7 @@ export const findNearestPolygonWhereSongPlays = (
 ): {
   mapId: number;
   feature: G.Feature<G.Polygon>;
+  panTo: Position;
   distance: number; // 0 if clicked inside polygon
 } => {
   const songFeature = geojsondata.features.find(featureMatchesSong(song))!;
@@ -143,6 +144,7 @@ export const findNearestPolygonWhereSongPlays = (
         coordinates: repairedPolygons,
       },
     } as G.Feature<G.Polygon>,
+    panTo: getCenterOfPolygon(nearestPolgonCoords),
     distance: distance,
   };
 };

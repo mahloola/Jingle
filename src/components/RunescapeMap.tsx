@@ -59,15 +59,14 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
     assertNotNil(gameState.clickedPosition, 'gameState.clickedPosition');
 
     const song = gameState.songs[gameState.round];
-    const { feature, mapId } = findNearestPolygonWhereSongPlays(
+    const { mapId, panTo } = findNearestPolygonWhereSongPlays(
       song,
       gameState.clickedPosition,
     );
     if (currentMapId !== mapId) {
       switchLayer(map, tileLayerRef.current!, mapId);
     }
-    const center = getCenterOfPolygon(feature.geometry.coordinates[0]);
-    map.panTo(convert.xy_to_ll(center));
+    map.panTo(convert.xy_to_ll(panTo));
     setCurrentMapId(mapId);
   };
   useEffect(() => {
