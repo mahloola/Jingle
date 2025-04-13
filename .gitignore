@@ -7,6 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# folder is too large to check in to git without causing massive slowdown
+public/rsmap-tiles/mapIdTiles
+
 /misc
 hidden-utils/
 songs/
