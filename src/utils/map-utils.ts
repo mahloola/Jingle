@@ -105,7 +105,7 @@ export const findNearestPolygonWhereSongPlays = (
   );
 
   //find nearest correct poly
-  const correctPolygonCoords = repairedPolygons.sort((polygon1, polygon2) => {
+  const nearestPolgonCoords = repairedPolygons.sort((polygon1, polygon2) => {
     const d1 = getTotalDistanceToPoly(clickedPosition, polygon1, songMapId);
     const d2 = getTotalDistanceToPoly(clickedPosition, polygon2, songMapId);
     return d1 - d2;
@@ -113,8 +113,8 @@ export const findNearestPolygonWhereSongPlays = (
 
   const polyGroups = findPolyGroups(repairedPolygons);
   const [outerPolygon, ...gaps] = polyGroups.find((polyGroup) =>
-    polyGroup.includes(correctPolygonCoords),
-  ) ?? [correctPolygonCoords];
+    polyGroup.includes(nearestPolgonCoords),
+  ) ?? [nearestPolgonCoords];
 
   //check if in outer poly
   const inOuterPoly = booleanPointInPolygon(
@@ -132,7 +132,7 @@ export const findNearestPolygonWhereSongPlays = (
 
   const distance = correct
     ? 0
-    : getTotalDistanceToPoly(clickedPosition, correctPolygonCoords, songMapId);
+    : getTotalDistanceToPoly(clickedPosition, nearestPolgonCoords, songMapId);
 
   return {
     mapId: songMapId,
@@ -140,7 +140,7 @@ export const findNearestPolygonWhereSongPlays = (
       type: 'Feature',
       geometry: {
         type: 'Polygon',
-        coordinates: [correctPolygonCoords],
+        coordinates: repairedPolygons,
       },
     } as G.Feature<G.Polygon>,
     distance: distance,
