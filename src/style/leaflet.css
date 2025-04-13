@@ -1,6 +1,10 @@
 .leaflet-container {
   height: calc(100dvh - 400px);
   width: 100%;
+
+  .leaflet-tile {
+    image-rendering: pixelated;
+  }
 }
 
 .leaflet-control-zoom {
