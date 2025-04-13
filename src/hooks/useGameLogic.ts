@@ -30,10 +30,8 @@ export default function useGameLogic(initialGameState: GameState) {
       song,
       newGameState.clickedPosition,
     );
-    const correct = distance === 0;
-    const score = Math.round(
-      correct ? 1000 : (1000 * 1) / Math.exp(0.0018 * distance),
-    );
+    const decayRate = 0.00544; // adjust scoring strictness (higher = more strict)
+    const score = Math.round(1000 / Math.exp(decayRate * distance));
     newGameState.status = GameStatus.AnswerRevealed;
     newGameState.scores.push(score);
     setGameState(clone(newGameState));

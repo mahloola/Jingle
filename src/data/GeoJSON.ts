@@ -6,6 +6,11 @@ export interface ConvertedFeature extends Feature<Polygon> {
     coordinates: number[][]; // A single polygon with coordinate pairs
     red?: boolean
   }[];
+
+  /**
+   * @deprecated use convertedGeometry instead. you may use this for reference of the original data
+   */
+  geometry: Feature<Polygon>['geometry'];
 }
 
 const geojsondata = {

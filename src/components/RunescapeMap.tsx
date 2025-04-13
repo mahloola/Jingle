@@ -19,6 +19,7 @@ import {
 } from '../utils/map-utils';
 import LayerPortals from './LayerPortals';
 import { MapLink } from '../data/map-links';
+import { assertNotNil } from '../utils/assert';
 
 interface RunescapeMapProps {
   gameState: GameState;
@@ -50,24 +51,28 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
     click: async (e) => {
       if (gameState.status !== GameStatus.Guessing) return;
       const point = convert.ll_to_xy(e.latlng);
-      onMapClick({ point, mapId: currentMapId });
+      onMapClick({ xy: point, mapId: currentMapId });
     },
   });
 
-  // pan to center of correct polygon
+  const onGuessConfirmed = () => {
+    assertNotNil(gameState.clickedPosition, 'gameState.clickedPosition');
+
+    const song = gameState.songs[gameState.round];
+    const { feature, mapId } = findNearestPolygonWhereSongPlays(
+      song,
+      gameState.clickedPosition,
+    );
+    if (currentMapId !== mapId) {
+      switchLayer(map, tileLayerRef.current!, mapId);
+    }
+    const center = getCenterOfPolygon(feature.geometry.coordinates[0]);
+    map.panTo(convert.xy_to_ll(center));
+    setCurrentMapId(mapId);
+  };
   useEffect(() => {
     if (gameState.status === GameStatus.AnswerRevealed) {
-      const song = gameState.songs[gameState.round];
-      const { polygon, mapId } = findNearestPolygonWhereSongPlays(
-        song,
-        gameState.clickedPosition!,
-      );
-      if (currentMapId !== mapId) {
-        switchLayer(map, tileLayerRef.current!, mapId);
-      }
-      const center = getCenterOfPolygon(polygon.geometry.coordinates[0]);
-      map.panTo(convert.xy_to_ll(center));
-      setCurrentMapId(mapId);
+      onGuessConfirmed();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, gameState.status]);
@@ -81,7 +86,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
     const song = gameState.songs[gameState.round];
     if (!map || !song || !gameState.clickedPosition) return {};
 
-    const { polygon, mapId } = findNearestPolygonWhereSongPlays(
+    const { feature: polygon, mapId } = findNearestPolygonWhereSongPlays(
       song,
       gameState.clickedPosition!,
     );
@@ -114,7 +119,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
     <>
       {showGuessMarker && (
         <Marker
-          position={convert.xy_to_ll(gameState.clickedPosition!.point)}
+          position={convert.xy_to_ll(gameState.clickedPosition!.xy)}
           icon={
             new Icon({
               iconUrl: markerIconPng,
