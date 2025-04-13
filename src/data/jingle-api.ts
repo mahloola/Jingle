@@ -104,7 +104,7 @@ export async function getStatistics() {
 }
 
 export async function incrementGlobalGuessCounter() {
-  await post('api/statistics/increment', {});
+  await post('/api/statistics/increment', {});
 }
 
 export async function incrementSongSuccessCount(songName: string) {
