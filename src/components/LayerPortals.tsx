@@ -37,6 +37,7 @@ export default function LayerPortals({
       key={i}
       eventHandlers={{ click: () => onPortalClick(link) }}
       position={[link.start.y + offset.y, link.start.x + offset.x]}
+      opacity={0}
       icon={
         new L.Icon({
           iconUrl:
