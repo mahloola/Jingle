@@ -11,7 +11,7 @@ import {
   GameSettings,
   GameState,
   GameStatus,
-  Screen,
+  Page,
   UserPreferences,
 } from '../types/jingle';
 import L from 'leaflet';
@@ -134,7 +134,7 @@ export default function Practice() {
               onApplyPreferences={(preferences: UserPreferences) =>
                 updatePreferences(preferences)
               }
-              screen={Screen.Practice}
+              page={Page.Practice}
             />
             <NewsModalButton />
             <StatsModalButton />
