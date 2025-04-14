@@ -248,7 +248,6 @@ export const REGIONS = {
     'Scape Sad',
     'Scape Wild',
     'Shining',
-    'Shipwrecked',
     'Troubled',
     'Undercurrent',
     'Underground',

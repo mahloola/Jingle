@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { Tooltip } from 'react-tooltip';
+import useSWRImmutable from 'swr/immutable';
 import { ASSETS } from '../../constants/assets';
+import { getSongList } from '../../data/jingle-api';
 import '../../style/modal.css';
 import { Song } from '../../types/jingle';
 import { loadPersonalStatsFromBrowser } from '../../utils/browserUtil';
 import Modal from '../Modal';
 import IconButton from './IconButton';
-import { getSongList } from '../../data/jingle-api';
-import useSWRImmutable from 'swr/immutable';
 
 export default function StatsModalButton() {
   const [open, setOpen] = useState(false);
@@ -23,7 +23,7 @@ export default function StatsModalButton() {
   const personalSuccessRate: number | undefined = !totalGuessCount
     ? undefined
     : parseFloat(
-        (((correctGuessCount ?? 0) / totalGuessCount) * 100).toFixed(2),
+        (((correctGuessCount ?? 0) / totalGuessCount) * 100).toFixed(2)
       );
 
   const { data: songs } = useSWRImmutable<Song[]>('/api/songs', getSongList);
@@ -36,7 +36,7 @@ export default function StatsModalButton() {
       ?.filter((song) =>
         searchString.trim()
           ? song.name.toLowerCase().includes(searchString.toLowerCase())
-          : true,
+          : true
       )
       ?.sort((a, b) => successRate(b) - successRate(a)) ?? [];
 
@@ -96,10 +96,7 @@ export default function StatsModalButton() {
           onChange={(e) => setSearchString(e.target.value)}
         />
 
-        <div
-          className='osrs-frame-dark'
-          style={{ width: '100%', padding: '6px 7px 6px 0' }}
-        >
+        <div style={{ width: '100%', padding: '6px 7px 6px 0' }}>
           <div className='song-stats'>
             {sortedAndFilteredSongs.map((song) => (
               <div className='modal-line' key={song.name}>
