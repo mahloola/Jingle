@@ -10,13 +10,14 @@
   border-image-repeat: round;
   border-image-width: 10px;
 
-  &:hover {
+  &:hover:not(:disabled) {
     filter: brightness(1.2);
   }
   &:disabled {
-    color: #000;
+    border-image-source: url('/assets/osrs_button_disabled.png');
+    color: #868e16;
     text-shadow: none;
-    filter: saturate(0.0) brightness(1.40) contrast(0.45) ;
+    /* filter: saturate(0.0) brightness(1.40) contrast(0.45) ; */
   }
 }
 
