@@ -19,7 +19,7 @@ export function getNextUtcMidnight() {
 export const calculateTimeDifference = (startMs: number, endMs: number) => {
   const d = dayjs.duration(dayjs(endMs).diff(dayjs(startMs)));
   return [d.hours() > 0 && d.hours(), d.minutes(), d.seconds()]
-    .filter(Boolean)
+    .filter((value) => value !== false)
     .map((value) => value.toString().padStart(2, '0'))
     .join(':');
 };
