@@ -3,13 +3,20 @@ import { DailyChallenge, GameState, Song } from '../types/jingle';
 
 export const calculateDailyChallengePercentile = (
   dailyChallenge: Pick<DailyChallenge, 'results'>,
-  score: number,
+  score: number
 ) => {
-  const sortedResults = dailyChallenge.results.sort((a, b) => a - b);
-  const resultIndex = sortedResults.findIndex((value) => value === score);
-  const percentileOpposite = (resultIndex / sortedResults.length) * 100;
+  const sortedResults = [...dailyChallenge.results].sort((a, b) => a - b);
+  const countBelowOrEqual = sortedResults.filter(
+    (value) => value <= score
+  ).length;
+
+  if (sortedResults.length === 0) return 0; // Handle empty array
+
+  const percentileOpposite = (countBelowOrEqual / sortedResults.length) * 100;
   const percentile = 100 - percentileOpposite;
-  return percentile;
+
+  // Ensure the result is between 0 and 100
+  return Math.min(100, Math.max(0, percentile));
 };
 
 export function getJingleNumber(dailyChallenge: Pick<DailyChallenge, 'date'>) {
@@ -19,29 +26,32 @@ export function getJingleNumber(dailyChallenge: Pick<DailyChallenge, 'date'>) {
   return (currentDate.getTime() - targetDate.getTime()) / (1000 * 60 * 60 * 24);
 }
 
-export function copyResultsToClipboard(gameState: GameState) {
+export function copyResultsToClipboard(
+  gameState: GameState,
+  percentile: number
+) {
+  console.log(percentile);
   const score = sum(gameState.scores);
   const hardMode = gameState.settings.hardMode === true;
   const resultsString = gameState.scores
     .map((score) =>
-      score === 0 ? '0 🔴' : score === 1000 ? '1000 🟢' : score + ' 🟡',
+      score === 0 ? '0 🔴' : score === 1000 ? '1000 🟢' : score + ' 🟡'
     )
     .join('\n');
 
-  const percentile = 0.5;
   if (percentile && gameState.timeTaken) {
     navigator.clipboard.writeText(
       `I scored ${score} on today's Jingle challenge! I finished in ${
         gameState.timeTaken
       } and placed in the top ${percentile.toFixed(
-        1,
-      )}%, can you beat me? https://jingle.rs\n\n` + resultsString,
+        1
+      )}%, can you beat me? https://jingle.rs\n\n` + resultsString
     );
     alert(`Copied results to clipboard!`);
   } else {
     navigator.clipboard.writeText(
       `I scored ${score} on today's Jingle challenge, can you beat me? https://jingle.rs\n\n` +
-        resultsString,
+        resultsString
     );
     alert(`Copied results to clipboard!`);
   }

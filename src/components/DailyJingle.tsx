@@ -1,3 +1,4 @@
+import L from 'leaflet';
 import { sum } from 'ramda';
 import { useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
@@ -18,7 +19,6 @@ import {
   Page,
   UserPreferences,
 } from '../types/jingle';
-import L from 'leaflet';
 import {
   incrementLocalGuessCount,
   loadGameStateFromBrowser,
@@ -27,7 +27,11 @@ import {
   updateGuessStreak,
 } from '../utils/browserUtil';
 import { getCurrentDateInBritain } from '../utils/date-utils';
-import { copyResultsToClipboard, getJingleNumber } from '../utils/jingle-utils';
+import {
+  calculateDailyChallengePercentile,
+  copyResultsToClipboard,
+  getJingleNumber,
+} from '../utils/jingle-utils';
 import { playSong } from '../utils/playSong';
 import Footer from './Footer';
 import GameOver from './GameOver';
@@ -80,7 +84,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     }
     localStorage.setItem(
       LOCAL_STORAGE.gameState(jingleNumber),
-      JSON.stringify(gameState),
+      JSON.stringify(gameState)
     );
   };
 
@@ -90,7 +94,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       audioRef,
       initialGameState.songs[gameState.round],
       initialGameState.settings.oldAudio,
-      initialGameState.settings.hardMode,
+      initialGameState.settings.hardMode
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -118,7 +122,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       // submit daily challenge
       localStorage.setItem(
         LOCAL_STORAGE.dailyComplete,
-        getCurrentDateInBritain(),
+        getCurrentDateInBritain()
       );
       postDailyChallengeResult(sum(gameState.scores));
     }
@@ -138,7 +142,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       audioRef,
       songName,
       gameState.settings.oldAudio,
-      gameState.settings.hardMode,
+      gameState.settings.hardMode
     );
   };
 
@@ -214,8 +218,14 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
               .with(GameStatus.GameOver, () =>
                 button({
                   label: 'Copy Results',
-                  onClick: () => copyResultsToClipboard(gameState),
-                }),
+                  onClick: () => {
+                    const percentile = calculateDailyChallengePercentile(
+                      dailyChallenge,
+                      sum(gameState.scores)
+                    );
+                    copyResultsToClipboard(gameState, percentile);
+                  },
+                })
               )
               .exhaustive()}
 
