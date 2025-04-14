@@ -6,7 +6,7 @@ import '../style/mainMenu.css';
 import { DailyChallenge } from '../types/jingle';
 import {
   getCurrentDateInBritain,
-  getNextUtcMidnight,
+  getNextUkMidnight,
 } from '../utils/date-utils';
 import NextDailyCountdown from './NextDailyCountdown';
 
@@ -45,7 +45,7 @@ export default function MainMenu({
         onClick={onDailyJingleClick}
       >
         Daily Jingle
-        {dailyCompleted && <NextDailyCountdown end={getNextUtcMidnight()} />}
+        {dailyCompleted && <NextDailyCountdown end={getNextUkMidnight()} />}
         {!dailyCompleted && <div style={{ color: '#00FF00' }}>Ready</div>}{' '}
         <div style={{ fontSize: '40%' }}>
           {dailyChallenge?.results.length.toLocaleString()} Completions

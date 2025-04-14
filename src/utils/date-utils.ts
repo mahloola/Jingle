@@ -7,12 +7,12 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(duration);
 
-export function getNextUtcMidnight() {
-  const now = dayjs().utc();
+export function getNextUkMidnight() {
+  const now = dayjs().tz('Europe/London');
   const nextMidnight =
     now.hour() < 0
-      ? now.hour(0).minute(0).second(0)
-      : now.add(1, 'day').hour(0).minute(0).second(0);
+      ? now.hour(0).minute(0).second(0).millisecond(0)
+      : now.add(1, 'day').hour(0).minute(0).second(0).millisecond(0);
   return nextMidnight;
 }
 
