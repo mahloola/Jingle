@@ -15,7 +15,7 @@ import {
   GameSettings,
   GameState,
   GameStatus,
-  Screen,
+  Page,
   UserPreferences,
 } from '../types/jingle';
 import L from 'leaflet';
@@ -182,7 +182,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
               onApplyPreferences={(preferences: UserPreferences) =>
                 updateGameSettings(preferences)
               }
-              screen={Screen.DailyJingle}
+              page={Page.DailyJingle}
             />
             <NewsModalButton />
             <StatsModalButton />

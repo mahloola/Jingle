@@ -1,10 +1,10 @@
 import L from 'leaflet';
 import { Region } from '../constants/regions';
 
-export enum Screen {
-  MainMenu = 'main-menu',
-  DailyJingle = 'daily-jingle',
-  Practice = 'practice',
+export enum Page {
+  MainMenu = '/',
+  DailyJingle = '/daily',
+  Practice = '/practice',
 }
 
 export enum GameStatus {
