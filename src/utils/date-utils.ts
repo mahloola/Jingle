@@ -8,12 +8,7 @@ dayjs.extend(timezone);
 dayjs.extend(duration);
 
 export function getNextUtcMidnight() {
-  const now = dayjs().utc();
-  const nextMidnight =
-    now.hour() < 0
-      ? now.hour(0).minute(0).second(0)
-      : now.add(1, 'day').hour(0).minute(0).second(0);
-  return nextMidnight;
+  return dayjs().utc().add(1, 'day').hour(0).minute(0).second(0);
 }
 
 export const calculateTimeDifference = (startMs: number, endMs: number) => {
