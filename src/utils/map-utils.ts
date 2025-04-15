@@ -154,7 +154,7 @@ export const switchLayer = (
   tileLayer: L.TileLayer,
   mapId: number,
 ) => {
-  const padding = 256;
+  const padding = mapId == 0 ? -64 : 256;
   const { bounds } = mapMetadata[mapId];
   const [min, max] = bounds;
   map.setMaxBounds([
