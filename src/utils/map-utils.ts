@@ -259,10 +259,10 @@ const getClosestMapIdPolys = (
     (polyData) => polyData.mapId === closestPolygon.mapId,
   );
 
-  return [
-    closestPolygons.map((polyData) => polyData.coordinates),
-    closestPolygon.mapId,
-  ];
+  return {
+    polygonCoords: closestPolygons.map((polyData) => polyData.coordinates),
+    mapId: closestPolygon.mapId,
+  };
 };
 
 const findClosestLink = (
