@@ -7,19 +7,19 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(duration);
 
-export function getNextUtcMidnight() {
-  const now = dayjs().utc();
+export function getNextUkMidnight() {
+  const now = dayjs().tz('Europe/London');
   const nextMidnight =
     now.hour() < 0
-      ? now.hour(0).minute(0).second(0)
-      : now.add(1, 'day').hour(0).minute(0).second(0);
+      ? now.hour(0).minute(0).second(0).millisecond(0)
+      : now.add(1, 'day').hour(0).minute(0).second(0).millisecond(0);
   return nextMidnight;
 }
 
 export const calculateTimeDifference = (startMs: number, endMs: number) => {
   const d = dayjs.duration(dayjs(endMs).diff(dayjs(startMs)));
   return [d.hours() > 0 && d.hours(), d.minutes(), d.seconds()]
-    .filter(Boolean)
+    .filter((value) => value !== false)
     .map((value) => value.toString().padStart(2, '0'))
     .join(':');
 };

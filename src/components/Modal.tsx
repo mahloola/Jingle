@@ -14,9 +14,7 @@ interface ModalProps {
 const modalStyles: Styles = {
   content: {
     display: 'flex',
-    background: COLORS.brown,
     padding: '16px 24px 24px 24px',
-    outline: '2px solid #363029',
     position: 'fixed',
     width: '350px',
     height: 'auto',
@@ -29,7 +27,6 @@ const modalStyles: Styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: '4px',
     transition: 'all 0.3s ease',
   },
 };

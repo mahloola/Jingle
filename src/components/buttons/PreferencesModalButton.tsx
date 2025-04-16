@@ -8,20 +8,20 @@ import { ASSETS } from '../../constants/assets';
 import { Region, REGIONS } from '../../constants/regions';
 import { COLORS } from '../../constants/theme';
 import '../../style/modal.css';
-import { Screen, UserPreferences } from '../../types/jingle';
+import { Page, UserPreferences } from '../../types/jingle';
 import Modal from '../Modal';
 import IconButton from './IconButton';
 
 interface PreferencesModalButtonProps {
   currentPreferences: UserPreferences;
   onApplyPreferences: (settings: any) => void;
-  screen: Screen.DailyJingle | Screen.Practice;
+  page: Page.DailyJingle | Page.Practice;
 }
 
 export default function SettingsModalButton({
   currentPreferences,
   onApplyPreferences,
-  screen,
+  page,
 }: PreferencesModalButtonProps) {
   const [open, setOpen] = useState(false);
 
@@ -137,9 +137,9 @@ export default function SettingsModalButton({
                 <FaChevronDown
                   onClick={toggleRegions}
                   className={regionsOpen ? 'rotated' : ''}
-                  pointerEvents={screen !== Screen.Practice ? 'none' : 'auto'}
+                  pointerEvents={page !== Page.Practice ? 'none' : 'auto'}
                 />
-                {screen !== Screen.Practice && (
+                {page !== Page.Practice && (
                   <>
                     <IoWarning
                       style={{
@@ -157,7 +157,7 @@ export default function SettingsModalButton({
             </tr>
           </tbody>
         </table>
-        {screen === Screen.Practice && (
+        {page === Page.Practice && (
           <div
             className={'regions-table'}
             style={{
@@ -180,7 +180,7 @@ export default function SettingsModalButton({
                   <input
                     type='checkbox'
                     name={`regions.${region}`}
-                    disabled={(screen as Screen) === Screen.DailyJingle}
+                    disabled={(page as Page) === Page.DailyJingle}
                     checked={preferences.regions[region as Region]}
                     onChange={(e) => {
                       handlePreferencesChange(e);

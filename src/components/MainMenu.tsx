@@ -6,20 +6,15 @@ import '../style/mainMenu.css';
 import { DailyChallenge } from '../types/jingle';
 import {
   getCurrentDateInBritain,
-  getNextUtcMidnight,
+  getNextUkMidnight,
 } from '../utils/date-utils';
 import NextDailyCountdown from './NextDailyCountdown';
+import { Link } from 'react-router-dom';
 
 interface MainMenuProps {
   dailyChallenge: DailyChallenge | undefined;
-  onDailyJingleClick: () => void;
-  onPracticeClick: () => void;
 }
-export default function MainMenu({
-  dailyChallenge,
-  onDailyJingleClick,
-  onPracticeClick,
-}: MainMenuProps) {
+export default function MainMenu({ dailyChallenge }: MainMenuProps) {
   const dailyCompleted =
     localStorage.getItem(LOCAL_STORAGE.dailyComplete) ===
     getCurrentDateInBritain();
@@ -39,27 +34,27 @@ export default function MainMenu({
       <h1 className='main-menu-text'>Jingle</h1>
 
       {/* Daily Jingle Option */}
-      <h1
+      <Link
+        to='/daily'
         className='main-menu-option'
         style={{ left: '17vw', top: '70%' }}
-        onClick={onDailyJingleClick}
       >
         Daily Jingle
-        {dailyCompleted && <NextDailyCountdown end={getNextUtcMidnight()} />}
+        {dailyCompleted && <NextDailyCountdown end={getNextUkMidnight()} />}
         {!dailyCompleted && <div style={{ color: '#00FF00' }}>Ready</div>}{' '}
         <div style={{ fontSize: '40%' }}>
           {dailyChallenge?.results.length.toLocaleString()} Completions
         </div>
-      </h1>
+      </Link>
 
-      <h1
+      <Link
+        to='/practice'
         className='main-menu-option'
         style={{ left: '53vw', top: '70%' }}
-        onClick={onPracticeClick}
       >
         Unlimited Practice
         <div style={{ fontSize: '40%' }}>∞</div>
-      </h1>
+      </Link>
 
       <div className='menu-statistics'>
         <div>
