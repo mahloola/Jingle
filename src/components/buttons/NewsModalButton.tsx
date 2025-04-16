@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { ASSETS } from '../../constants/assets';
 import '../../style/modal.css';
-import Modal from '../Modal';
-import IconButton from './IconButton';
 import {
   loadSeenAnnouncementIdFromBrowser,
   setSeenAnnouncementIdToBrowser,
 } from '../../utils/browserUtil';
+import Modal from '../Modal';
+import IconButton from './IconButton';
 
 export default function NewsModalButton() {
   const seenAnnouncementId = loadSeenAnnouncementIdFromBrowser();
   const [open, setOpen] = useState(
     // TODO: change this so that it shows when we make a new announcement
-    seenAnnouncementId === null,
+    seenAnnouncementId === null
   );
   const closeModal = () => {
     setOpen(false);
@@ -56,8 +56,8 @@ export default function NewsModalButton() {
           &emsp;- Confirmation button (no more misclicks)
           <br />- QOL:
           <br />
-          &emsp;- Edge distance calculation (vs center) &emsp;- Result copying
-          stats fixed for mobile
+          &emsp;- Edge distance calculation (vs center) &emsp;
+          <br />- Result copying stats fixed for mobile
         </p>
         <p style={{ margin: '0' }}>
           Hi guys, this is <span className='link'>mahloola</span>.
