@@ -22,6 +22,288 @@ const geojsondata = {
         "coordinates": [
           [
             [
+              3606,
+              3312
+            ],
+            [
+              3617,
+              3312
+            ],
+            [
+              3617,
+              3330
+            ],
+            [
+              3648,
+              3330
+            ],
+            [
+              3648,
+              3264
+            ],
+            [
+              3584,
+              3264
+            ],
+            [
+              3584,
+              3328
+            ],
+            [
+              3591,
+              3328
+            ],
+            [
+              3591,
+              3311
+            ],
+            [
+              3606,
+              3311
+            ],
+            [
+              3606,
+              3312
+            ]
+          ],
+          [
+            [
+              3584,
+              9600
+            ],
+            [
+              3584,
+              9664
+            ],
+            [
+              3648,
+              9664
+            ],
+            [
+              3648,
+              9600
+            ],
+            [
+              3584,
+              9600
+            ]
+          ],
+          [
+            [
+              3616,
+              9728
+            ],
+            [
+              3648,
+              9728
+            ],
+            [
+              3648,
+              9681
+            ],
+            [
+              3616,
+              9681
+            ],
+            [
+              3616,
+              9728
+            ]
+          ],
+          [
+            [
+              2368,
+              4608
+            ],
+            [
+              2368,
+              4672
+            ],
+            [
+              2432,
+              4672
+            ],
+            [
+              2432,
+              4608
+            ],
+            [
+              2368,
+              4608
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "mapID": "-1",
+        "title": "<a href=\"/w/Lament_of_Meiyerditch\" title=\"Lament of Meiyerditch\">Lament of Meiyerditch</a>",
+        "description": "<div><a href=\"/w/File:Lament_of_Meiyerditch.ogg\" title=\"File:Lament of Meiyerditch.ogg\">Play track</a></div>",
+        "plane": 0
+      },
+      "convertedGeometry": [
+        {
+          "mapName": "Gielinor Surface",
+          "mapId": 0,
+          "coordinates": [
+            [
+              3606,
+              3312
+            ],
+            [
+              3617,
+              3312
+            ],
+            [
+              3617,
+              3330
+            ],
+            [
+              3648,
+              3330
+            ],
+            [
+              3648,
+              3264
+            ],
+            [
+              3584,
+              3264
+            ],
+            [
+              3584,
+              3328
+            ],
+            [
+              3591,
+              3328
+            ],
+            [
+              3591,
+              3311
+            ],
+            [
+              3606,
+              3311
+            ],
+            [
+              3606,
+              3312
+            ]
+          ]
+        },
+        {
+          "mapName": "Morytania Underground",
+          "mapId": 14,
+          "coordinates": [
+            [
+              3680,
+              9664
+            ],
+            [
+              3712,
+              9664
+            ],
+            [
+              3712,
+              9617
+            ],
+            [
+              3680,
+              9617
+            ],
+            [
+              3680,
+              9664
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [] 
+        ]
+      },
+      "properties": {
+        "mapID": "-1",
+        "title": "<a href=\"/w/Blood_Rush_(music_track)\" title=\"Blood Rush (music_track)\">Blood Rush</a>",
+        "description": "<div><a href=\"/w/File:Blood_Rush.ogg\" title=\"File:Blood Rush.ogg\">Play track</a></div>",
+        "plane": 0
+      },
+      "convertedGeometry": [
+        {
+          "mapName": "Gielinor Surface",
+          "mapId": 0,
+          "coordinates": [
+            [
+              1123,
+              3425
+            ],
+            [
+              1123,
+              3411
+            ],
+            [
+              1136,
+              3411
+            ],
+            [
+              1136,
+              3425
+            ],
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [] 
+        ]
+      },
+      "properties": {
+        "mapID": "-1",
+        "title": "<a href=\"/w/Song_of_the_Silent_Choir\" title=\"Song of the Silent Choir\">Song of the Silent Choir</a>",
+        "description": "<div><a href=\"/w/File:Song_of_the_Silent_Choir.ogg\" title=\"File:Song of the Silent Choir.ogg\">Play track</a></div>",
+        "plane": 0
+      },
+      "convertedGeometry": [
+        {
+          "mapName": "Gielinor Surface",
+          "mapId": 41,
+          "coordinates": [
+            [
+              2638,
+              6389
+            ],
+            [
+              2638,
+              6342
+            ],
+            [
+              2677,
+              6342
+            ],
+            [
+              2677,
+              6389
+            ],
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               1823,
               3125
             ],

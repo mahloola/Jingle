@@ -126,6 +126,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
               iconAnchor: [12, 41],
             })
           }
+          interactive={false}
         />
       )}
 
