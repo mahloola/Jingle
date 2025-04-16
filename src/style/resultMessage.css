@@ -23,15 +23,4 @@
 .streak {
   color: rgb(255, 134, 134);
   font-size: 0.5em;
-  animation: sizeUp 0.2s ease-in-out;
-}
-
-@keyframes sizeUp {
-  0% {
-    transform: scale(0.1);
-  }
-
-  100% {
-    transform: scale(1);
-  }
 }
