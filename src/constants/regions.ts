@@ -73,6 +73,13 @@ export const REGIONS = {
     'Tomorrow',
     'Wander',
     'Workshop',
+    'Frostbite',
+    'Stranded',
+    'Contest',
+    'Tremble',
+    'Sojourn',
+    "Hell's Bells",
+    'Romancing the Crone',
   ],
   Fremennik: [
     'Saga',
@@ -93,6 +100,8 @@ export const REGIONS = {
     'Have an Ice Day',
     'Miscellania',
     'Etceteria',
+    'Barren Land',
+    'Lumbering',
   ],
   Kandarin: [
     'Anywhere',
@@ -185,7 +194,6 @@ export const REGIONS = {
     'Tempor of the Storm',
   ],
   Morytania: [
-    'Arabian',
     'Arboretum',
     'Bloodbath',
     'Bone Dance',
