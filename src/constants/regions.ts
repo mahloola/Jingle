@@ -86,6 +86,7 @@ export const REGIONS = {
     'Romancing the Crone',
     'Pest Control',
     'Null and Void',
+    "Warriors' Guild",
   ],
   Fremennik: [
     'Saga',
