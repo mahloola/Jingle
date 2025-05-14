@@ -176,7 +176,7 @@ export const REGIONS = {
     'Zogre Dance',
     'Making Waves',
     'Jungle Hunt',
-    'On The Shore',
+    'On the Shore',
   ],
   Desert: [
     'Arabian',
