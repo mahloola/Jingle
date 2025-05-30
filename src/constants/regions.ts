@@ -82,7 +82,7 @@ export const REGIONS = {
     'Contest',
     'Tremble',
     'Sojourn',
-    "Hell's Bells",
+    'Hells Bells',
     'Romancing the Crone',
     'Pest Control',
     'Null and Void',
