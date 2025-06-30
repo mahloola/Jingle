@@ -56,8 +56,8 @@ export default function NewsModalButton() {
           &emsp;- Confirmation button (no more misclicks)
           <br />- QOL:
           <br />
-          &emsp;- Edge distance calculation (vs center) &emsp;
-          <br />- Result copying stats fixed for mobile
+          &emsp;- Edge distance calculation (vs center) <br />
+          &emsp;- Result copying stats fixed for mobile
         </p>
         <p style={{ margin: '0' }}>
           Hi guys, this is <span className='link'>mahloola</span>.
