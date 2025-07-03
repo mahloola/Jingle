@@ -18,5 +18,5 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
     Varlamore: true,
   },
   undergroundSelected: true,
-  overgroundSelected: true,
+  surfaceSelected: true,
 };

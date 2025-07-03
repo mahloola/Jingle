@@ -5,10 +5,16 @@ import { IoWarning } from 'react-icons/io5';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import { ASSETS } from '../../constants/assets';
-import { Region, REGIONS } from '../../constants/regions';
+import {
+  Region,
+  REGIONS,
+  TOTAL_TRACK_COUNT,
+  UNDERGROUND_TRACKS,
+} from '../../constants/regions';
 import { COLORS } from '../../constants/theme';
 import '../../style/modal.css';
 import { Page, UserPreferences } from '../../types/jingle';
+import { countSelectedSongs } from '../../utils/countSelectedSongs';
 import Modal from '../Modal';
 import IconButton from './IconButton';
 
@@ -30,10 +36,15 @@ export default function SettingsModalButton({
   const toggleRegions = () => {
     setRegionsOpen((prev) => !prev);
   };
+  const [dungeonsOpen, setDungeonsOpen] = useState(false);
+  const toggleDungeons = () => {
+    setDungeonsOpen((prev) => !prev);
+  };
 
   const disabled =
     JSON.stringify(currentPreferences) === JSON.stringify(preferences) ||
-    Object.values(preferences.regions).every((enabled) => !enabled);
+    Object.values(preferences.regions).every((enabled) => !enabled) ||
+    (!preferences.undergroundSelected && !preferences.surfaceSelected);
 
   const handlePreferencesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
@@ -133,6 +144,81 @@ export default function SettingsModalButton({
             </tr>
             <tr>
               <td>
+                Underground{' '}
+                <FaChevronDown
+                  onClick={toggleDungeons}
+                  className={dungeonsOpen ? 'rotated' : ''}
+                  pointerEvents={page !== Page.Practice ? 'none' : 'auto'}
+                />
+                {page !== Page.Practice && (
+                  <>
+                    <IoWarning
+                      style={{
+                        color: COLORS.yellow,
+                        minHeight: '20px',
+                        minWidth: '20px',
+                      }}
+                      data-tooltip-id='regions-tooltip'
+                      data-tooltip-content='You must be in practice mode to set regions'
+                    />
+                    <Tooltip id='regions-tooltip' />
+                  </>
+                )}
+              </td>
+            </tr>
+            {page === Page.Practice && (
+              <div
+                className={'regions-table'}
+                style={{
+                  height: dungeonsOpen ? '35px' : '0px',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    minWidth: '130px',
+                  }}
+                >
+                  <div>Dungeons ({UNDERGROUND_TRACKS.length})</div>
+                  <div className={'checkbox-container'}>
+                    <input
+                      type='checkbox'
+                      name={`undergroundSelected`}
+                      disabled={(page as Page) === Page.DailyJingle}
+                      checked={preferences.undergroundSelected}
+                      onChange={(e) => {
+                        handlePreferencesChange(e);
+                      }}
+                    ></input>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    width: '130px',
+                  }}
+                >
+                  <div>
+                    Surface ({TOTAL_TRACK_COUNT - UNDERGROUND_TRACKS.length})
+                  </div>
+                  <div className={'checkbox-container'}>
+                    <input
+                      type='checkbox'
+                      name={`surfaceSelected`}
+                      disabled={(page as Page) === Page.DailyJingle}
+                      checked={preferences.surfaceSelected}
+                      onChange={(e) => {
+                        handlePreferencesChange(e);
+                      }}
+                    ></input>
+                  </div>
+                </div>
+              </div>
+            )}
+            <tr>
+              <td>
                 Regions{' '}
                 <FaChevronDown
                   onClick={toggleRegions}
@@ -174,9 +260,9 @@ export default function SettingsModalButton({
                 key={region}
               >
                 <div>
-                  {region} ({REGIONS[region as Region].length})
+                  {region} ({countSelectedSongs(preferences, region as Region)})
                 </div>
-                <div>
+                <div className={'checkbox-container'}>
                   <input
                     type='checkbox'
                     name={`regions.${region}`}

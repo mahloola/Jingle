@@ -83,7 +83,7 @@ export interface UserPreferences {
   preferConfirmation: boolean;
   regions: Record<Region, boolean>;
   undergroundSelected: boolean;
-  overgroundSelected: boolean;
+  surfaceSelected: boolean;
 }
 
 export interface Song {

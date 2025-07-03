@@ -13,7 +13,7 @@ export const countSelectedSongs = (
   if (preferences.undergroundSelected) {
     count += regionUndergroundSongs.length;
   }
-  if (preferences.overgroundSelected) {
+  if (preferences.surfaceSelected) {
     count += regionSongs.length - regionUndergroundSongs.length;
   }
   return count;
