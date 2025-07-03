@@ -7,6 +7,7 @@ import {
   incrementSongFailureCount,
   incrementSongSuccessCount,
 } from '../data/jingle-api';
+import useGameLogic from '../hooks/useGameLogic';
 import {
   GameSettings,
   GameState,
@@ -25,11 +26,11 @@ import { playSong } from '../utils/playSong';
 import Footer from './Footer';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
-import HomeButton from './buttons/HomeButton';
-import NewsModalButton from './buttons/NewsModalButton';
-import SettingsModalButton from './buttons/PreferencesModalButton';
-import StatsModalButton from './buttons/StatsModalButton';
-import useGameLogic from '../hooks/useGameLogic';
+import HomeButton from './side-menu/HomeButton';
+import NewsModalButton from './side-menu/NewsModalButton';
+import SettingsModalButton from './side-menu/PreferencesModalButton';
+import StatsModalButton from './side-menu/StatsModalButton';
+import { Button } from './ui-util/Button';
 
 export default function Practice() {
   const currentPreferences =
@@ -45,7 +46,7 @@ export default function Practice() {
     },
     status: GameStatus.Guessing,
     round: 0,
-    songs: [getRandomSong(enabledRegions)],
+    songs: [getRandomSong(currentPreferences)],
     scores: [],
     startTime: Date.now(),
     timeTaken: null,
@@ -60,7 +61,7 @@ export default function Practice() {
       audioRef,
       initialGameState.songs[initialGameState.round],
       currentPreferences.preferOldAudio,
-      currentPreferences.preferHardMode,
+      currentPreferences.preferHardMode
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -84,14 +85,14 @@ export default function Practice() {
   };
 
   const nextSong = () => {
-    const newSong = getRandomSong(enabledRegions);
+    const newSong = getRandomSong(currentPreferences);
     const gameState = jingle.addSong(newSong);
     jingle.nextSong(gameState);
     playSong(
       audioRef,
       newSong,
       currentPreferences.preferOldAudio,
-      currentPreferences.preferHardMode,
+      currentPreferences.preferHardMode
     );
   };
 
@@ -105,24 +106,12 @@ export default function Practice() {
     savePreferencesToBrowser(preferences);
   };
 
-  const button = (props: {
-    label: string;
-    disabled?: boolean;
-    onClick: () => any;
-  }) => (
-    <button
-      className='osrs-btn guess-btn'
-      onClick={props.onClick}
-      disabled={props.disabled}
-      style={{ pointerEvents: !props.onClick ? 'none' : 'auto' }}
-    >
-      {props.label}
-    </button>
-  );
-
   return (
     <>
       <div className='App-inner'>
+        <div className='above-map'>
+          <Button label='Back to Surface' onClick={() => {}} />
+        </div>
         <div className='ui-box'>
           <div className='modal-buttons-container'>
             <HomeButton />
@@ -141,11 +130,13 @@ export default function Practice() {
             {match(gameState.status)
               .with(GameStatus.Guessing, () => {
                 if (currentPreferences.preferConfirmation) {
-                  return button({
-                    label: 'Confirm guess',
-                    onClick: () => confirmGuess(),
-                    disabled: !gameState.clickedPosition,
-                  });
+                  return (
+                    <Button
+                      label='Confirm guess'
+                      onClick={() => confirmGuess()}
+                      disabled={!gameState.clickedPosition}
+                    />
+                  );
                 } else {
                   return (
                     <div className='osrs-frame guess-btn'>
@@ -154,9 +145,9 @@ export default function Practice() {
                   );
                 }
               })
-              .with(GameStatus.AnswerRevealed, () =>
-                button({ label: 'Next Song', onClick: nextSong }),
-              )
+              .with(GameStatus.AnswerRevealed, () => (
+                <Button label='Next Song' onClick={nextSong} />
+              ))
               .with(GameStatus.GameOver, () => {
                 throw new Error('Unreachable');
               })
