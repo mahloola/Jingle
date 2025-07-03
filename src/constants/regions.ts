@@ -464,5 +464,8 @@ export const REGIONS = {
     'Under the Mountain',
   ],
 };
-
+export const TOTAL_TRACK_COUNT = Object.keys(REGIONS).reduce(
+  (count, region) => count + REGIONS[region as Region].length,
+  0
+);
 export type Region = keyof typeof REGIONS;
