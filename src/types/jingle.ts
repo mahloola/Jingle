@@ -1,6 +1,5 @@
-import L from 'leaflet';
-import { Region } from '../constants/regions';
 import { Position } from 'geojson';
+import { Region } from '../constants/regions';
 
 export enum Page {
   MainMenu = '/',
@@ -27,7 +26,6 @@ export interface GameState {
   scores: number[];
   startTime: number;
   timeTaken: string | null;
-
   clickedPosition: ClickedPosition | null;
 }
 export interface ClickedPosition {
@@ -84,6 +82,8 @@ export interface UserPreferences {
   preferOldAudio: boolean;
   preferConfirmation: boolean;
   regions: Record<Region, boolean>;
+  undergroundSelected: boolean;
+  overgroundSelected: boolean;
 }
 
 export interface Song {
