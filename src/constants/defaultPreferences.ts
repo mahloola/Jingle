@@ -17,4 +17,6 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
     Kourend: true,
     Varlamore: true,
   },
+  undergroundSelected: true,
+  overgroundSelected: true,
 };
