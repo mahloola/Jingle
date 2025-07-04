@@ -10,19 +10,19 @@ import {
   useMap,
   useMapEvents,
 } from 'react-leaflet';
+import { MapLink } from '../data/map-links';
 import { ClickedPosition, GameState, GameStatus } from '../types/jingle';
+import { assertNotNil } from '../utils/assert';
 import {
   convert,
   findNearestPolygonWhereSongPlays,
-  getCenterOfPolygon,
   switchLayer,
 } from '../utils/map-utils';
 import LayerPortals from './LayerPortals';
-import { MapLink } from '../data/map-links';
-import { assertNotNil } from '../utils/assert';
 
 interface RunescapeMapProps {
   gameState: GameState;
+  onNavigateBack?: () => void;
   onMapClick: (clickedPosition: ClickedPosition) => void;
 }
 
@@ -42,10 +42,26 @@ export default function RunescapeMapWrapper(props: RunescapeMapProps) {
   );
 }
 
-function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
+function RunescapeMap({
+  gameState,
+  onMapClick,
+  onNavigateBack,
+}: RunescapeMapProps) {
   const map = useMap();
   const tileLayerRef = useRef<L.TileLayer>(null);
   const [currentMapId, setCurrentMapId] = useState(0);
+
+  useEffect(() => {
+    if (onNavigateBack) {
+      const navigationEntry = gameState.navigationStack?.pop();
+      switchLayer(map, tileLayerRef.current!, navigationEntry?.mapId || 0);
+      map.panTo(
+        [navigationEntry?.coordinates[0], navigationEntry?.coordinates[1]],
+        { animate: false }
+      );
+      setCurrentMapId(navigationEntry?.mapId || 0);
+    }
+  });
 
   useMapEvents({
     click: async (e) => {
@@ -61,7 +77,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
     const song = gameState.songs[gameState.round];
     const { mapId, panTo } = findNearestPolygonWhereSongPlays(
       song,
-      gameState.clickedPosition,
+      gameState.clickedPosition
     );
     if (currentMapId !== mapId) {
       switchLayer(map, tileLayerRef.current!, mapId);
@@ -87,7 +103,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
 
     const { feature: polygon, mapId } = findNearestPolygonWhereSongPlays(
       song,
-      gameState.clickedPosition!,
+      gameState.clickedPosition!
     );
     return { correctPolygon: polygon, correctMapId: mapId };
   }, [map, gameState]);
@@ -111,6 +127,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
       switchLayer(map, tileLayerRef.current!, link.end.mapId);
     }
     map.panTo([link.end.y, link.end.x], { animate: false });
+    gameState.onSurface = link.end.mapId === 0 ? true : false;
     setCurrentMapId(link.end.mapId);
   };
 

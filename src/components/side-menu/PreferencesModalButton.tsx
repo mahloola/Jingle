@@ -158,10 +158,10 @@ export default function SettingsModalButton({
                         minHeight: '20px',
                         minWidth: '20px',
                       }}
-                      data-tooltip-id='regions-tooltip'
-                      data-tooltip-content='You must be in practice mode to set regions'
+                      data-tooltip-id='dungeons-tooltip'
+                      data-tooltip-content='You must be in practice mode to set surface filters'
                     />
-                    <Tooltip id='regions-tooltip' />
+                    <Tooltip id='dungeons-tooltip' />
                   </>
                 )}
               </td>

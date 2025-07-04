@@ -18,6 +18,11 @@ export enum ModalType {
   News = 'news',
   Settings = 'settings',
 }
+
+export interface NavigationEntry {
+  mapId: number;
+  coordinates: [number, number];
+}
 export interface GameState {
   settings: GameSettings;
   status: GameStatus;
@@ -27,6 +32,7 @@ export interface GameState {
   startTime: number;
   timeTaken: string | null;
   clickedPosition: ClickedPosition | null;
+  navigationStack: NavigationEntry[] | null;
 }
 export interface ClickedPosition {
   xy: Position;

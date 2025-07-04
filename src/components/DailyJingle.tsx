@@ -1,4 +1,3 @@
-import L from 'leaflet';
 import { sum } from 'ramda';
 import { useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
@@ -37,10 +36,10 @@ import Footer from './Footer';
 import GameOver from './GameOver';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
-import HomeButton from './buttons/HomeButton';
-import NewsModalButton from './buttons/NewsModalButton';
-import SettingsModalButton from './buttons/PreferencesModalButton';
-import StatsModalButton from './buttons/StatsModalButton';
+import HomeButton from './side-menu/HomeButton';
+import NewsModalButton from './side-menu/NewsModalButton';
+import SettingsModalButton from './side-menu/PreferencesModalButton';
+import StatsModalButton from './side-menu/StatsModalButton';
 
 interface DailyJingleProps {
   dailyChallenge: DailyChallenge;
