@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ASSETS } from '../../constants/assets';
+import { NEWS_POSTS } from '../../constants/news';
 import '../../style/modal.css';
 import {
   loadSeenAnnouncementIdFromBrowser,
@@ -34,45 +35,36 @@ export default function NewsModalButton() {
         <div
           style={{
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'space-between',
             width: '100%',
+            maxHeight: '50vh',
+            overflowY: 'auto',
+            scrollbarWidth: 'thin',
           }}
         >
-          <h2>News</h2>
-          <h6 className='news-date'>Apr 7, 2025</h6>
+          {NEWS_POSTS.map((post) => (
+            <div key={post.id} style={{ width: '100%' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <div style={{ fontSize: '2rem' }}>{post.title}</div>
+                <h6 className='news-date' style={{ marginRight: '10px' }}>
+                  {post.date}
+                </h6>
+              </div>
+              <div className='news-content'>
+                {<div dangerouslySetInnerHTML={{ __html: post.content }} />}
+              </div>
+              {parseInt(post.id) !== NEWS_POSTS.length - 1 && <hr />}
+            </div>
+          ))}
         </div>
-        <p>
-          - Varlamore added
-          <br />- Stats (success%, max streak, etc.)
-          <br />- Preference settings:
-          <br />
-          &emsp;- Region selection
-          <br />
-          &emsp;- 2004 audio
-          <br />
-          &emsp;- Hard mode
-          <br />
-          &emsp;- Confirmation button (no more misclicks)
-          <br />- QOL:
-          <br />
-          &emsp;- Edge distance calculation (vs center) <br />
-          &emsp;- Result copying stats fixed for mobile
-        </p>
-        <p style={{ margin: '0' }}>
-          Hi guys, this is <span className='link'>mahloola</span>.
-          <br />
-          Thank you for playing Jingle! We notice and appreciate you all. Big
-          thanks to <span className='link'>FunOrange</span>,{' '}
-          <span className='link'>Kunito Moe</span>, and the{' '}
-          <span className='link'>wiki map editors</span> for helping me with
-          these updates!
-          <br />
-          Enjoy these new features, and feel free to join the{' '}
-          <a href='https://discord.gg/7sB8fyUS9W' className='link'>
-            discord! 😊
-          </a>
-        </p>
       </Modal>
     </>
   );

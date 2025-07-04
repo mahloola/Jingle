@@ -177,7 +177,7 @@ export default function SettingsModalButton({
                   style={{
                     display: 'flex',
                     justifyContent: 'space-between',
-                    minWidth: '130px',
+                    minWidth: '140px',
                   }}
                 >
                   <div>Dungeons ({UNDERGROUND_TRACKS.length})</div>
@@ -197,7 +197,7 @@ export default function SettingsModalButton({
                   style={{
                     display: 'flex',
                     justifyContent: 'space-between',
-                    width: '130px',
+                    width: '140px',
                   }}
                 >
                   <div>
@@ -255,7 +255,7 @@ export default function SettingsModalButton({
                 style={{
                   display: 'flex',
                   justifyContent: 'space-between',
-                  minWidth: '130px',
+                  minWidth: '140px',
                 }}
                 key={region}
               >

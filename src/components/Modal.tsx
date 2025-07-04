@@ -11,12 +11,13 @@ interface ModalProps {
   saveDisabled?: boolean;
 }
 
+const isMobile = window.innerWidth <= 480;
 const modalStyles: Styles = {
   content: {
     display: 'flex',
     padding: '16px 24px 24px 24px',
     position: 'fixed',
-    width: '350px',
+    width: isMobile ? '340px' : '370px',
     height: 'auto',
     left: '50%',
     top: '50%',
