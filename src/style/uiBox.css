@@ -27,3 +27,12 @@
   align-items: center;
   gap: 10px;
 }
+
+.above-map {
+  position: absolute;
+  top: 50px;
+  z-index: 999999;
+}
+.above-map > button {
+  padding: 15px 40px;
+}
