@@ -318,7 +318,6 @@ export const REGIONS = {
     "Life's a Beach!",
     'In the Brine',
     'Distillery Hilarity',
-    'Lament of Meiyerditch',
     'Noxious Awakening',
     'Barking Mad',
     'Body Parts',
