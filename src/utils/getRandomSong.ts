@@ -1,23 +1,75 @@
-import { Region, REGIONS } from '../constants/regions';
+import { Region, REGIONS, UNDERGROUND_TRACKS } from '../constants/regions';
+import { UserPreferences } from '../types/jingle';
 
-const playedSongs = new Set();
+// Played songs tracking (could be moved to a separate module if needed elsewhere)
+const playedSongs = new Set<string>();
 const playedSongsOrder: string[] = [];
 
-export const getRandomSong = (regions: Region[]) => {
-  const allSongs = regions.flatMap((region) => REGIONS[region]);
-  const randomIndex = Math.floor(Math.random() * allSongs.length);
-  return allSongs[randomIndex];
+// Helper functions
+const getEnabledRegions = (preferences: UserPreferences): Region[] => {
+  return (Object.keys(preferences.regions) as Region[]).filter(
+    (region) => preferences.regions[region]
+  );
 };
 
-const updatePlayedSongs = (newSongName: string) => {
-  playedSongsOrder.push(newSongName);
+const getAllSongsFromRegions = (regions: Region[]): string[] => {
+  return regions.flatMap((region) => REGIONS[region]);
+};
 
-  // If limit is reached, remove the oldest song
-  if (playedSongsOrder.length > 100) {
-    //change val based on how many songs should be shown without dupes
-    const oldestSong = playedSongsOrder.shift();
-    playedSongs.delete(oldestSong);
+const filterSongsByPreference = (
+  songs: string[],
+  preferences: UserPreferences
+): string[] => {
+  const { undergroundSelected, surfaceSelected } = preferences;
+
+  if (undergroundSelected && !surfaceSelected) {
+    return songs.filter((song) => UNDERGROUND_TRACKS.includes(song));
   }
 
-  playedSongs.add(newSongName);
+  if (surfaceSelected && !undergroundSelected) {
+    return songs.filter((song) => !UNDERGROUND_TRACKS.includes(song));
+  }
+
+  return songs;
+};
+
+const getAvailableSongs = (allSongs: string[]): string[] => {
+  return allSongs.filter((song) => !playedSongs.has(song));
+};
+
+const selectRandomSong = (songs: string[]): string => {
+  if (songs.length === 0) {
+    throw new Error('No songs available for selection');
+  }
+  const randomIndex = Math.floor(Math.random() * songs.length);
+  return songs[randomIndex];
+};
+
+const trackPlayedSong = (song: string): void => {
+  playedSongs.add(song);
+  playedSongsOrder.push(song);
+};
+
+// Main function
+export const getRandomSong = (preferences: UserPreferences): string => {
+  const enabledRegions = getEnabledRegions(preferences);
+  let allSongs = getAllSongsFromRegions(enabledRegions);
+  allSongs = filterSongsByPreference(allSongs, preferences);
+
+  if (allSongs.length === 0) {
+    throw new Error('No songs available matching the current filters');
+  }
+
+  const availableSongs = getAvailableSongs(allSongs);
+  let selectedSong: string;
+
+  if (availableSongs.length > 0) {
+    selectedSong = selectRandomSong(availableSongs);
+  } else {
+    playedSongs.clear();
+    selectedSong = selectRandomSong(allSongs);
+  }
+
+  trackPlayedSong(selectedSong);
+  return selectedSong;
 };
