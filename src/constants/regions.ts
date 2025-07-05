@@ -335,6 +335,7 @@ export const REGIONS = {
     'The Undying Light',
     'Creatures of Varlamore',
     'Strangled',
+    'Blood Rush',
   ],
 };
 
