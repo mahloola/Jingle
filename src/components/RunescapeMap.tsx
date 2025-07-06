@@ -85,6 +85,7 @@ function RunescapeMap({
     map.panTo(convert.xy_to_ll(panTo));
     setCurrentMapId(mapId);
   };
+  
   useEffect(() => {
     if (gameState.status === GameStatus.AnswerRevealed) {
       onGuessConfirmed();
@@ -97,19 +98,21 @@ function RunescapeMap({
       gameState.status === GameStatus.AnswerRevealed) &&
     gameState.clickedPosition?.mapId === currentMapId;
 
-  const { correctPolygon, correctMapId } = useMemo(() => {
+  const { correctFeaturesData, correctMapId } = useMemo(() => {
     const song = gameState.songs[gameState.round];
     if (!map || !song || !gameState.clickedPosition) return {};
 
-    const { feature: polygon, mapId } = findNearestPolygonWhereSongPlays(
+    const { featuresData, mapId } = findNearestPolygonWhereSongPlays(
       song,
       gameState.clickedPosition!
     );
-    return { correctPolygon: polygon, correctMapId: mapId };
+
+    return { correctFeaturesData: featuresData, correctMapId: mapId };
   }, [map, gameState]);
-  const showCorrectPolygon =
-    correctPolygon &&
-    correctMapId === currentMapId &&
+
+    const showCorrectPolygon = 
+    correctFeaturesData &&
+    correctFeaturesData.some((featureData)=> {return featureData.mapId == currentMapId}) &&
     gameState.status === GameStatus.AnswerRevealed;
 
   // initially load the first tile layer
@@ -128,6 +131,7 @@ function RunescapeMap({
     }
     map.panTo([link.end.y, link.end.x], { animate: false });
     gameState.onSurface = link.end.mapId === 0 ? true : false;
+    
     setCurrentMapId(link.end.mapId);
   };
 
@@ -149,7 +153,8 @@ function RunescapeMap({
 
       {showCorrectPolygon && (
         <GeoJSON
-          data={correctPolygon!}
+          key={currentMapId}
+          data={correctFeaturesData.find((featureData)=>{return featureData.mapId === currentMapId})!.feature}
           style={() => ({
             color: '#0d6efd', // Outline color
             fillColor: '#0d6efd', // Fill color

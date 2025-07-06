@@ -131,6 +131,55 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Gielinor Surface': [
+
+    //custom
+    {
+      start: {
+        x: 3578,
+        y: 3526,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      end: {
+        x: 3578,
+        y: 9926,
+        mapId: 14,
+        name: 'Morytania Underground',
+      },
+    },
+
+    //custom
+    {
+      start: {
+        x: 3505,
+        y: 3570,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      end: {
+        x: 3503,
+        y: 9969,
+        mapId: 14,
+        name: 'Morytania Underground',
+      },
+    },
+
+    //custom
+    {
+      start: {
+        x: 3643,
+        y: 3304,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      end: {
+        x: 3701,
+        y: 9631,
+        mapId: 14,
+        name: 'Morytania Underground',
+      },
+    },
+
     {
       start: {
         x: 1232,
@@ -3439,6 +3488,39 @@ export const groupedLinks: GroupedLinks = {
         name: 'Karamja Underground',
       },
     },
+
+    //custom
+    {
+      start: {
+        x: 2497,
+        y: 5121,
+        mapId: 23,
+        name: 'Mor Ul Rek',
+      },
+      end: {
+        x: 2495,
+        y: 5008,
+        mapId: 23, 
+        name: 'Mor Ul Rek',
+      },
+    },
+
+    //custom
+    {
+      start: {
+        x: 2495,
+        y: 5008,
+        mapId: 23,
+        name: 'Mor Ul Rek',
+      },
+      end: {
+        x: 2497,
+        y: 5121,
+        mapId: 23,
+        name: 'Mor Ul Rek',
+      },
+    
+    },
   ],
   'Ardougne Underground': [
     {
@@ -4942,6 +5024,58 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Morytania Underground': [
+
+    //custom
+    {
+      start: {
+        x: 3578,
+        y: 9926,
+        mapId: 14,
+        name: 'Morytania Underground',
+      },
+      end: {
+        x: 3578,
+        y: 3526,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    
+    },
+
+    //custom
+    {
+      start: {
+        x: 3505,
+        y: 9969,
+        mapId: 14,
+        name: 'Morytania Underground',
+      },
+      end: {
+        x: 3505,
+        y: 3570,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+   
+    },
+
+    //custom
+    {
+      
+      start: {
+        x: 3701,
+        y: 9631,
+        mapId: 14,
+        name: 'Morytania Underground',
+      },
+      end: {
+        x: 3643,
+        y: 3304,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+
     {
       start: {
         x: 3389,

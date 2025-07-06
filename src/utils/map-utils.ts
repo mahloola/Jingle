@@ -2,7 +2,7 @@ import G, { Position } from 'geojson';
 import { decodeHTML } from './string-utils';
 import geojsondata, { ConvertedFeature } from '../data/GeoJSON';
 import L from 'leaflet';
-import { booleanContains, booleanPointInPolygon, polygon } from '@turf/turf';
+import { booleanContains, booleanPointInPolygon, geometry, polygon } from '@turf/turf';
 import { ClickedPosition } from '../types/jingle';
 import mapMetadata from '../data/map-metadata';
 import { groupedLinks, MapLink } from '../data/map-links';
@@ -22,7 +22,7 @@ export const convert = {
   xy_to_ll: ([x, y]: Position): L.LatLng => L.latLng(y, x),
 };
 
-const closePolygon = (coordinates: Position[]) => {
+const closePolygon = (coordinates: Polygon) : Polygon => {
   const repairedPolygon = [...coordinates];
   if (
     coordinates[0][0] !== coordinates[coordinates.length - 1][0] ||
@@ -87,16 +87,37 @@ const getDistanceToLine = (point: Position, line: Line) => {
   return Math.sqrt(dx * dx + dy * dy);
 };
 
-export const findNearestPolygonWhereSongPlays = (
+export const findAllAnswerPolygonsForSong = (
+  song: string
+) : Map<number, Polygon[]> => {
+
+  const songFeature = geojsondata.features.find(featureMatchesSong(song))!;
+  const polygons = songFeature.convertedGeometry;
+
+  const groupedSongPolygons = new Map<number, Polygon[]>();
+
+  for (const polygon of polygons){
+    if(!groupedSongPolygons.has(polygon.mapId)){
+      groupedSongPolygons.set(polygon.mapId, []);
+    }
+
+    groupedSongPolygons.get(polygon.mapId)!.push(closePolygon(polygon.coordinates));
+  }
+
+  return groupedSongPolygons;
+}
+
+export const  findNearestPolygonWhereSongPlays = (
   song: string,
   clickedPosition: ClickedPosition,
 ): {
   mapId: number;
-  feature: G.Feature<G.Polygon>;
+  featuresData: {mapId: number, feature: G.Feature<G.Polygon>}[];
   panTo: Position;
   distance: number; // 0 if clicked inside polygon
 } => {
   const songFeature = geojsondata.features.find(featureMatchesSong(song))!;
+  const allSongAnswerPolygons = findAllAnswerPolygonsForSong(song);
 
   //all polys for for current song as per our mapId priorities - needed for donut polys.
   const { polygonCoords: songPolyCoords, mapId: songMapId } =
@@ -135,15 +156,22 @@ export const findNearestPolygonWhereSongPlays = (
     ? 0
     : getTotalDistanceToPoly(clickedPosition, nearestPolgonCoords, songMapId);
 
+  const featuresData = Array.from(allSongAnswerPolygons.entries()).map(([currMapId, polygons]) => {
+    return {
+      mapId: currMapId,
+      feature:{
+        type: 'Feature', 
+        geometry: {
+          type: 'Polygon',
+          coordinates: polygons
+        },
+      } as G.Feature<G.Polygon>
+    }
+  })
+
   return {
     mapId: songMapId,
-    feature: {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: repairedPolygons,
-      },
-    } as G.Feature<G.Polygon>,
+    featuresData: featuresData,
     panTo: getCenterOfPolygon(nearestPolgonCoords),
     distance: distance,
   };
@@ -191,8 +219,8 @@ const findOuters = (repairedPolygons: Position[][]): Position[][] => {
   );
 };
 
-const findPolyGroups = (repairedPolygons: Position[][]) => {
-  const groups: Position[][][] = [];
+const findPolyGroups = (repairedPolygons: Polygon[]) => {
+  const groups: Polygon[][] = [];
 
   const gaps = findGaps(repairedPolygons);
   const outers = findOuters(repairedPolygons);
@@ -353,7 +381,7 @@ const getNestedMinDistToSurfce = (
   if (!childParentMapIdPair) {
     return [Infinity, null];
   }
-  console.log(childParentMapIdPair);
+
   const parentMapId = childParentMapIdPair[1];
 
   const [childExitDist, childExit] = getMinDistToExit(
@@ -366,7 +394,7 @@ const getNestedMinDistToSurfce = (
     parentMapId,
     MapIds.Surface,
   );
-  console.log(parentExit);
+
   const dist = childExitDist + parentExitDist;
   return [dist, parentExit];
 };
@@ -387,7 +415,6 @@ const handleNestedDungeons = (
   };
 
   //this only works because the inner mapIds only have one exit outside, and the outers have only one entrance inside.
-  //wait lemme confirm actually sec. ok yeah we good, wiki map is just glitched again, only 1 in game.
   if (areInSameNestedRegion(clickedPosition.mapId, polyMapId)) {
     const [pointExitDist, temp1] = getMinDistToExit(
       clickedPosition.xy,
