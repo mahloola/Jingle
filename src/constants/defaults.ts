@@ -1,4 +1,4 @@
-import { UserPreferences } from '../types/jingle';
+import { GameState, GameStatus, UserPreferences } from '../types/jingle';
 
 export const DEFAULT_PREFERENCES: UserPreferences = {
   preferHardMode: false,
@@ -19,4 +19,17 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
   },
   undergroundSelected: true,
   surfaceSelected: true,
+};
+
+// IF USING THIS, PROVIDE SONGS[] AFTER YOU CREATE A DEFAULT OBJECT
+export const DEFAULT_GAME_STATE: GameState = {
+  settings: { hardMode: false, oldAudio: false },
+  status: GameStatus.Guessing,
+  round: 0, // 0-4
+  songs: [],
+  scores: [],
+  startTime: 0,
+  timeTaken: '',
+  clickedPosition: null,
+  navigationStack: null,
 };

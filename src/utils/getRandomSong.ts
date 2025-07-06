@@ -4,8 +4,11 @@ import { UserPreferences } from '../types/jingle';
 export class SongService {
   private songList: string[];
 
-  constructor(songs: string[]) {
-    this.songList = songs;
+  constructor(preferences: UserPreferences) {
+    const enabledRegions = this.getEnabledRegions(preferences);
+    let allSongs = enabledRegions.flatMap((region) => REGIONS[region]);
+    allSongs = this.filterSongsByPreference(allSongs, preferences);
+    this.songList = allSongs;
   }
 
   get songs(): string[] {
@@ -17,16 +20,12 @@ export class SongService {
   };
 
   getRandomSong = (preferences: UserPreferences): string => {
-    const enabledRegions = this.getEnabledRegions(preferences);
-    let allSongs = enabledRegions.flatMap((region) => REGIONS[region]);
-    allSongs = this.filterSongsByPreference(allSongs, preferences);
-
-    if (allSongs.length === 0) {
+    if (this.songList.length === 0) {
       throw new Error('No songs available matching the current filters');
     }
 
-    const availableSongs = allSongs.filter(
-      (song) => !this.songList.includes(song)
+    const availableSongs = this.songList.filter((song) =>
+      this.songList.includes(song)
     );
     console.log(availableSongs);
     let selectedSong: string;
@@ -34,20 +33,20 @@ export class SongService {
     if (availableSongs.length > 0) {
       selectedSong = this.selectRandomSong(availableSongs);
     } else {
-      selectedSong = this.selectRandomSong(allSongs);
+      selectedSong = this.selectRandomSong(this.songList);
     }
 
     return selectedSong;
   };
 
   // Helper functions
-  getEnabledRegions = (preferences: UserPreferences): Region[] => {
+  private getEnabledRegions = (preferences: UserPreferences): Region[] => {
     return (Object.keys(preferences.regions) as Region[]).filter(
       (region) => preferences.regions[region]
     );
   };
 
-  filterSongsByPreference = (
+  private filterSongsByPreference = (
     songs: string[],
     preferences: UserPreferences
   ): string[] => {
@@ -64,7 +63,7 @@ export class SongService {
     return songs;
   };
 
-  selectRandomSong = (songs: string[]): string => {
+  private selectRandomSong = (songs: string[]): string => {
     if (songs.length === 0) {
       throw new Error('No songs available for selection');
     }
