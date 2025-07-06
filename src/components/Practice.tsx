@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
-import { DEFAULT_PREFERENCES } from '../constants/defaultPreferences';
 import { Region } from '../constants/regions';
 import {
   incrementGlobalGuessCounter,
@@ -21,7 +20,7 @@ import {
   savePreferencesToBrowser,
   updateGuessStreak,
 } from '../utils/browserUtil';
-import { getRandomSong } from '../utils/getRandomSong';
+import { SongService } from '../utils/getRandomSong';
 import { playSong } from '../utils/playSong';
 import Footer from './Footer';
 import RoundResult from './RoundResult';
@@ -33,11 +32,12 @@ import StatsModalButton from './side-menu/StatsModalButton';
 import { Button } from './ui-util/Button';
 
 export default function Practice() {
-  const currentPreferences =
-    loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
+  const currentPreferences = loadPreferencesFromBrowser();
   const enabledRegions = (
     Object.keys(currentPreferences.regions) as Region[]
   ).filter((region) => currentPreferences.regions[region]);
+
+  const songService: SongService = new SongService(currentPreferences);
 
   const [backTrigger, setBackTrigger] = useState(0);
   const initialGameState = {
@@ -47,7 +47,7 @@ export default function Practice() {
     },
     status: GameStatus.Guessing,
     round: 0,
-    songs: [getRandomSong(currentPreferences)],
+    songs: [songService.getRandomSong(currentPreferences)],
     scores: [],
     startTime: Date.now(),
     timeTaken: null,
@@ -90,7 +90,7 @@ export default function Practice() {
   };
 
   const nextSong = () => {
-    const newSong = getRandomSong(currentPreferences);
+    const newSong = songService.getRandomSong(currentPreferences);
     const gameState = jingle.addSong(newSong);
     jingle.nextSong(gameState);
     playSong(

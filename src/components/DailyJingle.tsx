@@ -1,7 +1,6 @@
 import { sum } from 'ramda';
 import { useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
-import { DEFAULT_PREFERENCES } from '../constants/defaultPreferences';
 import { LOCAL_STORAGE } from '../constants/localStorage';
 import {
   incrementGlobalGuessCounter,
@@ -46,32 +45,14 @@ interface DailyJingleProps {
 }
 export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
-  const currentPreferences =
-    loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
+  const currentPreferences = loadPreferencesFromBrowser();
 
   // this is to prevent loading the game state from localstorage multiple times
   const [initialized, setInitialized] = useState(false);
   useEffect(() => setInitialized(true), []);
 
   const initialGameState: GameState = (() => {
-    if (!initialized) {
-      const savedGameState = loadGameStateFromBrowser(jingleNumber);
-      if (savedGameState) return savedGameState;
-    }
-
-    return {
-      settings: {
-        hardMode: currentPreferences.preferHardMode,
-        oldAudio: currentPreferences.preferOldAudio,
-      },
-      status: GameStatus.Guessing,
-      round: 0,
-      songs: dailyChallenge.songs,
-      scores: [],
-      startTime: Date.now(),
-      timeTaken: null,
-      clickedPosition: null,
-    };
+    return loadGameStateFromBrowser(jingleNumber, dailyChallenge);
   })();
   const jingle = useGameLogic(initialGameState);
   const gameState = jingle.gameState;

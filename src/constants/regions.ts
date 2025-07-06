@@ -458,6 +458,7 @@ export const REGIONS = {
     'Lost to Time',
     'The Moons of Ruin',
     'Under the Mountain',
+    'Blood Rush',
   ],
 };
 export const TOTAL_TRACK_COUNT = Object.keys(REGIONS).reduce(
