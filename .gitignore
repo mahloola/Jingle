@@ -9,7 +9,7 @@ lerna-debug.log*
 
 # folder is too large to check in to git without causing massive slowdown
 public/rsmap-tiles/mapIdTiles
-
+osrs_map_full.png
 /misc
 hidden-utils/
 songs/
