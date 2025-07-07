@@ -29,8 +29,12 @@
 }
 
 .above-map {
+  font-family: 'Runescape UF' !important;
+  font-size: 1.5rem;
   position: absolute;
   top: 50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 999999;
 }
 .above-map > button {

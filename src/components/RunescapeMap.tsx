@@ -11,7 +11,13 @@ import {
   useMapEvents,
 } from 'react-leaflet';
 import { MapLink } from '../data/map-links';
-import { ClickedPosition, GameState, GameStatus } from '../types/jingle';
+import '../style/uiBox.css';
+import {
+  ClickedPosition,
+  GameState,
+  GameStatus,
+  NavigationEntry,
+} from '../types/jingle';
 import { assertNotNil } from '../utils/assert';
 import {
   convert,
@@ -19,10 +25,10 @@ import {
   switchLayer,
 } from '../utils/map-utils';
 import LayerPortals from './LayerPortals';
+import { Button } from './ui-util/Button';
 
 interface RunescapeMapProps {
   gameState: GameState;
-  onNavigateBack?: () => void;
   onMapClick: (clickedPosition: ClickedPosition) => void;
 }
 
@@ -42,26 +48,10 @@ export default function RunescapeMapWrapper(props: RunescapeMapProps) {
   );
 }
 
-function RunescapeMap({
-  gameState,
-  onMapClick,
-  onNavigateBack,
-}: RunescapeMapProps) {
+function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
   const map = useMap();
   const tileLayerRef = useRef<L.TileLayer>(null);
   const [currentMapId, setCurrentMapId] = useState(0);
-
-  useEffect(() => {
-    if (onNavigateBack) {
-      const navigationEntry = gameState.navigationStack?.pop();
-      switchLayer(map, tileLayerRef.current!, navigationEntry?.mapId || 0);
-      map.panTo(
-        [navigationEntry?.coordinates[0], navigationEntry?.coordinates[1]],
-        { animate: false }
-      );
-      setCurrentMapId(navigationEntry?.mapId || 0);
-    }
-  });
 
   useMapEvents({
     click: async (e) => {
@@ -70,6 +60,8 @@ function RunescapeMap({
       onMapClick({ xy: point, mapId: currentMapId });
     },
   });
+
+  const [isUnderground, setIsUnderground] = useState(false);
 
   const onGuessConfirmed = () => {
     assertNotNil(gameState.clickedPosition, 'gameState.clickedPosition');
@@ -85,7 +77,6 @@ function RunescapeMap({
     map.panTo(convert.xy_to_ll(panTo));
     setCurrentMapId(mapId);
   };
-  
   useEffect(() => {
     if (gameState.status === GameStatus.AnswerRevealed) {
       onGuessConfirmed();
@@ -110,9 +101,11 @@ function RunescapeMap({
     return { correctFeaturesData: featuresData, correctMapId: mapId };
   }, [map, gameState]);
 
-    const showCorrectPolygon = 
+  const showCorrectPolygon =
     correctFeaturesData &&
-    correctFeaturesData.some((featureData)=> {return featureData.mapId == currentMapId}) &&
+    correctFeaturesData.some((featureData) => {
+      return featureData.mapId == currentMapId;
+    }) &&
     gameState.status === GameStatus.AnswerRevealed;
 
   // initially load the first tile layer
@@ -130,13 +123,44 @@ function RunescapeMap({
       switchLayer(map, tileLayerRef.current!, link.end.mapId);
     }
     map.panTo([link.end.y, link.end.x], { animate: false });
-    gameState.onSurface = link.end.mapId === 0 ? true : false;
-    
+
     setCurrentMapId(link.end.mapId);
+
+    const navEntry: NavigationEntry = {
+      mapId: link.start.mapId,
+      coordinates: [link.start.y, link.start.x],
+    };
+    gameState.navigationStack?.push(navEntry);
+    setIsUnderground(true);
+  };
+
+  const handleGoBack = () => {
+    const mostRecentNavEntry = gameState.navigationStack?.pop();
+    if (!mostRecentNavEntry) {
+      console.warn('No navigation history to go back to');
+      return;
+    }
+
+    const [x, y] = [
+      mostRecentNavEntry?.coordinates[1],
+      mostRecentNavEntry?.coordinates[0],
+    ];
+    const mapId = mostRecentNavEntry?.mapId;
+    switchLayer(map, tileLayerRef.current!, mapId);
+    map.panTo([y, x], { animate: false });
+    setCurrentMapId(mapId);
+    if (gameState.navigationStack?.length === 0) {
+      setIsUnderground(false);
+    }
   };
 
   return (
     <>
+      {isUnderground && (
+        <div className='above-map'>
+          <Button label='Go Back Up' onClick={handleGoBack} />
+        </div>
+      )}
       {showGuessMarker && (
         <Marker
           position={convert.xy_to_ll(gameState.clickedPosition!.xy)}
@@ -154,7 +178,11 @@ function RunescapeMap({
       {showCorrectPolygon && (
         <GeoJSON
           key={currentMapId}
-          data={correctFeaturesData.find((featureData)=>{return featureData.mapId === currentMapId})!.feature}
+          data={
+            correctFeaturesData.find((featureData) => {
+              return featureData.mapId === currentMapId;
+            })!.feature
+          }
           style={() => ({
             color: '#0d6efd', // Outline color
             fillColor: '#0d6efd', // Fill color

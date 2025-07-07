@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { match } from 'ts-pattern';
 import { Region } from '../constants/regions';
 import {
@@ -36,10 +36,8 @@ export default function Practice() {
   const enabledRegions = (
     Object.keys(currentPreferences.regions) as Region[]
   ).filter((region) => currentPreferences.regions[region]);
-
   const songService: SongService = new SongService(currentPreferences);
 
-  const [backTrigger, setBackTrigger] = useState(0);
   const initialGameState = {
     settings: {
       hardMode: currentPreferences.preferHardMode,
@@ -67,10 +65,7 @@ export default function Practice() {
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const handleGoBack = () => {
-    // This increment will trigger the child's useEffect
-    setBackTrigger((prev) => prev + 1);
-  };
+
   const confirmGuess = (latestGameState?: GameState) => {
     const gameState = jingle.confirmGuess(latestGameState);
 
@@ -93,6 +88,7 @@ export default function Practice() {
     const newSong = songService.getRandomSong(currentPreferences);
     const gameState = jingle.addSong(newSong);
     jingle.nextSong(gameState);
+    songService.removeSong(newSong);
     playSong(
       audioRef,
       newSong,
@@ -111,15 +107,9 @@ export default function Practice() {
     savePreferencesToBrowser(preferences);
   };
 
-  console.log('Game state: ', gameState);
   return (
     <>
       <div className='App-inner'>
-        {gameState.navigationStack && gameState.navigationStack.length > 0 && (
-          <div className='above-map'>
-            <Button label='Go Back Up' onClick={handleGoBack} />
-          </div>
-        )}
         <div className='ui-box'>
           <div className='modal-buttons-container'>
             <HomeButton />
@@ -181,19 +171,6 @@ export default function Practice() {
             confirmGuess(newGameState); // confirm immediately
           }
         }}
-        onNavigateBack={
-          backTrigger > 0
-            ? () => {
-                const navigationEntry = gameState.navigationStack?.pop();
-                if (navigationEntry) {
-                  jingle.setClickedPosition({
-                    xy: navigationEntry.coordinates,
-                    mapId: navigationEntry.mapId,
-                  });
-                }
-              }
-            : undefined
-        }
       />
 
       <RoundResult gameState={gameState} />
