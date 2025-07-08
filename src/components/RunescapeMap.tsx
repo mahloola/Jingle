@@ -119,7 +119,6 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
 
     // handle case where we're returning to previous location
     if (end.mapId === lastNavEntry?.mapId) {
-      console.log(navigationStack);
       navigationStack?.pop();
       switchLayer(map, tileLayerRef.current!, end.mapId);
       map.panTo([end.y, end.x], { animate: false });
@@ -151,7 +150,6 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
       console.warn('No navigation history to go back to');
       return;
     }
-    console.log(mostRecentNavEntry);
     const [x, y] = [mostRecentNavEntry?.coordinates[1], mostRecentNavEntry?.coordinates[0]];
     const mapId = mostRecentNavEntry?.mapId;
     switchLayer(map, tileLayerRef.current!, mapId);

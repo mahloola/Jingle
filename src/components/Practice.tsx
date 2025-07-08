@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { match } from 'ts-pattern';
-import { Region } from '../constants/regions';
 import {
   incrementGlobalGuessCounter,
   incrementSongFailureCount,
@@ -25,12 +24,14 @@ import SettingsModalButton from './side-menu/PreferencesModalButton';
 import StatsModalButton from './side-menu/StatsModalButton';
 import { Button } from './ui-util/Button';
 
+const currentPreferences = loadPreferencesFromBrowser();
+let songService: SongService = new SongService(currentPreferences);
+
 export default function Practice() {
   const currentPreferences = loadPreferencesFromBrowser();
-  const enabledRegions = (Object.keys(currentPreferences.regions) as Region[]).filter(
-    (region) => currentPreferences.regions[region],
-  );
-  const songService: SongService = new SongService(currentPreferences);
+  useEffect(() => {
+    songService = new SongService(currentPreferences);
+  }, [currentPreferences]);
 
   const initialGameState = {
     settings: {
@@ -46,17 +47,20 @@ export default function Practice() {
     clickedPosition: null,
     navigationStack: [],
   };
+
   const jingle = useGameLogic(initialGameState);
   const gameState = jingle.gameState;
 
   const audioRef = useRef<HTMLAudioElement>(null);
   useEffect(() => {
+    const songName = gameState.songs[gameState.round];
     playSong(
       audioRef,
-      initialGameState.songs[initialGameState.round],
+      songName,
       currentPreferences.preferOldAudio,
       currentPreferences.preferHardMode,
     );
+    songService.removeSong(songName);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

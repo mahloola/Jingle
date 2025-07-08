@@ -457,7 +457,7 @@ export const REGIONS = {
     'The Undying Light',
     'Creatures of Varlamore',
     'Strangled',
-    'The Prospering Fortune',
+    'Prospering Fortune',
     'Lost to Time',
     'The Moons of Ruin',
     'Under the Mountain',
