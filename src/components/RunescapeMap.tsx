@@ -2,14 +2,7 @@ import L, { CRS, Icon } from 'leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import {
-  GeoJSON,
-  MapContainer,
-  Marker,
-  TileLayer,
-  useMap,
-  useMapEvents,
-} from 'react-leaflet';
+import { GeoJSON, MapContainer, Marker, TileLayer, useMap, useMapEvents } from 'react-leaflet';
 import { MapLink } from '../data/map-links';
 import '../style/uiBox.css';
 import { ClickedPosition, GameState, GameStatus } from '../types/jingle';
@@ -60,28 +53,19 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
   const [isUnderground, setIsUnderground] = useState(false);
 
   const onGuessConfirmed = () => {
-    // Validate required state
     assertNotNil(gameState.clickedPosition, 'gameState.clickedPosition');
 
-    // Get current song and calculate position
+    // get current song and calculate position
     const song = gameState.songs[gameState.round];
-    const { mapId, panTo } = findNearestPolygonWhereSongPlays(
-      song,
-      gameState.clickedPosition
-    );
+    const { mapId, panTo } = findNearestPolygonWhereSongPlays(song, gameState.clickedPosition);
 
-    // Handle map layer switching if needed
+    // handle map layer switching if needed
     if (currentMapId !== mapId) {
       switchLayer(map, tileLayerRef.current!, mapId);
-      handleNavigationStackUpdate(
-        mapId,
-        currentMapId,
-        gameState.navigationStack,
-        setIsUnderground
-      );
+      handleNavigationStackUpdate(mapId, currentMapId, gameState.navigationStack, setIsUnderground);
     }
 
-    // Update map position and state
+    // update map position and state
     map.panTo(convert.xy_to_ll(panTo));
     setCurrentMapId(mapId);
   };
@@ -104,7 +88,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
 
     const { featuresData, mapId } = findNearestPolygonWhereSongPlays(
       song,
-      gameState.clickedPosition!
+      gameState.clickedPosition!,
     );
 
     return { correctFeaturesData: featuresData, correctMapId: mapId };
@@ -167,10 +151,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
       return;
     }
     console.log(mostRecentNavEntry);
-    const [x, y] = [
-      mostRecentNavEntry?.coordinates[1],
-      mostRecentNavEntry?.coordinates[0],
-    ];
+    const [x, y] = [mostRecentNavEntry?.coordinates[1], mostRecentNavEntry?.coordinates[0]];
     const mapId = mostRecentNavEntry?.mapId;
     switchLayer(map, tileLayerRef.current!, mapId);
     map.panTo([y, x], { animate: false });
@@ -184,7 +165,10 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
     <>
       {isUnderground && (
         <div className='above-map'>
-          <Button label='Go Back Up' onClick={handleGoBack} />
+          <Button
+            label='Go Back Up'
+            onClick={handleGoBack}
+          />
         </div>
       )}
       {showGuessMarker && (
@@ -218,7 +202,10 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
           })}
         />
       )}
-      <LayerPortals currentmapId={currentMapId} onPortalClick={onPortalClick} />
+      <LayerPortals
+        currentmapId={currentMapId}
+        onPortalClick={onPortalClick}
+      />
       <TileLayer
         ref={tileLayerRef}
         url='placeholder' // set by switchLayer

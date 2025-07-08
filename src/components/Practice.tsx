@@ -7,13 +7,7 @@ import {
   incrementSongSuccessCount,
 } from '../data/jingle-api';
 import useGameLogic from '../hooks/useGameLogic';
-import {
-  GameSettings,
-  GameState,
-  GameStatus,
-  Page,
-  UserPreferences,
-} from '../types/jingle';
+import { GameSettings, GameState, GameStatus, Page, UserPreferences } from '../types/jingle';
 import {
   incrementLocalGuessCount,
   loadPreferencesFromBrowser,
@@ -33,9 +27,9 @@ import { Button } from './ui-util/Button';
 
 export default function Practice() {
   const currentPreferences = loadPreferencesFromBrowser();
-  const enabledRegions = (
-    Object.keys(currentPreferences.regions) as Region[]
-  ).filter((region) => currentPreferences.regions[region]);
+  const enabledRegions = (Object.keys(currentPreferences.regions) as Region[]).filter(
+    (region) => currentPreferences.regions[region],
+  );
   const songService: SongService = new SongService(currentPreferences);
 
   const initialGameState = {
@@ -61,7 +55,7 @@ export default function Practice() {
       audioRef,
       initialGameState.songs[initialGameState.round],
       currentPreferences.preferOldAudio,
-      currentPreferences.preferHardMode
+      currentPreferences.preferHardMode,
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -92,7 +86,7 @@ export default function Practice() {
       audioRef,
       newSong,
       currentPreferences.preferOldAudio,
-      currentPreferences.preferHardMode
+      currentPreferences.preferHardMode,
     );
   };
 
@@ -114,9 +108,7 @@ export default function Practice() {
             <HomeButton />
             <SettingsModalButton
               currentPreferences={currentPreferences}
-              onApplyPreferences={(preferences: UserPreferences) =>
-                updatePreferences(preferences)
-              }
+              onApplyPreferences={(preferences: UserPreferences) => updatePreferences(preferences)}
               page={Page.Practice}
             />
             <NewsModalButton />
@@ -135,15 +127,14 @@ export default function Practice() {
                     />
                   );
                 } else {
-                  return (
-                    <div className='osrs-frame guess-btn'>
-                      Place your pin on the map
-                    </div>
-                  );
+                  return <div className='osrs-frame guess-btn'>Place your pin on the map</div>;
                 }
               })
               .with(GameStatus.AnswerRevealed, () => (
-                <Button label='Next Song' onClick={nextSong} />
+                <Button
+                  label='Next Song'
+                  onClick={nextSong}
+                />
               ))
               .with(GameStatus.GameOver, () => {
                 throw new Error('Unreachable');

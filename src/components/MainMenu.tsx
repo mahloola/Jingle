@@ -4,10 +4,7 @@ import { LOCAL_STORAGE } from '../constants/localStorage';
 import { getStatistics } from '../data/jingle-api';
 import '../style/mainMenu.css';
 import { DailyChallenge } from '../types/jingle';
-import {
-  getCurrentDateInBritain,
-  getNextUkMidnight,
-} from '../utils/date-utils';
+import { getCurrentDateInBritain, getNextUkMidnight } from '../utils/date-utils';
 import NextDailyCountdown from './NextDailyCountdown';
 import { Link } from 'react-router-dom';
 
@@ -16,8 +13,7 @@ interface MainMenuProps {
 }
 export default function MainMenu({ dailyChallenge }: MainMenuProps) {
   const dailyCompleted =
-    localStorage.getItem(LOCAL_STORAGE.dailyComplete) ===
-    getCurrentDateInBritain();
+    localStorage.getItem(LOCAL_STORAGE.dailyComplete) === getCurrentDateInBritain();
 
   const { data: statistics } = useSWR('/api/statistics', getStatistics, {
     refreshInterval: 2000,
@@ -59,9 +55,7 @@ export default function MainMenu({ dailyChallenge }: MainMenuProps) {
       <div className='menu-statistics'>
         <div>
           {statistics?.guesses.toLocaleString()}
-          <div style={{ fontSize: '65%', marginTop: '-7%' }}>
-            Global Guesses
-          </div>
+          <div style={{ fontSize: '65%', marginTop: '-7%' }}>Global Guesses</div>
         </div>
       </div>
 
@@ -74,10 +68,16 @@ export default function MainMenu({ dailyChallenge }: MainMenuProps) {
         >
           <FaGithub />
         </a>
-        <a className='main-menu-icon' href='https://discord.gg/7sB8fyUS9W'>
+        <a
+          className='main-menu-icon'
+          href='https://discord.gg/7sB8fyUS9W'
+        >
           <FaDiscord />
         </a>
-        <a className='main-menu-icon' href='https://ko-fi.com/mahloola'>
+        <a
+          className='main-menu-icon'
+          href='https://ko-fi.com/mahloola'
+        >
           <FaDonate />
         </a>
       </div>

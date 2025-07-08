@@ -1,8 +1,4 @@
-export const Button = (props: {
-  label: string;
-  disabled?: boolean;
-  onClick: () => any;
-}) => {
+export const Button = (props: { label: string; disabled?: boolean; onClick: () => any }) => {
   return (
     <button
       className='osrs-btn guess-btn'

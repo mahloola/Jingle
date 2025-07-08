@@ -61,10 +61,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     if (!gameState) {
       throw new Error('trying to save undefined game state');
     }
-    localStorage.setItem(
-      LOCAL_STORAGE.gameState(jingleNumber),
-      JSON.stringify(gameState)
-    );
+    localStorage.setItem(LOCAL_STORAGE.gameState(jingleNumber), JSON.stringify(gameState));
   };
 
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -73,7 +70,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       audioRef,
       initialGameState.songs[gameState.round],
       initialGameState.settings.oldAudio,
-      initialGameState.settings.hardMode
+      initialGameState.settings.hardMode,
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -99,10 +96,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     const isLastRound = gameState.round === gameState.songs.length - 1;
     if (isLastRound) {
       // submit daily challenge
-      localStorage.setItem(
-        LOCAL_STORAGE.dailyComplete,
-        getCurrentDateInBritain()
-      );
+      localStorage.setItem(LOCAL_STORAGE.dailyComplete, getCurrentDateInBritain());
       postDailyChallengeResult(sum(gameState.scores));
     }
   };
@@ -117,12 +111,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     saveGameState(gameState);
 
     const songName = gameState.songs[gameState.round];
-    playSong(
-      audioRef,
-      songName,
-      gameState.settings.oldAudio,
-      gameState.settings.hardMode
-    );
+    playSong(audioRef, songName, gameState.settings.oldAudio, gameState.settings.hardMode);
   };
 
   const updateGameSettings = (preferences: UserPreferences) => {
@@ -135,11 +124,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     savePreferencesToBrowser(preferences);
   };
 
-  const button = (props: {
-    label: string;
-    disabled?: boolean;
-    onClick: () => any;
-  }) => (
+  const button = (props: { label: string; disabled?: boolean; onClick: () => any }) => (
     <button
       className='osrs-btn guess-btn'
       onClick={props.onClick}
@@ -162,9 +147,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
             <HomeButton />
             <SettingsModalButton
               currentPreferences={currentPreferences}
-              onApplyPreferences={(preferences: UserPreferences) =>
-                updateGameSettings(preferences)
-              }
+              onApplyPreferences={(preferences: UserPreferences) => updateGameSettings(preferences)}
               page={Page.DailyJingle}
             />
             <NewsModalButton />
@@ -180,11 +163,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
                     disabled: !gameState.clickedPosition,
                   });
                 } else {
-                  return (
-                    <div className='osrs-frame guess-btn'>
-                      Place your pin on the map
-                    </div>
-                  );
+                  return <div className='osrs-frame guess-btn'>Place your pin on the map</div>;
                 }
               })
               .with(GameStatus.AnswerRevealed, () => {
@@ -200,11 +179,11 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
                   onClick: () => {
                     const percentile = calculateDailyChallengePercentile(
                       dailyChallenge,
-                      sum(gameState.scores)
+                      sum(gameState.scores),
                     );
                     copyResultsToClipboard(gameState, percentile);
                   },
-                })
+                }),
               )
               .exhaustive()}
 
@@ -216,7 +195,11 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
               {scoreLabel(gameState.scores[4])}
             </div>
 
-            <audio controls id='audio' ref={audioRef} />
+            <audio
+              controls
+              id='audio'
+              ref={audioRef}
+            />
 
             <Footer />
           </div>
@@ -236,7 +219,10 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       <RoundResult gameState={gameState} />
 
       {gameState.status === GameStatus.GameOver && (
-        <GameOver gameState={gameState} dailyChallenge={dailyChallenge} />
+        <GameOver
+          gameState={gameState}
+          dailyChallenge={dailyChallenge}
+        />
       )}
     </>
   );

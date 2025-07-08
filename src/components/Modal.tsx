@@ -51,7 +51,10 @@ export default function Modal({
     >
       {children}
       <div className='modal-options'>
-        <button className='osrs-btn modal-action-btn' onClick={onClose}>
+        <button
+          className='osrs-btn modal-action-btn'
+          onClick={onClose}
+        >
           Close
         </button>
         {onApplySettings && (

@@ -82,4 +82,4 @@ function extractSongTitle(htmlString: any) {
   return match ? match[1] : null;
 }
 
-filterDungeons();
+console.log(filterDungeons());

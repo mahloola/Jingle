@@ -1,10 +1,5 @@
 import { useState } from 'react';
-import {
-  ClickedPosition,
-  GameSettings,
-  GameState,
-  GameStatus,
-} from '../types/jingle';
+import { ClickedPosition, GameSettings, GameState, GameStatus } from '../types/jingle';
 import { calculateTimeDifference } from '../utils/date-utils';
 import { clone } from 'ramda';
 import { findNearestPolygonWhereSongPlays } from '../utils/map-utils';
@@ -26,10 +21,7 @@ export default function useGameLogic(initialGameState: GameState) {
     }
 
     const song = newGameState.songs[newGameState.round];
-    const { distance } = findNearestPolygonWhereSongPlays(
-      song,
-      newGameState.clickedPosition,
-    );
+    const { distance } = findNearestPolygonWhereSongPlays(song, newGameState.clickedPosition);
     const decayRate = 0.00544; // adjust scoring strictness (higher = more strict)
     const score = Math.round(1000 / Math.exp(decayRate * distance));
     newGameState.status = GameStatus.AnswerRevealed;
@@ -38,10 +30,7 @@ export default function useGameLogic(initialGameState: GameState) {
 
     const isLastRound = newGameState.round === newGameState.songs.length - 1;
     if (isLastRound) {
-      newGameState.timeTaken = calculateTimeDifference(
-        newGameState.startTime,
-        Date.now(),
-      );
+      newGameState.timeTaken = calculateTimeDifference(newGameState.startTime, Date.now());
       setGameState(clone(newGameState));
     }
 

@@ -1,7 +1,4 @@
-export function assertNotNil<T>(
-  value: T | null,
-  name = 'value',
-): asserts value is T {
+export function assertNotNil<T>(value: T | null, name = 'value'): asserts value is T {
   if (value === null) {
     throw new Error(`Expected ${name} to not be null`);
   }

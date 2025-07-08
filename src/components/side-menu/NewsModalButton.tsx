@@ -13,7 +13,7 @@ export default function NewsModalButton() {
   const seenAnnouncementId = loadSeenAnnouncementIdFromBrowser();
   const [open, setOpen] = useState(
     // TODO: change this so that it shows when we make a new announcement
-    seenAnnouncementId === null
+    seenAnnouncementId === null,
   );
   const closeModal = () => {
     setOpen(false);
@@ -27,7 +27,10 @@ export default function NewsModalButton() {
         img={ASSETS['newsIcon']}
         unseenAnnouncement={seenAnnouncementId === null}
       />
-      <Modal open={open} onClose={closeModal}>
+      <Modal
+        open={open}
+        onClose={closeModal}
+      >
         <img
           className='modal-bg-image'
           src='https://storage.googleapis.com/jingle-media/newspaper.png'
@@ -45,7 +48,10 @@ export default function NewsModalButton() {
           }}
         >
           {NEWS_POSTS.map((post) => (
-            <div key={post.id} style={{ width: '100%' }}>
+            <div
+              key={post.id}
+              style={{ width: '100%' }}
+            >
               <div
                 style={{
                   display: 'flex',
@@ -54,7 +60,10 @@ export default function NewsModalButton() {
                 }}
               >
                 <div style={{ fontSize: '2rem' }}>{post.title}</div>
-                <h6 className='news-date' style={{ marginRight: '10px' }}>
+                <h6
+                  className='news-date'
+                  style={{ marginRight: '10px' }}
+                >
                   {post.date}
                 </h6>
               </div>

@@ -9,10 +9,7 @@ export interface LayerPortalsProps {
   currentmapId: number;
   onPortalClick: (link: MapLink) => void;
 }
-export default function LayerPortals({
-  currentmapId,
-  onPortalClick,
-}: LayerPortalsProps) {
+export default function LayerPortals({ currentmapId, onPortalClick }: LayerPortalsProps) {
   const map = useMap();
   const [zoom, setZoom] = useState(map.getZoom());
   map.on('zoomend', () => setZoom(map.getZoom()));
