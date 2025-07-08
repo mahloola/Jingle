@@ -17,6 +17,7 @@ import { assertNotNil } from '../utils/assert';
 import {
   convert,
   findNearestPolygonWhereSongPlays,
+  handleNavigationStackUpdate,
   switchLayer,
 } from '../utils/map-utils';
 import LayerPortals from './LayerPortals';
@@ -59,19 +60,32 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
   const [isUnderground, setIsUnderground] = useState(false);
 
   const onGuessConfirmed = () => {
+    // Validate required state
     assertNotNil(gameState.clickedPosition, 'gameState.clickedPosition');
 
+    // Get current song and calculate position
     const song = gameState.songs[gameState.round];
     const { mapId, panTo } = findNearestPolygonWhereSongPlays(
       song,
       gameState.clickedPosition
     );
+
+    // Handle map layer switching if needed
     if (currentMapId !== mapId) {
       switchLayer(map, tileLayerRef.current!, mapId);
+      handleNavigationStackUpdate(
+        mapId,
+        currentMapId,
+        gameState.navigationStack,
+        setIsUnderground
+      );
     }
+
+    // Update map position and state
     map.panTo(convert.xy_to_ll(panTo));
     setCurrentMapId(mapId);
   };
+
   useEffect(() => {
     if (gameState.status === GameStatus.AnswerRevealed) {
       onGuessConfirmed();
@@ -152,7 +166,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
       console.warn('No navigation history to go back to');
       return;
     }
-
+    console.log(mostRecentNavEntry);
     const [x, y] = [
       mostRecentNavEntry?.coordinates[1],
       mostRecentNavEntry?.coordinates[0],
