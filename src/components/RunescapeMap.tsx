@@ -2,6 +2,7 @@ import L, { CRS, Icon } from 'leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/leaflet.css';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { GeoJSON, MapContainer, Marker, TileLayer, useMap, useMapEvents } from 'react-leaflet';
 import { CENTER_COORDINATES } from '../constants/defaults';
 import { MapLink } from '../data/map-links';
@@ -20,6 +21,7 @@ import { Button } from './ui-util/Button';
 interface RunescapeMapProps {
   gameState: GameState;
   onMapClick: (clickedPosition: ClickedPosition) => void;
+  GoBackButtonRef: React.RefObject<HTMLElement>;
 }
 
 export default function RunescapeMapWrapper(props: RunescapeMapProps) {
@@ -38,7 +40,7 @@ export default function RunescapeMapWrapper(props: RunescapeMapProps) {
   );
 }
 
-function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
+function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapProps) {
   const map = useMap();
   const tileLayerRef = useRef<L.TileLayer>(null);
   const [currentMapId, setCurrentMapId] = useState(0);
@@ -170,14 +172,6 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
 
   return (
     <>
-      {isUnderground && (
-        <div className='above-map'>
-          <Button
-            label='Go Back Up'
-            onClick={(e) => handleGoBack(e)}
-          />
-        </div>
-      )}
       {showGuessMarker && (
         <Marker
           position={convert.xy_to_ll(gameState.clickedPosition!.xy)}
@@ -191,7 +185,15 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
           interactive={false}
         />
       )}
-
+      {isUnderground &&
+        GoBackButtonRef.current &&
+        createPortal(
+          <Button
+            label='Go Back Up'
+            onClick={(e) => handleGoBack(e)}
+          />,
+          GoBackButtonRef.current,
+        )}
       {showCorrectPolygon && (
         <GeoJSON
           key={currentMapId}

@@ -20,14 +20,20 @@ export const setSeenAnnouncementIdToBrowser = (id: string) => {
   localStorage.setItem(LOCAL_STORAGE.seenAnnouncementId, id.toString());
 };
 
+const getSafeGameState = (jingleNumber: number) => {
+  try {
+    const stored = localStorage.getItem(LOCAL_STORAGE.gameState(jingleNumber));
+    return stored ? JSON.parse(stored) : null;
+  } catch {
+    return null;
+  }
+};
+
 export const loadGameStateFromBrowser = (
   jingleNumber: number,
   dailyChallenge: DailyChallenge,
 ): GameState => {
-  const browserGameState = JSON.parse(
-    localStorage.getItem(LOCAL_STORAGE.gameState(jingleNumber)) ?? '',
-  );
-
+  const browserGameState = getSafeGameState(jingleNumber);
   const defaultState = DEFAULT_GAME_STATE;
   defaultState.songs = dailyChallenge.songs;
 

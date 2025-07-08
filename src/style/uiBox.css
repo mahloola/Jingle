@@ -32,11 +32,14 @@
   font-family: 'Runescape UF' !important;
   font-size: 1.5rem;
   position: absolute;
+  width: 300px;
   top: 50px;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 999999;
+  z-index: 9999999;
+  pointer-events: none !important;
 }
 .above-map > button {
   padding: 15px 40px;
+  pointer-events: auto;
 }

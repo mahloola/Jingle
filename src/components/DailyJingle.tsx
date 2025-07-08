@@ -1,5 +1,5 @@
 import { sum } from 'ramda';
-import { useEffect, useRef, useState } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
 import { LOCAL_STORAGE } from '../constants/localStorage';
 import {
@@ -46,7 +46,7 @@ interface DailyJingleProps {
 export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
   const currentPreferences = loadPreferencesFromBrowser();
-
+  const goBackButtonRef = useRef<HTMLDivElement>(null);
   // this is to prevent loading the game state from localstorage multiple times
   const [initialized, setInitialized] = useState(false);
   useEffect(() => setInitialized(true), []);
@@ -214,8 +214,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
             confirmGuess(newGameState); // confirm immediately
           }
         }}
+        GoBackButtonRef={goBackButtonRef as RefObject<HTMLElement>}
       />
-
+      <div
+        className='above-map'
+        ref={goBackButtonRef}
+      ></div>
       <RoundResult gameState={gameState} />
 
       {gameState.status === GameStatus.GameOver && (

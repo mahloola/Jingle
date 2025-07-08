@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { RefObject, useEffect, useMemo, useRef } from 'react';
 import { match } from 'ts-pattern';
 import {
   incrementGlobalGuessCounter,
@@ -29,6 +29,7 @@ let songService: SongService = new SongService(currentPreferences);
 // starting song list - put outside component so it doesn't re-construct with rerenders
 
 export default function Practice() {
+  const goBackButtonRef = useRef<HTMLDivElement>(null);
   const currentPreferences = useMemo(() => loadPreferencesFromBrowser(), []);
   useEffect(() => {
     songService = new SongService(currentPreferences);
@@ -168,7 +169,12 @@ export default function Practice() {
             confirmGuess(newGameState); // confirm immediately
           }
         }}
+        GoBackButtonRef={goBackButtonRef as RefObject<HTMLElement>}
       />
+      <div
+        className='above-map'
+        ref={goBackButtonRef}
+      ></div>
 
       <RoundResult gameState={gameState} />
     </>
