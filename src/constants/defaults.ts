@@ -1,5 +1,6 @@
 import { GameState, GameStatus, UserPreferences } from '../types/jingle';
 
+export const CENTER_COORDINATES: [number, number] = [3222, 3218];
 export const DEFAULT_PREFERENCES: UserPreferences = {
   preferHardMode: false,
   preferOldAudio: false,
