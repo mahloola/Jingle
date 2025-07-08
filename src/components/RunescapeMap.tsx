@@ -11,7 +11,6 @@ import { assertNotNil } from '../utils/assert';
 import {
   convert,
   findNearestPolygonWhereSongPlays,
-  handleNavigationStackUpdate,
   recalculateNavigationStack,
   switchLayer,
 } from '../utils/map-utils';
@@ -65,7 +64,13 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
     if (currentMapId !== mapId) {
       switchLayer(map, tileLayerRef.current!, mapId);
       //handleNavigationStackUpdate(mapId, currentMapId, gameState.navigationStack, setIsUnderground);
-      recalculateNavigationStack(mapId, currentMapId, panTo, gameState.navigationStack, setIsUnderground);
+      recalculateNavigationStack(
+        mapId,
+        currentMapId,
+        panTo,
+        gameState.navigationStack,
+        setIsUnderground,
+      );
     }
 
     // update map position and state

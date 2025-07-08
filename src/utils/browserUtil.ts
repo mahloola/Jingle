@@ -24,17 +24,19 @@ export const loadGameStateFromBrowser = (
   jingleNumber: number,
   dailyChallenge: DailyChallenge,
 ): GameState => {
-  const gameStateJson = localStorage.getItem(LOCAL_STORAGE.gameState(jingleNumber));
+  const browserGameState = JSON.parse(
+    localStorage.getItem(LOCAL_STORAGE.gameState(jingleNumber)) ?? '',
+  );
 
   const defaultState = DEFAULT_GAME_STATE;
   defaultState.songs = dailyChallenge.songs;
 
-  if (!gameStateJson) {
-    return defaultState;
-  }
+  const gameState = {
+    ...defaultState,
+    ...browserGameState,
+  }; // fill any non-existing fields with the defaults
 
   try {
-    const gameState = JSON.parse(gameStateJson ?? 'null') as unknown;
     if (!isValidGameState(gameState)) {
       console.warn(
         'Saved game state for Jingle #' + jingleNumber + ' is invalid, using a default game state.',

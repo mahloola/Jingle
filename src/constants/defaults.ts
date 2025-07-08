@@ -32,5 +32,5 @@ export const DEFAULT_GAME_STATE: GameState = {
   startTime: 0,
   timeTaken: '',
   clickedPosition: null,
-  navigationStack: null,
+  navigationStack: [],
 };
