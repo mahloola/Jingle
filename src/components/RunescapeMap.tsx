@@ -12,6 +12,7 @@ import {
   convert,
   findNearestPolygonWhereSongPlays,
   handleNavigationStackUpdate,
+  recalculateNavigationStack,
   switchLayer,
 } from '../utils/map-utils';
 import LayerPortals from './LayerPortals';
@@ -63,7 +64,8 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
     // handle map layer switching if needed
     if (currentMapId !== mapId) {
       switchLayer(map, tileLayerRef.current!, mapId);
-      handleNavigationStackUpdate(mapId, currentMapId, gameState.navigationStack, setIsUnderground);
+      //handleNavigationStackUpdate(mapId, currentMapId, gameState.navigationStack, setIsUnderground);
+      recalculateNavigationStack(mapId, currentMapId, panTo, gameState.navigationStack, setIsUnderground);
     }
 
     // update map position and state

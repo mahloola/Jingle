@@ -228,6 +228,48 @@ export const handleNavigationStackUpdate = (
   }
 };
 
+export const recalculateNavigationStack = (
+  newMapId: number,
+  currentMapId: number,
+  newMapCenterPosition: Position,
+  navigationStack: Array<{
+    mapId: number;
+    coordinates: [number, number];
+  }> | null,
+  setIsUnderground: (value: boolean) => void,
+): void => {
+
+
+  const clearNavigationStack = () => {
+    while(navigationStack?.length){
+      navigationStack.pop();
+    }
+  }
+
+  setIsUnderground(false);
+  if(newMapId != 0) {setIsUnderground(true);}
+
+  clearNavigationStack();
+  
+  const newMapCenterCoords = newMapCenterPosition as [number, number];
+
+  //find nearest exit points
+  let parentMapId = GetParentMapId(newMapId);
+
+  let [dist, exit] = getMinDistToExit(newMapCenterCoords, newMapId, parentMapId);
+  let exitCoords = exit ? [exit![1], exit![0]] : CENTER_COORDINATES;
+
+  //if nested
+  if(parentMapId != MapIds.Surface){
+    let [dist, surfaceExit] = getMinDistToExit(exit as [number,number], parentMapId);
+    let surfaceExitCoords = surfaceExit ? [surfaceExit[1], surfaceExit[0]] : CENTER_COORDINATES;
+    navigationStack?.push({mapId: MapIds.Surface, coordinates: surfaceExitCoords as [number,number]});
+  }
+
+  navigationStack?.push({mapId: parentMapId, coordinates: exitCoords as [number, number]});
+
+}
+
 const findPolyGroups = (repairedPolygons: Polygon[]) => {
   const groups: Polygon[][] = [];
 
@@ -252,11 +294,13 @@ const getClosestMapIdPolys = (
   const polygons = correctFeature.convertedGeometry;
 
   //TEMPORARY. DETECT THIS PROPERLY.
-  const useLayerPreferences: boolean = window.location.pathname.includes('/practice');
-  const currentPreferences = loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
+  const useLayerPreferences: boolean = window.location.pathname.includes('/practice'); 
+  const currentPreferences =
+    loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
 
-  console.log(useLayerPreferences);
   //first prioritize polys on same mapId as guess - depending on surface and dungeons enabled or not
+
+
   const sameMapIdPolygons = polygons.filter((poly) => poly.mapId == clickedPosition.mapId);
   if (
     sameMapIdPolygons.length > 0 &&
@@ -388,6 +432,16 @@ const getNestedMinDistToSurfce = (
   const dist = childExitDist + parentExitDist;
   return [dist, parentExit];
 };
+
+export const GetParentMapId = ( currentMapId : number) : number => {
+
+  if(NESTED_MAP_IDS.includes(currentMapId)){
+    return CHILD_PARENT_MAP_ID_PAIRS.find(childParentPair => childParentPair[0] == currentMapId)![1]
+  }
+  else{
+    return MapIds.Surface;
+  }
+}
 
 const handleNestedDungeons = (
   clickedPosition: ClickedPosition,
