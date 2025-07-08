@@ -147,7 +147,6 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
   };
 
   const handleGoBack = () => {
-    
     const mostRecentNavEntry = gameState.navigationStack?.pop();
     if (!mostRecentNavEntry) {
       console.warn('No navigation history to go back to');

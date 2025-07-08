@@ -9,7 +9,6 @@ export const NEWS_POSTS = [
           <br/>
           (as if the game wasn't hard enough already)
           <br />- You can disable them in the settings
-          <br />- Some tracks like Inferno don't have an entrance, but exist on the same layer
         `,
   },
   {

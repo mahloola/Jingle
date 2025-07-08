@@ -86,6 +86,7 @@ export default function Practice() {
     const newSong = songService.getRandomSong(currentPreferences);
     const gameState = jingle.addSong(newSong);
     jingle.nextSong(gameState);
+    songService.removeSong(newSong);
     playSong(
       audioRef,
       newSong,

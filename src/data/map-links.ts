@@ -131,9 +131,8 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Gielinor Surface': [
-
     //custom - Iceberg
-     {
+    {
       start: {
         x: 2638,
         y: 4005,
@@ -2564,7 +2563,6 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Varlamore Underground': [
-
     {
       start: {
         x: 1358,
@@ -3185,8 +3183,8 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Miscellania Underground': [
-         //custom - Iceberg
-     {
+    //custom - Iceberg
+    {
       start: {
         x: 2658,
         y: 10371,

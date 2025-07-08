@@ -1,15 +1,14 @@
 import { booleanContains, booleanPointInPolygon, polygon } from '@turf/turf';
 import G, { Position } from 'geojson';
-import L, { LatLng, Point } from 'leaflet';
-import { CENTER_COORDINATES } from '../constants/defaults';
+import L from 'leaflet';
+import { CENTER_COORDINATES, DEFAULT_PREFERENCES } from '../constants/defaults';
 import geojsondata, { ConvertedFeature } from '../data/GeoJSON';
 import { groupedLinks, MapLink } from '../data/map-links';
 import mapMetadata from '../data/map-metadata';
 import { ClickedPosition } from '../types/jingle';
+import { loadPreferencesFromBrowser } from './browserUtil';
 import { CHILD_PARENT_MAP_ID_PAIRS, MapIds, NESTED_MAP_IDS } from './map-config';
 import { decodeHTML } from './string-utils';
-import { loadPreferencesFromBrowser } from './browserUtil';
-import { DEFAULT_PREFERENCES } from '../constants/defaults.ts';
 
 type Line = [Position, Position];
 type Polygon = Position[];
@@ -256,20 +255,18 @@ export const recalculateNavigationStack = (
 
   //find nearest exit points
   let parentMapId = GetParentMapId(newMapId);
-  let [dist, exit] = getMinDistToExit(newMapCenterCoords, newMapId);
-  let exitCoords = [exit![1], exit![0]];
+
+  let [dist, exit] = getMinDistToExit(newMapCenterCoords, newMapId, parentMapId);
+  let exitCoords = exit ? [exit![1], exit![0]] : CENTER_COORDINATES;
+
+  //if nested
+  if(parentMapId != MapIds.Surface){
+    let [dist, surfaceExit] = getMinDistToExit(exit as [number,number], parentMapId);
+    let surfaceExitCoords = surfaceExit ? [surfaceExit[1], surfaceExit[0]] : CENTER_COORDINATES;
+    navigationStack?.push({mapId: MapIds.Surface, coordinates: surfaceExitCoords as [number,number]});
+  }
 
   navigationStack?.push({mapId: parentMapId, coordinates: exitCoords as [number, number]});
-
-  while(parentMapId != MapIds.Surface){
-    let currMapId = parentMapId;
-    parentMapId = GetParentMapId(currMapId);
-
-    [dist, exit] = getMinDistToExit(newMapCenterCoords, newMapId);
-    let exitCoords = [exit![1], exit![0]];
-
-    navigationStack?.push({mapId: parentMapId, coordinates: exitCoords as [number, number]});
-  }
 
 }
 
@@ -295,24 +292,22 @@ const getClosestMapIdPolys = (
   polygonCoords: Polygon[];
 } => {
   const polygons = correctFeature.convertedGeometry;
-  
+
   //TEMPORARY. DETECT THIS PROPERLY.
   const useLayerPreferences: boolean = window.location.pathname.includes('/practice'); 
   const currentPreferences =
     loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
-  
+
   //first prioritize polys on same mapId as guess - depending on surface and dungeons enabled or not
-  const sameMapIdPolygons = polygons.filter(
-    (poly) => poly.mapId == clickedPosition.mapId
-  );
-  if (sameMapIdPolygons.length > 0 && (
-    !useLayerPreferences || 
-    (
+
+
+  const sameMapIdPolygons = polygons.filter((poly) => poly.mapId == clickedPosition.mapId);
+  if (
+    sameMapIdPolygons.length > 0 &&
+    (!useLayerPreferences ||
       (clickedPosition.mapId == MapIds.Surface && currentPreferences.surfaceSelected) ||
-      (clickedPosition.mapId != MapIds.Surface && currentPreferences.undergroundSelected)
-    )
-  
-  )) {
+      (clickedPosition.mapId != MapIds.Surface && currentPreferences.undergroundSelected))
+  ) {
     return {
       polygonCoords: sameMapIdPolygons.map((poly) => poly.coordinates),
       mapId: clickedPosition.mapId,
@@ -320,12 +315,8 @@ const getClosestMapIdPolys = (
   }
 
   // next prioritize surface polys - only if surface is enabled
-  const surfacePolygons = polygons.filter(
-    (poly) => poly.mapId === MapIds.Surface
-  );
-  if (surfacePolygons.length > 0 
-    && (!useLayerPreferences || currentPreferences.surfaceSelected) 
-  ) {
+  const surfacePolygons = polygons.filter((poly) => poly.mapId === MapIds.Surface);
+  if (surfacePolygons.length > 0 && (!useLayerPreferences || currentPreferences.surfaceSelected)) {
     return {
       polygonCoords: surfacePolygons.map((poly) => poly.coordinates),
       mapId: 0,
@@ -339,12 +330,11 @@ const getClosestMapIdPolys = (
   for (const poly of polygons) {
     const distance = getTotalDistanceToPoly(clickedPosition, poly.coordinates, poly.mapId);
 
-    if (distance < minDistance
-      && ((!useLayerPreferences || 
-        (currentPreferences.surfaceSelected && poly.mapId == MapIds.Surface
-          || currentPreferences.undergroundSelected && poly.mapId != MapIds.Surface
-        )
-      ))
+    if (
+      distance < minDistance &&
+      (!useLayerPreferences ||
+        (currentPreferences.surfaceSelected && poly.mapId == MapIds.Surface) ||
+        (currentPreferences.undergroundSelected && poly.mapId != MapIds.Surface))
     ) {
       minDistance = distance;
       closestPolygon = poly;
