@@ -3,14 +3,12 @@ import { DailyChallenge, GameState, Song } from '../types/jingle';
 
 export const calculateDailyChallengePercentile = (
   dailyChallenge: Pick<DailyChallenge, 'results'>,
-  score: number
+  score: number,
 ) => {
   if (!dailyChallenge.results) return 0;
 
   const sortedResults = [...dailyChallenge.results].sort((a, b) => a - b);
-  const countBelowOrEqual = sortedResults.filter(
-    (value) => value <= score
-  ).length;
+  const countBelowOrEqual = sortedResults.filter((value) => value <= score).length;
 
   if (sortedResults.length === 0) return 0; // Handle empty array
 
@@ -28,10 +26,7 @@ export function getJingleNumber(dailyChallenge: Pick<DailyChallenge, 'date'>) {
   return (currentDate.getTime() - targetDate.getTime()) / (1000 * 60 * 60 * 24);
 }
 
-export function copyResultsToClipboard(
-  gameState: GameState,
-  percentile: number
-) {
+export function copyResultsToClipboard(gameState: GameState, percentile: number) {
   const score = sum(gameState.scores);
   const hardMode = gameState.settings.hardMode === true;
 
@@ -40,14 +35,12 @@ export function copyResultsToClipboard(
     messageString += `achieved first place! You can't beat me. https://jingle.rs\n\n`;
   } else {
     messageString += `placed in the top ${percentile.toFixed(
-      1
+      1,
     )}%, can you beat me? https://jingle.rs\n\n`;
   }
 
   const scoresString = gameState.scores
-    .map((score) =>
-      score === 0 ? '0 🔴' : score === 1000 ? '1000 🟢' : score + ' 🟡'
-    )
+    .map((score) => (score === 0 ? '0 🔴' : score === 1000 ? '1000 🟢' : score + ' 🟡'))
     .join('\n');
 
   navigator.clipboard.writeText(messageString + scoresString);

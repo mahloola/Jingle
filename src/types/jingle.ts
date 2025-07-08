@@ -1,4 +1,4 @@
-import L from 'leaflet';
+import { Position } from 'geojson';
 import { Region } from '../constants/regions';
 
 export enum Page {
@@ -18,6 +18,11 @@ export enum ModalType {
   News = 'news',
   Settings = 'settings',
 }
+
+export interface NavigationEntry {
+  mapId: number;
+  coordinates: [number, number];
+}
 export interface GameState {
   settings: GameSettings;
   status: GameStatus;
@@ -26,9 +31,15 @@ export interface GameState {
   scores: number[];
   startTime: number;
   timeTaken: string | null;
-
-  leaflet_ll_click: L.LatLng | null;
+  clickedPosition: ClickedPosition | null;
+  navigationStack: NavigationEntry[] | null;
 }
+export interface ClickedPosition {
+  xy: Position;
+  mapId: number;
+}
+
+// if we make changes to GameState schema, we can invalidate the old game state saved in user's local storage to prevent crashes
 export const isValidGameState = (object: unknown): object is GameState => {
   if (!object) return false;
   if (typeof (object as any).status !== 'string') return false;
@@ -38,9 +49,15 @@ export const isValidGameState = (object: unknown): object is GameState => {
   if ('guess' in (object as any)) return false;
   if (
     (object as any).status === GameStatus.AnswerRevealed &&
-    !(object as any).leaflet_ll_click
+    !('clickedPosition' in (object as any))
   )
     return false;
+  if ('clickedPosition' in (object as any)) {
+    const isNull = (object as any).clickedPosition === null;
+    const xyDefined = (object as any).clickedPosition?.xy !== undefined;
+    const mapIdDefined = (object as any).clickedPosition?.mapId !== undefined;
+    return isNull || (xyDefined && mapIdDefined);
+  }
   return true;
 };
 
@@ -71,6 +88,8 @@ export interface UserPreferences {
   preferOldAudio: boolean;
   preferConfirmation: boolean;
   regions: Record<Region, boolean>;
+  undergroundSelected: boolean;
+  surfaceSelected: boolean;
 }
 
 export interface Song {

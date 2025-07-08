@@ -1,14 +1,9 @@
+import { DEFAULT_GAME_STATE, DEFAULT_PREFERENCES } from '../constants/defaults';
 import { LOCAL_STORAGE } from '../constants/localStorage';
-import { GameState, isValidGameState, UserPreferences } from '../types/jingle';
+import { DailyChallenge, GameState, isValidGameState, UserPreferences } from '../types/jingle';
 
-export const saveGameStateToBrowser = (
-  jingleNumber: number,
-  gameState: GameState,
-) => {
-  localStorage.setItem(
-    LOCAL_STORAGE.gameState(jingleNumber),
-    JSON.stringify(gameState),
-  );
+export const saveGameStateToBrowser = (jingleNumber: number, gameState: GameState) => {
+  localStorage.setItem(LOCAL_STORAGE.gameState(jingleNumber), JSON.stringify(gameState));
 };
 
 export const savePreferencesToBrowser = (preferences: UserPreferences) => {
@@ -27,59 +22,61 @@ export const setSeenAnnouncementIdToBrowser = (id: string) => {
 
 export const loadGameStateFromBrowser = (
   jingleNumber: number,
-): GameState | null => {
-  const gameStateJson = localStorage.getItem(
-    LOCAL_STORAGE.gameState(jingleNumber),
+  dailyChallenge: DailyChallenge,
+): GameState => {
+  const browserGameState = JSON.parse(
+    localStorage.getItem(LOCAL_STORAGE.gameState(jingleNumber)) ?? '',
   );
-  if (!gameStateJson) return null;
+
+  const defaultState = DEFAULT_GAME_STATE;
+  defaultState.songs = dailyChallenge.songs;
+
+  const gameState = {
+    ...defaultState,
+    ...browserGameState,
+  }; // fill any non-existing fields with the defaults
 
   try {
-    const gameState = JSON.parse(gameStateJson ?? 'null') as unknown;
     if (!isValidGameState(gameState)) {
       console.warn(
-        'Saved game state for Jingle #' + jingleNumber + ' is invalid.',
+        'Saved game state for Jingle #' + jingleNumber + ' is invalid, using a default game state.',
         gameState,
       );
-      return null;
+      return defaultState;
     }
     return gameState;
   } catch (e) {
     console.warn(
-      'Failed to parse saved game state for Jingle #' + jingleNumber,
+      'Failed to parse saved game state for Jingle #' +
+        jingleNumber +
+        ', using a default game state.',
     );
-    return null;
+    return defaultState;
   }
 };
 
-export const loadPreferencesFromBrowser = () => {
-  const preferencesJson =
-    localStorage.getItem(LOCAL_STORAGE.preferences) ?? null;
+export const loadPreferencesFromBrowser = (): UserPreferences => {
+  const preferencesJson = localStorage.getItem(LOCAL_STORAGE.preferences);
   try {
     const preferences: UserPreferences = preferencesJson
       ? JSON.parse(preferencesJson)
-      : null;
+      : DEFAULT_PREFERENCES;
     return preferences;
   } catch (e) {
-    console.error('Failed to parse saved settings.');
-    return null;
+    console.error('Failed to parse saved settings, returning default settings.');
+    return DEFAULT_PREFERENCES;
   }
 };
 
 export const incrementLocalGuessCount = (correct: boolean) => {
-  const key = correct
-    ? LOCAL_STORAGE.correctGuessCount
-    : LOCAL_STORAGE.incorrectGuessCount;
+  const key = correct ? LOCAL_STORAGE.correctGuessCount : LOCAL_STORAGE.incorrectGuessCount;
   const currentCount = parseInt(localStorage.getItem(key) ?? '0');
   localStorage.setItem(key, (currentCount + 1).toString());
 };
 
 export const updateGuessStreak = (success: boolean) => {
-  let currentStreak = parseInt(
-    localStorage.getItem(LOCAL_STORAGE.currentStreak) ?? '0',
-  );
-  let maxStreak = parseInt(
-    localStorage.getItem(LOCAL_STORAGE.maxStreak) ?? '0',
-  );
+  let currentStreak = parseInt(localStorage.getItem(LOCAL_STORAGE.currentStreak) ?? '0');
+  let maxStreak = parseInt(localStorage.getItem(LOCAL_STORAGE.maxStreak) ?? '0');
 
   if (success) {
     currentStreak += 1;
@@ -92,18 +89,12 @@ export const updateGuessStreak = (success: boolean) => {
 };
 
 export const loadPersonalStatsFromBrowser = () => {
-  const correctGuessCount = parseInt(
-    localStorage.getItem(LOCAL_STORAGE.correctGuessCount) ?? '0',
-  );
+  const correctGuessCount = parseInt(localStorage.getItem(LOCAL_STORAGE.correctGuessCount) ?? '0');
   const incorrectGuessCount = parseInt(
     localStorage.getItem(LOCAL_STORAGE.incorrectGuessCount) ?? '0',
   );
-  const currentStreak = parseInt(
-    localStorage.getItem(LOCAL_STORAGE.currentStreak) ?? '0',
-  );
-  const maxStreak = parseInt(
-    localStorage.getItem(LOCAL_STORAGE.maxStreak) ?? '0',
-  );
+  const currentStreak = parseInt(localStorage.getItem(LOCAL_STORAGE.currentStreak) ?? '0');
+  const maxStreak = parseInt(localStorage.getItem(LOCAL_STORAGE.maxStreak) ?? '0');
   return {
     correctGuessCount,
     incorrectGuessCount,

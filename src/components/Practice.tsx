@@ -1,45 +1,39 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { match } from 'ts-pattern';
-import { DEFAULT_PREFERENCES } from '../constants/defaultPreferences';
-import { Region } from '../constants/regions';
 import {
   incrementGlobalGuessCounter,
   incrementSongFailureCount,
   incrementSongSuccessCount,
 } from '../data/jingle-api';
-import {
-  GameSettings,
-  GameState,
-  GameStatus,
-  Page,
-  UserPreferences,
-} from '../types/jingle';
-import L from 'leaflet';
+import useGameLogic from '../hooks/useGameLogic';
+import { GameSettings, GameState, GameStatus, Page, UserPreferences } from '../types/jingle';
 import {
   incrementLocalGuessCount,
   loadPreferencesFromBrowser,
   savePreferencesToBrowser,
   updateGuessStreak,
 } from '../utils/browserUtil';
-import { getRandomSong } from '../utils/getRandomSong';
+import { SongService } from '../utils/getRandomSong';
 import { playSong } from '../utils/playSong';
 import Footer from './Footer';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
-import HomeButton from './buttons/HomeButton';
-import NewsModalButton from './buttons/NewsModalButton';
-import SettingsModalButton from './buttons/PreferencesModalButton';
-import StatsModalButton from './buttons/StatsModalButton';
-import useGameLogic from '../hooks/useGameLogic';
+import HomeButton from './side-menu/HomeButton';
+import NewsModalButton from './side-menu/NewsModalButton';
+import SettingsModalButton from './side-menu/PreferencesModalButton';
+import StatsModalButton from './side-menu/StatsModalButton';
+import { Button } from './ui-util/Button';
+
+const currentPreferences = loadPreferencesFromBrowser();
+let songService: SongService = new SongService(currentPreferences);
+// starting song list - put outside component so it doesn't re-construct with rerenders
 
 export default function Practice() {
-  const mapRef = useRef<L.Map>(null);
-
-  const currentPreferences =
-    loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
-  const enabledRegions = (
-    Object.keys(currentPreferences.regions) as Region[]
-  ).filter((region) => currentPreferences.regions[region]);
+  const currentPreferences = useMemo(() => loadPreferencesFromBrowser(), []);
+  useEffect(() => {
+    songService = new SongService(currentPreferences);
+  }, [currentPreferences]);
+  // prevent dupe song picks - only recreate the song list if preferences change between 2 renders
 
   const initialGameState = {
     settings: {
@@ -48,23 +42,27 @@ export default function Practice() {
     },
     status: GameStatus.Guessing,
     round: 0,
-    songs: [getRandomSong(enabledRegions)],
+    songs: [songService.getRandomSong(currentPreferences)],
     scores: [],
     startTime: Date.now(),
     timeTaken: null,
-    leaflet_ll_click: null,
+    clickedPosition: null,
+    navigationStack: [],
   };
-  const jingle = useGameLogic(mapRef, initialGameState);
+
+  const jingle = useGameLogic(initialGameState);
   const gameState = jingle.gameState;
 
   const audioRef = useRef<HTMLAudioElement>(null);
   useEffect(() => {
+    const songName = gameState.songs[gameState.round];
     playSong(
       audioRef,
-      initialGameState.songs[initialGameState.round],
+      songName,
       currentPreferences.preferOldAudio,
       currentPreferences.preferHardMode,
     );
+    songService.removeSong(songName);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -87,9 +85,10 @@ export default function Practice() {
   };
 
   const nextSong = () => {
-    const newSong = getRandomSong(enabledRegions);
+    const newSong = songService.getRandomSong(currentPreferences);
     const gameState = jingle.addSong(newSong);
     jingle.nextSong(gameState);
+    songService.removeSong(newSong);
     playSong(
       audioRef,
       newSong,
@@ -108,21 +107,6 @@ export default function Practice() {
     savePreferencesToBrowser(preferences);
   };
 
-  const button = (props: {
-    label: string;
-    disabled?: boolean;
-    onClick: () => any;
-  }) => (
-    <button
-      className='osrs-btn guess-btn'
-      onClick={props.onClick}
-      disabled={props.disabled}
-      style={{ pointerEvents: !props.onClick ? 'none' : 'auto' }}
-    >
-      {props.label}
-    </button>
-  );
-
   return (
     <>
       <div className='App-inner'>
@@ -131,9 +115,7 @@ export default function Practice() {
             <HomeButton />
             <SettingsModalButton
               currentPreferences={currentPreferences}
-              onApplyPreferences={(preferences: UserPreferences) =>
-                updatePreferences(preferences)
-              }
+              onApplyPreferences={(preferences: UserPreferences) => updatePreferences(preferences)}
               page={Page.Practice}
             />
             <NewsModalButton />
@@ -144,22 +126,23 @@ export default function Practice() {
             {match(gameState.status)
               .with(GameStatus.Guessing, () => {
                 if (currentPreferences.preferConfirmation) {
-                  return button({
-                    label: 'Confirm guess',
-                    onClick: () => confirmGuess(),
-                    disabled: !gameState.leaflet_ll_click,
-                  });
-                } else {
                   return (
-                    <div className='osrs-frame guess-btn'>
-                      Place your pin on the map
-                    </div>
+                    <Button
+                      label='Confirm guess'
+                      onClick={() => confirmGuess()}
+                      disabled={!gameState.clickedPosition}
+                    />
                   );
+                } else {
+                  return <div className='osrs-frame guess-btn'>Place your pin on the map</div>;
                 }
               })
-              .with(GameStatus.AnswerRevealed, () =>
-                button({ label: 'Next Song', onClick: nextSong }),
-              )
+              .with(GameStatus.AnswerRevealed, () => (
+                <Button
+                  label='Next Song'
+                  onClick={nextSong}
+                />
+              ))
               .with(GameStatus.GameOver, () => {
                 throw new Error('Unreachable');
               })
@@ -178,10 +161,9 @@ export default function Practice() {
       </div>
 
       <RunescapeMap
-        mapRef={mapRef}
         gameState={gameState}
-        onMapClick={(leaflet_ll_click: L.LatLng) => {
-          const newGameState = jingle.setClickedPosition(leaflet_ll_click);
+        onMapClick={(clickedPosition) => {
+          const newGameState = jingle.setClickedPosition(clickedPosition);
           if (!currentPreferences.preferConfirmation) {
             confirmGuess(newGameState); // confirm immediately
           }

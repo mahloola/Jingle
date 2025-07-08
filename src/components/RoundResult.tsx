@@ -9,12 +9,9 @@ interface ResultMessageProps {
 
 export default function RoundResult({ gameState }: ResultMessageProps) {
   const { currentStreak, maxStreak } = loadPersonalStatsFromBrowser();
-  const [previousRecord, setPreviousRecord] = useState<number | undefined>(
-    undefined,
-  );
+  const [previousRecord, setPreviousRecord] = useState<number | undefined>(undefined);
   const streakOfFive = currentStreak % 5 === 0 && currentStreak > 0;
-  const justBeatPreviousRecord =
-    currentStreak > 1 && currentStreak === previousRecord;
+  const justBeatPreviousRecord = currentStreak > 1 && currentStreak === previousRecord;
 
   useEffect(() => {
     const isNewRecord = currentStreak === maxStreak;
@@ -49,7 +46,10 @@ export default function RoundResult({ gameState }: ResultMessageProps) {
       +{score}
       <div style={{ fontSize: '70%' }}>{song}</div>
       {(streakOfFive || justBeatPreviousRecord) && (
-        <div className='streak' key={`streak-${currentStreak}`}>
+        <div
+          className='streak'
+          key={`streak-${currentStreak}`}
+        >
           {currentStreak} streak 🔥
           {justBeatPreviousRecord && (
             <>

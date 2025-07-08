@@ -1,8 +1,6 @@
-import L from 'leaflet';
 import { sum } from 'ramda';
 import { useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
-import { DEFAULT_PREFERENCES } from '../constants/defaultPreferences';
 import { LOCAL_STORAGE } from '../constants/localStorage';
 import {
   incrementGlobalGuessCounter,
@@ -37,55 +35,33 @@ import Footer from './Footer';
 import GameOver from './GameOver';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
-import HomeButton from './buttons/HomeButton';
-import NewsModalButton from './buttons/NewsModalButton';
-import SettingsModalButton from './buttons/PreferencesModalButton';
-import StatsModalButton from './buttons/StatsModalButton';
+import HomeButton from './side-menu/HomeButton';
+import NewsModalButton from './side-menu/NewsModalButton';
+import SettingsModalButton from './side-menu/PreferencesModalButton';
+import StatsModalButton from './side-menu/StatsModalButton';
 
 interface DailyJingleProps {
   dailyChallenge: DailyChallenge;
 }
 export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
-  const mapRef = useRef<L.Map>(null);
   const jingleNumber = getJingleNumber(dailyChallenge);
-  const currentPreferences =
-    loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
+  const currentPreferences = loadPreferencesFromBrowser();
 
   // this is to prevent loading the game state from localstorage multiple times
   const [initialized, setInitialized] = useState(false);
   useEffect(() => setInitialized(true), []);
 
   const initialGameState: GameState = (() => {
-    if (!initialized) {
-      const savedGameState = loadGameStateFromBrowser(jingleNumber);
-      if (savedGameState) return savedGameState;
-    }
-
-    return {
-      settings: {
-        hardMode: currentPreferences.preferHardMode,
-        oldAudio: currentPreferences.preferOldAudio,
-      },
-      status: GameStatus.Guessing,
-      round: 0,
-      songs: dailyChallenge.songs,
-      scores: [],
-      startTime: Date.now(),
-      timeTaken: null,
-      leaflet_ll_click: null,
-    };
+    return loadGameStateFromBrowser(jingleNumber, dailyChallenge);
   })();
-  const jingle = useGameLogic(mapRef, initialGameState);
+  const jingle = useGameLogic(initialGameState);
   const gameState = jingle.gameState;
 
   const saveGameState = (gameState: GameState) => {
     if (!gameState) {
       throw new Error('trying to save undefined game state');
     }
-    localStorage.setItem(
-      LOCAL_STORAGE.gameState(jingleNumber),
-      JSON.stringify(gameState)
-    );
+    localStorage.setItem(LOCAL_STORAGE.gameState(jingleNumber), JSON.stringify(gameState));
   };
 
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -94,7 +70,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       audioRef,
       initialGameState.songs[gameState.round],
       initialGameState.settings.oldAudio,
-      initialGameState.settings.hardMode
+      initialGameState.settings.hardMode,
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -120,10 +96,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     const isLastRound = gameState.round === gameState.songs.length - 1;
     if (isLastRound) {
       // submit daily challenge
-      localStorage.setItem(
-        LOCAL_STORAGE.dailyComplete,
-        getCurrentDateInBritain()
-      );
+      localStorage.setItem(LOCAL_STORAGE.dailyComplete, getCurrentDateInBritain());
       postDailyChallengeResult(sum(gameState.scores));
     }
   };
@@ -138,12 +111,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     saveGameState(gameState);
 
     const songName = gameState.songs[gameState.round];
-    playSong(
-      audioRef,
-      songName,
-      gameState.settings.oldAudio,
-      gameState.settings.hardMode
-    );
+    playSong(audioRef, songName, gameState.settings.oldAudio, gameState.settings.hardMode);
   };
 
   const updateGameSettings = (preferences: UserPreferences) => {
@@ -156,11 +124,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     savePreferencesToBrowser(preferences);
   };
 
-  const button = (props: {
-    label: string;
-    disabled?: boolean;
-    onClick: () => any;
-  }) => (
+  const button = (props: { label: string; disabled?: boolean; onClick: () => any }) => (
     <button
       className='osrs-btn guess-btn'
       onClick={props.onClick}
@@ -183,9 +147,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
             <HomeButton />
             <SettingsModalButton
               currentPreferences={currentPreferences}
-              onApplyPreferences={(preferences: UserPreferences) =>
-                updateGameSettings(preferences)
-              }
+              onApplyPreferences={(preferences: UserPreferences) => updateGameSettings(preferences)}
               page={Page.DailyJingle}
             />
             <NewsModalButton />
@@ -198,14 +160,10 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
                   return button({
                     label: 'Confirm guess',
                     onClick: () => confirmGuess(),
-                    disabled: !gameState.leaflet_ll_click,
+                    disabled: !gameState.clickedPosition,
                   });
                 } else {
-                  return (
-                    <div className='osrs-frame guess-btn'>
-                      Place your pin on the map
-                    </div>
-                  );
+                  return <div className='osrs-frame guess-btn'>Place your pin on the map</div>;
                 }
               })
               .with(GameStatus.AnswerRevealed, () => {
@@ -221,11 +179,11 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
                   onClick: () => {
                     const percentile = calculateDailyChallengePercentile(
                       dailyChallenge,
-                      sum(gameState.scores)
+                      sum(gameState.scores),
                     );
                     copyResultsToClipboard(gameState, percentile);
                   },
-                })
+                }),
               )
               .exhaustive()}
 
@@ -237,7 +195,11 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
               {scoreLabel(gameState.scores[4])}
             </div>
 
-            <audio controls id='audio' ref={audioRef} />
+            <audio
+              controls
+              id='audio'
+              ref={audioRef}
+            />
 
             <Footer />
           </div>
@@ -245,10 +207,9 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       </div>
 
       <RunescapeMap
-        mapRef={mapRef}
         gameState={gameState}
-        onMapClick={(leaflet_ll_click: L.LatLng) => {
-          const newGameState = jingle.setClickedPosition(leaflet_ll_click);
+        onMapClick={(clickedPosition) => {
+          const newGameState = jingle.setClickedPosition(clickedPosition);
           if (!currentPreferences.preferConfirmation) {
             confirmGuess(newGameState); // confirm immediately
           }
@@ -258,7 +219,10 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       <RoundResult gameState={gameState} />
 
       {gameState.status === GameStatus.GameOver && (
-        <GameOver gameState={gameState} dailyChallenge={dailyChallenge} />
+        <GameOver
+          gameState={gameState}
+          dailyChallenge={dailyChallenge}
+        />
       )}
     </>
   );

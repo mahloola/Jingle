@@ -8,6 +8,7 @@ import {
   copyResultsToClipboard,
   getJingleNumber,
 } from '../utils/jingle-utils';
+import AdComponent from './AdComponent';
 import NextDailyCountdown from './NextDailyCountdown';
 
 interface GameOverProps {
@@ -18,12 +19,10 @@ interface GameOverProps {
 export default function GameOver({ gameState, dailyChallenge }: GameOverProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
   const score = sum(gameState.scores);
-  const percentile: number = calculateDailyChallengePercentile(
-    dailyChallenge,
-    score
-  );
+  const percentile: number = calculateDailyChallengePercentile(dailyChallenge, score);
   return (
     <div className='result-screen-parent'>
+      <AdComponent />
       <div className='result-screen result-screen-results'>
         <div className='result-screen-title'>Jingle #{jingleNumber}</div>
         <div className='result-screen-data-row'>
@@ -36,9 +35,7 @@ export default function GameOver({ gameState, dailyChallenge }: GameOverProps) {
         </div>
         <div className='result-screen-data-row'>
           <div>Top%</div>
-          <div>
-            {percentile !== 0 ? percentile.toFixed(1) + '%' : 'First Place'}
-          </div>
+          <div>{percentile !== 0 ? percentile.toFixed(1) + '%' : 'First Place'}</div>
         </div>
         <div className='result-screen-data-row'>
           <div style={{ alignContent: 'center' }}>Next in</div>
@@ -57,7 +54,10 @@ export default function GameOver({ gameState, dailyChallenge }: GameOverProps) {
             </div>
           )}
 
-          <a href='/' className='result-screen-option'>
+          <a
+            href='/'
+            className='result-screen-option'
+          >
             Back to Home
           </a>
         </div>

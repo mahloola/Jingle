@@ -1,52 +1,25 @@
-import { Feature, Polygon, Position } from 'geojson';
-import { decodeHTML } from './string-utils';
-import geojsondata from '../data/GeoJSON';
-import L from 'leaflet';
-import { equals } from 'ramda';
 import { booleanContains, booleanPointInPolygon, polygon } from '@turf/turf';
+import G, { Position } from 'geojson';
+import L from 'leaflet';
+import { CENTER_COORDINATES, DEFAULT_PREFERENCES } from '../constants/defaults';
+import geojsondata, { ConvertedFeature } from '../data/GeoJSON';
+import { groupedLinks, MapLink } from '../data/map-links';
+import mapMetadata from '../data/map-metadata';
+import { ClickedPosition } from '../types/jingle';
+import { loadPreferencesFromBrowser } from './browserUtil';
+import { CHILD_PARENT_MAP_ID_PAIRS, MapIds, NESTED_MAP_IDS } from './map-config';
+import { decodeHTML } from './string-utils';
 
 type Line = [Position, Position];
+type Polygon = Position[];
 
-//-----------------------------------------------------------------------------
-// Prefixes represent 3 coordinate systems:
-// 1. geojson_xy_* geojson coordinates [x, y]
-//   - song->location data (/data/GeoJSON.ts)
-// 2. leaflet_xy_* leaflet coordinates [x, y]
-//   - used as an intermediary between the two
-//   - used for calculations
-// 3. leaflet_ll_* leaflet coordinates { lat, lng } OR [lng, lat] typed as Position[] (don't get tripped up by this!!)
-//   - received as input in onClick event
-//   - used to display points and polygons on the map
-// Below are conversion functions to convert between the three
-//-----------------------------------------------------------------------------
-const conversion = { x: -3152, y: 12400, scale: 3 };
-export const geojson_xy_to_leaflet_xy = ([x, y]: Position): Position => [
-  x * conversion.scale + conversion.x,
-  -(y * conversion.scale) + conversion.y,
-];
-export const leaflet_xy_to_geojson_xy = ([x, y]: Position): Position => [
-  (x - conversion.x) / conversion.scale,
-  (y - conversion.y) / conversion.scale,
-];
-
-export const leaflet_ll_to_leaflet_xy = (
-  map: L.Map,
-  leaflet_ll: L.LatLng,
-): Position => {
-  const zoom = map.getMaxZoom();
-  const { x, y } = map.project(leaflet_ll, zoom);
-  return [x, y];
-};
-export const leaflet_xy_to_leaflet_ll = (
-  map: L.Map,
-  leaflet_xy: Position,
-): L.LatLng => {
-  const zoom = map.getMaxZoom();
-  const [x, y] = leaflet_xy;
-  return map.unproject(L.point(x, y), zoom);
+// these functions apply for CRS.Simple
+export const convert = {
+  ll_to_xy: (ll: L.LatLng): Position => [ll.lng, ll.lat],
+  xy_to_ll: ([x, y]: Position): L.LatLng => L.latLng(y, x),
 };
 
-export const closePolygon = (coordinates: Position[]) => {
+const closePolygon = (coordinates: Polygon): Polygon => {
   const repairedPolygon = [...coordinates];
   if (
     coordinates[0][0] !== coordinates[coordinates.length - 1][0] ||
@@ -57,18 +30,10 @@ export const closePolygon = (coordinates: Position[]) => {
   return repairedPolygon;
 };
 
-export const featureMatchesSong = (songName: string) => (feature: Feature) => {
-  const featureSongName = decodeHTML(
-    feature.properties?.title.match(/>(.*?)</)[1],
-  );
+const featureMatchesSong = (songName: string) => (feature: G.Feature) => {
+  const featureSongName = decodeHTML(feature.properties?.title.match(/>(.*?)</)[1]);
   return featureSongName?.trim() === songName.trim();
 };
-
-export const calculateDistance = (point1: Position, point2: Position) => {
-  const dx = point2[0] - point1[0];
-  const dy = point2[1] - point1[1];
-  return Math.sqrt(dx * dx + dy * dy);
-}; // some basic euclidian mathematics
 
 export const getCenterOfPolygon = (points: Position[]) => {
   const xSum = points.reduce((acc, [x, _]) => acc + x, 0);
@@ -76,7 +41,7 @@ export const getCenterOfPolygon = (points: Position[]) => {
   return [xSum / points.length, ySum / points.length];
 };
 
-export const getDistanceToPolygon = (point: Position, polygon: Position[]) => {
+const getDistanceToPolygon = (point: Position, polygon: Position[]) => {
   const polygonLines = polygon.map(
     (point, i) => [point, polygon[(i + 1) % polygon.length]] as Line,
   );
@@ -84,7 +49,7 @@ export const getDistanceToPolygon = (point: Position, polygon: Position[]) => {
   return Math.min(...distances);
 };
 
-export const getDistanceToLine = (point: Position, line: Line) => {
+const getDistanceToLine = (point: Position, line: Line) => {
   const A = point[0] - line[0][0];
   const B = point[1] - line[0][1];
   const C = line[1][0] - line[0][0];
@@ -117,111 +82,442 @@ export const getDistanceToLine = (point: Position, line: Line) => {
   return Math.sqrt(dx * dx + dy * dy);
 };
 
-export const isFeatureVisibleOnMap = (feature: Feature<Polygon>) =>
-  feature.geometry.coordinates.some((polygon) =>
-    polygon.every((geojson_xy) => {
-      const [, y] = geojson_xy_to_leaflet_xy(geojson_xy);
-      return y > 0;
-    }),
-  );
+export const findAllAnswerPolygonsForSong = (song: string): Map<number, Polygon[]> => {
+  const songFeature = geojsondata.features.find(featureMatchesSong(song))!;
+  const polygons = songFeature.convertedGeometry;
+
+  const groupedSongPolygons = new Map<number, Polygon[]>();
+
+  for (const polygon of polygons) {
+    if (!groupedSongPolygons.has(polygon.mapId)) {
+      groupedSongPolygons.set(polygon.mapId, []);
+    }
+
+    groupedSongPolygons.get(polygon.mapId)!.push(closePolygon(polygon.coordinates));
+  }
+
+  return groupedSongPolygons;
+};
 
 export const findNearestPolygonWhereSongPlays = (
-  map: L.Map,
   song: string,
-  leaflet_ll_click: L.LatLng,
+  clickedPosition: ClickedPosition,
 ): {
-  polygon: Feature<Polygon>;
+  mapId: number;
+  featuresData: { mapId: number; feature: G.Feature<G.Polygon> }[];
+  panTo: Position;
   distance: number; // 0 if clicked inside polygon
 } => {
-  const leaflet_xy_click = leaflet_ll_to_leaflet_xy(map, leaflet_ll_click);
-  const correctFeature = geojsondata.features.find(featureMatchesSong(song))!;
-  const geojson_xy_correctPolygons = correctFeature.geometry.coordinates;
-  const geojson_xy_repairedPolygons =
-    geojson_xy_correctPolygons.map(closePolygon);
+  const songFeature = geojsondata.features.find(featureMatchesSong(song))!;
+  const allSongAnswerPolygons = findAllAnswerPolygonsForSong(song);
 
-  const geojson_xy_nearestPolygon = geojson_xy_repairedPolygons.sort(
-    (polygon1, polygon2) => {
-      const c1 = getCenterOfPolygon(polygon1.map(geojson_xy_to_leaflet_xy));
-      const c2 = getCenterOfPolygon(polygon2.map(geojson_xy_to_leaflet_xy));
-      const d1 = calculateDistance(leaflet_xy_click, c1);
-      const d2 = calculateDistance(leaflet_xy_click, c2);
-      return d1 - d2;
-    },
-  )[0];
-
-  //if closest correct polgy is a gap, set outerPolygon to the actual parent poly, else iteself.
-  const geojson_xy_outerPolygon =
-    geojson_xy_repairedPolygons.find((repairedPolygon) => {
-      if (!equals(repairedPolygon, geojson_xy_nearestPolygon)) {
-        return booleanContains(
-          polygon([repairedPolygon]),
-          polygon([geojson_xy_nearestPolygon]),
-        );
-      }
-      return false;
-    }) || geojson_xy_nearestPolygon;
-
-  //find all gaps in this outer polygon
-  const geojson_xy_gaps = geojson_xy_repairedPolygons.filter(
-    (geojson_xy_repairedPolygon) =>
-      !equals(geojson_xy_repairedPolygon, geojson_xy_outerPolygon) &&
-      booleanContains(
-        polygon([geojson_xy_outerPolygon]),
-        polygon([geojson_xy_repairedPolygon]),
-      ),
+  //all polys for for current song as per our mapId priorities - needed for donut polys.
+  const { polygonCoords: songPolyCoords, mapId: songMapId } = getClosestMapIdPolys(
+    songFeature,
+    clickedPosition,
   );
+  const repairedPolygons = songPolyCoords.map((musicPoly) => closePolygon(musicPoly));
 
-  const geojson_xy_correctPolygonsWithGapsFilled = [
-    geojson_xy_outerPolygon,
-    ...geojson_xy_gaps,
-  ];
+  //find nearest correct poly
+  const nearestPolgonCoords = repairedPolygons.sort((polygon1, polygon2) => {
+    const d1 = getTotalDistanceToPoly(clickedPosition, polygon1, songMapId);
+    const d2 = getTotalDistanceToPoly(clickedPosition, polygon2, songMapId);
+    return d1 - d2;
+  })[0];
 
-  //check user click is right or wrong:
-  //for checking aginst click, convert everything to our coords
-  const leaflet_xy_outerPolygon = geojson_xy_outerPolygon.map(
-    geojson_xy_to_leaflet_xy,
-  );
-  const leaflet_xy_gaps =
-    geojson_xy_gaps?.map((gap) => gap.map(geojson_xy_to_leaflet_xy)) ?? [];
+  const polyGroups = findPolyGroups(repairedPolygons);
+  const [outerPolygon, ...gaps] = polyGroups.find((polyGroup) =>
+    polyGroup.includes(nearestPolgonCoords),
+  ) ?? [nearestPolgonCoords];
+
   //check if in outer poly
-  const inOuterPoly = booleanPointInPolygon(
-    leaflet_xy_click,
-    polygon([leaflet_xy_outerPolygon]),
-  );
-  // Check if the clicked point is inside any hole
-  const isInsideGap = leaflet_xy_gaps.some((gap) =>
-    booleanPointInPolygon(leaflet_xy_click, polygon([gap])),
-  );
-  //merge the two
-  const correct = inOuterPoly && !isInsideGap;
+  const inOuterPoly = booleanPointInPolygon(clickedPosition.xy, polygon([outerPolygon]));
+
+  // Check if the clicked point is inside any gap
+  const isInsideGap = gaps.some((gap) => booleanPointInPolygon(clickedPosition.xy, polygon([gap])));
+  //merge the two. mapId check needed to filter overlapping coords in diff mapIds.
+  const correct = inOuterPoly && !isInsideGap && clickedPosition.mapId == songMapId;
 
   const distance = correct
     ? 0
-    : Math.min(
-        ...correctFeature.geometry.coordinates.map((polygon) =>
-          getDistanceToPolygon(
-            leaflet_xy_click,
-            polygon.map(([x, y]) => geojson_xy_to_leaflet_xy([x, y])),
-          ),
-        ),
-      );
+    : getTotalDistanceToPoly(clickedPosition, nearestPolgonCoords, songMapId);
 
-  const leaflet_ll_correctPolygons =
-    geojson_xy_correctPolygonsWithGapsFilled.map((geojson_xy_polygon) =>
-      geojson_xy_polygon
-        .map(([x, y]) => geojson_xy_to_leaflet_xy([x, y]))
-        .map((leaflet_xy) => leaflet_xy_to_leaflet_ll(map, leaflet_xy))
-        .map(({ lat, lng }) => [lng, lat]),
-    );
+  const featuresData = Array.from(allSongAnswerPolygons.entries()).map(([currMapId, polygons]) => {
+    return {
+      mapId: currMapId,
+      feature: {
+        type: 'Feature',
+        geometry: {
+          type: 'Polygon',
+          coordinates: polygons,
+        },
+      } as G.Feature<G.Polygon>,
+    };
+  });
 
   return {
-    polygon: {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: leaflet_ll_correctPolygons,
-      },
-    } as Feature<Polygon>,
+    mapId: songMapId,
+    featuresData: featuresData,
+    panTo: getCenterOfPolygon(nearestPolgonCoords),
     distance: distance,
   };
+};
+
+export const switchLayer = (map: L.Map, tileLayer: L.TileLayer, mapId: number) => {
+  const padding = mapId == 0 ? -64 : 256;
+  const { bounds } = mapMetadata[mapId];
+  const [min, max] = bounds;
+  map.setMaxBounds([
+    [min[1] - padding, min[0] - padding],
+    [max[1] + padding, max[0] + padding],
+  ]);
+
+  tileLayer.getTileUrl = (coords: L.Coords) => {
+    const { x, y, z } = coords;
+    const tmsY = -y - 1;
+    return `/rsmap-tiles/mapIdTiles/${mapId}/${z}/0_${x}_${tmsY}.png`;
+  };
+  tileLayer.redraw();
+};
+
+const findGaps = (repairedPolygons: Position[][]) => {
+  return repairedPolygons.filter((innerPolygon) =>
+    repairedPolygons.find(
+      (outerPolygon) =>
+        innerPolygon !== outerPolygon &&
+        booleanContains(polygon([outerPolygon]), polygon([innerPolygon])),
+    ),
+  );
+};
+
+const findOuters = (repairedPolygons: Position[][]): Position[][] => {
+  return repairedPolygons.filter(
+    (candidate) =>
+      !repairedPolygons.some(
+        (other) => candidate !== other && booleanContains(polygon([other]), polygon([candidate])),
+      ),
+  );
+};
+
+// Extracted helper function for navigation stack logic
+export const handleNavigationStackUpdate = (
+  newMapId: number,
+  currentMapId: number,
+  navigationStack: Array<{
+    mapId: number;
+    coordinates: [number, number];
+  }> | null,
+  setIsUnderground: (value: boolean) => void,
+): void => {
+  const lastEntryMapId = navigationStack?.[navigationStack.length - 1]?.mapId;
+
+  if (newMapId === lastEntryMapId) {
+    // Returning to previous location
+    navigationStack?.pop();
+    if (!navigationStack?.length) {
+      setIsUnderground(false);
+    }
+  } else {
+    if (currentMapId !== 0) return;
+    // otherwise we're coming from surface so add to stack
+    navigationStack?.push({
+      mapId: currentMapId,
+      coordinates: CENTER_COORDINATES,
+    });
+    setIsUnderground(true);
+  }
+};
+
+export const recalculateNavigationStack = (
+  newMapId: number,
+  currentMapId: number,
+  newMapCenterPosition: Position,
+  navigationStack: Array<{
+    mapId: number;
+    coordinates: [number, number];
+  }> | null,
+  setIsUnderground: (value: boolean) => void,
+): void => {
+  const clearNavigationStack = () => {
+    while (navigationStack?.length) {
+      navigationStack.pop();
+    }
+  };
+
+  setIsUnderground(false);
+  if (newMapId != 0) {
+    setIsUnderground(true);
+  }
+
+  clearNavigationStack();
+
+  const newMapCenterCoords = newMapCenterPosition as [number, number];
+
+  //find nearest exit points
+  const parentMapId = GetParentMapId(newMapId);
+
+  const [dist, exit] = getMinDistToExit(newMapCenterCoords, newMapId, parentMapId);
+  const exitCoords = exit ? [exit![1], exit![0]] : CENTER_COORDINATES;
+
+  //if nested
+  if (parentMapId != MapIds.Surface) {
+    const [dist, surfaceExit] = getMinDistToExit(exit as [number, number], parentMapId);
+    const surfaceExitCoords = surfaceExit ? [surfaceExit[1], surfaceExit[0]] : CENTER_COORDINATES;
+    navigationStack?.push({
+      mapId: MapIds.Surface,
+      coordinates: surfaceExitCoords as [number, number],
+    });
+  }
+
+  navigationStack?.push({ mapId: parentMapId, coordinates: exitCoords as [number, number] });
+};
+
+const findPolyGroups = (repairedPolygons: Polygon[]) => {
+  const groups: Polygon[][] = [];
+
+  const gaps = findGaps(repairedPolygons);
+  const outers = findOuters(repairedPolygons);
+
+  outers.forEach((poly) => {
+    const innerGaps = gaps.filter((gap) => booleanContains(polygon([poly]), polygon([gap])));
+    groups.push([poly, ...innerGaps]);
+  });
+
+  return groups;
+};
+
+const getClosestMapIdPolys = (
+  correctFeature: ConvertedFeature,
+  clickedPosition: ClickedPosition,
+): {
+  mapId: number;
+  polygonCoords: Polygon[];
+} => {
+  const polygons = correctFeature.convertedGeometry;
+
+  //TEMPORARY. DETECT THIS PROPERLY.
+  const useLayerPreferences: boolean = window.location.pathname.includes('/practice');
+  const currentPreferences = loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
+
+  //first prioritize polys on same mapId as guess - depending on surface and dungeons enabled or not
+
+  const sameMapIdPolygons = polygons.filter((poly) => poly.mapId == clickedPosition.mapId);
+  if (
+    sameMapIdPolygons.length > 0 &&
+    (!useLayerPreferences ||
+      (clickedPosition.mapId == MapIds.Surface && currentPreferences.surfaceSelected) ||
+      (clickedPosition.mapId != MapIds.Surface && currentPreferences.undergroundSelected))
+  ) {
+    return {
+      polygonCoords: sameMapIdPolygons.map((poly) => poly.coordinates),
+      mapId: clickedPosition.mapId,
+    };
+  }
+
+  // next prioritize surface polys - only if surface is enabled
+  const surfacePolygons = polygons.filter((poly) => poly.mapId === MapIds.Surface);
+  if (surfacePolygons.length > 0 && (!useLayerPreferences || currentPreferences.surfaceSelected)) {
+    return {
+      polygonCoords: surfacePolygons.map((poly) => poly.coordinates),
+      mapId: 0,
+    };
+  }
+
+  // Otherwise, find poly with the shortest distance to markerPosition - accounting for surface/dungeon prefs
+  let closestPolygon = polygons[0];
+  let minDistance = Infinity;
+
+  for (const poly of polygons) {
+    const distance = getTotalDistanceToPoly(clickedPosition, poly.coordinates, poly.mapId);
+
+    if (
+      distance < minDistance &&
+      (!useLayerPreferences ||
+        (currentPreferences.surfaceSelected && poly.mapId == MapIds.Surface) ||
+        (currentPreferences.undergroundSelected && poly.mapId != MapIds.Surface))
+    ) {
+      minDistance = distance;
+      closestPolygon = poly;
+    }
+  }
+
+  const closestPolygons = polygons.filter((polyData) => polyData.mapId === closestPolygon.mapId);
+
+  return {
+    polygonCoords: closestPolygons.map((polyData) => polyData.coordinates),
+    mapId: closestPolygon.mapId,
+  };
+};
+
+const findClosestLink = (origin: Position | Position[], isPoly: boolean, validLinks: MapLink[]) => {
+  return validLinks.reduce(
+    (closest, link) => {
+      const linkStart = [link.start.x, link.start.y];
+      const dist = isPoly
+        ? getDistanceToPolygon(linkStart, origin as Position[])
+        : getDistanceBetweenPoints(linkStart, origin as Position);
+
+      return !closest.closestLink || dist < closest.distance
+        ? { closestLink: link, distance: dist }
+        : closest;
+    },
+    { closestLink: null as MapLink | null, distance: Infinity },
+  );
+};
+
+const getMinDistToExit = (
+  origin: Position | Position[],
+  mapId: number,
+  exitMapId = 0,
+): [number, Position | Position[] | null] => {
+  if (mapId == MapIds.Surface) {
+    return [0, origin];
+  }
+
+  const isPoly = Array.isArray(origin[0]);
+  const mapName = mapMetadata[mapId].name;
+
+  const links = groupedLinks[mapName] ?? [];
+
+  const validLinks = links.filter((link) => link.end.mapId === exitMapId);
+  if (validLinks.length === 0) return [0, null];
+
+  // Find the closest link
+  const { closestLink, distance } = findClosestLink(origin, isPoly, validLinks);
+
+  if (closestLink) {
+    return [distance, [closestLink.end.x, closestLink.end.y]] as [number, Position];
+  }
+
+  // If no valid closestLink, return a fallback value
+  return [0, null as Position | null];
+};
+
+const getDistanceBetweenPoints = (a: Position, b: Position) => {
+  const dx = b[0] - a[0];
+  const dy = b[1] - a[1];
+  return Math.sqrt(dx * dx + dy * dy);
+};
+
+const isPoint = (a: Position | Position[]): a is Position => !Array.isArray(a[0]);
+const isPolygon = (a: Position | Position[]): a is Position[] => Array.isArray(a[0]);
+
+const getDistanceOnMapId = (a: Position | Position[], b: Position | Position[]): number => {
+  if (isPoint(a) && isPoint(b)) {
+    return getDistanceBetweenPoints(a, b);
+  } else if (isPolygon(a) && isPoint(b)) {
+    return getDistanceToPolygon(b, a);
+  } else if (isPoint(a) && isPolygon(b)) {
+    return getDistanceToPolygon(a, b);
+  }
+  console.error('getDistanceOnMapId - a: ', a);
+  console.error('getDistanceOnMapId - b: ', b);
+  throw new Error('getDistanceOnMapId - invalid arguments');
+};
+
+const getNestedMinDistToSurfce = (
+  origin: Position | Position[],
+  childMapId: number,
+): [number, Position | Position[] | null] => {
+  const childParentMapIdPair = CHILD_PARENT_MAP_ID_PAIRS.find((pair) => pair[0] == childMapId);
+  if (!childParentMapIdPair) {
+    return [Infinity, null];
+  }
+
+  const parentMapId = childParentMapIdPair[1];
+
+  const [childExitDist, childExit] = getMinDistToExit(origin, childMapId, parentMapId);
+  const [parentExitDist, parentExit] = getMinDistToExit(childExit!, parentMapId, MapIds.Surface);
+
+  const dist = childExitDist + parentExitDist;
+  return [dist, parentExit];
+};
+
+export const GetParentMapId = (currentMapId: number): number => {
+  if (NESTED_MAP_IDS.includes(currentMapId)) {
+    return CHILD_PARENT_MAP_ID_PAIRS.find(
+      (childParentPair) => childParentPair[0] == currentMapId,
+    )![1];
+  } else {
+    return MapIds.Surface;
+  }
+};
+
+const handleNestedDungeons = (
+  clickedPosition: ClickedPosition,
+  poly: Position[],
+  polyMapId: number,
+): [boolean, number] => {
+  if (clickedPosition.mapId == polyMapId) {
+    return [false, Infinity];
+  } // let the other function handle it
+
+  const areInSameNestedRegion = (a: number, b: number) => {
+    return CHILD_PARENT_MAP_ID_PAIRS.some((pair) => pair.includes(a) && pair.includes(b));
+  };
+
+  //this only works because the inner mapIds only have one exit outside, and the outers have only one entrance inside.
+  if (areInSameNestedRegion(clickedPosition.mapId, polyMapId)) {
+    const [pointExitDist, temp1] = getMinDistToExit(
+      clickedPosition.xy,
+      clickedPosition.mapId,
+      polyMapId,
+    );
+    const [polyExitDist, temp2] = getMinDistToExit(poly, polyMapId, clickedPosition.mapId);
+    const totalDist = pointExitDist + polyExitDist;
+    return [true, totalDist];
+  }
+
+  //else if in different nested regions
+  const pointNested = NESTED_MAP_IDS.includes(clickedPosition.mapId);
+  const polyNested = NESTED_MAP_IDS.includes(polyMapId);
+  if (!pointNested && !polyNested) {
+    return [false, Infinity];
+  }
+
+  const [pointDist, pointSurfaceExit] = pointNested
+    ? getNestedMinDistToSurfce(clickedPosition.xy, clickedPosition.mapId)
+    : getMinDistToExit(clickedPosition.xy, clickedPosition.mapId);
+  const [polyDist, polySurfaceExit] = polyNested
+    ? getNestedMinDistToSurfce(poly, polyMapId)
+    : getMinDistToExit(poly, polyMapId);
+  if (!pointSurfaceExit || !polySurfaceExit) {
+    return [false, Infinity];
+  }
+
+  const surfaceDist = getDistanceOnMapId(pointSurfaceExit, polySurfaceExit);
+  const dist = pointDist + surfaceDist + polyDist;
+  return [true, dist];
+};
+
+const getTotalDistanceToPoly = (
+  clickedPosition: ClickedPosition,
+  poly: Position[],
+  polyMapId: number,
+) => {
+  const [handledNested, dist] = handleNestedDungeons(clickedPosition, poly, polyMapId);
+  if (handledNested) {
+    return dist;
+  }
+
+  //same map id
+  if (clickedPosition.mapId == polyMapId) {
+    return getDistanceToPolygon(clickedPosition.xy, poly);
+  }
+
+  //diff map ids
+  const [pointDistToSurface, pointSurfaceOrigin] = getMinDistToExit(
+    clickedPosition.xy,
+    clickedPosition.mapId,
+  );
+  const [polyDistToSurface, polySurfaceOrigin] = getMinDistToExit(poly, polyMapId);
+  if (pointSurfaceOrigin == null || polySurfaceOrigin == null) {
+    return Infinity;
+  }
+
+  return (
+    pointDistToSurface +
+    polyDistToSurface +
+    getDistanceOnMapId(pointSurfaceOrigin, polySurfaceOrigin)
+  );
 };
