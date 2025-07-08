@@ -1,6 +1,7 @@
 import { booleanContains, booleanPointInPolygon, polygon } from '@turf/turf';
 import G, { Position } from 'geojson';
 import L from 'leaflet';
+import { CENTER_COORDINATES } from '../constants/defaults';
 import geojsondata, { ConvertedFeature } from '../data/GeoJSON';
 import { groupedLinks, MapLink } from '../data/map-links';
 import mapMetadata from '../data/map-metadata';
@@ -218,10 +219,11 @@ export const handleNavigationStackUpdate = (
       setIsUnderground(false);
     }
   } else {
-    // Moving to new location
+    if (currentMapId !== 0) return;
+    // otherwise we're coming from surface so add to stack
     navigationStack?.push({
       mapId: currentMapId,
-      coordinates: [3222, 3218], // Could parameterize this too if needed
+      coordinates: CENTER_COORDINATES,
     });
     setIsUnderground(true);
   }

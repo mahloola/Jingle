@@ -3,6 +3,7 @@ import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { GeoJSON, MapContainer, Marker, TileLayer, useMap, useMapEvents } from 'react-leaflet';
+import { CENTER_COORDINATES } from '../constants/defaults';
 import { MapLink } from '../data/map-links';
 import '../style/uiBox.css';
 import { ClickedPosition, GameState, GameStatus } from '../types/jingle';
@@ -24,7 +25,7 @@ interface RunescapeMapProps {
 export default function RunescapeMapWrapper(props: RunescapeMapProps) {
   return (
     <MapContainer
-      center={[3222, 3218]} // lumbridge
+      center={CENTER_COORDINATES} // lumbridge
       zoom={1}
       minZoom={0}
       maxZoom={3}
