@@ -1,11 +1,13 @@
 import { booleanContains, booleanPointInPolygon, polygon } from '@turf/turf';
 import G, { Position } from 'geojson';
 import L from 'leaflet';
+import { DEFAULT_PREFERENCES } from '../constants/defaultPreferences';
 import { CENTER_COORDINATES } from '../constants/defaults';
 import geojsondata, { ConvertedFeature } from '../data/GeoJSON';
 import { groupedLinks, MapLink } from '../data/map-links';
 import mapMetadata from '../data/map-metadata';
 import { ClickedPosition } from '../types/jingle';
+import { loadPreferencesFromBrowser } from './browserUtil';
 import { CHILD_PARENT_MAP_ID_PAIRS, MapIds, NESTED_MAP_IDS } from './map-config';
 import { decodeHTML } from './string-utils';
 
@@ -250,32 +252,47 @@ const getClosestMapIdPolys = (
 } => {
   const polygons = correctFeature.convertedGeometry;
 
-  //first prioritize polys on same mapId as guess
+  //TEMPORARY. DETECT THIS PROPERLY.
+  const useLayerPreferences: boolean = window.location.pathname.includes('/practice');
+  const currentPreferences = loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
+
+  console.log(useLayerPreferences);
+  //first prioritize polys on same mapId as guess - depending on surface and dungeons enabled or not
   const sameMapIdPolygons = polygons.filter((poly) => poly.mapId == clickedPosition.mapId);
-  if (sameMapIdPolygons.length > 0) {
+  if (
+    sameMapIdPolygons.length > 0 &&
+    (!useLayerPreferences ||
+      (clickedPosition.mapId == MapIds.Surface && currentPreferences.surfaceSelected) ||
+      (clickedPosition.mapId != MapIds.Surface && currentPreferences.undergroundSelected))
+  ) {
     return {
       polygonCoords: sameMapIdPolygons.map((poly) => poly.coordinates),
       mapId: clickedPosition.mapId,
     };
   }
 
-  // next prioritize surface polys
+  // next prioritize surface polys - only if surface is enabled
   const surfacePolygons = polygons.filter((poly) => poly.mapId === MapIds.Surface);
-  if (surfacePolygons.length > 0) {
+  if (surfacePolygons.length > 0 && (!useLayerPreferences || currentPreferences.surfaceSelected)) {
     return {
       polygonCoords: surfacePolygons.map((poly) => poly.coordinates),
       mapId: 0,
     };
   }
 
-  // Otherwise, find poly with the shortest distance to markerPosition
+  // Otherwise, find poly with the shortest distance to markerPosition - accounting for surface/dungeon prefs
   let closestPolygon = polygons[0];
   let minDistance = Infinity;
 
   for (const poly of polygons) {
     const distance = getTotalDistanceToPoly(clickedPosition, poly.coordinates, poly.mapId);
 
-    if (distance < minDistance) {
+    if (
+      distance < minDistance &&
+      (!useLayerPreferences ||
+        (currentPreferences.surfaceSelected && poly.mapId == MapIds.Surface) ||
+        (currentPreferences.undergroundSelected && poly.mapId != MapIds.Surface))
+    ) {
       minDistance = distance;
       closestPolygon = poly;
     }

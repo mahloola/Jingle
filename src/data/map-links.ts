@@ -131,7 +131,23 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Gielinor Surface': [
-    //custom
+    //custom - Iceberg
+    {
+      start: {
+        x: 2638,
+        y: 4005,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      end: {
+        x: 2658,
+        y: 10371,
+        mapId: 11,
+        name: 'Miscellania Underground',
+      },
+    },
+
+    //custom - Meiyerditch Labs
     {
       start: {
         x: 3578,
@@ -3167,6 +3183,21 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Miscellania Underground': [
+    //custom - Iceberg
+    {
+      start: {
+        x: 2658,
+        y: 10371,
+        mapId: 11,
+        name: 'Miscellania Underground',
+      },
+      end: {
+        x: 2638,
+        y: 4005,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
     {
       start: {
         x: 2138,
