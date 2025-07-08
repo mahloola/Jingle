@@ -5,10 +5,7 @@ export class SongService {
   private songList: string[];
 
   constructor(preferences: UserPreferences) {
-    const enabledRegions = this.getEnabledRegions(preferences);
-    let allSongs = enabledRegions.flatMap((region) => REGIONS[region]);
-    allSongs = this.filterSongsByPreference(allSongs, preferences);
-    this.songList = allSongs;
+    this.songList = this.getAvailableSongs(preferences);
   }
 
   get songs(): string[] {
@@ -17,27 +14,25 @@ export class SongService {
 
   removeSong = (songToRemove: string) => {
     this.songList = this.songList.filter((song) => song !== songToRemove);
-    console.log(`Removed ${songToRemove} from current songs.`);
   };
 
   addSong = (song: string) => {
     this.songList.push(song);
   };
 
+  getAvailableSongs = (preferences: UserPreferences): string[] => {
+    const enabledRegions = this.getEnabledRegions(preferences);
+    let allSongs = enabledRegions.flatMap((region) => REGIONS[region]);
+    allSongs = this.filterSongsByPreference(allSongs, preferences);
+    return allSongs;
+  };
+
   getRandomSong = (preferences: UserPreferences): string => {
-    if (this.songList.length === 0) {
-      throw new Error('No songs available matching the current filters');
-    }
-
     const availableSongs = this.songList.filter((song) => this.songList.includes(song));
-    // console.log(availableSongs);
-    let selectedSong: string;
-
-    if (availableSongs.length > 0) {
-      selectedSong = this.selectRandomSong(availableSongs);
-    } else {
-      selectedSong = this.selectRandomSong(this.songList);
+    if (availableSongs.length === 0) {
+      this.songList = this.getAvailableSongs(preferences);
     }
+    const selectedSong = this.selectRandomSong(availableSongs);
 
     return selectedSong;
   };
