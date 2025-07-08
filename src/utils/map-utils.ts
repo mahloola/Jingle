@@ -1,8 +1,7 @@
 import { booleanContains, booleanPointInPolygon, polygon } from '@turf/turf';
 import G, { Position } from 'geojson';
 import L from 'leaflet';
-import { DEFAULT_PREFERENCES } from '../constants/defaultPreferences';
-import { CENTER_COORDINATES } from '../constants/defaults';
+import { CENTER_COORDINATES, DEFAULT_PREFERENCES } from '../constants/defaults';
 import geojsondata, { ConvertedFeature } from '../data/GeoJSON';
 import { groupedLinks, MapLink } from '../data/map-links';
 import mapMetadata from '../data/map-metadata';
