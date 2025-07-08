@@ -15,6 +15,11 @@ export class SongService {
     return this.songList;
   }
 
+  removeSong = (songToRemove: string) => {
+    this.songList = this.songList.filter((song) => song !== songToRemove);
+    console.log(`Removed ${songToRemove} from current songs.`);
+  };
+
   addSong = (song: string) => {
     this.songList.push(song);
   };
@@ -24,10 +29,8 @@ export class SongService {
       throw new Error('No songs available matching the current filters');
     }
 
-    const availableSongs = this.songList.filter((song) =>
-      this.songList.includes(song)
-    );
-    console.log(availableSongs);
+    const availableSongs = this.songList.filter((song) => this.songList.includes(song));
+    // console.log(availableSongs);
     let selectedSong: string;
 
     if (availableSongs.length > 0) {
@@ -42,14 +45,11 @@ export class SongService {
   // Helper functions
   private getEnabledRegions = (preferences: UserPreferences): Region[] => {
     return (Object.keys(preferences.regions) as Region[]).filter(
-      (region) => preferences.regions[region]
+      (region) => preferences.regions[region],
     );
   };
 
-  private filterSongsByPreference = (
-    songs: string[],
-    preferences: UserPreferences
-  ): string[] => {
+  private filterSongsByPreference = (songs: string[], preferences: UserPreferences): string[] => {
     const { undergroundSelected, surfaceSelected } = preferences;
 
     if (undergroundSelected && !surfaceSelected) {

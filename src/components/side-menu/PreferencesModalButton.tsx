@@ -5,12 +5,7 @@ import { IoWarning } from 'react-icons/io5';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import { ASSETS } from '../../constants/assets';
-import {
-  Region,
-  REGIONS,
-  TOTAL_TRACK_COUNT,
-  UNDERGROUND_TRACKS,
-} from '../../constants/regions';
+import { Region, REGIONS, TOTAL_TRACK_COUNT, UNDERGROUND_TRACKS } from '../../constants/regions';
 import { COLORS } from '../../constants/theme';
 import '../../style/modal.css';
 import { Page, UserPreferences } from '../../types/jingle';
@@ -67,7 +62,10 @@ export default function SettingsModalButton({
 
   return (
     <>
-      <IconButton onClick={() => setOpen(true)} img={ASSETS['settingsIcon']} />
+      <IconButton
+        onClick={() => setOpen(true)}
+        img={ASSETS['settingsIcon']}
+      />
       <Modal
         open={open}
         onClose={() => setOpen(false)}
@@ -200,9 +198,7 @@ export default function SettingsModalButton({
                     width: '140px',
                   }}
                 >
-                  <div>
-                    Surface ({TOTAL_TRACK_COUNT - UNDERGROUND_TRACKS.length})
-                  </div>
+                  <div>Surface ({TOTAL_TRACK_COUNT - UNDERGROUND_TRACKS.length})</div>
                   <div className={'checkbox-container'}>
                     <input
                       type='checkbox'

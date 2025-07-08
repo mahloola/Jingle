@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import dayjs, { Dayjs } from "dayjs";
-import duration from "dayjs/plugin/duration";
-import { calculateTimeDifference } from "../utils/date-utils";
+import { useState, useEffect } from 'react';
+import dayjs, { Dayjs } from 'dayjs';
+import duration from 'dayjs/plugin/duration';
+import { calculateTimeDifference } from '../utils/date-utils';
 
 dayjs.extend(duration);
 

@@ -131,7 +131,6 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Gielinor Surface': [
-
     //custom
     {
       start: {
@@ -3500,7 +3499,7 @@ export const groupedLinks: GroupedLinks = {
       end: {
         x: 2495,
         y: 5008,
-        mapId: 23, 
+        mapId: 23,
         name: 'Mor Ul Rek',
       },
     },
@@ -3519,7 +3518,6 @@ export const groupedLinks: GroupedLinks = {
         mapId: 23,
         name: 'Mor Ul Rek',
       },
-    
     },
   ],
   'Ardougne Underground': [
@@ -5024,7 +5022,6 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Morytania Underground': [
-
     //custom
     {
       start: {
@@ -5039,7 +5036,6 @@ export const groupedLinks: GroupedLinks = {
         mapId: 0,
         name: 'Gielinor Surface',
       },
-    
     },
 
     //custom
@@ -5056,12 +5052,10 @@ export const groupedLinks: GroupedLinks = {
         mapId: 0,
         name: 'Gielinor Surface',
       },
-   
     },
 
     //custom
     {
-      
       start: {
         x: 3701,
         y: 9631,

@@ -22,9 +22,7 @@ export default function StatsModalButton() {
   const totalGuessCount = correctGuessCount + incorrectGuessCount;
   const personalSuccessRate: number | undefined = !totalGuessCount
     ? undefined
-    : parseFloat(
-        (((correctGuessCount ?? 0) / totalGuessCount) * 100).toFixed(2)
-      );
+    : parseFloat((((correctGuessCount ?? 0) / totalGuessCount) * 100).toFixed(2));
 
   const { data: songs } = useSWRImmutable<Song[]>('/api/songs', getSongList);
   const [searchString, setSearchString] = useState('');
@@ -34,17 +32,21 @@ export default function StatsModalButton() {
     songs
       ?.filter((song) => Boolean(successRate(song)))
       ?.filter((song) =>
-        searchString.trim()
-          ? song.name.toLowerCase().includes(searchString.toLowerCase())
-          : true
+        searchString.trim() ? song.name.toLowerCase().includes(searchString.toLowerCase()) : true,
       )
       ?.sort((a, b) => successRate(b) - successRate(a)) ?? [];
 
   return (
     <>
-      <IconButton onClick={() => setOpen(true)} img={ASSETS['stats']} />
+      <IconButton
+        onClick={() => setOpen(true)}
+        img={ASSETS['stats']}
+      />
 
-      <Modal open={open} onClose={closeModal}>
+      <Modal
+        open={open}
+        onClose={closeModal}
+      >
         <img
           className='modal-bg-image'
           src='https://storage.googleapis.com/jingle-media/stats.png'
@@ -74,9 +76,7 @@ export default function StatsModalButton() {
         <div className='modal-line'>
           <span>Success Rate</span>
           <span>
-            {personalSuccessRate === undefined
-              ? 'Not Played'
-              : `${personalSuccessRate}%`}
+            {personalSuccessRate === undefined ? 'Not Played' : `${personalSuccessRate}%`}
           </span>
         </div>
         <div className='modal-line'>
@@ -99,7 +99,10 @@ export default function StatsModalButton() {
         <div style={{ width: '100%', padding: '6px 7px 6px 0' }}>
           <div className='song-stats'>
             {sortedAndFilteredSongs.map((song) => (
-              <div className='modal-line' key={song.name}>
+              <div
+                className='modal-line'
+                key={song.name}
+              >
                 <span>{song.name}</span>
                 <span>{successRate(song).toFixed(2)}%</span>
               </div>

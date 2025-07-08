@@ -35,11 +35,12 @@ function App() {
         />
         <Route
           path='/daily'
-          element={
-            dailyChallenge && <DailyJingle dailyChallenge={dailyChallenge} />
-          }
+          element={dailyChallenge && <DailyJingle dailyChallenge={dailyChallenge} />}
         />
-        <Route path='/practice' element={<Practice />} />
+        <Route
+          path='/practice'
+          element={<Practice />}
+        />
       </Routes>
     </div>
   );
