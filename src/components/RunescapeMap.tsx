@@ -12,12 +12,7 @@ import {
 } from 'react-leaflet';
 import { MapLink } from '../data/map-links';
 import '../style/uiBox.css';
-import {
-  ClickedPosition,
-  GameState,
-  GameStatus,
-  NavigationEntry,
-} from '../types/jingle';
+import { ClickedPosition, GameState, GameStatus } from '../types/jingle';
 import { assertNotNil } from '../utils/assert';
 import {
   convert,
@@ -119,18 +114,35 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
   }, []);
 
   const onPortalClick = (link: MapLink) => {
-    if (link.start.mapId !== link.end.mapId) {
-      switchLayer(map, tileLayerRef.current!, link.end.mapId);
+    const { start, end } = link;
+    const { navigationStack } = gameState;
+    const lastNavEntry = navigationStack?.[navigationStack.length - 1];
+
+    // handle case where we're returning to previous location
+    if (end.mapId === lastNavEntry?.mapId) {
+      console.log(navigationStack);
+      navigationStack?.pop();
+      switchLayer(map, tileLayerRef.current!, end.mapId);
+      map.panTo([end.y, end.x], { animate: false });
+      setCurrentMapId(end.mapId);
+
+      if (!navigationStack?.length) {
+        setIsUnderground(false);
+      }
+      return;
     }
-    map.panTo([link.end.y, link.end.x], { animate: false });
 
-    setCurrentMapId(link.end.mapId);
+    // handle new location transition
+    if (start.mapId !== end.mapId) {
+      switchLayer(map, tileLayerRef.current!, end.mapId);
+      gameState.navigationStack?.push({
+        mapId: start.mapId,
+        coordinates: [start.y, start.x],
+      });
+    }
 
-    const navEntry: NavigationEntry = {
-      mapId: link.start.mapId,
-      coordinates: [link.start.y, link.start.x],
-    };
-    gameState.navigationStack?.push(navEntry);
+    map.panTo([end.y, end.x], { animate: false });
+    setCurrentMapId(end.mapId);
     setIsUnderground(true);
   };
 
