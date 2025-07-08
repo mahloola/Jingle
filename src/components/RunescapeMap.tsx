@@ -1,7 +1,7 @@
 import L, { CRS, Icon } from 'leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/leaflet.css';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { GeoJSON, MapContainer, Marker, TileLayer, useMap, useMapEvents } from 'react-leaflet';
 import { CENTER_COORDINATES } from '../constants/defaults';
 import { MapLink } from '../data/map-links';
@@ -151,7 +151,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
     setIsUnderground(true);
   };
 
-  const handleGoBack = () => {
+  const handleGoBack = (e: React.MouseEvent<HTMLButtonElement>) => {
     const mostRecentNavEntry = gameState.navigationStack?.pop();
     if (!mostRecentNavEntry) {
       console.warn('No navigation history to go back to');
@@ -165,6 +165,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
     if (gameState.navigationStack?.length === 0) {
       setIsUnderground(false);
     }
+    e.stopPropagation();
   };
 
   return (
@@ -173,7 +174,7 @@ function RunescapeMap({ gameState, onMapClick }: RunescapeMapProps) {
         <div className='above-map'>
           <Button
             label='Go Back Up'
-            onClick={handleGoBack}
+            onClick={(e) => handleGoBack(e)}
           />
         </div>
       )}

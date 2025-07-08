@@ -1,4 +1,10 @@
-export const Button = (props: { label: string; disabled?: boolean; onClick: () => any }) => {
+import React from 'react';
+
+export const Button = (props: {
+  label: string;
+  disabled?: boolean;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}) => {
   return (
     <button
       className='osrs-btn guess-btn'
