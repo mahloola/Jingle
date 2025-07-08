@@ -46,32 +46,32 @@ const filterRegions = () => {
   console.log(zeahFeatures);
 };
 
-const filterMapLinks = () => {
-  const flattenedLinks = Object.values(groupedLinks).flat();
-  const starts = flattenedLinks.map((link) => link.start);
-  const zeahStarts = new Set();
-  starts.forEach((start) => {
-    const coordinates = [start.x, start.y];
-    const isInRegion = geojsondata.features.some((feature) => {
-      const allFeatureCoordinates: number[] = [];
-      Object.values(feature.convertedGeometry).forEach((feature) => {
-        allFeatureCoordinates.push(feature.coordinates);
-      });
-      allCoordinates.flat();
-      return feature.convertedGeometry.coordinates.some((coordinatesArray) => {
-        return coordinatesArray.some((coordinate) => {
-          return (
-            borders.zeah[0][0] >= 2880 &&
-            borders.zeah[0][1] >= 3195 &&
-            borders.zeah[1][0] <= 3072 &&
-            borders.zeah[1][1] <= 3544
-          );
-        });
-      });
-    });
-  });
-  console.log(starts);
-};
+// const filterMapLinks = () => {
+//   const flattenedLinks = Object.values(groupedLinks).flat();
+//   const starts = flattenedLinks.map((link) => link.start);
+//   const zeahStarts = new Set();
+//   starts.forEach((start) => {
+//     const coordinates = [start.x, start.y];
+//     const isInRegion = geojsondata.features.some((feature) => {
+//       const allFeatureCoordinates: number[][][] = [];
+//       Object.values(feature.convertedGeometry).forEach((feature) => {
+//         allFeatureCoordinates.push(feature.coordinates);
+//       });
+//       allFeatureCoordinates.flat();
+//       return feature.convertedGeometry?.coordinates?.some((coordinatesArray: number[][][]) => {
+//         return coordinatesArray.some((coordinate) => {
+//           return (
+//             borders.zeah[0][0] >= 2880 &&
+//             borders.zeah[0][1] >= 3195 &&
+//             borders.zeah[1][0] <= 3072 &&
+//             borders.zeah[1][1] <= 3544
+//           );
+//         });
+//       });
+//     });
+//   });
+//   console.log(starts);
+// };
 
 function extractSongTitle(htmlString: any) {
   // Regex to match content inside `title="..."` attribute

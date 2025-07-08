@@ -2,13 +2,14 @@ export const NEWS_POSTS = [
   {
     id: '2',
     title: `Dungeons!!`,
-    date: 'Jul 3, 2025',
+    date: 'Jul 8, 2025',
     content: `
             <p>
           150+ dungeon tracks have been added 🎉
           <br/>
           (as if the game wasn't hard enough already)
           <br />- You can disable them in the settings
+          <br />- Pls report bugs in the Discord
         `,
   },
   {
