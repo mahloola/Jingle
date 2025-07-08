@@ -1,6 +1,6 @@
 import { booleanContains, booleanPointInPolygon, polygon } from '@turf/turf';
 import G, { Position } from 'geojson';
-import L from 'leaflet';
+import L, { LatLng, Point } from 'leaflet';
 import { CENTER_COORDINATES } from '../constants/defaults';
 import geojsondata, { ConvertedFeature } from '../data/GeoJSON';
 import { groupedLinks, MapLink } from '../data/map-links';
@@ -229,6 +229,50 @@ export const handleNavigationStackUpdate = (
   }
 };
 
+export const recalculateNavigationStack = (
+  newMapId: number,
+  currentMapId: number,
+  newMapCenterPosition: Position,
+  navigationStack: Array<{
+    mapId: number;
+    coordinates: [number, number];
+  }> | null,
+  setIsUnderground: (value: boolean) => void,
+): void => {
+
+
+  const clearNavigationStack = () => {
+    while(navigationStack?.length){
+      navigationStack.pop();
+    }
+  }
+
+  setIsUnderground(false);
+  if(newMapId != 0) {setIsUnderground(true);}
+
+  clearNavigationStack();
+  
+  const newMapCenterCoords = newMapCenterPosition as [number, number];
+
+  //find nearest exit points
+  let parentMapId = GetParentMapId(newMapId);
+  let [dist, exit] = getMinDistToExit(newMapCenterCoords, newMapId);
+  let exitCoords = [exit![1], exit![0]];
+
+  navigationStack?.push({mapId: parentMapId, coordinates: exitCoords as [number, number]});
+
+  while(parentMapId != MapIds.Surface){
+    let currMapId = parentMapId;
+    parentMapId = GetParentMapId(currMapId);
+
+    [dist, exit] = getMinDistToExit(newMapCenterCoords, newMapId);
+    let exitCoords = [exit![1], exit![0]];
+
+    navigationStack?.push({mapId: parentMapId, coordinates: exitCoords as [number, number]});
+  }
+
+}
+
 const findPolyGroups = (repairedPolygons: Polygon[]) => {
   const groups: Polygon[][] = [];
 
@@ -257,7 +301,6 @@ const getClosestMapIdPolys = (
   const currentPreferences =
     loadPreferencesFromBrowser() || DEFAULT_PREFERENCES;
   
-  console.log(useLayerPreferences);
   //first prioritize polys on same mapId as guess - depending on surface and dungeons enabled or not
   const sameMapIdPolygons = polygons.filter(
     (poly) => poly.mapId == clickedPosition.mapId
@@ -399,6 +442,16 @@ const getNestedMinDistToSurfce = (
   const dist = childExitDist + parentExitDist;
   return [dist, parentExit];
 };
+
+export const GetParentMapId = ( currentMapId : number) : number => {
+
+  if(NESTED_MAP_IDS.includes(currentMapId)){
+    return CHILD_PARENT_MAP_ID_PAIRS.find(childParentPair => childParentPair[0] == currentMapId)![1]
+  }
+  else{
+    return MapIds.Surface;
+  }
+}
 
 const handleNestedDungeons = (
   clickedPosition: ClickedPosition,

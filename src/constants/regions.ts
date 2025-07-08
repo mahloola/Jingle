@@ -34,7 +34,6 @@ export const REGIONS = {
     'Preserved',
     'Preservation',
     'Cave of the Goblins',
-    'Cellar Song',
     'Down Below',
     'Harmony 2',
     'The Lost Melody',
