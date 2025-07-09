@@ -175,7 +175,7 @@ export const switchLayer = (map: L.Map, tileLayer: L.TileLayer, mapId: number) =
   tileLayer.getTileUrl = (coords: L.Coords) => {
     const { x, y, z } = coords;
     const tmsY = -y - 1;
-    return `/rsmap-tiles/mapIdTiles/${mapId}/${z}/0_${x}_${tmsY}.png`;
+    return `https://jingle.mahloola.com/${mapId}/${z}/0_${x}_${tmsY}.png`;
   };
   tileLayer.redraw();
 };
