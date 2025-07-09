@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useMemo, useRef } from 'react';
+import { RefObject, useEffect, useRef } from 'react';
 import { match } from 'ts-pattern';
 import {
   incrementGlobalGuessCounter,
@@ -26,13 +26,15 @@ import StatsModalButton from './side-menu/StatsModalButton';
 import { Button } from './ui-util/Button';
 
 sanitizePreferences();
-const currentPreferences = loadPreferencesFromBrowser();
-let songService: SongService = new SongService(currentPreferences);
+const initialPreferences = loadPreferencesFromBrowser();
+let songService: SongService = new SongService(initialPreferences);
 // starting song list - put outside component so it doesn't re-construct with rerenders
 
 export default function Practice() {
   const goBackButtonRef = useRef<HTMLDivElement>(null);
-  const currentPreferences = useMemo(() => loadPreferencesFromBrowser(), []);
+  const currentPreferences = loadPreferencesFromBrowser();
+  // TODO: THIS IS SHALLOW COMPARING AND WILL CHANGE ON EVERY RERENDER
+  // this means the useEffect block is executing on every render cycle - song list is regenerated
   useEffect(() => {
     songService = new SongService(currentPreferences);
   }, [currentPreferences]);
