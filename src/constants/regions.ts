@@ -180,6 +180,7 @@ export const REGIONS = {
     'Slither and Thither',
     'Tale of Keldagrim',
     'Time to Mine',
+    'Down and Out',
   ],
   Kandarin: [
     'Anywhere',
@@ -324,7 +325,7 @@ export const REGIONS = {
     'The Everlasting Slumber',
     'Itsy Bitsy...',
     'Lair',
-    'Mauseolum',
+    'Mausoleum',
     'Phasmatys',
     'Spooky 2',
     'The Terrible Tower',

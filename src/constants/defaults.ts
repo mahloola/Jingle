@@ -29,7 +29,7 @@ export const DEFAULT_GAME_STATE: GameState = {
   round: 0, // 0-4
   songs: [],
   scores: [],
-  startTime: 0,
+  startTime: Date.now(),
   timeTaken: '',
   clickedPosition: null,
   navigationStack: [],
