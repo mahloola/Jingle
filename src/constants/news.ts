@@ -9,7 +9,8 @@ export const NEWS_POSTS = [
           <br/>
           (as if the game wasn't hard enough already)
           <br />- You can disable them in the settings
-          <br />- Pls report bugs in the Discord
+          <br />- Surface locations are ignored if surface is disabled
+          <br />- Pls report bugs
         `,
   },
   {

@@ -10,6 +10,18 @@ export const savePreferencesToBrowser = (preferences: UserPreferences) => {
   localStorage.setItem(LOCAL_STORAGE.preferences, JSON.stringify(preferences));
 };
 
+export const sanitizePreferences = () => {
+  const currentPreferencesJSON = localStorage.getItem(LOCAL_STORAGE.preferences);
+  const currentPreferences = currentPreferencesJSON
+    ? JSON.parse(currentPreferencesJSON)
+    : DEFAULT_PREFERENCES;
+  const sanitizedPreferences = {
+    ...DEFAULT_PREFERENCES,
+    ...currentPreferences,
+  }; // fill any 'missing gaps' in their preferences with defaults
+  localStorage.setItem(LOCAL_STORAGE.preferences, JSON.stringify(sanitizedPreferences));
+};
+
 export const loadSeenAnnouncementIdFromBrowser = () => {
   const seenAnnouncementId: string | null =
     localStorage.getItem(LOCAL_STORAGE.seenAnnouncementId) ?? null;
@@ -62,12 +74,18 @@ export const loadGameStateFromBrowser = (
 };
 
 export const loadPreferencesFromBrowser = (): UserPreferences => {
-  const preferencesJson = localStorage.getItem(LOCAL_STORAGE.preferences);
   try {
-    const preferences: UserPreferences = preferencesJson
-      ? JSON.parse(preferencesJson)
+    const browserPreferencesJson = localStorage.getItem(LOCAL_STORAGE.preferences);
+    const browserPreferences = browserPreferencesJson
+      ? JSON.parse(browserPreferencesJson)
       : DEFAULT_PREFERENCES;
-    return preferences;
+
+    const userPreferences = {
+      ...DEFAULT_PREFERENCES,
+      ...browserPreferences,
+    };
+
+    return userPreferences;
   } catch (e) {
     console.error('Failed to parse saved settings, returning default settings.');
     return DEFAULT_PREFERENCES;

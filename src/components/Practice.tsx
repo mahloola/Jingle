@@ -10,6 +10,7 @@ import { GameSettings, GameState, GameStatus, Page, UserPreferences } from '../t
 import {
   incrementLocalGuessCount,
   loadPreferencesFromBrowser,
+  sanitizePreferences,
   savePreferencesToBrowser,
   updateGuessStreak,
 } from '../utils/browserUtil';
@@ -24,6 +25,7 @@ import SettingsModalButton from './side-menu/PreferencesModalButton';
 import StatsModalButton from './side-menu/StatsModalButton';
 import { Button } from './ui-util/Button';
 
+sanitizePreferences();
 const currentPreferences = loadPreferencesFromBrowser();
 let songService: SongService = new SongService(currentPreferences);
 // starting song list - put outside component so it doesn't re-construct with rerenders

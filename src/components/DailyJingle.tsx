@@ -21,6 +21,7 @@ import {
   incrementLocalGuessCount,
   loadGameStateFromBrowser,
   loadPreferencesFromBrowser,
+  sanitizePreferences,
   savePreferencesToBrowser,
   updateGuessStreak,
 } from '../utils/browserUtil';
@@ -43,6 +44,8 @@ import StatsModalButton from './side-menu/StatsModalButton';
 interface DailyJingleProps {
   dailyChallenge: DailyChallenge;
 }
+
+sanitizePreferences();
 export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
   const currentPreferences = loadPreferencesFromBrowser();
