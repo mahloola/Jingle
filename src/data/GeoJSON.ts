@@ -21,6 +21,78 @@ const geojsondata = {
         type: 'Polygon',
         coordinates: [
           [
+            [3520, 9536],
+            [3712, 9536],
+            [3712, 9483],
+            [3520, 9483],
+            [3520, 9536],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Guardians_of_the_Rift_(music_track)" title="Guardians of the Rift (music track)">Guardians of the Rift</a>',
+        description:
+          '<div><a href="/w/File:Guardians_of_the_Rift.ogg" title="File:Guardians of the Rift.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Guardians of the Rift',
+          mapId: 1001,
+          coordinates: [
+            [3520, 9536],
+            [3712, 9536],
+            [3712, 9483],
+            [3520, 9483],
+            [3520, 9536],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [3520, 9536],
+            [3712, 9536],
+            [3712, 9483],
+            [3520, 9483],
+            [3520, 9536],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/The_Guardians_Prepare" title="The Guardians Prepare">The Guardians Prepare</a>',
+        description:
+          '<div><a href="/w/File:The_Guardians_Prepare.ogg" title="File:The Guardians Prepare.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Guardians of the Rift',
+          mapId: 1001,
+          coordinates: [
+            [3520, 9536],
+            [3712, 9536],
+            [3712, 9483],
+            [3520, 9483],
+            [3520, 9536],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
             [3606, 3312],
             [3617, 3312],
             [3617, 3330],
@@ -10392,6 +10464,85 @@ const geojsondata = {
             [2816, 3200],
             [2816, 3136],
             [2752, 3136],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2048, 6400],
+            [2112, 6400],
+            [2112, 6336],
+            [2048, 6336],
+            [2048, 6400],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Colossus_of_the_Deep" title="Colossus of the Deep">Colossus of the Deep</a>',
+        description:
+          '<div><a href="/w/File:Colossus_of_the_Deep.ogg" title="File:Colossus of the Deep.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'The Scar',
+          mapId: 1002,
+          coordinates: [
+            [2048, 6400],
+            [2112, 6400],
+            [2112, 6336],
+            [2048, 6336],
+            [2048, 6400],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [1728, 6464],
+            [2240, 6464],
+            [2240, 6400],
+            [2112, 6400],
+            [2112, 6336],
+            [2048, 6336],
+            [2048, 6400],
+            [1728, 6400],
+            [1728, 6464],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Scar_Tissue" title="Scar Tissue">Scar Tissue</a>',
+        description:
+          '<div><a href="/w/File:Scar_Tissue.ogg" title="File:Scar Tissue.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'The Scar',
+          mapId: 1002,
+          coordinates: [
+            [1728, 6464],
+            [2240, 6464],
+            [2240, 6400],
+            [2112, 6400],
+            [2112, 6336],
+            [2048, 6336],
+            [2048, 6400],
+            [1728, 6400],
+            [1728, 6464],
           ],
         },
       ],

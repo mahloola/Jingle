@@ -422,6 +422,25 @@ const mapMetadata: MapMetadata[] = [
     ],
     center: [1440, 9632],
   },
+
+  {
+    mapId: 1001,
+    name: 'Guardians of the Rift',
+    bounds: [
+      [3520, 9408],
+      [3712, 9600],
+    ],
+    center: [3616, 9504],
+  },
+  {
+    mapId: 1002,
+    name: 'The Scar',
+    bounds: [
+      [1920, 6272],
+      [2176, 6464],
+    ],
+    center: [2048, 6368],
+  }
   // {
   //   mapId: -1,
   //   name: "debug",

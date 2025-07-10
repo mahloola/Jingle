@@ -27,8 +27,9 @@ export default function LayerPortals({ currentmapId, onPortalClick }: LayerPorta
     .with(3, () => ({ x: -34 / 10, y: 31 / 10 }))
     .otherwise(() => ({ x: 0, y: 0 }));
 
-  const currentMap = mapMetadata[currentmapId];
+  const currentMap = mapMetadata.find(map=>map.mapId == currentmapId)!;
   const mapIdLinks = groupedLinks[currentMap.name];
+
   return mapIdLinks?.map((link, i) => (
     <Marker
       key={i}

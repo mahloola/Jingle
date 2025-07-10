@@ -45,6 +45,8 @@ export enum MapIds {
   LassarUndercity = 41,
   CamTorum = 44,
   Neypotzli = 45,
+  GuardiansOfTheRift = 1001,
+  TheScar = 1002
 }
 
 //separated for simplicity's sake.
@@ -55,14 +57,21 @@ export const NESTED_MAP_IDS = [
   MapIds.PrifddinasGrandLibrary,
   MapIds.PrifddinasUnderground,
   MapIds.LassarUndercity,
+  MapIds.GuardiansOfTheRift,
+  MapIds.TheScar,
 ];
-export const CHILD_PARENT_MAP_ID_PAIRS = [
-  [MapIds.DorgeshKaan, MapIds.MisthalinUnderground],
-  [MapIds.MorUlRek, MapIds.KaramjaUnderground],
-  [MapIds.Neypotzli, MapIds.CamTorum],
-  [MapIds.PrifddinasGrandLibrary, MapIds.Prifddinas],
-  [MapIds.PrifddinasUnderground, MapIds.Prifddinas],
-  [MapIds.LassarUndercity, MapIds.RuinsOfCamdozaal],
+
+
+export const NESTED_GROUPS = [
+  [MapIds.MisthalinUnderground, MapIds.DorgeshKaan],
+  [MapIds.KaramjaUnderground, MapIds.MorUlRek],
+  [MapIds.CamTorum, MapIds.Neypotzli],
+  [MapIds.Prifddinas,MapIds.PrifddinasGrandLibrary],
+  [MapIds.Prifddinas, MapIds.PrifddinasUnderground],
+  [MapIds.RuinsOfCamdozaal, MapIds.LassarUndercity],
+  [MapIds.RuinsOfCamdozaal, MapIds.LassarUndercity,],
+  [MapIds.MisthalinUnderground, MapIds.GuardiansOfTheRift, MapIds.TheScar],
+
 ];
 
 export const LINKLESS_MAP_IDS = [

@@ -56,6 +56,10 @@ export const REGIONS = {
     'Fossilised',
     'Lava is Mine',
     'Malady',
+    'Colossus of the Deep',
+    'Scar Tissue',
+    'Guardians of the Rift',
+    'The Guardians Prepare',
   ],
   Karamja: [
     'Jungle Island',

@@ -3,11 +3,11 @@ import G, { Position } from 'geojson';
 import L from 'leaflet';
 import { CENTER_COORDINATES, DEFAULT_PREFERENCES } from '../constants/defaults';
 import geojsondata, { ConvertedFeature } from '../data/GeoJSON';
-import { groupedLinks, MapLink } from '../data/map-links';
+import { groupedLinks, LinkPoint, MapLink } from '../data/map-links';
 import mapMetadata from '../data/map-metadata';
 import { ClickedPosition } from '../types/jingle';
 import { loadPreferencesFromBrowser } from './browserUtil';
-import { CHILD_PARENT_MAP_ID_PAIRS, MapIds, NESTED_MAP_IDS } from './map-config';
+import {MapIds, NESTED_GROUPS, NESTED_MAP_IDS } from './map-config';
 import { decodeHTML } from './string-utils';
 
 type Line = [Position, Position];
@@ -99,6 +99,7 @@ export const findAllAnswerPolygonsForSong = (song: string): Map<number, Polygon[
   return groupedSongPolygons;
 };
 
+
 export const findNearestPolygonWhereSongPlays = (
   song: string,
   clickedPosition: ClickedPosition,
@@ -165,7 +166,7 @@ export const findNearestPolygonWhereSongPlays = (
 
 export const switchLayer = (map: L.Map, tileLayer: L.TileLayer, mapId: number) => {
   const padding = mapId == 0 ? -64 : 256;
-  const { bounds } = mapMetadata[mapId];
+  const { bounds } = mapMetadata.find(map => map.mapId == mapId)!;
   const [min, max] = bounds;
   map.setMaxBounds([
     [min[1] - padding, min[0] - padding],
@@ -175,6 +176,7 @@ export const switchLayer = (map: L.Map, tileLayer: L.TileLayer, mapId: number) =
   tileLayer.getTileUrl = (coords: L.Coords) => {
     const { x, y, z } = coords;
     const tmsY = -y - 1;
+    // return `./rsmap-tiles/mapIdTiles/${mapId}/${z}/0_${x}_${tmsY}.png`;
     return `https://jingle.mahloola.com/${mapId}/${z}/0_${x}_${tmsY}.png`;
   };
   tileLayer.redraw();
@@ -230,7 +232,6 @@ export const handleNavigationStackUpdate = (
 
 export const recalculateNavigationStack = (
   newMapId: number,
-  currentMapId: number,
   newMapCenterPosition: Position,
   navigationStack: Array<{
     mapId: number;
@@ -251,26 +252,38 @@ export const recalculateNavigationStack = (
 
   clearNavigationStack();
 
-  const newMapCenterCoords = newMapCenterPosition as [number, number];
-
-  //find nearest exit points
-  const parentMapId = GetParentMapId(newMapId);
-
-  const [dist, exit] = getMinDistToExit(newMapCenterCoords, newMapId, parentMapId);
-  const exitCoords = exit ? [exit![1], exit![0]] : CENTER_COORDINATES;
-
-  //if nested
-  if (parentMapId != MapIds.Surface) {
-    const [dist, surfaceExit] = getMinDistToExit(exit as [number, number], parentMapId);
-    const surfaceExitCoords = surfaceExit ? [surfaceExit[1], surfaceExit[0]] : CENTER_COORDINATES;
-    navigationStack?.push({
-      mapId: MapIds.Surface,
-      coordinates: surfaceExitCoords as [number, number],
-    });
-  }
-
-  navigationStack?.push({ mapId: parentMapId, coordinates: exitCoords as [number, number] });
+  fillNavigationStack(newMapId, newMapCenterPosition, navigationStack);
+  navigationStack?.pop(); //pop the current mapId
 };
+
+  const fillNavigationStack = (
+    currentMapId: number,
+    origin: Position,
+    navigationStack: Array<{
+      mapId: number;
+      coordinates: [number, number];
+    }> | null,
+  ) => {
+    const typedOrigin = origin as [number, number];
+    const convertedOrigin: [number, number] = origin ? [origin[1], origin[0]] : CENTER_COORDINATES;
+
+    if (currentMapId == MapIds.Surface) {
+      navigationStack?.push({ mapId: currentMapId, coordinates: convertedOrigin });
+      return;
+    }
+
+    const parentMapId = GetParentMapId(currentMapId);
+    const [dist, exit] = getMinDistToExit(typedOrigin, currentMapId, parentMapId);
+    const exitCoords = exit ? [exit![1], exit![0]] : CENTER_COORDINATES;
+
+    if (exit) {
+      fillNavigationStack(parentMapId, exit as Position, navigationStack);
+    }
+
+    navigationStack?.push({ mapId: currentMapId, coordinates: convertedOrigin });
+  };
+  
+
 
 const findPolyGroups = (repairedPolygons: Polygon[]) => {
   const groups: Polygon[][] = [];
@@ -375,7 +388,7 @@ const getMinDistToExit = (
   }
 
   const isPoly = Array.isArray(origin[0]);
-  const mapName = mapMetadata[mapId].name;
+  const mapName = mapMetadata.find(mapData => mapData.mapId == mapId)!.name;
 
   const links = groupedLinks[mapName] ?? [];
 
@@ -415,29 +428,55 @@ const getDistanceOnMapId = (a: Position | Position[], b: Position | Position[]):
   throw new Error('getDistanceOnMapId - invalid arguments');
 };
 
-const getNestedMinDistToSurfce = (
+const getNestedMinDistToTargetMapId = (
   origin: Position | Position[],
-  childMapId: number,
+  nestedMapId: number,
+  exitMapId: number,
 ): [number, Position | Position[] | null] => {
-  const childParentMapIdPair = CHILD_PARENT_MAP_ID_PAIRS.find((pair) => pair[0] == childMapId);
-  if (!childParentMapIdPair) {
+
+  const nestedGroup = NESTED_GROUPS.find((group) => group.includes(nestedMapId));
+  const currIndex = nestedGroup?.findIndex(nedstedGroupMapId => nedstedGroupMapId == nestedMapId);
+  const exitIndex = exitMapId == MapIds.Surface ? -1 : nestedGroup?.findIndex(nestedGroupMapId => nestedGroupMapId == exitMapId)
+
+  if (!nestedGroup || !currIndex) {
     return [Infinity, null];
   }
 
-  const parentMapId = childParentMapIdPair[1];
-
-  const [childExitDist, childExit] = getMinDistToExit(origin, childMapId, parentMapId);
-  const [parentExitDist, parentExit] = getMinDistToExit(childExit!, parentMapId, MapIds.Surface);
-
-  const dist = childExitDist + parentExitDist;
-  return [dist, parentExit];
+  const [totalDistToTarget, targetExit] = getNestedMinDistToTargetMapIdByIndex(origin, nestedGroup, currIndex, exitIndex);
+  return [totalDistToTarget, targetExit];
 };
+
+const getNestedMinDistToTargetMapIdByIndex = (
+  origin: Position | Position[],
+  nestedGroup: MapIds[],
+  currIndex: number,
+  finalIndex = -1,
+
+) : [number, Position | Position[] | null] => {
+
+  if(currIndex == finalIndex){ 
+    return [0, origin];
+  }
+
+  const currMapId = nestedGroup[currIndex];
+  const parentIndex = currIndex - 1;
+  const parentMapId = nestedGroup[parentIndex];
+
+  const [currExitDist, currExit] = getMinDistToExit(origin, currMapId, parentMapId);
+  
+  //if no exit found, return infinity
+  if(currExit == null){return [Infinity, null];}
+
+  const [remainingDistToSurface, finalExit] = getNestedMinDistToTargetMapIdByIndex(currExit, nestedGroup, parentIndex, finalIndex);
+  return [currExitDist + remainingDistToSurface, finalExit];
+
+}
 
 export const GetParentMapId = (currentMapId: number): number => {
   if (NESTED_MAP_IDS.includes(currentMapId)) {
-    return CHILD_PARENT_MAP_ID_PAIRS.find(
-      (childParentPair) => childParentPair[0] == currentMapId,
-    )![1];
+    const nestedGroup = NESTED_GROUPS.find((group) => group.includes(currentMapId))!;
+    const currentIndex = nestedGroup?.findIndex(nestedMapId => nestedMapId == currentMapId)!;
+    return nestedGroup[currentIndex-1];
   } else {
     return MapIds.Surface;
   }
@@ -453,19 +492,23 @@ const handleNestedDungeons = (
   } // let the other function handle it
 
   const areInSameNestedRegion = (a: number, b: number) => {
-    return CHILD_PARENT_MAP_ID_PAIRS.some((pair) => pair.includes(a) && pair.includes(b));
+    return NESTED_GROUPS.some((group) => group.includes(a) && group.includes(b));
   };
+  
+  //higher depth nesting
+  if(areInSameNestedRegion(clickedPosition.mapId, polyMapId)){
 
-  //this only works because the inner mapIds only have one exit outside, and the outers have only one entrance inside.
-  if (areInSameNestedRegion(clickedPosition.mapId, polyMapId)) {
-    const [pointExitDist, temp1] = getMinDistToExit(
-      clickedPosition.xy,
-      clickedPosition.mapId,
-      polyMapId,
-    );
-    const [polyExitDist, temp2] = getMinDistToExit(poly, polyMapId, clickedPosition.mapId);
-    const totalDist = pointExitDist + polyExitDist;
+    const currMapId = Math.max(clickedPosition.mapId, polyMapId);
+    const finalMapId = Math.min(clickedPosition.mapId, polyMapId);
+    const currOrigin = polyMapId == currMapId ? poly : clickedPosition.xy;
+    const targetPoint = polyMapId == finalMapId ? poly : clickedPosition.xy;    
+    
+    const [originExitDist, originExit] = getNestedMinDistToTargetMapId(currOrigin, currMapId, finalMapId);
+    if(originExit == null){return [false, Infinity];}
+
+    const totalDist = originExitDist + getDistanceOnMapId(originExit, targetPoint);
     return [true, totalDist];
+
   }
 
   //else if in different nested regions
@@ -476,10 +519,10 @@ const handleNestedDungeons = (
   }
 
   const [pointDist, pointSurfaceExit] = pointNested
-    ? getNestedMinDistToSurfce(clickedPosition.xy, clickedPosition.mapId)
+    ? getNestedMinDistToTargetMapId(clickedPosition.xy, clickedPosition.mapId, MapIds.Surface)
     : getMinDistToExit(clickedPosition.xy, clickedPosition.mapId);
   const [polyDist, polySurfaceExit] = polyNested
-    ? getNestedMinDistToSurfce(poly, polyMapId)
+    ? getNestedMinDistToTargetMapId(poly, polyMapId, MapIds.Surface)
     : getMinDistToExit(poly, polyMapId);
   if (!pointSurfaceExit || !polySurfaceExit) {
     return [false, Infinity];
@@ -521,3 +564,22 @@ const getTotalDistanceToPoly = (
     getDistanceOnMapId(pointSurfaceOrigin, polySurfaceOrigin)
   );
 };
+
+export const panMapToLinkPoint = (map: L.Map, end: LinkPoint) => {
+    const padding = end.mapId == 0 ? -64 : 256;
+    const panBuffer = 10000;
+    const { bounds } = mapMetadata.find(map => map.mapId == end.mapId)!;
+    const [min, max] = bounds;
+
+    map.setMaxBounds([
+      [min[1] - padding - panBuffer, min[0] - padding - panBuffer],
+      [max[1] + padding + panBuffer, max[0] + padding + panBuffer],
+    ]);
+
+    map.panTo([end.y, end.x], { animate: false });
+
+    map.setMaxBounds([
+      [min[1] - padding, min[0] - padding],
+      [max[1] + padding, max[0] + padding],
+    ]);
+}
