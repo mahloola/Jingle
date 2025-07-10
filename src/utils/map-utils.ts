@@ -482,6 +482,11 @@ export const GetParentMapId = (currentMapId: number): number => {
   }
 };
 
+const areInSameNestedChain = (a: number, b: number) => {
+    return NESTED_GROUPS.some((group) => group.includes(a) && group.includes(b));
+  };
+
+
 const handleNestedDungeons = (
   clickedPosition: ClickedPosition,
   poly: Position[],
@@ -491,12 +496,9 @@ const handleNestedDungeons = (
     return [false, Infinity];
   } // let the other function handle it
 
-  const areInSameNestedRegion = (a: number, b: number) => {
-    return NESTED_GROUPS.some((group) => group.includes(a) && group.includes(b));
-  };
   
   //higher depth nesting
-  if(areInSameNestedRegion(clickedPosition.mapId, polyMapId)){
+  if(areInSameNestedChain(clickedPosition.mapId, polyMapId)){
 
     const currMapId = Math.max(clickedPosition.mapId, polyMapId);
     const finalMapId = Math.min(clickedPosition.mapId, polyMapId);
@@ -511,18 +513,20 @@ const handleNestedDungeons = (
 
   }
 
-  //else if in different nested regions
+  //else if in different nested chains
   const pointNested = NESTED_MAP_IDS.includes(clickedPosition.mapId);
   const polyNested = NESTED_MAP_IDS.includes(polyMapId);
   if (!pointNested && !polyNested) {
     return [false, Infinity];
   }
-
+  
+  const lcaMapId = GetLCAOfMapIds(clickedPosition.mapId, polyMapId);
+  
   const [pointDist, pointSurfaceExit] = pointNested
-    ? getNestedMinDistToTargetMapId(clickedPosition.xy, clickedPosition.mapId, MapIds.Surface)
+    ? getNestedMinDistToTargetMapId(clickedPosition.xy, clickedPosition.mapId, lcaMapId)
     : getMinDistToExit(clickedPosition.xy, clickedPosition.mapId);
   const [polyDist, polySurfaceExit] = polyNested
-    ? getNestedMinDistToTargetMapId(poly, polyMapId, MapIds.Surface)
+    ? getNestedMinDistToTargetMapId(poly, polyMapId, lcaMapId)
     : getMinDistToExit(poly, polyMapId);
   if (!pointSurfaceExit || !polySurfaceExit) {
     return [false, Infinity];
@@ -538,6 +542,7 @@ const getTotalDistanceToPoly = (
   poly: Position[],
   polyMapId: number,
 ) => {
+
   const [handledNested, dist] = handleNestedDungeons(clickedPosition, poly, polyMapId);
   if (handledNested) {
     return dist;
@@ -583,3 +588,57 @@ export const panMapToLinkPoint = (map: L.Map, end: LinkPoint) => {
       [max[1] + padding, max[0] + padding],
     ]);
 }
+
+//last common ancesstor Map id - ensure that they aren't in the same nested chain
+const GetLCAOfMapIds = (
+  nestedMapId1 : number,
+  nestedMapId2 : number
+) : number => {
+
+  const isFirstNested = NESTED_MAP_IDS.includes(nestedMapId1);
+  const isSecondNested = NESTED_MAP_IDS.includes(nestedMapId2);
+
+  //regular mapIds
+  if(!isFirstNested && !isSecondNested){return MapIds.Surface};
+
+  //if both in same  - return the id with lower index (i.e. superparent) - fallback.
+  // if(areInSameNestedRegion(nestedMapId1, nestedMapId2)){
+  //   const nestedGroup = NESTED_GROUPS.find(group => group.includes(nestedMapId1) && group.includes(nestedMapId2))!; 
+  //   const index1 = nestedGroup.findIndex(nestedMapId => nestedMapId == nestedMapId1)!;
+  //   const index2 = nestedGroup.findIndex(nestedMapId => nestedMapId == nestedMapId2)!;
+  //   const parentIndex = Math.min(index1, index2);
+  //   return nestedGroup[parentIndex];
+  // }
+
+  //only one mapId nested - excluding same nested groups
+  if((!isFirstNested && isSecondNested) || (isFirstNested && !isSecondNested)){return MapIds.Surface};
+
+  //return intersection of the "Y shapred linked list"
+  const list1 = NESTED_GROUPS.find(group => group.includes(nestedMapId1))!;
+  const list2 = NESTED_GROUPS.find(group => group.includes(nestedMapId2))!;
+  return GetIntersectionOfMapIdLists(list1, list2, nestedMapId1, nestedMapId2);
+  
+}
+
+const GetIntersectionOfMapIdLists = (
+  list1: number[],
+  list2: number[],
+  mapId1: number,
+  mapId2: number
+): number => {
+  const i1 = list1.indexOf(mapId1);
+  const i2 = list2.indexOf(mapId2);
+
+  if (i1 === -1 || i2 === -1) return 0;
+
+  const sub1 = list1.slice(0, i1);
+  const sub2Set = new Set(list2.slice(0, i2));
+
+  for (let i = sub1.length - 1; i >= 0; i--) {
+    if (sub2Set.has(sub1[i])) {
+      return sub1[i];
+    }
+  }
+
+  return MapIds.Surface;
+};
