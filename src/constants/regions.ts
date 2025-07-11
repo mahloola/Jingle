@@ -56,6 +56,21 @@ export const REGIONS = {
     'Fossilised',
     'Lava is Mine',
     'Malady',
+
+    'Colossus of the Deep',
+    'Scar Tissue',
+    'Temple of the Eye',
+    'Guardians of the Rift',
+    'The Guardians Prepare',
+    'The Sound of Guthix',
+    'Temple Desecrated',
+    'Serene',
+    'Zealot',
+    'Down to Earth',
+    'Quest',
+    'Mirace Dance',
+    'Body and Mind',
+    'Stratosphere',
   ],
   Karamja: [
     'Jungle Island',
@@ -88,6 +103,7 @@ export const REGIONS = {
     'Mor Ul Rek',
     'TzHaar!',
     'Inferno',
+    'Understanding',
   ],
   Asgarnia: [
     'Alone',
@@ -143,6 +159,7 @@ export const REGIONS = {
     'The Ruins of Camdozaal',
     'Starlight',
     'Zaros Zeitgeist',
+    'Righteousness',
   ],
   Fremennik: [
     'Saga',
@@ -160,6 +177,7 @@ export const REGIONS = {
     'Isle of Everywhere',
     'The Desolate Isle',
     'Exposed',
+    'Eye See You',
     'Have an Ice Day',
     'Miscellania',
     'Etceteria',
@@ -174,12 +192,20 @@ export const REGIONS = {
     'Land of the Dwarves',
     'Marzipan',
     'Masquerade',
+    'More Than Meets the Eye',
     'The Monsters Below',
     'Ogre the Top',
+    'Prison Break',
+    'Secrets of the North',
     'The Slayer',
     'Slither and Thither',
     'Tale of Keldagrim',
     'Time to Mine',
+
+    'Prison Break',
+    'Eye See You',
+    'More Than Meets the Eye',
+    'Secrets of the North',
     'Down and Out',
   ],
   Kandarin: [
@@ -257,6 +283,11 @@ export const REGIONS = {
     'Devils May Care',
     "Narnode's Theme",
     'Troubled Waters',
+    'Cursed',
+    'Temple of Tribes',
+    'Catacombs and Tombs',
+    'Monkey Badness',
+    'Monkey Business',
   ],
   Desert: [
     'Arabian',
@@ -395,6 +426,8 @@ export const REGIONS = {
     'Attack 3',
     'Attack 5',
     'Last Man Standing',
+
+    'Complication',
   ],
   Kourend: [
     'Arcane',
@@ -440,6 +473,8 @@ export const REGIONS = {
     'Creeping Vines',
     'Ful to the Brim',
     'Kanon of Kahlith',
+
+    'Darkly Altared',
   ],
   Varlamore: [
     'Are You Not Entertained',

@@ -30,12 +30,17 @@ export interface InternalMapState {
 
 export enum MapIds {
   Surface = 0,
+  ArdoungeUnderground = 2,
   DorgeshKaan = 5,
   KaramjaUnderground = 9,
+  MiscUnderground = 11,
   MisthalinUnderground = 12,
+  MorytaniaUnderground = 14,
   MorUlRek = 23,
   TarnsLair = 24,
+  Zanaris = 28,
   Prifddinas = 29,
+  KourendUnderground = 32,
   PrifddinasUnderground = 34,
   PrifddinasGrandLibrary = 35,
   TutorialIsland = 37,
@@ -45,6 +50,15 @@ export enum MapIds {
   LassarUndercity = 41,
   CamTorum = 44,
   Neypotzli = 45,
+  GuardiansOfTheRift = 1001,
+  TheScar = 1002,
+  GhorrockDungeon = 1003,
+  GhorrockPrison = 1004,
+  GuthixianTemple = 1006,
+  GoblinTemple = 1007,
+  SkotizoLair = 1009,
+  CosmicAltar = 1016,
+  BloodAltar = 1021,
 }
 
 //separated for simplicity's sake.
@@ -55,14 +69,32 @@ export const NESTED_MAP_IDS = [
   MapIds.PrifddinasGrandLibrary,
   MapIds.PrifddinasUnderground,
   MapIds.LassarUndercity,
+  MapIds.GuardiansOfTheRift,
+  MapIds.TheScar,
+  MapIds.GhorrockDungeon,
+  MapIds.GhorrockPrison,
+  MapIds.GoblinTemple,
+  MapIds.GuthixianTemple,
+  MapIds.CosmicAltar,
+  MapIds.BloodAltar
 ];
-export const CHILD_PARENT_MAP_ID_PAIRS = [
-  [MapIds.DorgeshKaan, MapIds.MisthalinUnderground],
-  [MapIds.MorUlRek, MapIds.KaramjaUnderground],
-  [MapIds.Neypotzli, MapIds.CamTorum],
-  [MapIds.PrifddinasGrandLibrary, MapIds.Prifddinas],
-  [MapIds.PrifddinasUnderground, MapIds.Prifddinas],
-  [MapIds.LassarUndercity, MapIds.RuinsOfCamdozaal],
+
+
+export const NESTED_GROUPS = [
+  [MapIds.MisthalinUnderground, MapIds.DorgeshKaan],
+  [MapIds.KaramjaUnderground, MapIds.MorUlRek],
+  [MapIds.CamTorum, MapIds.Neypotzli],
+  [MapIds.Prifddinas,MapIds.PrifddinasGrandLibrary],
+  [MapIds.Prifddinas, MapIds.PrifddinasUnderground],
+  [MapIds.RuinsOfCamdozaal, MapIds.LassarUndercity,],
+  [MapIds.MisthalinUnderground, MapIds.GuardiansOfTheRift, MapIds.TheScar],
+  [MapIds.MiscUnderground, MapIds.GhorrockDungeon, MapIds.GhorrockPrison],
+  [MapIds.ArdoungeUnderground, MapIds.GoblinTemple],
+  [MapIds.MisthalinUnderground, MapIds.GuthixianTemple],
+  [MapIds.Zanaris, MapIds.CosmicAltar],
+  [MapIds.MorytaniaUnderground, MapIds.BloodAltar],
+  [MapIds.KourendUnderground, MapIds.SkotizoLair],
+  
 ];
 
 export const LINKLESS_MAP_IDS = [

@@ -16,6 +16,816 @@ export interface ConvertedFeature extends Feature<Polygon> {
 const geojsondata = {
   features: [
     {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [2304, 4800],
+                        [2304, 4864],
+                        [2368, 4864],
+                        [2368, 4800],
+                        [2304, 4800]
+                    ],
+                ]
+            },
+            "properties": {
+                "mapID": "-1",
+                "title": "<a href=\"/w/Cursed\" title=\"Cursed\">Cursed</a>",
+                "description": "<div><a href=\"/w/File:Cursed.ogg\" title=\"File:Cursed.ogg\">Play track</a></div>",
+                "plane": 0
+            },
+            "convertedGeometry": [
+                {
+                    "mapName": "Wrath Altar",
+                    "mapId": 1022,
+                    "coordinates": [
+                       [2304, 4800],
+                        [2304, 4864],
+                        [2368, 4864],
+                        [2368, 4800],
+                        [2304, 4800]
+                    ]
+                },
+            ]
+        },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2432, 4800],
+            [2432, 4864],
+            [2496, 4864],
+            [2496, 4800],
+            [2432, 4800],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Righteousness" title="Righteousness">Righteousness</a>',
+        description:
+          '<div><a href="/w/File:Righteousness.ogg" title="File:Righteousness.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Law Altar',
+          mapId: 1017,
+          coordinates: [
+            [2432, 4800],
+            [2432, 4864],
+            [2496, 4864],
+            [2496, 4800],
+            [2432, 4800],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 4800],
+            [2368, 4864],
+            [2432, 4864],
+            [2432, 4800],
+            [2368, 4800],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Understanding" title="Understanding">Understanding</a>',
+        description:
+          '<div><a href="/w/File:Understanding.ogg" title="File:Understanding.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Nature Altar',
+          mapId: 1018,
+          coordinates: [
+            [2368, 4800],
+            [2368, 4864],
+            [2432, 4864],
+            [2432, 4800],
+            [2368, 4800],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2240, 4800],
+            [2240, 4864],
+            [2304, 4864],
+            [2304, 4800],
+            [2240, 4800],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Complication" title="Complication">Complication</a>',
+        description:
+          '<div><a href="/w/File:Complication.ogg" title="File:Complication.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Chaos Altar',
+          mapId: 1019,
+          coordinates: [
+            [2240, 4800],
+            [2240, 4864],
+            [2304, 4864],
+            [2304, 4800],
+            [2240, 4800],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2112, 4800],
+            [2112, 4864],
+            [2176, 4864],
+            [2176, 4800],
+            [2112, 4800],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Stratosphere" title="Stratosphere">Stratosphere</a>',
+        description:
+          '<div><a href="/w/File:Stratosphere.ogg" title="File:Stratosphere.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Cosmic Altar',
+          mapId: 1016,
+          coordinates: [
+            [2112, 4800],
+            [2112, 4864],
+            [2176, 4864],
+            [2176, 4800],
+            [2112, 4800],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2496, 4800],
+            [2496, 4864],
+            [2560, 4864],
+            [2560, 4800],
+            [2496, 4800],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Heart_and_Mind" title="Heart and Mind">Heart and Mind</a>',
+        description:
+          '<div><a href="/w/File:Heart_and_Mind.ogg" title="File:Heart and Mind.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Body Altar',
+          mapId: 1015,
+          coordinates: [
+            [2496, 4800],
+            [2496, 4864],
+            [2560, 4864],
+            [2560, 4800],
+            [2496, 4800],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2752, 4800],
+            [2752, 4864],
+            [2816, 4864],
+            [2816, 4800],
+            [2752, 4800],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Miracle_Dance" title="Miracle Dance">Miracle Dance</a>',
+        description:
+          '<div><a href="/w/File:Miracle_Dance.ogg" title="File:Miracle Dance.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Mind Altar',
+          mapId: 1014,
+          coordinates: [
+            [2752, 4800],
+            [2752, 4864],
+            [2816, 4864],
+            [2816, 4800],
+            [2752, 4800],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2560, 4800],
+            [2560, 4864],
+            [2624, 4864],
+            [2624, 4800],
+            [2560, 4800],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Quest_(music_track)" title="Quest (music track)">Quest</a>',
+        description: '<div><a href="/w/File:Quest.ogg" title="File:Quest.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Fire Altar',
+          mapId: 1013,
+          coordinates: [
+            [2560, 4800],
+            [2560, 4864],
+            [2624, 4864],
+            [2624, 4800],
+            [2560, 4800],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2624, 4800],
+            [2624, 4864],
+            [2688, 4864],
+            [2688, 4800],
+            [2624, 4800],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Down_to_Earth" title="Down to Earth">Down to Earth</a>',
+        description:
+          '<div><a href="/w/File:Down_to_Earth.ogg" title="File:Down to Earth.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Earth Altar',
+          mapId: 1012,
+          coordinates: [
+            [2624, 4800],
+            [2624, 4864],
+            [2688, 4864],
+            [2688, 4800],
+            [2624, 4800],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2688, 4800],
+            [2688, 4864],
+            [2752, 4864],
+            [2752, 4800],
+            [2688, 4800],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Zealot_(music_track)" title="Zealot (music track)">Zealot</a>',
+        description:
+          '<div><a href="/w/File:Zealot.ogg" title="File:Zealot.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Water Altar',
+          mapId: 1011,
+          coordinates: [
+            [2688, 4800],
+            [2688, 4864],
+            [2752, 4864],
+            [2752, 4800],
+            [2688, 4800],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2816, 4800],
+            [2816, 4864],
+            [2880, 4864],
+            [2880, 4800],
+            [2816, 4800],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Serene" title="Serene">Serene</a>',
+        description:
+          '<div><a href="/w/File:Serene.ogg" title="File:Serene.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Air Altar',
+          mapId: 1010,
+          coordinates: [
+            [2816, 4800],
+            [2816, 4864],
+            [2880, 4864],
+            [2880, 4800],
+            [2816, 4800],
+          ],
+        },
+      ],
+    },
+
+    //custom
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        title: '<a href="/w/Darkly_Altared" title="Darkly Altared">Darkly Altared</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Darkly_Altared.ogg" title="File:Darkly Altared.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Skotizo Lair',
+          mapId: 1009,
+          coordinates: [
+            
+              [2240, 5696],
+              [2304, 5696],
+              [2304, 5632],
+              [2240, 5632],
+              [2240, 5696],
+            
+          ],
+        },
+      ],
+    },
+
+    //custom
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        title: '<a href="/w/Monkey_Badness" title="Monkey Badness">Monkey Badness</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Monkey_Badness.ogg" title="File:Monkey Badness.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Crash Site Cavern',
+          mapId: 1008,
+          coordinates: [
+            [2048, 5632],
+            [2048, 5696],
+            [2176, 5696],
+            [2176, 5632],
+            [2048, 5632],
+          ],
+        },
+      ],
+    },
+
+    //custom
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        title: '<a href="/w/Monkey_Business" title="Monkey Business">Monkey Business</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Monkey_Business.ogg" title="File:Monkey Business.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Crash Site Cavern',
+          mapId: 1008,
+          coordinates: [
+            [2048, 5632],
+            [2048, 5696],
+            [2176, 5696],
+            [2176, 5632],
+            [2048, 5632],
+          ],
+        },
+      ],
+    },
+
+    //custom
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        title:
+          '<a href="/w/Catacombs_and_Tombs" title="Catacombs and Tombs">Catacombs and Tombs</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Catacombs_and_Tombs.ogg" title="File:Catacombs and Tombs.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Goblin Temple',
+          mapId: 1007,
+          coordinates: [
+            [3712, 4416],
+            [3776, 4416],
+            [3776, 4352],
+            [3712, 4352],
+            [3712, 4416],
+          ],
+        },
+      ],
+    },
+
+    //custom
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        title: '<a href="/w/Temple_of_Tribes" title="Temple of Tribes">Temple of Tribes</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Temple_of_Tribes.ogg" title="File:Temple of Tribes.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Goblin Temple',
+          mapId: 1007,
+          coordinates: [
+            [3712, 4352],
+            [3776, 4352],
+            [3776, 4288],
+            [3712, 4288],
+            [3712, 4352],
+          ],
+        },
+      ],
+    },
+    //custom
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        title: '<a href="/w/Temple_Desecrated" title="Temple Desecrated">Temple Desecrated</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Temple_Desecrated.ogg" title="File:Temple Desecrated.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Guthixian Temple',
+          mapId: 1006,
+          coordinates: [
+            [4032, 4352],
+            [4032, 4480],
+            [4160, 4480],
+            [4160, 4352],
+            [4032, 4352],
+          ],
+        },
+      ],
+    },
+    //custom
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        title:
+          '<a href="/w/The_Sound_of_Guthix" title="The Sound of Guthix">The Sound of Guthix</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:The_Sound_of_Guthix.ogg" title="File:The Sound of Guthix.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Guthixian Temple',
+          mapId: 1006,
+          coordinates: [
+            [4032, 4544],
+            [4032, 4608],
+            [4096, 4608],
+            [4096, 4544],
+            [4032, 4544],
+          ],
+        },
+      ],
+    },
+    //custom
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [[]],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Eye_See_You" title="Eye_See_You">Eye See You</a>',
+        description:
+          '<div><a href="/w/File:Eye_See_You.ogg" title="File:Eye See You.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Ghorrock Prison',
+          mapId: 1004,
+          coordinates: [
+            [3054, 6460],
+            [3025, 6460],
+            [3025, 6432],
+            [3054, 6432],
+            [3054, 6460],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [[]],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Prison_Break" title="Prison_Break">Prison Break</a>',
+        description:
+          '<div><a href="/w/File:Prison_Break.ogg" title="File:Prison_Break.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Ghorrock Prison',
+          mapId: 1004,
+          coordinates: [
+            [3069, 6434],
+            [3011, 6434],
+            [3011, 6411],
+            [3069, 6411],
+            [3069, 6434],
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2880, 10368],
+            [2944, 10368],
+            [2944, 10304],
+            [2880, 10304],
+            [2880, 10368],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Secrets_of_the_North_(music_track)" title="Secrets of the North (music track)">Secrets of the North</a>',
+        description:
+          '<div><a href="/w/File:Secrets_of_the_North.ogg" title="File:Secrets of the North.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Ghorrock Dungeon',
+          mapId: 1003,
+          coordinates: [
+            [2880, 10368],
+            [2944, 10368],
+            [2944, 10304],
+            [2880, 10304],
+            [2880, 10368],
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [[]],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/More_Than_Meets_the_Eye" title="More Than Meets the Eye">More Than Meets the Eye</a>',
+        description:
+          '<div><a href="/w/File:More_Than_Meets_the_Eye.ogg" title="File:More Than Meets The Eye.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Ghorrock Dungeon',
+          mapId: 1003,
+          coordinates: [
+            [2880, 10330],
+            [2841, 10330],
+            [2841, 10292],
+            [2880, 10292],
+            [2880, 10330],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        title:
+          '<a href="/w/Temple_of_the_Eye_(music_track)" title="Temple of the Eye (music track)">Temple of the Eye </a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Temple_of_the_Eye.ogg" title="File:Temple of the Eye.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Guardians of the Rift',
+          mapId: 1001,
+          coordinates: [
+            [3520, 9536],
+            [3712, 9536],
+            [3712, 9408],
+            [3520, 9408],
+            [3520, 9536],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [3520, 9536],
+            [3712, 9536],
+            [3712, 9483],
+            [3520, 9483],
+            [3520, 9536],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Guardians_of_the_Rift_(music_track)" title="Guardians of the Rift (music track)">Guardians of the Rift</a>',
+        description:
+          '<div><a href="/w/File:Guardians_of_the_Rift.ogg" title="File:Guardians of the Rift.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Guardians of the Rift',
+          mapId: 1001,
+          coordinates: [
+            [3520, 9536],
+            [3712, 9536],
+            [3712, 9483],
+            [3520, 9483],
+            [3520, 9536],
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [3520, 9536],
+            [3712, 9536],
+            [3712, 9483],
+            [3520, 9483],
+            [3520, 9536],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/The_Guardians_Prepare" title="The Guardians Prepare">The Guardians Prepare</a>',
+        description:
+          '<div><a href="/w/File:The_Guardians_Prepare.ogg" title="File:The Guardians Prepare.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Guardians of the Rift',
+          mapId: 1001,
+          coordinates: [
+            [3520, 9536],
+            [3712, 9536],
+            [3712, 9483],
+            [3520, 9483],
+            [3520, 9536],
+          ],
+        },
+      ],
+    },
+    {
       type: 'Feature',
       geometry: {
         type: 'Polygon',
@@ -84,6 +894,7 @@ const geojsondata = {
         },
       ],
     },
+    //custom
     {
       type: 'Feature',
       geometry: {
@@ -111,6 +922,7 @@ const geojsondata = {
         },
       ],
     },
+    //custom
     {
       type: 'Feature',
       geometry: {
@@ -4684,6 +5496,17 @@ const geojsondata = {
             [3776, 3264],
             [3680, 3264],
             [3680, 3239],
+          ],
+        },
+        {
+          mapName: 'Blood Altar',
+          mapId: 1021,
+          coordinates: [
+            [3200, 4800],
+            [3200, 4864],
+            [3264, 4864],
+            [3264, 4800],
+            [3200, 4800],
           ],
         },
       ],
@@ -10392,6 +11215,85 @@ const geojsondata = {
             [2816, 3200],
             [2816, 3136],
             [2752, 3136],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2048, 6400],
+            [2112, 6400],
+            [2112, 6336],
+            [2048, 6336],
+            [2048, 6400],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Colossus_of_the_Deep" title="Colossus of the Deep">Colossus of the Deep</a>',
+        description:
+          '<div><a href="/w/File:Colossus_of_the_Deep.ogg" title="File:Colossus of the Deep.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'The Scar',
+          mapId: 1002,
+          coordinates: [
+            [2048, 6400],
+            [2112, 6400],
+            [2112, 6336],
+            [2048, 6336],
+            [2048, 6400],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [1728, 6464],
+            [2240, 6464],
+            [2240, 6400],
+            [2112, 6400],
+            [2112, 6336],
+            [2048, 6336],
+            [2048, 6400],
+            [1728, 6400],
+            [1728, 6464],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Scar_Tissue" title="Scar Tissue">Scar Tissue</a>',
+        description:
+          '<div><a href="/w/File:Scar_Tissue.ogg" title="File:Scar Tissue.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'The Scar',
+          mapId: 1002,
+          coordinates: [
+            [1728, 6464],
+            [2240, 6464],
+            [2240, 6400],
+            [2112, 6400],
+            [2112, 6336],
+            [2048, 6336],
+            [2048, 6400],
+            [1728, 6400],
+            [1728, 6464],
           ],
         },
       ],

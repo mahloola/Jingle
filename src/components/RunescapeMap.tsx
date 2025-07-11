@@ -12,11 +12,13 @@ import { assertNotNil } from '../utils/assert';
 import {
   convert,
   findNearestPolygonWhereSongPlays,
+  panMapToLinkPoint,
   recalculateNavigationStack,
   switchLayer,
 } from '../utils/map-utils';
 import LayerPortals from './LayerPortals';
 import { Button } from './ui-util/Button';
+import mapMetadata from '../data/map-metadata';
 
 interface RunescapeMapProps {
   gameState: GameState;
@@ -65,10 +67,9 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
     // handle map layer switching if needed
     if (currentMapId !== mapId) {
       switchLayer(map, tileLayerRef.current!, mapId);
-      //handleNavigationStackUpdate(mapId, currentMapId, gameState.navigationStack, setIsUnderground);
+
       recalculateNavigationStack(
         mapId,
-        currentMapId,
         panTo,
         gameState.navigationStack,
         setIsUnderground,
@@ -77,6 +78,7 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
 
     // update map position and state
     map.panTo(convert.xy_to_ll(panTo));
+
     setCurrentMapId(mapId);
   };
 
@@ -125,12 +127,12 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
     const { start, end } = link;
     const { navigationStack } = gameState;
     const lastNavEntry = navigationStack?.[navigationStack.length - 1];
-
+  
     // handle case where we're returning to previous location
     if (end.mapId === lastNavEntry?.mapId) {
       navigationStack?.pop();
       switchLayer(map, tileLayerRef.current!, end.mapId);
-      map.panTo([end.y, end.x], { animate: false });
+      panMapToLinkPoint(map, end);
       setCurrentMapId(end.mapId);
 
       if (!navigationStack?.length) {
@@ -148,7 +150,7 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
       });
     }
 
-    map.panTo([end.y, end.x], { animate: false });
+    panMapToLinkPoint(map, end);
     setCurrentMapId(end.mapId);
     setIsUnderground(true);
   };
@@ -161,8 +163,10 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
     }
     const [x, y] = [mostRecentNavEntry?.coordinates[1], mostRecentNavEntry?.coordinates[0]];
     const mapId = mostRecentNavEntry?.mapId;
+    const mapName = mapMetadata.find(mapData => mapData.mapId == mapId)!.name;
+
     switchLayer(map, tileLayerRef.current!, mapId);
-    map.panTo([y, x], { animate: false });
+    panMapToLinkPoint(map, {x, y, mapId, name:mapName})
     setCurrentMapId(mapId);
     if (gameState.navigationStack?.length === 0) {
       setIsUnderground(false);
