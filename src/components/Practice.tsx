@@ -145,6 +145,7 @@ export default function Practice() {
               })
               .with(GameStatus.AnswerRevealed, () => (
                 <Button
+                  classes={'guess-btn'}
                   label='Next Song'
                   onClick={nextSong}
                 />
