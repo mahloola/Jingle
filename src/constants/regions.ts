@@ -56,7 +56,6 @@ export const REGIONS = {
     'Fossilised',
     'Lava is Mine',
     'Malady',
-
     'Colossus of the Deep',
     'Scar Tissue',
     'Temple of the Eye',

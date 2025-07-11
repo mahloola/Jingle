@@ -49,7 +49,7 @@ export default function NewsModalButton() {
           }}
         >
           {NEWS_POSTS.map((post) => (
-            <div
+            <section
               key={post.id}
               style={{ width: '100%' }}
             >
@@ -60,7 +60,7 @@ export default function NewsModalButton() {
                   justifyContent: 'space-between',
                 }}
               >
-                <div style={{ fontSize: '2rem' }}>{post.title}</div>
+                <h2 style={{ fontSize: '2rem' }}>{post.title}</h2>
                 <h6
                   className='news-date'
                   style={{ marginRight: '10px' }}
@@ -68,11 +68,11 @@ export default function NewsModalButton() {
                   {post.date}
                 </h6>
               </div>
-              <div className='news-content'>
-                {<div dangerouslySetInnerHTML={{ __html: post.content }} />}
-              </div>
+              <section className='news-content'>
+                {<p dangerouslySetInnerHTML={{ __html: post.content }} />}
+              </section>
               {parseInt(post.id) !== NEWS_POSTS.length - 1 && <hr />}
-            </div>
+            </section>
           ))}
         </div>
       </Modal>

@@ -6,6 +6,7 @@ import { createPortal } from 'react-dom';
 import { GeoJSON, MapContainer, Marker, TileLayer, useMap, useMapEvents } from 'react-leaflet';
 import { CENTER_COORDINATES } from '../constants/defaults';
 import { MapLink } from '../data/map-links';
+import mapMetadata from '../data/map-metadata';
 import '../style/uiBox.css';
 import { ClickedPosition, GameState, GameStatus } from '../types/jingle';
 import { assertNotNil } from '../utils/assert';
@@ -18,7 +19,6 @@ import {
 } from '../utils/map-utils';
 import LayerPortals from './LayerPortals';
 import { Button } from './ui-util/Button';
-import mapMetadata from '../data/map-metadata';
 
 interface RunescapeMapProps {
   gameState: GameState;
@@ -68,12 +68,7 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
     if (currentMapId !== mapId) {
       switchLayer(map, tileLayerRef.current!, mapId);
 
-      recalculateNavigationStack(
-        mapId,
-        panTo,
-        gameState.navigationStack,
-        setIsUnderground,
-      );
+      recalculateNavigationStack(mapId, panTo, gameState.navigationStack, setIsUnderground);
     }
 
     // update map position and state
@@ -127,7 +122,7 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
     const { start, end } = link;
     const { navigationStack } = gameState;
     const lastNavEntry = navigationStack?.[navigationStack.length - 1];
-  
+
     // handle case where we're returning to previous location
     if (end.mapId === lastNavEntry?.mapId) {
       navigationStack?.pop();
@@ -163,10 +158,10 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
     }
     const [x, y] = [mostRecentNavEntry?.coordinates[1], mostRecentNavEntry?.coordinates[0]];
     const mapId = mostRecentNavEntry?.mapId;
-    const mapName = mapMetadata.find(mapData => mapData.mapId == mapId)!.name;
+    const mapName = mapMetadata.find((mapData) => mapData.mapId == mapId)!.name;
 
     switchLayer(map, tileLayerRef.current!, mapId);
-    panMapToLinkPoint(map, {x, y, mapId, name:mapName})
+    panMapToLinkPoint(map, { x, y, mapId, name: mapName });
     setCurrentMapId(mapId);
     if (gameState.navigationStack?.length === 0) {
       setIsUnderground(false);
@@ -195,6 +190,7 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
           <Button
             label='Go Back Up'
             onClick={(e) => handleGoBack(e)}
+            classes='go-up-btn'
           />,
           GoBackButtonRef.current,
         )}
