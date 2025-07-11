@@ -176,8 +176,8 @@ export const switchLayer = (map: L.Map, tileLayer: L.TileLayer, mapId: number) =
   tileLayer.getTileUrl = (coords: L.Coords) => {
     const { x, y, z } = coords;
     const tmsY = -y - 1;
-    // return `./rsmap-tiles/mapIdTiles/${mapId}/${z}/0_${x}_${tmsY}.png`;
-    return `https://jingle.mahloola.com/${mapId}/${z}/0_${x}_${tmsY}.png`;
+    return `./rsmap-tiles/mapIdTiles/${mapId}/${z}/0_${x}_${tmsY}.png`;
+    // return `https://jingle.mahloola.com/${mapId}/${z}/0_${x}_${tmsY}.png`;
   };
   tileLayer.redraw();
 };
@@ -499,12 +499,17 @@ const handleNestedDungeons = (
   
   //higher depth nesting
   if(areInSameNestedChain(clickedPosition.mapId, polyMapId)){
+    const nestedGroup = NESTED_GROUPS.find(group => group.includes(clickedPosition.mapId) && group.includes(polyMapId))!; 
+    const index1 = nestedGroup.findIndex(nestedMapId => nestedMapId == clickedPosition.mapId)!;
+    const index2 = nestedGroup.findIndex(nestedMapId => nestedMapId == polyMapId)!;
 
-    const currMapId = Math.max(clickedPosition.mapId, polyMapId);
-    const finalMapId = Math.min(clickedPosition.mapId, polyMapId);
+    const currMapId = index2 > index1 ? polyMapId : clickedPosition.mapId;
+    const finalMapId = index2 < index1 ? polyMapId : clickedPosition.mapId;
+
     const currOrigin = polyMapId == currMapId ? poly : clickedPosition.xy;
     const targetPoint = polyMapId == finalMapId ? poly : clickedPosition.xy;    
     
+    console.log(finalMapId);
     const [originExitDist, originExit] = getNestedMinDistToTargetMapId(currOrigin, currMapId, finalMapId);
     if(originExit == null){return [false, Infinity];}
 

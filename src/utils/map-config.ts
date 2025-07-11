@@ -58,7 +58,12 @@ export enum MapIds {
   GoblinTemple = 1007,
   SkotizoLair = 1009,
   CosmicAltar = 1016,
+  DeathAltar = 1020,
   BloodAltar = 1021,
+  PuroPuro = 1024,
+  MournerTunnels = 1025,
+  EvilChickenLair = 1027
+
 }
 
 //separated for simplicity's sake.
@@ -76,7 +81,10 @@ export const NESTED_MAP_IDS = [
   MapIds.GoblinTemple,
   MapIds.GuthixianTemple,
   MapIds.CosmicAltar,
-  MapIds.BloodAltar
+  MapIds.DeathAltar,
+  MapIds.BloodAltar,
+  MapIds.PuroPuro,
+  MapIds.EvilChickenLair
 ];
 
 
@@ -92,8 +100,11 @@ export const NESTED_GROUPS = [
   [MapIds.ArdoungeUnderground, MapIds.GoblinTemple],
   [MapIds.MisthalinUnderground, MapIds.GuthixianTemple],
   [MapIds.Zanaris, MapIds.CosmicAltar],
+  [MapIds.Zanaris, MapIds.PuroPuro],
   [MapIds.MorytaniaUnderground, MapIds.BloodAltar],
+  [MapIds.MournerTunnels, MapIds.DeathAltar],
   [MapIds.KourendUnderground, MapIds.SkotizoLair],
+  [MapIds.Zanaris, MapIds.EvilChickenLair],
   
 ];
 
