@@ -21,6 +21,57 @@ const geojsondata = {
                 "type": "Polygon",
                 "coordinates": [
                     [
+                        [2912, 5312],
+                        [2944, 5312],
+                        [2944, 5248],
+                        [2880, 5248],
+                        [2880, 5280],
+                        [2904, 5280],
+                        [2904, 5288],
+                        [2912, 5288],
+                        [2912, 5312]
+                    ]
+                ]
+            },
+            "properties": {
+                "mapID": "-1",
+                "title": "<a href=\"/w/Strength_of_Saradomin\" title=\"Strength of Saradomin\">Strength of Saradomin</a>",
+                "description": "<div><a href=\"/w/File:Strength_of_Saradomin.ogg\" title=\"File:Strength of Saradomin.ogg\">Play track</a></div>",
+                "plane": 0
+            },
+            "convertedGeometry": [
+                {
+                    "mapName": "God Wars Dungeon",
+                    "mapId": 7,
+                    "coordinates": [
+
+                        [2952, 5248],
+                        [2952, 5216],
+                        [2888, 5216],
+                        [2888, 5248],
+               
+                    ]
+                },
+                {
+                    "mapName": "God Wars Dungeon",
+                    "mapId": 7,
+                    "coordinates": [
+                        [2968, 5301],
+                        [2940, 5301],
+                        [2940, 5260],
+                        [2968, 5260],
+                        [2968, 5301],
+
+                    ]
+                }
+            ]
+        },
+    {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
                         [2304, 4416],
                         [2304, 4480],
                         [2368, 4480],

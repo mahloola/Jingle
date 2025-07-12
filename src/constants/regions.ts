@@ -157,6 +157,7 @@ export const REGIONS = {
     'Armageddon',
     'Armadyl Alliance',
     'Bandos Battalion',
+    'Strength of Saradomin',
     'Zamorak Zoo',
     'Beyond',
     'Cave Background',
@@ -172,7 +173,6 @@ export const REGIONS = {
     'Woe of the Wyvern',
     'Black of Knight',
     'The Route of All Evil',
-  
 
   ],
   Fremennik: [
