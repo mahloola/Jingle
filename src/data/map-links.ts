@@ -131,6 +131,179 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Gielinor Surface': [
+          {
+      start: {
+        x: 3016,
+        y: 3518,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      end: {
+        x: 4106,
+        y: 4673,
+        mapId: 1034,
+        name: 'Black Knight Catacombs',
+      },
+    },
+    //chaos tunnels
+    {
+      start: {
+        x: 3284,
+        y: 3468,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      end: {
+        x: 3436,
+        y: 9924,
+        mapId: 12,
+        name: 'Misthalin Underground',
+      },
+    },
+    {
+      end: {
+        x: 2838,
+        y: 9388,
+        mapId: 9,
+        name: 'Karamja Underground',
+      },
+      start: {
+        x: 2823,
+        y: 3001,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+    {
+      start: {
+        x: 3550,
+        y: 3995,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      end: {
+        x: 1568,
+        y: 5060,
+        mapId: 1023,
+        name: 'Lithkren Vault',
+      },
+    },
+
+    {
+      start: {
+        x: 2542,
+        y: 3327,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      end: {
+        x: 2045,
+        y: 4650,
+        mapId: 1025,
+        name: 'Mourner Tunnels',
+      },
+    },
+
+    {
+      start: {
+        x: 3310,
+        y: 2962,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      end: {
+        x: 3206,
+        y: 9379,
+        mapId: 1026,
+        name: 'Smoke Dungeon',
+      },
+    },
+    {
+      end: {
+        x: 2520,
+        y: 9993,
+        mapId: 1029,
+        name: 'Lighthouse Dungeon',
+      },
+      start: {
+        x: 2509,
+        y: 3643,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+
+    {
+      end: {
+        x: 1760,
+        y: 5487,
+        mapId: 1028,
+        name: 'Clan Hall',
+      },
+      start: {
+        x: 3186,
+        y: 3470,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+    {
+      end: {
+        x: 1633,
+        y: 9631,
+        mapId: 1030,
+        name: 'Ruins Of Tapoyauik',
+      },
+      start: {
+        x: 1641,
+        y: 3221,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+
+    {
+      end: {
+        x: 1719,
+        y: 9634,
+        mapId: 1030,
+        name: 'Ruins Of Tapoyauik',
+      },
+      start: {
+        x: 1694,
+        y: 3231,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+    {
+      end: {
+        x: 2773,
+        y: 9341,
+        mapId: 1031,
+        name: 'Viyeldi Caves',
+      },
+      start: {
+        x: 2783,
+        y: 2936,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+    {
+      end: {
+        x: 2912,
+        y: 5471,
+        mapId: 1032,
+        name: 'Sorceress Garden',
+      },
+      start: {
+        x: 3322,
+        y: 3140,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
     //custom-runic altars
     {
       start: {
@@ -263,6 +436,7 @@ export const groupedLinks: GroupedLinks = {
         name: 'Chaos Altar',
       },
     },
+
     {
       start: {
         x: 2446,
@@ -3665,6 +3839,49 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   Zanaris: [
+    {
+      end: {
+        x: 2592,
+        y: 4319,
+        mapId: 1024,
+        name: 'Puro Puro',
+      },
+      start: {
+        x: 2428,
+        y: 4446,
+        mapId: 28,
+        name: 'Zanaris',
+      },
+    },
+    //custom-evil chicken lair
+     {
+      end: {
+        x: 2457,
+        y: 4381,
+        mapId: 28,
+        name: 'Zanaris',
+      },
+      start: {
+        x: 2454,
+        y: 4477,
+        mapId: 28,
+        name: 'Zanaris',
+      },
+    },
+    {
+      start: {
+        x: 2457,
+        y: 4381,
+        mapId: 28,
+        name: 'Zanaris',
+      },
+      end: {
+        x: 2454,
+        y: 4477,
+        mapId: 28,
+        name: 'Zanaris',
+      },
+    },
     //custom-
     {
       start: {
@@ -3987,6 +4204,7 @@ export const groupedLinks: GroupedLinks = {
         name: 'Gielinor Surface',
       },
     },
+
     {
       start: {
         x: 2856,
@@ -4760,6 +4978,35 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Misthalin Underground': [
+        {
+      start: {
+        x: 3408,
+        y: 9968,
+        mapId: 12,
+        name: 'Misthalin Underground',
+      },
+      end: {
+        x: 2259,
+        y: 4845,
+        mapId: 1033,
+        name: 'Chaos Tunnels Altar',
+      },
+    },
+    //chaos tunnels
+      {
+      end: {
+        x: 3284,
+        y: 3468,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      start: {
+        x: 3436,
+        y: 9924,
+        mapId: 12,
+        name: 'Misthalin Underground',
+      },
+    },
     //custom guthixian temple
     {
       start: {
@@ -5322,7 +5569,7 @@ export const groupedLinks: GroupedLinks = {
         name: 'Blood Altar',
       },
     },
-    //custom - 
+    //custom -
     {
       start: {
         x: 3578,
@@ -5672,9 +5919,6 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
 
-
-
-
   'Guardians of the Rift': [
     {
       start: {
@@ -5767,7 +6011,7 @@ export const groupedLinks: GroupedLinks = {
         name: 'Ghorrock Dungeon',
       },
     },
-        {
+    {
       start: {
         x: 2875,
         y: 10314,
@@ -5800,7 +6044,7 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
 
-   'Nightmare Arena': [
+  'Nightmare Arena': [
     {
       start: {
         x: 3872,
@@ -6109,6 +6353,41 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
 
+  'Chaos Tunnels Altar': [
+         {
+      end: {
+        x: 3408,
+        y: 9968,
+        mapId: 12,
+        name: 'Misthalin Underground',
+      },
+      start: {
+        x: 2259,
+        y: 4845,
+        mapId: 1033,
+        name: 'Chaos Tunnels Altar',
+      },
+    },
+  ],
+
+  'Death Altar': [
+    {
+      end: {
+        x: 1860,
+        y: 4640,
+
+        mapId: 1025,
+        name: 'Mourner Tunnels',
+      },
+      start: {
+        x: 2210,
+        y: 4830,
+        mapId: 1020,
+        name: 'Death Altar',
+      },
+    },
+  ],
+
   'Blood Altar': [
     {
       start: {
@@ -6142,4 +6421,250 @@ export const groupedLinks: GroupedLinks = {
       },
     },
   ],
+
+  'Lithkren Vault': [
+    {
+      start: {
+        x: 1568,
+        y: 5060,
+        mapId: 1023,
+        name: 'Lithkren Vault',
+      },
+      end: {
+        x: 3550,
+        y: 3995,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+  ],
+
+  'Puro Puro': [
+    {
+      start: {
+        x: 2592,
+        y: 4319,
+        mapId: 1024,
+        name: 'Puro Puro',
+      },
+      end: {
+        x: 2428,
+        y: 4446,
+        mapId: 28,
+        name: 'Zanaris',
+      },
+    },
+  ],
+
+  'Mourner Tunnels': [
+    {
+      start: {
+        x: 2045,
+        y: 4650,
+        mapId: 1025,
+        name: 'Mourner Tunnels',
+      },
+      end: {
+        x: 2542,
+        y: 3327,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+
+    {
+      end: {
+        x: 2210,
+        y: 4830,
+        mapId: 1020,
+        name: 'Death Altar',
+      },
+      start: {
+        x: 1860,
+        y: 4640,
+        mapId: 1025,
+        name: 'Mourner Tunnels',
+      },
+    },
+  ],
+
+  'Smoke Dungeon': [
+    {
+      start: {
+        x: 3206,
+        y: 9379,
+        mapId: 1026,
+        name: 'Smoke Dungeon',
+      },
+      end: {
+        x: 3310,
+        y: 2962,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+  ],
+
+  'Evil Chicken Lair': [
+    {
+      start: {
+        x: 2457,
+        y: 4381,
+        mapId: 1027,
+        name: 'Evil Chicken Lair',
+      },
+      end: {
+        x: 2454,
+        y: 4477,
+        mapId: 28,
+        name: 'Zanaris',
+      },
+    },
+  ],
+
+  'Clan Hall': [
+    {
+      start: {
+        x: 1760,
+        y: 5487,
+        mapId: 1028,
+        name: 'Clan Hall',
+      },
+      end: {
+        x: 3186,
+        y: 3470,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+  ],
+
+  'Lighthouse Dungeon': [
+    {
+      start: {
+        x: 2520,
+        y: 9993,
+        mapId: 1029,
+        name: 'Lighthouse Dungeon',
+      },
+      end: {
+        x: 2509,
+        y: 3643,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+  ],
+
+  'Ruins of Tapoyauik': [
+    {
+      start: {
+        x: 1633,
+        y: 9631,
+        mapId: 1030,
+        name: 'Ruins Of Tapoyauik',
+      },
+      end: {
+        x: 1641,
+        y: 3221,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+
+    {
+      start: {
+        x: 1719,
+        y: 9634,
+        mapId: 1030,
+        name: 'Ruins Of Tapoyauik',
+      },
+      end: {
+        x: 1694,
+        y: 3231,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+  ],
+
+  'Viyeldi Caves': [
+    {
+      start: {
+        x: 2773,
+        y: 9341,
+        mapId: 1031,
+        name: 'Viyeldi Caves',
+      },
+      end: {
+        x: 2783,
+        y: 2936,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+    {
+      start: {
+        x: 2762,
+        y: 9382,
+        mapId: 1031,
+        name: 'Viyeldi Caves',
+      },
+      end: {
+        x: 2764,
+        y: 9339,
+        mapId: 1031,
+        name: 'Viyeldi Caves',
+      },
+    },
+    {
+      start: {
+        x: 2764,
+        y: 9339,
+        mapId: 1031,
+        name: 'Viyeldi Caves',
+      },
+      end: {
+        x: 2762,
+        y: 9382,
+        mapId: 1031,
+        name: 'Viyeldi Caves',
+      },
+    },
+  ],
+
+  'Sorceress Garden': [
+    {
+      start: {
+        x: 2912,
+        y: 5471,
+        mapId: 1032,
+        name: 'Sorceress Garden',
+      },
+      end: {
+        x: 3322,
+        y: 3140,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+  ],
+
+    'Black Knight Catacombs': [
+       {
+      end: {
+        x: 3016,
+        y: 3518,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      start: {
+        x: 4106,
+        y: 4673,
+        mapId: 1034,
+        name: 'Black Knight Catacombs',
+      },
+    },
+
+  ]
 };

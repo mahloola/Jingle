@@ -70,7 +70,6 @@ const filterRegions = () => {
 //       });
 //     });
 //   });
-//   console.log(starts);
 // };
 
 function extractSongTitle(htmlString: any) {

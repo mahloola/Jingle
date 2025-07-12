@@ -7,7 +7,7 @@ import { groupedLinks, LinkPoint, MapLink } from '../data/map-links';
 import mapMetadata from '../data/map-metadata';
 import { ClickedPosition } from '../types/jingle';
 import { loadPreferencesFromBrowser } from './browserUtil';
-import {MapIds, NESTED_GROUPS, NESTED_MAP_IDS } from './map-config';
+import { MapIds, NESTED_GROUPS, NESTED_MAP_IDS } from './map-config';
 import { decodeHTML } from './string-utils';
 
 type Line = [Position, Position];
@@ -99,7 +99,6 @@ export const findAllAnswerPolygonsForSong = (song: string): Map<number, Polygon[
   return groupedSongPolygons;
 };
 
-
 export const findNearestPolygonWhereSongPlays = (
   song: string,
   clickedPosition: ClickedPosition,
@@ -166,7 +165,7 @@ export const findNearestPolygonWhereSongPlays = (
 
 export const switchLayer = (map: L.Map, tileLayer: L.TileLayer, mapId: number) => {
   const padding = mapId == 0 ? -64 : 256;
-  const { bounds } = mapMetadata.find(map => map.mapId == mapId)!;
+  const { bounds } = mapMetadata.find((map) => map.mapId == mapId)!;
   const [min, max] = bounds;
   map.setMaxBounds([
     [min[1] - padding, min[0] - padding],
@@ -176,7 +175,6 @@ export const switchLayer = (map: L.Map, tileLayer: L.TileLayer, mapId: number) =
   tileLayer.getTileUrl = (coords: L.Coords) => {
     const { x, y, z } = coords;
     const tmsY = -y - 1;
-    // return `./rsmap-tiles/mapIdTiles/${mapId}/${z}/0_${x}_${tmsY}.png`;
     return `https://jingle.mahloola.com/${mapId}/${z}/0_${x}_${tmsY}.png`;
   };
   tileLayer.redraw();
@@ -256,34 +254,32 @@ export const recalculateNavigationStack = (
   navigationStack?.pop(); //pop the current mapId
 };
 
-  const fillNavigationStack = (
-    currentMapId: number,
-    origin: Position,
-    navigationStack: Array<{
-      mapId: number;
-      coordinates: [number, number];
-    }> | null,
-  ) => {
-    const typedOrigin = origin as [number, number];
-    const convertedOrigin: [number, number] = origin ? [origin[1], origin[0]] : CENTER_COORDINATES;
+const fillNavigationStack = (
+  currentMapId: number,
+  origin: Position,
+  navigationStack: Array<{
+    mapId: number;
+    coordinates: [number, number];
+  }> | null,
+) => {
+  const typedOrigin = origin as [number, number];
+  const convertedOrigin: [number, number] = origin ? [origin[1], origin[0]] : CENTER_COORDINATES;
 
-    if (currentMapId == MapIds.Surface) {
-      navigationStack?.push({ mapId: currentMapId, coordinates: convertedOrigin });
-      return;
-    }
-
-    const parentMapId = GetParentMapId(currentMapId);
-    const [dist, exit] = getMinDistToExit(typedOrigin, currentMapId, parentMapId);
-    const exitCoords = exit ? [exit![1], exit![0]] : CENTER_COORDINATES;
-
-    if (exit) {
-      fillNavigationStack(parentMapId, exit as Position, navigationStack);
-    }
-
+  if (currentMapId == MapIds.Surface) {
     navigationStack?.push({ mapId: currentMapId, coordinates: convertedOrigin });
-  };
-  
+    return;
+  }
 
+  const parentMapId = GetParentMapId(currentMapId);
+  const [dist, exit] = getMinDistToExit(typedOrigin, currentMapId, parentMapId);
+  const exitCoords = exit ? [exit![1], exit![0]] : CENTER_COORDINATES;
+
+  if (exit) {
+    fillNavigationStack(parentMapId, exit as Position, navigationStack);
+  }
+
+  navigationStack?.push({ mapId: currentMapId, coordinates: convertedOrigin });
+};
 
 const findPolyGroups = (repairedPolygons: Polygon[]) => {
   const groups: Polygon[][] = [];
@@ -388,7 +384,7 @@ const getMinDistToExit = (
   }
 
   const isPoly = Array.isArray(origin[0]);
-  const mapName = mapMetadata.find(mapData => mapData.mapId == mapId)!.name;
+  const mapName = mapMetadata.find((mapData) => mapData.mapId == mapId)!.name;
 
   const links = groupedLinks[mapName] ?? [];
 
@@ -433,16 +429,23 @@ const getNestedMinDistToTargetMapId = (
   nestedMapId: number,
   exitMapId: number,
 ): [number, Position | Position[] | null] => {
-
   const nestedGroup = NESTED_GROUPS.find((group) => group.includes(nestedMapId));
-  const currIndex = nestedGroup?.findIndex(nedstedGroupMapId => nedstedGroupMapId == nestedMapId);
-  const exitIndex = exitMapId == MapIds.Surface ? -1 : nestedGroup?.findIndex(nestedGroupMapId => nestedGroupMapId == exitMapId)
+  const currIndex = nestedGroup?.findIndex((nedstedGroupMapId) => nedstedGroupMapId == nestedMapId);
+  const exitIndex =
+    exitMapId == MapIds.Surface
+      ? -1
+      : nestedGroup?.findIndex((nestedGroupMapId) => nestedGroupMapId == exitMapId);
 
   if (!nestedGroup || !currIndex) {
     return [Infinity, null];
   }
 
-  const [totalDistToTarget, targetExit] = getNestedMinDistToTargetMapIdByIndex(origin, nestedGroup, currIndex, exitIndex);
+  const [totalDistToTarget, targetExit] = getNestedMinDistToTargetMapIdByIndex(
+    origin,
+    nestedGroup,
+    currIndex,
+    exitIndex,
+  );
   return [totalDistToTarget, targetExit];
 };
 
@@ -451,10 +454,8 @@ const getNestedMinDistToTargetMapIdByIndex = (
   nestedGroup: MapIds[],
   currIndex: number,
   finalIndex = -1,
-
-) : [number, Position | Position[] | null] => {
-
-  if(currIndex == finalIndex){ 
+): [number, Position | Position[] | null] => {
+  if (currIndex == finalIndex) {
     return [0, origin];
   }
 
@@ -463,29 +464,34 @@ const getNestedMinDistToTargetMapIdByIndex = (
   const parentMapId = nestedGroup[parentIndex];
 
   const [currExitDist, currExit] = getMinDistToExit(origin, currMapId, parentMapId);
-  
+
   //if no exit found, return infinity
-  if(currExit == null){return [Infinity, null];}
+  if (currExit == null) {
+    return [Infinity, null];
+  }
 
-  const [remainingDistToSurface, finalExit] = getNestedMinDistToTargetMapIdByIndex(currExit, nestedGroup, parentIndex, finalIndex);
+  const [remainingDistToSurface, finalExit] = getNestedMinDistToTargetMapIdByIndex(
+    currExit,
+    nestedGroup,
+    parentIndex,
+    finalIndex,
+  );
   return [currExitDist + remainingDistToSurface, finalExit];
-
-}
+};
 
 export const GetParentMapId = (currentMapId: number): number => {
   if (NESTED_MAP_IDS.includes(currentMapId)) {
     const nestedGroup = NESTED_GROUPS.find((group) => group.includes(currentMapId))!;
-    const currentIndex = nestedGroup?.findIndex(nestedMapId => nestedMapId == currentMapId)!;
-    return nestedGroup[currentIndex-1];
+    const currentIndex = nestedGroup?.findIndex((nestedMapId) => nestedMapId == currentMapId)!;
+    return nestedGroup[currentIndex - 1];
   } else {
     return MapIds.Surface;
   }
 };
 
 const areInSameNestedChain = (a: number, b: number) => {
-    return NESTED_GROUPS.some((group) => group.includes(a) && group.includes(b));
-  };
-
+  return NESTED_GROUPS.some((group) => group.includes(a) && group.includes(b));
+};
 
 const handleNestedDungeons = (
   clickedPosition: ClickedPosition,
@@ -496,21 +502,31 @@ const handleNestedDungeons = (
     return [false, Infinity];
   } // let the other function handle it
 
-  
   //higher depth nesting
-  if(areInSameNestedChain(clickedPosition.mapId, polyMapId)){
+  if (areInSameNestedChain(clickedPosition.mapId, polyMapId)) {
+    const nestedGroup = NESTED_GROUPS.find(
+      (group) => group.includes(clickedPosition.mapId) && group.includes(polyMapId),
+    )!;
+    const index1 = nestedGroup.findIndex((nestedMapId) => nestedMapId == clickedPosition.mapId)!;
+    const index2 = nestedGroup.findIndex((nestedMapId) => nestedMapId == polyMapId)!;
 
-    const currMapId = Math.max(clickedPosition.mapId, polyMapId);
-    const finalMapId = Math.min(clickedPosition.mapId, polyMapId);
+    const currMapId = index2 > index1 ? polyMapId : clickedPosition.mapId;
+    const finalMapId = index2 < index1 ? polyMapId : clickedPosition.mapId;
+
     const currOrigin = polyMapId == currMapId ? poly : clickedPosition.xy;
-    const targetPoint = polyMapId == finalMapId ? poly : clickedPosition.xy;    
-    
-    const [originExitDist, originExit] = getNestedMinDistToTargetMapId(currOrigin, currMapId, finalMapId);
-    if(originExit == null){return [false, Infinity];}
+    const targetPoint = polyMapId == finalMapId ? poly : clickedPosition.xy;
+
+    const [originExitDist, originExit] = getNestedMinDistToTargetMapId(
+      currOrigin,
+      currMapId,
+      finalMapId,
+    );
+    if (originExit == null) {
+      return [false, Infinity];
+    }
 
     const totalDist = originExitDist + getDistanceOnMapId(originExit, targetPoint);
     return [true, totalDist];
-
   }
 
   //else if in different nested chains
@@ -519,9 +535,9 @@ const handleNestedDungeons = (
   if (!pointNested && !polyNested) {
     return [false, Infinity];
   }
-  
+
   const lcaMapId = GetLCAOfMapIds(clickedPosition.mapId, polyMapId);
-  
+
   const [pointDist, pointSurfaceExit] = pointNested
     ? getNestedMinDistToTargetMapId(clickedPosition.xy, clickedPosition.mapId, lcaMapId)
     : getMinDistToExit(clickedPosition.xy, clickedPosition.mapId);
@@ -542,7 +558,6 @@ const getTotalDistanceToPoly = (
   poly: Position[],
   polyMapId: number,
 ) => {
-
   const [handledNested, dist] = handleNestedDungeons(clickedPosition, poly, polyMapId);
   if (handledNested) {
     return dist;
@@ -571,39 +586,37 @@ const getTotalDistanceToPoly = (
 };
 
 export const panMapToLinkPoint = (map: L.Map, end: LinkPoint) => {
-    const padding = end.mapId == 0 ? -64 : 256;
-    const panBuffer = 10000;
-    const { bounds } = mapMetadata.find(map => map.mapId == end.mapId)!;
-    const [min, max] = bounds;
+  const padding = end.mapId == 0 ? -64 : 256;
+  const panBuffer = 10000;
+  const { bounds } = mapMetadata.find((map) => map.mapId == end.mapId)!;
+  const [min, max] = bounds;
 
-    map.setMaxBounds([
-      [min[1] - padding - panBuffer, min[0] - padding - panBuffer],
-      [max[1] + padding + panBuffer, max[0] + padding + panBuffer],
-    ]);
+  map.setMaxBounds([
+    [min[1] - padding - panBuffer, min[0] - padding - panBuffer],
+    [max[1] + padding + panBuffer, max[0] + padding + panBuffer],
+  ]);
 
-    map.panTo([end.y, end.x], { animate: false });
+  map.panTo([end.y, end.x], { animate: false });
 
-    map.setMaxBounds([
-      [min[1] - padding, min[0] - padding],
-      [max[1] + padding, max[0] + padding],
-    ]);
-}
+  map.setMaxBounds([
+    [min[1] - padding, min[0] - padding],
+    [max[1] + padding, max[0] + padding],
+  ]);
+};
 
 //last common ancesstor Map id - ensure that they aren't in the same nested chain
-const GetLCAOfMapIds = (
-  nestedMapId1 : number,
-  nestedMapId2 : number
-) : number => {
-
+const GetLCAOfMapIds = (nestedMapId1: number, nestedMapId2: number): number => {
   const isFirstNested = NESTED_MAP_IDS.includes(nestedMapId1);
   const isSecondNested = NESTED_MAP_IDS.includes(nestedMapId2);
 
   //regular mapIds
-  if(!isFirstNested && !isSecondNested){return MapIds.Surface};
+  if (!isFirstNested && !isSecondNested) {
+    return MapIds.Surface;
+  }
 
   //if both in same  - return the id with lower index (i.e. superparent) - fallback.
   // if(areInSameNestedRegion(nestedMapId1, nestedMapId2)){
-  //   const nestedGroup = NESTED_GROUPS.find(group => group.includes(nestedMapId1) && group.includes(nestedMapId2))!; 
+  //   const nestedGroup = NESTED_GROUPS.find(group => group.includes(nestedMapId1) && group.includes(nestedMapId2))!;
   //   const index1 = nestedGroup.findIndex(nestedMapId => nestedMapId == nestedMapId1)!;
   //   const index2 = nestedGroup.findIndex(nestedMapId => nestedMapId == nestedMapId2)!;
   //   const parentIndex = Math.min(index1, index2);
@@ -611,20 +624,21 @@ const GetLCAOfMapIds = (
   // }
 
   //only one mapId nested - excluding same nested groups
-  if((!isFirstNested && isSecondNested) || (isFirstNested && !isSecondNested)){return MapIds.Surface};
+  if ((!isFirstNested && isSecondNested) || (isFirstNested && !isSecondNested)) {
+    return MapIds.Surface;
+  }
 
   //return intersection of the "Y shapred linked list"
-  const list1 = NESTED_GROUPS.find(group => group.includes(nestedMapId1))!;
-  const list2 = NESTED_GROUPS.find(group => group.includes(nestedMapId2))!;
+  const list1 = NESTED_GROUPS.find((group) => group.includes(nestedMapId1))!;
+  const list2 = NESTED_GROUPS.find((group) => group.includes(nestedMapId2))!;
   return GetIntersectionOfMapIdLists(list1, list2, nestedMapId1, nestedMapId2);
-  
-}
+};
 
 const GetIntersectionOfMapIdLists = (
   list1: number[],
   list2: number[],
   mapId1: number,
-  mapId2: number
+  mapId2: number,
 ): number => {
   const i1 = list1.indexOf(mapId1);
   const i2 = list2.indexOf(mapId2);

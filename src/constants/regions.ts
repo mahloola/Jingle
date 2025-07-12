@@ -70,6 +70,11 @@ export const REGIONS = {
     'Mirace Dance',
     'Body and Mind',
     'Stratosphere',
+    'Chickened Out',
+    'Clanliness',
+    'Roots and Flutes',
+    'Alternative Root',
+    "All's Fairy in Love & War",
   ],
   Karamja: [
     'Jungle Island',
@@ -103,6 +108,8 @@ export const REGIONS = {
     'TzHaar!',
     'Inferno',
     'Understanding',
+    'Superstition',
+    'Voodoo Cult',
   ],
   Asgarnia: [
     'Alone',
@@ -147,6 +154,7 @@ export const REGIONS = {
     'Armageddon',
     'Armadyl Alliance',
     'Bandos Battalion',
+    'Strength of Saradomin',
     'Zamorak Zoo',
     'Beyond',
     'Cave Background',
@@ -159,6 +167,9 @@ export const REGIONS = {
     'Starlight',
     'Zaros Zeitgeist',
     'Righteousness',
+    'Woe of the Wyvern',
+    'Black of Knight',
+    'The Route of All Evil',
   ],
   Fremennik: [
     'Saga',
@@ -205,7 +216,9 @@ export const REGIONS = {
     'Eye See You',
     'More Than Meets the Eye',
     'Secrets of the North',
-    'Down and Out',
+    'Reign of the Basilisk',
+    'The Forsaken',
+    'Out of the Deep',
   ],
   Kandarin: [
     'Anywhere',
@@ -282,11 +295,15 @@ export const REGIONS = {
     'Devils May Care',
     "Narnode's Theme",
     'Troubled Waters',
+
     'Cursed',
     'Temple of Tribes',
     'Catacombs and Tombs',
     'Monkey Badness',
     'Monkey Business',
+    'Fight or Flight',
+    'Temple of Light',
+    'La Mort',
   ],
   Desert: [
     'Arabian',
@@ -316,6 +333,12 @@ export const REGIONS = {
     'The Foundry',
     'Insect Queen',
     'Into the Tombs',
+
+    'Bone Dry',
+    'Garden of Winter',
+    'Garden of Summer',
+    'Garden of Autumn',
+    'Garden of Spring',
   ],
   Morytania: [
     'Arboretum',
@@ -474,6 +497,7 @@ export const REGIONS = {
     'Kanon of Kahlith',
 
     'Darkly Altared',
+    'A Thorn in My Side',
   ],
   Varlamore: [
     'Are You Not Entertained',
@@ -496,6 +520,8 @@ export const REGIONS = {
     'The Moons of Ruin',
     'Under the Mountain',
     'Blood Rush',
+
+    'The Guardian of Tapoyauik',
   ],
 };
 export const TOTAL_TRACK_COUNT = Object.keys(REGIONS).reduce(
