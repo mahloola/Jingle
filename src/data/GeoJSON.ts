@@ -21,34 +21,884 @@ const geojsondata = {
                 "type": "Polygon",
                 "coordinates": [
                     [
-                        [2304, 4800],
-                        [2304, 4864],
-                        [2368, 4864],
-                        [2368, 4800],
-                        [2304, 4800]
-                    ],
+                        [2912, 5312],
+                        [2944, 5312],
+                        [2944, 5248],
+                        [2880, 5248],
+                        [2880, 5280],
+                        [2904, 5280],
+                        [2904, 5288],
+                        [2912, 5288],
+                        [2912, 5312]
+                    ]
                 ]
             },
             "properties": {
                 "mapID": "-1",
-                "title": "<a href=\"/w/Cursed\" title=\"Cursed\">Cursed</a>",
-                "description": "<div><a href=\"/w/File:Cursed.ogg\" title=\"File:Cursed.ogg\">Play track</a></div>",
+                "title": "<a href=\"/w/Strength_of_Saradomin\" title=\"Strength of Saradomin\">Strength of Saradomin</a>",
+                "description": "<div><a href=\"/w/File:Strength_of_Saradomin.ogg\" title=\"File:Strength of Saradomin.ogg\">Play track</a></div>",
                 "plane": 0
             },
             "convertedGeometry": [
                 {
-                    "mapName": "Wrath Altar",
-                    "mapId": 1022,
+                    "mapName": "God Wars Dungeon",
+                    "mapId": 7,
                     "coordinates": [
-                       [2304, 4800],
-                        [2304, 4864],
-                        [2368, 4864],
-                        [2368, 4800],
-                        [2304, 4800]
+
+                        [2952, 5248],
+                        [2952, 5216],
+                        [2888, 5216],
+                        [2888, 5248],
+               
                     ]
                 },
+                {
+                    "mapName": "God Wars Dungeon",
+                    "mapId": 7,
+                    "coordinates": [
+                        [2968, 5301],
+                        [2940, 5301],
+                        [2940, 5260],
+                        [2968, 5260],
+                        [2968, 5301],
+
+                    ]
+                }
             ]
         },
+    {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [2304, 4416],
+                        [2304, 4480],
+                        [2368, 4480],
+                        [2368, 4416],
+                        [2304, 4416]
+                    ]
+                ]
+            },
+            "properties": {
+                "mapID": "-1",
+                "title": "<a href=\"/w/All%27s_Fairy_in_Love_%26_War\" title=\"All&#39;s Fairy in Love &amp; War\">All's Fairy in Love &amp; War</a>",
+                "description": "<div><a href=\"/w/File:All%27s_Fairy_in_Love_%26_War.ogg\" title=\"File:All&#39;s Fairy in Love &amp; War.ogg\">Play track</a></div>",
+                "plane": 0
+            },
+            "convertedGeometry": [
+                {
+                    "mapName": "Zanaris",
+                    "mapId": 28,
+                    "coordinates": [
+                        [2304, 4416],
+                        [2304, 4480],
+                        [2368, 4480],
+                        [2368, 4416],
+                        [2304, 4416]
+                    ]
+                }
+            ]
+        },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [1216, 10048],
+            [1216, 10112],
+            [1280, 10112],
+            [1280, 10048],
+            [1216, 10048],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/A_Thorn_in_My_Side" title="A Thorn in My Side">A Thorn in My Side</a>',
+        description:
+          '<div><a href="/w/File:A_Thorn_in_My_Side.ogg" title="File:A Thorn in My Side.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Kebos Underground',
+          mapId: 33,
+          coordinates: [
+            [1152, 10032],
+            [1152, 10096],
+            [1216, 10096],
+            [1216, 10032],
+            [1152, 10032],
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [4216, 4863],
+            [4184, 4863],
+            [4184, 4837],
+            [4216, 4837],
+            [4216, 4863],
+          ],
+        ],
+      },
+      properties: {
+        title:
+          '<a href="/w/The_Route_of_All_Evil" title="The Route of All Evil">The Route of All Evil</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:The_Route_of_All_Evil.ogg" title="File:The Route of All Evil.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Black Knight Catacombs',
+          mapId: 1034,
+          coordinates: [
+            [4216, 4863],
+            [4184, 4863],
+            [4184, 4837],
+            [4216, 4837],
+            [4216, 4863],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2112, 5120],
+            [2112, 5184],
+            [2176, 5184],
+            [2176, 5120],
+            [2112, 5120],
+          ],
+        ],
+      },
+      properties: {
+        title: '<a href="/w/Black_of_Knight" title="Black of Knight">Black of Knight</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Black_of_Knight.ogg" title="File:Black of Knight.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Black Knight Catacombs',
+          mapId: 1034,
+          coordinates: [
+            [4096, 4672],
+            [4096, 4864],
+            [4160, 4864],
+            [4160, 4672],
+            [4096, 4672],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [4096, 4672],
+            [4096, 4864],
+            [4160, 4864],
+            [4160, 4672],
+            [4096, 4672],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Alternative_Root" title="Alternative Root">Alternative Root</a>',
+        description:
+          '<div><a href="/w/File:Alternative_Root.ogg" title="File:Alternative Root.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Misthalin Underground',
+          mapId: 12,
+          coordinates: [
+            [3455, 9986],
+            [3395, 9986],
+            [3395, 9914],
+            [3455, 9914],
+            [3455, 9986],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2176, 4800],
+            [2176, 4864],
+            [2240, 4864],
+            [2240, 4800],
+            [2176, 4800],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/La_Mort" title="La Mort">La Mort</a>',
+        description:
+          '<div><a href="/w/File:La_Mort.ogg" title="File:La Mort.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Death Altar',
+          mapId: 1020,
+          coordinates: [
+            [2176, 4800],
+            [2176, 4864],
+            [2240, 4864],
+            [2240, 4800],
+            [2176, 4800],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/The_Guardian_of_Tapoyauik" title="The Guardian of Tapoyauik">The Guardian of Tapoyauik</a>',
+        description:
+          '<div><a href="/w/File:The_Guardian_of_Tapoyauik.ogg" title="File:The_Guardian of Tapoyauik.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Ruins of Tapoyauik',
+          mapId: 1030,
+          coordinates: [
+            [1578, 9652],
+            [1533, 9652],
+            [1533, 9608],
+            [1578, 9608],
+            [1578, 9652],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2477, 10359],
+            [2446, 10359],
+            [2446, 10371],
+            [2477, 10371],
+            [2477, 10359],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Reign_of_the_Basilisk" title="Reign of the Basilisk">Reign of the Basilisk</a>',
+        description:
+          '<div><a href="/w/File:Reign_of_the_Basilisk.ogg" title="File:Reign of the Basilisk.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Miscellania Underground',
+          mapId: 11,
+          coordinates: [
+            [2477, 10395],
+            [2446, 10395],
+            [2446, 10374],
+            [2477, 10374],
+            [2477, 10395],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [3200, 9920],
+            [3200, 9984],
+            [3264, 9984],
+            [3264, 9920],
+            [3200, 9920],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Roots_and_Flutes" title="Roots and Flutes">Roots and Flutes</a>',
+        description:
+          '<div><a href="/w/File:Roots_and_Flutes.ogg" title="File:Roots and Flutes.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Misthalin Underground',
+          mapId: 12,
+          coordinates: [
+            [3168, 9920],
+            [3168, 9954],
+            [3205, 9954],
+            [3205, 9920],
+            [3168, 9920],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Voodoo_Cult" title="Voodoo Cult">Voodoo Cult</a>',
+        description:
+          '<div><a href="/w/File:Voodoo_Cult.ogg" title="File:Voodoo Cult.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Viyeldi Caves',
+          mapId: 1031,
+          coordinates: [
+            [2752, 9345],
+            [2752, 9409],
+            [2816, 9409],
+            [2816, 9345],
+            [2752, 9345],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [2752, 9280],
+          [2752, 9344],
+          [2816, 9344],
+          [2816, 9280],
+          [2752, 9280],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Superstition" title="Superstition">Superstition</a>',
+        description:
+          '<div><a href="/w/File:Superstition.ogg" title="File:Superstition.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Viyeldi Caves',
+          mapId: 1031,
+          coordinates: [
+            [2752, 9280],
+            [2752, 9344],
+            [2816, 9344],
+            [2816, 9280],
+            [2752, 9280],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2887, 5465],
+            [2887, 5487],
+            [2903, 5487],
+            [2903, 5465],
+            [2887, 5465],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Garden_of_Winter" title="Garden of Winter">Garden of Winter</a>',
+        description:
+          '<div><a href="/w/File:Garden_of_Winter.ogg" title="File:Garden of Winter.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Sorceress Garden',
+          mapId: 1032,
+          coordinates: [
+            [2887, 5465],
+            [2887, 5487],
+            [2903, 5487],
+            [2903, 5465],
+            [2887, 5465],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2905, 5481],
+            [2905, 5497],
+            [2927, 5497],
+            [2927, 5481],
+            [2905, 5481],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Garden_of_Summer" title="Garden of Summer">Garden of Summer</a>',
+        description:
+          '<div><a href="/w/File:Garden_of_Summer.ogg" title="File:Garden of Summer.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Sorceress Garden',
+          mapId: 1032,
+          coordinates: [
+            [2905, 5481],
+            [2905, 5497],
+            [2927, 5497],
+            [2927, 5481],
+            [2905, 5481],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2921, 5457],
+            [2921, 5479],
+            [2937, 5479],
+            [2937, 5457],
+            [2921, 5457],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Garden_of_Spring" title="Garden of Spring">Garden of Spring</a>',
+        description:
+          '<div><a href="/w/File:Garden_of_Spring.ogg" title="File:Garden of Spring.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Sorceress Garden',
+          mapId: 1032,
+          coordinates: [
+            [2921, 5457],
+            [2921, 5479],
+            [2937, 5479],
+            [2937, 5457],
+            [2921, 5457],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2897, 5447],
+            [2897, 5463],
+            [2919, 5463],
+            [2919, 5447],
+            [2897, 5447],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Garden_of_Autumn" title="Garden of Autumn">Garden of Autumn</a>',
+        description:
+          '<div><a href="/w/File:Garden_of_Autumn.ogg" title="File:Garden of Autumn.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Sorceress Garden',
+          mapId: 1032,
+          coordinates: [
+            [2897, 5447],
+            [2897, 5463],
+            [2919, 5463],
+            [2919, 5447],
+            [2897, 5447],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2496, 4608],
+            [2496, 4672],
+            [2560, 4672],
+            [2560, 4608],
+            [2496, 4608],
+          ],
+          [
+            [2496, 9984],
+            [2496, 10048],
+            [2560, 10048],
+            [2560, 9984],
+            [2496, 9984],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Out_of_the_Deep" title="Out of the Deep">Out of the Deep</a>',
+        description:
+          '<div><a href="/w/File:Out_of_the_Deep.ogg" title="File:Out of the Deep.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Lighthouse Dungeon',
+          mapId: 1029,
+          coordinates: [
+            [2496, 9984],
+            [2496, 10048],
+            [2560, 10048],
+            [2560, 9984],
+            [2496, 9984],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [1728, 5440],
+            [1792, 5440],
+            [1792, 5504],
+            [1728, 5504],
+            [1728, 5440],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Clanliness" title="Clanliness">Clanliness</a>',
+        description:
+          '<div><a href="/w/File:Clanliness.ogg" title="File:Clanliness.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Clan Hall',
+          mapId: 1028,
+          coordinates: [
+            [1728, 5440],
+            [1792, 5440],
+            [1792, 5504],
+            [1728, 5504],
+            [1728, 5440],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2432, 4352],
+            [2432, 4416],
+            [2496, 4416],
+            [2496, 4352],
+            [2432, 4352],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Chickened_Out" title="Chickened Out">Chickened Out</a>',
+        description:
+          '<div><a href="/w/File:Chickened_Out.ogg" title="File:Chickened Out.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Evil Chiken Lair',
+          mapId: 1027,
+          coordinates: [
+            [2432, 4352],
+            [2432, 4416],
+            [2496, 4416],
+            [2496, 4352],
+            [2432, 4352],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [3136, 9344],
+            [3136, 9408],
+            [3328, 9408],
+            [3328, 9344],
+            [3136, 9344],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Bone_Dry" title="Bone Dry">Bone Dry</a>',
+        description:
+          '<div><a href="/w/File:Bone_Dry.ogg" title="File:Bone Dry.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Smoke Dungeon',
+          mapId: 1026,
+          coordinates: [
+            [3136, 9344],
+            [3136, 9408],
+            [3328, 9408],
+            [3328, 9344],
+            [3136, 9344],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [1920, 4608],
+            [1920, 4672],
+            [2048, 4672],
+            [2048, 4608],
+            [1920, 4608],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Fight_or_Flight" title="Fight or Flight">Fight or Flight</a>',
+        description:
+          '<div><a href="/w/File:Fight_or_Flight.ogg" title="File:Fight or Flight.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Mourner Tunnels',
+          mapId: 1025,
+          coordinates: [
+            [1920, 4608],
+            [1920, 4672],
+            [2048, 4672],
+            [2048, 4608],
+            [1920, 4608],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [1856, 4608],
+            [1856, 4672],
+            [1920, 4672],
+            [1920, 4608],
+            [1856, 4608],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Temple_of_Light_(music_track)" title="Temple of Light (music track)">Temple of Light</a>',
+        description:
+          '<div><a href="/w/File:Temple_of_Light.ogg" title="File:Temple of Light.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Mourner Tunnels',
+          mapId: 1025,
+          coordinates: [
+            [1856, 4608],
+            [1856, 4672],
+            [1920, 4672],
+            [1920, 4608],
+            [1856, 4608],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2560, 4288],
+            [2560, 4352],
+            [2624, 4352],
+            [2624, 4288],
+            [2560, 4288],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Impetuous" title="Impetuous">Impetuous</a>',
+        description:
+          '<div><a href="/w/File:Impetuous.ogg" title="File:Impetuous.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Puro Puro',
+          mapId: 1024,
+          coordinates: [
+            [2560, 4288],
+            [2560, 4352],
+            [2624, 4352],
+            [2624, 4288],
+            [2560, 4288],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [1536, 5056],
+            [1536, 5120],
+            [1600, 5120],
+            [1600, 5056],
+            [1536, 5056],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/The_Forsaken" title="The Forsaken">The Forsaken</a>',
+        description:
+          '<div><a href="/w/File:The_Forsaken.ogg" title="File:The Forsaken.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Litkren Vault',
+          mapId: 1023,
+          coordinates: [
+            [1536, 5056],
+            [1536, 5120],
+            [1600, 5120],
+            [1600, 5056],
+            [1536, 5056],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2304, 4800],
+            [2304, 4864],
+            [2368, 4864],
+            [2368, 4800],
+            [2304, 4800],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Cursed" title="Cursed">Cursed</a>',
+        description:
+          '<div><a href="/w/File:Cursed.ogg" title="File:Cursed.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Wrath Altar',
+          mapId: 1022,
+          coordinates: [
+            [2304, 4800],
+            [2304, 4864],
+            [2368, 4864],
+            [2368, 4800],
+            [2304, 4800],
+          ],
+        },
+      ],
+    },
     {
       type: 'Feature',
       geometry: {
@@ -144,6 +994,17 @@ const geojsondata = {
         {
           mapName: 'Chaos Altar',
           mapId: 1019,
+          coordinates: [
+            [2240, 4800],
+            [2240, 4864],
+            [2304, 4864],
+            [2304, 4800],
+            [2240, 4800],
+          ],
+        },
+         {
+          mapName: 'Chaos Tunnels Altar',
+          mapId: 1033,
           coordinates: [
             [2240, 4800],
             [2240, 4864],
@@ -418,13 +1279,11 @@ const geojsondata = {
           mapName: 'Skotizo Lair',
           mapId: 1009,
           coordinates: [
-            
-              [2240, 5696],
-              [2304, 5696],
-              [2304, 5632],
-              [2240, 5632],
-              [2240, 5696],
-            
+            [2240, 5696],
+            [2304, 5696],
+            [2304, 5632],
+            [2240, 5632],
+            [2240, 5696],
           ],
         },
       ],
@@ -1632,6 +2491,17 @@ const geojsondata = {
             [1472, 9664],
             [1472, 9600],
             [1408, 9600],
+          ],
+        },
+        {
+          mapName: 'Ruins of Tapoyauik',
+          mapId: 1030,
+          coordinates: [
+            [1472, 9664],
+            [1472, 9728],
+            [1536, 9728],
+            [1536, 9664],
+            [1472, 9664],
           ],
         },
       ],

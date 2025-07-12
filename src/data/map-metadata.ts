@@ -747,7 +747,7 @@ const mapMetadata: MapMetadata[] = [
             4832
         ]
     },
-    {
+     {
         "mapId": 1020,
         "name": "Death Altar",
         "bounds": [
@@ -801,6 +801,240 @@ const mapMetadata: MapMetadata[] = [
             4832
         ]
     },
+      {
+        "mapId": 1023,
+        "name": "Lithkren Vault",
+        "bounds": [
+            [
+                1536,
+                5056
+            ],
+            [
+                1600,
+                5120
+            ]
+        ],
+        "center": [
+            1568,
+            5088
+        ]
+    },
+    {
+        "mapId": 1024,
+        "name": "Puro Puro",
+        "bounds": [
+            [
+                2560,
+                4288
+            ],
+            [
+                2624,
+                4352
+            ]
+        ],
+        "center": [
+            2592,
+            4320
+        ]
+    },
+    {
+        "mapId": 1025,
+        "name": "Mourner Tunnels",
+        "bounds": [
+            [
+                1856,
+                4608
+            ],
+            [
+                2048,
+                4672
+            ]
+        ],
+        "center": [
+            1952,
+            4640
+        ]
+    },
+    {
+        "mapId": 1026,
+        "name": "Smoke Dungeon",
+        "bounds": [
+            [
+                3136,
+                9344
+            ],
+            [
+                3328,
+                9408
+            ]
+        ],
+        "center": [
+            3232,
+            9376
+        ]
+    },
+    {
+        "mapId": 1027,
+        "name": "Evil Chicken Lair",
+        "bounds": [
+            [
+                2432,
+                4352
+            ],
+            [
+                2496,
+                4416
+            ]
+        ],
+        "center": [
+            2464,
+            4384
+        ]
+    },
+    {
+        "mapId": 1028,
+        "name": "Clan Hall",
+        "bounds": [
+            [
+                1728,
+                5440
+            ],
+            [
+                1792,
+                5504
+            ]
+        ],
+        "center": [
+            1760,
+            5472
+        ]
+    },
+    {
+        "mapId": 1029,
+        "name": "Lighthouse Dungeon",
+        "bounds": [
+            [
+                2496,
+                9984
+            ],
+            [
+                2560,
+                10048
+            ]
+        ],
+        "center": [
+            2528,
+            10016
+        ]
+    },
+    {
+        "mapId": 1030,
+        "name": "Ruins of Tapoyauik",
+        "bounds": [
+            [
+                1536,
+                9600
+            ],
+            [
+                1728,
+                9664
+            ]
+        ],
+        "center": [
+            1632,
+            9632
+        ]
+    },
+  {
+        "mapId": 1031,
+        "name": "Viyeldi Caves",
+        "bounds": [
+            [
+                2560,
+                9406
+            ],
+            [
+                3008,
+                9278
+            ]
+        ],
+        "center": [
+            2784,
+            7040
+        ]
+    },
+    {
+        "mapId": 1032,
+        "name": "Sorceress Garden",
+        "bounds": [
+            [
+                2880,
+                5440
+            ],
+            [
+                2944,
+                5504
+            ]
+        ],
+        "center": [
+            2912,
+            5472
+        ]
+    },
+      {
+        "mapId": 1033,
+        "name": "Chaos Tunnels Altar",
+        "bounds": [
+            [
+                2240,
+                4800
+            ],
+            [
+                2304,
+                4864
+            ]
+        ],
+        "center": [
+            2272,
+            4832
+        ]
+    },
+        {
+        "mapId": 1034,
+        "name": "Black Knight Catacombs",
+        "bounds": [
+            [
+                4032,
+                4672
+            ],
+            [
+                4224,
+                4800
+            ]
+        ],
+        "center": [
+            4128,
+            4736
+        ]
+    },
+    {
+        "mapId": -1,
+        "name": "debug",
+        "bounds": [
+            [
+                1024,
+                1216
+            ],
+            [
+                4224,
+                12608
+            ]
+        ],
+        "center": [
+            2496,
+            3328
+        ]
+    }
   // {
   //   mapId: -1,
   //   name: "debug",

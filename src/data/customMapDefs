@@ -1,0 +1,1012 @@
+[   {
+        "name": "Guardians of the Rift",
+        "regionList": [
+            {
+                "numberOfPlanes": 4,
+                "xLowerLeft": 55,
+                "yLowerLeft": 147,
+                "xLowerRight": 57,
+                "yLowerRight": 147,
+                "xUpperLeft": 55,
+                "yUpperLeft": 149,
+                "xUpperRight": 57,
+                "plane": 0,
+                "yUpperRight": 149
+            }
+        ],
+        "fileId": 1001
+    },
+    
+    {
+        "name": "The Scar",
+        "regionList": [
+            {
+                "numberOfPlanes": 4,
+                "xLowerLeft": 31,
+                "yLowerLeft": 98,
+                "xLowerRight": 33,
+                "yLowerRight": 98,
+                "xUpperLeft": 31,
+                "yUpperLeft": 100,
+                "xUpperRight": 33,
+                "plane": 0,
+                "yUpperRight": 100
+            },
+            {
+                "chunk_oldXHigh": 0,
+                "numberOfPlanes": 4,
+                "oldX": 30,
+                "chunk_oldYHigh": 7,
+                "newX": 30,
+                "newY": 99,
+                "chunk_oldXLow": 0,
+                "oldY": 99,
+                "chunk_newYLow": 0,
+                "chunk_oldYLow": 0,
+                "chunk_newXLow": 0,
+                "oldPlane": 0,
+                "chunk_newXHigh": 0,
+                "chunk_newYHigh": 7
+            },
+            {
+                "numberOfPlanes": 4,
+                "plane": 0,
+                "xLow": 31,
+                "xHigh": 31,
+                "yLow": 99,
+                "yHigh": 99
+            }
+        ],
+        "fileId": 1002
+    },
+     {
+        "name": "Ghorrock Dungeon",
+        "regionList": [
+            {
+                "numberOfPlanes": 1,
+                "xLowerLeft": 45,
+                "yLowerLeft": 161,
+                "xLowerRight": 45,
+                "yLowerRight": 161,
+                "xUpperLeft": 45,
+                "yUpperLeft": 161,
+                "xUpperRight": 45,
+                "plane": 0,
+                "yUpperRight": 161
+            },
+            {
+                "chunk_oldXHigh": 5,
+                "numberOfPlanes": 4,
+                "oldX": 44,
+                "chunk_oldYHigh": 6,
+                "newX": 44,
+                "newY": 161,
+                "chunk_oldXLow": 2,
+                "oldY": 66,
+                "chunk_newYLow": 0,
+                "chunk_oldYLow": 3,
+                "chunk_newXLow": 4,
+                "oldPlane": 0,
+                "chunk_newXHigh": 7,
+                "chunk_newYHigh": 3
+            },
+                    {
+                "chunk_oldXHigh": 5,
+                "numberOfPlanes": 4,
+                "oldX": 44,
+                "chunk_oldYHigh": 2,
+                "newX": 44,
+                "newY": 160,
+                "chunk_oldXLow": 2,
+                "oldY": 66,
+                "chunk_newYLow": 7,
+                "chunk_oldYLow": 2,
+                "chunk_newXLow": 4,
+                "oldPlane": 0,
+                "chunk_newXHigh": 7,
+                "chunk_newYHigh": 7
+            }
+    
+            
+        ],
+        "fileId": 1003
+    },
+    {
+        "name": "Ghorrock Prison",
+        "regionList": [
+            {
+                "numberOfPlanes": 1,
+                "xLowerLeft": 47,
+                "yLowerLeft": 100,
+                "xLowerRight": 47,
+                "yLowerRight": 100,
+                "xUpperLeft": 47,
+                "yUpperLeft": 100,
+                "xUpperRight": 47,
+                "plane": 0,
+                "yUpperRight": 100
+            }
+        ],
+        "fileId": 1004
+    },
+    {
+        "name": "Nightmare Arena",
+        "regionList": [
+            {
+                "numberOfPlanes": 4,
+                "xLowerLeft": 59,
+                "yLowerLeft": 154,
+                "xLowerRight": 61,
+                "yLowerRight": 154,
+                "xUpperLeft": 59,
+                "yUpperLeft": 156,
+                "xUpperRight": 61,
+                "plane": 0,
+                "yUpperRight": 156
+            }
+        ],
+        "fileId": 1005
+    },
+    {
+        "name": "Guthixian Temple",
+        "regionList": [
+            {
+                "numberOfPlanes": 4,
+                "xLowerLeft": 62,
+                "yLowerLeft": 68,
+                "xLowerRight": 64,
+                "yLowerRight": 68,
+                "xUpperLeft": 62,
+                "yUpperLeft": 71,
+                "xUpperRight": 64,
+                "plane": 0,
+                "yUpperRight": 71
+            }
+        ],
+        "fileId": 1006
+    },
+
+    {
+        "name": "Goblin Temple",
+        "regionList": [
+            {
+                "numberOfPlanes": 1,
+                "xLowerLeft": 58,
+                "yLowerLeft": 67,
+                "xLowerRight": 58,
+                "yLowerRight": 67,
+                "xUpperLeft": 58,
+                "yUpperLeft": 68,
+                "xUpperRight": 58,
+                "plane": 0,
+                "yUpperRight": 68
+            }
+        ],
+        "fileId": 1007
+    },
+
+    {
+        "name": "Crash Site Cavern",
+        "regionList": [
+            {
+                "numberOfPlanes": 1,
+                "xLowerLeft": 32,
+                "yLowerLeft": 88,
+                "xLowerRight": 33,
+                "yLowerRight": 88,
+                "xUpperLeft": 32,
+                "yUpperLeft": 88,
+                "xUpperRight": 33,
+                "plane": 0,
+                "yUpperRight": 88
+            }
+        ],
+        "fileId": 1008
+    },
+
+    {
+        "name": "Skotizo Lair",
+        "regionList": [
+          
+              {
+                "numberOfPlanes": 2,
+                "xLowerLeft": 35,
+                "yLowerLeft": 88,
+                "xLowerRight": 35,
+                "yLowerRight": 88,
+                "xUpperLeft": 35,
+                "yUpperLeft": 88,
+                "xUpperRight": 35,
+                "plane": 0,
+                "yUpperRight": 88
+            }
+        ],
+        "fileId": 1009
+    },
+
+    {
+        "name": "Air Altar",
+        "regionList": [
+            {
+                "xLowerLeft": 44,
+                "yLowerLeft": 75,
+                "xLowerRight": 44,
+                "yLowerRight": 75,
+                "xUpperLeft": 44,
+                "yUpperLeft": 75,
+                "xUpperRight": 44,
+                "yUpperRight": 75,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1010
+    },
+
+      {
+        "name": "Water Altar",
+        "regionList": [
+            {
+                "chunk_oldXHigh": 6,
+                "numberOfPlanes": 1,
+                "oldX": 42,
+                "chunk_oldYHigh": 7,
+                "newX": 42,
+                "newY": 75,
+                "chunk_oldXLow": 0,
+                "oldY": 75,
+                "chunk_newYLow": 1,
+                "chunk_oldYLow": 1,
+                "chunk_newXLow": 0,
+                "oldPlane": 0,
+                "chunk_newXHigh":6,
+                "chunk_newYHigh": 7
+            }
+        ],
+        "fileId": 1011
+    },
+
+    {
+        "name": "Earth Altar",
+        "regionList": [
+            {
+                "xLowerLeft": 41,
+                "yLowerLeft": 75,
+                "xLowerRight": 41,
+                "yLowerRight": 75,
+                "xUpperLeft": 41,
+                "yUpperLeft": 75,
+                "xUpperRight": 41,
+                "yUpperRight": 75,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1012
+    },
+
+    {
+        "name": "Fire Altar",
+        "regionList": [
+            {
+                "xLowerLeft": 40,
+                "yLowerLeft": 75,
+                "xLowerRight": 40,
+                "yLowerRight": 75,
+                "xUpperLeft": 40,
+                "yUpperLeft": 75,
+                "xUpperRight": 40,
+                "yUpperRight": 75,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1013
+    },
+    {
+        "name": "Mind Altar",
+        "regionList": [
+        
+            {
+                "chunk_oldXHigh": 6,
+                "numberOfPlanes": 1,
+                "oldX": 43,
+                "chunk_oldYHigh": 7,
+                "newX": 43,
+                "newY": 75,
+                "chunk_oldXLow": 0,
+                "oldY": 75,
+                "chunk_newYLow": 1,
+                "chunk_oldYLow": 1,
+                "chunk_newXLow": 0,
+                "oldPlane": 0,
+                "chunk_newXHigh":6,
+                "chunk_newYHigh": 7
+            }
+        ],
+        "fileId": 1014
+    },
+
+    
+    {
+        "name": "Body Altar",
+        "regionList": [
+
+            {
+                "chunk_oldXHigh": 6,
+                "numberOfPlanes": 1,
+                "oldX": 39,
+                "chunk_oldYHigh": 7,
+                "newX": 39,
+                "newY": 75,
+                "chunk_oldXLow": 0,
+                "oldY": 75,
+                "chunk_newYLow": 1,
+                "chunk_oldYLow": 1,
+                "chunk_newXLow": 0,
+                "oldPlane": 0,
+                "chunk_newXHigh":6,
+                "chunk_newYHigh": 7
+            }
+        ],
+        "fileId": 1015
+    },
+    {
+        "name": "Cosmic Altar",
+        "regionList": [
+            {
+                "xLowerLeft": 33,
+                "yLowerLeft": 75,
+                "xLowerRight": 33,
+                "yLowerRight": 75,
+                "xUpperLeft": 33,
+                "yUpperLeft": 75,
+                "xUpperRight": 33,
+                "yUpperRight": 75,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1016
+    },
+    {
+        "name": "Law Altar",
+        "regionList": [
+            {
+                "xLowerLeft": 38,
+                "yLowerLeft": 75,
+                "xLowerRight": 38,
+                "yLowerRight": 75,
+                "xUpperLeft": 38,
+                "yUpperLeft": 75,
+                "xUpperRight": 38,
+                "yUpperRight": 75,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1017
+    },
+    {
+        "name": "Nature Altar",
+        "regionList": [
+            {
+                "xLowerLeft": 37,
+                "yLowerLeft": 75,
+                "xLowerRight": 37,
+                "yLowerRight": 75,
+                "xUpperLeft": 37,
+                "yUpperLeft": 75,
+                "xUpperRight": 37,
+                "yUpperRight": 75,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1018
+    },
+    {
+        "name": "Chaos Altar",
+        "regionList": [
+            {
+                "xLowerLeft": 35,
+                "yLowerLeft": 75,
+                "xLowerRight": 35,
+                "yLowerRight": 75,
+                "xUpperLeft": 35,
+                "yUpperLeft": 75,
+                "xUpperRight": 35,
+                "yUpperRight": 75,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1019
+    },
+    {
+        "name": "Death Altar",
+        "regionList": [
+            {
+                "xLowerLeft": 34,
+                "yLowerLeft": 75,
+                "xLowerRight": 34,
+                "yLowerRight": 75,
+                "xUpperLeft": 34,
+                "yUpperLeft": 75,
+                "xUpperRight": 34,
+                "yUpperRight": 75,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1020
+    },
+    {
+        "name": "Blood Altar",
+        "regionList": [
+            {
+                "xLowerLeft": 50,
+                "yLowerLeft": 75,
+                "xLowerRight": 50,
+                "yLowerRight": 75,
+                "xUpperLeft": 50,
+                "yUpperLeft": 75,
+                "xUpperRight": 50,
+                "yUpperRight": 75,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1021
+    },
+    {
+        "name": "Wrath Altar",
+        "regionList": [
+            {
+                "xLowerLeft": 36,
+                "yLowerLeft": 75,
+                "xLowerRight": 36,
+                "yLowerRight": 75,
+                "xUpperLeft": 36,
+                "yUpperLeft": 75,
+                "xUpperRight": 36,
+                "yUpperRight": 75,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1022
+    },
+    
+    {
+        "name": "Wrath Altar",
+        "regionList": [
+            {
+                "xLowerLeft": 36,
+                "yLowerLeft": 75,
+                "xLowerRight": 36,
+                "yLowerRight": 75,
+                "xUpperLeft": 36,
+                "yUpperLeft": 75,
+                "xUpperRight": 36,
+                "yUpperRight": 75,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1022
+    },
+
+    {
+        "name": "Lithkren Vault",
+        "regionList": [
+            {
+                "xLowerLeft": 24,
+                "yLowerLeft": 79,
+                "xLowerRight": 24,
+                "yLowerRight": 79,
+                "xUpperLeft": 24,
+                "yUpperLeft": 79,
+                "xUpperRight": 24,
+                "yUpperRight": 79,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1023
+    },
+
+    {
+        "name": "Puro Puro",
+        "regionList": [
+            {
+                "xLowerLeft": 40,
+                "yLowerLeft": 67,
+                "xLowerRight": 40,
+                "yLowerRight": 67,
+                "xUpperLeft": 40,
+                "yUpperLeft": 67,
+                "xUpperRight": 40,
+                "yUpperRight": 67,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1024
+    },
+
+    {
+        "name": "Mourner Tunnels",
+        "regionList": [
+            {
+                "xLowerLeft": 29,
+                "yLowerLeft": 72,
+                "xLowerRight": 31,
+                "yLowerRight": 72,
+                "xUpperLeft": 29,
+                "yUpperLeft": 72,
+                "xUpperRight": 31,
+                "yUpperRight": 72,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1025
+    },
+
+    {
+        "name": "Smoke Dungeon",
+        "regionList": [
+            {
+                "xLowerLeft": 49,
+                "yLowerLeft": 146,
+                "xLowerRight": 51,
+                "yLowerRight": 146,
+                "xUpperLeft": 49,
+                "yUpperLeft": 146,
+                "xUpperRight": 51,
+                "yUpperRight": 146,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1026
+    },
+
+    {
+        "name": "Evil Chicken Lair",
+        "regionList": [
+            {
+                "xLowerLeft": 38,
+                "yLowerLeft": 68,
+                "xLowerRight": 38,
+                "yLowerRight": 68,
+                "xUpperLeft": 38,
+                "yUpperLeft": 68,
+                "xUpperRight": 38,
+                "yUpperRight": 68,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1027
+    },
+
+    {
+        "name": "Clan Hall",
+        "regionList": [
+            {
+                "xLowerLeft": 27,
+                "yLowerLeft": 85,
+                "xLowerRight": 27,
+                "yLowerRight": 85,
+                "xUpperLeft": 27,
+                "yUpperLeft": 85,
+                "xUpperRight": 27,
+                "yUpperRight": 85,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1028
+    },
+
+    {
+        "name": "Lighthouse Dungeon",
+        "regionList": [
+            {
+                "xLowerLeft": 39,
+                "yLowerLeft": 156,
+                "xLowerRight": 39,
+                "yLowerRight": 156,
+                "xUpperLeft": 39,
+                "yUpperLeft": 156,
+                "xUpperRight": 39,
+                "yUpperRight": 156,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1029
+    },
+
+    {
+        "name": "Ruins of Tapoyauik",
+        "regionList": [
+            {
+                "xLowerLeft": 24,
+                "yLowerLeft": 150,
+                "xLowerRight": 26,
+                "yLowerRight": 150,
+                "xUpperLeft": 24,
+                "yUpperLeft": 150,
+                "xUpperRight": 26,
+                "yUpperRight": 150,
+                "numberOfPlanes": 1,
+                "plane": 0
+            },
+            {
+                "oldX": 21,
+                "oldY": 70,
+                "newX": 24,
+                "newY": 150,
+                "chunk_oldXHigh": 5,
+                "chunk_oldYHigh": 6,
+                "chunk_oldXLow": 0,
+                "chunk_oldYLow": 1,
+
+                "chunk_newXLow": 0,
+                "chunk_newYLow": 1,
+                "chunk_newXHigh": 5,
+                "chunk_newYHigh": 6,
+                "oldPlane": 0,
+                "numberOfPlanes": 1
+
+            }
+        ],
+        "fileId": 1030
+    },
+
+    {
+        "name": "Viyeldi Caves",
+        "regionList": [
+            {
+                "xLowerLeft": 43,
+                "yLowerLeft": 145,
+                "xLowerRight": 43,
+                "yLowerRight": 145,
+                "xUpperLeft": 43,
+                "yUpperLeft": 145,
+                "xUpperRight": 43,
+                "yUpperRight": 145,
+                "numberOfPlanes": 1,
+                "plane": 0
+            },
+            {
+                "xLow": 37,
+                "yLow": 73,
+                "xHigh": 43,
+                "yHigh": 146,
+                "numberOfPlanes": 1,
+                "plane": 0
+            },
+            {
+                "oldX": 37,
+                "oldY": 73,
+                "newX": 43,
+                "newY": 146,
+                "chunk_oldXHigh": 7,
+                "chunk_oldYHigh": 7,
+                "chunk_oldXLow": 0,
+                "chunk_oldYLow": 0,
+
+                "chunk_newXLow": 0,
+                "chunk_newYLow": 0,
+                "chunk_newXHigh": 7,
+                "chunk_newYHigh": 7,
+                "oldPlane": 0,
+                "numberOfPlanes": 1
+
+            }
+        ],
+        "fileId": 1031
+    },
+
+    {
+        "name": "Sorceress Garden",
+        "regionList": [
+            {
+                "xLowerLeft": 45,
+                "yLowerLeft": 85,
+                "xLowerRight": 45,
+                "yLowerRight": 85,
+                "xUpperLeft": 45,
+                "yUpperLeft": 85,
+                "xUpperRight": 45,
+                "yUpperRight": 85,
+                "numberOfPlanes": 1,
+                "plane": 0
+            }
+        ],
+        "fileId": 1032
+    },
+
+    {
+        "name": "Misthalin Underground",
+        "fileId": 12,
+
+        "isSurface": false,
+        "regionList": [
+              {
+                "oldX": 49,
+                "oldY": 81,
+                "newX": 53,
+                "newY": 155,
+                "chunk_oldXHigh": 7,
+                "chunk_oldYHigh": 7,
+                "chunk_oldXLow": 0,
+                "chunk_oldYLow": 0,
+
+                "chunk_newXLow": 0,
+                "chunk_newYLow": 0,
+                "chunk_newXHigh": 7,
+                "chunk_newYHigh": 7,
+                "oldPlane": 0,
+                "numberOfPlanes": 1
+
+            },
+            {
+                "oldX": 50,
+                "oldY": 155,
+                "newX": 49,
+                "newY": 155,
+                "chunk_oldXHigh": 3,
+                "chunk_oldYHigh": 4,
+                "chunk_oldXLow": 0,
+                "chunk_oldYLow": 0,
+
+                "chunk_newXLow": 4,
+                "chunk_newYLow": 0,
+                "chunk_newXHigh": 7,
+                "chunk_newYHigh": 4,
+                "oldPlane": 0,
+                "numberOfPlanes": 1
+
+            },
+            {
+                "oldX": 50,
+                "oldY": 155,
+                "newX": 50,
+                "newY": 155,
+                "chunk_oldXHigh": 5,
+                "chunk_oldYHigh": 4,
+                "chunk_oldXLow": 4,
+                "chunk_oldYLow": 0,
+
+                "chunk_newXLow": 0,
+                "chunk_newYLow": 0,
+                "chunk_newXHigh": 1,
+                "chunk_newYHigh": 4,
+                "oldPlane": 0,
+                "numberOfPlanes": 1
+
+            },
+            {
+                "oldX": 50,
+                "oldY": 155,
+                "newX": 49,
+                "newY": 155,
+                "chunk_oldXHigh": 7,
+                "chunk_oldYHigh": 0,
+                "chunk_oldXLow": 6,
+                "chunk_oldYLow": 0,
+
+                "chunk_newXLow": 2,
+                "chunk_newYLow": 0,
+                "chunk_newXHigh": 3,
+                "chunk_newYHigh": 0,
+                "oldPlane": 0,
+                "numberOfPlanes": 1
+
+            }
+            
+        ]
+
+    },
+    
+    {
+        "name": "Fremennik Slayer Cave (overwrite regions)",
+        "field450": 0,
+        "defaultZoom": 200,
+        "fileId": 17,
+        "field453": 0,
+        "field454": 0,
+        "field456": 0,
+        "isSurface": false,
+        "regionList": [
+            {
+                "chunk_oldXHigh": 7,
+                "numberOfPlanes": 1,
+                "oldX": 42,
+                "chunk_oldYHigh": 7,
+                "newX": 42,
+                "newY": 156,
+                "chunk_oldXLow": 0,
+                "oldY": 156,
+                "chunk_newYLow": 0,
+                "chunk_oldYLow": 0,
+                "chunk_newXLow": 0,
+                "oldPlane": 0,
+                "chunk_newXHigh": 7,
+                "chunk_newYHigh": 7
+            },
+            {
+                "chunk_oldXHigh": 7,
+                "numberOfPlanes": 1,
+                "oldX": 43,
+                "chunk_oldYHigh": 7,
+                "newX": 43,
+                "newY": 156,
+                "chunk_oldXLow": 0,
+                "oldY": 156,
+                "chunk_newYLow": 0,
+                "chunk_oldYLow": 0,
+                "chunk_newXLow": 0,
+                "oldPlane": 0,
+                "chunk_newXHigh": 7,
+                "chunk_newYHigh": 7
+            },
+            {
+                "chunk_oldXHigh": 4,
+                "numberOfPlanes": 1,
+                "oldX": 42,
+                "chunk_oldYHigh": 0,
+                "newX": 42,
+                "newY": 155,
+                "chunk_oldXLow": 0,
+                "oldY": 156,
+                "chunk_newYLow": 4,
+                "chunk_oldYLow": 0,
+                "chunk_newXLow": 0,
+                "oldPlane": 0,
+                "chunk_newXHigh": 4,
+                "chunk_newYHigh": 4
+            },
+            {
+                "chunk_oldXHigh": 4,
+                "numberOfPlanes": 1,
+                "oldX": 42,
+                "chunk_oldYHigh": 7,
+                "newX": 42,
+                "newY": 155,
+                "chunk_oldXLow": 0,
+                "oldY": 155,
+                "chunk_newYLow": 0,
+                "chunk_oldYLow": 4,
+                "chunk_newXLow": 0,
+                "oldPlane": 0,
+                "chunk_newXHigh": 4,
+                "chunk_newYHigh": 3
+            }
+        ],
+        "safeName": "slayer_cave",
+        "position": {
+            "x": 2784,
+            "y": 0,
+            "z": 10016
+        },
+        "field463": 0
+    },
+    {
+        "safeName": "feldip_underground",
+        "name": "Feldip Hills Underground (overwrite regions)",
+        "emptyTileColor": 0,
+        "backgroundColor": -16777216,
+        "defaultZoom": 100,
+        "fileId": 31,
+        "isSurface": false,
+        "regionList": [
+            {   
+                "numberOfPlanes": 1,
+                "oldPlane": 0,
+                
+                "oldX": 30,
+                "oldY": 147,
+
+                "newX": 26,
+                "newY": 143,
+
+                "chunk_oldXLow": 0,
+                "chunk_oldYLow": 0,
+                "chunk_oldXHigh": 7,
+                "chunk_oldYHigh": 7,
+                
+                "chunk_newXLow": 0,
+                "chunk_newYLow": 0,
+                "chunk_newXHigh": 7,
+                "chunk_newYHigh": 7
+            },
+            {   
+                "numberOfPlanes": 1,
+                "oldPlane": 0,
+                
+                "oldX": 33,
+                "oldY": 145,
+
+                "newX": 28,
+                "newY": 142,
+
+                "chunk_oldXLow": 0,
+                "chunk_oldYLow": 0,
+                "chunk_oldXHigh": 7,
+                "chunk_oldYHigh": 7,
+                
+                "chunk_newXLow": 0,
+                "chunk_newYLow": 0,
+                "chunk_newXHigh": 7,
+                "chunk_newYHigh": 7
+            },
+            {
+                "numberOfPlanes": 1,
+                "xLowerLeft": 29,
+                "yLowerLeft": 140,
+                "xLowerRight": 30,
+                "yLowerRight": 140,
+                "xUpperLeft": 29,
+                "yUpperLeft": 141,
+                "xUpperRight": 30,
+                "plane": 1,
+                "yUpperRight": 141
+            },
+            {
+                "numberOfPlanes": 1,
+                "xLowerLeft": 31,
+                "yLowerLeft": 140,
+                "xLowerRight": 32,
+                "yLowerRight": 140,
+                "xUpperLeft": 31,
+                "yUpperLeft": 140,
+                "xUpperRight": 32,
+                "plane": 1,
+                "yUpperRight": 140
+            },
+            {
+                "chunk_oldXHigh": 4,
+                "numberOfPlanes": 1,
+                "oldX": 39,
+                "chunk_oldYHigh": 2,
+                "newX": 31,
+                "newY": 141,
+                "chunk_oldXLow": 1,
+                "oldY": 145,
+                "chunk_newYLow": 5,
+                "chunk_oldYLow": 0,
+                "chunk_newXLow": 3,
+                "oldPlane": 0,
+                "chunk_newXHigh": 6,
+                "chunk_newYHigh": 7
+            },
+            {
+                "chunk_oldXHigh": 4,
+                "numberOfPlanes": 1,
+                "oldX": 39,
+                "chunk_oldYHigh": 3,
+                "newX": 31,
+                "newY": 142,
+                "chunk_oldXLow": 1,
+                "oldY": 145,
+                "chunk_newYLow": 0,
+                "chunk_oldYLow": 3,
+                "chunk_newXLow": 3,
+                "oldPlane": 0,
+                "chunk_newXHigh": 6,
+                "chunk_newYHigh": 0
+            }
+        ],
+        "position": {
+            "x": 1989,
+            "y": 9023,
+            "z": 1
+        }
+    }
+]
