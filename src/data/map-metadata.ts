@@ -981,6 +981,42 @@ const mapMetadata: MapMetadata[] = [
             5472
         ]
     },
+      {
+        "mapId": 1033,
+        "name": "Chaos Tunnels Altar",
+        "bounds": [
+            [
+                2240,
+                4800
+            ],
+            [
+                2304,
+                4864
+            ]
+        ],
+        "center": [
+            2272,
+            4832
+        ]
+    },
+        {
+        "mapId": 1034,
+        "name": "Black Knight Catacombs",
+        "bounds": [
+            [
+                4032,
+                4672
+            ],
+            [
+                4224,
+                4800
+            ]
+        ],
+        "center": [
+            4128,
+            4736
+        ]
+    },
     {
         "mapId": -1,
         "name": "debug",

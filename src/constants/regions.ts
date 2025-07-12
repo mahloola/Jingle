@@ -73,6 +73,9 @@ export const REGIONS = {
     'Stratosphere',
     'Chickened Out',
     'Clanliness',
+    'Roots and Flutes',
+    'Alternative Root',
+    "All's Fairy in Love & War"
 
   ],
   Karamja: [
@@ -166,7 +169,10 @@ export const REGIONS = {
     'Starlight',
     'Zaros Zeitgeist',
     'Righteousness',
-
+    'Woe of the Wyvern',
+    'Black of Knight',
+    'The Route of All Evil',
+  
 
   ],
   Fremennik: [
@@ -495,6 +501,8 @@ export const REGIONS = {
     'Kanon of Kahlith',
 
     'Darkly Altared',
+    'A Thorn in My Side',
+    
   ],
   Varlamore: [
     'Are You Not Entertained',

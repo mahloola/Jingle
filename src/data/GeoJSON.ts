@@ -16,6 +16,182 @@ export interface ConvertedFeature extends Feature<Polygon> {
 const geojsondata = {
   features: [
     {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [2304, 4416],
+                        [2304, 4480],
+                        [2368, 4480],
+                        [2368, 4416],
+                        [2304, 4416]
+                    ]
+                ]
+            },
+            "properties": {
+                "mapID": "-1",
+                "title": "<a href=\"/w/All%27s_Fairy_in_Love_%26_War\" title=\"All&#39;s Fairy in Love &amp; War\">All's Fairy in Love &amp; War</a>",
+                "description": "<div><a href=\"/w/File:All%27s_Fairy_in_Love_%26_War.ogg\" title=\"File:All&#39;s Fairy in Love &amp; War.ogg\">Play track</a></div>",
+                "plane": 0
+            },
+            "convertedGeometry": [
+                {
+                    "mapName": "Zanaris",
+                    "mapId": 28,
+                    "coordinates": [
+                        [2304, 4416],
+                        [2304, 4480],
+                        [2368, 4480],
+                        [2368, 4416],
+                        [2304, 4416]
+                    ]
+                }
+            ]
+        },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [1216, 10048],
+            [1216, 10112],
+            [1280, 10112],
+            [1280, 10048],
+            [1216, 10048],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/A_Thorn_in_My_Side" title="A Thorn in My Side">A Thorn in My Side</a>',
+        description:
+          '<div><a href="/w/File:A_Thorn_in_My_Side.ogg" title="File:A Thorn in My Side.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Kebos Underground',
+          mapId: 33,
+          coordinates: [
+            [1152, 10032],
+            [1152, 10096],
+            [1216, 10096],
+            [1216, 10032],
+            [1152, 10032],
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [4216, 4863],
+            [4184, 4863],
+            [4184, 4837],
+            [4216, 4837],
+            [4216, 4863],
+          ],
+        ],
+      },
+      properties: {
+        title:
+          '<a href="/w/The_Route_of_All_Evil" title="The Route of All Evil">The Route of All Evil</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:The_Route_of_All_Evil.ogg" title="File:The Route of All Evil.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Black Knight Catacombs',
+          mapId: 1034,
+          coordinates: [
+            [4216, 4863],
+            [4184, 4863],
+            [4184, 4837],
+            [4216, 4837],
+            [4216, 4863],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2112, 5120],
+            [2112, 5184],
+            [2176, 5184],
+            [2176, 5120],
+            [2112, 5120],
+          ],
+        ],
+      },
+      properties: {
+        title: '<a href="/w/Black_of_Knight" title="Black of Knight">Black of Knight</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Black_of_Knight.ogg" title="File:Black of Knight.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Black Knight Catacombs',
+          mapId: 1034,
+          coordinates: [
+            [4096, 4672],
+            [4096, 4864],
+            [4160, 4864],
+            [4160, 4672],
+            [4096, 4672],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [4096, 4672],
+            [4096, 4864],
+            [4160, 4864],
+            [4160, 4672],
+            [4096, 4672],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Alternative_Root" title="Alternative Root">Alternative Root</a>',
+        description:
+          '<div><a href="/w/File:Alternative_Root.ogg" title="File:Alternative Root.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Misthalin Underground',
+          mapId: 12,
+          coordinates: [
+            [3455, 9986],
+            [3395, 9986],
+            [3395, 9914],
+            [3455, 9914],
+            [3455, 9986],
+          ],
+        },
+      ],
+    },
+    {
       type: 'Feature',
       geometry: {
         type: 'Polygon',
@@ -767,6 +943,17 @@ const geojsondata = {
         {
           mapName: 'Chaos Altar',
           mapId: 1019,
+          coordinates: [
+            [2240, 4800],
+            [2240, 4864],
+            [2304, 4864],
+            [2304, 4800],
+            [2240, 4800],
+          ],
+        },
+         {
+          mapName: 'Chaos Tunnels Altar',
+          mapId: 1033,
           coordinates: [
             [2240, 4800],
             [2240, 4864],

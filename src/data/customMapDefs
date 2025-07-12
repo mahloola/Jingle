@@ -737,6 +737,24 @@
 
         "isSurface": false,
         "regionList": [
+              {
+                "oldX": 49,
+                "oldY": 81,
+                "newX": 53,
+                "newY": 155,
+                "chunk_oldXHigh": 7,
+                "chunk_oldYHigh": 7,
+                "chunk_oldXLow": 0,
+                "chunk_oldYLow": 0,
+
+                "chunk_newXLow": 0,
+                "chunk_newYLow": 0,
+                "chunk_newXHigh": 7,
+                "chunk_newYHigh": 7,
+                "oldPlane": 0,
+                "numberOfPlanes": 1
+
+            },
             {
                 "oldX": 50,
                 "oldY": 155,

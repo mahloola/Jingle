@@ -1,5 +1,50 @@
 const cutstomMapLinks = {
   'Gielinor Surface': [
+    
+        {
+      start: {
+        x: 3016,
+        y: 3518,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      end: {
+        x: 4106,
+        y: 4673,
+        mapId: 1034,
+        name: 'Black Knight Catacombs',
+      },
+    },
+        {
+      end: {
+        x: 2838,
+        y: 9388,
+        mapId: 9,
+        name: 'Karamja Underground',
+      },
+      start: {
+        x: 2823,
+        y: 3001,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      }
+    },
+
+    //chaos tunnels
+    {
+      start: {
+        x: 3284,
+        y: 3468,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      end: {
+        x: 3436,
+        y: 9924,
+        mapId: 1023,
+        name: 'Misthalin Underground',
+      },
+    },
     {
       start: {
         x: 3550,
@@ -265,6 +310,20 @@ const cutstomMapLinks = {
     },
     {
       start: {
+        x: 3436,
+        y: 3590,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      end: {
+        x: 2259,
+        y: 4845,
+        mapId: 1033,
+        name: 'Chaos Tunnels Altar',
+      },
+    },
+    {
+      start: {
         x: 3060,
         y: 3590,
         mapId: 0,
@@ -311,6 +370,35 @@ const cutstomMapLinks = {
   ],
 
   'Misthalin Underground': [
+           {
+      start: {
+        x: 3408,
+        y: 9968,
+        mapId: 12,
+        name: 'Misthalin Underground',
+      },
+      end: {
+        x: 2259,
+        y: 4845,
+        mapId: 1033,
+        name: 'Chaos Tunnels Altar',
+      },
+    },
+    //chaos tunnels
+    {
+      end: {
+        x: 3284,
+        y: 3468,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      start: {
+        x: 3436,
+        y: 9924,
+        mapId: 1023,
+        name: 'Misthalin Underground',
+      },
+    },
     {
       start: {
         x: 3105,
@@ -428,10 +516,24 @@ const cutstomMapLinks = {
       end: {
         x: 2457,
         y: 4381,
-        mapId: 1027,
-        name: 'Evil Chicken Lair',
+        mapId: 28,
+        name: 'Zanaris',
       },
       start: {
+        x: 2454,
+        y: 4477,
+        mapId: 28,
+        name: 'Zanaris',
+      },
+    },
+    {
+      start: {
+        x: 2457,
+        y: 4381,
+        mapId: 28,
+        name: 'Zanaris',
+      },
+      end: {
         x: 2454,
         y: 4477,
         mapId: 28,
@@ -889,6 +991,23 @@ const cutstomMapLinks = {
     },
   ],
 
+  'Chaos Tunnels Altar': [
+    {
+      start: {
+        x: 2259,
+        y: 4845,
+        mapId: 1033,
+        name: 'Chaos Tunnels Altar',
+      },
+      end: {
+        x: 3060,
+        y: 3590,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+  ],
+
   'Death Altar': [
     {
       end: {
@@ -1167,4 +1286,22 @@ const cutstomMapLinks = {
       },
     },
   ],
+
+  'Black Knight Catacombs': [
+       {
+      end: {
+        x: 3016,
+        y: 3518,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+      start: {
+        x: 4106,
+        y: 4673,
+        mapId: 1034,
+        name: 'Black Knight Catacombs',
+      },
+    },
+
+  ]
 };

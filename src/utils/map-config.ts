@@ -62,8 +62,8 @@ export enum MapIds {
   BloodAltar = 1021,
   PuroPuro = 1024,
   MournerTunnels = 1025,
-  EvilChickenLair = 1027
-
+  EvilChickenLair = 1027,
+  ChaosTunnelsAltar = 1033
 }
 
 //separated for simplicity's sake.
@@ -84,7 +84,8 @@ export const NESTED_MAP_IDS = [
   MapIds.DeathAltar,
   MapIds.BloodAltar,
   MapIds.PuroPuro,
-  MapIds.EvilChickenLair
+  MapIds.EvilChickenLair,
+  MapIds.ChaosTunnelsAltar
 ];
 
 
@@ -105,7 +106,7 @@ export const NESTED_GROUPS = [
   [MapIds.MournerTunnels, MapIds.DeathAltar],
   [MapIds.KourendUnderground, MapIds.SkotizoLair],
   [MapIds.Zanaris, MapIds.EvilChickenLair],
-  
+  [MapIds.MisthalinUnderground, MapIds.ChaosTunnelsAltar]
 ];
 
 export const LINKLESS_MAP_IDS = [
