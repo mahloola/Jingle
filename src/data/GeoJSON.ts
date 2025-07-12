@@ -16,40 +16,6 @@ export interface ConvertedFeature extends Feature<Polygon> {
 const geojsondata = {
   features: [
     {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [2304, 4800],
-            [2304, 4864],
-            [2368, 4864],
-            [2368, 4800],
-            [2304, 4800],
-          ],
-        ],
-      },
-      properties: {
-        mapID: '-1',
-        title: '<a href="/w/Cursed" title="Cursed">Cursed</a>',
-        description:
-          '<div><a href="/w/File:Cursed.ogg" title="File:Cursed.ogg">Play track</a></div>',
-        plane: 0,
-      },
-      convertedGeometry: [
-        {
-          mapName: 'Wrath Altar',
-          mapId: 1022,
-          coordinates: [
-            [2304, 4800],
-            [2304, 4864],
-            [2368, 4864],
-            [2368, 4800],
-            [2304, 4800],
-          ],
-        },
-      ],
-    },
             "type": "Feature",
             "geometry": {
                 "type": "Polygon",
@@ -22557,6 +22523,17 @@ const geojsondata = {
             [3392, 3648],
             [3392, 3584],
             [3328, 3584],
+          ],
+        },
+        {
+          mapName: 'Taverley Underground',
+          mapId: 20,
+          coordinates: [
+            [2816, 9728],
+            [2816, 9792],
+            [2880, 9792],
+            [2880, 9728],
+            [2816, 9728],
           ],
         },
         {
