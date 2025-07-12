@@ -502,6 +502,7 @@ export const REGIONS = {
 
     'Darkly Altared',
     'A Thorn in My Side',
+    'Way of the Wyrm'
     
   ],
   Varlamore: [

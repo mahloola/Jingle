@@ -4,3 +4,7 @@
   display: none;
   opacity: 0;
 }
+
+.hide-audio{
+  display: none;
+}
