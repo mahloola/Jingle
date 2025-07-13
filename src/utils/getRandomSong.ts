@@ -1,10 +1,29 @@
+import { RefObject } from 'react';
 import { Region, REGIONS, UNDERGROUND_TRACKS } from '../constants/regions';
 import { UserPreferences } from '../types/jingle';
+import { JINGLE_SETTINGS } from '../constants/jingleSettings';
+import { loadPreferencesFromBrowser } from './browserUtil';
 
 export class SongService {
-  private songList: string[];
 
-  constructor(preferences: UserPreferences) {
+  private static instance: SongService;
+  private songList: string[];
+  private snippet: [number, number] | null;
+
+  private constructor(preferences: UserPreferences) {
+    this.songList = this.getAvailableSongs(preferences);
+    this.snippet = null;
+  }
+
+  static Instance(): SongService {
+    if (!SongService.instance) {
+      const initialPreferences = loadPreferencesFromBrowser();
+      SongService.instance = new SongService(initialPreferences);
+    }
+    return SongService.instance;
+  }
+
+  regenerateSongs(preferences: UserPreferences) {
     this.songList = this.getAvailableSongs(preferences);
   }
 
@@ -12,6 +31,14 @@ export class SongService {
     return this.songList;
   }
 
+  getSnippet = (audioRef : RefObject<HTMLAudioElement | null>) => {
+    if(!this.snippet){this.generateSnippet(audioRef)};
+    return this.snippet;
+  };
+
+  resetSnippet = () => {this.snippet = null;}
+
+  
   removeSong = (songToRemove: string) => {
     this.songList = this.songList.filter((song) => song !== songToRemove);
   };
@@ -36,6 +63,7 @@ export class SongService {
 
     return selectedSong;
   };
+
 
   // Helper functions
   private getEnabledRegions = (preferences: UserPreferences): Region[] => {
@@ -65,4 +93,41 @@ export class SongService {
     const randomIndex = Math.floor(Math.random() * songs.length);
     return songs[randomIndex];
   };
+
+  private generateSnippet = (audioRef: RefObject<HTMLAudioElement | null>) => {
+  console.log("Generated Snippet");
+  const audio = audioRef.current;
+  if (!audio) return;
+
+  const generate = () => {
+    const songDuration = audio.duration;
+    const snippetLength = JINGLE_SETTINGS.hardModeSeconds;
+    const buffer = 10;
+
+    if (songDuration <= 2 * buffer + snippetLength) {
+      console.warn('Song too short for buffered snippet.');
+      this.snippet = [0, snippetLength];
+      return;
+    }
+
+    const maxStart = songDuration - buffer - snippetLength;
+    const minStart = buffer;
+    const start = Math.random() * (maxStart - minStart) + minStart;
+    const end = start + snippetLength;
+    this.snippet = [start, end];
+    console.log(start, end);
+  };
+
+  if (audio.readyState >= 1) {
+    // Metadata is already loaded
+    generate();
+  } else {
+    // Wait for metadata
+    const onLoadedMetadata = () => {
+      audio.removeEventListener('loadedmetadata', onLoadedMetadata);
+      generate();
+    };
+    audio.addEventListener('loadedmetadata', onLoadedMetadata);
+  }
+};
 }

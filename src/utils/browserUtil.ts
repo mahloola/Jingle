@@ -1,6 +1,7 @@
 import { DEFAULT_GAME_STATE, DEFAULT_PREFERENCES } from '../constants/defaults';
 import { LOCAL_STORAGE } from '../constants/localStorage';
 import { DailyChallenge, GameState, isValidGameState, UserPreferences } from '../types/jingle';
+import { SongService } from './getRandomSong';
 
 export const saveGameStateToBrowser = (jingleNumber: number, gameState: GameState) => {
   localStorage.setItem(LOCAL_STORAGE.gameState(jingleNumber), JSON.stringify(gameState));
@@ -8,6 +9,7 @@ export const saveGameStateToBrowser = (jingleNumber: number, gameState: GameStat
 
 export const savePreferencesToBrowser = (preferences: UserPreferences) => {
   localStorage.setItem(LOCAL_STORAGE.preferences, JSON.stringify(preferences));
+  SongService.Instance().regenerateSongs(preferences);
 };
 
 export const sanitizePreferences = () => {

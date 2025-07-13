@@ -68,8 +68,8 @@ export const REGIONS = {
     'Zealot',
     'Down to Earth',
     'Quest',
-    'Mirace Dance',
-    'Body and Mind',
+    'Miracle Dance',
+    'Heart and Mind',
     'Stratosphere',
     'Chickened Out',
     'Clanliness',
@@ -499,6 +499,9 @@ export const REGIONS = {
 
     'Darkly Altared',
     'A Thorn in My Side',
+    'Way of the Wyrm',
+    'Dagannoth Dawn',
+    'Xenophobe',
   ],
   Varlamore: [
     'Are You Not Entertained',

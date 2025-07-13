@@ -15,7 +15,7 @@ import {
   updateGuessStreak,
 } from '../utils/browserUtil';
 import { SongService } from '../utils/getRandomSong';
-import { playSong } from '../utils/playSong';
+import { playSnippet, playSong } from '../utils/playSong';
 import Footer from './Footer';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
@@ -24,21 +24,17 @@ import NewsModalButton from './side-menu/NewsModalButton';
 import SettingsModalButton from './side-menu/PreferencesModalButton';
 import StatsModalButton from './side-menu/StatsModalButton';
 import { Button } from './ui-util/Button';
+import { JINGLE_SETTINGS } from '../constants/jingleSettings';
+import SnippetPlayer from './SnippetPlayer';
 
 sanitizePreferences();
-const initialPreferences = loadPreferencesFromBrowser();
-let songService: SongService = new SongService(initialPreferences);
+
+let songService: SongService = SongService.Instance();
 // starting song list - put outside component so it doesn't re-construct with rerenders
 
 export default function Practice() {
   const goBackButtonRef = useRef<HTMLDivElement>(null);
   const currentPreferences = loadPreferencesFromBrowser();
-  // TODO: THIS IS SHALLOW COMPARING AND WILL CHANGE ON EVERY RERENDER
-  // this means the useEffect block is executing on every render cycle - song list is regenerated
-  useEffect(() => {
-    songService = new SongService(currentPreferences);
-  }, [currentPreferences]);
-  // prevent dupe song picks - only recreate the song list if preferences change between 2 renders
 
   const initialGameState = {
     settings: {
@@ -66,6 +62,7 @@ export default function Practice() {
       songName,
       currentPreferences.preferOldAudio,
       currentPreferences.preferHardMode,
+      songService
     );
     songService.removeSong(songName);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -99,6 +96,7 @@ export default function Practice() {
       newSong,
       currentPreferences.preferOldAudio,
       currentPreferences.preferHardMode,
+      songService
     );
   };
 
@@ -153,11 +151,12 @@ export default function Practice() {
               })
               .exhaustive()}
 
+            {gameState.settings.hardMode && <SnippetPlayer audioRef={audioRef} songService={songService}/>}
             <audio
               controls
               id='audio'
               ref={audioRef}
-              className={gameState.settings.hardMode ? 'hide-scrubber' : ''}
+              className={gameState.settings.hardMode ? 'hide-audio' : ''}
             />
 
             <Footer />
