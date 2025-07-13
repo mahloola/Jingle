@@ -15,7 +15,7 @@ import {
   updateGuessStreak,
 } from '../utils/browserUtil';
 import { SongService } from '../utils/getRandomSong';
-import { playSnippet, playSong } from '../utils/playSong';
+import { playSong } from '../utils/playSong';
 import Footer from './Footer';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
@@ -23,13 +23,12 @@ import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
 import SettingsModalButton from './side-menu/PreferencesModalButton';
 import StatsModalButton from './side-menu/StatsModalButton';
-import { Button } from './ui-util/Button';
-import { JINGLE_SETTINGS } from '../constants/jingleSettings';
 import SnippetPlayer from './SnippetPlayer';
+import { Button } from './ui-util/Button';
 
 sanitizePreferences();
 
-let songService: SongService = SongService.Instance();
+const songService: SongService = SongService.Instance();
 // starting song list - put outside component so it doesn't re-construct with rerenders
 
 export default function Practice() {
@@ -62,7 +61,7 @@ export default function Practice() {
       songName,
       currentPreferences.preferOldAudio,
       currentPreferences.preferHardMode,
-      songService
+      songService,
     );
     songService.removeSong(songName);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -96,7 +95,7 @@ export default function Practice() {
       newSong,
       currentPreferences.preferOldAudio,
       currentPreferences.preferHardMode,
-      songService
+      songService,
     );
   };
 
@@ -151,7 +150,12 @@ export default function Practice() {
               })
               .exhaustive()}
 
-            {gameState.settings.hardMode && <SnippetPlayer audioRef={audioRef} songService={songService}/>}
+            {gameState.settings.hardMode && (
+              <SnippetPlayer
+                audioRef={audioRef}
+                songService={songService}
+              />
+            )}
             <audio
               controls
               id='audio'
