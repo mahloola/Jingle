@@ -130,17 +130,19 @@ export default function Practice() {
                 if (currentPreferences.preferConfirmation) {
                   return (
                     <Button
+                      classes={'guess-btn'}
                       label='Confirm guess'
                       onClick={() => confirmGuess()}
                       disabled={!gameState.clickedPosition}
                     />
                   );
                 } else {
-                  return <div className='osrs-frame guess-btn'>Place your pin on the map</div>;
+                  return <label className='osrs-frame guess-btn'>Place your pin on the map</label>;
                 }
               })
               .with(GameStatus.AnswerRevealed, () => (
                 <Button
+                  classes={'guess-btn'}
                   label='Next Song'
                   onClick={nextSong}
                 />
