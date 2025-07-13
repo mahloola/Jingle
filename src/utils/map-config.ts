@@ -1,7 +1,7 @@
-import React from 'react';
-import { GameState } from '../types/jingle';
-import mapMetadata from '../data/map-metadata';
 import L from 'leaflet';
+import React from 'react';
+import mapMetadata from '../data/map-metadata';
+import { GameState } from '../types/jingle';
 
 export interface InternalMapState {
   gameState: GameState;
@@ -63,7 +63,7 @@ export enum MapIds {
   PuroPuro = 1024,
   MournerTunnels = 1025,
   EvilChickenLair = 1027,
-  ChaosTunnelsAltar = 1033
+  ChaosTunnelsAltar = 1033,
 }
 
 //separated for simplicity's sake.
@@ -85,17 +85,17 @@ export const NESTED_MAP_IDS = [
   MapIds.BloodAltar,
   MapIds.PuroPuro,
   MapIds.EvilChickenLair,
-  MapIds.ChaosTunnelsAltar
+  MapIds.ChaosTunnelsAltar,
+  MapIds.SkotizoLair,
 ];
-
 
 export const NESTED_GROUPS = [
   [MapIds.MisthalinUnderground, MapIds.DorgeshKaan],
   [MapIds.KaramjaUnderground, MapIds.MorUlRek],
   [MapIds.CamTorum, MapIds.Neypotzli],
-  [MapIds.Prifddinas,MapIds.PrifddinasGrandLibrary],
+  [MapIds.Prifddinas, MapIds.PrifddinasGrandLibrary],
   [MapIds.Prifddinas, MapIds.PrifddinasUnderground],
-  [MapIds.RuinsOfCamdozaal, MapIds.LassarUndercity,],
+  [MapIds.RuinsOfCamdozaal, MapIds.LassarUndercity],
   [MapIds.MisthalinUnderground, MapIds.GuardiansOfTheRift, MapIds.TheScar],
   [MapIds.MiscUnderground, MapIds.GhorrockDungeon, MapIds.GhorrockPrison],
   [MapIds.ArdoungeUnderground, MapIds.GoblinTemple],
@@ -106,7 +106,7 @@ export const NESTED_GROUPS = [
   [MapIds.MournerTunnels, MapIds.DeathAltar],
   [MapIds.KourendUnderground, MapIds.SkotizoLair],
   [MapIds.Zanaris, MapIds.EvilChickenLair],
-  [MapIds.MisthalinUnderground, MapIds.ChaosTunnelsAltar]
+  [MapIds.MisthalinUnderground, MapIds.ChaosTunnelsAltar],
 ];
 
 export const LINKLESS_MAP_IDS = [
