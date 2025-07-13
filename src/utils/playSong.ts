@@ -1,5 +1,4 @@
 import { RefObject } from 'react';
-import { JINGLE_SETTINGS } from '../constants/jingleSettings';
 import { audio2004 } from '../data/audio2004';
 import { SongService } from './getRandomSong';
 
@@ -8,7 +7,7 @@ export const playSong = (
   songName: string,
   oldAudio: boolean,
   hardMode: boolean,
-  songService: SongService
+  songService?: SongService,
 ) => {
   let src;
   if (oldAudio) {
@@ -23,12 +22,11 @@ export const playSong = (
   audioRef.current!.src = src;
   audioRef.current!.load();
 
-  if(hardMode){
+  if (hardMode && songService) {
     songService.resetSnippet();
     playSnippet(audioRef, songService);
-  }
-  else{
-  audioRef.current!.play();
+  } else {
+    audioRef.current!.play();
   }
 };
 

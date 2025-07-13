@@ -482,7 +482,7 @@ const getNestedMinDistToTargetMapIdByIndex = (
 export const GetParentMapId = (currentMapId: number): number => {
   if (NESTED_MAP_IDS.includes(currentMapId)) {
     const nestedGroup = NESTED_GROUPS.find((group) => group.includes(currentMapId))!;
-    const currentIndex = nestedGroup?.findIndex((nestedMapId) => nestedMapId == currentMapId)!;
+    const currentIndex = nestedGroup.findIndex((nestedMapId) => nestedMapId == currentMapId)!;
     return nestedGroup[currentIndex - 1];
   } else {
     return MapIds.Surface;
