@@ -16,90 +16,91 @@ export interface ConvertedFeature extends Feature<Polygon> {
 const geojsondata = {
   features: [
     {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [2912, 5312],
-                        [2944, 5312],
-                        [2944, 5248],
-                        [2880, 5248],
-                        [2880, 5280],
-                        [2904, 5280],
-                        [2904, 5288],
-                        [2912, 5288],
-                        [2912, 5312]
-                    ]
-                ]
-            },
-            "properties": {
-                "mapID": "-1",
-                "title": "<a href=\"/w/Strength_of_Saradomin\" title=\"Strength of Saradomin\">Strength of Saradomin</a>",
-                "description": "<div><a href=\"/w/File:Strength_of_Saradomin.ogg\" title=\"File:Strength of Saradomin.ogg\">Play track</a></div>",
-                "plane": 0
-            },
-            "convertedGeometry": [
-                {
-                    "mapName": "God Wars Dungeon",
-                    "mapId": 7,
-                    "coordinates": [
-
-                        [2952, 5248],
-                        [2952, 5216],
-                        [2888, 5216],
-                        [2888, 5248],
-               
-                    ]
-                },
-                {
-                    "mapName": "God Wars Dungeon",
-                    "mapId": 7,
-                    "coordinates": [
-                        [2968, 5301],
-                        [2940, 5301],
-                        [2940, 5260],
-                        [2968, 5260],
-                        [2968, 5301],
-
-                    ]
-                }
-            ]
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2912, 5312],
+            [2944, 5312],
+            [2944, 5248],
+            [2880, 5248],
+            [2880, 5280],
+            [2904, 5280],
+            [2904, 5288],
+            [2912, 5288],
+            [2912, 5312],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Strength_of_Saradomin" title="Strength of Saradomin">Strength of Saradomin</a>',
+        description:
+          '<div><a href="/w/File:Strength_of_Saradomin.ogg" title="File:Strength of Saradomin.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'God Wars Dungeon',
+          mapId: 7,
+          coordinates: [
+            [2952, 5248],
+            [2952, 5216],
+            [2888, 5216],
+            [2888, 5248],
+          ],
         },
+        {
+          mapName: 'God Wars Dungeon',
+          mapId: 7,
+          coordinates: [
+            [2968, 5301],
+            [2940, 5301],
+            [2940, 5260],
+            [2968, 5260],
+            [2968, 5301],
+          ],
+        },
+      ],
+    },
     {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [2304, 4416],
-                        [2304, 4480],
-                        [2368, 4480],
-                        [2368, 4416],
-                        [2304, 4416]
-                    ]
-                ]
-            },
-            "properties": {
-                "mapID": "-1",
-                "title": "<a href=\"/w/All%27s_Fairy_in_Love_%26_War\" title=\"All&#39;s Fairy in Love &amp; War\">All's Fairy in Love &amp; War</a>",
-                "description": "<div><a href=\"/w/File:All%27s_Fairy_in_Love_%26_War.ogg\" title=\"File:All&#39;s Fairy in Love &amp; War.ogg\">Play track</a></div>",
-                "plane": 0
-            },
-            "convertedGeometry": [
-                {
-                    "mapName": "Zanaris",
-                    "mapId": 28,
-                    "coordinates": [
-                        [2304, 4416],
-                        [2304, 4480],
-                        [2368, 4480],
-                        [2368, 4416],
-                        [2304, 4416]
-                    ]
-                }
-            ]
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2304, 4416],
+            [2304, 4480],
+            [2368, 4480],
+            [2368, 4416],
+            [2304, 4416],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/All%27s_Fairy_in_Love_%26_War" title="All&#39;s Fairy in Love &amp; War">All\'s Fairy in Love &amp; War</a>',
+        description:
+          '<div><a href="/w/File:All%27s_Fairy_in_Love_%26_War.ogg" title="File:All&#39;s Fairy in Love &amp; War.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Zanaris',
+          mapId: 28,
+          coordinates: [
+            [2304, 4416],
+            [2304, 4480],
+            [2368, 4480],
+            [2368, 4416],
+            [2304, 4416],
+          ],
         },
+      ],
+    },
     {
       type: 'Feature',
       geometry: {
@@ -676,8 +677,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Evil Chiken Lair',
-          mapId: 1027,
+          mapName: 'Zanaris',
+          mapId: 28,
           coordinates: [
             [2432, 4352],
             [2432, 4416],
@@ -1002,7 +1003,7 @@ const geojsondata = {
             [2240, 4800],
           ],
         },
-         {
+        {
           mapName: 'Chaos Tunnels Altar',
           mapId: 1033,
           coordinates: [
@@ -2497,11 +2498,11 @@ const geojsondata = {
           mapName: 'Ruins of Tapoyauik',
           mapId: 1030,
           coordinates: [
-            [1472, 9664],
-            [1472, 9728],
-            [1536, 9728],
+            [1536, 9600],
             [1536, 9664],
-            [1472, 9664],
+            [1728, 9664],
+            [1728, 9600],
+            [1536, 9600],
           ],
         },
       ],
@@ -7659,10 +7660,21 @@ const geojsondata = {
           mapId: 25,
           coordinates: [
             [2672, 9728],
-            [2672, 9792],
-            [2736, 9792],
+            [2672, 10092],
+            [2736, 10092],
             [2736, 9728],
             [2672, 9728],
+          ],
+        },
+        {
+          mapName: 'Waterbirth Dungeon',
+          mapId: 25,
+          coordinates: [
+            [2512, 9728],
+            [2512, 10092],
+            [2616, 10092],
+            [2616, 9728],
+            [2512, 9728],
           ],
         },
       ],
@@ -8649,9 +8661,9 @@ const geojsondata = {
           mapId: 5,
           coordinates: [
             [2688, 5248],
-            [2688, 5376],
-            [2752, 5376],
-            [2752, 5248],
+            [2688, 5536],
+            [2902, 5536],
+            [2902, 5248],
             [2688, 5248],
           ],
         },
@@ -12155,15 +12167,23 @@ const geojsondata = {
           mapName: 'The Scar',
           mapId: 1002,
           coordinates: [
-            [1728, 6464],
-            [2240, 6464],
-            [2240, 6400],
+            [1988, 6464],
+            [2112 , 6464],
             [2112, 6400],
-            [2112, 6336],
-            [2048, 6336],
+            [2112, 6400],
             [2048, 6400],
-            [1728, 6400],
-            [1728, 6464],
+            [1988, 6400],
+            [1988, 6464],
+          ],
+        },
+        {
+          mapName: 'The Scar',
+          mapId: 1002,
+          coordinates: [
+            [1974, 6388],
+            [1923, 6388],
+            [1923, 6340],
+            [1973, 6340],
           ],
         },
       ],
@@ -12654,8 +12674,8 @@ const geojsondata = {
           mapId: 42,
           coordinates: [
             [3168, 9400],
-            [3168, 9464],
-            [3232, 9464],
+            [3168, 9550],
+            [3232, 9550],
             [3232, 9400],
             [3168, 9400],
           ],
@@ -20832,17 +20852,6 @@ const geojsondata = {
             [1664, 9152],
           ],
         },
-        {
-          mapName: 'Morytania Underground',
-          mapId: 14,
-          coordinates: [
-            [3392, 9560],
-            [3392, 9624],
-            [3520, 9624],
-            [3520, 9560],
-            [3392, 9560],
-          ],
-        },
       ],
     },
     {
@@ -24224,11 +24233,11 @@ const geojsondata = {
           mapName: 'Waterbirth Dungeon',
           mapId: 25,
           coordinates: [
-            [2574, 9600],
-            [2574, 9728],
-            [2738, 9728],
-            [2738, 9600],
-            [2574, 9600],
+            [2574, 9620],
+            [2574, 9708],
+            [2738, 9708],
+            [2738, 9620],
+            [2574, 9620],
           ],
         },
         {
@@ -24236,8 +24245,8 @@ const geojsondata = {
           mapId: 25,
           coordinates: [
             [2608, 9728],
-            [2608, 9792],
-            [2672, 9792],
+            [2608, 9892],
+            [2672, 9892],
             [2672, 9728],
             [2608, 9728],
           ],
