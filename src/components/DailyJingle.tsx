@@ -69,12 +69,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
 
   const audioRef = useRef<HTMLAudioElement>(null);
   useEffect(() => {
-    playSong(
-      audioRef,
-      initialGameState.songs[gameState.round],
-      initialGameState.settings.oldAudio,
-      initialGameState.settings.hardMode,
-    );
+    playSong(audioRef, initialGameState.songs[gameState.round], initialGameState.settings.oldAudio);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -114,7 +109,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     saveGameState(gameState);
 
     const songName = gameState.songs[gameState.round];
-    playSong(audioRef, songName, gameState.settings.oldAudio, gameState.settings.hardMode);
+    playSong(audioRef, songName, gameState.settings.oldAudio);
   };
 
   const updateGameSettings = (preferences: UserPreferences) => {
