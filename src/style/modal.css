@@ -1,3 +1,6 @@
+.modal-container {
+  text-shadow: 1px 1px 1px black;
+}
 .modal-container h2 {
   margin-bottom: 10px;
 }
