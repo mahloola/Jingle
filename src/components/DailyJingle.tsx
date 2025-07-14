@@ -40,6 +40,7 @@ import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
 import SettingsModalButton from './side-menu/PreferencesModalButton';
 import StatsModalButton from './side-menu/StatsModalButton';
+import AudioControls from './AudioControls';
 
 interface DailyJingleProps {
   dailyChallenge: DailyChallenge;
@@ -69,7 +70,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
 
   const audioRef = useRef<HTMLAudioElement>(null);
   useEffect(() => {
-    playSong(audioRef, initialGameState.songs[gameState.round], initialGameState.settings.oldAudio);
+    playSong(
+      audioRef, 
+      initialGameState.songs[gameState.round], 
+      initialGameState.settings.oldAudio,
+      ...(currentPreferences.preferHardMode ? [currentPreferences.hardModeLength] : []),
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -109,7 +115,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     saveGameState(gameState);
 
     const songName = gameState.songs[gameState.round];
-    playSong(audioRef, songName, gameState.settings.oldAudio);
+    playSong(
+      audioRef,
+      songName,
+      gameState.settings.oldAudio,
+      ...(currentPreferences.preferHardMode ? [currentPreferences.hardModeLength] : []),
+    );
   };
 
   const updateGameSettings = (preferences: UserPreferences) => {
@@ -193,11 +204,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
               {scoreLabel(gameState.scores[4])}
             </div>
 
-            <audio
-              controls
-              id='audio'
-              ref={audioRef}
-            />
+            <AudioControls ref={audioRef} gameState={gameState}/>
 
             <Footer />
           </div>

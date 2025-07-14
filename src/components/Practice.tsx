@@ -23,7 +23,7 @@ import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
 import SettingsModalButton from './side-menu/PreferencesModalButton';
 import StatsModalButton from './side-menu/StatsModalButton';
-import SnippetPlayer from './SnippetPlayer';
+import AudioControls from './AudioControls';
 import { Button } from './ui-util/Button';
 
 sanitizePreferences();
@@ -60,7 +60,6 @@ export default function Practice() {
       audioRef,
       songName,
       currentPreferences.preferOldAudio,
-      songService,
       ...(currentPreferences.preferHardMode ? [currentPreferences.hardModeLength] : []),
     );
     songService.removeSong(songName);
@@ -90,12 +89,10 @@ export default function Practice() {
     const gameState = jingle.addSong(newSong);
     jingle.nextSong(gameState);
     songService.removeSong(newSong);
-    songService.getSnippet(audioRef, currentPreferences.hardModeLength);
     playSong(
       audioRef,
       newSong,
       currentPreferences.preferOldAudio,
-      songService,
       ...(currentPreferences.preferHardMode ? [currentPreferences.hardModeLength] : []),
     );
   };
@@ -152,29 +149,7 @@ export default function Practice() {
               })
               .exhaustive()}
 
-            {currentPreferences.preferHardMode ? (
-              <div>
-                <SnippetPlayer
-                  audioRef={audioRef}
-                  songService={songService}
-                  snippetLength={currentPreferences.hardModeLength}
-                />
-                <audio
-                  controls
-                  id='audio'
-                  ref={audioRef}
-                  className={gameState.settings.hardMode ? 'hide-audio' : ''}
-                />
-              </div>
-            ) : (
-              <audio
-                controls
-                id='audio'
-                ref={audioRef}
-                className={gameState.settings.hardMode ? 'hide-audio' : ''}
-              />
-            )}
-
+            <AudioControls ref={audioRef} gameState={gameState}/>
             <Footer />
           </div>
         </div>
