@@ -213,7 +213,7 @@ export const REGIONS = {
     'Time to Mine',
     'Prison Break',
     'More Than Meets the Eye',
-    'Secrets of the North',
+    'The North',
     'Reign of the Basilisk',
     'The Forsaken',
     'Out of the Deep',
@@ -383,6 +383,7 @@ export const REGIONS = {
     'Aye Car Rum Ba',
     'Blistering Barnacles',
     'Little Cave of Horrors',
+    'Lament of Meiyerditch',
   ],
   Tirannwn: [
     'Everywhere',

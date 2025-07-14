@@ -1494,6 +1494,33 @@ const geojsondata = {
     {
       type: 'Feature',
       geometry: {
+        coordinates: [
+          [],
+        ],
+        type: 'Polygon',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Gielinor Surface',
+          mapId: 0,
+          coordinates: [
+            [2816, 3840],
+            [2816, 3904],
+            [2880, 3904],
+            [2880, 3840],
+            [2816, 3840],
+          ],
+        }],
+      properties: {
+        mapID: '-1',
+        plane: 0,
+        title: '<a href="/w/The_North" title="The_North">The North</a>',
+        description: '<div><a href="/w/File:The_North.ogg" title="File:The_North.ogg">Play track</a></div>',
+      },
+    },
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [[]],
       },
@@ -1518,7 +1545,6 @@ const geojsondata = {
         },
       ],
     },
-
     {
       type: 'Feature',
       geometry: {
@@ -12168,7 +12194,7 @@ const geojsondata = {
           mapId: 1002,
           coordinates: [
             [1988, 6464],
-            [2112 , 6464],
+            [2112, 6464],
             [2112, 6400],
             [2112, 6400],
             [2048, 6400],
