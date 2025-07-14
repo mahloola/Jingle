@@ -6,11 +6,10 @@ import { Button } from './ui-util/Button';
 
 const SnippetPlayer = (props: {
   audioRef: RefObject<HTMLAudioElement | null>;
-  songService: SongService;
   snippetLength: number;
 }) => {
   const [isAudioReady, setIsAudioReady] = useState(false);
-
+   const songService = SongService.Instance();
   useEffect(() => {
     const audio = props.audioRef.current;
     if (!audio) return;
@@ -28,7 +27,7 @@ const SnippetPlayer = (props: {
   return (
     <div
       className='osrs-btn'
-      onClick={() => playSnippet(props.audioRef, props.songService, props.snippetLength)}
+      onClick={() => playSnippet(props.audioRef, props.snippetLength)}
       style={{
         display: 'flex',
         justifyContent: 'center',
@@ -40,7 +39,7 @@ const SnippetPlayer = (props: {
       <div className='snippet-player'>
         <Button
           label='Play Snippet'
-          onClick={() => playSnippet(props.audioRef, props.songService, props.snippetLength)}
+          onClick={() => playSnippet(props.audioRef, props.snippetLength)}
           classes={'guess-btn guess-btn-no-border'}
           disabled={!isAudioReady}
         />

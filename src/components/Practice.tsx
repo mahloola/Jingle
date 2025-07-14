@@ -60,7 +60,6 @@ export default function Practice() {
       audioRef,
       songName,
       currentPreferences.preferOldAudio,
-      songService,
       ...(currentPreferences.preferHardMode ? [currentPreferences.hardModeLength] : []),
     );
     songService.removeSong(songName);
@@ -95,7 +94,6 @@ export default function Practice() {
       audioRef,
       newSong,
       currentPreferences.preferOldAudio,
-      songService,
       ...(currentPreferences.preferHardMode ? [currentPreferences.hardModeLength] : []),
     );
   };
@@ -152,29 +150,21 @@ export default function Practice() {
               })
               .exhaustive()}
 
-            {currentPreferences.preferHardMode ? (
+            <audio
+              controls
+              id='audio'
+              ref={audioRef}
+              className={gameState.settings.hardMode ? 'hide-audio' : ''}
+            />
+
+            {currentPreferences.preferHardMode && (
               <div>
                 <SnippetPlayer
                   audioRef={audioRef}
-                  songService={songService}
                   snippetLength={currentPreferences.hardModeLength}
                 />
-                <audio
-                  controls
-                  id='audio'
-                  ref={audioRef}
-                  className={gameState.settings.hardMode ? 'hide-audio' : ''}
-                />
               </div>
-            ) : (
-              <audio
-                controls
-                id='audio'
-                ref={audioRef}
-                className={gameState.settings.hardMode ? 'hide-audio' : ''}
-              />
             )}
-
             <Footer />
           </div>
         </div>

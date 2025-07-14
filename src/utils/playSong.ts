@@ -6,10 +6,11 @@ export const playSong = (
   audioRef: RefObject<HTMLAudioElement | null>,
   songName: string,
   oldAudio: boolean,
-  songService?: SongService,
   hardModeLength?: number,
 ) => {
   let src;
+  const songService = SongService.Instance();
+
   if (oldAudio) {
     const oldAudioExists = songName in audio2004;
     src = oldAudioExists
@@ -24,7 +25,7 @@ export const playSong = (
 
   if (hardModeLength && songService) {
     songService.resetSnippet();
-    playSnippet(audioRef, songService, hardModeLength);
+    playSnippet(audioRef, hardModeLength);
   } else {
     audioRef.current!.play();
   }
@@ -32,10 +33,10 @@ export const playSong = (
 
 export const playSnippet = (
   audioRef: RefObject<HTMLAudioElement | null>,
-  songService: SongService,
   length: number,
 ) => {
   const audioPlayer = audioRef.current;
+  const songService = SongService.Instance();
   if (!audioPlayer) return;
 
   const startPlayback = () => {
