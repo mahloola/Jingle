@@ -11,6 +11,7 @@ import '../../style/modal.css';
 import { Page, UserPreferences } from '../../types/jingle';
 import { countSelectedSongs } from '../../utils/countSelectedSongs';
 import Modal from '../Modal';
+import CustomRangeInput from '../ui-util/CustomRangeInput';
 import IconButton from './IconButton';
 
 interface PreferencesModalButtonProps {
@@ -41,6 +42,14 @@ export default function SettingsModalButton({
     Object.values(preferences.regions).every((enabled) => !enabled) ||
     (!preferences.undergroundSelected && !preferences.surfaceSelected);
 
+  const handleHardModeTimeChange = (value: number) => {
+    setPreferences((prev) => {
+      return {
+        ...prev,
+        hardModeLength: value,
+      };
+    });
+  };
   const handlePreferencesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
     if (name.startsWith('regions.')) {
@@ -85,7 +94,7 @@ export default function SettingsModalButton({
                 Hard Mode{' '}
                 <FaQuestionCircle
                   data-tooltip-id='hard-mode-tooltip'
-                  data-tooltip-content='The music auto-pauses after 2 seconds'
+                  data-tooltip-content='You only get a x-second snippet (customizable)'
                 />
                 <Tooltip id='hard-mode-tooltip' />
               </td>
@@ -100,6 +109,19 @@ export default function SettingsModalButton({
                 ></input>
               </td>
             </tr>
+            <tr
+              className='hard-mode-row'
+              style={{
+                maxHeight: preferences.preferHardMode ? '70px' : '0px',
+              }}
+            >
+              <CustomRangeInput
+                onValueChange={handleHardModeTimeChange}
+                currentValue={preferences.hardModeLength}
+                visible={preferences.preferHardMode}
+              />
+            </tr>
+
             <tr>
               <td>
                 2004 Audio{' '}

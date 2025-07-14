@@ -1,12 +1,13 @@
-import React, { RefObject, useEffect, useState } from 'react';
-import { Button } from './ui-util/Button';
+import { RefObject, useEffect, useState } from 'react';
+import '../style/uiBox.css';
 import { SongService } from '../utils/getRandomSong';
 import { playSnippet } from '../utils/playSong';
+import { Button } from './ui-util/Button';
 
-//temporary styling
 const SnippetPlayer = (props: {
   audioRef: RefObject<HTMLAudioElement | null>;
   songService: SongService;
+  snippetLength: number;
 }) => {
   const [isAudioReady, setIsAudioReady] = useState(false);
 
@@ -25,27 +26,40 @@ const SnippetPlayer = (props: {
   }, [props.audioRef]);
 
   return (
-  <div style={{display:'flex'}}>
-    <div>
-    <Button
-      label="Play Snippet"
-      onClick={() => playSnippet(props.audioRef, props.songService)}
-      disabled={!isAudioReady}
-    />
+    <div
+      className='osrs-btn'
+      onClick={() => playSnippet(props.audioRef, props.songService, props.snippetLength)}
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '40px',
+        width: '300px',
+      }}
+    >
+      <div className='snippet-player'>
+        <Button
+          label='Play Snippet'
+          onClick={() => playSnippet(props.audioRef, props.songService, props.snippetLength)}
+          classes={'guess-btn guess-btn-no-border'}
+          disabled={!isAudioReady}
+        />
+      </div>
+      <VolumeControl audioRef={props.audioRef} />
     </div>
-    <VolumeControl audioRef={props.audioRef} />
-  </div>
-);
+  );
 };
 
 //temporary
-const VolumeControl = (props: {audioRef : RefObject<HTMLAudioElement | null>}) => {
-    
-    return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+const VolumeControl = (props: { audioRef: RefObject<HTMLAudioElement | null> }) => {
+  return (
+    <div
+      style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}
+      onClick={(e) => e.stopPropagation()}
+    >
       <div>🔊</div>
       <input
-        style={{width: "5rem"}}
+        style={{ width: '5rem' }}
         type='range'
         min='0'
         max='1'
@@ -58,8 +72,7 @@ const VolumeControl = (props: {audioRef : RefObject<HTMLAudioElement | null>}) =
         defaultValue='1'
       />
     </div>
-    );
-}
-
+  );
+};
 
 export default SnippetPlayer;
