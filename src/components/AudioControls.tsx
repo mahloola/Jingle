@@ -1,10 +1,10 @@
-import { ForwardedRef, forwardRef, RefObject, useEffect, useState } from 'react';
+import { forwardRef, RefObject, useEffect, useState } from 'react';
 import '../style/uiBox.css';
+import { GameState, GameStatus } from '../types/jingle';
+import { loadPreferencesFromBrowser } from '../utils/browserUtil';
 import { SongService } from '../utils/getRandomSong';
 import { playSnippet } from '../utils/playSong';
 import { Button } from './ui-util/Button';
-import { loadPreferencesFromBrowser } from '../utils/browserUtil';
-import { GameState, GameStatus } from '../types/jingle';
 
 interface AudioControlsProps {
   gameState: GameState;
@@ -16,12 +16,12 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
   const hardMode = currentPreferences.preferHardMode;
   const showAudio = !hardMode || answerRevealed;
 
-  useEffect(()=>{
-    if(hardMode && answerRevealed){
+  useEffect(() => {
+    if (hardMode && answerRevealed) {
       const audioRef = ref as RefObject<HTMLAudioElement | null>;
       audioRef.current?.play();
     }
-  },[props.gameState.status])
+  }, [props.gameState.status]);
 
   return (
     <div>
@@ -91,7 +91,9 @@ const SnippetPlayer = (props: {
     <div
       className='osrs-btn'
       onClick={() => {
-        if(!isAudioReady || isClipPlaying){return;}
+        if (!isAudioReady || isClipPlaying) {
+          return;
+        }
         playSnippet(props.audioRef, props.snippetLength);
       }}
       style={{
@@ -102,8 +104,7 @@ const SnippetPlayer = (props: {
         width: '300px',
       }}
     >
-    
-    <div className='snippet-player'>
+      <div className='snippet-player'>
         <Button
           label='Play Snippet'
           onClick={() => {}}
