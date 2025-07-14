@@ -87,6 +87,7 @@ export interface UserPreferences {
   preferHardMode: boolean;
   preferOldAudio: boolean;
   preferConfirmation: boolean;
+  hardModeLength: number;
   regions: Record<Region, boolean>;
   undergroundSelected: boolean;
   surfaceSelected: boolean;

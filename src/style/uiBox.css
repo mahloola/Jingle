@@ -18,7 +18,49 @@
 .guess-btn {
   width: 100%;
   max-width: 250px;
-  padding: 6px 0px;
+  padding: 10px 10px;
+}
+.guess-btn-no-border {
+  border: none !important;
+  height: 40px !important;
+  border-radius: 5px;
+  padding: 0 !important;
+}
+.snippet-player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0px 7%;
+}
+
+.custom-range-input {
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-range-input.hidden {
+  max-height: 0;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-range-input.visible {
+  max-height: 100px; /* Adjust based on your content height */
+  opacity: 1;
+  margin: 8px 0; /* Adjust spacing as needed */
+  padding: 8px 0;
+}
+
+.value-display {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
 }
 
 .below-map {
@@ -32,7 +74,7 @@
   font-family: 'Runescape UF' !important;
   font-size: 1.5rem;
   position: absolute;
-  width: 250px;
+  width: 300px;
   top: 50px;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -40,18 +82,6 @@
   pointer-events: none !important;
 }
 .above-map > button {
-  width: 100%;
   padding: 15px 40px;
   pointer-events: auto;
-}
-
-@media (max-width: 480px) {
-  .above-map {
-    font-size: 1rem;
-    width: 150px;
-  }
-  .above-map > button {
-    padding: 5px 15px;
-    height: 50px;
-  }
 }
