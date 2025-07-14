@@ -5,7 +5,13 @@ import { IoWarning } from 'react-icons/io5';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import { ASSETS } from '../../constants/assets';
-import { Region, REGIONS, TOTAL_TRACK_COUNT, UNDERGROUND_TRACKS } from '../../constants/regions';
+import {
+  Region,
+  REGIONS,
+  TOTAL_TRACK_COUNT,
+  UNDERGROUND_TRACKS,
+  UNDERGROUND_TRACKS_STRICT,
+} from '../../constants/regions';
 import { COLORS } from '../../constants/theme';
 import '../../style/modal.css';
 import { Page, UserPreferences } from '../../types/jingle';
@@ -220,7 +226,7 @@ export default function SettingsModalButton({
                     width: '140px',
                   }}
                 >
-                  <div>Surface ({TOTAL_TRACK_COUNT - UNDERGROUND_TRACKS.length})</div>
+                  <div>Surface ({TOTAL_TRACK_COUNT - UNDERGROUND_TRACKS_STRICT.length})</div>
                   <div className={'checkbox-container'}>
                     <input
                       type='checkbox'

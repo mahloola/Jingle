@@ -9,7 +9,31 @@ const borders = {
   ],
 };
 
-export const filterDungeons = () => {
+export const filterDungeons = ({ strict }: { strict: boolean }) => {
+  const features = geojsondata.features;
+  const titles = [];
+  let dungeonFeatures;
+  if (strict) {
+    dungeonFeatures = features.filter((feature) => {
+      return feature.convertedGeometry.every((geometry) => geometry.mapId > 0);
+    });
+  } else {
+    dungeonFeatures = features.filter((feature) => {
+      return feature.convertedGeometry.some((geometry) => geometry.mapId > 0);
+    });
+  }
+  for (const dungeonFeature of dungeonFeatures) {
+    const sanitizedTitle = sanitizeSongName(dungeonFeature?.properties?.title);
+    titles.push(sanitizedTitle);
+    const locations = [];
+    for (const geometry of dungeonFeature.convertedGeometry) {
+      locations.push(geometry.mapName);
+    }
+  }
+  return titles;
+};
+
+export const filterDungeonOnly = () => {
   const features = geojsondata.features;
   const titles = [];
   const dungeonFeatures = features.filter((feature) => {
@@ -46,32 +70,6 @@ const filterRegions = () => {
   console.log(zeahFeatures);
 };
 
-// const filterMapLinks = () => {
-//   const flattenedLinks = Object.values(groupedLinks).flat();
-//   const starts = flattenedLinks.map((link) => link.start);
-//   const zeahStarts = new Set();
-//   starts.forEach((start) => {
-//     const coordinates = [start.x, start.y];
-//     const isInRegion = geojsondata.features.some((feature) => {
-//       const allFeatureCoordinates: number[][][] = [];
-//       Object.values(feature.convertedGeometry).forEach((feature) => {
-//         allFeatureCoordinates.push(feature.coordinates);
-//       });
-//       allFeatureCoordinates.flat();
-//       return feature.convertedGeometry?.coordinates?.some((coordinatesArray: number[][][]) => {
-//         return coordinatesArray.some((coordinate) => {
-//           return (
-//             borders.zeah[0][0] >= 2880 &&
-//             borders.zeah[0][1] >= 3195 &&
-//             borders.zeah[1][0] <= 3072 &&
-//             borders.zeah[1][1] <= 3544
-//           );
-//         });
-//       });
-//     });
-//   });
-// };
-
 function extractSongTitle(htmlString: any) {
   // Regex to match content inside `title="..."` attribute
   const regex = /title="([^"]+)"/;
@@ -80,5 +78,3 @@ function extractSongTitle(htmlString: any) {
   // Return the captured group (the title) or null if no match
   return match ? match[1] : null;
 }
-
-console.log(filterDungeons());

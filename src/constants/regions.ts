@@ -1,6 +1,8 @@
 import { filterDungeons } from '../scripts/filter-regions';
 
-export const UNDERGROUND_TRACKS = filterDungeons();
+export const UNDERGROUND_TRACKS_STRICT = filterDungeons({ strict: true }); // tracks that exist ONLY underground
+export const UNDERGROUND_TRACKS = filterDungeons({ strict: false });
+
 export const REGIONS = {
   Misthalin: [
     'Vision',
@@ -51,7 +53,6 @@ export const REGIONS = {
     'Dogs of War',
     'Dorgeshuun City',
     'Faerie',
-    'The Fallen Empire',
     'Food for Thought',
     'Fossilised',
     'Lava is Mine',
@@ -170,6 +171,7 @@ export const REGIONS = {
     'Woe of the Wyvern',
     'Black of Knight',
     'The Route of All Evil',
+    'The Fallen Empire',
   ],
   Fremennik: [
     'Saga',
