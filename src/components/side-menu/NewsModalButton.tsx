@@ -71,7 +71,7 @@ export default function NewsModalButton() {
               <section className='news-content'>
                 {<p dangerouslySetInnerHTML={{ __html: post.content }} />}
               </section>
-              {parseInt(post.id) !== NEWS_POSTS.length - 1 && <hr />}
+              {parseInt(post.id) !== 1 && <hr />}
             </section>
           ))}
         </div>
