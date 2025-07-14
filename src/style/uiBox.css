@@ -50,6 +50,49 @@
   padding: 0;
 }
 
+/* Gradient slider styles */
+.gradient-slider {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to right, #ff0000, #00ff00);
+  border-radius: 4px;
+  outline: none;
+}
+
+/* Webkit browsers (Chrome, Safari) */
+.gradient-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border: 2px solid #333;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Firefox */
+.gradient-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border: 2px solid #333;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* IE/Edge */
+.gradient-slider::-ms-thumb {
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border: 2px solid #333;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .custom-range-input.visible {
   max-height: 100px; /* Adjust based on your content height */
   opacity: 1;

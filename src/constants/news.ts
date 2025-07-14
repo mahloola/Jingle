@@ -5,7 +5,7 @@ export const NEWS_POSTS = [
     date: 'Jul 8, 2025',
     content: `
             <p>
-          150+ dungeon tracks have been added 🎉
+          200+ dungeon tracks have been added 🎉
           <br/>
           (as if the game wasn't hard enough already)
           <br />- You can disable them in the settings
