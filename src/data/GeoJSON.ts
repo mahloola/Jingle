@@ -1494,9 +1494,7 @@ const geojsondata = {
     {
       type: 'Feature',
       geometry: {
-        coordinates: [
-          [],
-        ],
+        coordinates: [[]],
         type: 'Polygon',
       },
       convertedGeometry: [
@@ -1510,12 +1508,14 @@ const geojsondata = {
             [2880, 3840],
             [2816, 3840],
           ],
-        }],
+        },
+      ],
       properties: {
         mapID: '-1',
         plane: 0,
         title: '<a href="/w/The_North" title="The_North">The North</a>',
-        description: '<div><a href="/w/File:The_North.ogg" title="File:The_North.ogg">Play track</a></div>',
+        description:
+          '<div><a href="/w/File:The_North.ogg" title="File:The_North.ogg">Play track</a></div>',
       },
     },
     {
@@ -22558,17 +22558,6 @@ const geojsondata = {
             [3392, 3648],
             [3392, 3584],
             [3328, 3584],
-          ],
-        },
-        {
-          mapName: 'Taverley Underground',
-          mapId: 20,
-          coordinates: [
-            [2816, 9728],
-            [2816, 9792],
-            [2880, 9792],
-            [2880, 9728],
-            [2816, 9728],
           ],
         },
         {
