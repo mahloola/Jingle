@@ -10,7 +10,6 @@ export const playSong = (
 ) => {
   let src;
   const songService = SongService.Instance();
-
   if (oldAudio) {
     const oldAudioExists = songName in audio2004;
     src = oldAudioExists
@@ -31,27 +30,33 @@ export const playSong = (
   }
 };
 
-export const playSnippet = (
+
+let stopTimeFlag = false;
+
+export const playSnippet = async (
   audioRef: RefObject<HTMLAudioElement | null>,
   length: number,
 ) => {
+  
   const audioPlayer = audioRef.current;
   const songService = SongService.Instance();
   if (!audioPlayer) return;
 
+
   const startPlayback = () => {
     const [start, end] = songService.getSnippet(audioRef, length)!;
-    audioPlayer.currentTime = start;
-    audioPlayer.play();
 
     const stopTime = () => {
       if (audioPlayer.currentTime >= end) {
-        audioPlayer.pause();
         audioPlayer.removeEventListener('timeupdate', stopTime);
+        audioPlayer.pause();
+        audioPlayer.currentTime = start;
       }
     };
 
     audioPlayer.addEventListener('timeupdate', stopTime);
+    audioPlayer.currentTime = start;
+    audioPlayer.play();
   };
 
   if (audioPlayer.readyState >= 3) {

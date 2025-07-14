@@ -23,7 +23,7 @@ import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
 import SettingsModalButton from './side-menu/PreferencesModalButton';
 import StatsModalButton from './side-menu/StatsModalButton';
-import SnippetPlayer from './SnippetPlayer';
+import AudioControls from './AudioControls';
 import { Button } from './ui-util/Button';
 
 sanitizePreferences();
@@ -89,7 +89,6 @@ export default function Practice() {
     const gameState = jingle.addSong(newSong);
     jingle.nextSong(gameState);
     songService.removeSong(newSong);
-    songService.getSnippet(audioRef, currentPreferences.hardModeLength);
     playSong(
       audioRef,
       newSong,
@@ -150,21 +149,7 @@ export default function Practice() {
               })
               .exhaustive()}
 
-            <audio
-              controls
-              id='audio'
-              ref={audioRef}
-              className={gameState.settings.hardMode ? 'hide-audio' : ''}
-            />
-
-            {currentPreferences.preferHardMode && (
-              <div>
-                <SnippetPlayer
-                  audioRef={audioRef}
-                  snippetLength={currentPreferences.hardModeLength}
-                />
-              </div>
-            )}
+            <AudioControls ref={audioRef} gameState={gameState}/>
             <Footer />
           </div>
         </div>
