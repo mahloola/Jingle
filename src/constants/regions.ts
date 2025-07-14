@@ -211,9 +211,7 @@ export const REGIONS = {
     'Slither and Thither',
     'Tale of Keldagrim',
     'Time to Mine',
-
     'Prison Break',
-    'Eye See You',
     'More Than Meets the Eye',
     'Secrets of the North',
     'Reign of the Basilisk',

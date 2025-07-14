@@ -18,6 +18,7 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
     Kourend: true,
     Varlamore: true,
   },
+  hardModeLength: 2,
   undergroundSelected: true,
   surfaceSelected: true,
 };

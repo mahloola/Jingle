@@ -60,8 +60,8 @@ export default function Practice() {
       audioRef,
       songName,
       currentPreferences.preferOldAudio,
-      currentPreferences.preferHardMode,
       songService,
+      ...(currentPreferences.preferHardMode ? [currentPreferences.hardModeLength] : []),
     );
     songService.removeSong(songName);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -90,12 +90,13 @@ export default function Practice() {
     const gameState = jingle.addSong(newSong);
     jingle.nextSong(gameState);
     songService.removeSong(newSong);
+    songService.getSnippet(audioRef, currentPreferences.hardModeLength);
     playSong(
       audioRef,
       newSong,
       currentPreferences.preferOldAudio,
-      currentPreferences.preferHardMode,
       songService,
+      ...(currentPreferences.preferHardMode ? [currentPreferences.hardModeLength] : []),
     );
   };
 
@@ -105,7 +106,6 @@ export default function Practice() {
       oldAudio: preferences.preferOldAudio,
     };
     jingle.updateGameSettings(newSettings);
-
     savePreferencesToBrowser(preferences);
   };
 
@@ -152,18 +152,28 @@ export default function Practice() {
               })
               .exhaustive()}
 
-            {gameState.settings.hardMode && (
-              <SnippetPlayer
-                audioRef={audioRef}
-                songService={songService}
+            {currentPreferences.preferHardMode ? (
+              <div>
+                <SnippetPlayer
+                  audioRef={audioRef}
+                  songService={songService}
+                  snippetLength={currentPreferences.hardModeLength}
+                />
+                <audio
+                  controls
+                  id='audio'
+                  ref={audioRef}
+                  className={gameState.settings.hardMode ? 'hide-audio' : ''}
+                />
+              </div>
+            ) : (
+              <audio
+                controls
+                id='audio'
+                ref={audioRef}
+                className={gameState.settings.hardMode ? 'hide-audio' : ''}
               />
             )}
-            <audio
-              controls
-              id='audio'
-              ref={audioRef}
-              className={gameState.settings.hardMode ? 'hide-audio' : ''}
-            />
 
             <Footer />
           </div>
