@@ -30,18 +30,13 @@ export const playSong = (
   }
 };
 
-
-let stopTimeFlag = false;
-
-export const playSnippet = async (
+export const playSnippet = (
   audioRef: RefObject<HTMLAudioElement | null>,
   length: number,
 ) => {
-  
   const audioPlayer = audioRef.current;
   const songService = SongService.Instance();
   if (!audioPlayer) return;
-
 
   const startPlayback = () => {
     const [start, end] = songService.getSnippet(audioRef, length)!;
