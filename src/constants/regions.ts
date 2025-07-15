@@ -111,6 +111,8 @@ export const REGIONS = {
     'Understanding',
     'Superstition',
     'Voodoo Cult',
+    'Marooned',
+
   ],
   Asgarnia: [
     'Alone',
@@ -256,7 +258,6 @@ export const REGIONS = {
     'Magic Magic Magic',
     'Magical Journey',
     'March',
-    'Marooned',
     'Mellow',
     'Melodrama',
     'The Mollusc Menace',
