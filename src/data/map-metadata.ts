@@ -1018,6 +1018,42 @@ const mapMetadata: MapMetadata[] = [
         ]
     },
     {
+        "mapId": 1035,
+        "name": "Underground Pass Upper",
+        "bounds": [
+            [
+                2368,
+                9536
+            ],
+            [
+                2496,
+                9728
+            ]
+        ],
+        "center": [
+            2432,
+            9632
+        ]
+    },
+    {
+        "mapId": 1036,
+        "name": "Underground Pass Lower",
+        "bounds": [
+            [
+                2112,
+                4544
+            ],
+            [
+                2304,
+                4736
+            ]
+        ],
+        "center": [
+            2208,
+            4640
+        ]
+    },
+    {
         "mapId": -1,
         "name": "debug",
         "bounds": [

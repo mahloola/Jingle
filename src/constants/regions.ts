@@ -304,6 +304,9 @@ export const REGIONS = {
     'Fight or Flight',
     'Temple of Light',
     'La Mort',
+    'Iban',
+    'Underground Pass',
+    'Intrepid',
   ],
   Desert: [
     'Arabian',

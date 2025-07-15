@@ -21,6 +21,111 @@ const geojsondata = {
         type: 'Polygon',
         coordinates: [
           [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Underground_Pass_(music_track)" title="Underground Pass (music track)">Underground Pass</a>',
+        description:
+          '<div><a href="/w/File:Underground_Pass.ogg" title="File:Underground Pass.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Underground Pass Upper',
+          mapId: 1035,
+          coordinates: [
+            [2368, 9576],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9576],
+            [2368, 9576],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2112, 4544],
+            [2112, 4736],
+            [2176, 4736],
+            [2176, 4544],
+            [2112, 4544],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Iban_(music_track)" title="Iban (music track)">Iban</a>',
+        description: '<div><a href="/w/File:Iban.ogg" title="File:Iban.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Underground Pass Lower',
+          mapId: 1036,
+          coordinates: [
+            [2112, 4544],
+            [2112, 4736],
+            [2176, 4736],
+            [2176, 4544],
+            [2112, 4544],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2304, 9792],
+            [2304, 9920],
+            [2368, 9920],
+            [2368, 9792],
+            [2304, 9792],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Intrepid" title="Intrepid">Intrepid</a>',
+        description:
+          '<div><a href="/w/File:Intrepid.ogg" title="File:Intrepid.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Underground Pass Lower',
+          mapId: 1036,
+          coordinates: [
+            [2310, 4609],
+            [2235, 4609],
+            [2235, 4476],
+            [2310, 4476],
+            [2310, 4609],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
             [2912, 5312],
             [2944, 5312],
             [2944, 5248],
@@ -896,6 +1001,17 @@ const geojsondata = {
             [2368, 4864],
             [2368, 4800],
             [2304, 4800],
+          ],
+        },
+        {
+          mapName: 'Underground Pass Upper',
+          mapId: 1035,
+          coordinates: [
+            [2368, 9664],
+            [2368, 9728],
+            [2496, 9728],
+            [2496, 9664],
+            [2368, 9664],
           ],
         },
       ],
@@ -9724,6 +9840,17 @@ const geojsondata = {
             [2496, 3264],
             [2496, 3200],
             [2368, 3200],
+          ],
+        },
+        {
+          mapName: 'Underground Pass Upper',
+          mapId: 1035,
+          coordinates: [
+            [2432, 9600],
+            [2432, 9664],
+            [2496, 9664],
+            [2496, 9600],
+            [2432, 9600],
           ],
         },
       ],

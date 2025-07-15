@@ -30,9 +30,7 @@ export const playSong = (
   }
 };
 
-const stopTimeFlag = false;
-
-export const playSnippet = async (audioRef: RefObject<HTMLAudioElement | null>, length: number) => {
+export const playSnippet = (audioRef: RefObject<HTMLAudioElement | null>, length: number) => {
   const audioPlayer = audioRef.current;
   const songService = SongService.Instance();
   if (!audioPlayer) return;
