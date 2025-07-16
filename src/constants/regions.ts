@@ -64,10 +64,8 @@ export const REGIONS = {
     'The Guardians Prepare',
     'The Sound of Guthix',
     'Temple Desecrated',
-    'Serene',
     'Zealot',
     'Down to Earth',
-    'Quest',
     'Miracle Dance',
     'Heart and Mind',
     'Stratosphere',
@@ -172,6 +170,8 @@ export const REGIONS = {
     'Black of Knight',
     'The Route of All Evil',
     'The Fallen Empire',
+    'Serene',
+
   ],
   Fremennik: [
     'Saga',
@@ -342,6 +342,8 @@ export const REGIONS = {
     'Garden of Summer',
     'Garden of Autumn',
     'Garden of Spring',
+    'Quest',
+
   ],
   Morytania: [
     'Arboretum',
