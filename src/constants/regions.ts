@@ -64,10 +64,8 @@ export const REGIONS = {
     'The Guardians Prepare',
     'The Sound of Guthix',
     'Temple Desecrated',
-    'Serene',
     'Zealot',
     'Down to Earth',
-    'Quest',
     'Miracle Dance',
     'Heart and Mind',
     'Stratosphere',
@@ -111,6 +109,8 @@ export const REGIONS = {
     'Understanding',
     'Superstition',
     'Voodoo Cult',
+    'Marooned',
+
   ],
   Asgarnia: [
     'Alone',
@@ -172,6 +172,8 @@ export const REGIONS = {
     'Black of Knight',
     'The Route of All Evil',
     'The Fallen Empire',
+    'Serene',
+
   ],
   Fremennik: [
     'Saga',
@@ -256,7 +258,6 @@ export const REGIONS = {
     'Magic Magic Magic',
     'Magical Journey',
     'March',
-    'Marooned',
     'Mellow',
     'Melodrama',
     'The Mollusc Menace',
@@ -304,6 +305,9 @@ export const REGIONS = {
     'Fight or Flight',
     'Temple of Light',
     'La Mort',
+    'Iban',
+    'Underground Pass',
+    'Intrepid',
   ],
   Desert: [
     'Arabian',
@@ -339,6 +343,8 @@ export const REGIONS = {
     'Garden of Summer',
     'Garden of Autumn',
     'Garden of Spring',
+    'Quest',
+
   ],
   Morytania: [
     'Arboretum',

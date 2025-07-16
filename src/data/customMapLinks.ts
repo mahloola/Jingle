@@ -1,7 +1,21 @@
 const cutstomMapLinks = {
   'Gielinor Surface': [
-    
-        {
+    {
+      end: {
+        x: 2497,
+        y: 9716,
+        mapId: 1035,
+        name: 'Underground Pass Upper',
+      },
+      start: {
+        x: 2434,
+        y: 3315,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+
+    {
       start: {
         x: 3016,
         y: 3518,
@@ -15,7 +29,7 @@ const cutstomMapLinks = {
         name: 'Black Knight Catacombs',
       },
     },
-        {
+    {
       end: {
         x: 2838,
         y: 9388,
@@ -27,7 +41,7 @@ const cutstomMapLinks = {
         y: 3001,
         mapId: 0,
         name: 'Gielinor Surface',
-      }
+      },
     },
 
     //chaos tunnels
@@ -370,7 +384,7 @@ const cutstomMapLinks = {
   ],
 
   'Misthalin Underground': [
-           {
+    {
       start: {
         x: 3408,
         y: 9968,
@@ -1288,7 +1302,7 @@ const cutstomMapLinks = {
   ],
 
   'Black Knight Catacombs': [
-       {
+    {
       end: {
         x: 3016,
         y: 3518,
@@ -1302,6 +1316,148 @@ const cutstomMapLinks = {
         name: 'Black Knight Catacombs',
       },
     },
+  ],
 
-  ]
+  'Underground Pass Upper': [
+    {
+      start: {
+        x: 2497,
+        y: 9716,
+        mapId: 1035,
+        name: 'Underground Pass Upper',
+      },
+      end: {
+        x: 2434,
+        y: 3315,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+
+    {
+      end: {
+        x: 2174,
+        y: 4725,
+        mapId: 1036,
+        name: 'Underground Pass Lower',
+      },
+      start: {
+        x: 2369,
+        y: 9798,
+        mapId: 1035,
+        name: 'Underground Pass Upper',
+      },
+    },
+
+
+      {
+      start: {
+        x: 2423,
+        y: 9661,
+        mapId: 1035,
+        name: 'Underground Pass Upper',
+      },
+      end: {
+        x: 2416,
+        y: 9675,
+        mapId: 1035,
+        name: 'Underground Pass Upper',
+      },
+    },
+
+    
+      {
+      start: {
+        x: 2423,
+        y: 9661,
+        mapId: 1035,
+        name: 'Underground Pass Upper',
+      },
+      end: {
+        x: 2416,
+        y: 9675,
+        mapId: 1035,
+        name: 'Underground Pass Upper',
+      },
+    },
+
+     {
+      start: {
+        x: 2401,
+        y: 9611,
+        mapId: 1035,
+        name: 'Underground Pass Upper',
+      },
+      end: {
+        x: 2371,
+        y: 9665,
+        mapId: 1035,
+        name: 'Underground Pass Upper',
+      },
+    },
+
+          {
+      end: {
+        x: 2401,
+        y: 9611,
+        mapId: 1035,
+        name: 'Underground Pass Upper',
+      },
+      start: {
+        x: 2371,
+        y: 9665,
+        mapId: 1035,
+        name: 'Underground Pass Upper',
+      },
+    },
+
+  ],
+
+  'Underground Pass Lower': [
+    {
+      start: {
+        x: 2174,
+        y: 4725,
+        mapId: 1036,
+        name: 'Underground Pass Lower',
+      },
+      end: {
+        x: 2369,
+        y: 9719,
+        mapId: 1035,
+        name: 'Underground Pass Upper',
+      },
+    },
+
+              {
+      start: {
+        x: 2150,
+        y: 4545,
+        mapId: 1036,
+        name: 'Underground Pass Lower',
+      },
+      end: {
+        x: 2272,
+        y: 4481,
+        mapId: 1036,
+        name: 'Underground Pass Lower',
+      },
+    },
+
+                  {
+      end: {
+        x: 2150,
+        y: 4545,
+        mapId: 1036,
+        name: 'Underground Pass Lower',
+      },
+      start: {
+        x: 2272,
+        y: 4481,
+        mapId: 1036,
+        name: 'Underground Pass Lower',
+      },
+    },
+    
+  ],
 };

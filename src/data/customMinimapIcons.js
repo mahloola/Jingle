@@ -705,6 +705,112 @@
 		"spriteId": 1534
 	},
 
+	//underground pass entrance
+	
+		{
+		"position": {
+			"x": 2434,
+			"y": 3315,
+			"z": 0
+		},
+		"spriteId": 1534
+	},
+	 
+		{
+		"position": {
+			"x": 2497,
+			"y": 9716,
+			"z": 0
+		},
+		"spriteId": 1535
+	},
+
+	//to/from underground pass lower
+	{
+		"position": {
+			"x": 2369,
+			"y": 9719,
+			"z": 0
+		},
+		"spriteId": 1534
+	},
+	{
+		"position": {
+			"x": 2174,
+			"y": 4725,
+			"z": 1
+		},
+		"spriteId": 1535
+	},
+
+	//ug pass part 1 to 2
+		{
+		"position": {
+			"x": 2416,
+			"y": 9675,
+			"z": 0
+		},
+		"spriteId": 1534
+	},
+			{
+		"position": {
+			"x": 2423,
+			"y": 9661,
+			"z": 0
+		},
+		"spriteId": 1535
+	},
+
+	//part 2 to 3
+	{
+		"position": {
+			"x": 2401,
+			"y": 9611,
+			"z": 0
+		},
+		"spriteId": 1534
+	},
+	{
+		"position": {
+			"x": 2370,
+			"y": 9665,
+			"z": 0
+		},
+		"spriteId": 1535
+	},
+
+
+
+	//ibans to below
+		{
+		"position": {
+			"x": 2150,
+			"y": 4545,
+			"z": 1
+		},
+		"spriteId": 1534
+	},
+		{
+		"position": {
+			"x": 2336,
+			"y": 9794,
+			"z": 0
+		},
+		"spriteId": 1535
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1176,6 +1282,173 @@
 		},
 		"spriteId": -666,
 		"text": "Black\ndragons",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	   	{
+		"position": {
+			"x": 2373,
+			"y": 9731,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "To Iban's lair",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	{
+		"position": {
+			"x": 2438,
+			"y": 9695,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Blessed\nSpiders",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	{
+		"position": {
+			"x": 2478,
+			"y": 9699,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Giant bats",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	{
+		"position": {
+			"x": 2386,
+			"y": 9685,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Prison",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	{
+		"position": {
+			"x": 2397,
+			"y": 9603,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Unicorn",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	{
+		"position": {
+			"x": 2131,
+			"y": 4708,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Half Soulless",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	{
+		"position": {
+			"x": 2153,
+			"y": 4565,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Witch	",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+	
+	{
+		"position": {
+			"x": 2128,
+			"y": 4560,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Demons",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	{
+		"position": {
+			"x": 2136,
+			"y": 4648,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Well of\nVoyage",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	{
+		"position": {
+			"x": 2331,
+			"y": 9853,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Soulless",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	{
+		"position": {
+			"x": 2318,
+			"y": 9812,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Dwarves",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	{
+		"position": {
+			"x": 2346,
+			"y": 9888,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Blessed\nSpiders",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+	{
+		"position": {
+			"x": 2356,
+			"y": 9910,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Kalrag",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	{
+		"position": {
+			"x": 2463,
+			"y": 9642,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Rocks",
 		"fontScale": 0,
 		"fontColor": "#FFFFFF"
 	},
