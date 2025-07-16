@@ -66,7 +66,6 @@ export const REGIONS = {
     'Temple Desecrated',
     'Zealot',
     'Down to Earth',
-    'Quest',
     'Miracle Dance',
     'Heart and Mind',
     'Stratosphere',
@@ -344,6 +343,8 @@ export const REGIONS = {
     'Garden of Summer',
     'Garden of Autumn',
     'Garden of Spring',
+    'Quest',
+
   ],
   Morytania: [
     'Arboretum',
