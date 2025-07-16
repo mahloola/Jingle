@@ -1053,6 +1053,24 @@ const mapMetadata: MapMetadata[] = [
             4640
         ]
     },
+       {
+        "mapId": 1037,
+        "name": "Tombs of Amascut",
+        "bounds": [
+            [
+                3520,
+                5120
+            ],
+            [
+                3904,
+                5376
+            ]
+        ],
+        "center": [
+            3712,
+            5248
+        ]
+    },
     {
         "mapId": -1,
         "name": "debug",

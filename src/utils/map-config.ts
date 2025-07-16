@@ -48,6 +48,7 @@ export enum MapIds {
   RuinsOfCamdozaal = 39,
   Abyss = 40,
   LassarUndercity = 41,
+  DesertUnderground = 42,
   CamTorum = 44,
   Neypotzli = 45,
   GuardiansOfTheRift = 1001,
@@ -65,7 +66,8 @@ export enum MapIds {
   EvilChickenLair = 1027,
   ChaosTunnelsAltar = 1033,
   UndergroundPassUpper = 1035,
-  UndergroundPassLower = 1036
+  UndergroundPassLower = 1036,
+  ToA = 1037,
 }
 
 //separated for simplicity's sake.
@@ -89,7 +91,8 @@ export const NESTED_MAP_IDS = [
   MapIds.EvilChickenLair,
   MapIds.ChaosTunnelsAltar,
   MapIds.SkotizoLair,
-  MapIds.UndergroundPassLower
+  MapIds.UndergroundPassLower,
+  MapIds.ToA,
 ];
 
 export const NESTED_GROUPS = [
@@ -111,6 +114,7 @@ export const NESTED_GROUPS = [
   [MapIds.Zanaris, MapIds.EvilChickenLair],
   [MapIds.MisthalinUnderground, MapIds.ChaosTunnelsAltar],
   [MapIds.UndergroundPassUpper, MapIds.UndergroundPassLower],
+  [MapIds.DesertUnderground, MapIds.ToA],
 ];
 
 export const LINKLESS_MAP_IDS = [
