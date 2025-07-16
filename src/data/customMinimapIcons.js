@@ -800,6 +800,25 @@
 	},
 
 
+	//toa
+		{
+		"position": {
+			"x": 3359,
+			"y": 9112,
+			"z": 0
+		},
+		"spriteId": 1534
+	},
+		{
+		"position": {
+			"x": 3551,
+			"y": 5162,
+			"z": 0
+		},
+		"spriteId": 1535
+	},
+
+
 
 
 
@@ -1452,4 +1471,81 @@
 		"fontScale": 0,
 		"fontColor": "#FFFFFF"
 	},
+
+
+
+
+
+		{
+		"position": {
+			"x": 3930,
+			"y": 5408,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Big Croc",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+		{
+		"position": {
+			"x": 3682,
+			"y": 5407,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Akkha",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+		{
+		"position": {
+			"x": 3552,
+			"y": 5408,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Kephri",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+		{
+		"position": {
+			"x": 3808,
+			"y": 5408,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Ba-Ba",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+	
+		{
+		"position": {
+			"x": 3809,
+			"y": 5154,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Wardens",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+			{
+		"position": {
+			"x": 3681,
+			"y": 5154,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Burial\nChamber",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	}
 ]

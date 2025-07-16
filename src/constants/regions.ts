@@ -344,6 +344,17 @@ export const REGIONS = {
     'Garden of Autumn',
     'Garden of Spring',
     'Quest',
+    'Beneath Cursed Sands',
+    "A Mother's Curse",
+    "Jaws of Gluttony", 
+    "Sands of Time",
+    "Ape-ex Predator",
+    "Amascut's Promise",
+    "Laid to Rest",
+    'Test of Strength', 
+    'Test of Isolation',
+    'Test of Companionship',
+    'Test of Resourcefulness'
 
   ],
   Morytania: [
