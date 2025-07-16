@@ -570,6 +570,23 @@ const cutstomMapLinks = {
     },
   ],
 
+    'Kharidian Desert Underground': [
+          {
+      end: {
+        x: 3743,
+        y: 5321,
+        mapId: 1037,
+        name: 'Tombs of Amascut',
+      },
+      start: {
+        x: 3359,
+        y: 9240,
+        mapId: 42,
+        name: 'Kharidian Desert Underground',
+      },
+    },
+  ],
+
   'Guardians of the Rift': [
     {
       start: {
@@ -1459,5 +1476,22 @@ const cutstomMapLinks = {
       },
     },
     
+  ],
+
+   'Tombs of Amascut': [
+          {
+      start: {
+        x: 3743,
+        y: 5321,
+        mapId: 1037,
+        name: 'Tombs of Amascut',
+      },
+      end: {
+        x: 3359,
+        y: 9240,
+        mapId: 42,
+        name: 'Kharidian Desert Underground',
+      },
+    },
   ],
 };

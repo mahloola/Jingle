@@ -15,6 +15,426 @@ export interface ConvertedFeature extends Feature<Polygon> {
 
 const geojsondata = {
   features: [
+      {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+           "properties": {
+                title: "<a href=\"/w/Laid to Rest\" title=\"Laid to Rest\">Laid to Rest</a>",
+                mapID: "-1",
+                plane: 0,
+                description: "<div><a href=\"/w/File:Laid_to_Rest.ogg\" title=\"Laid_to_Rest.ogg\">Play track</a></div>"
+            },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [58*64+64, 80*64+64],
+            [58*64, 80*64+64],
+            [58*64, 80*64],
+            [58*64+64, 80*64],
+            [58*64+64, 80*64+64],
+    
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+           "properties": {
+                title: "<a href=\"/w/Amascut%27s_Promise\" title=\"Amascut&#39;sPromise\">Amascut&#39;s Promise</a>",
+                mapID: "-1",
+                plane: 0,
+                description: "<div><a href=\"/w/File:Amascut%27s_Promise.ogg\" title=\"Amascut%27s_Promise.ogg\">Play track</a></div>"
+            },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [58*64+64, 81 *64+64],
+            [58*64, 81*64+64],
+            [58*64, 81*64],
+            [58*64+64, 81*64],
+            [58*64+64, 81*64+64],
+    
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+           "properties": {
+                title: "<a href=\"/w/Sands_of_Time\" title=\"Sands of Time\">Sands of Time</a>",
+                mapID: "-1",
+                plane: 0,
+                description: "<div><a href=\"/w/File:Sands_of_Time.ogg\" title=\"Sands_of_Time.ogg\">Play track</a></div>"
+            },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [56*64+64, 82 *64+64],
+            [56*64, 82*64+64],
+            [56*64, 82*64],
+            [56*64+64, 82*64],
+            [56*64+64, 82*64+64],
+    
+          ],
+        },
+      ],
+    },
+      {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+           "properties": {
+                title: "<a href=\"/w/Test_of_Strength\" title=\"Test of Strength\">Test of Strength</a>",
+                mapID: "-1",
+                plane: 0,
+                description: "<div><a href=\"/w/File:Test_of_Strength.ogg\" title=\"Test_of_Strength.ogg\">Play track</a></div>"
+            },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [57*64+64, 82 *64+64],
+            [57*64, 82*64+64],
+            [57*64, 82*64],
+            [57*64+64, 82*64],
+            [57*64+64, 82*64+64],
+    
+          ],
+        },
+      ],
+    },
+      {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+           "properties": {
+                title: "<a href=\"/w/Ape-ex_Predator\" title=\"Ape-ex Predator\">Ape-ex Predator</a>",
+                mapID: "-1",
+                plane: 0,
+                description: "<div><a href=\"/w/File:Ape-ex_Predator.ogg\" title=\"Ape-ex_Predator.ogg\">Play track</a></div>"
+            },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [60*64+64, 82 *64+64],
+            [60*64, 82*64+64],
+            [60*64, 82*64],
+            [60*64+64, 82*64],
+            [60*64+64, 82*64+64],
+    
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+           "properties": {
+                title: "<a href=\"/w/Test_of_Companionship\" title=\"Test of Companionship\">Test of Companionship</a>",
+                mapID: "-1",
+                plane: 0,
+                description: "<div><a href=\"/w/File:Test_of_Companionship.ogg\" title=\"Test_of_Companionship.ogg\">Play track</a></div>"
+            },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [59*64+64, 82 *64+64],
+            [59*64, 82*64+64],
+            [59*64, 82*64],
+            [59*64+64, 82*64],
+            [59*64+64, 82*64+64],
+    
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+           "properties": {
+                title: "<a href=\"/w/A_Mother%27s_Curse\" title=\"A Mother&#39;s Curse\">A Mother&#39;s Curse</a>",
+                mapID: "-1",
+                plane: 0,
+                description: "<div><a href=\"/w/File:A_Mother%27s_Curse.ogg\" title=\"A_Mother%27s_Curse.ogg\">Play track</a></div>"
+            },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [60*64+64, 83 *64+64],
+            [60*64, 83*64+64],
+            [60*64, 83*64],
+            [60*64+64, 83*64],
+            [60*64+64, 83*64+64],
+    
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+           "properties": {
+                title: "<a href=\"/w/Test_of_Isolation\" title=\"Test of Isolation\">Test of Isolation</a>",
+                mapID: "-1",
+                plane: 0,
+                description: "<div><a href=\"/w/File:Test_of_Isolation.ogg\" title=\"Test_of_Isolation.ogg\">Play track</a></div>"
+            },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [59*64+64, 83 *64+64],
+            [59*64, 83*64+64],
+            [59*64, 83*64],
+            [59*64+64, 83*64],
+            [59*64+64, 83*64+64],
+    
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+           "properties": {
+                title: "<a href=\"/w/Jaws_of_Gluttony\" title=\"Jaws of Gluttony\">Jaws of Gluttony </a>",
+                mapID: "-1",
+                plane: 0,
+                description: "<div><a href=\"/w/File:Jaws_of_Gluttony.ogg\" title=\"File:Jaws of Gluttony.ogg\">Play track</a></div>"
+            },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [56*64+64, 83 *64+64],
+            [56*64, 83*64+64],
+            [56*64, 83*64],
+            [56*64+64, 83*64],
+            [56*64+64, 83*64+64],
+    
+          ],
+        },
+      ],
+    },
+     {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+           "properties": {
+                title: "<a href=\"/w/Test_of_Resourcefulness\" title=\"Test of Resourcefulness\">Test of Resourcefulness </a>",
+                mapID: "-1",
+                plane: 0,
+                description: "<div><a href=\"/w/File:Test_of_Resourcefulness.ogg\" title=\"File:Test of Resourcefulness.ogg\">Play track</a></div>"
+            },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [57*64+64, 83 *64+64],
+            [57*64, 83*64+64],
+            [57*64, 83*64],
+            [57*64+64, 83*64],
+            [57*64+64, 83*64+64],
+    
+          ],
+        },
+      ],
+    },
+     {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+           "properties": {
+                "title": "<a href=\"/w/Beneath_Cursed_Sands_(music_track)\" title=\"Beneath Cursed Sands (music track)\">Beneath Cursed Sands </a>",
+                "mapID": "-1",
+                "plane": 0,
+                "description": "<div><a href=\"/w/File:Beneath_Cursed_Sands.ogg\" title=\"File:Beneath Cursed Sands.ogg\">Play track</a></div>"
+            },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [58*64+32, 83*64+32],
+            [58*64-32, 83*64+32],
+            [58*64-32, 83*64-32],
+            [58*64+32, 83*64-32],
+            [58*64-32, 83*64+32],
+    
+          ],
+        },
+      ],
+    },
+     {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+           "properties": {
+                "title": "<a href=\"/w/Beneath_Cursed_Sands_(music_track)\" title=\"Beneath Cursed Sands (music track)\">Beneath Cursed Sands </a>",
+                "mapID": "-1",
+                "plane": 0,
+                "description": "<div><a href=\"/w/File:Beneath_Cursed_Sands.ogg\" title=\"File:Beneath Cursed Sands.ogg\">Play track</a></div>"
+            },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [51*64+32, 69*64+32],
+            [51*64-32, 69*64+32],
+            [51*64-32, 69*64-32],
+            [51*64+32, 69*64-32],
+            [51*64-32, 69*64+32],
+    
+          ],
+        },
+      ],
+    },
     {
       type: 'Feature',
       geometry: {

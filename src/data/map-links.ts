@@ -5310,6 +5310,21 @@ export const groupedLinks: GroupedLinks = {
   ],
   'Kharidian Desert Underground': [
     {
+      end: {
+        x: 3743,
+        y: 5321,
+        mapId: 1037,
+        name: 'Tombs of Amascut',
+      },
+      start: {
+        x: 3359,
+        y: 9240,
+        mapId: 42,
+        name: 'Kharidian Desert Underground',
+      },
+    },
+
+    {
       start: {
         x: 3195,
         y: 9510,
@@ -6682,7 +6697,7 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
 
-   'Underground Pass Upper': [
+  'Underground Pass Upper': [
     {
       start: {
         x: 2497,
@@ -6713,8 +6728,7 @@ export const groupedLinks: GroupedLinks = {
       },
     },
 
-
-      {
+    {
       start: {
         x: 2423,
         y: 9661,
@@ -6729,8 +6743,7 @@ export const groupedLinks: GroupedLinks = {
       },
     },
 
-    
-      {
+    {
       end: {
         x: 2423,
         y: 9661,
@@ -6745,8 +6758,7 @@ export const groupedLinks: GroupedLinks = {
       },
     },
 
-    
-      {
+    {
       start: {
         x: 2401,
         y: 9611,
@@ -6761,7 +6773,7 @@ export const groupedLinks: GroupedLinks = {
       },
     },
 
-          {
+    {
       end: {
         x: 2401,
         y: 9611,
@@ -6775,7 +6787,6 @@ export const groupedLinks: GroupedLinks = {
         name: 'Underground Pass Upper',
       },
     },
-
   ],
 
   'Underground Pass Lower': [
@@ -6794,7 +6805,7 @@ export const groupedLinks: GroupedLinks = {
       },
     },
 
-                 {
+    {
       start: {
         x: 2150,
         y: 4545,
@@ -6809,7 +6820,7 @@ export const groupedLinks: GroupedLinks = {
       },
     },
 
-                  {
+    {
       end: {
         x: 2150,
         y: 4545,
@@ -6823,6 +6834,22 @@ export const groupedLinks: GroupedLinks = {
         name: 'Underground Pass Lower',
       },
     },
-    
+  ],
+
+  'Tombs of Amascut': [
+    {
+      start: {
+        x: 3743,
+        y: 5321,
+        mapId: 1037,
+        name: 'Tombs of Amascut',
+      },
+      end: {
+        x: 3359,
+        y: 9240,
+        mapId: 42,
+        name: 'Kharidian Desert Underground',
+      },
+    },
   ],
 };
