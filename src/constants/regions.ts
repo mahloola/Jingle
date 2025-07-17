@@ -417,6 +417,9 @@ export const REGIONS = {
     "It's not over 'til...",
     "The Fat Lady Sings",
     "The Curtain Closes",
+    "Haunted Mine",
+    "Deep Down",
+    "Chamber"
 
 
   ],

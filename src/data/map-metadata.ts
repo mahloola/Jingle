@@ -1089,6 +1089,24 @@ const mapMetadata: MapMetadata[] = [
             4448
         ]
     },
+        {
+        "mapId": 1039,
+        "name": "Haunted Mine",
+        "bounds": [
+            [
+                3392,
+                9344
+            ],
+            [
+                3584,
+                9664
+            ]
+        ],
+        "center": [
+            3488,
+            9504
+        ]
+    },
     {
         "mapId": -1,
         "name": "debug",
