@@ -402,6 +402,22 @@ export const REGIONS = {
     'Blistering Barnacles',
     'Little Cave of Horrors',
     'Lament of Meiyerditch',
+
+    "The Maiden's Sorrow",
+    "The Maiden's Anger",
+    "Welcome to my Nightmare",
+    "The Nightmare Continues",
+    "Dance of the Nylocas",
+    "Arachnids of Vampyrium",
+    "The Dark Beast Sotetseg",
+    "Power of the Shadow Realm",
+    'Predator Xarpus',
+    "Last King of the Yarasa",
+    "It's not over 'til...",
+    "The Fat Lady Sings",
+    "The Curtain Closes",
+
+
   ],
   Tirannwn: [
     'Everywhere',
