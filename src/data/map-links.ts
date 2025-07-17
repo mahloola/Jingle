@@ -132,6 +132,20 @@ export const groupedLinks: GroupedLinks = {
   ],
   'Gielinor Surface': [
     {
+            end: {
+       x: 3284,
+        y: 4459,
+        mapId: 1038,
+        name: 'Theatre of Blood',
+      },
+      start: {
+        x: 3677,
+        y: 3219,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      }
+    },
+    {
       end: {
         x: 2497,
         y: 9716,
@@ -6849,6 +6863,23 @@ export const groupedLinks: GroupedLinks = {
         y: 9240,
         mapId: 42,
         name: 'Kharidian Desert Underground',
+      },
+    },
+  ],
+
+       'Theatre of Blood': [
+          {
+      start: {
+       x: 3284,
+        y: 4459,
+        mapId: 1038,
+        name: 'Theatre of Blood',
+      },
+      end: {
+        x: 3677,
+        y: 3219,
+        mapId: 0,
+        name: 'Gielinor Surface',
       },
     },
   ],

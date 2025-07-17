@@ -818,6 +818,34 @@
 		"spriteId": 1535
 	},
 
+	//tob
+	
+	//toa
+		{
+		"position": {
+			"x": 3677,
+			"y": 3219,
+			"z": 0
+		},
+		"spriteId": 1534
+	},
+		{
+		"position": {
+			"x": 3220,
+			"y": 4460,
+			"z": 0
+		},
+		"spriteId": 1535
+	},
+		{
+		"position": {
+			"x": 3246,
+			"y": 4315,
+			"z": 0
+		},
+		"spriteId": 1535
+	},
+
 
 
 
@@ -1547,5 +1575,90 @@
 		"text": "Burial\nChamber",
 		"fontScale": 0,
 		"fontColor": "#FFFFFF"
-	}
+	},
+
+				{
+		"position": {
+			"x": 3174,
+			"y": 4446,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Maiden",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+				{
+		"position": {
+			"x": 3295,
+			"y": 4448,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Bloat",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+			{
+		"position": {
+			"x": 3295,
+			"y": 4249,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Nylocas",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+				{
+		"position": {
+			"x": 3168,
+			"y": 4314,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Lady Verzik",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+				{
+		"position": {
+			"x": 3279,
+			"y": 4318,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Big\ndog",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+				{
+		"position": {
+			"x": 3170,
+			"y": 4387,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Fat Lady",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+
+				{
+		"position": {
+			"x": 3234,
+			"y": 4327,
+			"z": 0
+		},
+		"spriteId": -666,
+		"text": "Treasury",
+		"fontScale": 0,
+		"fontColor": "#FFFFFF"
+	},
+	
+
 ]
