@@ -1071,6 +1071,24 @@ const mapMetadata: MapMetadata[] = [
             5248
         ]
     },
+        {
+        "mapId": 1038,
+        "name": "Theatre of Blood",
+        "bounds": [
+            [
+                3072,
+                4224
+            ],
+            [
+                3392,
+                4480
+            ]
+        ],
+        "center": [
+            2447,
+            4448
+        ]
+    },
     {
         "mapId": -1,
         "name": "debug",

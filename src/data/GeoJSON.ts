@@ -15,7 +15,570 @@ export interface ConvertedFeature extends Feature<Polygon> {
 
 const geojsondata = {
   features: [
-      {
+    //The Maiden's Sorrow
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3264,4480],
+                [3136,4480],
+                [3136,4416],
+                [3264,4416],
+                [3264,4480],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/The_Maiden%27s_Sorrow" title="The Maiden&#39;s Sorrow">The Maiden&#39;s Sorrow</a>',
+        description:
+            '<div><a href="/w/File:The_Maiden%27s_Sorrow.ogg" title="File:The Maiden%27s Sorrow.ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+        {
+            mapName:'Theatre of Blood',
+            mapId: 1038, //whatever the theatre id will be, I saw ToA was 1037 so assumed this is correct; this is in all 13 tracks
+            coordinates: [
+                [51*64+64, 69*64+64],
+                [50*64, 69*64+64],
+                [50*64, 69*64],
+                [51*64+64, 69*64],
+                [51*64+64, 69*64+64],
+
+            ],
+        },
+               {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+              [3251,4458],
+                [3224,4458],
+                [3224,4435],
+                [3251,4435],
+
+            ],
+        },
+    ],
+},
+
+//The Maiden's Anger
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3200,4480],
+                [3136,4480],
+                [3136,4416],
+                [3200,4416],
+                [3200,4480],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/The_Maiden%27s_Anger" title="The Maiden&#39;s Anger">The Maiden&#39;s Anger</a>',
+        description:
+            '<div><a href="/w/File:The_Maiden%27s_Anger.ogg" title="File:The Maiden%27s Anger.ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+        {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+              [3253,4460],
+                [3222,4460],
+                [3222,4433],
+                [3253,4433],
+
+            ],
+        },
+    ],
+},
+
+//Welcome to my Nightmare
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3328,4480],
+                [3264,4480],
+                [3264,4416],
+                [3328,4416],
+                [3328,4480],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/Welcome_to_my_Nightmare" title="Welcome to my Nightmare">Welcome to my Nightmare</a>',
+        description:
+            '<div><a href="/w/File:Welcome_to_my_Nightmare.ogg" title="File:Welcome to my Nightmare.ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+              {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+                [49*64+64, 68*64+64],
+                [49*64, 68*64+64],
+                [49*64, 68*64],
+                [49*64+64, 68*64],
+                [49*64+64, 68*64+64],
+
+            ],
+        },
+
+            {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+             [3177, 4393],
+            [3159, 4393],
+            [3159, 4376],
+            [3177, 4376],
+
+            ],
+        },
+    ],
+},
+
+//The Nightmare Continues
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3328,4480],
+                [3264,4480],
+                [3264,4416],
+                [3328,4416],
+                [3328,4480],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/The_Nightmare_Continues" title="The Nightmare Continues">The Nightmare Continues</a>',
+        description:
+            '<div><a href="/w/File:The_Nightmare_Continues.ogg" title="File:The Nightmare Continues.ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+
+            {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+             [3178, 4393],
+            [3157, 4393],
+            [3157, 4373],
+            [3178, 4373],
+
+            ],
+        },
+    ],
+},
+
+//Dance of the Nylocas
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3328,4288],
+                [3264,4288],
+                [3264,4224],
+                [3328,4224],
+                [3328,4288],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/Dance_of_the_Nylocas" title="Dance of the Nylocas">Dance of the Nylocas</a>',
+        description:
+            '<div><a href="/w/File:Dance_of_the_Nylocas.ogg" title="File:Dance of the Nylocas.ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+        {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+                [48*64+64, 66*64+64],
+                [48*64, 66*64+64],
+                [48*64, 66*64],
+                [48*64+64, 66*64],
+                [48*64+64, 66*64+64],
+
+            ],
+        },
+         {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+               [3124,4254],
+                [3083,4254],
+                [3083,4233],
+                [3124,4233],
+
+            ],
+        },
+ 
+    ],
+},
+
+//Arachnids of Vampyrium
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3328,4288],
+                [3264,4288],
+                [3264,4224],
+                [3328,4224],
+                [3328,4288],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/Arachnids_of_Vampyrium_(music_track)" title="Arachnids of Vampyrium (music track)">Arachnids of Vampyrium</a>',
+        description:
+            '<div><a href="/w/File:Arachnids_of_Vampyrium.ogg" title="File:Arachnids of Vampyrium.ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+        {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+                [3124,4258],
+                [3083,4258],
+                [3083,4233],
+                [3124,4233],
+            ],
+        },
+    ],
+},
+
+//The Dark Beast Sotetseg
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3328,4352],
+                [3264,4352],
+                [3264,4288],
+                [3328,4288],
+                [3328,4352],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/The_Dark_Beast_Sotetseg" title="The Dark Beast Sotetseg">The Dark Beast Sotetseg</a>',
+        description:
+            '<div><a href="/w/File:The_Dark_Beast_Sotetseg.ogg" title="File:The Dark Beast Sotetseg.ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+          {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+              [49*64+64, 67*64+64],
+                [49*64, 67*64+64],
+                [49*64, 67*64],
+                [49*64+64, 67*64],
+                [49*64+64, 67*64+64],
+
+            ],
+            
+        },
+        {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+                [3160,4334],
+                [3144,4334],
+                [3144,4304],
+                [3160,4304],
+
+            ],
+            
+        },
+        
+
+    ],
+},
+
+//Power of the Shadow Realm
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3328,4352],
+                [3264,4352],
+                [3264,4288],
+                [3328,4288],
+                [3328,4352],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/Power_of_the_Shadow_Realm" title="Power of the Shadow Realm">Power of the Shadow Realm</a>',
+        description:
+            '<div><a href="/w/File:Power_of_the_Shadow_Realm.ogg" title="File:Power of the Shadow Realm.ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+        {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+                [3160,4333],
+                [3142,4333],
+                [3142,4304],
+                [3160,4304],
+
+            ],
+            
+        },
+    ],
+},
+
+//Predator Xarpus
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3200,4416],
+                [3136,4416],
+                [3136,4352],
+                [3200,4352],
+                [3200,4416],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/Predator_Xarpus" title="Predator Xarpus">Predator Xarpus</a>',
+        description:
+            '<div><a href="/w/File:Predator_Xarpus.ogg" title="File:Predator Xarpus.ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+        {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+                [52*64+64, 67*64+64],
+                [52*64, 67*64+64],
+                [52*64, 67*64],
+                [52*64+64, 67*64],
+                [52*64+64, 67*64+64],
+
+            ],
+        },
+            {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+                [3369, 4330],
+                [3356, 4330],
+                [3356, 4316],
+                [3369, 4316],
+            ],
+            
+        },
+    ],
+},
+
+//Last King of the Yarasa
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3200,4416],
+                [3136,4416],
+                [3136,4352],
+                [3200,4352],
+                [3200,4416],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/Last_King_of_the_Yarasa" title="Last King of the Yarasa">Last King of the Yarasa</a>',
+        description:
+            '<div><a href="/w/File:Last_King_of_the_Yarasa.ogg" title="File:Last King of the Yarasa.ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+        {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+                [3370, 4331],
+                [3355, 4331],
+                [3355, 4315],
+                [3370, 4315],
+            ],
+            
+        },
+    ],
+},
+
+//It's not over 'til...
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3200,4352],
+                [3136,4352],
+                [3136,4288],
+                [3200,4288],
+                [3200,4352],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/It%27s_not_over_%27til..." title="It&#39;s not over &#39;til...">It&#39;s not over &#39;til...</a>',
+        description:
+            '<div><a href="/w/File:It%27s_not_over_%27til....ogg" title="File:It%27s not over %27til....ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+        {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+                [52*64+64, 68*64+64],
+                [52*64, 68*64+64],
+                [52*64, 68*64],
+                [52*64+64, 68*64],
+                [52*64+64, 68*64+64],
+
+            ],
+        },
+    ],
+},
+
+//The Fat Lady Sings
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3200,4352],
+                [3136,4352],
+                [3136,4288],
+                [3200,4288],
+                [3200,4352],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/The_Fat_Lady_Sings" title="The Fat Lady Sings">The Fat Lady Sings</a>',
+        description:
+            '<div><a href="/w/File:The_Fat_Lady_Sings.ogg" title="File:The Fat Lady Sings.ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+        {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+                [52*64+64, 68*64+64],
+                [52*64, 68*64+64],
+                [52*64, 68*64],
+                [52*64+64, 68*64],
+                [52*64+64, 68*64+64],
+
+            ],
+        },
+    ],
+},
+
+//The Curtain Closes
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Polygon',
+        coordinates: [
+            [
+                [3264,4352],
+                [3264,4352],
+                [3200,4288],
+                [3200,4288],
+                [3264,4352],
+            ],
+        ],
+    },
+    properties: {
+        mapID: '-1',
+        title:
+            '<a href="/w/The_Curtain_Closes" title="The Curtain Closes">The Curtain Closes</a>',
+        description:
+            '<div><a href="/w/File:The_Curtain_Closes.ogg" title="File:The Curtain Closes.ogg">Play track</a></div>',
+        plane: 0,
+    },
+    convertedGeometry: [
+        {
+            mapName:'Theatre of Blood',
+            mapId: 1038,
+            coordinates: [
+                [52*64+64, 69*64+64],
+                [52*64, 69*64+64],
+                [52*64, 69*64],
+                [52*64+64, 69*64],
+                [52*64+64, 69*64+64],
+
+            ],
+        },
+    ],
+},
+    {
       type: 'Feature',
       geometry: {
         type: 'Polygon',
@@ -29,23 +592,23 @@ const geojsondata = {
           ],
         ],
       },
-           "properties": {
-                title: "<a href=\"/w/Laid to Rest\" title=\"Laid to Rest\">Laid to Rest</a>",
-                mapID: "-1",
-                plane: 0,
-                description: "<div><a href=\"/w/File:Laid_to_Rest.ogg\" title=\"Laid_to_Rest.ogg\">Play track</a></div>"
-            },
+      properties: {
+        title: '<a href="/w/Laid to Rest" title="Laid to Rest">Laid to Rest</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Laid_to_Rest.ogg" title="Laid_to_Rest.ogg">Play track</a></div>',
+      },
       convertedGeometry: [
         {
           mapName: 'Tombs of Amascut',
           mapId: 1037,
           coordinates: [
-            [58*64+64, 80*64+64],
-            [58*64, 80*64+64],
-            [58*64, 80*64],
-            [58*64+64, 80*64],
-            [58*64+64, 80*64+64],
-    
+            [58 * 64 + 64, 80 * 64 + 64],
+            [58 * 64, 80 * 64 + 64],
+            [58 * 64, 80 * 64],
+            [58 * 64 + 64, 80 * 64],
+            [58 * 64 + 64, 80 * 64 + 64],
           ],
         },
       ],
@@ -64,23 +627,24 @@ const geojsondata = {
           ],
         ],
       },
-           "properties": {
-                title: "<a href=\"/w/Amascut%27s_Promise\" title=\"Amascut&#39;sPromise\">Amascut&#39;s Promise</a>",
-                mapID: "-1",
-                plane: 0,
-                description: "<div><a href=\"/w/File:Amascut%27s_Promise.ogg\" title=\"Amascut%27s_Promise.ogg\">Play track</a></div>"
-            },
+      properties: {
+        title:
+          '<a href="/w/Amascut%27s_Promise" title="Amascut&#39;sPromise">Amascut&#39;s Promise</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Amascut%27s_Promise.ogg" title="Amascut%27s_Promise.ogg">Play track</a></div>',
+      },
       convertedGeometry: [
         {
           mapName: 'Tombs of Amascut',
           mapId: 1037,
           coordinates: [
-            [58*64+64, 81 *64+64],
-            [58*64, 81*64+64],
-            [58*64, 81*64],
-            [58*64+64, 81*64],
-            [58*64+64, 81*64+64],
-    
+            [58 * 64 + 64, 81 * 64 + 64],
+            [58 * 64, 81 * 64 + 64],
+            [58 * 64, 81 * 64],
+            [58 * 64 + 64, 81 * 64],
+            [58 * 64 + 64, 81 * 64 + 64],
           ],
         },
       ],
@@ -99,93 +663,23 @@ const geojsondata = {
           ],
         ],
       },
-           "properties": {
-                title: "<a href=\"/w/Sands_of_Time\" title=\"Sands of Time\">Sands of Time</a>",
-                mapID: "-1",
-                plane: 0,
-                description: "<div><a href=\"/w/File:Sands_of_Time.ogg\" title=\"Sands_of_Time.ogg\">Play track</a></div>"
-            },
-      convertedGeometry: [
-        {
-          mapName: 'Tombs of Amascut',
-          mapId: 1037,
-          coordinates: [
-            [56*64+64, 82 *64+64],
-            [56*64, 82*64+64],
-            [56*64, 82*64],
-            [56*64+64, 82*64],
-            [56*64+64, 82*64+64],
-    
-          ],
-        },
-      ],
-    },
-      {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [2368, 9536],
-            [2368, 9664],
-            [2432, 9664],
-            [2432, 9536],
-            [2368, 9536],
-          ],
-        ],
+      properties: {
+        title: '<a href="/w/Sands_of_Time" title="Sands of Time">Sands of Time</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Sands_of_Time.ogg" title="Sands_of_Time.ogg">Play track</a></div>',
       },
-           "properties": {
-                title: "<a href=\"/w/Test_of_Strength\" title=\"Test of Strength\">Test of Strength</a>",
-                mapID: "-1",
-                plane: 0,
-                description: "<div><a href=\"/w/File:Test_of_Strength.ogg\" title=\"Test_of_Strength.ogg\">Play track</a></div>"
-            },
       convertedGeometry: [
         {
           mapName: 'Tombs of Amascut',
           mapId: 1037,
           coordinates: [
-            [57*64+64, 82 *64+64],
-            [57*64, 82*64+64],
-            [57*64, 82*64],
-            [57*64+64, 82*64],
-            [57*64+64, 82*64+64],
-    
-          ],
-        },
-      ],
-    },
-      {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [2368, 9536],
-            [2368, 9664],
-            [2432, 9664],
-            [2432, 9536],
-            [2368, 9536],
-          ],
-        ],
-      },
-           "properties": {
-                title: "<a href=\"/w/Ape-ex_Predator\" title=\"Ape-ex Predator\">Ape-ex Predator</a>",
-                mapID: "-1",
-                plane: 0,
-                description: "<div><a href=\"/w/File:Ape-ex_Predator.ogg\" title=\"Ape-ex_Predator.ogg\">Play track</a></div>"
-            },
-      convertedGeometry: [
-        {
-          mapName: 'Tombs of Amascut',
-          mapId: 1037,
-          coordinates: [
-            [60*64+64, 82 *64+64],
-            [60*64, 82*64+64],
-            [60*64, 82*64],
-            [60*64+64, 82*64],
-            [60*64+64, 82*64+64],
-    
+            [56 * 64 + 64, 82 * 64 + 64],
+            [56 * 64, 82 * 64 + 64],
+            [56 * 64, 82 * 64],
+            [56 * 64 + 64, 82 * 64],
+            [56 * 64 + 64, 82 * 64 + 64],
           ],
         },
       ],
@@ -204,23 +698,23 @@ const geojsondata = {
           ],
         ],
       },
-           "properties": {
-                title: "<a href=\"/w/Test_of_Companionship\" title=\"Test of Companionship\">Test of Companionship</a>",
-                mapID: "-1",
-                plane: 0,
-                description: "<div><a href=\"/w/File:Test_of_Companionship.ogg\" title=\"Test_of_Companionship.ogg\">Play track</a></div>"
-            },
+      properties: {
+        title: '<a href="/w/Test_of_Strength" title="Test of Strength">Test of Strength</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Test_of_Strength.ogg" title="Test_of_Strength.ogg">Play track</a></div>',
+      },
       convertedGeometry: [
         {
           mapName: 'Tombs of Amascut',
           mapId: 1037,
           coordinates: [
-            [59*64+64, 82 *64+64],
-            [59*64, 82*64+64],
-            [59*64, 82*64],
-            [59*64+64, 82*64],
-            [59*64+64, 82*64+64],
-    
+            [57 * 64 + 64, 82 * 64 + 64],
+            [57 * 64, 82 * 64 + 64],
+            [57 * 64, 82 * 64],
+            [57 * 64 + 64, 82 * 64],
+            [57 * 64 + 64, 82 * 64 + 64],
           ],
         },
       ],
@@ -239,23 +733,23 @@ const geojsondata = {
           ],
         ],
       },
-           "properties": {
-                title: "<a href=\"/w/A_Mother%27s_Curse\" title=\"A Mother&#39;s Curse\">A Mother&#39;s Curse</a>",
-                mapID: "-1",
-                plane: 0,
-                description: "<div><a href=\"/w/File:A_Mother%27s_Curse.ogg\" title=\"A_Mother%27s_Curse.ogg\">Play track</a></div>"
-            },
+      properties: {
+        title: '<a href="/w/Ape-ex_Predator" title="Ape-ex Predator">Ape-ex Predator</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Ape-ex_Predator.ogg" title="Ape-ex_Predator.ogg">Play track</a></div>',
+      },
       convertedGeometry: [
         {
           mapName: 'Tombs of Amascut',
           mapId: 1037,
           coordinates: [
-            [60*64+64, 83 *64+64],
-            [60*64, 83*64+64],
-            [60*64, 83*64],
-            [60*64+64, 83*64],
-            [60*64+64, 83*64+64],
-    
+            [60 * 64 + 64, 82 * 64 + 64],
+            [60 * 64, 82 * 64 + 64],
+            [60 * 64, 82 * 64],
+            [60 * 64 + 64, 82 * 64],
+            [60 * 64 + 64, 82 * 64 + 64],
           ],
         },
       ],
@@ -274,23 +768,24 @@ const geojsondata = {
           ],
         ],
       },
-           "properties": {
-                title: "<a href=\"/w/Test_of_Isolation\" title=\"Test of Isolation\">Test of Isolation</a>",
-                mapID: "-1",
-                plane: 0,
-                description: "<div><a href=\"/w/File:Test_of_Isolation.ogg\" title=\"Test_of_Isolation.ogg\">Play track</a></div>"
-            },
+      properties: {
+        title:
+          '<a href="/w/Test_of_Companionship" title="Test of Companionship">Test of Companionship</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Test_of_Companionship.ogg" title="Test_of_Companionship.ogg">Play track</a></div>',
+      },
       convertedGeometry: [
         {
           mapName: 'Tombs of Amascut',
           mapId: 1037,
           coordinates: [
-            [59*64+64, 83 *64+64],
-            [59*64, 83*64+64],
-            [59*64, 83*64],
-            [59*64+64, 83*64],
-            [59*64+64, 83*64+64],
-    
+            [59 * 64 + 64, 82 * 64 + 64],
+            [59 * 64, 82 * 64 + 64],
+            [59 * 64, 82 * 64],
+            [59 * 64 + 64, 82 * 64],
+            [59 * 64 + 64, 82 * 64 + 64],
           ],
         },
       ],
@@ -309,28 +804,29 @@ const geojsondata = {
           ],
         ],
       },
-           "properties": {
-                title: "<a href=\"/w/Jaws_of_Gluttony\" title=\"Jaws of Gluttony\">Jaws of Gluttony </a>",
-                mapID: "-1",
-                plane: 0,
-                description: "<div><a href=\"/w/File:Jaws_of_Gluttony.ogg\" title=\"File:Jaws of Gluttony.ogg\">Play track</a></div>"
-            },
+      properties: {
+        title:
+          '<a href="/w/A_Mother%27s_Curse" title="A Mother&#39;s Curse">A Mother&#39;s Curse</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:A_Mother%27s_Curse.ogg" title="A_Mother%27s_Curse.ogg">Play track</a></div>',
+      },
       convertedGeometry: [
         {
           mapName: 'Tombs of Amascut',
           mapId: 1037,
           coordinates: [
-            [56*64+64, 83 *64+64],
-            [56*64, 83*64+64],
-            [56*64, 83*64],
-            [56*64+64, 83*64],
-            [56*64+64, 83*64+64],
-    
+            [60 * 64 + 64, 83 * 64 + 64],
+            [60 * 64, 83 * 64 + 64],
+            [60 * 64, 83 * 64],
+            [60 * 64 + 64, 83 * 64],
+            [60 * 64 + 64, 83 * 64 + 64],
           ],
         },
       ],
     },
-     {
+    {
       type: 'Feature',
       geometry: {
         type: 'Polygon',
@@ -344,28 +840,28 @@ const geojsondata = {
           ],
         ],
       },
-           "properties": {
-                title: "<a href=\"/w/Test_of_Resourcefulness\" title=\"Test of Resourcefulness\">Test of Resourcefulness </a>",
-                mapID: "-1",
-                plane: 0,
-                description: "<div><a href=\"/w/File:Test_of_Resourcefulness.ogg\" title=\"File:Test of Resourcefulness.ogg\">Play track</a></div>"
-            },
+      properties: {
+        title: '<a href="/w/Test_of_Isolation" title="Test of Isolation">Test of Isolation</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Test_of_Isolation.ogg" title="Test_of_Isolation.ogg">Play track</a></div>',
+      },
       convertedGeometry: [
         {
           mapName: 'Tombs of Amascut',
           mapId: 1037,
           coordinates: [
-            [57*64+64, 83 *64+64],
-            [57*64, 83*64+64],
-            [57*64, 83*64],
-            [57*64+64, 83*64],
-            [57*64+64, 83*64+64],
-    
+            [59 * 64 + 64, 83 * 64 + 64],
+            [59 * 64, 83 * 64 + 64],
+            [59 * 64, 83 * 64],
+            [59 * 64 + 64, 83 * 64],
+            [59 * 64 + 64, 83 * 64 + 64],
           ],
         },
       ],
     },
-     {
+    {
       type: 'Feature',
       geometry: {
         type: 'Polygon',
@@ -379,28 +875,28 @@ const geojsondata = {
           ],
         ],
       },
-           "properties": {
-                "title": "<a href=\"/w/Beneath_Cursed_Sands_(music_track)\" title=\"Beneath Cursed Sands (music track)\">Beneath Cursed Sands </a>",
-                "mapID": "-1",
-                "plane": 0,
-                "description": "<div><a href=\"/w/File:Beneath_Cursed_Sands.ogg\" title=\"File:Beneath Cursed Sands.ogg\">Play track</a></div>"
-            },
+      properties: {
+        title: '<a href="/w/Jaws_of_Gluttony" title="Jaws of Gluttony">Jaws of Gluttony </a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Jaws_of_Gluttony.ogg" title="File:Jaws of Gluttony.ogg">Play track</a></div>',
+      },
       convertedGeometry: [
         {
           mapName: 'Tombs of Amascut',
           mapId: 1037,
           coordinates: [
-            [58*64+32, 83*64+32],
-            [58*64-32, 83*64+32],
-            [58*64-32, 83*64-32],
-            [58*64+32, 83*64-32],
-            [58*64-32, 83*64+32],
-    
+            [56 * 64 + 64, 83 * 64 + 64],
+            [56 * 64, 83 * 64 + 64],
+            [56 * 64, 83 * 64],
+            [56 * 64 + 64, 83 * 64],
+            [56 * 64 + 64, 83 * 64 + 64],
           ],
         },
       ],
     },
-     {
+    {
       type: 'Feature',
       geometry: {
         type: 'Polygon',
@@ -414,23 +910,96 @@ const geojsondata = {
           ],
         ],
       },
-           "properties": {
-                "title": "<a href=\"/w/Beneath_Cursed_Sands_(music_track)\" title=\"Beneath Cursed Sands (music track)\">Beneath Cursed Sands </a>",
-                "mapID": "-1",
-                "plane": 0,
-                "description": "<div><a href=\"/w/File:Beneath_Cursed_Sands.ogg\" title=\"File:Beneath Cursed Sands.ogg\">Play track</a></div>"
-            },
+      properties: {
+        title:
+          '<a href="/w/Test_of_Resourcefulness" title="Test of Resourcefulness">Test of Resourcefulness </a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Test_of_Resourcefulness.ogg" title="File:Test of Resourcefulness.ogg">Play track</a></div>',
+      },
       convertedGeometry: [
         {
           mapName: 'Tombs of Amascut',
           mapId: 1037,
           coordinates: [
-            [51*64+32, 69*64+32],
-            [51*64-32, 69*64+32],
-            [51*64-32, 69*64-32],
-            [51*64+32, 69*64-32],
-            [51*64-32, 69*64+32],
-    
+            [57 * 64 + 64, 83 * 64 + 64],
+            [57 * 64, 83 * 64 + 64],
+            [57 * 64, 83 * 64],
+            [57 * 64 + 64, 83 * 64],
+            [57 * 64 + 64, 83 * 64 + 64],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+      properties: {
+        title:
+          '<a href="/w/Beneath_Cursed_Sands_(music_track)" title="Beneath Cursed Sands (music track)">Beneath Cursed Sands </a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Beneath_Cursed_Sands.ogg" title="File:Beneath Cursed Sands.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [58 * 64 + 64, 83 * 64 + 32],
+            [58 * 64, 83 * 64 + 32],
+            [58 * 64, 82 * 64 + 32],
+            [58 * 64 + 64, 82 * 64 + 32],
+            [58 * 64 - 64, 83 * 64 + 32],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2368, 9536],
+            [2368, 9664],
+            [2432, 9664],
+            [2432, 9536],
+            [2368, 9536],
+          ],
+        ],
+      },
+      properties: {
+        title:
+          '<a href="/w/Beneath_Cursed_Sands_(music_track)" title="Beneath Cursed Sands (music track)">Beneath Cursed Sands </a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Beneath_Cursed_Sands.ogg" title="File:Beneath Cursed Sands.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Tombs of Amascut',
+          mapId: 1037,
+          coordinates: [
+            [51 * 64 + 32, 69 * 64 + 32],
+            [51 * 64 - 32, 69 * 64 + 32],
+            [51 * 64 - 32, 69 * 64 - 32],
+            [51 * 64 + 32, 69 * 64 - 32],
+            [51 * 64 - 32, 69 * 64 + 32],
           ],
         },
       ],
