@@ -846,6 +846,26 @@
 		"spriteId": 1535
 	},
 
+	//abandoned mine
+	
+			{
+		"position": {
+			"x": 3440,
+			"y": 3232,
+			"z": 0
+		},
+		"spriteId": 1534
+	},
+			{
+		"position": {
+			"x": 3437,
+			"y": 9637,
+			"z": 0
+		},
+		"spriteId": 1534
+	},
+
+
 
 
 
@@ -1659,6 +1679,131 @@
 		"fontScale": 0,
 		"fontColor": "#FFFFFF"
 	},
+
+	//abandoned mine
+	
+						{
+            "position": {
+              "x": 2788,
+              "y": 4456,
+              "z": 0
+            },
+            "spriteId": -666,
+            "text": "Treus\nDayth",
+            "fontScale": 0,
+            "fontColor": "#FFFFFF"
+          },
+
+		  
+					{
+            "position": {
+              "x": 2795,
+              "y": 4433,
+              "z": 0
+            },
+            "spriteId": -666,
+            "text": "Salve crystals",
+            "fontScale": 0,
+            "fontColor": "#FFFFFF"
+          },
+		  
+		  
+					{
+            "position": {
+              "x": 2724,
+              "y": 4458,
+              "z": 0
+            },
+            "spriteId": -666,
+            "text": "Lift",
+            "fontScale": 0,
+            "fontColor": "#FFFFFF"
+          },
+
+		  
+					{
+            "position": {
+              "x": 2785,
+              "y": 4493,
+              "z": 0
+            },
+            "spriteId": -666,
+            "text": "Glowing fungus",
+            "fontScale": 0,
+            "fontColor": "#FFFFFF"
+          },
+	
+	  {
+    "position": {
+      "x": 3424,
+      "y": 9670,
+      "z": 1
+    },
+    "spriteId": -666,
+    "text": "First level",
+    "fontScale": 1,
+    "fontColor": "#FFFF00"
+  },	
+
+   {
+    "position": {
+      "x": 3424,
+      "y": 9543,
+      "z": 1
+    },
+    "spriteId": -666,
+    "text": "Second level",
+    "fontScale": 1,
+    "fontColor": "#FFFF00"
+  },	
+
+   {
+    "position": {
+      "x": 3424,
+      "y": 9415,
+      "z": 1
+    },
+    "spriteId": -666,
+    "text": "Third level",
+    "fontScale": 1,
+    "fontColor": "#FFFF00"
+  },
+
+  	  {
+    "position": {
+      "x": 3552,
+      "y": 9670,
+      "z": 1
+    },
+    "spriteId": -666,
+    "text": "Fourth level",
+    "fontScale": 1,
+    "fontColor": "#FFFF00"
+  },	
+
+   {
+    "position": {
+      "x": 3552,
+      "y": 9543,
+      "z": 1
+    },
+    "spriteId": -666,
+    "text": "Fifth level",
+    "fontScale": 1,
+    "fontColor": "#FFFF00"
+  },	
+
+   {
+    "position": {
+      "x": 3552,
+      "y": 9415,
+      "z": 1
+    },
+    "spriteId": -666,
+    "text": "Sixth level",
+    "fontScale": 1,
+    "fontColor": "#FFFF00"
+  }
 	
 
 ]

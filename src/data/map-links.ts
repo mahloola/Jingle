@@ -131,6 +131,20 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Gielinor Surface': [
+      {
+      end: {
+       x: 3437,
+        y: 9637,
+        mapId: 1039,
+        name: 'Haunted Mine',
+      },
+      start: {
+        x: 3440,
+        y: 3232,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
     {
             end: {
        x: 3284,
@@ -6878,6 +6892,23 @@ export const groupedLinks: GroupedLinks = {
       end: {
         x: 3677,
         y: 3219,
+        mapId: 0,
+        name: 'Gielinor Surface',
+      },
+    },
+  ],
+
+     'Haunted Mine': [
+          {
+      start: {
+       x: 3437,
+        y: 9637,
+        mapId: 1039,
+        name: 'Haunted Mine',
+      },
+      end: {
+        x: 3440,
+        y: 3232,
         mapId: 0,
         name: 'Gielinor Surface',
       },
