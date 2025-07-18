@@ -15,6 +15,119 @@ export interface ConvertedFeature extends Feature<Polygon> {
 
 const geojsondata = {
   features: [
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2752, 4416],
+            [2752, 4480],
+            [2816, 4480],
+            [2816, 4416],
+            [2752, 4416],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Haunted_Mine_(music_track)" title="Haunted Mine (music track)">Haunted Mine</a>',
+        description:
+          '<div><a href="/w/File:Haunted_Mine.ogg" title="File:Haunted Mine.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Haunted Mine',
+          mapId: 1039,
+          coordinates: [
+            [55 * 64 + 64, 146 * 64 + 64],
+            [55 * 64, 146 * 64 + 64],
+            [55 * 64, 146 * 64],
+            [55 * 64 + 64, 146 * 64],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2752, 4480],
+            [2752, 4544],
+            [2816, 4544],
+            [2816, 4480],
+            [2752, 4480],
+          ],
+          [
+            [2688, 4416],
+            [2688, 4480],
+            [2752, 4480],
+            [2752, 4416],
+            [2688, 4416],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Chamber" title="Chamber">Chamber</a>',
+        description:
+          '<div><a href="/w/File:Chamber.ogg" title="File:Chamber.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Haunted Mine',
+          mapId: 1039,
+          coordinates: [
+            [3517, 9677],
+            [3590, 9677],
+            [3590, 9476],
+            [3517, 9476],
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2688, 4608],
+            [2816, 4608],
+            [2816, 4544],
+            [2752, 4544],
+            [2752, 4480],
+            [2688, 4480],
+            [2688, 4608],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Deep_Down" title="Deep Down">Deep Down</a>',
+        description:
+          '<div><a href="/w/File:Deep_Down.ogg" title="File:Deep Down.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Haunted Mine',
+          mapId: 1039,
+          coordinates: [
+            [3463, 9553],
+            [3385, 9553],
+            [3385, 9338],
+            [3463, 9338],
+          ],
+        },
+      ],
+    },
     //The Maiden's Sorrow
     {
       type: 'Feature',
@@ -21964,6 +22077,16 @@ const geojsondata = {
             [1728, 9216],
             [1728, 9152],
             [1664, 9152],
+          ],
+        },
+        {
+          mapName: 'Haunted Mine',
+          mapId: 1039,
+          coordinates: [
+            [53 * 64 + 64, 150 * 64 + 64],
+            [53 * 64, 150 * 64 + 64],
+            [53 * 64, 150 * 64],
+            [53 * 64 + 64, 150 * 64],
           ],
         },
         {
