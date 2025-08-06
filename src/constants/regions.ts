@@ -419,7 +419,8 @@ export const REGIONS = {
     "The Curtain Closes",
     "Haunted Mine",
     "Deep Down",
-    "Chamber"
+    "Chamber",
+    "The Bane of Ashihama",
 
 
   ],
@@ -538,6 +539,8 @@ export const REGIONS = {
     'Way of the Wyrm',
     'Dagannoth Dawn',
     'Xenophobe',
+    'Darkness in the Depths',
+    'Sign Here'
   ],
   Varlamore: [
     'Are You Not Entertained',
@@ -560,8 +563,18 @@ export const REGIONS = {
     'The Moons of Ruin',
     'Under the Mountain',
     'Blood Rush',
-
     'The Guardian of Tapoyauik',
+
+    'The Doom',
+    'Spiritbloom',
+    'Spirit of the Forest',
+    'Teklan',
+    'The Talkasti People',
+    'Call of the Tlati',
+    'A Desolate Past',
+    'Over the Mountains',
+    'Stalkers',
+
   ],
 };
 export const TOTAL_TRACK_COUNT = Object.keys(REGIONS).reduce(

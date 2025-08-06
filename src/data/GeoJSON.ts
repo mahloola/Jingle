@@ -15,681 +15,1236 @@ export interface ConvertedFeature extends Feature<Polygon> {
 
 const geojsondata = {
   features: [
-       {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [2752, 4416],
-                        [2752, 4480],
-                        [2816, 4480],
-                        [2816, 4416],
-                        [2752, 4416]
-                    ]
-                ]
-            },
-            "properties": {
-                "mapID": "-1",
-                "title": "<a href=\"/w/Haunted_Mine_(music_track)\" title=\"Haunted Mine (music track)\">Haunted Mine</a>",
-                "description": "<div><a href=\"/w/File:Haunted_Mine.ogg\" title=\"File:Haunted Mine.ogg\">Play track</a></div>",
-                "plane": 0
-            },
-            "convertedGeometry": [
-                {
-                    "mapName": "Haunted Mine",
-                    "mapId": 1039,
-                    "coordinates": [
-                        [55*64+64, 146*64+64],
-                        [55*64, 146*64+64],
-                        [55*64, 146*64],
-                        [55*64+64, 146*64],
-         
-                    ]
-                }
-            ]
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        title:
+          '<a href="/w/The_Bane_of_Ashihama" title="The Bane of Ashihama">The Bane of Ashihama</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:The_Bane_of_Ashihama.ogg" title="File:The Bane of Ashihama.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Nightmare Arena',
+          mapId: 1005,
+          coordinates: [
+            [3840, 9920],
+            [3840, 9984],
+            [3904, 9984],
+            [3904, 9920],
+            [3840, 9920],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Sign_Here" title="Sign Here">Sign Here </a>',
+        description:
+          '<div><a href="/w/File:Sign_Here.ogg" title="File:Sign Here.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Kourend Underground',
+          mapId: 32,
+          coordinates: [
+            [1410, 9917],
+            [1340, 9917],
+            [1340, 9856],
+            [1410, 9856],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        title:
+          '<a href="/w/Darkness_in_the_Depths" title="Darkness in the Depths">Darkness in the Depths</a>',
+        mapID: '-1',
+        plane: 0,
+        description:
+          '<div><a href="/w/File:Darkness_in_the_Depths.ogg" title="File:Darkness in the Depths.ogg">Play track</a></div>',
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Kourend Underground',
+          mapId: 32,
+          coordinates: [
+            [1361, 10118],
+            [1269, 10118],
+            [1269, 9857],
+            [1361, 9857],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Stalkers" title="Stalkers">Stalkers </a>',
+        description:
+          '<div><a href="/w/File:Stalkers.ogg" title="File:Stalkers.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Varlamore Underground',
+          mapId: 43,
+          coordinates: [
+            [1300, 9668],
+            [1300, 9732],
+            [1340, 9732],
+            [1340, 9772],
+            [1400, 9772],
+            [1400, 9668],
+            [1300, 9668],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Over_the_Mountains" title="Over the Mountains">Over the Mountains </a>',
+        description:
+          '<div><a href="/w/File:Over_the_Mountains.ogg" title="File:Over the Mountains.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Gielinor Surface',
+          mapId: 0,
+          coordinates: [
+            [1239, 3378],
+            [1239, 3401],
+            [1249, 3411],
+            [1249, 3433],
+            [1253, 3437],
+            [1262, 3437],
+            [1267, 3432],
+            [1276, 3432],
+            [1280, 3436],
+            [1302, 3436],
+            [1320, 3400],
+            [1320, 3375],
+            [1330, 3355],
+            [1330, 3338],
+            [1325, 3333],
+            [1325, 3330],
+            [1333, 3322],
+            [1333, 3312],
+            [1239, 3312],
+            [1239, 3378],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/The_Doom" title="The Doom">The Doom </a>',
+        description:
+          '<div><a href="/w/File:The_Doom.ogg" title="File:The Doom.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Mokha Crypt',
+          mapId: 1040,
+          coordinates: [
+            [1280, 9559],
+            [1280, 9600],
+            [1344, 9600],
+            [1344, 9559],
+            [1280, 9559],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Spiritbloom" title="Spiritbloom">Spiritbloom </a>',
+        description:
+          '<div><a href="/w/File:Spiritbloom.ogg" title="File:Spiritbloom.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Gielinor Surface',
+          mapId: 0,
+          coordinates: [
+            [1384, 3169],
+            [1379, 3174],
+            [1379, 3175],
+            [1378, 3175],
+            [1378, 3177],
+            [1375, 3180],
+            [1353, 3180],
+            [1348, 3185],
+            [1348, 3196],
+            [1344, 3200],
+            [1344, 3297],
+            [1333, 3312],
+            [1333, 3322],
+            [1325, 3330],
+            [1325, 3333],
+            [1330, 3338],
+            [1330, 3348],
+            [1340, 3348],
+            [1348, 3356],
+            [1348, 3380],
+            [1380, 3412],
+            [1400, 3412],
+            [1418, 3394],
+            [1480, 3364],
+            [1513, 3364],
+            [1529, 3348],
+            [1529, 3326],
+            [1525, 3326],
+            [1511, 3319],
+            [1504, 3312],
+            [1484, 3312],
+            [1468, 3304],
+            [1460, 3296],
+            [1460, 3292],
+            [1448, 3286],
+            [1421, 3286],
+            [1421, 3286],
+            [1421, 3275],
+            [1411, 3270],
+            [1402, 3270],
+            [1402, 3268],
+            [1401, 3267],
+            [1401, 3266],
+            [1400, 3266],
+            [1400, 3263],
+            [1399, 3262],
+            [1399, 3259],
+            [1411, 3253],
+            [1411, 3250],
+            [1402, 3241],
+            [1402, 3226],
+            [1413, 3215],
+            [1413, 3198],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Spirit_of_the_Forest" title="Spirit of the Forest">Spirit of the Forest </a>',
+        description:
+          '<div><a href="/w/File:Spirit_of_the_Forest.ogg" title="File:Spirit of the Forest.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Gielinor Surface',
+          mapId: 0,
+          coordinates: [
+            [1384, 3169],
+            [1379, 3174],
+            [1379, 3175],
+            [1378, 3175],
+            [1378, 3177],
+            [1375, 3180],
+            [1353, 3180],
+            [1348, 3185],
+            [1348, 3196],
+            [1344, 3200],
+            [1344, 3297],
+            [1333, 3312],
+            [1333, 3322],
+            [1325, 3330],
+            [1325, 3333],
+            [1330, 3338],
+            [1330, 3348],
+            [1340, 3348],
+            [1348, 3356],
+            [1348, 3380],
+            [1380, 3412],
+            [1400, 3412],
+            [1418, 3394],
+            [1480, 3364],
+            [1513, 3364],
+            [1529, 3348],
+            [1529, 3326],
+            [1525, 3326],
+            [1511, 3319],
+            [1504, 3312],
+            [1484, 3312],
+            [1468, 3304],
+            [1460, 3296],
+            [1460, 3292],
+            [1448, 3286],
+            [1421, 3286],
+            [1421, 3286],
+            [1421, 3275],
+            [1411, 3270],
+            [1402, 3270],
+            [1402, 3268],
+            [1401, 3267],
+            [1401, 3266],
+            [1400, 3266],
+            [1400, 3263],
+            [1399, 3262],
+            [1399, 3259],
+            [1411, 3253],
+            [1411, 3250],
+            [1402, 3241],
+            [1402, 3226],
+            [1413, 3215],
+            [1413, 3198],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Teklan" title="Teklan">Teklan </a>',
+        description:
+          '<div><a href="/w/File:Teklan.ogg" title="File:Teklan.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Gielinor Surface',
+          mapId: 0,
+          coordinates: [
+            [1251, 3133],
+            [1250, 3134],
+            [1250, 3135],
+            [1249, 3135],
+            [1249, 3136],
+            [1248, 3136],
+            [1248, 3137],
+            [1247, 3137],
+            [1247, 3138],
+            [1246, 3138],
+            [1246, 3139],
+            [1245, 3139],
+            [1244, 3140],
+            [1237, 3140],
+            [1235, 3138],
+            [1202, 3138],
+            [1182, 3118],
+            [1182, 3100],
+            [1202, 3080],
+            [1234, 3080],
+            [1247, 3093],
+            [1247, 3115],
+            [1250, 3115],
+            [1251, 3116],
+            [1251, 3133],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/The_Talkasti_People" title="The Talkasti People">The Talkasti People</a>',
+        description:
+          '<div><a href="/w/File:The_Talkasti_People.ogg" title="File:The Talkasti People.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Gielinor Surface',
+          mapId: 0,
+          coordinates: [
+            [1346, 3078],
+            [1408, 3078],
+            [1408, 3008],
+            [1349, 3008],
+            [1349, 3019],
+            [1346, 3022],
+            [1346, 3078],
+          ],
         },
         {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [2752, 4480],
-                        [2752, 4544],
-                        [2816, 4544],
-                        [2816, 4480],
-                        [2752, 4480]
-                    ],
-                    [
-                        [2688, 4416],
-                        [2688, 4480],
-                        [2752, 4480],
-                        [2752, 4416],
-                        [2688, 4416]
-                    ]
-                ]
-            },
-            "properties": {
-                "mapID": "-1",
-                "title": "<a href=\"/w/Chamber\" title=\"Chamber\">Chamber</a>",
-                "description": "<div><a href=\"/w/File:Chamber.ogg\" title=\"File:Chamber.ogg\">Play track</a></div>",
-                "plane": 0
-            },
-            "convertedGeometry": [
-                {
-                    "mapName": "Haunted Mine",
-                    "mapId": 1039,
-                    "coordinates": [
-                        [3517, 9677],
-                        [3590, 9677],
-                        [3590, 9476],
-                        [3517, 9476],
-              
-                    ]
-                },
-     
-            ]
+          mapName: 'Varlamore Underground',
+          mapId: 43,
+          coordinates: [
+            [1374, 9433],
+            [1389, 9433],
+            [1389, 9421],
+            [1374, 9421],
+            [1374, 9433],
+          ],
         },
+      ],
+    },
 
     {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [2688, 4608],
-                        [2816, 4608],
-                        [2816, 4544],
-                        [2752, 4544],
-                        [2752, 4480],
-                        [2688, 4480],
-                        [2688, 4608]
-                    ]
-                ]
-            },
-            "properties": {
-                "mapID": "-1",
-                "title": "<a href=\"/w/Deep_Down\" title=\"Deep Down\">Deep Down</a>",
-                "description": "<div><a href=\"/w/File:Deep_Down.ogg\" title=\"File:Deep Down.ogg\">Play track</a></div>",
-                "plane": 0
-            },
-            "convertedGeometry": [
-                {
-                    "mapName": "Haunted Mine",
-                    "mapId": 1039,
-                    "coordinates": [
-                        [3463, 9553],
-                        [3385, 9553],
-                        [3385, 9338],
-                      [3463, 9338],
-                    ]
-                }
-            ]
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Call_of_the_Tlati" title="Call of the Tlati">Call of the Tlati</a>',
+        description:
+          '<div><a href="/w/File:Call_of_the_Tlati.ogg" title="File:Call of the Tlati.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Gielinor Surface',
+          mapId: 0,
+          coordinates: [
+            [1349, 3008],
+            [1349, 3019],
+            [1346, 3022],
+            [1346, 3078],
+            [1408, 3078],
+            [1382, 3104],
+            [1382, 3129],
+            [1384, 3131],
+            [1384, 3169],
+            [1384, 3169],
+            [1379, 3174],
+            [1379, 3175],
+            [1378, 3175],
+            [1378, 3177],
+            [1375, 3180],
+            [1353, 3180],
+            [1348, 3185],
+            [1348, 3196],
+            [1344, 3200],
+            [1216, 3200],
+            [1216, 3138],
+            [1235, 3138],
+            [1237, 3140],
+            [1244, 3140],
+            [1245, 3139],
+            [1246, 3139],
+            [1246, 3138],
+            [1247, 3138],
+            [1247, 3137],
+            [1248, 3137],
+            [1248, 3136],
+            [1249, 3136],
+            [1249, 3135],
+            [1250, 3135],
+            [1250, 3134],
+            [1251, 3133],
+            [1251, 3116],
+            [1250, 3115],
+            [1247, 3115],
+            [1247, 3093],
+            [1226, 3072],
+            [1216, 3072],
+            [1216, 3008],
+            [1243, 2981],
+            [1272, 2981],
+            [1295, 2996],
+            [1305, 2996],
+            [1317, 3008],
+            [1349, 3008],
+          ],
         },
+        {
+          mapName: 'Mokha Crypt',
+          mapId: 1040,
+          coordinates: [
+            [1344, 9358],
+            [1338, 9358],
+            [1338, 9360],
+            [1321, 9360],
+            [1321, 9363],
+            [1315, 9363],
+            [1315, 9376],
+            [1313, 9378],
+            [1312, 9377],
+            [1309, 9377],
+            [1309, 9363],
+            [1300, 9363],
+            [1300, 9344],
+            [1344, 9344],
+            [1344, 9358],
+          ],
+        },
+        {
+          mapName: 'Varlamore Underground',
+          mapId: 43,
+          coordinates: [
+            [1276, 9472],
+            [1276, 9536],
+            [1340, 9536],
+            [1340, 9472],
+            [1276, 9472],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [1344, 9358],
+            [1338, 9358],
+            [1338, 9360],
+            [1321, 9360],
+            [1321, 9363],
+            [1315, 9363],
+            [1315, 9376],
+            [1313, 9378],
+            [1312, 9377],
+            [1309, 9377],
+            [1309, 9363],
+            [1300, 9363],
+            [1300, 9344],
+            [1280, 9344],
+            [1280, 9558],
+            [1344, 9558],
+            [1344, 9358],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/A_Desolate_Past" title="A Desolate Past">A Desolate Past</a>',
+        description:
+          '<div><a href="/w/File:A_Desolate_Past.ogg" title="File:A Desolate Past.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Mokha Crypt',
+          mapId: 1040,
+          coordinates: [
+            [1344, 9358],
+            [1338, 9358],
+            [1338, 9360],
+            [1321, 9360],
+            [1321, 9363],
+            [1315, 9363],
+            [1315, 9376],
+            [1313, 9378],
+            [1312, 9377],
+            [1309, 9377],
+            [1309, 9363],
+            [1300, 9363],
+            [1300, 9344],
+            [1280, 9344],
+            [1280, 9558],
+            [1344, 9558],
+            [1344, 9358],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2752, 4416],
+            [2752, 4480],
+            [2816, 4480],
+            [2816, 4416],
+            [2752, 4416],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Haunted_Mine_(music_track)" title="Haunted Mine (music track)">Haunted Mine</a>',
+        description:
+          '<div><a href="/w/File:Haunted_Mine.ogg" title="File:Haunted Mine.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Haunted Mine',
+          mapId: 1039,
+          coordinates: [
+            [55 * 64 + 64, 146 * 64 + 64],
+            [55 * 64, 146 * 64 + 64],
+            [55 * 64, 146 * 64],
+            [55 * 64 + 64, 146 * 64],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2752, 4480],
+            [2752, 4544],
+            [2816, 4544],
+            [2816, 4480],
+            [2752, 4480],
+          ],
+          [
+            [2688, 4416],
+            [2688, 4480],
+            [2752, 4480],
+            [2752, 4416],
+            [2688, 4416],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Chamber" title="Chamber">Chamber</a>',
+        description:
+          '<div><a href="/w/File:Chamber.ogg" title="File:Chamber.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Haunted Mine',
+          mapId: 1039,
+          coordinates: [
+            [3517, 9677],
+            [3590, 9677],
+            [3590, 9476],
+            [3517, 9476],
+          ],
+        },
+      ],
+    },
+
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [2688, 4608],
+            [2816, 4608],
+            [2816, 4544],
+            [2752, 4544],
+            [2752, 4480],
+            [2688, 4480],
+            [2688, 4608],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Deep_Down" title="Deep Down">Deep Down</a>',
+        description:
+          '<div><a href="/w/File:Deep_Down.ogg" title="File:Deep Down.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Haunted Mine',
+          mapId: 1039,
+          coordinates: [
+            [3463, 9553],
+            [3385, 9553],
+            [3385, 9338],
+            [3463, 9338],
+          ],
+        },
+      ],
+    },
     //The Maiden's Sorrow
-{
-    type: 'Feature',
-    geometry: {
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [
-            [
-                [3264,4480],
-                [3136,4480],
-                [3136,4416],
-                [3264,4416],
-                [3264,4480],
-            ],
+          [
+            [3264, 4480],
+            [3136, 4480],
+            [3136, 4416],
+            [3264, 4416],
+            [3264, 4480],
+          ],
         ],
-    },
-    properties: {
+      },
+      properties: {
         mapID: '-1',
         title:
-            '<a href="/w/The_Maiden%27s_Sorrow" title="The Maiden&#39;s Sorrow">The Maiden&#39;s Sorrow</a>',
+          '<a href="/w/The_Maiden%27s_Sorrow" title="The Maiden&#39;s Sorrow">The Maiden&#39;s Sorrow</a>',
         description:
-            '<div><a href="/w/File:The_Maiden%27s_Sorrow.ogg" title="File:The Maiden%27s Sorrow.ogg">Play track</a></div>',
+          '<div><a href="/w/File:The_Maiden%27s_Sorrow.ogg" title="File:The Maiden%27s Sorrow.ogg">Play track</a></div>',
         plane: 0,
-    },
-    convertedGeometry: [
+      },
+      convertedGeometry: [
         {
-            mapName:'Theatre of Blood',
-            mapId: 1038, //whatever the theatre id will be, I saw ToA was 1037 so assumed this is correct; this is in all 13 tracks
-            coordinates: [
-                [51*64+64, 69*64+64],
-                [50*64, 69*64+64],
-                [50*64, 69*64],
-                [51*64+64, 69*64],
-                [51*64+64, 69*64+64],
-
-            ],
+          mapName: 'Theatre of Blood',
+          mapId: 1038, //whatever the theatre id will be, I saw ToA was 1037 so assumed this is correct; this is in all 13 tracks
+          coordinates: [
+            [51 * 64 + 64, 69 * 64 + 64],
+            [50 * 64, 69 * 64 + 64],
+            [50 * 64, 69 * 64],
+            [51 * 64 + 64, 69 * 64],
+            [51 * 64 + 64, 69 * 64 + 64],
+          ],
         },
-               {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-              [3251,4458],
-                [3224,4458],
-                [3224,4435],
-                [3251,4435],
-
-            ],
-        },
-    ],
-},
-
-//The Maiden's Anger
-{
-    type: 'Feature',
-    geometry: {
-        type: 'Polygon',
-        coordinates: [
-            [
-                [3200,4480],
-                [3136,4480],
-                [3136,4416],
-                [3200,4416],
-                [3200,4480],
-            ],
-        ],
-    },
-    properties: {
-        mapID: '-1',
-        title:
-            '<a href="/w/The_Maiden%27s_Anger" title="The Maiden&#39;s Anger">The Maiden&#39;s Anger</a>',
-        description:
-            '<div><a href="/w/File:The_Maiden%27s_Anger.ogg" title="File:The Maiden%27s Anger.ogg">Play track</a></div>',
-        plane: 0,
-    },
-    convertedGeometry: [
         {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-              [3253,4460],
-                [3222,4460],
-                [3222,4433],
-                [3253,4433],
-
-            ],
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [3251, 4458],
+            [3224, 4458],
+            [3224, 4435],
+            [3251, 4435],
+          ],
         },
-    ],
-},
+      ],
+    },
 
-//Welcome to my Nightmare
-{
-    type: 'Feature',
-    geometry: {
+    //The Maiden's Anger
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [
-            [
-                [3328,4480],
-                [3264,4480],
-                [3264,4416],
-                [3328,4416],
-                [3328,4480],
-            ],
+          [
+            [3200, 4480],
+            [3136, 4480],
+            [3136, 4416],
+            [3200, 4416],
+            [3200, 4480],
+          ],
         ],
-    },
-    properties: {
+      },
+      properties: {
         mapID: '-1',
         title:
-            '<a href="/w/Welcome_to_my_Nightmare" title="Welcome to my Nightmare">Welcome to my Nightmare</a>',
+          '<a href="/w/The_Maiden%27s_Anger" title="The Maiden&#39;s Anger">The Maiden&#39;s Anger</a>',
         description:
-            '<div><a href="/w/File:Welcome_to_my_Nightmare.ogg" title="File:Welcome to my Nightmare.ogg">Play track</a></div>',
+          '<div><a href="/w/File:The_Maiden%27s_Anger.ogg" title="File:The Maiden%27s Anger.ogg">Play track</a></div>',
         plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [3253, 4460],
+            [3222, 4460],
+            [3222, 4433],
+            [3253, 4433],
+          ],
+        },
+      ],
     },
-    convertedGeometry: [
-              {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-                [49*64+64, 68*64+64],
-                [49*64, 68*64+64],
-                [49*64, 68*64],
-                [49*64+64, 68*64],
-                [49*64+64, 68*64+64],
 
-            ],
+    //Welcome to my Nightmare
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [3328, 4480],
+            [3264, 4480],
+            [3264, 4416],
+            [3328, 4416],
+            [3328, 4480],
+          ],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title:
+          '<a href="/w/Welcome_to_my_Nightmare" title="Welcome to my Nightmare">Welcome to my Nightmare</a>',
+        description:
+          '<div><a href="/w/File:Welcome_to_my_Nightmare.ogg" title="File:Welcome to my Nightmare.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [49 * 64 + 64, 68 * 64 + 64],
+            [49 * 64, 68 * 64 + 64],
+            [49 * 64, 68 * 64],
+            [49 * 64 + 64, 68 * 64],
+            [49 * 64 + 64, 68 * 64 + 64],
+          ],
         },
 
-            {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-             [3177, 4393],
+        {
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [3177, 4393],
             [3159, 4393],
             [3159, 4376],
             [3177, 4376],
-
-            ],
+          ],
         },
-    ],
-},
+      ],
+    },
 
-//The Nightmare Continues
-{
-    type: 'Feature',
-    geometry: {
+    //The Nightmare Continues
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [
-            [
-                [3328,4480],
-                [3264,4480],
-                [3264,4416],
-                [3328,4416],
-                [3328,4480],
-            ],
+          [
+            [3328, 4480],
+            [3264, 4480],
+            [3264, 4416],
+            [3328, 4416],
+            [3328, 4480],
+          ],
         ],
-    },
-    properties: {
+      },
+      properties: {
         mapID: '-1',
         title:
-            '<a href="/w/The_Nightmare_Continues" title="The Nightmare Continues">The Nightmare Continues</a>',
+          '<a href="/w/The_Nightmare_Continues" title="The Nightmare Continues">The Nightmare Continues</a>',
         description:
-            '<div><a href="/w/File:The_Nightmare_Continues.ogg" title="File:The Nightmare Continues.ogg">Play track</a></div>',
+          '<div><a href="/w/File:The_Nightmare_Continues.ogg" title="File:The Nightmare Continues.ogg">Play track</a></div>',
         plane: 0,
-    },
-    convertedGeometry: [
-
-            {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-             [3178, 4393],
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [3178, 4393],
             [3157, 4393],
             [3157, 4373],
             [3178, 4373],
-
-            ],
+          ],
         },
-    ],
-},
+      ],
+    },
 
-//Dance of the Nylocas
-{
-    type: 'Feature',
-    geometry: {
+    //Dance of the Nylocas
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [
-            [
-                [3328,4288],
-                [3264,4288],
-                [3264,4224],
-                [3328,4224],
-                [3328,4288],
-            ],
+          [
+            [3328, 4288],
+            [3264, 4288],
+            [3264, 4224],
+            [3328, 4224],
+            [3328, 4288],
+          ],
         ],
-    },
-    properties: {
+      },
+      properties: {
         mapID: '-1',
         title:
-            '<a href="/w/Dance_of_the_Nylocas" title="Dance of the Nylocas">Dance of the Nylocas</a>',
+          '<a href="/w/Dance_of_the_Nylocas" title="Dance of the Nylocas">Dance of the Nylocas</a>',
         description:
-            '<div><a href="/w/File:Dance_of_the_Nylocas.ogg" title="File:Dance of the Nylocas.ogg">Play track</a></div>',
+          '<div><a href="/w/File:Dance_of_the_Nylocas.ogg" title="File:Dance of the Nylocas.ogg">Play track</a></div>',
         plane: 0,
-    },
-    convertedGeometry: [
+      },
+      convertedGeometry: [
         {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-                [48*64+64, 66*64+64],
-                [48*64, 66*64+64],
-                [48*64, 66*64],
-                [48*64+64, 66*64],
-                [48*64+64, 66*64+64],
-
-            ],
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [48 * 64 + 64, 66 * 64 + 64],
+            [48 * 64, 66 * 64 + 64],
+            [48 * 64, 66 * 64],
+            [48 * 64 + 64, 66 * 64],
+            [48 * 64 + 64, 66 * 64 + 64],
+          ],
         },
-         {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-               [3124,4254],
-                [3083,4254],
-                [3083,4233],
-                [3124,4233],
-
-            ],
+        {
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [3124, 4254],
+            [3083, 4254],
+            [3083, 4233],
+            [3124, 4233],
+          ],
         },
- 
-    ],
-},
+      ],
+    },
 
-//Arachnids of Vampyrium
-{
-    type: 'Feature',
-    geometry: {
+    //Arachnids of Vampyrium
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [
-            [
-                [3328,4288],
-                [3264,4288],
-                [3264,4224],
-                [3328,4224],
-                [3328,4288],
-            ],
+          [
+            [3328, 4288],
+            [3264, 4288],
+            [3264, 4224],
+            [3328, 4224],
+            [3328, 4288],
+          ],
         ],
-    },
-    properties: {
+      },
+      properties: {
         mapID: '-1',
         title:
-            '<a href="/w/Arachnids_of_Vampyrium_(music_track)" title="Arachnids of Vampyrium (music track)">Arachnids of Vampyrium</a>',
+          '<a href="/w/Arachnids_of_Vampyrium_(music_track)" title="Arachnids of Vampyrium (music track)">Arachnids of Vampyrium</a>',
         description:
-            '<div><a href="/w/File:Arachnids_of_Vampyrium.ogg" title="File:Arachnids of Vampyrium.ogg">Play track</a></div>',
+          '<div><a href="/w/File:Arachnids_of_Vampyrium.ogg" title="File:Arachnids of Vampyrium.ogg">Play track</a></div>',
         plane: 0,
-    },
-    convertedGeometry: [
+      },
+      convertedGeometry: [
         {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-                [3124,4258],
-                [3083,4258],
-                [3083,4233],
-                [3124,4233],
-            ],
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [3124, 4258],
+            [3083, 4258],
+            [3083, 4233],
+            [3124, 4233],
+          ],
         },
-    ],
-},
+      ],
+    },
 
-//The Dark Beast Sotetseg
-{
-    type: 'Feature',
-    geometry: {
+    //The Dark Beast Sotetseg
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [
-            [
-                [3328,4352],
-                [3264,4352],
-                [3264,4288],
-                [3328,4288],
-                [3328,4352],
-            ],
+          [
+            [3328, 4352],
+            [3264, 4352],
+            [3264, 4288],
+            [3328, 4288],
+            [3328, 4352],
+          ],
         ],
-    },
-    properties: {
+      },
+      properties: {
         mapID: '-1',
         title:
-            '<a href="/w/The_Dark_Beast_Sotetseg" title="The Dark Beast Sotetseg">The Dark Beast Sotetseg</a>',
+          '<a href="/w/The_Dark_Beast_Sotetseg" title="The Dark Beast Sotetseg">The Dark Beast Sotetseg</a>',
         description:
-            '<div><a href="/w/File:The_Dark_Beast_Sotetseg.ogg" title="File:The Dark Beast Sotetseg.ogg">Play track</a></div>',
+          '<div><a href="/w/File:The_Dark_Beast_Sotetseg.ogg" title="File:The Dark Beast Sotetseg.ogg">Play track</a></div>',
         plane: 0,
-    },
-    convertedGeometry: [
-          {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-              [49*64+64, 67*64+64],
-                [49*64, 67*64+64],
-                [49*64, 67*64],
-                [49*64+64, 67*64],
-                [49*64+64, 67*64+64],
-
-            ],
-            
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [49 * 64 + 64, 67 * 64 + 64],
+            [49 * 64, 67 * 64 + 64],
+            [49 * 64, 67 * 64],
+            [49 * 64 + 64, 67 * 64],
+            [49 * 64 + 64, 67 * 64 + 64],
+          ],
         },
         {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-                [3160,4334],
-                [3144,4334],
-                [3144,4304],
-                [3160,4304],
-
-            ],
-            
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [3160, 4334],
+            [3144, 4334],
+            [3144, 4304],
+            [3160, 4304],
+          ],
         },
-        
+      ],
+    },
 
-    ],
-},
-
-//Power of the Shadow Realm
-{
-    type: 'Feature',
-    geometry: {
+    //Power of the Shadow Realm
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [
-            [
-                [3328,4352],
-                [3264,4352],
-                [3264,4288],
-                [3328,4288],
-                [3328,4352],
-            ],
+          [
+            [3328, 4352],
+            [3264, 4352],
+            [3264, 4288],
+            [3328, 4288],
+            [3328, 4352],
+          ],
         ],
-    },
-    properties: {
+      },
+      properties: {
         mapID: '-1',
         title:
-            '<a href="/w/Power_of_the_Shadow_Realm" title="Power of the Shadow Realm">Power of the Shadow Realm</a>',
+          '<a href="/w/Power_of_the_Shadow_Realm" title="Power of the Shadow Realm">Power of the Shadow Realm</a>',
         description:
-            '<div><a href="/w/File:Power_of_the_Shadow_Realm.ogg" title="File:Power of the Shadow Realm.ogg">Play track</a></div>',
+          '<div><a href="/w/File:Power_of_the_Shadow_Realm.ogg" title="File:Power of the Shadow Realm.ogg">Play track</a></div>',
         plane: 0,
-    },
-    convertedGeometry: [
+      },
+      convertedGeometry: [
         {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-                [3160,4333],
-                [3142,4333],
-                [3142,4304],
-                [3160,4304],
-
-            ],
-            
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [3160, 4333],
+            [3142, 4333],
+            [3142, 4304],
+            [3160, 4304],
+          ],
         },
-    ],
-},
+      ],
+    },
 
-//Predator Xarpus
-{
-    type: 'Feature',
-    geometry: {
+    //Predator Xarpus
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [
-            [
-                [3200,4416],
-                [3136,4416],
-                [3136,4352],
-                [3200,4352],
-                [3200,4416],
-            ],
+          [
+            [3200, 4416],
+            [3136, 4416],
+            [3136, 4352],
+            [3200, 4352],
+            [3200, 4416],
+          ],
         ],
-    },
-    properties: {
+      },
+      properties: {
         mapID: '-1',
-        title:
-            '<a href="/w/Predator_Xarpus" title="Predator Xarpus">Predator Xarpus</a>',
+        title: '<a href="/w/Predator_Xarpus" title="Predator Xarpus">Predator Xarpus</a>',
         description:
-            '<div><a href="/w/File:Predator_Xarpus.ogg" title="File:Predator Xarpus.ogg">Play track</a></div>',
+          '<div><a href="/w/File:Predator_Xarpus.ogg" title="File:Predator Xarpus.ogg">Play track</a></div>',
         plane: 0,
-    },
-    convertedGeometry: [
+      },
+      convertedGeometry: [
         {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-                [52*64+64, 67*64+64],
-                [52*64, 67*64+64],
-                [52*64, 67*64],
-                [52*64+64, 67*64],
-                [52*64+64, 67*64+64],
-
-            ],
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [52 * 64 + 64, 67 * 64 + 64],
+            [52 * 64, 67 * 64 + 64],
+            [52 * 64, 67 * 64],
+            [52 * 64 + 64, 67 * 64],
+            [52 * 64 + 64, 67 * 64 + 64],
+          ],
         },
-            {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-                [3369, 4330],
-                [3356, 4330],
-                [3356, 4316],
-                [3369, 4316],
-            ],
-            
+        {
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [3369, 4330],
+            [3356, 4330],
+            [3356, 4316],
+            [3369, 4316],
+          ],
         },
-    ],
-},
+      ],
+    },
 
-//Last King of the Yarasa
-{
-    type: 'Feature',
-    geometry: {
+    //Last King of the Yarasa
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [
-            [
-                [3200,4416],
-                [3136,4416],
-                [3136,4352],
-                [3200,4352],
-                [3200,4416],
-            ],
+          [
+            [3200, 4416],
+            [3136, 4416],
+            [3136, 4352],
+            [3200, 4352],
+            [3200, 4416],
+          ],
         ],
-    },
-    properties: {
+      },
+      properties: {
         mapID: '-1',
         title:
-            '<a href="/w/Last_King_of_the_Yarasa" title="Last King of the Yarasa">Last King of the Yarasa</a>',
+          '<a href="/w/Last_King_of_the_Yarasa" title="Last King of the Yarasa">Last King of the Yarasa</a>',
         description:
-            '<div><a href="/w/File:Last_King_of_the_Yarasa.ogg" title="File:Last King of the Yarasa.ogg">Play track</a></div>',
+          '<div><a href="/w/File:Last_King_of_the_Yarasa.ogg" title="File:Last King of the Yarasa.ogg">Play track</a></div>',
         plane: 0,
-    },
-    convertedGeometry: [
+      },
+      convertedGeometry: [
         {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-                [3370, 4331],
-                [3355, 4331],
-                [3355, 4315],
-                [3370, 4315],
-            ],
-            
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [3370, 4331],
+            [3355, 4331],
+            [3355, 4315],
+            [3370, 4315],
+          ],
         },
-    ],
-},
+      ],
+    },
 
-//It's not over 'til...
-{
-    type: 'Feature',
-    geometry: {
+    //It's not over 'til...
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [
-            [
-                [3200,4352],
-                [3136,4352],
-                [3136,4288],
-                [3200,4288],
-                [3200,4352],
-            ],
+          [
+            [3200, 4352],
+            [3136, 4352],
+            [3136, 4288],
+            [3200, 4288],
+            [3200, 4352],
+          ],
         ],
-    },
-    properties: {
+      },
+      properties: {
         mapID: '-1',
         title:
-            '<a href="/w/It%27s_not_over_%27til..." title="It&#39;s not over &#39;til...">It&#39;s not over &#39;til...</a>',
+          '<a href="/w/It%27s_not_over_%27til..." title="It&#39;s not over &#39;til...">It&#39;s not over &#39;til...</a>',
         description:
-            '<div><a href="/w/File:It%27s_not_over_%27til....ogg" title="File:It%27s not over %27til....ogg">Play track</a></div>',
+          '<div><a href="/w/File:It%27s_not_over_%27til....ogg" title="File:It%27s not over %27til....ogg">Play track</a></div>',
         plane: 0,
-    },
-    convertedGeometry: [
+      },
+      convertedGeometry: [
         {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-                [52*64+64, 68*64+64],
-                [52*64, 68*64+64],
-                [52*64, 68*64],
-                [52*64+64, 68*64],
-                [52*64+64, 68*64+64],
-
-            ],
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [52 * 64 + 64, 68 * 64 + 64],
+            [52 * 64, 68 * 64 + 64],
+            [52 * 64, 68 * 64],
+            [52 * 64 + 64, 68 * 64],
+            [52 * 64 + 64, 68 * 64 + 64],
+          ],
         },
-    ],
-},
+      ],
+    },
 
-//The Fat Lady Sings
-{
-    type: 'Feature',
-    geometry: {
+    //The Fat Lady Sings
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [
-            [
-                [3200,4352],
-                [3136,4352],
-                [3136,4288],
-                [3200,4288],
-                [3200,4352],
-            ],
+          [
+            [3200, 4352],
+            [3136, 4352],
+            [3136, 4288],
+            [3200, 4288],
+            [3200, 4352],
+          ],
         ],
-    },
-    properties: {
+      },
+      properties: {
         mapID: '-1',
-        title:
-            '<a href="/w/The_Fat_Lady_Sings" title="The Fat Lady Sings">The Fat Lady Sings</a>',
+        title: '<a href="/w/The_Fat_Lady_Sings" title="The Fat Lady Sings">The Fat Lady Sings</a>',
         description:
-            '<div><a href="/w/File:The_Fat_Lady_Sings.ogg" title="File:The Fat Lady Sings.ogg">Play track</a></div>',
+          '<div><a href="/w/File:The_Fat_Lady_Sings.ogg" title="File:The Fat Lady Sings.ogg">Play track</a></div>',
         plane: 0,
-    },
-    convertedGeometry: [
+      },
+      convertedGeometry: [
         {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-                [52*64+64, 68*64+64],
-                [52*64, 68*64+64],
-                [52*64, 68*64],
-                [52*64+64, 68*64],
-                [52*64+64, 68*64+64],
-
-            ],
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [52 * 64 + 64, 68 * 64 + 64],
+            [52 * 64, 68 * 64 + 64],
+            [52 * 64, 68 * 64],
+            [52 * 64 + 64, 68 * 64],
+            [52 * 64 + 64, 68 * 64 + 64],
+          ],
         },
-    ],
-},
+      ],
+    },
 
-//The Curtain Closes
-{
-    type: 'Feature',
-    geometry: {
+    //The Curtain Closes
+    {
+      type: 'Feature',
+      geometry: {
         type: 'Polygon',
         coordinates: [
-            [
-                [3264,4352],
-                [3264,4352],
-                [3200,4288],
-                [3200,4288],
-                [3264,4352],
-            ],
+          [
+            [3264, 4352],
+            [3264, 4352],
+            [3200, 4288],
+            [3200, 4288],
+            [3264, 4352],
+          ],
         ],
-    },
-    properties: {
+      },
+      properties: {
         mapID: '-1',
-        title:
-            '<a href="/w/The_Curtain_Closes" title="The Curtain Closes">The Curtain Closes</a>',
+        title: '<a href="/w/The_Curtain_Closes" title="The Curtain Closes">The Curtain Closes</a>',
         description:
-            '<div><a href="/w/File:The_Curtain_Closes.ogg" title="File:The Curtain Closes.ogg">Play track</a></div>',
+          '<div><a href="/w/File:The_Curtain_Closes.ogg" title="File:The Curtain Closes.ogg">Play track</a></div>',
         plane: 0,
-    },
-    convertedGeometry: [
+      },
+      convertedGeometry: [
         {
-            mapName:'Theatre of Blood',
-            mapId: 1038,
-            coordinates: [
-                [52*64+64, 69*64+64],
-                [52*64, 69*64+64],
-                [52*64, 69*64],
-                [52*64+64, 69*64],
-                [52*64+64, 69*64+64],
-
-            ],
+          mapName: 'Theatre of Blood',
+          mapId: 1038,
+          coordinates: [
+            [52 * 64 + 64, 69 * 64 + 64],
+            [52 * 64, 69 * 64 + 64],
+            [52 * 64, 69 * 64],
+            [52 * 64 + 64, 69 * 64],
+            [52 * 64 + 64, 69 * 64 + 64],
+          ],
         },
-    ],
-},
+      ],
+    },
     {
       type: 'Feature',
       geometry: {
@@ -1071,11 +1626,10 @@ const geojsondata = {
           mapName: 'Tombs of Amascut',
           mapId: 1037,
           coordinates: [
-            [58 * 64 +  64, 83 * 64 + 32],
+            [58 * 64 + 64, 83 * 64 + 32],
             [58 * 64, 83 * 64 + 32],
             [58 * 64, 83 * 64 - 32],
             [58 * 64 + 64, 83 * 64 - 32],
-
           ],
         },
       ],
@@ -6994,11 +7548,11 @@ const geojsondata = {
           mapName: 'Ancient Cavern',
           mapId: 1,
           coordinates: [
-            [1728, 5248],
-            [1728, 5376],
-            [1792, 5376],
-            [1792, 5248],
-            [1728, 5248],
+            [1728, 5288],
+            [1728, 5436],
+            [1852, 5436],
+            [1852, 5288],
+            [1728, 5288],
           ],
         },
       ],
@@ -22106,15 +22660,14 @@ const geojsondata = {
             [1664, 9152],
           ],
         },
-          {
+        {
           mapName: 'Haunted Mine',
           mapId: 1039,
           coordinates: [
-            [53*64+64,150*64+64],
-            [53*64,150*64+64],
-            [53*64,150*64],
-            [53*64+64,150*64],
-          
+            [53 * 64 + 64, 150 * 64 + 64],
+            [53 * 64, 150 * 64 + 64],
+            [53 * 64, 150 * 64],
+            [53 * 64 + 64, 150 * 64],
           ],
         },
       ],
