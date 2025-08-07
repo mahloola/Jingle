@@ -355,6 +355,7 @@ export const REGIONS = {
     'Test of Isolation',
     'Test of Companionship',
     'Test of Resourcefulness'
+    "Sorceress's Garden"
 
   ],
   Morytania: [
