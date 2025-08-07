@@ -354,7 +354,7 @@ export const REGIONS = {
     'Test of Strength', 
     'Test of Isolation',
     'Test of Companionship',
-    'Test of Resourcefulness'
+    'Test of Resourcefulness',
     "Sorceress's Garden"
 
   ],
