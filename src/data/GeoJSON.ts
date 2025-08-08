@@ -15,6 +15,35 @@ export interface ConvertedFeature extends Feature<Polygon> {
 
 const geojsondata = {
   features: [
+     {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [],
+        ],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Sorceress%27s Garden"" title="Sorceress&#39;s Garden"">Sorceress\'s Garden</a>',
+        description:
+          '<div><a href="/w/File:Sorceress%27s Garden".ogg" title="File:Sorceress&#39;s Garden".ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Sorceress Garden',
+          mapId: 1032,
+          coordinates: [
+            [2919, 5478],
+            [2904, 5478],
+            [2904, 5464],
+            [2919, 5464],
+  
+          ],
+        },
+      ],
+    },
     {
       type: 'Feature',
       geometry: {
