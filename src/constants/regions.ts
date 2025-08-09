@@ -575,7 +575,7 @@ export const REGIONS = {
     'A Desolate Past',
     'Over the Mountains',
     'Stalkers',
-
+    'Scorching Horizon'
   ],
 };
 export const TOTAL_TRACK_COUNT = Object.keys(REGIONS).reduce(
