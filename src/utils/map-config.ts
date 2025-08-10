@@ -55,6 +55,7 @@ export enum MapIds {
   TheScar = 1002,
   GhorrockDungeon = 1003,
   GhorrockPrison = 1004,
+  NightmareArena = 1005,
   GuthixianTemple = 1006,
   GoblinTemple = 1007,
   SkotizoLair = 1009,
@@ -93,6 +94,7 @@ export const NESTED_MAP_IDS = [
   MapIds.SkotizoLair,
   MapIds.UndergroundPassLower,
   MapIds.ToA,
+  MapIds.NightmareArena
 ];
 
 export const NESTED_GROUPS = [
@@ -115,6 +117,7 @@ export const NESTED_GROUPS = [
   [MapIds.MisthalinUnderground, MapIds.ChaosTunnelsAltar],
   [MapIds.UndergroundPassUpper, MapIds.UndergroundPassLower],
   [MapIds.DesertUnderground, MapIds.ToA],
+  [MapIds.MorytaniaUnderground, MapIds.NightmareArena]
 ];
 
 export const LINKLESS_MAP_IDS = [

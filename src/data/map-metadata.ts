@@ -1107,33 +1107,34 @@ const mapMetadata: MapMetadata[] = [
             9504
         ]
     },
-    {
-        "mapId": -1,
-        "name": "debug",
-        "bounds": [
-            [
-                1024,
-                1216
-            ],
-            [
-                4224,
-                12608
-            ]
-        ],
-        "center": [
-            2496,
-            3328
-        ]
-    }
-  // {
-  //   mapId: -1,
-  //   name: "debug",
-  //   bounds: [
-  //     [960, 1152],
-  //     [4288, 12672]
-  //   ],
-  //   center: [2496, 3328]
-  // }
+     {
+    "mapId": 1040,
+    "name": "Mokha Crypt",
+    "bounds": [
+      [1280, 9344],
+      [1344, 9600]
+    ],
+    "center": [1312, 9472]
+  },
+    // {
+    //     "mapId": -1,
+    //     "name": "debug",
+    //     "bounds": [
+    //         [
+    //             1024,
+    //             1216
+    //         ],
+    //         [
+    //             4224,
+    //             12608
+    //         ]
+    //     ],
+    //     "center": [
+    //         2496,
+    //         3328
+    //     ]
+    // }
+
 ];
 
 export default mapMetadata;
