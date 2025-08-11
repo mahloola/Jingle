@@ -16,6 +16,8 @@ import {
 } from '../utils/browserUtil';
 import { SongService } from '../utils/getRandomSong';
 import { playSong } from '../utils/playSong';
+import AdSenseComponent from './AdSenseComponent';
+import AudioControls from './AudioControls';
 import Footer from './Footer';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
@@ -23,7 +25,6 @@ import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
 import SettingsModalButton from './side-menu/PreferencesModalButton';
 import StatsModalButton from './side-menu/StatsModalButton';
-import AudioControls from './AudioControls';
 import { Button } from './ui-util/Button';
 
 sanitizePreferences();
@@ -109,6 +110,7 @@ export default function Practice() {
   return (
     <>
       <div className='App-inner'>
+        <AdSenseComponent />
         <div className='ui-box'>
           <div className='modal-buttons-container'>
             <HomeButton />
@@ -149,7 +151,10 @@ export default function Practice() {
               })
               .exhaustive()}
 
-            <AudioControls ref={audioRef} gameState={gameState}/>
+            <AudioControls
+              ref={audioRef}
+              gameState={gameState}
+            />
             <Footer />
           </div>
         </div>
