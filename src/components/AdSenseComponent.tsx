@@ -52,7 +52,7 @@ const AdSenseComponent: React.FC<AdSenseComponentProps> = ({
     // Create and append script
     const script = document.createElement('script');
     script.id = scriptId;
-    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=9264325141836527`;
+    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9264325141836527`;
     script.async = true;
     script.crossOrigin = 'anonymous';
     script.onload = loadAdSense;
