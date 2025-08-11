@@ -16,7 +16,6 @@ import {
 } from '../utils/browserUtil';
 import { SongService } from '../utils/getRandomSong';
 import { playSong } from '../utils/playSong';
-import AdSenseComponent from './AdSenseComponent';
 import AudioControls from './AudioControls';
 import Footer from './Footer';
 import RoundResult from './RoundResult';
@@ -110,7 +109,6 @@ export default function Practice() {
   return (
     <>
       <div className='App-inner'>
-        <AdSenseComponent />
         <div className='ui-box'>
           <div className='modal-buttons-container'>
             <HomeButton />

@@ -8,7 +8,6 @@ import {
   copyResultsToClipboard,
   getJingleNumber,
 } from '../utils/jingle-utils';
-import AdSenseComponent from './AdSenseComponent';
 import NextDailyCountdown from './NextDailyCountdown';
 
 interface GameOverProps {
@@ -22,7 +21,6 @@ export default function GameOver({ gameState, dailyChallenge }: GameOverProps) {
   const percentile: number = calculateDailyChallengePercentile(dailyChallenge, score);
   return (
     <div className='result-screen-parent'>
-      <AdSenseComponent />
       <div className='result-screen result-screen-results'>
         <div className='result-screen-title'>Jingle #{jingleNumber}</div>
         <div className='result-screen-data-row'>
