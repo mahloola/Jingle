@@ -31,7 +31,6 @@ interface AdSenseComponentProps {
 }
 
 const AdSenseComponent: React.FC<AdSenseComponentProps> = ({
-  className = '',
   style = {},
   adFormat = 'auto',
   adLayoutKey,
@@ -74,7 +73,7 @@ const AdSenseComponent: React.FC<AdSenseComponentProps> = ({
 
   return (
     <div
-      className={`adsense-container ${className}`}
+      className={`adsense-container ad-component-container`}
       style={style}
     >
       <ins
