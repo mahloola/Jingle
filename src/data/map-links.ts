@@ -3431,7 +3431,7 @@ export const groupedLinks: GroupedLinks = {
         "x": 1633,
         "y": 9631,
         "mapId": 1030,
-        "name": "Ruins Of Tapoyauik"
+        "name": "Ruins of Tapoyauik"
       },
       "start": {
         "x": 1641,
@@ -3445,7 +3445,7 @@ export const groupedLinks: GroupedLinks = {
         "x": 1719,
         "y": 9634,
         "mapId": 1030,
-        "name": "Ruins Of Tapoyauik"
+        "name": "Ruins of Tapoyauik"
       },
       "start": {
         "x": 1694,
@@ -6739,13 +6739,13 @@ export const groupedLinks: GroupedLinks = {
       }
     }
   ],
-  "Ruins Of Tapoyauik": [
+  "Ruins of Tapoyauik": [
     {
       "start": {
         "x": 1633,
         "y": 9631,
         "mapId": 1030,
-        "name": "Ruins Of Tapoyauik"
+        "name": "Ruins of Tapoyauik"
       },
       "end": {
         "x": 1641,
@@ -6759,7 +6759,7 @@ export const groupedLinks: GroupedLinks = {
         "x": 1719,
         "y": 9634,
         "mapId": 1030,
-        "name": "Ruins Of Tapoyauik"
+        "name": "Ruins of Tapoyauik"
       },
       "end": {
         "x": 1694,

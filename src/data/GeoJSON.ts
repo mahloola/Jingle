@@ -15,6 +15,33 @@ export interface ConvertedFeature extends Feature<Polygon> {
 
 const geojsondata = {
   features: [
+       {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Truth" title="Truth">Truth</a>',
+        description:
+          '<div><a href="/w/File:Truth.ogg" title="File:Truth.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Mokha Crypt',
+          mapId: 1040,
+          coordinates: [
+            [1319, 9506],
+            [1303, 9506],
+            [1303, 9489],
+            [1319, 9489],
+
+          ],
+        },
+      ],
+    },
     {
       type: 'Feature',
       geometry: {
