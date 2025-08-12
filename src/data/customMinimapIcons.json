@@ -1950,8 +1950,8 @@
     },
     "spriteId": -666,
     "text": "Ruins of\nMokhaiotl",
-    "fontScale": 1,
-    "fontColor": "#FFFFFF"
+    "fontScale": 2,
+    "fontColor": "#FFFF00"
   },
    {
     "position": {
@@ -1988,7 +1988,7 @@
   },
    {
     "position": {
-      "x": 1311,
+      "x": 1312,
       "y": 9572,
       "z": 0
     },
