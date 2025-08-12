@@ -12,7 +12,7 @@
       "end": {
         "x": 1312,
         "y": 9429,
-        "mapId": 40,
+        "mapId": 1040,
         "name": "Mokha Crypt"
       }
     },
@@ -26,7 +26,7 @@
       "start": {
         "x": 1312,
         "y": 9429,
-        "mapId": 40,
+        "mapId": 1040,
         "name": "Mokha Crypt"
       }
     },
@@ -407,7 +407,7 @@
       "x": 1633,
       "y": 9631,
       "mapId": 1030,
-      "name": "Ruins Of Tapoyauik"
+      "name": "Ruins of Tapoyauik"
     },
     "start": {
       "x": 1641,
@@ -422,7 +422,7 @@
       "x": 1719,
       "y": 9634,
       "mapId": 1030,
-      "name": "Ruins Of Tapoyauik"
+      "name": "Ruins of Tapoyauik"
     },
     "start": {
       "x": 1694,
@@ -1440,7 +1440,7 @@
       "x": 1633,
       "y": 9631,
       "mapId": 1030,
-      "name": "Ruins Of Tapoyauik"
+      "name": "Ruins of Tapoyauik"
     },
     "end": {
       "x": 1641,
@@ -1455,7 +1455,7 @@
       "x": 1719,
       "y": 9634,
       "mapId": 1030,
-      "name": "Ruins Of Tapoyauik"
+      "name": "Ruins of Tapoyauik"
     },
     "end": {
       "x": 1694,
@@ -1562,7 +1562,7 @@
     },
     "start": {
       "x": 2369,
-      "y": 9798,
+      "y": 9719,
       "mapId": 1035,
       "name": "Underground Pass Upper"
     }
@@ -1584,13 +1584,13 @@
   },
 
   {
-    "start": {
+    "end": {
       "x": 2423,
       "y": 9661,
       "mapId": 1035,
       "name": "Underground Pass Upper"
     },
-    "end": {
+    "start": {
       "x": 2416,
       "y": 9675,
       "mapId": 1035,
@@ -1728,7 +1728,7 @@
       "end": {
         "x": 1312,
         "y": 9344,
-        "mapId": 40,
+        "mapId": 1040,
         "name": "Mokha Crypt"
       }
     },
@@ -1742,7 +1742,7 @@
       "start": {
         "x": 1312,
         "y": 9344,
-        "mapId": 40,
+        "mapId": 1040,
         "name": "Mokha Crypt"
       }
     },
