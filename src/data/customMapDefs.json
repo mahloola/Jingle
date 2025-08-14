@@ -325,7 +325,7 @@
         "name": "Guardians of the Rift",
         "regionList": [
             {
-                "numberOfPlanes": 4,
+                "numberOfPlanes": 1,
                 "xLowerLeft": 55,
                 "yLowerLeft": 147,
                 "xLowerRight": 57,
