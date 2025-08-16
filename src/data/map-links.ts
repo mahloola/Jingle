@@ -1809,6 +1809,36 @@ export const groupedLinks: GroupedLinks = {
       start: { x: 2952, y: 5766, mapId: 39, name: 'Ruins of Camdozaal' },
       end: { x: 2999, y: 3493, mapId: 0, name: 'Gielinor Surface' },
     },
+    {
+      start: {
+        x: 2922,
+        y: 5826,
+        mapId: 39,
+        name: 'Ruins of Camdozaal',
+      },
+      end: {
+        x: 2588,
+        y: 6435,
+        mapId: 41,
+        name: 'Lassar Undercity',
+      },
+    },
+  ],
+  "Lassar Undercity": [
+     {
+      end: {
+        x: 2922,
+        y: 5826,
+        mapId: 39,
+        name: 'Ruins of Camdozaal',
+      },
+      start: {
+        x: 2588,
+        y: 6435,
+        mapId: 41,
+        name: 'Lassar Undercity',
+      },
+    },
   ],
   Neypotzli: [
     {
