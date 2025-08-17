@@ -22921,6 +22921,16 @@ const geojsondata = {
             [1664, 9152],
           ],
         },
+         {
+          mapName: 'Morytania Underground',
+          mapId: 14,
+          coordinates: [
+            [3502, 9593],
+            [3488, 9593],
+            [3488, 9580],
+            [3502, 9580],
+          ],
+        },
         {
           mapName: 'Haunted Mine',
           mapId: 1039,
