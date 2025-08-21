@@ -1,5 +1,5 @@
 import { RefObject } from 'react';
-import { Region, REGIONS, UNDERGROUND_TRACKS } from '../constants/regions';
+import { Region, REGIONS, UNDERGROUND_TRACKS_STRICT } from '../constants/regions';
 import { UserPreferences } from '../types/jingle';
 import { loadPreferencesFromBrowser } from './browserUtil';
 
@@ -75,11 +75,11 @@ export class SongService {
     const { undergroundSelected, surfaceSelected } = preferences;
 
     if (undergroundSelected && !surfaceSelected) {
-      return songs.filter((song) => UNDERGROUND_TRACKS.includes(song));
+      return songs.filter((song) => UNDERGROUND_TRACKS_STRICT.includes(song));
     }
 
     if (surfaceSelected && !undergroundSelected) {
-      return songs.filter((song) => !UNDERGROUND_TRACKS.includes(song));
+      return songs.filter((song) => !UNDERGROUND_TRACKS_STRICT.includes(song));
     }
 
     return songs;
