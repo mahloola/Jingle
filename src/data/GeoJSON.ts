@@ -15,7 +15,7 @@ export interface ConvertedFeature extends Feature<Polygon> {
 
 const geojsondata = {
   features: [
-       {
+    {
       type: 'Feature',
       geometry: {
         type: 'Polygon',
@@ -24,8 +24,7 @@ const geojsondata = {
       properties: {
         mapID: '-1',
         title: '<a href="/w/Truth" title="Truth">Truth</a>',
-        description:
-          '<div><a href="/w/File:Truth.ogg" title="File:Truth.ogg">Play track</a></div>',
+        description: '<div><a href="/w/File:Truth.ogg" title="File:Truth.ogg">Play track</a></div>',
         plane: 0,
       },
       convertedGeometry: [
@@ -37,7 +36,6 @@ const geojsondata = {
             [1303, 9506],
             [1303, 9489],
             [1319, 9489],
-
           ],
         },
       ],
@@ -7951,13 +7949,42 @@ const geojsondata = {
           mapName: 'Gielinor Surface',
           mapId: 0,
           coordinates: [
-            [2816, 3952],
-            [2847, 3952],
-            [2847, 3961],
-            [2880, 3961],
-            [2880, 4032],
-            [2816, 4032],
-            [2816, 3952],
+            [2816, 3911],
+            [2887, 3911],
+            [2887, 3921],
+            [2886, 3922],
+            [2883, 3922],
+            [2882, 3921],
+            [2878, 3921],
+            [2877, 3920],
+            [2876, 3920],
+            [2875, 3919],
+            [2874, 3919],
+            [2873, 3920],
+            [2872, 3920],
+            [2871, 3921],
+            [2867, 3921],
+            [2866, 3920],
+            [2863, 3920],
+            [2862, 3919],
+            [2858, 3919],
+            [2856, 3917],
+            [2853, 3917],
+            [2852, 3918],
+            [2850, 3918],
+            [2848, 3920],
+            [2848, 3929],
+            [2849, 3930],
+            [2850, 3930],
+            [2852, 3932],
+            [2851, 3933],
+            [2851, 3939],
+            [2850, 3940],
+            [2850, 3961],
+            [2864, 3961],
+            [2864, 3975],
+            [2816, 3975],
+            [2816, 3911],
           ],
         },
       ],
@@ -22921,7 +22948,7 @@ const geojsondata = {
             [1664, 9152],
           ],
         },
-         {
+        {
           mapName: 'Morytania Underground',
           mapId: 14,
           coordinates: [

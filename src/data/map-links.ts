@@ -219,7 +219,7 @@ export const groupedLinks: GroupedLinks = {
     },
     {
       end: { x: 3284, y: 3468, mapId: 0, name: 'Gielinor Surface' },
-      start: { x: 3436, y: 9924, mapId: 1023, name: 'Misthalin Underground' },
+      start: { x: 3436, y: 9924, mapId: 12, name: 'Misthalin Underground' },
     },
     {
       start: { x: 3105, y: 9573, mapId: 12, name: 'Misthalin Underground' },
@@ -969,7 +969,7 @@ export const groupedLinks: GroupedLinks = {
     },
     {
       start: { x: 3284, y: 3468, mapId: 0, name: 'Gielinor Surface' },
-      end: { x: 3436, y: 9924, mapId: 1023, name: 'Misthalin Underground' },
+      end: { x: 3436, y: 9924, mapId: 12, name: 'Misthalin Underground' },
     },
     {
       start: { x: 3550, y: 3995, mapId: 0, name: 'Gielinor Surface' },
