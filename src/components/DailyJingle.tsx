@@ -32,6 +32,7 @@ import {
   getJingleNumber,
 } from '../utils/jingle-utils';
 import { playSong } from '../utils/playSong';
+import AudioControls from './AudioControls';
 import Footer from './Footer';
 import GameOver from './GameOver';
 import RoundResult from './RoundResult';
@@ -40,7 +41,6 @@ import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
 import SettingsModalButton from './side-menu/PreferencesModalButton';
 import StatsModalButton from './side-menu/StatsModalButton';
-import AudioControls from './AudioControls';
 
 interface DailyJingleProps {
   dailyChallenge: DailyChallenge;
@@ -71,8 +71,8 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   useEffect(() => {
     playSong(
-      audioRef, 
-      initialGameState.songs[gameState.round], 
+      audioRef,
+      initialGameState.songs[gameState.round],
       initialGameState.settings.oldAudio,
       ...(currentPreferences.preferHardMode ? [currentPreferences.hardModeLength] : []),
     );
@@ -190,7 +190,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
                       dailyChallenge,
                       sum(gameState.scores),
                     );
-                    copyResultsToClipboard(gameState, percentile);
+                    copyResultsToClipboard(gameState, percentile, jingleNumber);
                   },
                 }),
               )
@@ -204,7 +204,10 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
               {scoreLabel(gameState.scores[4])}
             </div>
 
-            <AudioControls ref={audioRef} gameState={gameState}/>
+            <AudioControls
+              ref={audioRef}
+              gameState={gameState}
+            />
 
             <Footer />
           </div>
