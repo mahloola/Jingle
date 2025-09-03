@@ -33,6 +33,14 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
 
   return (
     <div className='audio-container'>
+      <audio
+        controls
+        id='audio'
+        ref={ref}
+        className={showAudio ? '' : 'hide-audio'}
+      />
+
+      {/* non-hard mode */}
       {showAudio && (
         <div className='reload-audio-container'>
           <FiRefreshCcw
@@ -44,15 +52,14 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
           <Tooltip id={`reload-tooltip`} />
         </div>
       )}
-      <audio
-        controls
-        id='audio'
-        ref={ref}
-        className={showAudio ? '' : 'hide-audio'}
-      />
 
+      {/* hard mode */}
       {!showAudio && (
         <div className='audio-container'>
+          <SnippetPlayer
+            audioRef={ref as RefObject<HTMLAudioElement | null>}
+            snippetLength={currentPreferences.hardModeLength}
+          />
           <div className='reload-audio-container'>
             <FiRefreshCcw
               className={'reload-audio-btn'}
@@ -62,10 +69,6 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
             />
             <Tooltip id={`reload-tooltip`} />
           </div>
-          <SnippetPlayer
-            audioRef={ref as RefObject<HTMLAudioElement | null>}
-            snippetLength={currentPreferences.hardModeLength}
-          />
         </div>
       )}
     </div>
