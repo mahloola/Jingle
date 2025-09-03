@@ -22,7 +22,10 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
       audioRef.current?.play();
     }
   }, [props.gameState.status]);
-
+  const reloadAudio = () => {
+    const audioRef = ref as RefObject<HTMLAudioElement | null>;
+    audioRef.current?.load();
+  };
   return (
     <div>
       <audio
@@ -31,6 +34,12 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
         ref={ref}
         className={showAudio ? '' : 'hide-audio'}
       />
+      <button
+        style={{ background: 'white' }}
+        onClick={reloadAudio}
+      >
+        Reload Audio
+      </button>
 
       {!showAudio && (
         <div>
