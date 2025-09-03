@@ -1,4 +1,6 @@
 import { forwardRef, RefObject, useEffect, useState } from 'react';
+import { FiRefreshCcw } from 'react-icons/fi';
+import { Tooltip } from 'react-tooltip';
 import '../style/uiBox.css';
 import { GameState, GameStatus } from '../types/jingle';
 import { loadPreferencesFromBrowser } from '../utils/browserUtil';
@@ -28,19 +30,27 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
     audioRef.current?.play();
   };
   return (
-    <div>
+    <div className='audio-container'>
       <audio
         controls
         id='audio'
         ref={ref}
         className={showAudio ? '' : 'hide-audio'}
       />
-      <button
-        style={{ background: 'white' }}
+      <div className='reload-audio-container'>
+        <FiRefreshCcw
+          className={'reload-audio-btn'}
+          onClick={reloadAudio}
+          data-tooltip-id={`reload-tooltip`}
+          data-tooltip-content={'Reload Audio'}
+        />
+        <Tooltip id={`reload-tooltip`} />
+      </div>
+      {/* <Button
+        classes={'reload-audio-btn guess-btn'}
+        label='Reload Audio'
         onClick={reloadAudio}
-      >
-        Reload Audio
-      </button>
+      /> */}
 
       {!showAudio && (
         <div>
