@@ -17,27 +17,22 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
   const answerRevealed = props.gameState.status == GameStatus.AnswerRevealed;
   const hardMode = currentPreferences.preferHardMode;
   const showAudio = !hardMode || answerRevealed;
+  const audioRef = ref as RefObject<HTMLAudioElement | null>;
 
   useEffect(() => {
     if (hardMode && answerRevealed) {
-      const audioRef = ref as RefObject<HTMLAudioElement | null>;
       audioRef.current?.play();
     }
   }, [props.gameState.status]);
+
   const reloadAudio = () => {
     const audioRef = ref as RefObject<HTMLAudioElement | null>;
     audioRef.current?.load();
     audioRef.current?.play();
   };
+
   return (
     <div className='audio-container'>
-      <audio
-        controls
-        id='audio'
-        ref={ref}
-        className={showAudio ? '' : 'hide-audio'}
-      />
-
       {showAudio && (
         <div className='reload-audio-container'>
           <FiRefreshCcw
@@ -49,22 +44,28 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
           <Tooltip id={`reload-tooltip`} />
         </div>
       )}
+      <audio
+        controls
+        id='audio'
+        ref={ref}
+        className={showAudio ? '' : 'hide-audio'}
+      />
 
       {!showAudio && (
         <div className='audio-container'>
-          <SnippetPlayer
-            audioRef={ref as RefObject<HTMLAudioElement | null>}
-            snippetLength={currentPreferences.hardModeLength}
-          />
           <div className='reload-audio-container'>
             <FiRefreshCcw
               className={'reload-audio-btn'}
-              onClick={reloadAudio}
+              onClick={() => playSnippet(audioRef, currentPreferences.hardModeLength)}
               data-tooltip-id={`reload-tooltip`}
               data-tooltip-content={'Reload Audio'}
             />
             <Tooltip id={`reload-tooltip`} />
           </div>
+          <SnippetPlayer
+            audioRef={ref as RefObject<HTMLAudioElement | null>}
+            snippetLength={currentPreferences.hardModeLength}
+          />
         </div>
       )}
     </div>
