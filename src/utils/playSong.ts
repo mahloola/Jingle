@@ -1,4 +1,5 @@
 import { RefObject } from 'react';
+import { cdnURL } from '../constants/links';
 import { audio2004 } from '../data/audio2004';
 import { SongService } from './getRandomSong';
 
@@ -13,10 +14,10 @@ export const playSong = (
   if (oldAudio) {
     const oldAudioExists = songName in audio2004;
     src = oldAudioExists
-      ? `https://mahloola.com/${songName.trim().replace(/ /g, '_')}_(v1).mp3`
-      : `https://mahloola.com/${songName.trim().replace(/ /g, '_')}.mp3`;
+      ? `${cdnURL}/${songName.trim().replace(/ /g, '_')}_(v1).mp3`
+      : `${cdnURL}/${songName.trim().replace(/ /g, '_')}.mp3`;
   } else {
-    src = `https://mahloola.com/${songName.trim().replace(/ /g, '_')}.mp3`;
+    src = `${cdnURL}/${songName.trim().replace(/ /g, '_')}.mp3`;
   }
 
   audioRef.current!.src = src;
