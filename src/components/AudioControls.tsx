@@ -25,6 +25,7 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
   const reloadAudio = () => {
     const audioRef = ref as RefObject<HTMLAudioElement | null>;
     audioRef.current?.load();
+    audioRef.current?.play();
   };
   return (
     <div>
