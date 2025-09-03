@@ -2,6 +2,7 @@ import { booleanContains, booleanPointInPolygon, polygon } from '@turf/turf';
 import G, { Position } from 'geojson';
 import L from 'leaflet';
 import { CENTER_COORDINATES, DEFAULT_PREFERENCES } from '../constants/defaults';
+import { imageCdnURL } from '../constants/links';
 import geojsondata, { ConvertedFeature } from '../data/GeoJSON';
 import { groupedLinks, LinkPoint, MapLink } from '../data/map-links';
 import mapMetadata from '../data/map-metadata';
@@ -175,7 +176,7 @@ export const switchLayer = (map: L.Map, tileLayer: L.TileLayer, mapId: number) =
   tileLayer.getTileUrl = (coords: L.Coords) => {
     const { x, y, z } = coords;
     const tmsY = -y - 1;
-    return `https://jingle.mahloola.com/${mapId}/${z}/0_${x}_${tmsY}.png`;
+    return `${imageCdnURL}/${mapId}/${z}/0_${x}_${tmsY}.png`;
   };
   tileLayer.redraw();
 };

@@ -46,7 +46,7 @@ export default function GameOver({ gameState, dailyChallenge }: GameOverProps) {
           {!isMobile && (
             <div
               className='result-screen-option'
-              onClick={() => copyResultsToClipboard(gameState, percentile)}
+              onClick={() => copyResultsToClipboard(gameState, percentile, jingleNumber)}
             >
               Copy Results
             </div>
