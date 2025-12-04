@@ -4,6 +4,28 @@
 .modal-container h2 {
   margin-bottom: 10px;
 }
+.modal-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  line-height: 1.8;
+}
+.modal-options {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.modal-line span svg {
+  color: #928270;
+  font-size: 0.9em !important;
+  margin-left: 5px;
+}
+.modal-line span svg:hover {
+  filter: drop-shadow(0 0 3px #ffffff);
+  cursor: pointer;
+  transition: 0.2s;
+}
 
 .regions-table {
   display: flex;
@@ -16,41 +38,9 @@
   max-height: 200px !important;
 }
 
-.rotated {
-  transform: rotate(-180deg);
-}
-
 .settings-table {
   width: 100%;
 }
-
-.checkbox-container {
-  display: flex;
-  align-items: center;
-}
-.tooltip-icon {
-  color: #928270;
-  font-size: 0.9em !important;
-  margin-left: 9.6px;
-}
-
-.tooltip-icon:hover {
-  filter: drop-shadow(0 0 3px #ffffff);
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-svg {
-  color: #928270;
-  font-size: 0.9em !important;
-  margin-left: 5px;
-}
-svg:hover {
-  filter: drop-shadow(0 0 3px #ffffff);
-  cursor: pointer;
-  transition: 0.2s;
-}
-
 .settings-table tr {
   height: 35px;
   display: flex;
@@ -58,7 +48,6 @@ svg:hover {
   align-items: center;
   width: 100%;
 }
-
 .settings-table td {
   display: flex;
   align-items: center;
@@ -71,10 +60,28 @@ svg:hover {
   overflow: hidden;
   height: 70px !important;
 }
-
 .hard-mode-row:not(:has(.custom-range-input.visible)) {
   max-height: 0;
   border: none;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.tooltip-icon {
+  color: #928270;
+  font-size: 0.9em !important;
+  margin-left: 9.6px;
+}
+.tooltip-icon:hover {
+  filter: drop-shadow(0 0 3px #ffffff);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.react-tooltip {
+  font-size: 1em !important;
 }
 
 .ReactModal__Overlay {
@@ -82,11 +89,6 @@ svg:hover {
   /* Force override */
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.5) !important;
-}
-
-button {
-  background-color: transparent;
-  border: none;
 }
 
 ::-webkit-scrollbar {
@@ -137,27 +139,9 @@ input:focus {
   outline: none;
 }
 
-.modal-line {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  line-height: 1.8;
-}
-
-.modal-options {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-}
-
 .osrs-btn.modal-action-btn {
   padding: 4px 16px;
   margin-top: 10px;
-}
-
-.react-tooltip {
-  font-size: 1em !important;
 }
 
 .modal-buttons-container {
@@ -167,4 +151,8 @@ input:focus {
   top: 10px;
   right: 10px;
   gap: 10px;
+}
+
+.rotated {
+  transform: rotate(-180deg);
 }
