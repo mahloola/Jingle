@@ -39,6 +39,10 @@ const HistoryModalButton = () => {
     });
   };
 
+  const calcDailyAvgColor = (val: number, min: number, max: number) => {
+    const normalized = (val - min) / (max - min);
+    let r, g, b;
+  };
   return (
     <div>
       <IconButton
@@ -83,7 +87,10 @@ const HistoryModalButton = () => {
         </div>
         <p />
         <h2>By Day</h2>
-
+        <div className='modal-line'>
+          <span style={{ color: 'var(--primary-color-dark)' }}>Challenge Number</span>
+          <span style={{ color: 'var(--primary-color-dark)', paddingRight: '13px' }}>Date</span>
+        </div>
         {dailiesAsObjects.length ? (
           <section className='history-stats'>
             {dailiesAsObjects.map((dailyObject: any) => (
@@ -93,7 +100,7 @@ const HistoryModalButton = () => {
                   style={{ paddingRight: '5px', lineHeight: '2.2' }}
                 >
                   <span>
-                    Jingle #{dailyObject.dailyNumber}
+                    #{dailyObject.dailyNumber}
                     <FaChevronDown
                       onClick={() => toggleDaily(dailyObject.key)}
                       className={expandedId == dailyObject.key ? 'rotated' : ''}
@@ -103,7 +110,7 @@ const HistoryModalButton = () => {
                       <Chip
                         size='small'
                         label={dailyObject.value?.timeTaken}
-                        style={{ color: '#f6fe85' }}
+                        style={{ color: 'var(--primary-yellow' }}
                       />
                     )}
                     {dailyObject.value?.settings?.hardMode && (
@@ -120,7 +127,7 @@ const HistoryModalButton = () => {
                         <Chip
                           size='small'
                           label={new Date(dailyObject.value.startTime).toLocaleDateString()}
-                          style={{ color: '#f6fe85' }}
+                          style={{ color: 'var(--primary-yellow)' }}
                         />
                       )}
                     </span>

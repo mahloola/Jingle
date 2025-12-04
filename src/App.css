@@ -29,7 +29,7 @@
 }
 
 input[type='checkbox'] {
-  accent-color: #edfd07;
+  accent-color: var(--primary-yellow);
   height: 1.1em;
   width: 1.1em;
 }

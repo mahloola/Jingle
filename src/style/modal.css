@@ -126,13 +126,13 @@ input[type='search'] {
   border-radius: 2px;
   border: none;
   background-color: #928270;
-  color: #edfd07;
+  color: var(--primary-yellow);
   width: 90%;
   margin-bottom: 5px;
   height: 32px;
 }
 input::placeholder {
-  color: #edfd0788;
+  color: var(--primary-yellow-dark);
 }
 
 input:focus {

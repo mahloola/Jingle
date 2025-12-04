@@ -40,7 +40,12 @@ export default function RoundResult({ gameState }: ResultMessageProps) {
         opacity: show ? 1 : 0,
         transition: 'opacity 500ms, margin-top 500ms ease-in-out',
         marginTop: show ? '-60px' : '0px',
-        color: score === 1000 ? '#00FF00' : score === 0 ? '#FF0000' : '#edfd07',
+        color:
+          score === 1000
+            ? 'var(--primary-green)'
+            : score === 0
+            ? 'var(--primary-red)'
+            : 'var(--primary-yellow)',
       }}
     >
       +{score}

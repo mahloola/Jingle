@@ -1,5 +1,5 @@
 .ui-box {
-  color: #edfd07;
+  color: var(--primary-yellow);
   text-shadow: 1px 1px 1px black;
   top: 75%;
   left: 40%;

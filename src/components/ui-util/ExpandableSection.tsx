@@ -1,7 +1,6 @@
 import { FaChevronDown } from 'react-icons/fa6';
 import { IoWarning } from 'react-icons/io5';
 import { Tooltip } from 'react-tooltip';
-import { COLORS } from '../../constants/theme';
 
 interface ExpandableSectionProps {
   title: string;
@@ -30,7 +29,7 @@ export const ExpandableSection = ({
         <>
           <IoWarning
             style={{
-              color: COLORS.yellow,
+              color: 'var(--primary-color)',
               minHeight: '20px',
               minWidth: '20px',
             }}
