@@ -50,7 +50,7 @@ const HistoryModalButton = () => {
       >
         <img
           className='modal-bg-image'
-          src={ASSETS['settingsIcon']}
+          src={ASSETS['historyIcon']}
         />
         <div
           style={{
