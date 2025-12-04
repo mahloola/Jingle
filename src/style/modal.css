@@ -72,7 +72,7 @@
 
 .tooltip-icon {
   color: #928270;
-  font-size: 0.9em !important;
+  font-size: 15px !important;
   margin-left: 9.6px;
 }
 .tooltip-icon:hover {
@@ -103,7 +103,7 @@
 }
 
 .history-stats {
-  height: 240px;
+  max-height: 240px;
   width: 100%;
   overflow-y: auto;
   scrollbar-width: thin;
