@@ -40,10 +40,15 @@
   transition: 0.2s;
 }
 
-.settings-table svg {
+svg {
   color: #928270;
   font-size: 0.9em !important;
   margin-left: 5px;
+}
+svg:hover {
+  filter: drop-shadow(0 0 3px #ffffff);
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .settings-table tr {
@@ -57,12 +62,6 @@
 .settings-table td {
   display: flex;
   align-items: center;
-}
-
-.settings-table svg:hover {
-  filter: drop-shadow(0 0 3px #ffffff);
-  cursor: pointer;
-  transition: 0.2s;
 }
 
 .hard-mode-row {
@@ -95,8 +94,14 @@ button {
 }
 
 .song-stats {
-  padding: 0 12px;
   height: 120px;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.history-stats {
+  height: 240px;
   width: 100%;
   overflow-y: auto;
   scrollbar-width: thin;

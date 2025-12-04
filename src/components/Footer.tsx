@@ -22,7 +22,7 @@ export default function Footer() {
         {', and '}
         <span className='link'>Kunito Moe</span>
       </div>
-      <span>
+      <span className='footer-icons'>
         <a
           className='icon'
           href='https://github.com/mahloola/osrs-music'

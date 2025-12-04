@@ -12,10 +12,7 @@ import IconButton from './IconButton';
 export default function NewsModalButton() {
   const seenAnnouncementId = loadSeenAnnouncementIdFromBrowser() || '0';
   const latestAnnouncementId = NEWS_POSTS.length;
-  const [open, setOpen] = useState(
-    // TODO: change this so that it shows when we make a new announcement
-    parseInt(seenAnnouncementId) < latestAnnouncementId,
-  );
+  const [open, setOpen] = useState(parseInt(seenAnnouncementId) < latestAnnouncementId);
   const closeModal = () => {
     setOpen(false);
     setSeenAnnouncementIdToBrowser(latestAnnouncementId.toString());

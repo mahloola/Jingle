@@ -19,12 +19,15 @@
 }
 
 .icon {
-  padding: 2%;
-  width: 100px;
+  display: inline-block;
+  width: 40px;
+}
+.icon svg {
+  width: 25px;
   color: #edfd07;
   font-size: 17px;
 }
 
-.icon:hover {
+.icon svg:hover {
   color: #f9ffa0 !important;
 }

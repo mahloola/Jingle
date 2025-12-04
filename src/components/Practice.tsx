@@ -20,6 +20,7 @@ import AudioControls from './AudioControls';
 import Footer from './Footer';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
+import HistoryModalButton from './side-menu/HistoryModalButton';
 import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
 import SettingsModalButton from './side-menu/PreferencesModalButton';
@@ -119,6 +120,7 @@ export default function Practice() {
             />
             <NewsModalButton />
             <StatsModalButton />
+            <HistoryModalButton />
           </div>
 
           <div className='below-map'>

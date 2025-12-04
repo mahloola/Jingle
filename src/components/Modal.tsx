@@ -15,7 +15,7 @@ const isMobile = window.innerWidth <= 480;
 const modalStyles: Styles = {
   content: {
     display: 'flex',
-    padding: '16px 24px 24px 24px',
+    padding: '16px 32px 24px 32px',
     position: 'fixed',
     width: isMobile ? '340px' : '370px',
     height: 'auto',
