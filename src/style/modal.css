@@ -16,12 +16,12 @@
   justify-content: center;
   gap: 16px;
 }
-.modal-line span svg {
+.modal-container svg {
   color: #928270;
   font-size: 0.9em !important;
   margin-left: 5px;
 }
-.modal-line span svg:hover {
+.modal-container svg:hover {
   filter: drop-shadow(0 0 3px #ffffff);
   cursor: pointer;
   transition: 0.2s;
