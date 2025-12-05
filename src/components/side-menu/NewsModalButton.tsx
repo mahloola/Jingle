@@ -58,16 +58,16 @@ export default function NewsModalButton() {
                 }}
               >
                 <h2 style={{ fontSize: '2rem' }}>{post.title}</h2>
-                <h6
-                  className='news-date'
-                  style={{ marginRight: '10px' }}
-                >
-                  {post.date}
-                </h6>
               </div>
               <section className='news-content'>
                 {<p dangerouslySetInnerHTML={{ __html: post.content }} />}
               </section>
+              <h6
+                className='news-date'
+                style={{ marginLeft: 'auto', width: '100px', color: 'var(--primary-yellow-dark)' }}
+              >
+                {post.date}
+              </h6>
               {parseInt(post.id) !== 1 && <hr />}
             </section>
           ))}
