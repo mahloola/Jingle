@@ -37,6 +37,7 @@ import Footer from './Footer';
 import GameOver from './GameOver';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
+import HistoryModalButton from './side-menu/HistoryModalButton';
 import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
 import SettingsModalButton from './side-menu/PreferencesModalButton';
@@ -161,6 +162,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
             />
             <NewsModalButton />
             <StatsModalButton />
+            <HistoryModalButton />
           </div>
           <div className='below-map'>
             {match(gameState.status)
