@@ -64,6 +64,7 @@ th .history-entry-td {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   transition: 0.3s;
+  max-height: 0px; /* this gets overwritten by min-width when expanded */
 }
 
 .regions-table {

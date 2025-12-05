@@ -208,7 +208,7 @@ const HistoryModalButton = () => {
                     <div
                       style={{
                         minHeight: isExpanded ? '130px' : '0px',
-                        margin: isExpanded ? '5px 15px' : '0px',
+                        margin: isExpanded ? '5px 15px' : '0px 15px',
                         padding: isExpanded ? '5px 0px' : '0px',
                       }}
                       className='history-stats-entry'
