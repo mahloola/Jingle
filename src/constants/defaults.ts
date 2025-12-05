@@ -1,6 +1,6 @@
 import { GameState, GameStatus, UserPreferences } from '../types/jingle';
 
-export const MAX_MIN_HISTORY_COLORS: [number, number] = [4200, 0]; // completely arbitrary, feel like ~2100 is a good average for people
+export const MAX_MIN_HISTORY_COLORS: [number, number] = [4500, 0]; // completely arbitrary, imo 5000 would show too much red and discourage people
 export const CENTER_COORDINATES: [number, number] = [3222, 3218];
 export const DEFAULT_PREFERENCES: UserPreferences = {
   preferHardMode: false,
