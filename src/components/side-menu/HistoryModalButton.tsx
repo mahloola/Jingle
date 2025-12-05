@@ -119,10 +119,6 @@ const HistoryModalButton = () => {
         </div>
         <p />
         <h2>By Day</h2>
-        <div className='modal-line'>
-          <span style={{ color: 'var(--primary-color-dark)' }}>Challenge Number</span>
-          <span style={{ color: 'var(--primary-color-dark)', paddingRight: '13px' }}>Date</span>
-        </div>
         {dailiesAsObjects.length ? (
           <table>
             <thead>
