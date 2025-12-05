@@ -8,7 +8,6 @@ import { ASSETS } from '../../constants/assets';
 import { MAX_MIN_HISTORY_COLORS } from '../../constants/defaults';
 import { getAverages } from '../../data/jingle-api';
 import '../../style/modal.css';
-import { formatTimeTaken } from '../../utils/string-utils';
 import Modal from '../Modal';
 import IconButton from './IconButton';
 
@@ -141,13 +140,13 @@ const HistoryModalButton = () => {
                   className='history-entry-td'
                   style={{ color: 'var(--primary-yellow-dark)' }}
                 >
-                  Glob. Avg
+                  Personal
                 </td>
                 <td
                   className='history-entry-td'
                   style={{ color: 'var(--primary-yellow-dark)' }}
                 >
-                  Duration
+                  Glob. Avg
                 </td>
                 <td
                   className='history-entry-td'
@@ -170,6 +169,7 @@ const HistoryModalButton = () => {
                 const dailyKey = dailyObject.key;
                 const isExpanded = expandedId === dailyKey;
                 const dailyAvg = averages ? averages[dateString] : '-';
+                const score = dailyObject.value?.scores?.reduce((a: number, b: number) => a + b);
 
                 return (
                   <Fragment key={dailyKey}>
@@ -183,21 +183,31 @@ const HistoryModalButton = () => {
                         />
                       </td>
                       <td className='history-entry-td'>
+                        {dailyObject.value?.timeTaken && (
+                          <Chip
+                            size='small'
+                            label={`👤 ${score ?? 'N/A'}`}
+                            style={{ color: calcDailyAvgColor(score) }}
+                          />
+                        )}
+                      </td>
+                      {/* time taken - maybe bring it later some time */}
+                      {/* <td className='history-entry-td'>
+                        {dailyObject.value?.timeTaken && (
+                          <Chip
+                            size='small'
+                            label={`⏱️ ${formatTimeTaken(dailyObject.value?.timeTaken)}`}
+                            style={{ color: 'var(--primary-yellow-light' }}
+                          />
+                        )}
+                      </td> */}
+                      <td className='history-entry-td'>
                         {' '}
                         {dailyAvg && (
                           <Chip
                             size='small'
                             label={`🌍 ${dailyAvg || 'N/A'}`}
                             style={{ color: calcDailyAvgColor(dailyAvg) }}
-                          />
-                        )}
-                      </td>
-                      <td className='history-entry-td'>
-                        {dailyObject.value?.timeTaken && (
-                          <Chip
-                            size='small'
-                            label={`⏱️ ${formatTimeTaken(dailyObject.value?.timeTaken)}`}
-                            style={{ color: 'var(--primary-yellow-light' }}
                           />
                         )}
                       </td>
