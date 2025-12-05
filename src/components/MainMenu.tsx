@@ -20,6 +20,8 @@ export default function MainMenu({ dailyChallenge }: MainMenuProps) {
     refreshInterval: 2000,
   });
 
+  const leftSideStyle = { left: '17vw', top: '70%' };
+
   return (
     <div className='main-menu-container'>
       <img
@@ -31,18 +33,27 @@ export default function MainMenu({ dailyChallenge }: MainMenuProps) {
       <h1 className='main-menu-text'>Jingle</h1>
 
       {/* Daily Jingle Option */}
-      <Link
-        to='/daily'
-        className='main-menu-option'
-        style={{ left: '17vw', top: '70%' }}
-      >
-        Daily Jingle
-        {dailyCompleted && <NextDailyCountdown end={getNextUkMidnight()} />}
-        {!dailyCompleted && <div style={{ color: '#00FF00' }}>Ready</div>}{' '}
-        <div style={{ fontSize: '40%' }}>
-          {dailyChallenge?.results.length.toLocaleString()} Completions
-        </div>
-      </Link>
+      {dailyChallenge ? (
+        <Link
+          to='/daily'
+          className='main-menu-option'
+          style={leftSideStyle}
+        >
+          Daily Jingle
+          {dailyCompleted && <NextDailyCountdown end={getNextUkMidnight()} />}
+          {!dailyCompleted && <div style={{ color: '#00FF00' }}>Ready</div>}{' '}
+          <div style={{ fontSize: '40%' }}>
+            {dailyChallenge?.results.length.toLocaleString()} Completions
+          </div>
+        </Link>
+      ) : (
+        <h1
+          className='main-menu-option'
+          style={leftSideStyle}
+        >
+          Loading...
+        </h1>
+      )}
 
       <Link
         to='/practice'

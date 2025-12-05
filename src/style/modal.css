@@ -16,15 +16,55 @@
   justify-content: center;
   gap: 16px;
 }
-.modal-container svg {
-  color: #928270;
-  font-size: 0.9em !important;
-  margin-left: 5px;
+
+.history-entry-row {
+  display: flex;
+  flex-direction: row;
+  max-width: 360px;
+  padding-right: 5px;
+  line-height: 2.2;
 }
-.modal-container svg:hover {
-  filter: drop-shadow(0 0 3px #ffffff);
-  cursor: pointer;
-  transition: 0.2s;
+.history-entry-td:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 65px;
+  max-width: 65px;
+}
+.history-entry-td:nth-child(2) {
+  max-width: 70px;
+}
+.history-entry-td:nth-child(3) {
+  max-width: 90px;
+}
+
+.history-entry-td {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+}
+th .history-entry-td {
+  padding: 0px 8px;
+}
+.history-stats {
+  display: flex;
+  flex-direction: column;
+  max-height: 240px !important;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.history-stats-entry {
+  overflow: hidden;
+  margin-left: 0px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: 0.3s;
+  max-height: 0px; /* this gets overwritten by min-width when expanded */
 }
 
 .regions-table {
@@ -90,6 +130,16 @@
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
+.ReactModal__Content svg {
+  color: #928270;
+  font-size: 0.9em !important;
+  margin-left: 8px;
+}
+.ReactModal__Content svg:hover {
+  filter: drop-shadow(0 0 3px #ffffff);
+  cursor: pointer;
+  transition: 0.2s;
+}
 
 ::-webkit-scrollbar {
   width: 3px !important;
@@ -97,13 +147,6 @@
 
 .song-stats {
   height: 120px;
-  width: 100%;
-  overflow-y: auto;
-  scrollbar-width: thin;
-}
-
-.history-stats {
-  max-height: 240px;
   width: 100%;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -139,6 +182,10 @@ input:focus {
   outline: none;
 }
 
+.MuiChip-sizeSmall {
+  padding: 0px 3px;
+  margin: 0px 2px;
+}
 .osrs-btn.modal-action-btn {
   padding: 4px 16px;
   margin-top: 10px;

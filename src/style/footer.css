@@ -15,7 +15,7 @@
 }
 
 .link:hover {
-  color: var(--primary-yellow-hover) !important;
+  color: var(--primary-yellow-light) !important;
 }
 
 .icon {

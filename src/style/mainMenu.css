@@ -13,11 +13,21 @@
   justify-content: center;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
 .main-menu-image {
   width: 70vw;
 }
 
 .main-menu-text {
+  animation: fadeIn 1.5s;
   position: absolute;
   top: 28%;
   left: 50%;
@@ -80,7 +90,7 @@
 }
 
 .main-menu-icon:hover {
-  color: var(--primary-yellow-hover) !important;
+  color: var(--primary-yellow-light) !important;
 }
 
 @media screen and (max-width: 800px) {

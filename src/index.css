@@ -1,9 +1,10 @@
 :root {
   --primary-yellow: #edfd07;
-  --primary-yellow-dark: #edfd0788;
-  --primary-yellow-hover: #f6fe85;
+  --primary-yellow-dark: color-mix(in srgb, var(--primary-yellow) 90%, black 20%);
+  --primary-yellow-light: color-mix(in srgb, var(--primary-yellow) 90%, white 60%);
   --primary-green: #00ff00;
   --primary-red: #ff0000;
+  --primary-red-light: color-mix(in srgb, var(--primary-red) 90%, white 70%);
 }
 
 body {
