@@ -1,16 +1,22 @@
 import Chip from '@mui/material/Chip';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { FaChevronDown, FaQuestionCircle } from 'react-icons/fa';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
+import useSWR from 'swr';
 import { ASSETS } from '../../constants/assets';
+import { MAX_MIN_HISTORY_COLORS } from '../../constants/defaults';
+import { getAverages } from '../../data/jingle-api';
 import '../../style/modal.css';
+import { formatTimeTaken } from '../../utils/string-utils';
 import Modal from '../Modal';
 import IconButton from './IconButton';
 
 const HistoryModalButton = () => {
   const [open, setOpen] = useState(false);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const { data: averages } = useSWR(`/api/averages`, getAverages);
 
   const localStorageItems = { ...localStorage };
   const dailies = Object.entries(localStorageItems).filter(([key]) => key.includes('jingle-'));
@@ -37,6 +43,36 @@ const HistoryModalButton = () => {
       if (prev == key) return null;
       return key;
     });
+  };
+
+  const calcDailyAvgColor = (val: number): string => {
+    const [max, min] = MAX_MIN_HISTORY_COLORS;
+    const normalized = Math.min(Math.max((val - min) / (max - min), 0), 1);
+
+    // RGB values for our gradient stops
+    const colors = [
+      { r: 0, g: 255, b: 0 }, // Green at 0
+      { r: 237, g: 253, b: 7 }, // Yellow at 0.5
+      { r: 255, g: 0, b: 0 }, // Red at 1
+    ];
+
+    let r, g, b;
+
+    if (normalized <= 0.5) {
+      // Between green and yellow
+      const ratio = normalized * 2;
+      r = Math.round(colors[0].r + (colors[1].r - colors[0].r) * ratio);
+      g = Math.round(colors[0].g + (colors[1].g - colors[0].g) * ratio);
+      b = Math.round(colors[0].b + (colors[1].b - colors[0].b) * ratio);
+    } else {
+      // Between yellow and red
+      const ratio = (normalized - 0.5) * 2;
+      r = Math.round(colors[1].r + (colors[2].r - colors[1].r) * ratio);
+      g = Math.round(colors[1].g + (colors[2].g - colors[1].g) * ratio);
+      b = Math.round(colors[1].b + (colors[2].b - colors[1].b) * ratio);
+    }
+
+    return `rgb(${r}, ${g}, ${b})`;
   };
 
   return (
@@ -74,88 +110,127 @@ const HistoryModalButton = () => {
         </div>
 
         <div className='modal-line'>
-          <span>Dailies Completed</span>
+          <span>Jingles Completed</span>
           <span>{dailiesAsObjects.length}</span>
         </div>
         <div className='modal-line'>
-          <span>Daily Avg</span>
+          <span>Avg Score</span>
           <span>{dailyAvg ? dailyAvg.toFixed(0) : '-'}</span>
         </div>
         <p />
         <h2>By Day</h2>
 
         {dailiesAsObjects.length ? (
-          <section className='history-stats'>
-            {dailiesAsObjects.map((dailyObject: any) => (
-              <>
-                <div
-                  className='modal-line'
-                  style={{ paddingRight: '5px', lineHeight: '2.2' }}
+          <table>
+            <thead>
+              <tr className='history-entry-row'>
+                <td
+                  className='history-entry-td'
+                  style={{ color: 'var(--primary-yellow-dark)' }}
                 >
-                  <span>
-                    Jingle #{dailyObject.dailyNumber}
-                    <FaChevronDown
-                      onClick={() => toggleDaily(dailyObject.key)}
-                      className={expandedId == dailyObject.key ? 'rotated' : ''}
-                      pointerEvents={'auto'}
-                    />{' '}
-                    {dailyObject.value?.timeTaken && (
-                      <Chip
-                        size='small'
-                        label={dailyObject.value?.timeTaken}
-                        style={{ color: '#f6fe85' }}
-                      />
-                    )}
-                    {dailyObject.value?.settings?.hardMode && (
-                      <Chip
-                        size='small'
-                        label='Hard'
-                        style={{ color: '#fe8585ff' }}
-                      />
-                    )}
-                  </span>
-                  <span>
-                    <span>
-                      {dailyObject.value.startTime && (
-                        <Chip
-                          size='small'
-                          label={new Date(dailyObject.value.startTime).toLocaleDateString()}
-                          style={{ color: '#f6fe85' }}
+                  Jingle
+                </td>
+                <td
+                  className='history-entry-td'
+                  style={{ color: 'var(--primary-yellow-dark)' }}
+                >
+                  Glob. Avg
+                </td>
+                <td
+                  className='history-entry-td'
+                  style={{ color: 'var(--primary-yellow-dark)' }}
+                >
+                  Duration
+                </td>
+                <td
+                  className='history-entry-td'
+                  style={{ color: 'var(--primary-yellow-dark)' }}
+                >
+                  Date
+                </td>
+              </tr>
+            </thead>
+            <tbody className='history-stats'>
+              {dailiesAsObjects.map((dailyObject: any) => {
+                const dateString = dailyObject.value?.startTime
+                  ? new Date(dailyObject.value.startTime).toISOString().split('T')[0] // yyyy-mm-dd
+                  : '';
+
+                const formattedDate = dailyObject.value?.startTime
+                  ? new Date(dailyObject.value.startTime).toLocaleDateString()
+                  : '';
+
+                const dailyKey = dailyObject.key;
+                const isExpanded = expandedId === dailyKey;
+                const dailyAvg = averages ? averages[dateString] : '-';
+
+                return (
+                  <Fragment key={dailyKey}>
+                    <tr className='history-entry-row'>
+                      <td className='history-entry-td'>
+                        #{dailyObject.dailyNumber}
+                        <FaChevronDown
+                          onClick={() => toggleDaily(dailyKey)}
+                          className={isExpanded ? 'rotated' : ''}
+                          pointerEvents={'auto'}
                         />
-                      )}
-                    </span>
-                  </span>
-                </div>
-                {expandedId == dailyObject.key && (
-                  <div
-                    style={{
-                      margin: '5px 15px',
-                      marginLeft: '0px',
-                      padding: '5px 0px',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      borderRadius: '5px',
-                      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-                      backdropFilter: 'blur(5px)',
-                      WebkitBackdropFilter: 'blur(5px)',
-                    }}
-                  >
-                    {dailyObject.value.songs.map((song: string) => (
-                      <div
-                        key={song}
-                        className='modal-line'
-                        style={{ padding: '0px 15px', lineHeight: '1.5' }}
-                      >
-                        <span>{song}</span>
-                        <span>
-                          {dailyObject.value.scores[dailyObject.value.songs.indexOf(song)] ?? '-'}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </>
-            ))}
-          </section>
+                      </td>
+                      <td className='history-entry-td'>
+                        {' '}
+                        {dailyAvg && (
+                          <Chip
+                            size='small'
+                            label={`🌍 ${dailyAvg || 'N/A'}`}
+                            style={{ color: calcDailyAvgColor(dailyAvg) }}
+                          />
+                        )}
+                      </td>
+                      <td className='history-entry-td'>
+                        {dailyObject.value?.timeTaken && (
+                          <Chip
+                            size='small'
+                            label={`⏱️ ${formatTimeTaken(dailyObject.value?.timeTaken)}`}
+                            style={{ color: 'var(--primary-yellow-light' }}
+                          />
+                        )}
+                      </td>
+                      <td className='history-entry-td'>
+                        {' '}
+                        {formattedDate && (
+                          <Chip
+                            size='small'
+                            label={formattedDate}
+                            style={{ color: 'var(--primary-yellow)' }}
+                          />
+                        )}
+                      </td>
+                    </tr>
+                    <div
+                      style={{
+                        minHeight: isExpanded ? '130px' : '0px',
+                        margin: isExpanded ? '5px 15px' : '0px',
+                        padding: isExpanded ? '5px 0px' : '0px',
+                      }}
+                      className='history-stats-entry'
+                    >
+                      {dailyObject.value.songs.map((song: string) => (
+                        <div
+                          key={song}
+                          className='modal-line'
+                          style={{ padding: '0px 15px', lineHeight: '1.5' }}
+                        >
+                          <span>{song}</span>
+                          <span>
+                            {dailyObject.value.scores[dailyObject.value.songs.indexOf(song)] ?? '-'}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </Fragment>
+                );
+              })}
+            </tbody>
+          </table>
         ) : (
           <p>No data yet, maybe try playing a daily challenge first?</p>
         )}

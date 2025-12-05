@@ -1,5 +1,6 @@
 import { GameState, GameStatus, UserPreferences } from '../types/jingle';
 
+export const MAX_MIN_HISTORY_COLORS: [number, number] = [3250, 1000];
 export const CENTER_COORDINATES: [number, number] = [3222, 3218];
 export const DEFAULT_PREFERENCES: UserPreferences = {
   preferHardMode: false,
