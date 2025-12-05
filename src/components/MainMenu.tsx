@@ -43,7 +43,7 @@ export default function MainMenu({ dailyChallenge }: MainMenuProps) {
           {dailyCompleted && <NextDailyCountdown end={getNextUkMidnight()} />}
           {!dailyCompleted && <div style={{ color: '#00FF00' }}>Ready</div>}{' '}
           <div style={{ fontSize: '40%' }}>
-            {dailyChallenge?.results.length.toLocaleString()} Completions
+            {dailyChallenge?.results?.length?.toLocaleString()} Completions
           </div>
         </Link>
       ) : (
