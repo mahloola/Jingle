@@ -1,24 +1,6 @@
 import { sum } from 'ramda';
 import { DailyChallenge, GameState, Song } from '../types/jingle';
 
-export const calculateDailyChallengePercentile = (
-  dailyChallenge: Pick<DailyChallenge, 'results'>,
-  score: number,
-) => {
-  if (!dailyChallenge.results) return 0;
-
-  const sortedResults = [...dailyChallenge.results].sort((a, b) => a - b);
-  const countBelowOrEqual = sortedResults.filter((value) => value <= score).length;
-
-  if (sortedResults.length === 0) return 0; // Handle empty array
-
-  const percentileOpposite = (countBelowOrEqual / sortedResults.length) * 100;
-  const percentile = 100 - percentileOpposite;
-
-  // Ensure the result is between 0 and 100
-  return Math.min(100, Math.max(0, percentile));
-};
-
 export function getJingleNumber(dailyChallenge: Pick<DailyChallenge, 'date'>) {
   const dailyChallengeDate = dailyChallenge.date;
   const currentDate = new Date(dailyChallengeDate);
@@ -28,14 +10,14 @@ export function getJingleNumber(dailyChallenge: Pick<DailyChallenge, 'date'>) {
 
 export function copyResultsToClipboard(
   gameState: GameState,
-  percentile: number,
+  percentile: number | null,
   jingleNumber: number,
 ) {
   const score = sum(gameState.scores);
   const hardMode = gameState.settings.hardMode === true;
 
   let messageString = `I scored ${score} on Jingle challenge #${jingleNumber}! I finished in ${gameState.timeTaken} and `;
-  if (percentile === 0) {
+  if (!percentile) {
     messageString += `achieved first place! You can't beat me. https://jingle.rs\n\n`;
   } else {
     messageString += `placed in the top ${percentile.toFixed(

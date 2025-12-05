@@ -45,7 +45,7 @@ export default function Practice() {
     round: 0,
     songs: [songService.getRandomSong(currentPreferences)],
     scores: [],
-    startTime: Date.now(),
+    startTimeMs: Date.now(),
     timeTaken: null,
     clickedPosition: null,
     navigationStack: [],

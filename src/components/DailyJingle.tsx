@@ -26,11 +26,7 @@ import {
   updateGuessStreak,
 } from '../utils/browserUtil';
 import { getCurrentDateInBritain } from '../utils/date-utils';
-import {
-  calculateDailyChallengePercentile,
-  copyResultsToClipboard,
-  getJingleNumber,
-} from '../utils/jingle-utils';
+import { copyResultsToClipboard, getJingleNumber } from '../utils/jingle-utils';
 import { playSong } from '../utils/playSong';
 import AudioControls from './AudioControls';
 import Footer from './Footer';
@@ -52,7 +48,9 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
   const currentPreferences = loadPreferencesFromBrowser();
   const goBackButtonRef = useRef<HTMLDivElement>(null);
-  // this is to prevent loading the game state from localstorage multiple times
+  const [finalPercentile, setFinalPercentile] = useState<number | null>(null);
+
+  // this is to prevent loading the game state from localStorage multiple times
   const [initialized, setInitialized] = useState(false);
   useEffect(() => setInitialized(true), []);
 
@@ -100,9 +98,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
 
     const isLastRound = gameState.round === gameState.songs.length - 1;
     if (isLastRound) {
-      // submit daily challenge
       localStorage.setItem(LOCAL_STORAGE.dailyComplete, getCurrentDateInBritain());
-      postDailyChallengeResult(sum(gameState.scores));
+      postDailyChallengeResult(sum(gameState.scores), Date.now() - gameState.startTimeMs).then(
+        (data) => {
+          setFinalPercentile(data?.percentile);
+        },
+      );
     }
   };
 
@@ -188,11 +189,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
                 button({
                   label: 'Copy Results',
                   onClick: () => {
-                    const percentile = calculateDailyChallengePercentile(
-                      dailyChallenge,
-                      sum(gameState.scores),
-                    );
-                    copyResultsToClipboard(gameState, percentile, jingleNumber);
+                    copyResultsToClipboard(gameState, finalPercentile, jingleNumber);
                   },
                 }),
               )
@@ -231,13 +228,16 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
         ref={goBackButtonRef}
       ></div>
       <RoundResult gameState={gameState} />
-
-      {gameState.status === GameStatus.GameOver && (
-        <GameOver
-          gameState={gameState}
-          dailyChallenge={dailyChallenge}
-        />
-      )}
+      {gameState.status === GameStatus.GameOver &&
+        (finalPercentile !== null ? (
+          <GameOver
+            gameState={gameState}
+            dailyChallenge={dailyChallenge}
+            percentile={finalPercentile}
+          />
+        ) : (
+          <h1>Loading...</h1>
+        ))}
     </>
   );
 }

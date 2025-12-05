@@ -3,22 +3,19 @@ import '../style/resultScreen.css';
 import { DailyChallenge, GameState } from '../types/jingle';
 import { getNextUkMidnight } from '../utils/date-utils';
 import { isMobile } from '../utils/isMobile';
-import {
-  calculateDailyChallengePercentile,
-  copyResultsToClipboard,
-  getJingleNumber,
-} from '../utils/jingle-utils';
+import { copyResultsToClipboard, getJingleNumber } from '../utils/jingle-utils';
 import NextDailyCountdown from './NextDailyCountdown';
 
 interface GameOverProps {
   gameState: GameState;
   dailyChallenge: DailyChallenge;
+  percentile: number | null;
 }
 
-export default function GameOver({ gameState, dailyChallenge }: GameOverProps) {
+export default function GameOver({ gameState, dailyChallenge, percentile }: GameOverProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
   const score = sum(gameState.scores);
-  const percentile: number = calculateDailyChallengePercentile(dailyChallenge, score);
+
   return (
     <div className='result-screen-parent'>
       <div className='result-screen result-screen-results'>
@@ -33,7 +30,7 @@ export default function GameOver({ gameState, dailyChallenge }: GameOverProps) {
         </div>
         <div className='result-screen-data-row'>
           <div>Top%</div>
-          <div>{percentile !== 0 ? percentile.toFixed(1) + '%' : 'First Place'}</div>
+          <div>{percentile ? percentile.toFixed(1) + '%' : 'First Place'}</div>
         </div>
         <div className='result-screen-data-row'>
           <div style={{ alignContent: 'center' }}>Next in</div>

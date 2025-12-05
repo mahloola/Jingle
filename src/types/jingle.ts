@@ -29,7 +29,7 @@ export interface GameState {
   round: number; // 0-4
   songs: string[];
   scores: number[];
-  startTime: number;
+  startTimeMs: number;
   timeTaken: string | null;
   clickedPosition: ClickedPosition | null;
   navigationStack: NavigationEntry[] | null;
