@@ -27,7 +27,7 @@
 }
 
 .main-menu-text {
-  animation: fadeIn 1.5s;
+  animation: fadeIn 1s;
   position: absolute;
   top: 28%;
   left: 50%;
@@ -40,6 +40,7 @@
 }
 
 .main-menu-option {
+  animation: fadeIn 1s;
   position: absolute;
   transform: translate(-50%, -50%);
   font-size: 3.5vw;
@@ -57,6 +58,7 @@
 }
 
 .menu-statistics {
+  animation: fadeIn 1s;
   width: 50%;
   display: flex;
   justify-content: space-around;
@@ -71,6 +73,7 @@
 }
 
 .main-menu-icon-container {
+  animation: fadeIn 1s;
   position: absolute;
   bottom: -10%;
   display: flex;
