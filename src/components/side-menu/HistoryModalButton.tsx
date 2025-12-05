@@ -51,9 +51,9 @@ const HistoryModalButton = () => {
 
     // RGB values for our gradient stops
     const colors = [
-      { r: 0, g: 255, b: 0 }, // Green at 0
+      { r: 255, g: 0, b: 0 },
       { r: 237, g: 253, b: 7 }, // Yellow at 0.5
-      { r: 255, g: 0, b: 0 }, // Red at 1
+      { r: 0, g: 255, b: 0 },
     ];
 
     let r, g, b;
