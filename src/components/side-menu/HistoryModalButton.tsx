@@ -97,6 +97,14 @@ const HistoryModalButton = () => {
           }}
         >
           <h2>History</h2>
+          <span style={{ marginBottom: '10px' }}>
+            <FaQuestionCircle
+              data-tooltip-id='stats-tooltip'
+              data-tooltip-content='Since Apr 7, 2025'
+              className={'tooltip-icon'}
+            />
+            <Tooltip id='stats-tooltip' />
+          </span>
           {dailiesAsObjects.length == 0 && (
             <span style={{ marginBottom: '10px' }}>
               <FaQuestionCircle

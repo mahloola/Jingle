@@ -12,7 +12,7 @@ export const NEWS_POSTS = [
           <br />- Can I check my old scores?
 </p>
           This update is for you.<br/>
-          Retroactive from DAY 1, check the history tab for some data reveals ⏪
+          Retroactive from Apr 7 2025, check the history tab for some data reveals ⏪
         `,
   },
   {
