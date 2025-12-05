@@ -1,18 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './style/leaflet.css';
-import './App.css';
-import './style/audio.css';
-import './style/uiBox.css';
-import './style/osrs-ui.css';
+import { Route, Routes } from 'react-router-dom';
 import useSWR from 'swr';
-import { match } from 'ts-pattern';
+import './App.css';
 import DailyJingle from './components/DailyJingle';
 import MainMenu from './components/MainMenu';
 import Practice from './components/Practice';
 import { getDailyChallenge } from './data/jingle-api';
-import { Page } from './types/jingle';
+import './style/audio.css';
+import './style/leaflet.css';
+import './style/osrs-ui.css';
+import './style/uiBox.css';
 import { getCurrentDateInBritain } from './utils/date-utils';
-import { Route, Routes } from 'react-router-dom';
 
 function App() {
   const { data: dailyChallenge } = useSWR(

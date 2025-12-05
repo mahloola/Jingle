@@ -39,6 +39,10 @@ export async function getSong(songName: string) {
   return await get(`/api/songs/${songName}`);
 }
 
+export async function getAverages() {
+  return await get(`/api/averages`);
+}
+
 export async function getSongList() {
   return await get<Song[]>('/api/songs');
 }
