@@ -175,7 +175,8 @@ export const switchLayer = (map: L.Map, tileLayer: L.TileLayer, mapId: number) =
   tileLayer.getTileUrl = (coords: L.Coords) => {
     const { x, y, z } = coords;
     const tmsY = -y - 1;
-    return `https://jingle.mahloola.com/${mapId}/${z}/0_${x}_${tmsY}.png`;
+    // return `https://jingle.mahloola.com/${mapId}/${z}/0_${x}_${tmsY}.png`;
+    return `../rsmap-tiles/mapIdTiles/${mapId}/${z}/0_${x}_${tmsY}.png`;
   };
   tileLayer.redraw();
 };
@@ -384,7 +385,8 @@ const getMinDistToExit = (
   }
 
   const isPoly = Array.isArray(origin[0]);
-  const mapName = mapMetadata.find((mapData) => mapData.mapId == mapId)!.name;
+  const mapMetadataObject = mapMetadata.find((mapData) => mapData.mapId == mapId);
+  const mapName = mapMetadataObject ? mapMetadataObject.name : 'Gielinor Surface';
 
   const links = groupedLinks[mapName] ?? [];
 

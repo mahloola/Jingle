@@ -10,6 +10,6 @@ export const ASSETS = {
   // settings:
   //   'https://storage.googleapis.com/jingle-media/osrsSettingsButton3.png',
   // confirm: 'https://storage.googleapis.com/jingle-media/osrsGuessButton.png',
-  label: 'https://mahloola.com/osrsButton.png',
-  labelWide: 'https://mahloola.com/osrsButtonWide.png',
+  label: 'https://cdn.mahloola.com/osrsButton.png',
+  labelWide: 'https://cdn.mahloola.com/osrsButtonWide.png',
 };

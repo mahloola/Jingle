@@ -1,4 +1,5 @@
 import { FaDiscord, FaDonate, FaGithub } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import useSWR from 'swr';
 import { LOCAL_STORAGE } from '../constants/localStorage';
 import { getStatistics } from '../data/jingle-api';
@@ -6,7 +7,6 @@ import '../style/mainMenu.css';
 import { DailyChallenge } from '../types/jingle';
 import { getCurrentDateInBritain, getNextUkMidnight } from '../utils/date-utils';
 import NextDailyCountdown from './NextDailyCountdown';
-import { Link } from 'react-router-dom';
 
 interface MainMenuProps {
   dailyChallenge: DailyChallenge | undefined;
@@ -23,7 +23,7 @@ export default function MainMenu({ dailyChallenge }: MainMenuProps) {
     <div className='main-menu-container'>
       <img
         className='main-menu-image'
-        src='https://mahloola.com/Jingle.png'
+        src='https://cdn.mahloola.com/Jingle.png'
         alt='Jingle'
       />
 

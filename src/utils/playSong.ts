@@ -13,10 +13,10 @@ export const playSong = (
   if (oldAudio) {
     const oldAudioExists = songName in audio2004;
     src = oldAudioExists
-      ? `https://mahloola.com/${songName.trim().replace(/ /g, '_')}_(v1).mp3`
-      : `https://mahloola.com/${songName.trim().replace(/ /g, '_')}.mp3`;
+      ? `https://cdn.mahloola.com/${songName.trim().replace(/ /g, '_')}_(v1).mp3`
+      : `https://cdn.mahloola.com/${songName.trim().replace(/ /g, '_')}.mp3`;
   } else {
-    src = `https://mahloola.com/${songName.trim().replace(/ /g, '_')}.mp3`;
+    src = `https://cdn.mahloola.com/${songName.trim().replace(/ /g, '_')}.mp3`;
   }
 
   audioRef.current!.src = src;
@@ -30,10 +30,7 @@ export const playSong = (
   }
 };
 
-export const playSnippet = (
-  audioRef: RefObject<HTMLAudioElement | null>,
-  length: number,
-) => {
+export const playSnippet = (audioRef: RefObject<HTMLAudioElement | null>, length: number) => {
   const audioPlayer = audioRef.current;
   const songService = SongService.Instance();
   if (!audioPlayer) return;
