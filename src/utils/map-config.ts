@@ -32,7 +32,6 @@ export enum MapIds {
   Surface = 0,
   ArdoungeUnderground = 2,
   DorgeshKaan = 5,
-  KaramjaUnderground = 9,
   MiscUnderground = 11,
   MisthalinUnderground = 12,
   MorytaniaUnderground = 14,
@@ -51,6 +50,12 @@ export enum MapIds {
   DesertUnderground = 42,
   CamTorum = 44,
   Neypotzli = 45,
+  ArdentOceanUnderground = 46,
+  UnquietOceanUnderground = 47,
+  ShroudedOceanUnderground = 48,
+  SunsetOceanUnderground = 49,
+  WesternOceanUnderground = 50,
+  NorthernOceanUnderground = 51,
   GuardiansOfTheRift = 1001,
   TheScar = 1002,
   GhorrockDungeon = 1003,
@@ -94,12 +99,12 @@ export const NESTED_MAP_IDS = [
   MapIds.SkotizoLair,
   MapIds.UndergroundPassLower,
   MapIds.ToA,
-  MapIds.NightmareArena
+  MapIds.NightmareArena,
 ];
 
 export const NESTED_GROUPS = [
   [MapIds.MisthalinUnderground, MapIds.DorgeshKaan],
-  [MapIds.KaramjaUnderground, MapIds.MorUlRek],
+  [MapIds.ArdentOceanUnderground, MapIds.MorUlRek],
   [MapIds.CamTorum, MapIds.Neypotzli],
   [MapIds.Prifddinas, MapIds.PrifddinasGrandLibrary],
   [MapIds.Prifddinas, MapIds.PrifddinasUnderground],
@@ -117,7 +122,7 @@ export const NESTED_GROUPS = [
   [MapIds.MisthalinUnderground, MapIds.ChaosTunnelsAltar],
   [MapIds.UndergroundPassUpper, MapIds.UndergroundPassLower],
   [MapIds.DesertUnderground, MapIds.ToA],
-  [MapIds.MorytaniaUnderground, MapIds.NightmareArena]
+  [MapIds.MorytaniaUnderground, MapIds.NightmareArena],
 ];
 
 export const LINKLESS_MAP_IDS = [
