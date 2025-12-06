@@ -166,8 +166,15 @@ export const findNearestPolygonWhereSongPlays = (
 
 export const switchLayer = (map: L.Map, tileLayer: L.TileLayer, mapId: number) => {
   const padding = mapId == 0 ? -64 : 256;
-  const { bounds } = mapMetadata.find((map) => map.mapId == mapId)!;
+  const mapMetadataObject = mapMetadata.find((map) => map.mapId == mapId);
+  const bounds = mapMetadataObject
+    ? mapMetadataObject.bounds
+    : [
+        [960, 2048],
+        [4032, 4224],
+      ];
   const [min, max] = bounds;
+
   map.setMaxBounds([
     [min[1] - padding, min[0] - padding],
     [max[1] + padding, max[0] + padding],
@@ -385,7 +392,8 @@ const getMinDistToExit = (
   }
 
   const isPoly = Array.isArray(origin[0]);
-  const mapName = mapMetadata.find((mapData) => mapData.mapId == mapId)!.name;
+  const mapMetadataObject = mapMetadata.find((mapData) => mapData.mapId == mapId);
+  const mapName = mapMetadataObject ? mapMetadataObject.name : 'Gielinor Surface';
 
   const links = groupedLinks[mapName] ?? [];
 
