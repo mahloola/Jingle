@@ -352,7 +352,7 @@
     "end": {
       "x": 3436,
       "y": 9924,
-      "mapId": 1023,
+      "mapId": 12,
       "name": "Misthalin Underground"
     }
   },
@@ -716,7 +716,7 @@
     "start": {
       "x": 3436,
       "y": 9924,
-      "mapId": 1023,
+      "mapId": 12,
       "name": "Misthalin Underground"
     }
   },
