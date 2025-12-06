@@ -331,8 +331,8 @@
     "end": {
       "x": 2838,
       "y": 9388,
-      "mapId": 9,
-      "name": "Karamja Underground"
+      "mapId": 46,
+      "name": "Ardent Ocean Underground"
     },
     "start": {
       "x": 2823,
@@ -671,8 +671,8 @@
     "end": {
       "x": 2805,
       "y": 9590,
-      "mapId": 9,
-      "name": "Karamja Underground"
+      "mapId": 46,
+      "name": "Ardent Ocean Underground"
     }
   },
 

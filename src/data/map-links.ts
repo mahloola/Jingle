@@ -922,10 +922,6 @@ export const groupedLinks: GroupedLinks = {
       end: { x: 4106, y: 4673, mapId: 1034, name: 'Black Knight Catacombs' },
     },
     {
-      end: { x: 2838, y: 9388, mapId: 9, name: 'Karamja Underground' },
-      start: { x: 2823, y: 3001, mapId: 0, name: 'Gielinor Surface' },
-    },
-    {
       start: { x: 3284, y: 3468, mapId: 0, name: 'Gielinor Surface' },
       end: { x: 3436, y: 9924, mapId: 12, name: 'Misthalin Underground' },
     },
@@ -1015,7 +1011,7 @@ export const groupedLinks: GroupedLinks = {
     },
     {
       start: { x: 2809, y: 3194, mapId: 0, name: 'Gielinor Surface' },
-      end: { x: 2805, y: 9590, mapId: 9, name: 'Karamja Underground' },
+      end: { x: 2805, y: 9590, mapId: 46, name: 'Ardent Ocean Underground' },
     },
     {
       start: { x: 1306, y: 3035, mapId: 0, name: 'Gielinor Surface' },
@@ -1687,11 +1683,11 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Feldip Hills Underground (overwrite regions)': [
-      {
+    {
       end: { x: 2131, y: 2994, mapId: 0, name: 'Gielinor Surface' },
       start: { x: 1685, y: 9195, mapId: 31, name: 'Feldip Hills Underground (overwrite regions)' },
     },
-        {
+    {
       end: { x: 2309, y: 2919, mapId: 0, name: 'Gielinor Surface' },
       start: { x: 1849, y: 9116, mapId: 31, name: 'Feldip Hills Underground (overwrite regions)' },
     },
@@ -1715,7 +1711,6 @@ export const groupedLinks: GroupedLinks = {
       start: { x: 2012, y: 9005, mapId: 31, name: 'Feldip Hills Underground (overwrite regions)' },
       end: { x: 2523, y: 2861, mapId: 0, name: 'Gielinor Surface' },
     },
-    
   ],
   'Kharidian Desert Underground': [
     {

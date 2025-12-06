@@ -6079,8 +6079,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2624, 9472],
             [2624, 9600],
@@ -6433,8 +6433,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2816, 9344],
             [2816, 9408],
@@ -7255,8 +7255,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2846, 9620],
             [2846, 9664],
@@ -7528,8 +7528,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2752, 9536],
             [2752, 9600],
@@ -9951,8 +9951,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2816, 9536],
             [2816, 9664],
@@ -15536,8 +15536,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2688, 9408],
             [2688, 9536],
@@ -19175,8 +19175,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2624, 9408],
             [2624, 9472],
@@ -20145,8 +20145,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2688, 9536],
             [2688, 9600],
@@ -24368,8 +24368,8 @@ const geojsondata = {
           ],
         },
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2816, 9472],
             [2816, 9536],
