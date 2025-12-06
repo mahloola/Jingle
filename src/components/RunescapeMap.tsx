@@ -97,8 +97,7 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
       song,
       gameState.clickedPosition!,
     );
-    console.log(gameState.clickedPosition.xy);
-    console.log(gameState.clickedPosition.mapId);
+    
     return { correctFeaturesData: featuresData, correctMapId: mapId };
   }, [map, gameState]);
 
