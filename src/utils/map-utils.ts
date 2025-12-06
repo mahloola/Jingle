@@ -165,8 +165,15 @@ export const findNearestPolygonWhereSongPlays = (
 
 export const switchLayer = (map: L.Map, tileLayer: L.TileLayer, mapId: number) => {
   const padding = mapId == 0 ? -64 : 256;
-  const { bounds } = mapMetadata.find((map) => map.mapId == mapId)!;
+  const mapMetadataObject = mapMetadata.find((map) => map.mapId == mapId);
+  const bounds = mapMetadataObject
+    ? mapMetadataObject.bounds
+    : [
+        [960, 2048],
+        [4032, 4224],
+      ];
   const [min, max] = bounds;
+
   map.setMaxBounds([
     [min[1] - padding, min[0] - padding],
     [max[1] + padding, max[0] + padding],
