@@ -61,10 +61,11 @@ export class SongService {
       this.songList = this.getAvailableSongs(preferences);
     }
     const selectedSong = this.selectRandomSong(availableSongs);
+    return "Barren Land"
     return selectedSong;
   };
 
-  // Helper functions
+  // Helper functionsThe
   private getEnabledRegions = (preferences: UserPreferences): Region[] => {
     return (Object.keys(preferences.regions) as Region[]).filter(
       (region) => preferences.regions[region],
