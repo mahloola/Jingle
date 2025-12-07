@@ -140,12 +140,26 @@ export const groupedLinks: GroupedLinks = {
       start: { x: 2658, y: 10371, mapId: 51, name: 'Northern Ocean Underground' },
     },
     {
-      start: { x: 2846, y: 10333, mapId: 51, name: 'Northern Ocean Underground' },
-      end: { x: 2902, y: 10337, mapId: 51, name: 'Ghorrock Prison' },
+      start: { x: 2846, y: 10333, mapId: 11, name: 'Northern Ocean Underground' },
+      end: { x: 2902, y: 10337, mapId: 1003, name: 'Ghorrock Dungeon' },
+    },
+  ],
+  'Ghorrock Dungeon': [
+    {
+      start: { x: 2903, y: 10337, mapId: 1003, name: 'Ghorrock Dungeon' },
+      end: { x: 2847, y: 10333, mapId: 11, name: 'Northern Ocean Underground' },
     },
     {
-      start: { x: 2928, y: 10353, mapId: 51, name: 'Northern Ocean Underground' },
+      start: { x: 2928, y: 10353, mapId: 1003, name: 'Ghorrock Dungeon' },
       end: { x: 3040, y: 6417, mapId: 1004, name: 'Ghorrock Prison' },
+    },
+    {
+      start: { x: 2909, y: 10317, mapId: 1003, name: 'Ghorrock Dungeon' },
+      end: { x: 2875, y: 10314, mapId: 1003, name: 'Ghorrock Dungeon' },
+    },
+    {
+      start: { x: 2875, y: 10314, mapId: 1003, name: 'Ghorrock Dungeon' },
+      end: { x: 2909, y: 10317, mapId: 1003, name: 'Ghorrock Dungeon' },
     },
   ],
   'Gielinor Surface': [
@@ -1981,7 +1995,7 @@ export const groupedLinks: GroupedLinks = {
   'Ghorrock Prison': [
     {
       start: { x: 3040, y: 6417, mapId: 1004, name: 'Ghorrock Prison' },
-      end: { x: 2928, y: 10353, mapId: 51, name: 'Northern Ocean Underground' },
+      end: { x: 2928, y: 10353, mapId: 51, name: 'Ghorrock Dungeon' },
     },
   ],
   'Nightmare Arena': [

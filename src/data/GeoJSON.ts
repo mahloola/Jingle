@@ -3598,8 +3598,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Northern Ocean Underground',
-          mapId: 51,
+          mapName: 'Ghorrock Dungeon',
+          mapId: 1003,
           coordinates: [
             [2880, 10368],
             [2944, 10368],
@@ -3627,8 +3627,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Northern Ocean Underground',
-          mapId: 51,
+          mapName: 'Ghorrock Dungeon',
+          mapId: 1003,
           coordinates: [
             [2880, 10330],
             [2841, 10330],
