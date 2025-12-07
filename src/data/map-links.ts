@@ -135,6 +135,18 @@ export const groupedLinks: GroupedLinks = {
       start: { x: 2461, y: 10418, mapId: 51, name: 'Northern Ocean Underground' },
       end: { x: 2465, y: 4012, mapId: 0, name: 'Gielinor Surface' },
     },
+    {
+      end: { x: 2638, y: 4005, mapId: 0, name: 'Gielinor Surface' },
+      start: { x: 2658, y: 10371, mapId: 51, name: 'Northern Ocean Underground' },
+    },
+    {
+      start: { x: 2846, y: 10333, mapId: 51, name: 'Northern Ocean Underground' },
+      end: { x: 2902, y: 10337, mapId: 51, name: 'Ghorrock Prison' },
+    },
+    {
+      start: { x: 2928, y: 10353, mapId: 51, name: 'Northern Ocean Underground' },
+      end: { x: 3040, y: 6417, mapId: 1004, name: 'Ghorrock Prison' },
+    },
   ],
   'Gielinor Surface': [
     {
@@ -888,10 +900,6 @@ export const groupedLinks: GroupedLinks = {
     {
       end: { x: 3457, y: 5885, mapId: 36, name: 'LMS Desert Island' },
       start: { x: 3142, y: 3635, mapId: 0, name: 'Gielinor Surface' },
-    },
-    {
-      start: { x: 2638, y: 4005, mapId: 0, name: 'Gielinor Surface' },
-      end: { x: 2658, y: 10371, mapId: 11, name: 'Miscellania Underground' },
     },
     {
       start: { x: 3578, y: 3526, mapId: 0, name: 'Gielinor Surface' },
@@ -1954,20 +1962,6 @@ export const groupedLinks: GroupedLinks = {
       end: { x: 3263, y: 6082, mapId: 29, name: 'Prifddinas' },
     },
   ],
-  'Miscellania Underground': [
-    {
-      end: { x: 2638, y: 4005, mapId: 0, name: 'Gielinor Surface' },
-      start: { x: 2658, y: 10371, mapId: 11, name: 'Miscellania Underground' },
-    },
-    {
-      start: { x: 2658, y: 10371, mapId: 11, name: 'Miscellania Underground' },
-      end: { x: 2638, y: 4005, mapId: 0, name: 'Gielinor Surface' },
-    },
-    {
-      start: { x: 2846, y: 10333, mapId: 11, name: 'Miscellania Underground' },
-      end: { x: 2902, y: 10337, mapId: 1003, name: 'Ghorrock Dungeon' },
-    },
-  ],
   'Guardians of the Rift': [
     {
       start: { x: 3610, y: 9473, mapId: 1001, name: 'Guardians of the Rift' },
@@ -1984,28 +1978,10 @@ export const groupedLinks: GroupedLinks = {
       end: { x: 3610, y: 9473, mapId: 1001, name: 'Guardians of the Rift' },
     },
   ],
-  'Ghorrock Dungeon': [
-    {
-      start: { x: 2903, y: 10337, mapId: 1003, name: 'Ghorrock Dungeon' },
-      end: { x: 2847, y: 10333, mapId: 11, name: 'Miscellania Underground' },
-    },
-    {
-      start: { x: 2928, y: 10353, mapId: 1003, name: 'Ghorrock Dungeon' },
-      end: { x: 3040, y: 6417, mapId: 1004, name: 'Ghorrock Prison' },
-    },
-    {
-      start: { x: 2909, y: 10317, mapId: 1003, name: 'Ghorrock Dungeon' },
-      end: { x: 2875, y: 10314, mapId: 1003, name: 'Ghorrock Dungeon' },
-    },
-    {
-      start: { x: 2875, y: 10314, mapId: 1003, name: 'Ghorrock Dungeon' },
-      end: { x: 2909, y: 10317, mapId: 1003, name: 'Ghorrock Dungeon' },
-    },
-  ],
   'Ghorrock Prison': [
     {
       start: { x: 3040, y: 6417, mapId: 1004, name: 'Ghorrock Prison' },
-      end: { x: 2928, y: 10353, mapId: 1003, name: 'Ghorrock Dungeon' },
+      end: { x: 2928, y: 10353, mapId: 51, name: 'Northern Ocean Underground' },
     },
   ],
   'Nightmare Arena': [

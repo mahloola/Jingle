@@ -2348,8 +2348,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2477, 10395],
             [2446, 10395],
@@ -3598,8 +3598,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Ghorrock Dungeon',
-          mapId: 1003,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2880, 10368],
             [2944, 10368],
@@ -3627,8 +3627,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Ghorrock Dungeon',
-          mapId: 1003,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2880, 10330],
             [2841, 10330],
@@ -9279,8 +9279,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2560, 10240],
             [2560, 10304],
@@ -10812,8 +10812,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2144, 10352],
             [2144, 10368],
@@ -11517,8 +11517,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2624, 10368],
             [2624, 10432],
@@ -16149,8 +16149,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2368, 10368],
             [2368, 10496],
@@ -16240,8 +16240,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2496, 10240],
             [2496, 10304],
@@ -17104,8 +17104,8 @@ const geojsondata = {
           ],
         },
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2816, 10304],
             [2816, 10368],
@@ -19711,7 +19711,7 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
+          mapName: 'Northern Ocean Underground',
           mapId: 11,
           coordinates: [
             [2368, 10240],
@@ -22524,8 +22524,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2608, 10304],
             [2608, 10272],
@@ -25564,8 +25564,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2112, 10368],
             [2144, 10368],

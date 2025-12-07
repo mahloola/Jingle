@@ -386,7 +386,6 @@ ID_NAME_CENTER_MAP = {
     "7": ('God Wars Dungeon', (2880, 5312)),
     "8": ('Ghorrock Prison', (2935, 6391)),
     "10": ('Keldagrim', (2879, 10176)),
-    "11": ('Miscellania Underground', (2559, 10303)),
     "12": ('Misthalin Underground', (3168, 9632)),
     "13": ('Mole Hole', (1760, 5183)),
     "14": ('Morytania Underground', (3479, 9837)),

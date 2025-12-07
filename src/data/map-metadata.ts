@@ -468,15 +468,6 @@ const mapMetadata: MapMetadata[] = [
     center: [2048, 6368],
   },
   {
-    mapId: 1003,
-    name: 'Ghorrock Dungeon',
-    bounds: [
-      [2816, 10240],
-      [2944, 10368],
-    ],
-    center: [2880, 10304],
-  },
-  {
     mapId: 1004,
     name: 'Ghorrock Prison',
     bounds: [
