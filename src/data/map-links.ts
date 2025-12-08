@@ -1995,7 +1995,7 @@ export const groupedLinks: GroupedLinks = {
   'Ghorrock Prison': [
     {
       start: { x: 3040, y: 6417, mapId: 1004, name: 'Ghorrock Prison' },
-      end: { x: 2928, y: 10353, mapId: 51, name: 'Ghorrock Dungeon' },
+      end: { x: 2928, y: 10353, mapId: 1003, name: 'Ghorrock Dungeon' },
     },
   ],
   'Nightmare Arena': [
