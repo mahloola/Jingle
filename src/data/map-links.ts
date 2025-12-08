@@ -164,6 +164,10 @@ export const groupedLinks: GroupedLinks = {
   ],
   'Gielinor Surface': [
     {
+      start: { x: 2638, y: 4005, mapId: 0, name: 'Gielinor Surface' },
+      end: { x: 2658, y: 10371, mapId: 51, name: 'Northern Ocean Underground' },
+    },
+    {
       start: { x: 2839, y: 3690, mapId: 0, name: 'Gielinor Surface' },
       end: { x: 2965, y: 10153, mapId: 22, name: 'Troll Stronghold' },
     },
@@ -750,10 +754,6 @@ export const groupedLinks: GroupedLinks = {
     {
       start: { x: 3652, y: 3519, mapId: 0, name: 'Gielinor Surface' },
       end: { x: 3668, y: 9888, mapId: 14, name: 'Morytania Underground' },
-    },
-    {
-      start: { x: 2809, y: 3194, mapId: 0, name: 'Gielinor Surface' },
-      end: { x: -11, y: -10, mapId: -666, name: 'undefined' },
     },
     {
       start: { x: 1389, y: 2916, mapId: 0, name: 'Gielinor Surface' },

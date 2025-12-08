@@ -69,21 +69,11 @@ const HistoryModalButton = () => {
           <span style={{ marginBottom: '10px' }}>
             <FaQuestionCircle
               data-tooltip-id='stats-tooltip'
-              data-tooltip-content='Since Apr 7, 2025'
+              data-tooltip-content='Since Apr 7, 2025 (taken from your local browser storage)'
               className={'tooltip-icon'}
             />
             <Tooltip id='stats-tooltip' />
           </span>
-          {dailiesAsObjects.length == 0 && (
-            <span style={{ marginBottom: '10px' }}>
-              <FaQuestionCircle
-                className='tooltip-icon'
-                data-tooltip-id='history-tooltip'
-                data-tooltip-content='Local storage taken from your browser'
-              />
-              <Tooltip id='history-tooltip' />
-            </span>
-          )}
         </div>
 
         <div className='modal-line'>
