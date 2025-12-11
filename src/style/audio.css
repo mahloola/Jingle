@@ -1,0 +1,38 @@
+.hide-scrubber::-webkit-media-controls-timeline,
+.hide-scrubber::-webkit-media-controls-current-time-display,
+.hide-scrubber::-webkit-media-controls-time-remaining-display {
+  display: none;
+  opacity: 0;
+}
+
+.hide-audio {
+  display: none;
+}
+
+.audio-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reload-audio-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  height: 40px;
+  width: 40px;
+  background: rgba(29, 29, 29, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.reload-audio-btn {
+  height: 17px;
+  width: 17px;
+  color: white !important;
+  transition: all 0.3s;
+}
+.reload-audio-btn:hover {
+  filter: brightness(0.8);
+  transition: all 0.3s;
+}

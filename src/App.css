@@ -1,11 +1,17 @@
 @font-face {
   font-family: 'Runescape UF';
-  src: url('../public/fonts/runescape.ttf');
+  src: url('/fonts/runescape.ttf');
 }
 
 .App {
   text-align: center;
   font-family: 'Runescape UF';
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
 }
 
 .App-inner {
@@ -18,21 +24,16 @@
   padding-bottom: 5vh;
 }
 
-.button {
-  margin: 0 0 20px;
-  width: 250px;
-  border-radius: 30px !important;
-  font-style: italic;
+.absolute {
+  position: absolute;
 }
 
-.button {
-  margin: 0 0 20px;
-  width: 250px;
-  border-radius: 30px !important;
-  font-style: italic;
+input[type='checkbox'] {
+  accent-color: var(--primary-yellow);
+  height: 1.1em;
+  width: 1.1em;
 }
-
-.blur {
-  filter: blur(40px); /* Adjust the blur strength as needed */
-  border: 0px solid transparent;
+input[type='checkbox']:hover {
+  transform: scale(1.4);
+  transition: all 0.1s;
 }

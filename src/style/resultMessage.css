@@ -1,5 +1,5 @@
 .result-message {
-  z-index: 9999;
+  z-index: 400;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -11,5 +11,16 @@
   transition: opacity 0.3s;
   transition: margin-top 1s;
   text-shadow: 2px 2px 5px black;
-  color: #edfd07;
+  color: var(--primary-yellow);
+}
+
+@media (max-width: 768px) {
+  .result-message {
+    font-size: 4rem;
+  }
+}
+
+.streak {
+  color: rgb(255, 134, 134);
+  font-size: 0.5em;
 }

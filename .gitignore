@@ -1,30 +1,41 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
+
+
+public/rsmap-tiles/mapIdTiles
+osrs_map_full.png
 /misc
-/public/songs
+hidden-utils/
+songs/
 data.csv
 musicList.ts
-src/db
-src/components/guessCount.js
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+build/
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

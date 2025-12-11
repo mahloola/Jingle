@@ -3,8 +3,9 @@
   left: 50%;
   top: 40%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
+  z-index: 400;
 }
+
 .result-screen {
   font-size: 4vw;
   min-width: 30vw;
@@ -16,7 +17,7 @@
   z-index: 1200;
   font-size: 3vw;
   font-style: italic;
-  color: #edfd07;
+  color: var(--primary-yellow);
   text-shadow: 2px 2px 10px black;
 }
 
@@ -43,6 +44,7 @@
   justify-content: space-between;
   font-size: 2vw;
 }
+
 .result-screen-option {
   font-size: 3vw;
   z-index: 9999;
@@ -51,10 +53,12 @@
   color: inherit;
   text-decoration: none;
 }
+
 .result-screen-option:hover {
   cursor: pointer;
   color: #f8ff98;
 }
+
 .result-screen-time-row {
   display: flex;
   justify-content: center;
@@ -64,6 +68,7 @@
 .clock-svg {
   max-height: 3.5vw;
 }
+
 .result-screen-link-container {
   display: flex;
   flex-direction: row;
@@ -76,16 +81,20 @@
   .result-screen-data-row {
     font-size: 5vw;
   }
+
   .result-screen-title {
     font-size: 7vw;
   }
+
   .result-screen {
     min-width: 60vw;
     font-size: 5vw;
   }
+
   .result-screen-option {
     font-size: 4vw !important;
   }
+
   .result-screen-time-row {
     margin-top: 3%;
   }

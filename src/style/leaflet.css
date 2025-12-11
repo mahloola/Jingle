@@ -1,6 +1,10 @@
 .leaflet-container {
-  height: calc(100vh - 400px);
+  height: calc(100dvh - 400px);
   width: 100%;
+
+  .leaflet-tile {
+    image-rendering: pixelated;
+  }
 }
 
 .leaflet-control-zoom {
@@ -13,23 +17,21 @@
     color: transparent !important;
     background-color: transparent !important;
     border: none !important;
-    width: 44px !important;
+    width: 43.88px !important;
+    height: 30px !important;
     margin-bottom: 3px !important;
+
+    &:hover {
+      filter: brightness(1.2) !important;
+      cursor: pointer !important;
+    }
   }
 
   .leaflet-control-zoom-out {
-    background-image: url(../../public/assets/osrs_map_zoom_out.webp) !important;
-    &:hover {
-      opacity: 0.8 !important;
-    }
+    background-image: url(/assets/osrs_map_zoom_out.webp) !important;
   }
 
   .leaflet-control-zoom-in {
-    background-image: url(../../public/assets/osrs_map_zoom_in.webp) !important;
-    &:hover {
-      opacity: 0.8 !important;
-      border: none !important;
-      background-color: transparent !important;
-    }
+    background-image: url(/assets/osrs_map_zoom_in.webp) !important;
   }
 }

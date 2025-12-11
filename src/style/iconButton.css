@@ -1,0 +1,39 @@
+.osrs-btn.icon-button {
+  position: relative;
+  width: 62px;
+  height: 42px;
+  z-index: 99999;
+  border-image-width: 14px;
+
+  padding: 6px;
+
+  img {
+    width: auto;
+    height: 100%;
+  }
+  &:hover {
+    transform: translate(-5px, 0px);
+  }
+  @media (max-width: 768px) {
+    width: 55px;
+    height: 38px;
+  }
+}
+
+.notification-badge {
+  position: absolute;
+  top: -4px; /* Adjust to position vertically */
+  right: -4px; /* Adjust to position horizontally */
+  min-width: 18px; /* Ensures circle stays round */
+  height: 19px;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  padding: 2px;
+  border: 2px solid white; /* Optional: adds contrast */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3); /* Optional: subtle shadow */
+}

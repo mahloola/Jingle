@@ -1,31 +1,33 @@
 .footer {
+  width: 100%;
   background-image: url('https://storage.googleapis.com/jingle-media/osrsButtonCredits.png') !important;
-  z-index: 999 !important; /* Ensure the button is above the blurred map */
-  padding: 1.3% 0;
-  color: #edfd07;
+  z-index: 999 !important;
+  padding: 8px 0 12px 0;
+  color: var(--primary-yellow);
   box-shadow: 0px 1px 2px black;
-  font-size: 14px;
-  font-style: italic;
+  font-size: 1rem;
 }
 
 .link {
-  color: #f2fe51;
+  color: #f9ffa0;
   text-decoration: none;
   transition: text-decoration 0.3s;
 }
 
 .link:hover {
-  text-decoration: underline;
-  color: #f6fe85 !important;
+  color: var(--primary-yellow-light) !important;
 }
 
 .icon {
-  padding: 2%;
-  width: 80px;
-  color: #f2fe51;
-  font-size: 19px;
+  display: inline-block;
+  width: 40px;
+}
+.icon svg {
+  width: 25px;
+  color: var(--primary-yellow);
+  font-size: 17px;
 }
 
-.icon:hover {
-  color: #f6fe85 !important;
+.icon svg:hover {
+  color: #f9ffa0 !important;
 }
