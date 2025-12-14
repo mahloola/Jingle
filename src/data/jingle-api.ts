@@ -98,11 +98,11 @@ interface DailyChallengeResponse {
   percentile: number;
 }
 export async function postDailyChallengeResult(
-  result: number,
-  timeTaken: number,
+  score: number,
+  timeTakenMs: number,
 ): Promise<DailyChallengeResponse> {
   // Returns the percentile
-  return await post<DailyChallengeResponse>(`/api/daily-challenge/result`, { result, timeTaken });
+  return await post<DailyChallengeResponse>(`/api/daily-challenge/result`, { score, timeTakenMs });
 }
 
 export async function getStatistics() {

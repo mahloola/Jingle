@@ -1,12 +1,5 @@
 .main-menu-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80vw;
   z-index: 3 !important;
-  height: 70vh;
-  max-width: 70vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,33 +16,43 @@
 }
 
 .main-menu-image {
+  position: absolute;
+  z-index: -99999;
   width: 70vw;
 }
 
 .main-menu-text {
   animation: fadeIn 1s;
-  position: absolute;
-  top: 28%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 15vw;
+  font-size: calc(8vw + 60px);
   color: var(--primary-yellow);
   text-shadow: 5px 5px 10px black;
   pointer-events: none;
-  /* text-shadow: 0px 0px 100px rgb(0, 0, 0); */
+}
+
+.main-menu-title-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4vw;
+}
+.main-menu-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  gap: 50px;
 }
 
 .main-menu-option {
   animation: fadeIn 1s;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  font-size: 3.5vw;
+  font-size: calc(3vw + 30px);
   font-style: italic;
   color: var(--primary-yellow);
   filter: brightness(90%);
   text-shadow: 2px 2px 10px black;
   text-decoration: none;
-  max-width: 50%;
 }
 
 .main-menu-option:hover {
@@ -62,20 +65,15 @@
   width: 50%;
   display: flex;
   justify-content: space-around;
-  font-size: 2vw;
+  font-size: calc(20px + 1vw);
   color: var(--primary-yellow);
   font-style: italic;
   text-shadow: 2px 2px 10px black;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 92%;
-  left: 50%;
 }
 
 .main-menu-icon-container {
   animation: fadeIn 1s;
-  position: absolute;
-  bottom: -10%;
+  margin-top: 20px;
   display: flex;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 16px;
@@ -89,7 +87,7 @@
   padding: 2%;
   width: 80px;
   color: var(--primary-yellow);
-  font-size: 1.7vw;
+  font-size: 30px;
 }
 
 .main-menu-icon:hover {
@@ -97,34 +95,20 @@
 }
 
 @media screen and (max-width: 800px) {
-  .main-menu-container {
-    height: 23vh;
+  .main-menu-title-options {
+    flex-direction: column;
   }
-
-  .main-menu-text {
-    font-size: 110px;
-    top: 0%;
+  .main-menu-options {
+    gap: 30px;
   }
-
   .main-menu-option {
-    font-size: 25px;
-  }
-
-  .main-menu-option:hover {
-    font-size: 25px;
-  }
-
-  .menu-statistics {
-    top: 120%;
-    font-size: 20px;
-  }
-
-  .main-menu-icon-container {
-    position: absolute;
-    bottom: -80%;
+    font-size: 40px;
   }
 
   .main-menu-icon {
     font-size: 5vw;
+  }
+  .menu-statistics {
+    margin-top: 50px;
   }
 }

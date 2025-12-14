@@ -1,4 +1,3 @@
-import { FaDiscord, FaDonate, FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import useSWR from 'swr';
 import { cdnURL } from '../constants/links';
@@ -7,6 +6,7 @@ import { getStatistics } from '../data/jingle-api';
 import '../style/mainMenu.css';
 import { DailyChallenge } from '../types/jingle';
 import { getCurrentDateInBritain, getNextUkMidnight } from '../utils/date-utils';
+import Links from './Links';
 import NextDailyCountdown from './NextDailyCountdown';
 
 interface MainMenuProps {
@@ -29,70 +29,61 @@ export default function MainMenu({ dailyChallenge }: MainMenuProps) {
         src={`${cdnURL}/Jingle.png`}
         alt='Jingle'
       />
+      <div className='main-menu-title-options'>
+        <h1 className='main-menu-text'>Jingle</h1>
+        {/* Daily Jingle Option */}
+        <div className='main-menu-options'>
+          <Link
+            to='/practice'
+            className='main-menu-option'
+          >
+            Practice Mode
+            <div style={{ fontSize: '40%' }}>∞</div>
+          </Link>
 
-      <h1 className='main-menu-text'>Jingle</h1>
+          <Link
+            to='/multiplayer'
+            className='main-menu-option'
+          >
+            <div style={{ lineHeight: '1.0' }}>
+              Multiplayer<span style={{ color: '#c7c3f8ff', fontSize: '2rem' }}> (Beta)</span>
+            </div>
 
-      {/* Daily Jingle Option */}
-      {dailyChallenge ? (
-        <Link
-          to='/daily'
-          className='main-menu-option'
-          style={leftSideStyle}
-        >
-          Daily Jingle
-          {dailyCompleted && <NextDailyCountdown end={getNextUkMidnight()} />}
-          {!dailyCompleted && <div style={{ color: '#00FF00' }}>Ready</div>}{' '}
-          <div style={{ fontSize: '40%' }}>
-            {dailyChallenge?.results?.length?.toLocaleString()} Completions
-          </div>
-        </Link>
-      ) : (
-        <h1
-          className='main-menu-option'
-          style={leftSideStyle}
-        >
-          Loading...
-        </h1>
-      )}
+            <div style={{ fontSize: '40%' }}>4 Lobbies</div>
+          </Link>
 
-      <Link
-        to='/practice'
-        className='main-menu-option'
-        style={{ left: '53vw', top: '70%' }}
-      >
-        Unlimited Practice
-        <div style={{ fontSize: '40%' }}>∞</div>
-      </Link>
-
+          {dailyChallenge ? (
+            <Link
+              to='/daily'
+              className='main-menu-option'
+              style={leftSideStyle}
+            >
+              <div style={{ lineHeight: '1.0' }}>Daily Jingle</div>
+              {dailyCompleted && <NextDailyCountdown end={getNextUkMidnight()} />}
+              {!dailyCompleted && (
+                <div style={{ color: '#00FF00', fontSize: '2rem' }}>Ready</div>
+              )}{' '}
+              <div style={{ fontSize: '40%' }}>
+                {dailyChallenge?.results?.length?.toLocaleString()} Completions
+              </div>
+            </Link>
+          ) : (
+            <h1
+              className='main-menu-option'
+              style={leftSideStyle}
+            >
+              Loading...
+            </h1>
+          )}
+        </div>
+      </div>
       <div className='menu-statistics'>
         <div>
           {statistics?.guesses.toLocaleString()}
           <div style={{ fontSize: '65%', marginTop: '-7%' }}>Global Guesses</div>
         </div>
       </div>
-
-      <div className='main-menu-icon-container'>
-        <a
-          className='main-menu-icon'
-          href='https://github.com/mahloola/osrs-music'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <FaGithub />
-        </a>
-        <a
-          className='main-menu-icon'
-          href='https://discord.gg/7sB8fyUS9W'
-        >
-          <FaDiscord />
-        </a>
-        <a
-          className='main-menu-icon'
-          href='https://ko-fi.com/mahloola'
-        >
-          <FaDonate />
-        </a>
-      </div>
+      <Links />
     </div>
   );
 }
