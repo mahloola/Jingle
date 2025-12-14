@@ -4,6 +4,7 @@ import useSWR from 'swr';
 import './App.css';
 import DailyJingle from './components/DailyJingle';
 import MainMenu from './components/MainMenu';
+import Multiplayer from './components/Multiplayer';
 import Practice from './components/Practice';
 import { getDailyChallenge } from './data/jingle-api';
 import './style/audio.css';
@@ -38,6 +39,10 @@ function App() {
         <Route
           path='/practice'
           element={<Practice />}
+        />
+        <Route
+          path='/multiplayer'
+          element={<Multiplayer />}
         />
       </Routes>
     </div>

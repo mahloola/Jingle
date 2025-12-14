@@ -37,7 +37,7 @@ export default function MainMenu({ dailyChallenge }: MainMenuProps) {
             to='/practice'
             className='main-menu-option'
           >
-            Practice Mode
+            <div style={{ lineHeight: '1.0' }}>Practice Mode</div>
             <div style={{ fontSize: '40%' }}>∞</div>
           </Link>
 
