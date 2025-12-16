@@ -19712,7 +19712,7 @@ const geojsondata = {
       convertedGeometry: [
         {
           mapName: 'Northern Ocean Underground',
-          mapId: 11,
+          mapId: 51,
           coordinates: [
             [2368, 10240],
             [2368, 10304],
@@ -23667,11 +23667,11 @@ const geojsondata = {
           mapName: 'Gielinor Surface',
           mapId: 0,
           coordinates: [
-            [3008, 2944],
-            [3008, 3008],
-            [3072, 3008],
-            [3072, 2944],
-            [3008, 2944],
+            [3000, 2814],
+            [3000, 2888],
+            [3072, 2888],
+            [3072, 2814],
+            [3000, 2814],
           ],
         },
       ],
