@@ -16,7 +16,6 @@ const HistoryModalButton = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const { data: averages } = useSWR(`/api/averages`, getAverages);
-
   const localStorageItems = { ...localStorage };
   const dailies = Object.entries(localStorageItems).filter(([key]) => key.includes('jingle-'));
   const dailiesAsObjects = dailies.map(([key, value]) => ({
@@ -128,7 +127,7 @@ const HistoryModalButton = () => {
 
                 const dailyKey = dailyObject.key;
                 const isExpanded = expandedId === dailyKey;
-                const dailyAvg = averages ? averages[dateString] : '-';
+                const dailyAvg = averages ? parseInt(averages[dateString]) : null;
                 const score = dailyObject.value?.scores?.reduce((a: number, b: number) => a + b);
 
                 return (
@@ -166,7 +165,7 @@ const HistoryModalButton = () => {
                         {dailyAvg && (
                           <Chip
                             size='small'
-                            label={`🌍 ${dailyAvg || 'N/A'}`}
+                            label={`🌍 ${dailyAvg || '-'}`}
                             style={{ color: calcDailyAvgColor(dailyAvg) }}
                           />
                         )}
