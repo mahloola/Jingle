@@ -99,3 +99,28 @@ export interface Song {
   successCount: number;
   failureCount: number;
 }
+
+export interface LobbySettings {
+  hardMode: boolean;
+  regions: Record<Region, boolean>;
+  undergroundSelected: boolean;
+  surfaceSelected: boolean;
+}
+
+export interface MultiRound {
+  songName: string;
+  results: Record<string, number>; // player ID, their score
+  startTime: Date;
+}
+
+export enum MultiLobbyStatus {
+  Waiting = 'Waiting',
+  Playing = 'Playing',
+  Stopped = 'Stopped',
+}
+export interface MultiLobby {
+  name: string;
+  settings: LobbySettings;
+  rounds: MultiRound[];
+  status: MultiLobbyStatus;
+}
