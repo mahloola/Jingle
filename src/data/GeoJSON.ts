@@ -23,6 +23,168 @@ const geojsondata = {
       },
       properties: {
         mapID: '-1',
+        title: '<a href="/w/What the Shell!" title="What the Shell!">What the Shell!</a>',
+        description: '',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Unquiet Ocean Underground',
+          mapId: 47,
+          coordinates: [
+            [3136, 8896],
+            [3200, 8896],
+            [3200, 8832],
+            [3136, 8832],
+            [3136, 8896],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/The_Tortugan_Way" title="The Tortugan Way">The Tortugan Way</a>',
+        description: '',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Unquiet Ocean Underground',
+          mapId: 47,
+          coordinates: [
+            [3264, 8896],
+            [3328, 8896],
+            [3328, 8832],
+            [3264, 8832],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Lurking_Threats" title="Lurking Threats">Lurking Threats</a>',
+        description: '',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Unquiet Ocean Underground',
+          mapId: 47,
+          coordinates: [
+            [2674, 8742],
+            [2674, 8866],
+            [2812, 8866],
+            [2812, 8742],
+            [2674, 8742],
+          ],
+        },
+        {
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
+          coordinates: [
+            [2880, 10496],
+            [2944, 10496],
+            [2944, 10432],
+            [2880, 10432],
+            [2880, 10496],
+          ],
+        },
+        {
+          mapName: 'Western Ocean Underground',
+          mapId: 50,
+          coordinates: [
+            [2048, 9978],
+            [2048, 10052],
+            [2112, 10052],
+            [2112, 9978],
+            [2048, 9978],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Elder_Wisdom" title="Elder Wisdom">Elder Wisdom</a>',
+        description: '',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Unquiet Ocean Underground',
+          mapId: 47,
+          coordinates: [
+            [3264, 8896],
+            [3328, 8896],
+            [3328, 8832],
+            [3264, 8832],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Below_the_Conch" title="Below the Conch">Below the Conch </a>',
+        description:
+          '<div><a href="/w/File:Below_the_Conch.ogg" title="File:Below the Conch.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Unquiet Ocean Underground',
+          mapId: 47,
+          coordinates: [
+            [3072, 8896],
+            [3136, 8896],
+            [3136, 8832],
+            [3072, 8832],
+            [3072, 8896],
+          ],
+        },
+        {
+          mapName: 'Unquiet Ocean Underground',
+          mapId: 47,
+          coordinates: [
+            [3200, 8846],
+            [3264, 8846],
+            [3264, 8772],
+            [3200, 8772],
+            [3200, 8846],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
         title: '<a href="/w/Truth" title="Truth">Truth</a>',
         description: '<div><a href="/w/File:Truth.ogg" title="File:Truth.ogg">Play track</a></div>',
         plane: 0,
@@ -2348,8 +2510,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2477, 10395],
             [2446, 10395],
@@ -6079,8 +6241,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2624, 9472],
             [2624, 9600],
@@ -6433,8 +6595,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2816, 9344],
             [2816, 9408],
@@ -7255,8 +7417,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2846, 9620],
             [2846, 9664],
@@ -7528,8 +7690,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2752, 9536],
             [2752, 9600],
@@ -9279,8 +9441,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2560, 10240],
             [2560, 10304],
@@ -9951,8 +10113,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2816, 9536],
             [2816, 9664],
@@ -10812,8 +10974,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2144, 10352],
             [2144, 10368],
@@ -11517,8 +11679,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2624, 10368],
             [2624, 10432],
@@ -15536,8 +15698,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2688, 9408],
             [2688, 9536],
@@ -16149,8 +16311,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2368, 10368],
             [2368, 10496],
@@ -16240,8 +16402,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2496, 10240],
             [2496, 10304],
@@ -17104,8 +17266,8 @@ const geojsondata = {
           ],
         },
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2816, 10304],
             [2816, 10368],
@@ -19175,8 +19337,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2624, 9408],
             [2624, 9472],
@@ -19711,8 +19873,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2368, 10240],
             [2368, 10304],
@@ -20145,8 +20307,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2688, 9536],
             [2688, 9600],
@@ -22524,8 +22686,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2608, 10304],
             [2608, 10272],
@@ -24368,8 +24530,8 @@ const geojsondata = {
           ],
         },
         {
-          mapName: 'Karamja Underground',
-          mapId: 9,
+          mapName: 'Ardent Ocean Underground',
+          mapId: 46,
           coordinates: [
             [2816, 9472],
             [2816, 9536],
@@ -24648,17 +24810,6 @@ const geojsondata = {
             [3392, 3648],
             [3392, 3584],
             [3328, 3584],
-          ],
-        },
-        {
-          mapName: 'Taverley Underground',
-          mapId: 20,
-          coordinates: [
-            [2816, 9728],
-            [2816, 9792],
-            [2880, 9792],
-            [2880, 9728],
-            [2816, 9728],
           ],
         },
         {
@@ -25575,8 +25726,8 @@ const geojsondata = {
       },
       convertedGeometry: [
         {
-          mapName: 'Miscellania Underground',
-          mapId: 11,
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
           coordinates: [
             [2112, 10368],
             [2144, 10368],
