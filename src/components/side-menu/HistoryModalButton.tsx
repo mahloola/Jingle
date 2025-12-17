@@ -117,17 +117,14 @@ const HistoryModalButton = () => {
             </thead>
             <tbody className='history-stats'>
               {dailiesAsObjects.map((dailyObject: any) => {
-                const dateString = dailyObject.value?.startTime
-                  ? new Date(dailyObject.value.startTime).toISOString().split('T')[0] // yyyy-mm-dd
-                  : '';
+                const startTime = dailyObject.value?.startTime ?? dailyObject.value?.startTimeMs;
+                const dateString = startTime ? new Date(startTime).toISOString().split('T')[0] : '';
 
-                const formattedDate = dailyObject.value?.startTime
-                  ? new Date(dailyObject.value.startTime).toLocaleDateString()
-                  : '';
+                const formattedDate = dateString ? new Date(dateString).toLocaleDateString() : '';
 
                 const dailyKey = dailyObject.key;
                 const isExpanded = expandedId === dailyKey;
-                const dailyAvg = averages ? parseInt(averages[dateString]) : null;
+                const dailyAvg = averages ? averages[dateString] : null;
                 const score = dailyObject.value?.scores?.reduce((a: number, b: number) => a + b);
 
                 return (
