@@ -1,10 +1,12 @@
-import { ForwardedRef, forwardRef, RefObject, useEffect, useState } from 'react';
+import { forwardRef, RefObject, useEffect, useState } from 'react';
+import { FiRefreshCcw } from 'react-icons/fi';
+import { Tooltip } from 'react-tooltip';
 import '../style/uiBox.css';
+import { GameState, GameStatus } from '../types/jingle';
+import { loadPreferencesFromBrowser } from '../utils/browserUtil';
 import { SongService } from '../utils/getRandomSong';
 import { playSnippet } from '../utils/playSong';
 import { Button } from './ui-util/Button';
-import { loadPreferencesFromBrowser } from '../utils/browserUtil';
-import { GameState, GameStatus } from '../types/jingle';
 
 interface AudioControlsProps {
   gameState: GameState;
@@ -15,16 +17,22 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
   const answerRevealed = props.gameState.status == GameStatus.AnswerRevealed;
   const hardMode = currentPreferences.preferHardMode;
   const showAudio = !hardMode || answerRevealed;
+  const audioRef = ref as RefObject<HTMLAudioElement | null>;
 
-  useEffect(()=>{
-    if(hardMode && answerRevealed){
-      const audioRef = ref as RefObject<HTMLAudioElement | null>;
+  useEffect(() => {
+    if (hardMode && answerRevealed) {
       audioRef.current?.play();
     }
-  },[props.gameState.status])
+  }, [props.gameState.status]);
+
+  const reloadAudio = () => {
+    const audioRef = ref as RefObject<HTMLAudioElement | null>;
+    audioRef.current?.load();
+    audioRef.current?.play();
+  };
 
   return (
-    <div>
+    <div className='audio-container'>
       <audio
         controls
         id='audio'
@@ -32,12 +40,35 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
         className={showAudio ? '' : 'hide-audio'}
       />
 
+      {/* non-hard mode */}
+      {showAudio && (
+        <div className='reload-audio-container'>
+          <FiRefreshCcw
+            className={'reload-audio-btn'}
+            onClick={reloadAudio}
+            data-tooltip-id={`reload-tooltip`}
+            data-tooltip-content={'Reload Audio'}
+          />
+          <Tooltip id={`reload-tooltip`} />
+        </div>
+      )}
+
+      {/* hard mode */}
       {!showAudio && (
-        <div>
+        <div className='audio-container'>
           <SnippetPlayer
             audioRef={ref as RefObject<HTMLAudioElement | null>}
             snippetLength={currentPreferences.hardModeLength}
           />
+          <div className='reload-audio-container'>
+            <FiRefreshCcw
+              className={'reload-audio-btn'}
+              onClick={() => playSnippet(audioRef, currentPreferences.hardModeLength)}
+              data-tooltip-id={`reload-tooltip`}
+              data-tooltip-content={'Reload Audio'}
+            />
+            <Tooltip id={`reload-tooltip`} />
+          </div>
         </div>
       )}
     </div>
@@ -91,7 +122,9 @@ const SnippetPlayer = (props: {
     <div
       className='osrs-btn'
       onClick={() => {
-        if(!isAudioReady || isClipPlaying){return;}
+        if (!isAudioReady || isClipPlaying) {
+          return;
+        }
         playSnippet(props.audioRef, props.snippetLength);
       }}
       style={{
@@ -102,8 +135,7 @@ const SnippetPlayer = (props: {
         width: '300px',
       }}
     >
-    
-    <div className='snippet-player'>
+      <div className='snippet-player'>
         <Button
           label='Play Snippet'
           onClick={() => {}}

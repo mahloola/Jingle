@@ -1,5 +1,70 @@
+.modal-container {
+  text-shadow: 1px 1px 1px black;
+}
 .modal-container h2 {
   margin-bottom: 10px;
+}
+.modal-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  line-height: 1.8;
+}
+.modal-options {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.history-entry-row {
+  display: flex;
+  flex-direction: row;
+  max-width: 360px;
+  padding-right: 5px;
+  line-height: 2.2;
+}
+.history-entry-td:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 65px;
+  max-width: 65px;
+}
+.history-entry-td:nth-child(2) {
+  max-width: 70px;
+}
+.history-entry-td:nth-child(3) {
+  max-width: 90px;
+}
+
+.history-entry-td {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+}
+th .history-entry-td {
+  padding: 0px 8px;
+}
+.history-stats {
+  display: flex;
+  flex-direction: column;
+  max-height: 240px !important;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.history-stats-entry {
+  overflow: hidden;
+  margin-left: 0px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: 0.3s;
+  max-height: 0px; /* this gets overwritten by min-width when expanded */
 }
 
 .regions-table {
@@ -13,36 +78,9 @@
   max-height: 200px !important;
 }
 
-.rotated {
-  transform: rotate(-180deg);
-}
-
 .settings-table {
   width: 100%;
 }
-
-.checkbox-container {
-  display: flex;
-  align-items: center;
-}
-.tooltip-icon {
-  color: #928270;
-  font-size: 0.9em !important;
-  margin-left: 9.6px;
-}
-
-.tooltip-icon:hover {
-  filter: drop-shadow(0 0 3px #ffffff);
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.settings-table svg {
-  color: #928270;
-  font-size: 0.9em !important;
-  margin-left: 5px;
-}
-
 .settings-table tr {
   height: 35px;
   display: flex;
@@ -50,16 +88,9 @@
   align-items: center;
   width: 100%;
 }
-
 .settings-table td {
   display: flex;
   align-items: center;
-}
-
-.settings-table svg:hover {
-  filter: drop-shadow(0 0 3px #ffffff);
-  cursor: pointer;
-  transition: 0.2s;
 }
 
 .hard-mode-row {
@@ -69,10 +100,28 @@
   overflow: hidden;
   height: 70px !important;
 }
-
 .hard-mode-row:not(:has(.custom-range-input.visible)) {
   max-height: 0;
   border: none;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.tooltip-icon {
+  color: #928270;
+  font-size: 15px !important;
+  margin-left: 9.6px;
+}
+.tooltip-icon:hover {
+  filter: drop-shadow(0 0 3px #ffffff);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.react-tooltip {
+  font-size: 1em !important;
 }
 
 .ReactModal__Overlay {
@@ -81,10 +130,15 @@
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
-
-button {
-  background-color: transparent;
-  border: none;
+.ReactModal__Content svg {
+  color: #928270;
+  font-size: 0.9em !important;
+  margin-left: 8px;
+}
+.ReactModal__Content svg:hover {
+  filter: drop-shadow(0 0 3px #ffffff);
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 ::-webkit-scrollbar {
@@ -92,7 +146,6 @@ button {
 }
 
 .song-stats {
-  padding: 0 12px;
   height: 120px;
   width: 100%;
   overflow-y: auto;
@@ -116,40 +169,26 @@ input[type='search'] {
   border-radius: 2px;
   border: none;
   background-color: #928270;
-  color: #edfd07;
+  color: var(--primary-yellow);
   width: 90%;
   margin-bottom: 5px;
   height: 32px;
 }
 input::placeholder {
-  color: #edfd0788;
+  color: var(--primary-yellow-dark);
 }
 
 input:focus {
   outline: none;
 }
 
-.modal-line {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  line-height: 1.8;
+.MuiChip-sizeSmall {
+  padding: 0px 3px;
+  margin: 0px 2px;
 }
-
-.modal-options {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-}
-
 .osrs-btn.modal-action-btn {
   padding: 4px 16px;
   margin-top: 10px;
-}
-
-.react-tooltip {
-  font-size: 1em !important;
 }
 
 .modal-buttons-container {
@@ -159,4 +198,8 @@ input:focus {
   top: 10px;
   right: 10px;
   gap: 10px;
+}
+
+.rotated {
+  transform: rotate(-180deg);
 }

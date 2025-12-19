@@ -11,7 +11,7 @@
   transition: opacity 0.3s;
   transition: margin-top 1s;
   text-shadow: 2px 2px 5px black;
-  color: #edfd07;
+  color: var(--primary-yellow);
 }
 
 @media (max-width: 768px) {

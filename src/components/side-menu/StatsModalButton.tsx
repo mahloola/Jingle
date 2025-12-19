@@ -104,7 +104,7 @@ export default function StatsModalButton() {
                 key={song.name}
               >
                 <span>{song.name}</span>
-                <span>{successRate(song).toFixed(2)}%</span>
+                <span style={{ marginRight: '10px' }}>{successRate(song).toFixed(2)}%</span>
               </div>
             ))}
           </div>

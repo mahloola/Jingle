@@ -39,12 +39,12 @@ export async function getSong(songName: string) {
   return await get(`/api/songs/${songName}`);
 }
 
-export async function getSongList() {
-  return await get<Song[]>('/api/songs');
+export async function getAverages() {
+  return await get(`/api/averages`);
 }
 
-export async function generateDailyChallenge(date: string) {
-  await post(`/api/daily-challenge`, { date });
+export async function getSongList() {
+  return await get<Song[]>('/api/songs');
 }
 
 export async function getDailyChallenge(formattedDate: string) {
@@ -94,9 +94,15 @@ export async function getWeekStats() {
   return weekStats;
 }
 
-export async function postDailyChallengeResult(result: number) {
+interface DailyChallengeResponse {
+  percentile: number;
+}
+export async function postDailyChallengeResult(
+  result: number,
+  timeTaken: number,
+): Promise<DailyChallengeResponse> {
   // Returns the percentile
-  return await post<number>(`/api/daily-challenge/result`, { result });
+  return await post<DailyChallengeResponse>(`/api/daily-challenge/result`, { result, timeTaken });
 }
 
 export async function getStatistics() {

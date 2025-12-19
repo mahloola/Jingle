@@ -135,8 +135,38 @@ export const groupedLinks: GroupedLinks = {
       start: { x: 2461, y: 10418, mapId: 51, name: 'Northern Ocean Underground' },
       end: { x: 2465, y: 4012, mapId: 0, name: 'Gielinor Surface' },
     },
+    {
+      end: { x: 2638, y: 4005, mapId: 0, name: 'Gielinor Surface' },
+      start: { x: 2658, y: 10371, mapId: 51, name: 'Northern Ocean Underground' },
+    },
+    {
+      start: { x: 2846, y: 10333, mapId: 51, name: 'Northern Ocean Underground' },
+      end: { x: 2902, y: 10337, mapId: 1003, name: 'Ghorrock Dungeon' },
+    },
+  ],
+  'Ghorrock Dungeon': [
+    {
+      start: { x: 2903, y: 10337, mapId: 1003, name: 'Ghorrock Dungeon' },
+      end: { x: 2847, y: 10333, mapId: 51, name: 'Northern Ocean Underground' },
+    },
+    {
+      start: { x: 2928, y: 10353, mapId: 1003, name: 'Ghorrock Dungeon' },
+      end: { x: 3040, y: 6417, mapId: 1004, name: 'Ghorrock Prison' },
+    },
+    {
+      start: { x: 2909, y: 10317, mapId: 1003, name: 'Ghorrock Dungeon' },
+      end: { x: 2875, y: 10314, mapId: 1003, name: 'Ghorrock Dungeon' },
+    },
+    {
+      start: { x: 2875, y: 10314, mapId: 1003, name: 'Ghorrock Dungeon' },
+      end: { x: 2909, y: 10317, mapId: 1003, name: 'Ghorrock Dungeon' },
+    },
   ],
   'Gielinor Surface': [
+    {
+      start: { x: 2638, y: 4005, mapId: 0, name: 'Gielinor Surface' },
+      end: { x: 2658, y: 10371, mapId: 51, name: 'Northern Ocean Underground' },
+    },
     {
       start: { x: 2839, y: 3690, mapId: 0, name: 'Gielinor Surface' },
       end: { x: 2965, y: 10153, mapId: 22, name: 'Troll Stronghold' },
@@ -726,10 +756,6 @@ export const groupedLinks: GroupedLinks = {
       end: { x: 3668, y: 9888, mapId: 14, name: 'Morytania Underground' },
     },
     {
-      start: { x: 2809, y: 3194, mapId: 0, name: 'Gielinor Surface' },
-      end: { x: -11, y: -10, mapId: -666, name: 'undefined' },
-    },
-    {
       start: { x: 1389, y: 2916, mapId: 0, name: 'Gielinor Surface' },
       end: { x: 1389, y: 9316, mapId: 43, name: 'Varlamore Underground' },
     },
@@ -890,10 +916,6 @@ export const groupedLinks: GroupedLinks = {
       start: { x: 3142, y: 3635, mapId: 0, name: 'Gielinor Surface' },
     },
     {
-      start: { x: 2638, y: 4005, mapId: 0, name: 'Gielinor Surface' },
-      end: { x: 2658, y: 10371, mapId: 11, name: 'Miscellania Underground' },
-    },
-    {
       start: { x: 3578, y: 3526, mapId: 0, name: 'Gielinor Surface' },
       end: { x: 3578, y: 9926, mapId: 14, name: 'Morytania Underground' },
     },
@@ -920,10 +942,6 @@ export const groupedLinks: GroupedLinks = {
     {
       start: { x: 3016, y: 3518, mapId: 0, name: 'Gielinor Surface' },
       end: { x: 4106, y: 4673, mapId: 1034, name: 'Black Knight Catacombs' },
-    },
-    {
-      end: { x: 2838, y: 9388, mapId: 9, name: 'Karamja Underground' },
-      start: { x: 2823, y: 3001, mapId: 0, name: 'Gielinor Surface' },
     },
     {
       start: { x: 3284, y: 3468, mapId: 0, name: 'Gielinor Surface' },
@@ -1015,7 +1033,7 @@ export const groupedLinks: GroupedLinks = {
     },
     {
       start: { x: 2809, y: 3194, mapId: 0, name: 'Gielinor Surface' },
-      end: { x: 2805, y: 9590, mapId: 9, name: 'Karamja Underground' },
+      end: { x: 2805, y: 9590, mapId: 46, name: 'Ardent Ocean Underground' },
     },
     {
       start: { x: 1306, y: 3035, mapId: 0, name: 'Gielinor Surface' },
@@ -1687,11 +1705,11 @@ export const groupedLinks: GroupedLinks = {
     },
   ],
   'Feldip Hills Underground (overwrite regions)': [
-      {
+    {
       end: { x: 2131, y: 2994, mapId: 0, name: 'Gielinor Surface' },
       start: { x: 1685, y: 9195, mapId: 31, name: 'Feldip Hills Underground (overwrite regions)' },
     },
-        {
+    {
       end: { x: 2309, y: 2919, mapId: 0, name: 'Gielinor Surface' },
       start: { x: 1849, y: 9116, mapId: 31, name: 'Feldip Hills Underground (overwrite regions)' },
     },
@@ -1715,7 +1733,6 @@ export const groupedLinks: GroupedLinks = {
       start: { x: 2012, y: 9005, mapId: 31, name: 'Feldip Hills Underground (overwrite regions)' },
       end: { x: 2523, y: 2861, mapId: 0, name: 'Gielinor Surface' },
     },
-    
   ],
   'Kharidian Desert Underground': [
     {
@@ -1959,20 +1976,6 @@ export const groupedLinks: GroupedLinks = {
       end: { x: 3263, y: 6082, mapId: 29, name: 'Prifddinas' },
     },
   ],
-  'Miscellania Underground': [
-    {
-      end: { x: 2638, y: 4005, mapId: 0, name: 'Gielinor Surface' },
-      start: { x: 2658, y: 10371, mapId: 11, name: 'Miscellania Underground' },
-    },
-    {
-      start: { x: 2658, y: 10371, mapId: 11, name: 'Miscellania Underground' },
-      end: { x: 2638, y: 4005, mapId: 0, name: 'Gielinor Surface' },
-    },
-    {
-      start: { x: 2846, y: 10333, mapId: 11, name: 'Miscellania Underground' },
-      end: { x: 2902, y: 10337, mapId: 1003, name: 'Ghorrock Dungeon' },
-    },
-  ],
   'Guardians of the Rift': [
     {
       start: { x: 3610, y: 9473, mapId: 1001, name: 'Guardians of the Rift' },
@@ -1987,24 +1990,6 @@ export const groupedLinks: GroupedLinks = {
     {
       start: { x: 2013, y: 6435, mapId: 1002, name: 'The Scar' },
       end: { x: 3610, y: 9473, mapId: 1001, name: 'Guardians of the Rift' },
-    },
-  ],
-  'Ghorrock Dungeon': [
-    {
-      start: { x: 2903, y: 10337, mapId: 1003, name: 'Ghorrock Dungeon' },
-      end: { x: 2847, y: 10333, mapId: 11, name: 'Miscellania Underground' },
-    },
-    {
-      start: { x: 2928, y: 10353, mapId: 1003, name: 'Ghorrock Dungeon' },
-      end: { x: 3040, y: 6417, mapId: 1004, name: 'Ghorrock Prison' },
-    },
-    {
-      start: { x: 2909, y: 10317, mapId: 1003, name: 'Ghorrock Dungeon' },
-      end: { x: 2875, y: 10314, mapId: 1003, name: 'Ghorrock Dungeon' },
-    },
-    {
-      start: { x: 2875, y: 10314, mapId: 1003, name: 'Ghorrock Dungeon' },
-      end: { x: 2909, y: 10317, mapId: 1003, name: 'Ghorrock Dungeon' },
     },
   ],
   'Ghorrock Prison': [

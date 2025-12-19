@@ -3,9 +3,9 @@
   background-image: url('https://storage.googleapis.com/jingle-media/osrsButtonCredits.png') !important;
   z-index: 999 !important;
   padding: 8px 0 12px 0;
-  color: #edfd07;
+  color: var(--primary-yellow);
   box-shadow: 0px 1px 2px black;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .link {
@@ -15,16 +15,19 @@
 }
 
 .link:hover {
-  color: #f6fe85 !important;
+  color: var(--primary-yellow-light) !important;
 }
 
 .icon {
-  padding: 2%;
-  width: 100px;
-  color: #edfd07;
+  display: inline-block;
+  width: 40px;
+}
+.icon svg {
+  width: 25px;
+  color: var(--primary-yellow);
   font-size: 17px;
 }
 
-.icon:hover {
+.icon svg:hover {
   color: #f9ffa0 !important;
 }

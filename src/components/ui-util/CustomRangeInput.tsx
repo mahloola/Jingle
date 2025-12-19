@@ -43,8 +43,11 @@ const CustomRangeInput: React.FC<CustomRangeInputProps> = ({
         value={value}
         onChange={handleChange}
         step='1'
+        className='gradient-slider'
       />
-      <div className='value-display'>{displayValue} seconds</div>
+      <div className='value-display'>
+        {displayValue} second{value == 2 ? '' : 's'}
+      </div>
     </div>
   );
 };

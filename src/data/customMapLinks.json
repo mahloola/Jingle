@@ -159,8 +159,8 @@
       "end": {
         "x": 2658,
         "y": 10371,
-        "mapId": 11,
-        "name": "Miscellania Underground"
+        "mapId": 51,
+        "name": "Northern Ocean Underground"
       }
     },
        {
@@ -173,11 +173,111 @@
       "start": {
         "x": 2658,
         "y": 10371,
-        "mapId": 11,
-        "name": "Miscellania Underground"
+        "mapId": 51,
+        "name": "Northern Ocean Underground"
       }
     },
 
+{
+    "start": {
+      "x": 2846,
+      "y": 10333,
+      "mapId": 51,
+      "name": "Northern Ocean Underground"
+    },
+    "end": {
+      "x": 2902,
+      "y": 10337,
+      "mapId": 1003,
+      "name": "Ghorrock Dungeon"
+    }
+  },
+  {
+    "start": {
+      "x": 2903,
+      "y": 10337,
+      "mapId": 1003,
+      "name": "Ghorrock Dungeon"
+    },
+    "end": {
+      "x": 2847,
+      "y": 10333,
+      "mapId": 51,
+      "name": "Northern Ocean Underground"
+    }
+  },
+  {
+    "start": {
+      "x": 2928,
+      "y": 10353,
+      "mapId": 1003,
+      "name": "Ghorrock Dungeon"
+    },
+    "end": {
+      "x": 3040,
+      "y": 6417,
+      "mapId": 1004,
+      "name": "Ghorrock Prison"
+    }
+  },
+
+  {
+    "start": {
+      "x": 2909,
+      "y": 10317,
+      "mapId": 1003,
+      "name": "Ghorrock Dungeon"
+    },
+    "end": {
+      "x": 2875,
+      "y": 10314,
+      "mapId": 1003,
+      "name": "Ghorrock Dungeon"
+    }
+  },
+  {
+    "start": {
+      "x": 2875,
+      "y": 10314,
+      "mapId": 1003,
+      "name": "Ghorrock Dungeon"
+    },
+    "end": {
+      "x": 2909,
+      "y": 10317,
+      "mapId": 1003,
+      "name": "Ghorrock Dungeon"
+    }
+  },
+
+  {
+    "start": {
+      "x": 3040,
+      "y": 6417,
+      "mapId": 1004,
+      "name": "Ghorrock Prison"
+    },
+    "end": {
+      "x": 2928,
+      "y": 10353,
+      "mapId": 1003,
+      "name": "Ghorrock Dungeon"
+    }
+  },
+  {
+    "start": {
+      "x": 2846,
+      "y": 10333,
+      "mapId": 51,
+      "name": "Northern Ocean Underground"
+    },
+    "end": {
+      "x": 2902,
+      "y": 10337,
+      "mapId": 1003,
+      "name": "Ghorrock Dungeon"
+    }
+  },
 
     {
       "start": {
@@ -331,8 +431,8 @@
     "end": {
       "x": 2838,
       "y": 9388,
-      "mapId": 9,
-      "name": "Karamja Underground"
+      "mapId": 46,
+      "name": "Ardent Ocean Underground"
     },
     "start": {
       "x": 2823,
@@ -671,8 +771,8 @@
     "end": {
       "x": 2805,
       "y": 9590,
-      "mapId": 9,
-      "name": "Karamja Underground"
+      "mapId": 46,
+      "name": "Ardent Ocean Underground"
     }
   },
 
@@ -754,8 +854,8 @@
     "start": {
       "x": 2658,
       "y": 10371,
-      "mapId": 11,
-      "name": "Miscellania Underground"
+      "mapId": 51,
+      "name": "Northern Ocean Underground"
     },
     "end": {
       "x": 2638,
@@ -765,20 +865,6 @@
     }
   },
 
-  {
-    "start": {
-      "x": 2846,
-      "y": 10333,
-      "mapId": 11,
-      "name": "Miscellania Underground"
-    },
-    "end": {
-      "x": 2902,
-      "y": 10337,
-      "mapId": 1003,
-      "name": "Ghorrock Dungeon"
-    }
-  },
 
   {
     "start": {
@@ -925,28 +1011,12 @@
       "name": "Guardians of the Rift"
     }
   },
-
-  {
-    "start": {
-      "x": 2903,
-      "y": 10337,
-      "mapId": 1003,
-      "name": "Ghorrock Dungeon"
-    },
-    "end": {
-      "x": 2847,
-      "y": 10333,
-      "mapId": 11,
-      "name": "Miscellania Underground"
-    }
-  },
-
   {
     "start": {
       "x": 2928,
       "y": 10353,
-      "mapId": 1003,
-      "name": "Ghorrock Dungeon"
+      "mapId": 51,
+      "name": "Northern Ocean Underground"
     },
     "end": {
       "x": 3040,
@@ -955,36 +1025,6 @@
       "name": "Ghorrock Prison"
     }
   },
-
-  {
-    "start": {
-      "x": 2909,
-      "y": 10317,
-      "mapId": 1003,
-      "name": "Ghorrock Dungeon"
-    },
-    "end": {
-      "x": 2875,
-      "y": 10314,
-      "mapId": 1003,
-      "name": "Ghorrock Dungeon"
-    }
-  },
-  {
-    "start": {
-      "x": 2875,
-      "y": 10314,
-      "mapId": 1003,
-      "name": "Ghorrock Dungeon"
-    },
-    "end": {
-      "x": 2909,
-      "y": 10317,
-      "mapId": 1003,
-      "name": "Ghorrock Dungeon"
-    }
-  },
-
   {
     "start": {
       "x": 3040,
@@ -995,8 +1035,8 @@
     "end": {
       "x": 2928,
       "y": 10353,
-      "mapId": 1003,
-      "name": "Ghorrock Dungeon"
+      "mapId": 51,
+      "name": "Northern Ocean Underground"
     }
   },
 

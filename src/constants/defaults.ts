@@ -1,5 +1,6 @@
 import { GameState, GameStatus, UserPreferences } from '../types/jingle';
 
+export const MAX_MIN_HISTORY_COLORS: [number, number] = [4500, 0]; // completely arbitrary, imo 5000 would show too much red and discourage people
 export const CENTER_COORDINATES: [number, number] = [3222, 3218];
 export const DEFAULT_PREFERENCES: UserPreferences = {
   preferHardMode: false,
@@ -30,7 +31,7 @@ export const DEFAULT_GAME_STATE: GameState = {
   round: 0, // 0-4
   songs: [],
   scores: [],
-  startTime: Date.now(),
+  startTimeMs: Date.now(),
   timeTaken: '',
   clickedPosition: null,
   navigationStack: [],

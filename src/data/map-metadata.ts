@@ -81,15 +81,6 @@ const mapMetadata: MapMetadata[] = [
     center: [2880, 5312],
   },
   {
-    mapId: 8,
-    name: 'Ghorrock Prison',
-    bounds: [
-      [2880, 6336],
-      [3008, 6464],
-    ],
-    center: [2935, 6391],
-  },
-  {
     mapId: 10,
     name: 'Keldagrim',
     bounds: [
@@ -106,15 +97,6 @@ const mapMetadata: MapMetadata[] = [
       [3456, 10048],
     ],
     center: [3168, 9632],
-  },
-  {
-    mapId: 9,
-    name: 'Karamja Underground',
-    bounds: [
-      [3520, 9408],
-      [3712, 9600],
-    ],
-    center: [3616, 9504],
   },
   {
     mapId: 28,
@@ -468,6 +450,15 @@ const mapMetadata: MapMetadata[] = [
     center: [2559, 10272],
   },
   {
+    mapId: 1003,
+    name: 'Ghorrock Dungeon',
+    bounds: [
+      [2816, 10240],
+      [2944, 10368],
+    ],
+    center: [2880, 10304],
+  },
+  {
     mapId: 1001,
     name: 'Guardians of the Rift',
     bounds: [
@@ -484,15 +475,6 @@ const mapMetadata: MapMetadata[] = [
       [2176, 6464],
     ],
     center: [2048, 6368],
-  },
-  {
-    mapId: 1003,
-    name: 'Ghorrock Dungeon',
-    bounds: [
-      [2816, 10240],
-      [2944, 10368],
-    ],
-    center: [2880, 10304],
   },
   {
     mapId: 1004,

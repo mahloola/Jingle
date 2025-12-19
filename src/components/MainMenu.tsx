@@ -1,12 +1,13 @@
 import { FaDiscord, FaDonate, FaGithub } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import useSWR from 'swr';
+import { cdnURL } from '../constants/links';
 import { LOCAL_STORAGE } from '../constants/localStorage';
 import { getStatistics } from '../data/jingle-api';
 import '../style/mainMenu.css';
 import { DailyChallenge } from '../types/jingle';
 import { getCurrentDateInBritain, getNextUkMidnight } from '../utils/date-utils';
 import NextDailyCountdown from './NextDailyCountdown';
-import { Link } from 'react-router-dom';
 
 interface MainMenuProps {
   dailyChallenge: DailyChallenge | undefined;
@@ -19,29 +20,40 @@ export default function MainMenu({ dailyChallenge }: MainMenuProps) {
     refreshInterval: 2000,
   });
 
+  const leftSideStyle = { left: '17vw', top: '70%' };
+
   return (
     <div className='main-menu-container'>
       <img
         className='main-menu-image'
-        src='https://mahloola.com/Jingle.png'
+        src={`${cdnURL}/Jingle.png`}
         alt='Jingle'
       />
 
       <h1 className='main-menu-text'>Jingle</h1>
 
       {/* Daily Jingle Option */}
-      <Link
-        to='/daily'
-        className='main-menu-option'
-        style={{ left: '17vw', top: '70%' }}
-      >
-        Daily Jingle
-        {dailyCompleted && <NextDailyCountdown end={getNextUkMidnight()} />}
-        {!dailyCompleted && <div style={{ color: '#00FF00' }}>Ready</div>}{' '}
-        <div style={{ fontSize: '40%' }}>
-          {dailyChallenge?.results.length.toLocaleString()} Completions
-        </div>
-      </Link>
+      {dailyChallenge ? (
+        <Link
+          to='/daily'
+          className='main-menu-option'
+          style={leftSideStyle}
+        >
+          Daily Jingle
+          {dailyCompleted && <NextDailyCountdown end={getNextUkMidnight()} />}
+          {!dailyCompleted && <div style={{ color: '#00FF00' }}>Ready</div>}{' '}
+          <div style={{ fontSize: '40%' }}>
+            {dailyChallenge?.results?.length?.toLocaleString()} Completions
+          </div>
+        </Link>
+      ) : (
+        <h1
+          className='main-menu-option'
+          style={leftSideStyle}
+        >
+          Loading...
+        </h1>
+      )}
 
       <Link
         to='/practice'

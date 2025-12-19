@@ -12,10 +12,7 @@ import IconButton from './IconButton';
 export default function NewsModalButton() {
   const seenAnnouncementId = loadSeenAnnouncementIdFromBrowser() || '0';
   const latestAnnouncementId = NEWS_POSTS.length;
-  const [open, setOpen] = useState(
-    // TODO: change this so that it shows when we make a new announcement
-    parseInt(seenAnnouncementId) < latestAnnouncementId,
-  );
+  const [open, setOpen] = useState(parseInt(seenAnnouncementId) < latestAnnouncementId);
   const closeModal = () => {
     setOpen(false);
     setSeenAnnouncementIdToBrowser(latestAnnouncementId.toString());
@@ -61,17 +58,17 @@ export default function NewsModalButton() {
                 }}
               >
                 <h2 style={{ fontSize: '2rem' }}>{post.title}</h2>
-                <h6
-                  className='news-date'
-                  style={{ marginRight: '10px' }}
-                >
-                  {post.date}
-                </h6>
               </div>
               <section className='news-content'>
                 {<p dangerouslySetInnerHTML={{ __html: post.content }} />}
               </section>
-              {parseInt(post.id) !== NEWS_POSTS.length - 1 && <hr />}
+              <h6
+                className='news-date'
+                style={{ marginLeft: 'auto', width: '100px', color: 'var(--primary-yellow-dark)' }}
+              >
+                {post.date}
+              </h6>
+              {parseInt(post.id) !== 1 && <hr />}
             </section>
           ))}
         </div>

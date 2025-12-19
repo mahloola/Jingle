@@ -26,21 +26,18 @@ import {
   updateGuessStreak,
 } from '../utils/browserUtil';
 import { getCurrentDateInBritain } from '../utils/date-utils';
-import {
-  calculateDailyChallengePercentile,
-  copyResultsToClipboard,
-  getJingleNumber,
-} from '../utils/jingle-utils';
+import { copyResultsToClipboard, getJingleNumber } from '../utils/jingle-utils';
 import { playSong } from '../utils/playSong';
+import AudioControls from './AudioControls';
 import Footer from './Footer';
 import GameOver from './GameOver';
 import RoundResult from './RoundResult';
 import RunescapeMap from './RunescapeMap';
+import HistoryModalButton from './side-menu/HistoryModalButton';
 import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
 import SettingsModalButton from './side-menu/PreferencesModalButton';
 import StatsModalButton from './side-menu/StatsModalButton';
-import AudioControls from './AudioControls';
 
 interface DailyJingleProps {
   dailyChallenge: DailyChallenge;
@@ -51,7 +48,9 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
   const currentPreferences = loadPreferencesFromBrowser();
   const goBackButtonRef = useRef<HTMLDivElement>(null);
-  // this is to prevent loading the game state from localstorage multiple times
+  const [finalPercentile, setFinalPercentile] = useState<number | null>(null);
+
+  // this is to prevent loading the game state from localStorage multiple times
   const [initialized, setInitialized] = useState(false);
   useEffect(() => setInitialized(true), []);
 
@@ -71,8 +70,8 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   useEffect(() => {
     playSong(
-      audioRef, 
-      initialGameState.songs[gameState.round], 
+      audioRef,
+      initialGameState.songs[gameState.round],
       initialGameState.settings.oldAudio,
       ...(currentPreferences.preferHardMode ? [currentPreferences.hardModeLength] : []),
     );
@@ -99,9 +98,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
 
     const isLastRound = gameState.round === gameState.songs.length - 1;
     if (isLastRound) {
-      // submit daily challenge
       localStorage.setItem(LOCAL_STORAGE.dailyComplete, getCurrentDateInBritain());
-      postDailyChallengeResult(sum(gameState.scores));
+      postDailyChallengeResult(sum(gameState.scores), Date.now() - gameState.startTimeMs).then(
+        (data) => {
+          setFinalPercentile(data?.percentile);
+        },
+      );
     }
   };
 
@@ -161,6 +163,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
             />
             <NewsModalButton />
             <StatsModalButton />
+            <HistoryModalButton />
           </div>
           <div className='below-map'>
             {match(gameState.status)
@@ -186,11 +189,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
                 button({
                   label: 'Copy Results',
                   onClick: () => {
-                    const percentile = calculateDailyChallengePercentile(
-                      dailyChallenge,
-                      sum(gameState.scores),
-                    );
-                    copyResultsToClipboard(gameState, percentile);
+                    copyResultsToClipboard(gameState, finalPercentile, jingleNumber);
                   },
                 }),
               )
@@ -204,7 +203,10 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
               {scoreLabel(gameState.scores[4])}
             </div>
 
-            <AudioControls ref={audioRef} gameState={gameState}/>
+            <AudioControls
+              ref={audioRef}
+              gameState={gameState}
+            />
 
             <Footer />
           </div>
@@ -226,13 +228,16 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
         ref={goBackButtonRef}
       ></div>
       <RoundResult gameState={gameState} />
-
-      {gameState.status === GameStatus.GameOver && (
-        <GameOver
-          gameState={gameState}
-          dailyChallenge={dailyChallenge}
-        />
-      )}
+      {gameState.status === GameStatus.GameOver &&
+        (finalPercentile !== null ? (
+          <GameOver
+            gameState={gameState}
+            dailyChallenge={dailyChallenge}
+            percentile={finalPercentile}
+          />
+        ) : (
+          <h1>Loading...</h1>
+        ))}
     </>
   );
 }

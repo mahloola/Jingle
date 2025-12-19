@@ -12,7 +12,6 @@ import {
   UNDERGROUND_TRACKS,
   UNDERGROUND_TRACKS_STRICT,
 } from '../../constants/regions';
-import { COLORS } from '../../constants/theme';
 import '../../style/modal.css';
 import { Page, UserPreferences } from '../../types/jingle';
 import { countSelectedSongs } from '../../utils/countSelectedSongs';
@@ -180,7 +179,7 @@ export default function SettingsModalButton({
                   <>
                     <IoWarning
                       style={{
-                        color: COLORS.yellow,
+                        color: 'var(--primary-color)',
                         minHeight: '20px',
                         minWidth: '20px',
                       }}
@@ -253,7 +252,7 @@ export default function SettingsModalButton({
                   <>
                     <IoWarning
                       style={{
-                        color: COLORS.yellow,
+                        color: 'var(--primary-color)',
                         minHeight: '20px',
                         minWidth: '20px',
                       }}

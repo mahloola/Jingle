@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactModal, { Styles } from 'react-modal';
-import { COLORS } from '../constants/theme';
 import '../style/modal.css';
 
 interface ModalProps {
@@ -15,14 +14,14 @@ const isMobile = window.innerWidth <= 480;
 const modalStyles: Styles = {
   content: {
     display: 'flex',
-    padding: '16px 24px 24px 24px',
+    padding: '16px 32px 24px 32px',
     position: 'fixed',
     width: isMobile ? '340px' : '370px',
     height: 'auto',
     left: '50%',
     top: '50%',
     transform: 'translate(-50%, -50%)',
-    color: COLORS.yellow,
+    color: '#edfd07',
     zIndex: 9999999,
     fontFamily: 'Runescape UF',
     flexDirection: 'column',

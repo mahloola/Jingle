@@ -11,16 +11,18 @@ export default function Footer() {
           className='link'
         >
           mahloola
-        </a>{' '}
-        and{' '}
+        </a>
+        {', '}
         <a
           href='https://twitter.com/FunOrange42'
           className='link'
         >
           FunOrange
         </a>
+        {', and '}
+        <span className='link'>Kunito Moe</span>
       </div>
-      <span>
+      <span className='footer-icons'>
         <a
           className='icon'
           href='https://github.com/mahloola/osrs-music'
