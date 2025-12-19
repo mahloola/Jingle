@@ -23,6 +23,168 @@ const geojsondata = {
       },
       properties: {
         mapID: '-1',
+        title: '<a href="/w/What the Shell!" title="What the Shell!">What the Shell!</a>',
+        description: '',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Unquiet Ocean Underground',
+          mapId: 47,
+          coordinates: [
+            [3136, 8896],
+            [3200, 8896],
+            [3200, 8832],
+            [3136, 8832],
+            [3136, 8896],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/The_Tortugan_Way" title="The Tortugan Way">The Tortugan Way</a>',
+        description: '',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Unquiet Ocean Underground',
+          mapId: 47,
+          coordinates: [
+            [3264, 8896],
+            [3328, 8896],
+            [3328, 8832],
+            [3264, 8832],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Lurking_Threats" title="Lurking Threats">Lurking Threats</a>',
+        description: '',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Unquiet Ocean Underground',
+          mapId: 47,
+          coordinates: [
+            [2674, 8742],
+            [2674, 8866],
+            [2812, 8866],
+            [2812, 8742],
+            [2674, 8742],
+          ],
+        },
+        {
+          mapName: 'Northern Ocean Underground',
+          mapId: 51,
+          coordinates: [
+            [2880, 10496],
+            [2944, 10496],
+            [2944, 10432],
+            [2880, 10432],
+            [2880, 10496],
+          ],
+        },
+        {
+          mapName: 'Western Ocean Underground',
+          mapId: 50,
+          coordinates: [
+            [2048, 9978],
+            [2048, 10052],
+            [2112, 10052],
+            [2112, 9978],
+            [2048, 9978],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Elder_Wisdom" title="Elder Wisdom">Elder Wisdom</a>',
+        description: '',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Unquiet Ocean Underground',
+          mapId: 47,
+          coordinates: [
+            [3264, 8896],
+            [3328, 8896],
+            [3328, 8832],
+            [3264, 8832],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
+        title: '<a href="/w/Below_the_Conch" title="Below the Conch">Below the Conch </a>',
+        description:
+          '<div><a href="/w/File:Below_the_Conch.ogg" title="File:Below the Conch.ogg">Play track</a></div>',
+        plane: 0,
+      },
+      convertedGeometry: [
+        {
+          mapName: 'Unquiet Ocean Underground',
+          mapId: 47,
+          coordinates: [
+            [3072, 8896],
+            [3136, 8896],
+            [3136, 8832],
+            [3072, 8832],
+            [3072, 8896],
+          ],
+        },
+        {
+          mapName: 'Unquiet Ocean Underground',
+          mapId: 47,
+          coordinates: [
+            [3200, 8846],
+            [3264, 8846],
+            [3264, 8772],
+            [3200, 8772],
+            [3200, 8846],
+          ],
+        },
+      ],
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [],
+      },
+      properties: {
+        mapID: '-1',
         title: '<a href="/w/Truth" title="Truth">Truth</a>',
         description: '<div><a href="/w/File:Truth.ogg" title="File:Truth.ogg">Play track</a></div>',
         plane: 0,

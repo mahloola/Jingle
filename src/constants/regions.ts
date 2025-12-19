@@ -109,6 +109,7 @@ export const REGIONS = {
     'Understanding',
     'Superstition',
     'Voodoo Cult',
+    'Lurking Threats',
   ],
   Asgarnia: [
     'Alone',
@@ -171,7 +172,6 @@ export const REGIONS = {
     'The Route of All Evil',
     'The Fallen Empire',
     'Serene',
-
   ],
   Fremennik: [
     'Saga',
@@ -336,7 +336,6 @@ export const REGIONS = {
     'The Foundry',
     'Insect Queen',
     'Into the Tombs',
-
     'Bone Dry',
     'Garden of Winter',
     'Garden of Summer',
@@ -345,17 +344,20 @@ export const REGIONS = {
     'Quest',
     'Beneath Cursed Sands',
     "A Mother's Curse",
-    "Jaws of Gluttony", 
-    "Sands of Time",
-    "Ape-ex Predator",
+    'Jaws of Gluttony',
+    'Sands of Time',
+    'Ape-ex Predator',
     "Amascut's Promise",
-    "Laid to Rest",
-    'Test of Strength', 
+    'Laid to Rest',
+    'Test of Strength',
     'Test of Isolation',
     'Test of Companionship',
     'Test of Resourcefulness',
-    "Sorceress's Garden"
-
+    "Sorceress's Garden",
+    'What the Shell!',
+    'The Tortugan Way',
+    'Elder Wisdom',
+    'Below the Conch',
   ],
   Morytania: [
     'Arboretum',
@@ -406,23 +408,21 @@ export const REGIONS = {
 
     "The Maiden's Sorrow",
     "The Maiden's Anger",
-    "Welcome to my Nightmare",
-    "The Nightmare Continues",
-    "Dance of the Nylocas",
-    "Arachnids of Vampyrium",
-    "The Dark Beast Sotetseg",
-    "Power of the Shadow Realm",
+    'Welcome to my Nightmare',
+    'The Nightmare Continues',
+    'Dance of the Nylocas',
+    'Arachnids of Vampyrium',
+    'The Dark Beast Sotetseg',
+    'Power of the Shadow Realm',
     'Predator Xarpus',
-    "Last King of the Yarasa",
+    'Last King of the Yarasa',
     "It's not over 'til...",
-    "The Fat Lady Sings",
-    "The Curtain Closes",
-    "Haunted Mine",
-    "Deep Down",
-    "Chamber",
-    "The Bane of Ashihama",
-
-
+    'The Fat Lady Sings',
+    'The Curtain Closes',
+    'Haunted Mine',
+    'Deep Down',
+    'Chamber',
+    'The Bane of Ashihama',
   ],
   Tirannwn: [
     'Everywhere',
@@ -540,7 +540,7 @@ export const REGIONS = {
     'Dagannoth Dawn',
     'Xenophobe',
     'Darkness in the Depths',
-    'Sign Here'
+    'Sign Here',
   ],
   Varlamore: [
     'Are You Not Entertained',
@@ -575,7 +575,7 @@ export const REGIONS = {
     'Over the Mountains',
     'Stalkers',
     'Scorching Horizon',
-    'Truth'
+    'Truth',
   ],
 };
 export const TOTAL_TRACK_COUNT = Object.keys(REGIONS).reduce(
