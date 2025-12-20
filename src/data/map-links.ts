@@ -1950,14 +1950,34 @@ export const groupedLinks: GroupedLinks = {
       end: { x: 2999, y: 3493, mapId: 0, name: 'Gielinor Surface' },
     },
     {
-      start: { x: 1310, y: 3104, mapId: 39, name: 'Ruins of Camdozaal' },
-      end: { x: 1312, y: 9429, mapId: 41, name: 'Lassar Undercity' },
+      start: {
+        x: 2922,
+        y: 5826,
+        mapId: 39,
+        name: 'Ruins of Camdozaal',
+      },
+      end: {
+        x: 2588,
+        y: 6435,
+        mapId: 41,
+        name: 'Lassar Undercity',
+      },
     },
   ],
   'Lassar Undercity': [
     {
-      end: { x: 1310, y: 3104, mapId: 39, name: 'Ruins of Camdozaal' },
-      start: { x: 1312, y: 9429, mapId: 41, name: 'Lassar Undercity' },
+      end: {
+        x: 2922,
+        y: 5826,
+        mapId: 39,
+        name: 'Ruins of Camdozaal',
+      },
+      start: {
+        x: 2588,
+        y: 6435,
+        mapId: 41,
+        name: 'Lassar Undercity',
+      },
     },
   ],
   'Mokha Crypt': [
