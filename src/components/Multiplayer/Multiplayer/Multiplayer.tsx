@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import useSWR from 'swr';
+import { useAuth } from '../../../AuthContext';
 import { MULTI_LOBBY_COUNT_LIMIT } from '../../../constants/defaults';
-import { createLobby, getLobbies } from '../../../data/jingle-api';
+import { createLobby, getLobbies, joinLobby } from '../../../data/jingle-api';
 import { LobbySettings, MultiLobby } from '../../../types/jingle';
 import Navbar from '../../Navbar/Navbar';
 import { Button } from '../../ui-util/Button';
@@ -10,13 +11,31 @@ import Matchmaking from '../Matchmaking';
 import styles from './Multiplayer.module.css';
 
 const Multiplayer = () => {
+  const { currentUser } = useAuth();
+  const token = currentUser?.getIdToken();
   const [createLobbyModalOpen, setCreateLobbyModalOpen] = useState(false);
   const { data: lobbies } = useSWR<MultiLobby[]>(`/api/averages`, getLobbies);
   console.log('LOBBIES:', lobbies);
 
-  const onJoinLobby = (lobbyId) => {
-    console.log('blah');
+  const onJoinLobby = async (lobbyId: string) => {
+    if (!currentUser) {
+      console.error('No user logged in');
+      return;
+    }
+    try {
+      // Get token inside the async function
+      const token = await currentUser.getIdToken();
+      console.log('Token retrieved:', token?.substring(0, 20) + '...');
+
+      await joinLobby({ lobbyId, token });
+      console.log(`Joined lobby ${lobbyId}`);
+    } catch (error) {
+      console.error('Failed to join lobby:', error);
+    }
+
+    console.log(`Joining lobby ${lobbyId}`);
   };
+
   const onCreateLobby = ({
     lobbyName,
     lobbySettings,
@@ -91,7 +110,7 @@ const Multiplayer = () => {
                     {lobby.name} &nbsp;&nbsp;
                     <Button
                       label={'Join'}
-                      onClick={() => onJoinLobby(lobbyId)}
+                      onClick={() => onJoinLobby(lobby.id)}
                       classes='multiplayerBtn'
                     ></Button>
                   </td>

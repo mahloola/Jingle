@@ -119,9 +119,16 @@ export enum MultiLobbyStatus {
   Playing = 'Playing',
   Stopped = 'Stopped',
 }
+export interface Player {
+  id: string;
+  username: string;
+  avatarUrl: string;
+}
 export interface MultiLobby {
+  id: string;
   name: string;
   settings: LobbySettings;
   rounds: MultiRound[];
   status: MultiLobbyStatus;
+  players: Player[];
 }

@@ -1,7 +1,6 @@
 import { DailyChallenge, LobbySettings, Song, Statistics } from '../types/jingle';
 
 const apiHost = import.meta.env.VITE_API_HOST;
-
 class FetchError extends Error {
   response: Response;
   constructor(response: Response) {
@@ -20,12 +19,18 @@ async function get<T = any>(path: string) {
   }
 }
 
-async function post<T = any>(path: string, body: any) {
+async function post<T = any>(path: string, body: any, token?: string) {
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+  };
+
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
   const response = await fetch(apiHost + path, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers,
     body: JSON.stringify(body),
   });
   if (response.ok) {
@@ -41,6 +46,11 @@ export async function getSong(songName: string) {
 
 export async function createLobby({ name, settings }: { name: string; settings: LobbySettings }) {
   return await post('/api/lobbies', { name, settings });
+}
+
+export async function joinLobby({ lobbyId, token }: { lobbyId: string; token: string }) {
+  if (!lobbyId) return;
+  return await post(`/api/lobbies/${lobbyId}/join`, { lobbyId }, token);
 }
 
 export async function getLobbies() {
