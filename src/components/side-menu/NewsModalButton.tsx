@@ -28,6 +28,7 @@ export default function NewsModalButton() {
       <Modal
         open={open}
         onClose={closeModal}
+        primaryButtonText='Save'
       >
         <img
           className='modal-bg-image'

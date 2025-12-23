@@ -1,4 +1,4 @@
-import { DailyChallenge, Song, Statistics } from '../types/jingle';
+import { DailyChallenge, LobbySettings, Song, Statistics } from '../types/jingle';
 
 const apiHost = import.meta.env.VITE_API_HOST;
 
@@ -37,6 +37,14 @@ async function post<T = any>(path: string, body: any) {
 
 export async function getSong(songName: string) {
   return await get(`/api/songs/${songName}`);
+}
+
+export async function createLobby({ name, settings }: { name: string; settings: LobbySettings }) {
+  return await post('/api/lobbies', { name, settings });
+}
+
+export async function getLobbies() {
+  return await get(`/api/lobbies`);
 }
 
 export async function getAverages() {

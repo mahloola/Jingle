@@ -1,0 +1,50 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+.multiplayerContainer {
+  background: rgb(44, 44, 44);
+  color: var(--primary-yellow);
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s;
+  text-shadow: 1px 1px 2px black;
+}
+
+.multiplayerTable {
+  width: 80%;
+  background: #3f3f3f;
+  padding: 30px;
+  border-radius: 10px;
+}
+.multiLobbyTable {
+  width: 80%;
+  table-layout: fixed;
+  text-align: left;
+}
+.multiLobbyTable tr {
+  height: 40px;
+}
+.multiLobbyTable thead {
+  color: var(--primary-yellow-dark);
+}
+.multiLobbyTable td {
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

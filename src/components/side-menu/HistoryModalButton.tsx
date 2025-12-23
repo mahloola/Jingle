@@ -52,6 +52,7 @@ const HistoryModalButton = () => {
       <Modal
         open={open}
         onClose={() => setOpen(false)}
+        primaryButtonText='Save'
       >
         <img
           className='modal-bg-image'

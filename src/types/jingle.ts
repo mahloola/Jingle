@@ -102,6 +102,7 @@ export interface Song {
 
 export interface LobbySettings {
   hardMode: boolean;
+  hardModeLength: number;
   regions: Record<Region, boolean>;
   undergroundSelected: boolean;
   surfaceSelected: boolean;

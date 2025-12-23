@@ -28,7 +28,7 @@ const Matchmaking = () => {
       {matchFound ? (
         <div>Match found! Opponent ID: {opponentId}</div>
       ) : (
-        <button onClick={findMatch}>Find Match</button>
+        <button onClick={findMatch}>Test Socket</button>
       )}
     </div>
   );

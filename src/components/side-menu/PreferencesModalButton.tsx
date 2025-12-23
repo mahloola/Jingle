@@ -85,6 +85,7 @@ export default function SettingsModalButton({
         onClose={() => setOpen(false)}
         onApplySettings={() => onApplyPreferences(preferences)}
         saveDisabled={disabled}
+        primaryButtonText='Save'
       >
         <img
           className='modal-bg-image'
