@@ -14,7 +14,8 @@ const Multiplayer = () => {
   const { currentUser } = useAuth();
   const token = currentUser?.getIdToken();
   const [createLobbyModalOpen, setCreateLobbyModalOpen] = useState(false);
-  const { data: lobbies } = useSWR<MultiLobby[]>(`/api/averages`, getLobbies);
+  const { data: lobbies, mutate: mutateLobbies } = useSWR<MultiLobby[]>(`/api/lobbies`, getLobbies);
+
   console.log('LOBBIES:', lobbies);
 
   const onJoinLobby = async (lobbyId: string) => {
@@ -36,7 +37,7 @@ const Multiplayer = () => {
     console.log(`Joining lobby ${lobbyId}`);
   };
 
-  const onCreateLobby = ({
+  const onCreateLobby = async ({
     lobbyName,
     lobbySettings,
   }: {
@@ -44,7 +45,12 @@ const Multiplayer = () => {
     lobbySettings: LobbySettings;
   }) => {
     if ((lobbies?.length ?? 0) < MULTI_LOBBY_COUNT_LIMIT) {
-      createLobby({ name: lobbyName, settings: lobbySettings });
+      const { lobby: newLobby } = await createLobby({ name: lobbyName, settings: lobbySettings });
+      // OPTIMISTIC UPDATE: Immediately update UI
+      mutateLobbies([...(lobbies || []), newLobby], false);
+
+      // OR: Revalidate to get fresh data from server
+      mutateLobbies(); // Triggers re-fetch
       setCreateLobbyModalOpen(false);
     } else {
       console.error('Lobby count exceeded! Please wait and try again later.');
