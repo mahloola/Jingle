@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import useSWR from 'swr';
 import { useAuth } from '../../../AuthContext';
 import { MULTI_LOBBY_COUNT_LIMIT } from '../../../constants/defaults';
@@ -12,11 +13,9 @@ import styles from './Multiplayer.module.css';
 
 const Multiplayer = () => {
   const { currentUser } = useAuth();
-  const token = currentUser?.getIdToken();
   const [createLobbyModalOpen, setCreateLobbyModalOpen] = useState(false);
-  const { data: lobbies, mutate: mutateLobbies } = useSWR<MultiLobby[]>(`/api/lobbies`, getLobbies);
-
-  console.log('LOBBIES:', lobbies);
+  const { data: lobbies, mutate: mutateLobbies } = useSWR<MultiLobby[]>(`/api/lobbies`, getLobbies); // todo: only need to fetch x lobby
+  const navigate = useNavigate();
 
   const onJoinLobby = async (lobbyId: string) => {
     if (!currentUser) {
@@ -24,17 +23,12 @@ const Multiplayer = () => {
       return;
     }
     try {
-      // Get token inside the async function
       const token = await currentUser.getIdToken();
-      console.log('Token retrieved:', token?.substring(0, 20) + '...');
-
       await joinLobby({ lobbyId, token });
-      console.log(`Joined lobby ${lobbyId}`);
+      navigate(`/multiplayer/${lobbyId}`);
     } catch (error) {
       console.error('Failed to join lobby:', error);
     }
-
-    console.log(`Joining lobby ${lobbyId}`);
   };
 
   const onCreateLobby = async ({
@@ -44,14 +38,23 @@ const Multiplayer = () => {
     lobbyName: string;
     lobbySettings: LobbySettings;
   }) => {
+    if (!currentUser) {
+      console.error('No user logged in');
+      return;
+    }
+    const token = await currentUser.getIdToken();
     if ((lobbies?.length ?? 0) < MULTI_LOBBY_COUNT_LIMIT) {
-      const { lobby: newLobby } = await createLobby({ name: lobbyName, settings: lobbySettings });
-      // OPTIMISTIC UPDATE: Immediately update UI
+      const { lobby: newLobby } = await createLobby({
+        name: lobbyName,
+        settings: lobbySettings,
+        token,
+      });
+      // OPTIMISTIC UPDATE: immediately update UI
       mutateLobbies([...(lobbies || []), newLobby], false);
 
-      // OR: Revalidate to get fresh data from server
-      mutateLobbies(); // Triggers re-fetch
+      mutateLobbies(); // re-fetch after
       setCreateLobbyModalOpen(false);
+      navigate(`/multiplayer/${newLobby.id}`);
     } else {
       console.error('Lobby count exceeded! Please wait and try again later.');
     }
@@ -67,12 +70,12 @@ const Multiplayer = () => {
             onCreateLobby={onCreateLobby}
           />
         )}
-        <p>No lobbies available. Create one!</p>
+        <h1>No lobbies available. Create one!</h1>
         <Button
           label='Create Lobby'
           disabled={(lobbies?.length ?? 0) >= MULTI_LOBBY_COUNT_LIMIT}
           onClick={() => setCreateLobbyModalOpen(true)}
-          classes={'createLobbyBtn'}
+          classes='multiplayerBtnLarge'
         />
       </div>
     );

@@ -6,6 +6,7 @@ import { AuthProvider } from './AuthContext';
 import DailyJingle from './components/DailyJingle';
 import Login from './components/Login/Login';
 import MainMenu from './components/MainMenu';
+import MultiplayerLobby from './components/MultiLobby/MultiLobby';
 import Multiplayer from './components/Multiplayer/Multiplayer/Multiplayer';
 import Practice from './components/Practice';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
@@ -51,6 +52,15 @@ function App() {
             element={
               <ProtectedRoute>
                 <Multiplayer />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path='/multiplayer/:lobbyId'
+            element={
+              <ProtectedRoute>
+                <MultiplayerLobby />
               </ProtectedRoute>
             }
           />

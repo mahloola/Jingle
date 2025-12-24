@@ -44,13 +44,28 @@ export async function getSong(songName: string) {
   return await get(`/api/songs/${songName}`);
 }
 
-export async function createLobby({ name, settings }: { name: string; settings: LobbySettings }) {
-  return await post('/api/lobbies', { name, settings });
+export async function createLobby({
+  name,
+  settings,
+  token,
+}: {
+  name: string;
+  settings: LobbySettings;
+  token: string;
+}) {
+  return await post('/api/lobbies', { name, settings }, token);
 }
 
 export async function joinLobby({ lobbyId, token }: { lobbyId: string; token: string }) {
   if (!lobbyId) return;
   return await post(`/api/lobbies/${lobbyId}/join`, { lobbyId }, token);
+}
+export async function leaveLobby({ lobbyId, token }: { lobbyId: string; token: string }) {
+  if (!lobbyId) return;
+  return await post(`/api/lobbies/${lobbyId}/leave`, { lobbyId }, token);
+}
+export async function getLobby(id: string | undefined) {
+  return await get(`/api/lobbies/${id}`);
 }
 
 export async function getLobbies() {
