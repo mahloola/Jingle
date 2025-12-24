@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
+import Snowfall from 'react-snowfall';
 import useSWR from 'swr';
 import './App.css';
 import DailyJingle from './components/DailyJingle';
@@ -11,7 +12,6 @@ import './style/leaflet.css';
 import './style/osrs-ui.css';
 import './style/uiBox.css';
 import { getCurrentDateInBritain } from './utils/date-utils';
-
 function App() {
   const { data: dailyChallenge } = useSWR(
     `/api/daily-challenges/${getCurrentDateInBritain()}`,
@@ -26,6 +26,7 @@ function App() {
         backgroundSize: 'cover',
       }}
     >
+      <Snowfall />
       <Routes>
         <Route
           path='/'
