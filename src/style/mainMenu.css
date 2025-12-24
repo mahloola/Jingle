@@ -9,6 +9,24 @@
   height: 90vh !important;
   margin-top: 70px;
 }
+.jLetter {
+  position: relative;
+  display: inline-block;
+}
+.santaHat {
+  position: absolute;
+  transform: rotate(-10deg);
+  top: -32px; /* Adjust based on your hat size */
+  left: 0;
+  width: 100px; /* Adjust to match your J width */
+  height: 100px;
+  background-image: url('https://oldschool.runescape.wiki/images/thumb/Santa_hat_detail.png/1024px-Santa_hat_detail.png?f9ce8');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none; /* So you can still select text */
+  z-index: 10;
+}
 
 @keyframes fadeIn {
   from {
@@ -31,6 +49,9 @@
   color: var(--primary-yellow);
   text-shadow: 5px 5px 10px black;
   pointer-events: none;
+
+  position: relative;
+  display: inline-block;
 }
 
 .main-menu-title-options {
