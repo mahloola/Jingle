@@ -82,12 +82,74 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
       onApplySettings={() => onCreateLobby({ lobbyName, lobbySettings })}
     >
       <h2>Create Lobby</h2>
+      <label
+        htmlFor='lobbyName'
+        style={{ width: '100%' }}
+      >
+        Lobby Name
+      </label>
       <input
         type='text'
         placeholder='Enter lobby name...'
         className='search-bar'
         value={lobbyName}
+        name='lobbyName'
         onChange={(e) => setLobbyName(e.target.value)}
+        style={{ width: '100%', padding: '5px 10px', borderRadius: '10px', margin: '10px' }}
+      />
+      <label
+        htmlFor='roundTimeSeconds'
+        style={{ width: '100%' }}
+      >
+        Round Time (seconds){' '}
+        <FaQuestionCircle
+          data-tooltip-id='round-time-tooltip'
+          data-tooltip-content='You get this many seconds to guess the song'
+        />
+        <Tooltip id='round-time-tooltip' />
+      </label>
+      <input
+        type='text'
+        placeholder='Seconds per round'
+        className='search-bar'
+        value={lobbySettings.roundTimeSeconds}
+        name='roundTimeSeconds'
+        onChange={(e) => handlePreferencesChange(e)}
+        style={{ width: '100%', padding: '5px 10px', borderRadius: '10px', margin: '10px' }}
+      />
+      <label
+        htmlFor='roundIntervalSeconds'
+        style={{ width: '100%' }}
+      >
+        Round Interval (seconds){' '}
+        <FaQuestionCircle
+          data-tooltip-id='round-interval-tooltip'
+          data-tooltip-content='This is the gap or "break" between each round'
+        />
+        <Tooltip id='round-interval-tooltip' />
+      </label>
+      <input
+        type='text'
+        placeholder='Seconds between rounds (interval)'
+        className='search-bar'
+        value={lobbySettings.roundIntervalSeconds}
+        name='roundIntervalSeconds'
+        onChange={(e) => handlePreferencesChange(e)}
+        style={{ width: '100%', padding: '5px 10px', borderRadius: '10px', margin: '10px' }}
+      />
+      <label
+        htmlFor='lobbyPassword'
+        style={{ width: '100%' }}
+      >
+        Password (optional){' '}
+      </label>
+      <input
+        type='text'
+        placeholder='Leave empty for public lobbies...'
+        className='search-bar'
+        value={lobbySettings.password ?? ''}
+        name='lobbyPassword'
+        onChange={(e) => handlePreferencesChange(e)}
         style={{ width: '100%', padding: '5px 10px', borderRadius: '10px', margin: '10px' }}
       />
       <table className={'settings-table'}>

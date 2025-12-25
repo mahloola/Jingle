@@ -52,18 +52,9 @@ export default function MultiplayerLobby() {
   const currentPreferences = loadPreferencesFromBrowser();
   const { lobbyId } = useParams();
   const { currentUser } = useAuth();
-  const { data: lobbies } = useSWR(
-    `/api/lobbies`,
-    () => {
-      return getLobbies();
-    },
-    {
-      dedupingInterval: 0, // 🚨 DISABLE DEDUPING
-      revalidateOnMount: true,
-      revalidateOnFocus: false,
-      focusThrottleInterval: 0,
-    },
-  );
+  const { data: lobbies } = useSWR(`/api/lobbies`, () => {
+    return getLobbies();
+  });
 
   const lobby = lobbies.find((lobby: MultiLobby) => lobby.id == lobbyId);
 

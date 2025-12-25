@@ -101,6 +101,9 @@ export interface Song {
 }
 
 export interface LobbySettings {
+  password: string | null;
+  roundTimeSeconds: number;
+  roundIntervalSeconds: number;
   hardMode: boolean;
   hardModeLength: number;
   regions: Record<Region, boolean>;
@@ -131,4 +134,5 @@ export interface MultiLobby {
   rounds: MultiRound[];
   status: MultiLobbyStatus;
   players: Player[];
+  ownerId: string;
 }

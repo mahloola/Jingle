@@ -15,11 +15,11 @@
 }
 .santaHat {
   position: absolute;
-  transform: rotate(-10deg);
-  top: -32px; /* Adjust based on your hat size */
+  transform: rotate(-14deg);
+  top: -42%; /* Adjust based on your hat size */
   left: 0;
-  width: 100px; /* Adjust to match your J width */
-  height: 100px;
+  width: 100%; /* Adjust to match your J width */
+  height: 100%;
   background-image: url('https://oldschool.runescape.wiki/images/thumb/Santa_hat_detail.png/1024px-Santa_hat_detail.png?f9ce8');
   background-size: contain;
   background-repeat: no-repeat;
