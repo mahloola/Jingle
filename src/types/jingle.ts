@@ -110,29 +110,44 @@ export interface LobbySettings {
   undergroundSelected: boolean;
   surfaceSelected: boolean;
 }
-
 export interface MultiRound {
+  id: string;
   songName: string;
-  results: Record<string, number>; // player ID, their score
+  pins: Array<{
+    userId: string;
+    pin: {
+      coordinates: [number, number];
+      confirmed: boolean;
+    };
+  }>;
+  results: Array<{
+    userId: string;
+    score: number;
+  }>;
+  leaderboard: Array<{ userId: string; score: number; rank: number }>;
   startTime: Date;
+  endTime: Date | null;
 }
-
+export interface MultiGameState {
+  status: MultiLobbyStatus;
+  currentRound: MultiRound;
+  rounds: MultiRound[];
+}
 export enum MultiLobbyStatus {
   Waiting = 'Waiting',
   Playing = 'Playing',
   Stopped = 'Stopped',
 }
+export interface MultiLobby {
+  id: string;
+  ownerId: string;
+  name: string;
+  settings: LobbySettings;
+  players: Player[];
+  gameState: MultiGameState;
+}
 export interface Player {
   id: string;
   username: string;
   avatarUrl: string;
-}
-export interface MultiLobby {
-  id: string;
-  name: string;
-  settings: LobbySettings;
-  rounds: MultiRound[];
-  status: MultiLobbyStatus;
-  players: Player[];
-  ownerId: string;
 }

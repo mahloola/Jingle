@@ -4,19 +4,29 @@ import io from 'socket.io-client';
 const Matchmaking = () => {
   const [matchFound, setMatchFound] = useState(false);
   const [opponentId, setOpponentId] = useState(null);
+  const [timeLeft, setTimeLeft] = useState(30);
   const socket = io('http://localhost:8080');
   useEffect(() => {
-    console.log('Socket connection status:', socket.connected);
-    console.log('Socket ID:', socket.id);
+    // console.log('Socket connection status:', socket.connected);
+    // console.log('Socket ID:', socket.id);
     socket.on('matchFound', (data) => {
       setMatchFound(true);
       setOpponentId(data.opponentId);
     });
+    socket.on('timer', (seconds: number) => {});
 
     return () => {
       socket.off('matchFound');
     };
   }, [matchFound]);
+
+  useEffect(() => {
+    // Listen for timer updates
+    socket.on('timer', (seconds: number) => {
+      // console.log(`${seconds} seconds left`);
+      setTimeLeft(seconds);
+    });
+  }, []);
 
   const findMatch = () => {
     console.log('ahh');

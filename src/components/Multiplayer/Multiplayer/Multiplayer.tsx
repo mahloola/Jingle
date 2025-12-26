@@ -15,6 +15,7 @@ const Multiplayer = () => {
   const { currentUser } = useAuth();
   const [createLobbyModalOpen, setCreateLobbyModalOpen] = useState(false);
   const { data: lobbies, mutate: mutateLobbies } = useSWR<MultiLobby[]>(`/api/lobbies`, getLobbies); // todo: only need to fetch x lobby
+  console.log('Current Lobbies: ', lobbies);
   const navigate = useNavigate();
 
   const onJoinLobby = async (lobbyId: string) => {

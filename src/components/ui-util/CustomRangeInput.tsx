@@ -35,7 +35,7 @@ const CustomRangeInput: React.FC<CustomRangeInputProps> = ({
   };
 
   return (
-    <div className={`custom-range-input ${visible ? 'visible' : 'hidden'}`}>
+    <td className={`custom-range-input ${visible ? 'visible' : 'hidden'}`}>
       <input
         type='range'
         min='0'
@@ -48,7 +48,7 @@ const CustomRangeInput: React.FC<CustomRangeInputProps> = ({
       <div className='value-display'>
         {displayValue} second{value == 2 ? '' : 's'}
       </div>
-    </div>
+    </td>
   );
 };
 

@@ -26,8 +26,6 @@ interface CreateLobbyModalProps {
 }
 
 const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onClose }) => {
-  console.log('blah', onCreateLobby);
-
   const [lobbyName, setLobbyName] = useState<string>('');
   const [lobbySettings, setLobbySettings] = useState<LobbySettings>(DEFAULT_LOBBY_SETTINGS);
   const [regionsOpen, setRegionsOpen] = useState(false);
@@ -68,11 +66,9 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
         ...prev,
         [name]: checked,
       }));
-      console.log(name, checked);
     }
   };
 
-  console.log(lobbySettings);
   return (
     <Modal
       open={true}
@@ -195,13 +191,13 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
               />
             </td>
           </tr>
-          <div
+          <tr
             className={'regions-table'}
             style={{
               height: dungeonsOpen ? '35px' : '0px',
             }}
           >
-            <div
+            <td
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -219,8 +215,8 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
                   }}
                 ></input>
               </div>
-            </div>
-            <div
+            </td>
+            <td
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -238,8 +234,8 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
                   }}
                 ></input>
               </div>
-            </div>
-          </div>
+            </td>
+          </tr>
           <tr>
             <td>
               Regions{' '}

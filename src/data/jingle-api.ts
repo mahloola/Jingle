@@ -1,4 +1,11 @@
-import { DailyChallenge, LobbySettings, Song, Statistics } from '../types/jingle';
+import {
+  DailyChallenge,
+  LobbySettings,
+  MultiGameState,
+  MultiLobby,
+  Song,
+  Statistics,
+} from '../types/jingle';
 
 const apiHost = import.meta.env.VITE_API_HOST;
 class FetchError extends Error {
@@ -10,7 +17,7 @@ class FetchError extends Error {
   }
 }
 
-async function get<T = any>(path: string) {
+async function get<T = any>(path: string, token?: string) {
   const response = await fetch(apiHost + path);
   if (response.ok) {
     return (await response.json()) as T;
@@ -60,16 +67,24 @@ export async function joinLobby({ lobbyId, token }: { lobbyId: string; token: st
   if (!lobbyId) return;
   return await post(`/api/lobbies/${lobbyId}/join`, { lobbyId }, token);
 }
+
 export async function leaveLobby({ lobbyId, token }: { lobbyId: string; token: string }) {
   if (!lobbyId) return;
   return await post(`/api/lobbies/${lobbyId}/leave`, { lobbyId }, token);
 }
+
 export async function getLobby(id: string | undefined) {
   return await get(`/api/lobbies/${id}`);
 }
 
+export async function getLobbyState({ lobbyId, token }: { lobbyId: string; token: string }) {
+  if (!lobbyId) return;
+  return await get<MultiGameState>(`/api/lobbies/${lobbyId}/gameState`, token);
+}
+
 export async function getLobbies() {
-  return await get(`/api/lobbies`);
+  console.log('asdjfjhdass');
+  return await get<MultiLobby[]>(`/api/lobbies`);
 }
 
 export async function getAverages() {
