@@ -1,20 +1,20 @@
 import { clone } from 'ramda';
 import { useState } from 'react';
-import { ClickedPosition, GameSettings, GameState, GameStatus } from '../types/jingle';
+import { ClickedPosition, GameSettings, GameStatus, SoloGameState } from '../types/jingle';
 import { calculateTimeDifference } from '../utils/date-utils';
 import { findNearestPolygonWhereSongPlays } from '../utils/map-utils';
 
-export default function useGameLogic(initialGameState: GameState) {
-  const [gameState, setGameState] = useState<GameState>(initialGameState);
+export default function useGameLogic(initialGameState: SoloGameState) {
+  const [gameState, setGameState] = useState<SoloGameState>(initialGameState);
 
-  const setClickedPosition = (clickedPosition: ClickedPosition): GameState => {
+  const setClickedPosition = (clickedPosition: ClickedPosition): SoloGameState => {
     const newGameState = { ...gameState, clickedPosition };
     setGameState(newGameState);
     return newGameState;
   };
 
   // latestGameState is required when called immediately after setGuess
-  const confirmGuess = (latestGameState?: GameState): GameState => {
+  const confirmGuess = (latestGameState?: SoloGameState): SoloGameState => {
     const newGameState = latestGameState ?? gameState;
     if (newGameState.clickedPosition === null) {
       throw new Error('clickedPosition cannot be null');
@@ -38,7 +38,7 @@ export default function useGameLogic(initialGameState: GameState) {
   };
 
   // latestGameState is required when called immediately after addSong
-  const nextSong = (latestGameState?: GameState): GameState => {
+  const nextSong = (latestGameState?: SoloGameState): SoloGameState => {
     const prev = latestGameState ?? gameState;
     const newGameState = {
       ...prev,
@@ -51,7 +51,7 @@ export default function useGameLogic(initialGameState: GameState) {
   };
 
   // PRACTICE MODE ONLY
-  const addSong = (song: string): GameState => {
+  const addSong = (song: string): SoloGameState => {
     const newGameState = {
       ...gameState,
       songs: [...gameState.songs, song],
@@ -61,7 +61,7 @@ export default function useGameLogic(initialGameState: GameState) {
   };
 
   /// DAILY JINGLE MODE ONLY
-  const endGame = (): GameState => {
+  const endGame = (): SoloGameState => {
     const newGameState = { ...gameState, status: GameStatus.GameOver };
     setGameState(newGameState);
     return newGameState;

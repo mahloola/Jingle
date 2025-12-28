@@ -1,10 +1,10 @@
 import L from 'leaflet';
 import React from 'react';
 import mapMetadata from '../data/map-metadata';
-import { GameState } from '../types/jingle';
+import { SoloGameState } from '../types/jingle';
 
 export interface InternalMapState {
-  gameState: GameState;
+  gameState: SoloGameState;
   onMapClick: (clickedPosition: L.LatLng) => void;
   className?: string;
 

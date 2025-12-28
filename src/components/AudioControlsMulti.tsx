@@ -2,20 +2,20 @@ import { forwardRef, RefObject, useEffect, useState } from 'react';
 import { FiRefreshCcw } from 'react-icons/fi';
 import { Tooltip } from 'react-tooltip';
 import '../style/uiBox.css';
-import { GameStatus, SoloGameState } from '../types/jingle';
-import { loadPreferencesFromBrowser } from '../utils/browserUtil';
+import { MultiGameState, MultiLobby, MultiLobbyStatus } from '../types/jingle';
 import { SongService } from '../utils/getRandomSong';
 import { playSnippet } from '../utils/playSong';
 import { Button } from './ui-util/Button';
 
 interface AudioControlsProps {
-  gameState: SoloGameState;
+  gameState: MultiGameState;
+  multiGame: MultiLobby;
 }
 
-const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((props, ref) => {
-  const currentPreferences = loadPreferencesFromBrowser();
-  const answerRevealed = props.gameState.status == GameStatus.AnswerRevealed;
-  const hardMode = currentPreferences.preferHardMode;
+const AudioControlsMulti = forwardRef<HTMLAudioElement | null, AudioControlsProps>((props, ref) => {
+  const gameSettings = props.multiGame.settings;
+  const answerRevealed = props.gameState.status == MultiLobbyStatus.Revealing;
+  const hardMode = gameSettings.hardMode == true;
   const showAudio = !hardMode || answerRevealed;
   const audioRef = ref as RefObject<HTMLAudioElement | null>;
 
@@ -58,12 +58,12 @@ const AudioControls = forwardRef<HTMLAudioElement | null, AudioControlsProps>((p
         <div className='audio-container'>
           <SnippetPlayer
             audioRef={ref as RefObject<HTMLAudioElement | null>}
-            snippetLength={currentPreferences.hardModeLength}
+            snippetLength={gameSettings.hardModeLength}
           />
           <div className='reload-audio-container'>
             <FiRefreshCcw
               className={'reload-audio-btn'}
-              onClick={() => playSnippet(audioRef, currentPreferences.hardModeLength)}
+              onClick={() => playSnippet(audioRef, gameSettings.hardModeLength)}
               data-tooltip-id={`reload-tooltip`}
               data-tooltip-content={'Reload Audio'}
             />
@@ -172,4 +172,4 @@ const VolumeControl = (props: { audioRef: RefObject<HTMLAudioElement | null> }) 
   );
 };
 
-export default AudioControls;
+export default AudioControlsMulti;

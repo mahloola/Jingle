@@ -82,6 +82,19 @@ export async function getLobbyState({ lobbyId, token }: { lobbyId: string; token
   return await get<MultiGameState>(`/api/lobbies/${lobbyId}/gameState`, token);
 }
 
+export async function updateLobbyState({
+  lobbyId,
+  newState,
+  token,
+}: {
+  lobbyId: string;
+  newState: MultiGameState;
+  token: string;
+}) {
+  if (!lobbyId) return;
+  return await post<MultiGameState>(`/api/lobbies/${lobbyId}/gameState`, newState, token);
+}
+
 export async function getLobbies() {
   console.log('asdjfjhdass');
   return await get<MultiLobby[]>(`/api/lobbies`);

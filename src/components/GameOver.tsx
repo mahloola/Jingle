@@ -1,13 +1,13 @@
 import { sum } from 'ramda';
 import '../style/resultScreen.css';
-import { DailyChallenge, GameState } from '../types/jingle';
+import { DailyChallenge, SoloGameState } from '../types/jingle';
 import { getNextUkMidnight } from '../utils/date-utils';
 import { isMobile } from '../utils/isMobile';
 import { copyResultsToClipboard, getJingleNumber } from '../utils/jingle-utils';
 import NextDailyCountdown from './NextDailyCountdown';
 
 interface GameOverProps {
-  gameState: GameState;
+  gameState: SoloGameState;
   dailyChallenge: DailyChallenge;
   percentile: number | null;
 }

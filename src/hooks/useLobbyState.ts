@@ -2,6 +2,7 @@ import useSWR from 'swr';
 import { useAuth } from '../AuthContext';
 import { getLobbies, getLobbyState } from '../data/jingle-api';
 import { MultiGameState, MultiLobby } from '../types/jingle';
+
 export function useLobbyState(lobbyId: string | undefined) {
   const { currentUser } = useAuth();
   const { data: lobbyState } = useSWR<MultiGameState>(
@@ -26,4 +27,14 @@ export function useLobby(lobbyId: string | undefined) {
     lobbies?.find((lobby: MultiLobby) => lobby.id === lobbyId),
   );
   return lobbies?.find((lobby: MultiLobby) => lobby.id === lobbyId);
+}
+
+export function confirmGuess({
+  lobbyState,
+  userId,
+}: {
+  lobbyState: MultiGameState;
+  userId: string;
+}) {
+  const userPin = lobbyState.currentRound.pins.find((pin) => pin.userId === userId);
 }

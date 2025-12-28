@@ -1,4 +1,4 @@
-import { GameState, GameStatus, LobbySettings, UserPreferences } from '../types/jingle';
+import { GameStatus, LobbySettings, SoloGameState, UserPreferences } from '../types/jingle';
 
 export const MAX_MIN_HISTORY_COLORS: [number, number] = [4500, 0]; // completely arbitrary, imo 5000 would show too much red and discourage people
 export const CENTER_COORDINATES: [number, number] = [3222, 3218];
@@ -34,7 +34,7 @@ export const DEFAULT_LOBBY_SETTINGS: LobbySettings = {
   surfaceSelected: DEFAULT_PREFERENCES.surfaceSelected,
 };
 // IF USING THIS, PROVIDE SONGS[] AFTER YOU CREATE A DEFAULT OBJECT
-export const DEFAULT_GAME_STATE: GameState = {
+export const DEFAULT_GAME_STATE: SoloGameState = {
   settings: { hardMode: false, oldAudio: false },
   status: GameStatus.Guessing,
   round: 0, // 0-4

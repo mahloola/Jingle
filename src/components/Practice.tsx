@@ -6,7 +6,7 @@ import {
   incrementSongSuccessCount,
 } from '../data/jingle-api';
 import useGameLogic from '../hooks/useGameLogic';
-import { GameSettings, GameState, GameStatus, Page, UserPreferences } from '../types/jingle';
+import { GameSettings, GameStatus, Page, SoloGameState, UserPreferences } from '../types/jingle';
 import {
   incrementLocalGuessCount,
   loadPreferencesFromBrowser,
@@ -67,7 +67,7 @@ export default function Practice() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const confirmGuess = (latestGameState?: GameState) => {
+  const confirmGuess = (latestGameState?: SoloGameState) => {
     const gameState = jingle.confirmGuess(latestGameState);
 
     // update statistics

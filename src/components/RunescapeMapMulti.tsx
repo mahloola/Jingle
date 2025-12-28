@@ -8,7 +8,7 @@ import { CENTER_COORDINATES } from '../constants/defaults';
 import { MapLink } from '../data/map-links';
 import mapMetadata from '../data/map-metadata';
 import '../style/uiBox.css';
-import { ClickedPosition, GameStatus, SoloGameState } from '../types/jingle';
+import { ClickedPosition, GameStatus, MultiGameState } from '../types/jingle';
 import { assertNotNil } from '../utils/assert';
 import {
   convert,
@@ -21,7 +21,7 @@ import LayerPortals from './LayerPortals';
 import { Button } from './ui-util/Button';
 
 interface RunescapeMapProps {
-  gameState: SoloGameState;
+  gameState: MultiGameState;
   onMapClick: (clickedPosition: ClickedPosition) => void;
   GoBackButtonRef: React.RefObject<HTMLElement>;
 }

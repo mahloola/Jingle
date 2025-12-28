@@ -23,7 +23,7 @@ export interface NavigationEntry {
   mapId: number;
   coordinates: [number, number];
 }
-export interface GameState {
+export interface SoloGameState {
   settings: GameSettings;
   status: GameStatus;
   round: number; // 0-4
@@ -31,8 +31,6 @@ export interface GameState {
   scores: number[];
   startTimeMs: number;
   timeTaken: string | null;
-  clickedPosition: ClickedPosition | null;
-  navigationStack: NavigationEntry[] | null;
 }
 export interface ClickedPosition {
   xy: Position;
@@ -40,7 +38,7 @@ export interface ClickedPosition {
 }
 
 // if we make changes to GameState schema, we can invalidate the old game state saved in user's local storage to prevent crashes
-export const isValidGameState = (object: unknown): object is GameState => {
+export const isValidGameState = (object: unknown): object is SoloGameState => {
   if (!object) return false;
   if (typeof (object as any).status !== 'string') return false;
   if (typeof (object as any).round !== 'number') return false;
@@ -137,6 +135,11 @@ export enum MultiLobbyStatus {
   Waiting = 'Waiting',
   Playing = 'Playing',
   Stopped = 'Stopped',
+  Revealing = 'Revealing',
+}
+export interface NavigationState {
+  clickedPosition: ClickedPosition | null;
+  navigationStack: NavigationEntry[] | null;
 }
 export interface MultiLobby {
   id: string;
