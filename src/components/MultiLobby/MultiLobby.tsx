@@ -1,29 +1,24 @@
-import { User } from 'firebase/auth';
-import { RefObject, useEffect, useRef } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { match } from 'ts-pattern';
 import { useAuth } from '../../AuthContext';
+import { leaveLobby, updateLobbyState } from '../../data/jingle-api';
+import { useLobby } from '../../hooks/useLobbyState';
 import {
-  incrementGlobalGuessCounter,
-  incrementSongFailureCount,
-  incrementSongSuccessCount,
-  leaveLobby,
-  updateLobbyState,
-} from '../../data/jingle-api';
-import { useLobby, useLobbyState } from '../../hooks/useLobbyState';
-import { MultiGameState, MultiLobbyStatus, Player } from '../../types/jingle';
-import {
-  incrementLocalGuessCount,
-  loadPreferencesFromBrowser,
-  sanitizePreferences,
-  updateGuessStreak,
-} from '../../utils/browserUtil';
+  ClickedPosition,
+  MultiGameState,
+  MultiLobby,
+  MultiLobbyStatus,
+  NavigationState,
+  Player,
+} from '../../types/jingle';
+import { loadPreferencesFromBrowser, sanitizePreferences } from '../../utils/browserUtil';
 import { SongService } from '../../utils/getRandomSong';
 import { playSong } from '../../utils/playSong';
 import AudioControlsMulti from '../AudioControlsMulti';
 import Footer from '../Footer';
-import RoundResult from '../RoundResult';
-import RunescapeMap from '../RunescapeMap';
+import { MultiCountdown } from '../MultiCountdown';
+import RunescapeMapMultiWrapper from '../RunescapeMapMulti';
 import HistoryModalButton from '../side-menu/HistoryModalButton';
 import HomeButton from '../side-menu/HomeButton';
 import NewsModalButton from '../side-menu/NewsModalButton';
@@ -32,20 +27,26 @@ import { Button } from '../ui-util/Button';
 import styles from './MultiLobby.module.css';
 sanitizePreferences();
 const songService: SongService = SongService.Instance();
+
 // starting song list - put outside component so it doesn't re-construct with rerenders
 
 export default function MultiplayerLobby() {
+  const [guessConfirmed, setGuessConfirmed] = useState(false);
+
   const goBackButtonRef = useRef<HTMLDivElement>(null);
   const { lobbyId } = useParams<{ lobbyId: string }>();
   const lobby = useLobby(lobbyId);
-  const lobbyState = useLobbyState(lobbyId);
-  const { currentUser }: User = useAuth();
+  const lobbyState = lobby?.gameState;
+
+  const { currentUser } = useAuth();
   const currentUserId = currentUser?.uid;
 
-  if (!lobby || !lobbyState || !currentUser) throw Error("Couldn't load lobby or lobby state.");
+  const [navigationState, setNavigationState] = useState<NavigationState>({
+    clickedPosition: null,
+    navigationStack: [],
+  });
 
-  console.log('Current game state: ', lobbyState);
-  console.log('Current lobby: ', lobby);
+  if (!lobby || !lobbyState || !currentUser) throw Error("Couldn't load lobby or lobby state.");
 
   const navigate = useNavigate();
   const currentPreferences = loadPreferencesFromBrowser();
@@ -62,58 +63,92 @@ export default function MultiplayerLobby() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lobbyState]);
 
-  const revealScores = (latestGameState: MultiGameState | undefined) => {
-    if (!latestGameState) return;
-    // loop through all the players pin placements inside
-    // evaluate their scores 0-1000 each
-    // add to results array
-    // update leaderboard
-    // push current round to rounds[]
-    // create a new current round with a new song but empty pins, results etc
+  const revealScores = async (latestGame: MultiLobby | undefined) => {
+    if (!latestGame) return;
+    const newSongName = songService.getRandomSongMulti(latestGame.settings);
+    const oldRounds = [...latestGame.gameState.rounds, latestGame.gameState.currentRound];
+    const updatedGameState: MultiGameState = {
+      ...lobbyState, // This assumes lobbyState is already a MultiGameState
+      status: MultiLobbyStatus.Revealing,
+      currentRound: {
+        // If you want to keep pins unchanged, just spread them:
+        pins: [], // Or remove this line entirely
+        startTime: new Date(),
+        endTime: new Date(Date.now() + 30000),
+        // Make sure all required fields are preserved:
+        id: '12345',
+        songName: newSongName,
+        results: [],
+        leaderboard: [],
+      },
+      rounds: oldRounds,
+    };
 
-    for (let i = 0; i < latestGameState.currentRound.pins.length; i++) {
-      incrementGlobalGuessCounter();
-      const currentSong = latestGameState.currentRound.songName;
-      const userResult = latestGameState.currentRound.results.find(
-        (result) => result.userId === currentUserId,
-      );
-      const correct = userResult?.score === 1000;
-      if (correct) {
-        incrementSongSuccessCount(currentSong);
-        incrementLocalGuessCount(true);
-        updateGuessStreak(true);
-      } else {
-        incrementSongFailureCount(currentSong);
-        incrementLocalGuessCount(false);
-        updateGuessStreak(false);
-      }
+    const token = await currentUser.getIdToken();
+    if (!lobbyId || !token) {
+      throw Error("Couldn't update - missing lobbyId/token");
     }
+    if (!latestGame || !currentUserId) return null;
+
+    await updateLobbyState({ lobbyId, newState: updatedGameState, token });
+
+    // updateLobbyState();
+    // if (!latestGameState) return;
+    // // loop through all the players pin placements inside
+    // // evaluate their scores 0-1000 each
+    // // add to results array
+    // // update leaderboard
+    // // push current round to rounds[]
+    // // create a new current round with a new song but empty pins, results etc
+
+    // for (let i = 0; i < latestGameState.currentRound.pins.length; i++) {
+    //   incrementGlobalGuessCounter();
+    //   const currentSong = latestGameState.currentRound.songName;
+    //   const userResult = latestGameState.currentRound.results.find(
+    //     (result) => result.userId === currentUserId,
+    //   );
+    //   const correct = userResult?.score === 1000;
+    //   if (correct) {
+    //     incrementSongSuccessCount(currentSong);
+    //     incrementLocalGuessCount(true);
+    //     updateGuessStreak(true);
+    //   } else {
+    //     incrementSongFailureCount(currentSong);
+    //     incrementLocalGuessCount(false);
+    //     updateGuessStreak(false);
+    //   }
+    // }
   };
 
-  // watch for if all users have confirmed their guesses
+  // useEffect(() => {
+  //   if (!lobbyState) return;
+  //   const allConfirmed = lobbyState.currentRound?.pins?.every((pin) => pin.pin.confirmed);
+  //   const anyChanged = lobbyState.currentRound?.pins?.some((pin) => pin.pin.confirmed);
+
+  //   if (allConfirmed) {
+  //     console.log('All users confirmed, revealing scores...');
+  //     revealScores(lobby);
+  //   } else if (anyChanged) {
+  //     console.log('Some user confirmed their guess.');
+  //   }
+  // }, [lobbyState?.currentRound.pins]);
+
+  const handleMapClick = (clickedPosition: ClickedPosition) => {
+    setNavigationState((prev) => ({
+      ...prev,
+      clickedPosition: clickedPosition,
+    }));
+  };
+
   useEffect(() => {
-    revealScores(lobbyState);
+    const userGuess = lobbyState?.currentRound?.pins.find((pin) => pin.userId === currentUserId);
+    if (!userGuess) return;
+    if (!lobbyState?.currentRound?.endTime) return;
+    if (new Date(Date.now()).getTime() > new Date(lobbyState?.currentRound?.endTime).getTime()) {
+      revealScores(lobby);
+    }
   }, [lobbyState]);
 
-  useEffect(() => {
-    if (!lobbyState) return;
-    const allConfirmed = lobbyState.currentRound.pins.every((pin) => pin.pin.confirmed);
-    const anyChanged = lobbyState.currentRound.pins.some((pin) => pin.pin.confirmed);
-
-    if (allConfirmed) {
-      console.log('All users confirmed, revealing scores...');
-      revealScores(lobbyState);
-    } else if (anyChanged) {
-      console.log('Some user confirmed their guess.');
-    }
-  }, [lobbyState?.currentRound.pins]);
-
-  const handleMapClick = (clickedPosition) => {
-    const newGameState = jingle.setClickedPosition(clickedPosition);
-    if (!currentPreferences.preferConfirmation) {
-      confirmGuess(newGameState); // confirm immediately
-    }
-  };
   const confirmGuess = async ({
     latestGameState,
   }: {
@@ -179,6 +214,35 @@ export default function MultiplayerLobby() {
     }
   };
 
+  const handleStartGame = async () => {
+    // Create NEW game state with immutable update
+    const token = await currentUser.getIdToken();
+    if (!token || !lobbyId) {
+      throw Error('Could not start game.');
+    }
+    const updatedGameState: MultiGameState = {
+      ...lobbyState, // This assumes lobbyState is already a MultiGameState
+      status: MultiLobbyStatus.Playing,
+      currentRound: {
+        ...lobbyState.currentRound,
+        // If you want to keep pins unchanged, just spread them:
+        pins: [...lobbyState.currentRound.pins], // Or remove this line entirely
+        startTime: new Date(),
+        endTime: new Date(Date.now() + 30000),
+        // Make sure all required fields are preserved:
+        id: lobbyState.currentRound.id,
+        songName: lobbyState.currentRound.songName,
+        results: lobbyState.currentRound.results ? [...lobbyState.currentRound.results] : [],
+        leaderboard: lobbyState.currentRound.leaderboard
+          ? [...lobbyState.currentRound.leaderboard]
+          : [],
+      },
+      // Preserve rounds array
+      rounds: lobbyState.rounds ? [...lobbyState.rounds] : [],
+    };
+    await updateLobbyState({ lobbyId, newState: updatedGameState, token });
+  };
+
   return (
     <>
       <div className='App-inner'>
@@ -187,6 +251,12 @@ export default function MultiplayerLobby() {
             <div className={`osrs-frame ${styles.lobbyInfo}`}>
               <h2>{lobby.name}</h2>
               {lobby.players?.length > 1 ? `${lobby.players?.length} Players` : null}
+              <div className={styles.status}>{lobby.gameState.status}</div>
+              {lobby.gameState?.currentRound?.endTime && (
+                <h2>
+                  <MultiCountdown targetDate={new Date(lobby.gameState?.currentRound?.endTime)} />
+                </h2>
+              )}
             </div>
             {lobby.players.map((player: Player) => {
               return (
@@ -234,27 +304,42 @@ export default function MultiplayerLobby() {
           <div className='below-map'>
             {match(lobbyState.status)
               .with(MultiLobbyStatus.Playing, () => (
-                <label className='osrs-frame guess-btn'>Place your pin on the map</label>
+                <Button
+                  classes={'guess-btn'}
+                  label={guessConfirmed ? 'Waiting for others...' : 'Confirm Guess'}
+                  onClick={() => {
+                    setGuessConfirmed(true);
+                    revealScores(lobby);
+                  }}
+                  disabled={guessConfirmed}
+                />
               ))
               .with(MultiLobbyStatus.Revealing, () => (
                 <Button
                   classes={'guess-btn'}
-                  label='Next Song'
-                  onClick={nextSong}
+                  label='Revealing'
+                  disabled
                 />
               ))
-              .with(MultiLobbyStatus.Waiting, () => (
-                <Button
-                  classes={'guess-btn'}
-                  label='Waiting...'
-                  onClick={() => console.log('nothingburger')}
-                />
-              ))
+              .with(MultiLobbyStatus.Waiting, () =>
+                currentUserId === lobby.ownerId ? (
+                  <Button
+                    classes={'guess-btn'}
+                    label='Start game'
+                    onClick={handleStartGame}
+                  />
+                ) : (
+                  <Button
+                    classes={'guess-btn'}
+                    label='Waiting for game to start'
+                    disabled
+                  />
+                ),
+              )
               .with(MultiLobbyStatus.Stopped, () => (
                 <Button
                   classes={'guess-btn'}
-                  label='Game is over'
-                  onClick={() => console.log('nothingburger')}
+                  label='Game Over'
                 />
               ))
               .exhaustive()}
@@ -268,8 +353,9 @@ export default function MultiplayerLobby() {
         </div>
       </div>
 
-      <RunescapeMap
-        gameState={lobbyState}
+      <RunescapeMapMultiWrapper
+        navigationState={navigationState}
+        multiGameState={lobbyState}
         onMapClick={(clickedPosition) => {
           handleMapClick(clickedPosition);
         }}
@@ -279,8 +365,6 @@ export default function MultiplayerLobby() {
         className='above-map'
         ref={goBackButtonRef}
       ></div>
-
-      <RoundResult gameState={lobbyState} />
     </>
   );
 }

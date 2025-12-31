@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
 import {
   incrementGlobalGuessCounter,
@@ -6,7 +6,15 @@ import {
   incrementSongSuccessCount,
 } from '../data/jingle-api';
 import useGameLogic from '../hooks/useGameLogic';
-import { GameSettings, GameStatus, Page, SoloGameState, UserPreferences } from '../types/jingle';
+import {
+  ClickedPosition,
+  GameSettings,
+  GameStatus,
+  NavigationState,
+  Page,
+  SoloGameState,
+  UserPreferences,
+} from '../types/jingle';
 import {
   incrementLocalGuessCount,
   loadPreferencesFromBrowser,
@@ -19,7 +27,7 @@ import { playSong } from '../utils/playSong';
 import AudioControls from './AudioControls';
 import Footer from './Footer';
 import RoundResult from './RoundResult';
-import RunescapeMap from './RunescapeMap';
+import RunescapeMapWrapper from './RunescapeMap';
 import HistoryModalButton from './side-menu/HistoryModalButton';
 import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
@@ -36,6 +44,14 @@ export default function Practice() {
   const goBackButtonRef = useRef<HTMLDivElement>(null);
   const currentPreferences = loadPreferencesFromBrowser();
 
+  const [navigationState, setNavigationState] = useState<NavigationState>({
+    clickedPosition: {
+      xy: [1000, 1000],
+      mapId: 0,
+    },
+    navigationStack: [],
+  });
+
   const initialGameState = {
     settings: {
       hardMode: currentPreferences.preferHardMode,
@@ -48,9 +64,17 @@ export default function Practice() {
     startTimeMs: Date.now(),
     timeTaken: null,
     clickedPosition: null,
-    navigationStack: [],
   };
-
+  const handleMapClick = (clickedPosition: ClickedPosition) => {
+    const newGameState = jingle.setClickedPosition(clickedPosition);
+    if (!currentPreferences.preferConfirmation) {
+      confirmGuess(newGameState); // confirm immediately
+    }
+    setNavigationState((prev) => ({
+      ...prev,
+      clickedPosition: clickedPosition,
+    }));
+  };
   const jingle = useGameLogic(initialGameState);
   const gameState = jingle.gameState;
 
@@ -132,7 +156,7 @@ export default function Practice() {
                       classes={'guess-btn'}
                       label='Confirm guess'
                       onClick={() => confirmGuess()}
-                      disabled={!gameState.clickedPosition}
+                      disabled={!navigationState.clickedPosition}
                     />
                   );
                 } else {
@@ -160,13 +184,11 @@ export default function Practice() {
         </div>
       </div>
 
-      <RunescapeMap
+      <RunescapeMapWrapper
+        navigationState={navigationState}
         gameState={gameState}
         onMapClick={(clickedPosition) => {
-          const newGameState = jingle.setClickedPosition(clickedPosition);
-          if (!currentPreferences.preferConfirmation) {
-            confirmGuess(newGameState); // confirm immediately
-          }
+          handleMapClick(clickedPosition);
         }}
         GoBackButtonRef={goBackButtonRef as RefObject<HTMLElement>}
       />

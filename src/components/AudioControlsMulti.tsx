@@ -7,73 +7,76 @@ import { SongService } from '../utils/getRandomSong';
 import { playSnippet } from '../utils/playSong';
 import { Button } from './ui-util/Button';
 
-interface AudioControlsProps {
+interface AudioControlsMultiProps {
   gameState: MultiGameState;
   multiGame: MultiLobby;
 }
 
-const AudioControlsMulti = forwardRef<HTMLAudioElement | null, AudioControlsProps>((props, ref) => {
-  const gameSettings = props.multiGame.settings;
-  const answerRevealed = props.gameState.status == MultiLobbyStatus.Revealing;
-  const hardMode = gameSettings.hardMode == true;
-  const showAudio = !hardMode || answerRevealed;
-  const audioRef = ref as RefObject<HTMLAudioElement | null>;
-
-  useEffect(() => {
-    if (hardMode && answerRevealed) {
-      audioRef.current?.play();
-    }
-  }, [props.gameState.status]);
-
-  const reloadAudio = () => {
+const AudioControlsMulti = forwardRef<HTMLAudioElement | null, AudioControlsMultiProps>(
+  (props, ref) => {
+    const gameSettings = props.multiGame.settings;
+    const answerRevealed =
+      props.gameState.status == MultiLobbyStatus.Revealing || MultiLobbyStatus.Playing;
+    const hardMode = gameSettings.hardMode == true;
+    const showAudio = !hardMode || answerRevealed;
     const audioRef = ref as RefObject<HTMLAudioElement | null>;
-    audioRef.current?.load();
-    audioRef.current?.play();
-  };
 
-  return (
-    <div className='audio-container'>
-      <audio
-        controls
-        id='audio'
-        ref={ref}
-        className={showAudio ? '' : 'hide-audio'}
-      />
+    useEffect(() => {
+      if (hardMode && answerRevealed) {
+        audioRef.current?.play();
+      }
+    }, [props.gameState.status]);
 
-      {/* non-hard mode */}
-      {showAudio && (
-        <div className='reload-audio-container'>
-          <FiRefreshCcw
-            className={'reload-audio-btn'}
-            onClick={reloadAudio}
-            data-tooltip-id={`reload-tooltip`}
-            data-tooltip-content={'Reload Audio'}
-          />
-          <Tooltip id={`reload-tooltip`} />
-        </div>
-      )}
+    const reloadAudio = () => {
+      const audioRef = ref as RefObject<HTMLAudioElement | null>;
+      audioRef.current?.load();
+      audioRef.current?.play();
+    };
 
-      {/* hard mode */}
-      {!showAudio && (
-        <div className='audio-container'>
-          <SnippetPlayer
-            audioRef={ref as RefObject<HTMLAudioElement | null>}
-            snippetLength={gameSettings.hardModeLength}
-          />
+    return (
+      <div className='audio-container'>
+        <audio
+          controls
+          id='audio'
+          ref={ref}
+          className={showAudio ? '' : 'hide-audio'}
+        />
+
+        {/* non-hard mode */}
+        {showAudio && (
           <div className='reload-audio-container'>
             <FiRefreshCcw
               className={'reload-audio-btn'}
-              onClick={() => playSnippet(audioRef, gameSettings.hardModeLength)}
+              onClick={reloadAudio}
               data-tooltip-id={`reload-tooltip`}
               data-tooltip-content={'Reload Audio'}
             />
             <Tooltip id={`reload-tooltip`} />
           </div>
-        </div>
-      )}
-    </div>
-  );
-});
+        )}
+
+        {/* hard mode */}
+        {!showAudio && (
+          <div className='audio-container'>
+            <SnippetPlayer
+              audioRef={ref as RefObject<HTMLAudioElement | null>}
+              snippetLength={gameSettings.hardModeLength}
+            />
+            <div className='reload-audio-container'>
+              <FiRefreshCcw
+                className={'reload-audio-btn'}
+                onClick={() => playSnippet(audioRef, gameSettings.hardModeLength)}
+                data-tooltip-id={`reload-tooltip`}
+                data-tooltip-content={'Reload Audio'}
+              />
+              <Tooltip id={`reload-tooltip`} />
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  },
+);
 
 const SnippetPlayer = (props: {
   audioRef: RefObject<HTMLAudioElement | null>;

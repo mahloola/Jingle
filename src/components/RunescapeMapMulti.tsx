@@ -8,7 +8,12 @@ import { CENTER_COORDINATES } from '../constants/defaults';
 import { MapLink } from '../data/map-links';
 import mapMetadata from '../data/map-metadata';
 import '../style/uiBox.css';
-import { ClickedPosition, GameStatus, MultiGameState } from '../types/jingle';
+import {
+  ClickedPosition,
+  MultiGameState,
+  MultiLobbyStatus,
+  NavigationState,
+} from '../types/jingle';
 import { assertNotNil } from '../utils/assert';
 import {
   convert,
@@ -20,13 +25,14 @@ import {
 import LayerPortals from './LayerPortals';
 import { Button } from './ui-util/Button';
 
-interface RunescapeMapProps {
-  gameState: MultiGameState;
+interface RunescapeMapMultiProps {
+  navigationState: NavigationState;
+  multiGameState: MultiGameState;
   onMapClick: (clickedPosition: ClickedPosition) => void;
   GoBackButtonRef: React.RefObject<HTMLElement>;
 }
 
-export default function RunescapeMapWrapper(props: RunescapeMapProps) {
+export default function RunescapeMapMultiWrapper(props: RunescapeMapMultiProps) {
   return (
     <MapContainer
       center={CENTER_COORDINATES} // lumbridge
@@ -37,19 +43,24 @@ export default function RunescapeMapWrapper(props: RunescapeMapProps) {
       maxBoundsViscosity={0.5}
       crs={CRS.Simple}
     >
-      <RunescapeMap {...props} />
+      <RunescapeMapMulti {...props} />
     </MapContainer>
   );
 }
 
-function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapProps) {
+function RunescapeMapMulti({
+  navigationState,
+  multiGameState,
+  onMapClick,
+  GoBackButtonRef,
+}: RunescapeMapMultiProps) {
   const map = useMap();
   const tileLayerRef = useRef<L.TileLayer>(null);
   const [currentMapId, setCurrentMapId] = useState(0);
 
   useMapEvents({
     click: async (e) => {
-      if (gameState.status !== GameStatus.Guessing) return;
+      if (multiGameState.status !== MultiLobbyStatus.Playing) return;
       const point = convert.ll_to_xy(e.latlng);
       onMapClick({ xy: point, mapId: currentMapId });
     },
@@ -58,17 +69,20 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
   const [isUnderground, setIsUnderground] = useState(false);
 
   const onGuessConfirmed = () => {
-    assertNotNil(gameState.clickedPosition, 'gameState.clickedPosition');
+    assertNotNil(navigationState.clickedPosition, 'multiGameState.clickedPosition');
 
     // get current song and calculate position
-    const song = gameState.songs[gameState.round];
-    const { mapId, panTo } = findNearestPolygonWhereSongPlays(song, gameState.clickedPosition);
+    const song = multiGameState.currentRound?.songName;
+    const { mapId, panTo } = findNearestPolygonWhereSongPlays(
+      song,
+      navigationState.clickedPosition,
+    );
 
     // handle map layer switching if needed
     if (currentMapId !== mapId) {
       switchLayer(map, tileLayerRef.current!, mapId);
 
-      recalculateNavigationStack(mapId, panTo, gameState.navigationStack, setIsUnderground);
+      recalculateNavigationStack(mapId, panTo, navigationState.navigationStack, setIsUnderground);
     }
 
     // update map position and state
@@ -78,35 +92,35 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
   };
 
   useEffect(() => {
-    if (gameState.status === GameStatus.AnswerRevealed) {
+    if (multiGameState.status === MultiLobbyStatus.Revealing) {
       onGuessConfirmed();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map, gameState.status]);
+  }, [map, multiGameState.status]);
 
   const showGuessMarker =
-    ((gameState.status === GameStatus.Guessing && gameState.clickedPosition) ||
-      gameState.status === GameStatus.AnswerRevealed) &&
-    gameState.clickedPosition?.mapId === currentMapId;
+    ((multiGameState.status === MultiLobbyStatus.Playing && navigationState.clickedPosition) ||
+      multiGameState.status === MultiLobbyStatus.Revealing) &&
+    navigationState.clickedPosition?.mapId === currentMapId;
 
   const { correctFeaturesData, correctMapId } = useMemo(() => {
-    const song = gameState.songs[gameState.round];
-    if (!map || !song || !gameState.clickedPosition) return {};
+    const song = multiGameState.currentRound?.songName;
+    if (!map || !song || !navigationState.clickedPosition) return {};
 
     const { featuresData, mapId } = findNearestPolygonWhereSongPlays(
       song,
-      gameState.clickedPosition!,
+      navigationState.clickedPosition!,
     );
 
     return { correctFeaturesData: featuresData, correctMapId: mapId };
-  }, [map, gameState]);
+  }, [map, multiGameState]);
 
   const showCorrectPolygon =
     correctFeaturesData &&
     correctFeaturesData.some((featureData) => {
       return featureData.mapId == currentMapId;
     }) &&
-    gameState.status === GameStatus.AnswerRevealed;
+    multiGameState.status === MultiLobbyStatus.Revealing;
 
   // initially load the first tile layer
   useEffect(() => {
@@ -120,7 +134,7 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
 
   const onPortalClick = (link: MapLink) => {
     const { start, end } = link;
-    const { navigationStack } = gameState;
+    const { navigationStack } = navigationState;
     const lastNavEntry = navigationStack?.[navigationStack.length - 1];
 
     // handle case where we're returning to previous location
@@ -139,7 +153,7 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
     // handle new location transition
     if (start.mapId !== end.mapId) {
       switchLayer(map, tileLayerRef.current!, end.mapId);
-      gameState.navigationStack?.push({
+      navigationState.navigationStack?.push({
         mapId: start.mapId,
         coordinates: [start.y, start.x],
       });
@@ -151,7 +165,7 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
   };
 
   const handleGoBack = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const mostRecentNavEntry = gameState.navigationStack?.pop();
+    const mostRecentNavEntry = navigationState.navigationStack?.pop();
     if (!mostRecentNavEntry) {
       console.warn('No navigation history to go back to');
       return;
@@ -163,7 +177,7 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
     switchLayer(map, tileLayerRef.current!, mapId);
     panMapToLinkPoint(map, { x, y, mapId, name: mapName });
     setCurrentMapId(mapId);
-    if (gameState.navigationStack?.length === 0) {
+    if (navigationState.navigationStack?.length === 0) {
       setIsUnderground(false);
     }
     e.stopPropagation();
@@ -173,7 +187,7 @@ function RunescapeMap({ gameState, onMapClick, GoBackButtonRef }: RunescapeMapPr
     <>
       {showGuessMarker && (
         <Marker
-          position={convert.xy_to_ll(gameState.clickedPosition!.xy)}
+          position={convert.xy_to_ll(navigationState.clickedPosition!.xy)}
           icon={
             new Icon({
               iconUrl: markerIconPng,

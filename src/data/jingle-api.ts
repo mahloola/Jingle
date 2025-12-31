@@ -96,7 +96,6 @@ export async function updateLobbyState({
 }
 
 export async function getLobbies() {
-  console.log('asdjfjhdass');
   return await get<MultiLobby[]>(`/api/lobbies`);
 }
 

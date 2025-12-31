@@ -141,6 +141,7 @@ export interface NavigationState {
   clickedPosition: ClickedPosition | null;
   navigationStack: NavigationEntry[] | null;
 }
+
 export interface MultiLobby {
   id: string;
   ownerId: string;

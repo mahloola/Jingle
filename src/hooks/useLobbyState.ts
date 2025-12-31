@@ -5,9 +5,11 @@ import { MultiGameState, MultiLobby } from '../types/jingle';
 
 export function useLobbyState(lobbyId: string | undefined) {
   const { currentUser } = useAuth();
+
   const { data: lobbyState } = useSWR<MultiGameState>(
     `/api/lobbies/${lobbyId}/gameState`,
     async (): Promise<MultiGameState> => {
+      console.log('getting lobby state');
       if (!currentUser) throw new Error('No user');
       if (!lobbyId) throw new Error('No lobby ID');
       const token = await currentUser.getIdToken();
@@ -20,12 +22,11 @@ export function useLobbyState(lobbyId: string | undefined) {
 }
 
 export function useLobby(lobbyId: string | undefined) {
-  console.log('thing');
-  const { data: lobbies } = useSWR('/api/lobbies', getLobbies);
-  console.log(
-    'erm',
-    lobbies?.find((lobby: MultiLobby) => lobby.id === lobbyId),
-  );
+  const { data: lobbies } = useSWR('/api/lobbies', getLobbies, {
+    refreshInterval: 1000, // Poll every 1 second
+    revalidateOnFocus: false, // Optional: don't refetch on window focus
+    dedupingInterval: 500, // Optional: prevent duplicate requests
+  });
   return lobbies?.find((lobby: MultiLobby) => lobby.id === lobbyId);
 }
 

@@ -1,6 +1,6 @@
 import { RefObject } from 'react';
 import { Region, REGIONS, UNDERGROUND_TRACKS_STRICT } from '../constants/regions';
-import { UserPreferences } from '../types/jingle';
+import { LobbySettings, UserPreferences } from '../types/jingle';
 import { loadPreferencesFromBrowser } from './browserUtil';
 
 export class SongService {
@@ -60,6 +60,12 @@ export class SongService {
     if (availableSongs.length === 0) {
       this.songList = this.getAvailableSongs(preferences);
     }
+    const selectedSong = this.selectRandomSong(availableSongs);
+    return selectedSong;
+  };
+
+  getRandomSongMulti = (settings: LobbySettings): string => {
+    const availableSongs = this.songList.filter((song) => this.songList.includes(song));
     const selectedSong = this.selectRandomSong(availableSongs);
     return selectedSong;
   };
