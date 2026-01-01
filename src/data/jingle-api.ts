@@ -73,6 +73,29 @@ export async function leaveLobby({ lobbyId, token }: { lobbyId: string; token: s
   return await post(`/api/lobbies/${lobbyId}/leave`, { lobbyId }, token);
 }
 
+export async function startLobby({ lobbyId, token }: { lobbyId: string; token: string }) {
+  if (!lobbyId) return;
+  return await post(`/api/lobbies/${lobbyId}/start`, { lobbyId }, token);
+}
+
+export async function placePin({
+  lobbyId,
+  token,
+  coordinates,
+}: {
+  lobbyId: string;
+  token: string;
+  coordinates: [number, number];
+}) {
+  if (!lobbyId) return;
+  return await post(`/api/lobbies/${lobbyId}/placePin`, { coordinates }, token);
+}
+
+export async function confirmGuess({ lobbyId, token }: { lobbyId: string; token: string }) {
+  if (!lobbyId) return;
+  return await post(`/api/lobbies/${lobbyId}/confirmGuess`, { lobbyId }, token);
+}
+
 export async function getLobby(id: string | undefined) {
   return await get(`/api/lobbies/${id}`);
 }

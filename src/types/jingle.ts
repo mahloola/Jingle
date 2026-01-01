@@ -123,13 +123,12 @@ export interface MultiRound {
     score: number;
   }>;
   leaderboard: Array<{ userId: string; score: number; rank: number }>;
-  startTime: Date;
-  endTime: Date | null;
 }
 export interface MultiGameState {
   status: MultiLobbyStatus;
   currentRound: MultiRound;
   rounds: MultiRound[];
+  currentPhaseEndTime: Date | null;
 }
 export enum MultiLobbyStatus {
   Waiting = 'Waiting',
