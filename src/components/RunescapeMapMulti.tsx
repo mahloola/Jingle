@@ -14,8 +14,8 @@ import {
   MultiLobbyStatus,
   NavigationState,
 } from '../types/jingle';
-import { assertNotNil } from '../utils/assert';
 import {
+  calculateScoreFromPin,
   convert,
   findNearestPolygonWhereSongPlays,
   panMapToLinkPoint,
@@ -69,8 +69,10 @@ function RunescapeMapMulti({
   const [isUnderground, setIsUnderground] = useState(false);
 
   const onGuessConfirmed = () => {
-    assertNotNil(navigationState.clickedPosition, 'multiGameState.clickedPosition');
-
+    const score = calculateScoreFromPin({
+      song: multiGameState.currentRound.songName,
+      pin: navigationState.clickedPosition,
+    });
     // get current song and calculate position
     const song = multiGameState.currentRound?.songName;
     const { mapId, panTo } = findNearestPolygonWhereSongPlays(
@@ -81,7 +83,6 @@ function RunescapeMapMulti({
     // handle map layer switching if needed
     if (currentMapId !== mapId) {
       switchLayer(map, tileLayerRef.current!, mapId);
-
       recalculateNavigationStack(mapId, panTo, navigationState.navigationStack, setIsUnderground);
     }
 

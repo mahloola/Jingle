@@ -113,8 +113,8 @@ export interface MultiRound {
   songName: string;
   pins: Array<{
     userId: string;
-    pin: {
-      coordinates: [number, number];
+    details: {
+      clickedPosition: ClickedPosition;
       confirmed: boolean;
     };
   }>;

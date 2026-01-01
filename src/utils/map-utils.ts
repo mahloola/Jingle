@@ -102,27 +102,31 @@ export const findAllAnswerPolygonsForSong = (song: string): Map<number, Polygon[
 
 export const findNearestPolygonWhereSongPlays = (
   song: string,
-  clickedPosition: ClickedPosition,
+  clickedPosition: ClickedPosition | null,
 ): {
   mapId: number;
   featuresData: { mapId: number; feature: G.Feature<G.Polygon> }[];
   panTo: Position;
   distance: number; // 0 if clicked inside polygon
 } => {
+  // if clicked position is null, set it to the center of the map
+  const sanitizedClickedPosition =
+    clickedPosition ?? ({ xy: CENTER_COORDINATES, mapId: 0 } as ClickedPosition);
+
   const songFeature = geojsondata.features.find(featureMatchesSong(song))!;
   const allSongAnswerPolygons = findAllAnswerPolygonsForSong(song);
 
   //all polys for for current song as per our mapId priorities - needed for donut polys.
   const { polygonCoords: songPolyCoords, mapId: songMapId } = getClosestMapIdPolys(
     songFeature,
-    clickedPosition,
+    sanitizedClickedPosition,
   );
   const repairedPolygons = songPolyCoords.map((musicPoly) => closePolygon(musicPoly));
 
   //find nearest correct poly
   const nearestPolgonCoords = repairedPolygons.sort((polygon1, polygon2) => {
-    const d1 = getTotalDistanceToPoly(clickedPosition, polygon1, songMapId);
-    const d2 = getTotalDistanceToPoly(clickedPosition, polygon2, songMapId);
+    const d1 = getTotalDistanceToPoly(sanitizedClickedPosition, polygon1, songMapId);
+    const d2 = getTotalDistanceToPoly(sanitizedClickedPosition, polygon2, songMapId);
     return d1 - d2;
   })[0];
 
@@ -132,16 +136,18 @@ export const findNearestPolygonWhereSongPlays = (
   ) ?? [nearestPolgonCoords];
 
   //check if in outer poly
-  const inOuterPoly = booleanPointInPolygon(clickedPosition.xy, polygon([outerPolygon]));
+  const inOuterPoly = booleanPointInPolygon(sanitizedClickedPosition.xy, polygon([outerPolygon]));
 
   // Check if the clicked point is inside any gap
-  const isInsideGap = gaps.some((gap) => booleanPointInPolygon(clickedPosition.xy, polygon([gap])));
+  const isInsideGap = gaps.some((gap) =>
+    booleanPointInPolygon(sanitizedClickedPosition.xy, polygon([gap])),
+  );
   //merge the two. mapId check needed to filter overlapping coords in diff mapIds.
-  const correct = inOuterPoly && !isInsideGap && clickedPosition.mapId == songMapId;
+  const correct = inOuterPoly && !isInsideGap && sanitizedClickedPosition.mapId == songMapId;
 
   const distance = correct
     ? 0
-    : getTotalDistanceToPoly(clickedPosition, nearestPolgonCoords, songMapId);
+    : getTotalDistanceToPoly(sanitizedClickedPosition, nearestPolgonCoords, songMapId);
 
   const featuresData = Array.from(allSongAnswerPolygons.entries()).map(([currMapId, polygons]) => {
     return {
@@ -415,6 +421,22 @@ const getDistanceBetweenPoints = (a: Position, b: Position) => {
   const dx = b[0] - a[0];
   const dy = b[1] - a[1];
   return Math.sqrt(dx * dx + dy * dy);
+};
+
+export const calculateScoreFromPin = ({
+  song,
+  pin,
+}: {
+  song: string;
+  pin: ClickedPosition | null;
+}) => {
+  if (!pin) {
+    return 0;
+  }
+  const { distance } = findNearestPolygonWhereSongPlays(song, pin);
+  const decayRate = 0.00544; // adjust scoring strictness (higher = more strict)
+  const score = Math.round(1000 / Math.exp(decayRate * distance));
+  return score;
 };
 
 const isPoint = (a: Position | Position[]): a is Position => !Array.isArray(a[0]);

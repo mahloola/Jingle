@@ -1,10 +1,19 @@
 import { clone } from 'ramda';
 import { useState } from 'react';
-import { ClickedPosition, GameSettings, GameStatus, SoloGameState } from '../types/jingle';
+import {
+  ClickedPosition,
+  GameSettings,
+  GameStatus,
+  NavigationState,
+  SoloGameState,
+} from '../types/jingle';
 import { calculateTimeDifference } from '../utils/date-utils';
-import { findNearestPolygonWhereSongPlays } from '../utils/map-utils';
+import { calculateScoreFromPin } from '../utils/map-utils';
 
-export default function useGameLogic(initialGameState: SoloGameState) {
+export default function useGameLogic(
+  initialGameState: SoloGameState,
+  navigationState: NavigationState,
+) {
   const [gameState, setGameState] = useState<SoloGameState>(initialGameState);
 
   const setClickedPosition = (clickedPosition: ClickedPosition): SoloGameState => {
@@ -16,14 +25,15 @@ export default function useGameLogic(initialGameState: SoloGameState) {
   // latestGameState is required when called immediately after setGuess
   const confirmGuess = (latestGameState?: SoloGameState): SoloGameState => {
     const newGameState = latestGameState ?? gameState;
-    if (newGameState.clickedPosition === null) {
+    if (navigationState?.clickedPosition === null) {
       throw new Error('clickedPosition cannot be null');
     }
 
     const song = newGameState.songs[newGameState.round];
-    const { distance } = findNearestPolygonWhereSongPlays(song, newGameState.clickedPosition);
-    const decayRate = 0.00544; // adjust scoring strictness (higher = more strict)
-    const score = Math.round(1000 / Math.exp(decayRate * distance));
+    const score = calculateScoreFromPin({
+      song,
+      pin: navigationState?.clickedPosition,
+    });
     newGameState.status = GameStatus.AnswerRevealed;
     newGameState.scores.push(score);
     setGameState(clone(newGameState));

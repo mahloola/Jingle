@@ -29,9 +29,14 @@ export default function MultiplayerLobby() {
   const { currentUser } = useAuth();
   const currentUserId = currentUser?.uid;
 
+  const [score, setScore] = useState(0);
+
   // this will be updated every 1 SECOND via polling
   const lobby = useLobby(lobbyId);
   const lobbyState = lobby?.gameState;
+
+  // this is for playing the song
+  const prevStatusRef = useRef(lobbyState?.status);
 
   // for local UI stuff
   const goBackButtonRef = useRef<HTMLDivElement>(null);
@@ -49,25 +54,36 @@ export default function MultiplayerLobby() {
 
   const audioRef = useRef<HTMLAudioElement>(null);
   useEffect(() => {
-    const songName = lobbyState.currentRound?.songName;
-    playSong(
-      audioRef,
-      songName,
-      currentPreferences.preferOldAudio,
-      lobby.settings.hardModeLength ?? null,
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lobbyState]);
+    const wasPlaying = prevStatusRef.current === MultiLobbyStatus.Playing;
+    const isPlaying = lobbyState.status === MultiLobbyStatus.Playing;
+
+    // Only run if status CHANGED to Playing
+    if (!wasPlaying && isPlaying) {
+      const songName = lobbyState.currentRound?.songName;
+      playSong(
+        audioRef,
+        songName,
+        currentPreferences.preferOldAudio,
+        lobby.settings.hardMode ? lobby.settings.hardModeLength : undefined,
+      );
+    }
+    setGuessConfirmed(false);
+    // Update the ref for next time
+    prevStatusRef.current = lobbyState.status;
+  }, [lobbyState.status /* other dependencies */]);
 
   const handlePlacePin = async (clickedPosition: ClickedPosition) => {
+    if (lobby.gameState.status !== MultiLobbyStatus.Playing) {
+      return;
+    }
     setNavigationState((prev) => ({
       ...prev,
       clickedPosition: clickedPosition,
     }));
 
     const { lobbyId: id, token } = await assertLobbyAndUser({ lobbyId: lobbyId, currentUser });
-    const coordinates: [number, number] = clickedPosition.xy as [number, number];
-    placePin({ lobbyId: id, token, coordinates });
+
+    placePin({ lobbyId: id, token, clickedPosition });
   };
 
   const handleConfirmGuess = async () => {
@@ -138,7 +154,10 @@ export default function MultiplayerLobby() {
                   <span className={styles.playerInfo}>
                     {player?.username}
                     <br />
-                    {playerScore ?? 4278} Points
+                    {lobby.gameState.status === MultiLobbyStatus.Revealing && playerScore
+                      ? playerScore
+                      : '---'}{' '}
+                    Points
                   </span>
                 </div>
               );

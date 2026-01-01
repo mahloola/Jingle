@@ -63,7 +63,6 @@ export default function Practice() {
     scores: [],
     startTimeMs: Date.now(),
     timeTaken: null,
-    clickedPosition: null,
   };
   const handleMapClick = (clickedPosition: ClickedPosition) => {
     const newGameState = jingle.setClickedPosition(clickedPosition);
@@ -75,7 +74,7 @@ export default function Practice() {
       clickedPosition: clickedPosition,
     }));
   };
-  const jingle = useGameLogic(initialGameState);
+  const jingle = useGameLogic(initialGameState, navigationState);
   const gameState = jingle.gameState;
 
   const audioRef = useRef<HTMLAudioElement>(null);

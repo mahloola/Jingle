@@ -42,8 +42,6 @@ export const DEFAULT_GAME_STATE: SoloGameState = {
   scores: [],
   startTimeMs: Date.now(),
   timeTaken: '',
-  clickedPosition: null,
-  navigationStack: [],
 };
 
 export const MULTI_LOBBY_COUNT_LIMIT = 100;
