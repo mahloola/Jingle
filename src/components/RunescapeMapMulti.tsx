@@ -8,12 +8,7 @@ import { CENTER_COORDINATES } from '../constants/defaults';
 import { MapLink } from '../data/map-links';
 import mapMetadata from '../data/map-metadata';
 import '../style/uiBox.css';
-import {
-  ClickedPosition,
-  MultiGameState,
-  MultiLobbyStatus,
-  NavigationState,
-} from '../types/jingle';
+import { ClickedPosition, MultiLobby, MultiLobbyStatus, NavigationState } from '../types/jingle';
 import {
   calculateScoreFromPin,
   convert,
@@ -27,7 +22,7 @@ import { Button } from './ui-util/Button';
 
 interface RunescapeMapMultiProps {
   navigationState: NavigationState;
-  multiGameState: MultiGameState;
+  multiLobby: MultiLobby;
   onMapClick: (clickedPosition: ClickedPosition) => void;
   GoBackButtonRef: React.RefObject<HTMLElement>;
 }
@@ -50,7 +45,7 @@ export default function RunescapeMapMultiWrapper(props: RunescapeMapMultiProps) 
 
 function RunescapeMapMulti({
   navigationState,
-  multiGameState,
+  multiLobby,
   onMapClick,
   GoBackButtonRef,
 }: RunescapeMapMultiProps) {
@@ -60,7 +55,7 @@ function RunescapeMapMulti({
 
   useMapEvents({
     click: async (e) => {
-      if (multiGameState.status !== MultiLobbyStatus.Playing) return;
+      if (multiLobby.gameState.status !== MultiLobbyStatus.Playing) return;
       const point = convert.ll_to_xy(e.latlng);
       onMapClick({ xy: point, mapId: currentMapId });
     },
@@ -70,11 +65,11 @@ function RunescapeMapMulti({
 
   const onGuessConfirmed = () => {
     const score = calculateScoreFromPin({
-      song: multiGameState.currentRound.songName,
+      song: multiLobby.gameState.currentRound.songName,
       pin: navigationState.clickedPosition,
     });
     // get current song and calculate position
-    const song = multiGameState.currentRound?.songName;
+    const song = multiLobby.gameState.currentRound?.songName;
     const { mapId, panTo } = findNearestPolygonWhereSongPlays(
       song,
       navigationState.clickedPosition,
@@ -93,19 +88,20 @@ function RunescapeMapMulti({
   };
 
   useEffect(() => {
-    if (multiGameState.status === MultiLobbyStatus.Revealing) {
+    if (multiLobby.gameState.status === MultiLobbyStatus.Revealing) {
       onGuessConfirmed();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map, multiGameState.status]);
+  }, [map, multiLobby.gameState.status]);
 
   const showGuessMarker =
-    ((multiGameState.status === MultiLobbyStatus.Playing && navigationState.clickedPosition) ||
-      multiGameState.status === MultiLobbyStatus.Revealing) &&
+    ((multiLobby.gameState.status === MultiLobbyStatus.Playing &&
+      navigationState.clickedPosition) ||
+      multiLobby.gameState.status === MultiLobbyStatus.Revealing) &&
     navigationState.clickedPosition?.mapId === currentMapId;
 
   const { correctFeaturesData, correctMapId } = useMemo(() => {
-    const song = multiGameState.currentRound?.songName;
+    const song = multiLobby.gameState.currentRound?.songName;
     if (!map || !song || !navigationState.clickedPosition) return {};
 
     const { featuresData, mapId } = findNearestPolygonWhereSongPlays(
@@ -114,14 +110,14 @@ function RunescapeMapMulti({
     );
 
     return { correctFeaturesData: featuresData, correctMapId: mapId };
-  }, [map, multiGameState]);
+  }, [map, multiLobby.gameState]);
 
   const showCorrectPolygon =
     correctFeaturesData &&
     correctFeaturesData.some((featureData) => {
       return featureData.mapId == currentMapId;
     }) &&
-    multiGameState.status === MultiLobbyStatus.Revealing;
+    multiLobby.gameState.status === MultiLobbyStatus.Revealing;
 
   // initially load the first tile layer
   useEffect(() => {
@@ -199,6 +195,27 @@ function RunescapeMapMulti({
           interactive={false}
         />
       )}
+      {multiLobby.gameState.status === MultiLobbyStatus.Revealing &&
+        multiLobby.gameState.currentRound.pins.map((pin) => {
+          const player = multiLobby.players.find((player) => player.id === pin.userId);
+          console.log(player?.avatarUrl);
+          return (
+            <Marker
+              key={player?.id}
+              position={convert.xy_to_ll(pin.details?.clickedPosition!.xy)}
+              icon={
+                new Icon({
+                  iconUrl:
+                    player?.avatarUrl ||
+                    'https://i.pinimg.com/474x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg',
+                  iconSize: [60, 60],
+                  iconAnchor: [30, 60],
+                })
+              }
+              interactive={false}
+            />
+          );
+        })}
       {isUnderground &&
         GoBackButtonRef.current &&
         createPortal(

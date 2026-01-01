@@ -226,7 +226,7 @@ export default function MultiplayerLobby() {
 
       <RunescapeMapMultiWrapper
         navigationState={navigationState}
-        multiGameState={lobbyState}
+        multiLobby={lobby}
         onMapClick={(clickedPosition) => {
           handlePlacePin(clickedPosition);
         }}
