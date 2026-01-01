@@ -1,3 +1,4 @@
+import { updateProfile } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
@@ -42,7 +43,10 @@ export default function Register() {
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
+      const user = userCredential.user;
+      await updateProfile(user, {
+        displayName: displayName,
+      });
       navigate('/'); // Redirect to home after successful registration
     } catch (error: any) {
       let errorMessage = 'Registration failed';

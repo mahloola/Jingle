@@ -9,6 +9,7 @@ import {
   signInWithPopup,
 } from '../../firebase/firebase';
 import { Button } from '../ui-util/Button';
+import styles from './Login.module.css';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -47,9 +48,9 @@ export default function Login() {
   };
 
   return (
-    <div className='login-container'>
+    <div className={styles.loginContainer}>
       Login
-      {error && <div className='error-message'>{error}</div>}
+      {error && <div className={styles.errorMessage}>{error}</div>}
       <form onSubmit={handleEmailSubmit}>
         <input
           type='email'

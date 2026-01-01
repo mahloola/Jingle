@@ -12,7 +12,7 @@ import Multiplayer from './components/Multiplayer/Multiplayer/Multiplayer';
 import Practice from './components/Practice';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Register from './components/Register/Register';
-import { getDailyChallenge } from './data/jingle-api';
+import { getDailyChallenge, getLobbies } from './data/jingle-api';
 import './style/audio.css';
 import './style/leaflet.css';
 import './style/osrs-ui.css';
@@ -23,6 +23,11 @@ function App() {
     `/api/daily-challenges/${getCurrentDateInBritain()}`,
     () => getDailyChallenge(getCurrentDateInBritain()),
   );
+  const { data: lobbies } = useSWR('/api/lobbies', getLobbies, {
+    refreshInterval: 1000, // Poll every 1 second
+    revalidateOnFocus: false, // Optional: don't refetch on window focus
+    dedupingInterval: 500, // Optional: prevent duplicate requests
+  });
 
   return (
     <AuthProvider>
@@ -37,7 +42,12 @@ function App() {
         <Routes>
           <Route
             path='/'
-            element={<MainMenu dailyChallenge={dailyChallenge} />}
+            element={
+              <MainMenu
+                dailyChallenge={dailyChallenge}
+                multiLobbies={lobbies}
+              />
+            }
           />
           <Route
             path='/daily'
