@@ -9,7 +9,6 @@ import { LobbySettings, MultiLobby } from '../../../types/jingle';
 import Navbar from '../../Navbar/Navbar';
 import { Button } from '../../ui-util/Button';
 import CreateLobbyModal from '../CreateLobbyModal';
-import Matchmaking from '../Matchmaking';
 import styles from './Multiplayer.module.css';
 
 const Multiplayer = () => {
@@ -86,7 +85,6 @@ const Multiplayer = () => {
   return (
     <div className={styles.multiplayerContainer}>
       <Navbar />
-      <Matchmaking />
       {createLobbyModalOpen && (
         <CreateLobbyModal
           onClose={() => setCreateLobbyModalOpen(false)}
