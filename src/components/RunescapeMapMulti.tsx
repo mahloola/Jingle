@@ -8,9 +8,9 @@ import { CENTER_COORDINATES } from '../constants/defaults';
 import { MapLink } from '../data/map-links';
 import mapMetadata from '../data/map-metadata';
 import '../style/uiBox.css';
-import { ClickedPosition, GameStatus, NavigationState, SoloGameState } from '../types/jingle';
-import { assertNotNil } from '../utils/assert';
+import { ClickedPosition, MultiLobby, MultiLobbyStatus, NavigationState } from '../types/jingle';
 import {
+  calculateScoreFromPin,
   convert,
   findNearestPolygonWhereSongPlays,
   panMapToLinkPoint,
@@ -20,14 +20,14 @@ import {
 import LayerPortals from './LayerPortals';
 import { Button } from './ui-util/Button';
 
-interface RunescapeMapProps {
+interface RunescapeMapMultiProps {
   navigationState: NavigationState;
-  gameState: SoloGameState;
+  multiLobby: MultiLobby;
   onMapClick: (clickedPosition: ClickedPosition) => void;
   GoBackButtonRef: React.RefObject<HTMLElement>;
 }
 
-export default function RunescapeMapWrapper(props: RunescapeMapProps) {
+export default function RunescapeMapMultiWrapper(props: RunescapeMapMultiProps) {
   return (
     <MapContainer
       center={CENTER_COORDINATES} // lumbridge
@@ -38,24 +38,24 @@ export default function RunescapeMapWrapper(props: RunescapeMapProps) {
       maxBoundsViscosity={0.5}
       crs={CRS.Simple}
     >
-      <RunescapeMap {...props} />
+      <RunescapeMapMulti {...props} />
     </MapContainer>
   );
 }
 
-function RunescapeMap({
+function RunescapeMapMulti({
   navigationState,
-  gameState,
+  multiLobby,
   onMapClick,
   GoBackButtonRef,
-}: RunescapeMapProps) {
+}: RunescapeMapMultiProps) {
   const map = useMap();
   const tileLayerRef = useRef<L.TileLayer>(null);
   const [currentMapId, setCurrentMapId] = useState(0);
 
   useMapEvents({
     click: async (e) => {
-      if (gameState.status !== GameStatus.Guessing) return;
+      if (multiLobby.gameState.status !== MultiLobbyStatus.Playing) return;
       const point = convert.ll_to_xy(e.latlng);
       onMapClick({ xy: point, mapId: currentMapId });
     },
@@ -64,10 +64,12 @@ function RunescapeMap({
   const [isUnderground, setIsUnderground] = useState(false);
 
   const onGuessConfirmed = () => {
-    assertNotNil(navigationState.clickedPosition, 'gameState.clickedPosition');
-
+    const score = calculateScoreFromPin({
+      song: multiLobby.gameState.currentRound.songName,
+      pin: navigationState.clickedPosition,
+    });
     // get current song and calculate position
-    const song = gameState.songs[gameState.round];
+    const song = multiLobby.gameState.currentRound?.songName;
     const { mapId, panTo } = findNearestPolygonWhereSongPlays(
       song,
       navigationState.clickedPosition,
@@ -76,7 +78,6 @@ function RunescapeMap({
     // handle map layer switching if needed
     if (currentMapId !== mapId) {
       switchLayer(map, tileLayerRef.current!, mapId);
-
       recalculateNavigationStack(mapId, panTo, navigationState.navigationStack, setIsUnderground);
     }
 
@@ -87,19 +88,20 @@ function RunescapeMap({
   };
 
   useEffect(() => {
-    if (gameState.status === GameStatus.AnswerRevealed) {
+    if (multiLobby.gameState.status === MultiLobbyStatus.Revealing) {
       onGuessConfirmed();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map, gameState.status]);
+  }, [map, multiLobby.gameState.status]);
 
   const showGuessMarker =
-    ((gameState.status === GameStatus.Guessing && navigationState.clickedPosition) ||
-      gameState.status === GameStatus.AnswerRevealed) &&
+    ((multiLobby.gameState.status === MultiLobbyStatus.Playing &&
+      navigationState.clickedPosition) ||
+      multiLobby.gameState.status === MultiLobbyStatus.Revealing) &&
     navigationState.clickedPosition?.mapId === currentMapId;
 
   const { correctFeaturesData, correctMapId } = useMemo(() => {
-    const song = gameState.songs[gameState.round];
+    const song = multiLobby.gameState.currentRound?.songName;
     if (!map || !song || !navigationState.clickedPosition) return {};
 
     const { featuresData, mapId } = findNearestPolygonWhereSongPlays(
@@ -108,14 +110,14 @@ function RunescapeMap({
     );
 
     return { correctFeaturesData: featuresData, correctMapId: mapId };
-  }, [map, gameState]);
+  }, [map, multiLobby.gameState]);
 
   const showCorrectPolygon =
     correctFeaturesData &&
     correctFeaturesData.some((featureData) => {
       return featureData.mapId == currentMapId;
     }) &&
-    gameState.status === GameStatus.AnswerRevealed;
+    multiLobby.gameState.status === MultiLobbyStatus.Revealing;
 
   // initially load the first tile layer
   useEffect(() => {
@@ -193,6 +195,27 @@ function RunescapeMap({
           interactive={false}
         />
       )}
+      {multiLobby.gameState.status === MultiLobbyStatus.Revealing &&
+        multiLobby.gameState.currentRound.pins.map((pin) => {
+          const player = multiLobby.players.find((player) => player.id === pin.userId);
+          console.log(player?.avatarUrl);
+          return (
+            <Marker
+              key={player?.id}
+              position={convert.xy_to_ll(pin.details?.clickedPosition!.xy)}
+              icon={
+                new Icon({
+                  iconUrl:
+                    player?.avatarUrl ||
+                    'https://i.pinimg.com/474x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg',
+                  iconSize: [60, 60],
+                  iconAnchor: [30, 60],
+                })
+              }
+              interactive={false}
+            />
+          );
+        })}
       {isUnderground &&
         GoBackButtonRef.current &&
         createPortal(

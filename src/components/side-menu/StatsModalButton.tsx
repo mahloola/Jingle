@@ -46,6 +46,7 @@ export default function StatsModalButton() {
       <Modal
         open={open}
         onClose={closeModal}
+        primaryButtonText={'Save'}
       >
         <img
           className='modal-bg-image'

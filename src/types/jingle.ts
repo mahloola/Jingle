@@ -23,7 +23,7 @@ export interface NavigationEntry {
   mapId: number;
   coordinates: [number, number];
 }
-export interface GameState {
+export interface SoloGameState {
   settings: GameSettings;
   status: GameStatus;
   round: number; // 0-4
@@ -31,8 +31,6 @@ export interface GameState {
   scores: number[];
   startTimeMs: number;
   timeTaken: string | null;
-  clickedPosition: ClickedPosition | null;
-  navigationStack: NavigationEntry[] | null;
 }
 export interface ClickedPosition {
   xy: Position;
@@ -40,7 +38,7 @@ export interface ClickedPosition {
 }
 
 // if we make changes to GameState schema, we can invalidate the old game state saved in user's local storage to prevent crashes
-export const isValidGameState = (object: unknown): object is GameState => {
+export const isValidGameState = (object: unknown): object is SoloGameState => {
   if (!object) return false;
   if (typeof (object as any).status !== 'string') return false;
   if (typeof (object as any).round !== 'number') return false;
@@ -98,4 +96,62 @@ export interface Song {
   successRate: number;
   successCount: number;
   failureCount: number;
+}
+
+export interface LobbySettings {
+  password: string | null;
+  roundTimeSeconds: number;
+  roundIntervalSeconds: number;
+  hardMode: boolean;
+  hardModeLength: number;
+  regions: Record<Region, boolean>;
+  undergroundSelected: boolean;
+  surfaceSelected: boolean;
+}
+export interface MultiRound {
+  id: string;
+  songName: string;
+  pins: Array<{
+    userId: string;
+    details: {
+      clickedPosition: ClickedPosition;
+      distance: number;
+      confirmed: boolean;
+    };
+  }>;
+  results: Array<{
+    userId: string;
+    score: number;
+  }>;
+  leaderboard: Array<{ userId: string; score: number; rank: number }>;
+}
+export interface MultiGameState {
+  status: MultiLobbyStatus;
+  currentRound: MultiRound;
+  rounds: MultiRound[];
+  currentPhaseEndTime: Date | null;
+}
+export enum MultiLobbyStatus {
+  Waiting = 'Waiting',
+  Playing = 'Playing',
+  Stopped = 'Stopped',
+  Revealing = 'Revealing',
+}
+export interface NavigationState {
+  clickedPosition: ClickedPosition | null;
+  navigationStack: NavigationEntry[] | null;
+}
+
+export interface MultiLobby {
+  id: string;
+  ownerId: string;
+  name: string;
+  settings: LobbySettings;
+  players: Player[];
+  gameState: MultiGameState;
+}
+export interface Player {
+  id: string;
+  username: string;
+  avatarUrl: string;
 }

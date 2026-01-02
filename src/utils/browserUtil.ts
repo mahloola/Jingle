@@ -1,9 +1,9 @@
 import { DEFAULT_GAME_STATE, DEFAULT_PREFERENCES } from '../constants/defaults';
 import { LOCAL_STORAGE } from '../constants/localStorage';
-import { DailyChallenge, GameState, isValidGameState, UserPreferences } from '../types/jingle';
+import { DailyChallenge, isValidGameState, SoloGameState, UserPreferences } from '../types/jingle';
 import { SongService } from './getRandomSong';
 
-export const saveGameStateToBrowser = (jingleNumber: number, gameState: GameState) => {
+export const saveGameStateToBrowser = (jingleNumber: number, gameState: SoloGameState) => {
   localStorage.setItem(LOCAL_STORAGE.gameState(jingleNumber), JSON.stringify(gameState));
 };
 
@@ -46,7 +46,7 @@ const getSafeGameState = (jingleNumber: number) => {
 export const loadGameStateFromBrowser = (
   jingleNumber: number,
   dailyChallenge: DailyChallenge,
-): GameState => {
+): SoloGameState => {
   const browserGameState = getSafeGameState(jingleNumber);
   const defaultState = DEFAULT_GAME_STATE;
   defaultState.songs = dailyChallenge.songs;

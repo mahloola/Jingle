@@ -1,5 +1,5 @@
 import { sum } from 'ramda';
-import { DailyChallenge, GameState, Song } from '../types/jingle';
+import { DailyChallenge, SoloGameState, Song } from '../types/jingle';
 
 export function getJingleNumber(dailyChallenge: Pick<DailyChallenge, 'date'>) {
   const dailyChallengeDate = dailyChallenge.date;
@@ -9,7 +9,7 @@ export function getJingleNumber(dailyChallenge: Pick<DailyChallenge, 'date'>) {
 }
 
 export function copyResultsToClipboard(
-  gameState: GameState,
+  gameState: SoloGameState,
   percentile: number | null,
   jingleNumber: number,
 ) {

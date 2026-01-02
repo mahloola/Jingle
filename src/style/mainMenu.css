@@ -1,47 +1,31 @@
 .main-menu-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80vw;
   z-index: 3 !important;
-  height: 70vh;
-  max-width: 70vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.main-menu-text {
+  width: 60%;
   animation: fadeIn 1s;
-  position: absolute;
-  top: 28%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 15vw;
-  color: var(--primary-yellow);
-  text-shadow: 5px 5px 10px black;
-  pointer-events: none;
-
-  display: inline-block; /* allows the santa hat to work */
-  white-space: nowrap;
+  height: 90vh !important;
+  margin-top: 70px;
 }
-
-.santa-hat {
+.jLetter {
+  position: relative;
+  display: inline-block;
+}
+.santaHat {
   position: absolute;
-  transform: rotate(-15deg);
-  top: -3%;
-  left: 0.5%;
-  width: 0.4em; /* relative to font size */
-  height: 0.33em;
+  transform: rotate(-14deg);
+  top: -42%; /* Adjust based on your hat size */
+  left: 0;
+  width: 100%; /* Adjust to match your J width */
+  height: 100%;
   background-image: url('https://oldschool.runescape.wiki/images/thumb/Santa_hat_detail.png/1024px-Santa_hat_detail.png?f9ce8');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  pointer-events: none;
+  pointer-events: none; /* So you can still select text */
   z-index: 10;
-  filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes fadeIn {
@@ -54,20 +38,47 @@
 }
 
 .main-menu-image {
+  position: absolute;
+  z-index: -99999;
   width: 70vw;
+}
+
+.main-menu-text {
+  animation: fadeIn 1s;
+  font-size: calc(8vw + 60px);
+  color: var(--primary-yellow);
+  text-shadow: 5px 5px 10px black;
+  pointer-events: none;
+
+  position: relative;
+  display: inline-block;
+}
+
+.main-menu-title-options {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4vw;
+}
+
+.main-menu-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
 }
 
 .main-menu-option {
   animation: fadeIn 1s;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  font-size: 3.5vw;
+  font-size: calc(3vw + 20px);
   font-style: italic;
   color: var(--primary-yellow);
   filter: brightness(90%);
   text-shadow: 2px 2px 10px black;
   text-decoration: none;
-  max-width: 50%;
 }
 
 .main-menu-option:hover {
@@ -80,20 +91,15 @@
   width: 50%;
   display: flex;
   justify-content: space-around;
-  font-size: 2vw;
+  font-size: calc(20px + 1vw);
   color: var(--primary-yellow);
   font-style: italic;
   text-shadow: 2px 2px 10px black;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 92%;
-  left: 50%;
 }
 
 .main-menu-icon-container {
   animation: fadeIn 1s;
-  position: absolute;
-  bottom: -10%;
+  margin-top: 20px;
   display: flex;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 16px;
@@ -107,7 +113,7 @@
   padding: 2%;
   width: 80px;
   color: var(--primary-yellow);
-  font-size: 1.7vw;
+  font-size: 30px;
 }
 
 .main-menu-icon:hover {
@@ -115,34 +121,20 @@
 }
 
 @media screen and (max-width: 800px) {
-  .main-menu-container {
-    height: 23vh;
+  .main-menu-title-options {
+    flex-direction: column;
   }
-
-  .main-menu-text {
-    font-size: 110px;
-    top: 0%;
+  .main-menu-options {
+    gap: 30px;
   }
-
   .main-menu-option {
-    font-size: 25px;
-  }
-
-  .main-menu-option:hover {
-    font-size: 25px;
-  }
-
-  .menu-statistics {
-    top: 120%;
-    font-size: 20px;
-  }
-
-  .main-menu-icon-container {
-    position: absolute;
-    bottom: -80%;
+    font-size: 40px;
   }
 
   .main-menu-icon {
     font-size: 5vw;
+  }
+  .menu-statistics {
+    margin-top: 50px;
   }
 }

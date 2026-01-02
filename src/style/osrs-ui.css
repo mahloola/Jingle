@@ -19,6 +19,14 @@
     text-shadow: none;
   }
 }
+.multiplayerBtn {
+  padding: 5px 20px;
+}
+.multiplayerBtnLarge {
+  font-size: 1.5rem;
+  padding: 10px 40px;
+}
+
 .osrs-btn .snippet-player button {
   &:disabled {
     border-image-source: url('/assets/osrs_button_disabled.png') !important;

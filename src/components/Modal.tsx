@@ -4,6 +4,7 @@ import '../style/modal.css';
 
 interface ModalProps {
   open: boolean;
+  primaryButtonText: string;
   onClose: () => void;
   children: React.ReactNode;
   onApplySettings?: () => void;
@@ -35,6 +36,7 @@ ReactModal.setAppElement('#root');
 
 export default function Modal({
   open,
+  primaryButtonText,
   onClose,
   onApplySettings,
   saveDisabled,
@@ -62,7 +64,7 @@ export default function Modal({
             onClick={onApplySettings}
             disabled={saveDisabled}
           >
-            Save
+            {primaryButtonText}
           </button>
         )}
       </div>

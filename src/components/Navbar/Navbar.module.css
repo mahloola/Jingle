@@ -1,0 +1,347 @@
+/* Base Navbar Styles */
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+  position: fixed;
+  top: 20px;
+  width: 70%;
+  color: var(--primary-yellow) !important;
+  z-index: 1000;
+  text-shadow: 1px 1px 2px black;
+
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 0;
+  position: relative;
+}
+
+/* Logo */
+.navbarLogo {
+  font-size: 2rem;
+  text-decoration: none;
+  z-index: 1001; /* Above hamburger menu */
+}
+
+.navbarLogo a {
+  color: var(--primary-yellow);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbarLogo a:hover {
+  color: var(--primary-yellow-dark);
+}
+
+/* Navigation Menu */
+.navMenu {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+  align-items: center;
+}
+
+.navItem {
+  margin: 0;
+}
+
+.navItem a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--primary-yellow) !important;
+}
+
+.navItem a:hover {
+  color: var(--primary-yellow-dark) !important;
+  transition: all 0.3s;
+}
+
+/* Desktop Auth Buttons - Hidden on mobile */
+.authButtonsDesktop {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.signInBtn {
+  background: none;
+  border: 1px solid #007bff;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.signInBtn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.signUpBtn {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.signUpBtn:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Hide desktop nav items in desktop view */
+.navItemDesktop {
+  display: none;
+}
+
+/* Hamburger Menu - Hidden on desktop */
+.hamburgerMenu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburgerLine {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Mobile Styles (max-width: 719px) */
+@media screen and (max-width: 719px) {
+  .navbarContainer {
+    padding: 12px 0;
+  }
+
+  .navbarLogo {
+    font-size: 1.3rem;
+  }
+
+  /* Show hamburger menu */
+  .hamburgerMenu {
+    display: flex;
+  }
+
+  /* Hamburger animation when open */
+  .hamburgerMenu.open .hamburgerLine:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .hamburgerMenu.open .hamburgerLine:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburgerMenu.open .hamburgerLine:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* Mobile navigation menu */
+  .navMenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 80px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .navMenu.active {
+    right: 0;
+  }
+
+  .navList {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  .navItem {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+
+  .navItem:last-child {
+    border-bottom: none;
+  }
+
+  .navItem a {
+    display: block;
+    padding: 15px 20px;
+    width: 100%;
+  }
+
+  /* Show auth buttons in mobile menu */
+  .navItemDesktop {
+    display: block;
+  }
+
+  .navItemDesktop button {
+    width: 80%;
+    margin: 15px auto;
+    padding: 12px 20px;
+  }
+
+  /* Hide desktop auth buttons */
+  .authButtonsDesktop {
+    display: none;
+  }
+
+  /* Mobile overlay when menu is open */
+  .navMenu.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}
+
+/* Tablet Styles (720px - 1024px) */
+@media screen and (min-width: 720px) and (max-width: 1024px) {
+  .navbarContainer {
+    padding: 12px 20px;
+  }
+
+  .navList {
+    gap: 20px;
+  }
+
+  .authButtonsDesktop {
+    gap: 10px;
+  }
+
+  .signInBtn,
+  .signUpBtn {
+    padding: 8px 15px;
+  }
+}
+
+/* Desktop Styles (min-width: 720px) */
+@media screen and (min-width: 720px) {
+  .navMenu {
+    justify-content: flex-start;
+    margin-left: 40px;
+  }
+
+  .navList {
+    justify-content: flex-start;
+    gap: 25px;
+  }
+
+  .authButtonsDesktop {
+    margin-left: auto;
+  }
+}
+
+/* User welcome text */
+.welcomeText {
+  color: var(--primary-yellow-dark);
+  margin-right: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+/* Profile button */
+.profileBtn {
+  background-color: #6c757d;
+  border: 1px solid #6c757d;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.profileBtn:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* Sign out button */
+.signOutBtn {
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.signOutBtn:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* Mobile-specific nav items */
+.navItemMobile {
+  display: none;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 719px) {
+  .navItemMobile {
+    display: block;
+  }
+
+  .navItemMobile button {
+    width: 80%;
+    margin: 10px auto;
+  }
+
+  .welcomeText {
+    display: none; /* Hide welcome text on mobile */
+  }
+}

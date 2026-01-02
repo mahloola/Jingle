@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import '../style/resultMessage.css';
-import { GameState, GameStatus } from '../types/jingle';
+import { GameStatus, SoloGameState } from '../types/jingle';
 import { loadPersonalStatsFromBrowser } from '../utils/browserUtil';
 
 interface ResultMessageProps {
-  gameState: GameState;
+  gameState: SoloGameState;
 }
 
 export default function RoundResult({ gameState }: ResultMessageProps) {

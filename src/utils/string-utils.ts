@@ -1,5 +1,3 @@
-import { MAX_MIN_HISTORY_COLORS } from '../constants/defaults';
-
 export const decodeHTML = (encodedString: string) => {
   const parser = new DOMParser();
   return parser.parseFromString(encodedString, 'text/html').body.textContent;
@@ -43,15 +41,22 @@ export const formatTimeTaken = (timeTaken: string | number | undefined): string 
   return '--:--';
 };
 
-export const calcDailyAvgColor = (val: number): string => {
-  const [max, min] = MAX_MIN_HISTORY_COLORS;
+export const calcGradientColor = ({
+  val,
+  min,
+  max,
+}: {
+  val: number;
+  min: number;
+  max: number;
+}): string => {
   const normalized = Math.min(Math.max((val - min) / (max - min), 0), 1);
 
   // RGB values for our gradient stops
   const colors = [
-    { r: 255, g: 0, b: 0 },
+    { r: 200, g: 0, b: 0 },
     { r: 237, g: 253, b: 7 }, // Yellow at 0.5
-    { r: 0, g: 255, b: 0 },
+    { r: 0, g: 200, b: 0 },
   ];
 
   let r, g, b;

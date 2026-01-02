@@ -12,9 +12,9 @@ import useGameLogic from '../hooks/useGameLogic';
 import {
   DailyChallenge,
   GameSettings,
-  GameState,
   GameStatus,
   Page,
+  SoloGameState,
   UserPreferences,
 } from '../types/jingle';
 import {
@@ -54,13 +54,13 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const [initialized, setInitialized] = useState(false);
   useEffect(() => setInitialized(true), []);
 
-  const initialGameState: GameState = (() => {
+  const initialGameState: SoloGameState = (() => {
     return loadGameStateFromBrowser(jingleNumber, dailyChallenge);
   })();
   const jingle = useGameLogic(initialGameState);
   const gameState = jingle.gameState;
 
-  const saveGameState = (gameState: GameState) => {
+  const saveGameState = (gameState: SoloGameState) => {
     if (!gameState) {
       throw new Error('trying to save undefined game state');
     }
@@ -78,7 +78,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const confirmGuess = (latestGameState?: GameState) => {
+  const confirmGuess = (latestGameState?: SoloGameState) => {
     const gameState = jingle.confirmGuess(latestGameState);
     saveGameState(gameState);
 
