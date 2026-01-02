@@ -3,7 +3,7 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 0 20px;
   position: fixed;
-  top: 20px;
+  top: 10px;
   width: 70%;
   color: var(--primary-yellow) !important;
   z-index: 1000;
@@ -22,8 +22,8 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 15px 0;
+  margin: 0px auto;
+  padding: 8px 0;
   position: relative;
 }
 

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { match } from 'ts-pattern';
 import { useAuth } from '../../AuthContext';
 import { confirmGuess, leaveLobby, placePin, startLobby } from '../../data/jingle-api';
-import { useLobby } from '../../hooks/useLobbyState';
+import { useLobbyWebSocket } from '../../hooks/useLobbyWebSocket';
 import { ClickedPosition, MultiLobbyStatus, NavigationState, Player } from '../../types/jingle';
 import { assertLobbyAndUser } from '../../utils/assert';
 import { loadPreferencesFromBrowser, sanitizePreferences } from '../../utils/browserUtil';
@@ -13,7 +13,6 @@ import { playSong } from '../../utils/playSong';
 import { calcGradientColor } from '../../utils/string-utils';
 import AudioControlsMulti from '../AudioControlsMulti';
 import Footer from '../Footer';
-import { MultiCountdown } from '../MultiCountdown';
 import RunescapeMapMultiWrapper from '../RunescapeMapMulti';
 import HistoryModalButton from '../side-menu/HistoryModalButton';
 import HomeButton from '../side-menu/HomeButton';
@@ -28,13 +27,14 @@ const songService: SongService = SongService.Instance();
 
 export default function MultiplayerLobby() {
   const { lobbyId } = useParams<{ lobbyId: string }>();
+  console.log(`Lobby ID: ${lobbyId}`);
+  const { lobby, timeLeft, socket } = useLobbyWebSocket(lobbyId);
   const { currentUser } = useAuth();
   const currentUserId = currentUser?.uid;
 
   const [score, setScore] = useState(0);
 
   // this will be updated every 1 SECOND via polling
-  const lobby = useLobby(lobbyId);
   const lobbyState = lobby?.gameState;
 
   // this is for playing the song
@@ -128,11 +128,7 @@ export default function MultiplayerLobby() {
               <h2>{lobby.name}</h2>
               {lobby.players?.length > 1 ? `${lobby.players?.length} Players` : null}
               <div className={styles.status}>{lobby.gameState.status}</div>
-              {lobby.gameState?.currentPhaseEndTime && (
-                <h2>
-                  <MultiCountdown targetDate={new Date(lobby.gameState?.currentPhaseEndTime)} />
-                </h2>
-              )}
+              {lobby.gameState?.currentPhaseEndTime && <h2>{timeLeft}</h2>}
             </div>
             {lobby.players.map((player: Player) => {
               const playerScore = lobby.gameState.currentRound.results.find(
