@@ -32,9 +32,6 @@ export default function MultiplayerLobby() {
   const { currentUser } = useAuth();
   const currentUserId = currentUser?.uid;
 
-  const [score, setScore] = useState(0);
-
-  // this will be updated every 1 SECOND via polling
   const lobbyState = lobby?.gameState;
 
   // this is for playing the song
