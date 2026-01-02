@@ -115,6 +115,7 @@ export interface MultiRound {
     userId: string;
     details: {
       clickedPosition: ClickedPosition;
+      distance: number;
       confirmed: boolean;
     };
   }>;

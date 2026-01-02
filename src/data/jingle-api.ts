@@ -83,13 +83,15 @@ export async function placePin({
   lobbyId,
   token,
   clickedPosition,
+  distance,
 }: {
   lobbyId: string;
   token: string;
   clickedPosition: ClickedPosition;
+  distance: number;
 }) {
   if (!lobbyId) return;
-  return await post(`/api/lobbies/${lobbyId}/placePin`, { clickedPosition }, token);
+  return await post(`/api/lobbies/${lobbyId}/placePin`, { clickedPosition, distance }, token);
 }
 
 export async function confirmGuess({ lobbyId, token }: { lobbyId: string; token: string }) {

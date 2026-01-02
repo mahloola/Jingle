@@ -5,9 +5,10 @@ import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import useSWR from 'swr';
 import { ASSETS } from '../../constants/assets';
+import { MAX_MIN_HISTORY_COLORS } from '../../constants/defaults';
 import { getAverages } from '../../data/jingle-api';
 import '../../style/modal.css';
-import { calcDailyAvgColor } from '../../utils/string-utils';
+import { calcGradientColor } from '../../utils/string-utils';
 import Modal from '../Modal';
 import IconButton from './IconButton';
 
@@ -43,6 +44,7 @@ const HistoryModalButton = () => {
     });
   };
 
+  const [max, min] = MAX_MIN_HISTORY_COLORS;
   return (
     <div>
       <IconButton
@@ -144,7 +146,7 @@ const HistoryModalButton = () => {
                           <Chip
                             size='small'
                             label={`👤 ${score ?? 'N/A'}`}
-                            style={{ color: calcDailyAvgColor(score) }}
+                            style={{ color: calcGradientColor({ val: score, min, max }) }}
                           />
                         )}
                       </td>
@@ -164,7 +166,7 @@ const HistoryModalButton = () => {
                           <Chip
                             size='small'
                             label={`🌍 ${dailyAvg || '-'}`}
-                            style={{ color: calcDailyAvgColor(dailyAvg) }}
+                            style={{ color: calcGradientColor({ val: score, min, max }) }}
                           />
                         )}
                       </td>

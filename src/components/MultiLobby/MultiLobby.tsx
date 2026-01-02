@@ -8,7 +8,9 @@ import { ClickedPosition, MultiLobbyStatus, NavigationState, Player } from '../.
 import { assertLobbyAndUser } from '../../utils/assert';
 import { loadPreferencesFromBrowser, sanitizePreferences } from '../../utils/browserUtil';
 import { SongService } from '../../utils/getRandomSong';
+import { findNearestPolygonWhereSongPlays } from '../../utils/map-utils';
 import { playSong } from '../../utils/playSong';
+import { calcGradientColor } from '../../utils/string-utils';
 import AudioControlsMulti from '../AudioControlsMulti';
 import Footer from '../Footer';
 import { MultiCountdown } from '../MultiCountdown';
@@ -73,6 +75,7 @@ export default function MultiplayerLobby() {
   }, [lobbyState.status /* other dependencies */]);
 
   const handlePlacePin = async (clickedPosition: ClickedPosition) => {
+    if (guessConfirmed) return;
     if (lobby.gameState.status !== MultiLobbyStatus.Playing) {
       return;
     }
@@ -83,7 +86,12 @@ export default function MultiplayerLobby() {
 
     const { lobbyId: id, token } = await assertLobbyAndUser({ lobbyId: lobbyId, currentUser });
 
-    placePin({ lobbyId: id, token, clickedPosition });
+    const { distance } = findNearestPolygonWhereSongPlays(
+      lobbyState.currentRound.songName,
+      clickedPosition,
+    );
+
+    placePin({ lobbyId: id, token, clickedPosition, distance });
   };
 
   const handleConfirmGuess = async () => {
@@ -135,30 +143,60 @@ export default function MultiplayerLobby() {
                   key={player?.id}
                   className={`osrs-frame ${styles.playerContainer}`}
                 >
-                  <h3 className={styles.playerRank}>#1</h3>
-                  {player?.avatarUrl ? (
-                    <img
-                      src={player?.avatarUrl}
-                      alt='player-picture'
-                      className={styles.playerPicture}
-                    />
+                  {lobbyState.status === MultiLobbyStatus.Revealing ? (
+                    <div className={styles.playerContainerSimple}>
+                      {player?.avatarUrl ? (
+                        <img
+                          src={player?.avatarUrl}
+                          alt='player-picture'
+                          className={styles.playerPicture}
+                        />
+                      ) : (
+                        <img
+                          src={
+                            'https://i.pinimg.com/474x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg'
+                          }
+                          alt='player-picture'
+                          className={styles.playerPicture}
+                        />
+                      )}
+                      <h1
+                        className={styles.playerScore}
+                        style={{
+                          color: calcGradientColor({ val: playerScore ?? 0, min: -300, max: 1000 }),
+                        }}
+                      >
+                        {playerScore ? `+${playerScore}` : '-'}
+                      </h1>
+                    </div>
                   ) : (
-                    <img
-                      src={
-                        'https://i.pinimg.com/474x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg'
-                      }
-                      alt='player-picture'
-                      className={styles.playerPicture}
-                    />
+                    <div className={styles.playerContainerDetails}>
+                      {/* <h3 className={styles.playerRank}>#1</h3> */}
+                      {player?.avatarUrl ? (
+                        <img
+                          src={player?.avatarUrl}
+                          alt='player-picture'
+                          className={styles.playerPicture}
+                        />
+                      ) : (
+                        <img
+                          src={
+                            'https://i.pinimg.com/474x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg'
+                          }
+                          alt='player-picture'
+                          className={styles.playerPicture}
+                        />
+                      )}
+                      <span className={styles.playerInfo}>
+                        {player?.username}
+                        <br />
+                        {lobby.gameState.status === MultiLobbyStatus.Revealing && playerScore
+                          ? playerScore
+                          : '---'}{' '}
+                        Points
+                      </span>
+                    </div>
                   )}
-                  <span className={styles.playerInfo}>
-                    {player?.username}
-                    <br />
-                    {lobby.gameState.status === MultiLobbyStatus.Revealing && playerScore
-                      ? playerScore
-                      : '---'}{' '}
-                    Points
-                  </span>
                 </div>
               );
             })}
@@ -180,7 +218,7 @@ export default function MultiplayerLobby() {
               .with(MultiLobbyStatus.Playing, () => (
                 <Button
                   classes={'guess-btn'}
-                  label={guessConfirmed ? 'Waiting for others...' : 'Confirm Guess'}
+                  label={guessConfirmed ? 'Confirmed' : 'Confirm Guess'}
                   onClick={handleConfirmGuess}
                   disabled={guessConfirmed}
                 />
