@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { match } from 'ts-pattern';
 import { useAuth } from '../../AuthContext';
 import { confirmGuess, leaveLobby, placePin, startLobby } from '../../data/jingle-api';
-import { useLobby } from '../../hooks/useLobbyState';
+import { useLobbyWebSocket } from '../../hooks/useLobbyWebSocket';
 import { ClickedPosition, MultiLobbyStatus, NavigationState, Player } from '../../types/jingle';
 import { assertLobbyAndUser } from '../../utils/assert';
 import { loadPreferencesFromBrowser, sanitizePreferences } from '../../utils/browserUtil';
@@ -13,7 +13,6 @@ import { playSong } from '../../utils/playSong';
 import { calcGradientColor } from '../../utils/string-utils';
 import AudioControlsMulti from '../AudioControlsMulti';
 import Footer from '../Footer';
-import { MultiCountdown } from '../MultiCountdown';
 import RunescapeMapMultiWrapper from '../RunescapeMapMulti';
 import HistoryModalButton from '../side-menu/HistoryModalButton';
 import HomeButton from '../side-menu/HomeButton';
@@ -28,13 +27,14 @@ const songService: SongService = SongService.Instance();
 
 export default function MultiplayerLobby() {
   const { lobbyId } = useParams<{ lobbyId: string }>();
+  console.log(`Lobby ID: ${lobbyId}`);
+  const { lobby, timeLeft, socket } = useLobbyWebSocket(lobbyId);
   const { currentUser } = useAuth();
   const currentUserId = currentUser?.uid;
 
   const [score, setScore] = useState(0);
 
   // this will be updated every 1 SECOND via polling
-  const lobby = useLobby(lobbyId);
   const lobbyState = lobby?.gameState;
 
   // this is for playing the song
@@ -48,8 +48,6 @@ export default function MultiplayerLobby() {
     navigationStack: [],
   });
 
-  if (!lobby || !lobbyState || !currentUser) throw Error("Couldn't load lobby or lobby state.");
-
   const navigate = useNavigate();
   // just for hard mode
   const currentPreferences = loadPreferencesFromBrowser();
@@ -57,7 +55,7 @@ export default function MultiplayerLobby() {
   const audioRef = useRef<HTMLAudioElement>(null);
   useEffect(() => {
     const wasPlaying = prevStatusRef.current === MultiLobbyStatus.Playing;
-    const isPlaying = lobbyState.status === MultiLobbyStatus.Playing;
+    const isPlaying = lobbyState?.status === MultiLobbyStatus.Playing;
 
     // Only run if status CHANGED to Playing
     if (!wasPlaying && isPlaying) {
@@ -66,17 +64,17 @@ export default function MultiplayerLobby() {
         audioRef,
         songName,
         currentPreferences.preferOldAudio,
-        lobby.settings.hardMode ? lobby.settings.hardModeLength : undefined,
+        lobby?.settings.hardMode ? lobby?.settings.hardModeLength : undefined,
       );
     }
     setGuessConfirmed(false);
     // Update the ref for next time
-    prevStatusRef.current = lobbyState.status;
-  }, [lobbyState.status /* other dependencies */]);
+    prevStatusRef.current = lobbyState?.status;
+  }, [lobbyState?.status /* other dependencies */]);
 
   const handlePlacePin = async (clickedPosition: ClickedPosition) => {
     if (guessConfirmed) return;
-    if (lobby.gameState.status !== MultiLobbyStatus.Playing) {
+    if (lobby?.gameState.status !== MultiLobbyStatus.Playing) {
       return;
     }
     setNavigationState((prev) => ({
@@ -84,24 +82,33 @@ export default function MultiplayerLobby() {
       clickedPosition: clickedPosition,
     }));
 
-    const { lobbyId: id, token } = await assertLobbyAndUser({ lobbyId: lobbyId, currentUser });
+    const { lobbyId: id, token } = await assertLobbyAndUser({
+      lobbyId: lobbyId,
+      currentUser: currentUser ?? undefined,
+    });
 
-    const { distance } = findNearestPolygonWhereSongPlays(
-      lobbyState.currentRound.songName,
-      clickedPosition,
-    );
+    const distance = lobbyState?.currentRound?.songName
+      ? findNearestPolygonWhereSongPlays(lobbyState?.currentRound?.songName, clickedPosition)
+          .distance
+      : 0;
 
     placePin({ lobbyId: id, token, clickedPosition, distance });
   };
 
   const handleConfirmGuess = async () => {
-    const { lobbyId: id, token } = await assertLobbyAndUser({ lobbyId, currentUser });
+    const { lobbyId: id, token } = await assertLobbyAndUser({
+      lobbyId,
+      currentUser: currentUser ?? undefined,
+    });
     await confirmGuess({ lobbyId: id, token });
     setGuessConfirmed(true);
   };
 
   const handleExitLobby = async () => {
-    const { lobbyId: id, token } = await assertLobbyAndUser({ lobbyId: lobbyId, currentUser });
+    const { lobbyId: id, token } = await assertLobbyAndUser({
+      lobbyId: lobbyId,
+      currentUser: currentUser ?? undefined,
+    });
     try {
       leaveLobby({ lobbyId: id, token });
       navigate('/multiplayer');
@@ -111,13 +118,24 @@ export default function MultiplayerLobby() {
   };
 
   const handleStartGame = async () => {
-    const { lobbyId: id, token } = await assertLobbyAndUser({ lobbyId: lobbyId, currentUser });
+    const { lobbyId: id, token } = await assertLobbyAndUser({
+      lobbyId: lobbyId,
+      currentUser: currentUser ?? undefined,
+    });
     try {
       await startLobby({ lobbyId: id, token });
     } catch (err) {
       console.error('Failed to start lobby: ', err);
     }
   };
+
+  if (!lobbyId || !currentUser) {
+    return <div>Loading authentication...</div>;
+  }
+
+  if (!lobby || !lobbyState) {
+    return <div>Loading lobby data...</div>;
+  }
 
   return (
     <>
@@ -128,11 +146,7 @@ export default function MultiplayerLobby() {
               <h2>{lobby.name}</h2>
               {lobby.players?.length > 1 ? `${lobby.players?.length} Players` : null}
               <div className={styles.status}>{lobby.gameState.status}</div>
-              {lobby.gameState?.currentPhaseEndTime && (
-                <h2>
-                  <MultiCountdown targetDate={new Date(lobby.gameState?.currentPhaseEndTime)} />
-                </h2>
-              )}
+              {lobby.gameState?.currentPhaseEndTime && <h2>{timeLeft}</h2>}
             </div>
             {lobby.players.map((player: Player) => {
               const playerScore = lobby.gameState.currentRound.results.find(
@@ -143,7 +157,7 @@ export default function MultiplayerLobby() {
                   key={player?.id}
                   className={`osrs-frame ${styles.playerContainer}`}
                 >
-                  {lobbyState.status === MultiLobbyStatus.Revealing ? (
+                  {lobbyState?.status === MultiLobbyStatus.Revealing ? (
                     <div className={styles.playerContainerSimple}>
                       {player?.avatarUrl ? (
                         <img

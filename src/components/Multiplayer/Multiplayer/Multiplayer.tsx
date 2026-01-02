@@ -1,3 +1,4 @@
+import Chip from '@mui/material/Chip';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useSWR from 'swr';
@@ -106,9 +107,9 @@ const Multiplayer = () => {
           <thead>
             <tr>
               <th>Lobby Name</th>
-              <th>Surface</th>
-              <th>Underground</th>
-              <th>Hard Mode</th>
+              <th>{null}</th>
+              <th>{null}</th>
+              <th>{null}</th>
               <th>Regions</th>
             </tr>
           </thead>
@@ -124,13 +125,31 @@ const Multiplayer = () => {
                       classes='multiplayerBtn'
                     ></Button>
                   </td>
-                  <td>{lobby.settings?.hardMode ? 'Hard Mode On' : 'Hard Mode Off'}</td>
-                  <td>{lobby.settings?.surfaceSelected ? 'Surface On' : 'Surface Off'}</td>
                   <td>
-                    {lobby.settings?.undergroundSelected ? 'Underground On' : 'Underground Off'}
+                    {lobby.settings?.hardMode ? (
+                      <Chip
+                        size='medium'
+                        label={`Hard Mode`}
+                      />
+                    ) : null}
                   </td>
-                  <td>{lobby.settings?.hardMode ? 'Hard Mode On' : 'Hard Mode Off'}</td>
-                  <td>{Object.keys(lobby.settings?.regions)}</td>
+                  <td>
+                    {lobby.settings?.undergroundSelected &&
+                    lobby.settings?.surfaceSelected ? null : lobby.settings?.undergroundSelected ? (
+                      <Chip
+                        size='medium'
+                        label={`Underground`}
+                      />
+                    ) : (
+                      <Chip
+                        size='medium'
+                        label={`Surface`}
+                      />
+                    )}
+                  </td>
+                  <td style={{ display: 'flex', width: '250%' }}>
+                    {Object.keys(lobby.settings?.regions).join(', ')}
+                  </td>
                 </tr>
               );
             })}
