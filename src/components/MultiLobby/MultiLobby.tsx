@@ -38,6 +38,9 @@ export default function MultiplayerLobby() {
   const currentUserId = currentUser?.uid;
   const { lobbyId } = useParams<{ lobbyId: string }>();
 
+  // this is just to force the timer to show up instantly
+  const [showTimer, setShowTimer] = useState(false);
+
   const { lobby, timeLeft, socket } = useLobbyWebSocket(lobbyId);
 
   const userInLobby = lobby?.players?.find((player) => player.id === currentUserId);
@@ -134,6 +137,7 @@ export default function MultiplayerLobby() {
     });
     try {
       await startLobby({ lobbyId: id, token });
+      setShowTimer(true);
     } catch (err) {
       console.error('Failed to start lobby: ', err);
     }
@@ -155,8 +159,12 @@ export default function MultiplayerLobby() {
             <div className={`osrs-frame ${styles.lobbyInfo}`}>
               <h2>{lobby.name}</h2>
               {lobby.players?.length > 1 ? `${lobby.players?.length} Players` : null}
-              <div className={styles.status}>{lobby.gameState.status}</div>
-              {lobby.gameState?.currentPhaseEndTime && <h2>{timeLeft}</h2>}
+              <div className={styles.status}>
+                {lobby.gameState.status === MultiLobbyStatus.Revealing
+                  ? 'Next song in...'
+                  : lobby.gameState.status}
+              </div>
+              {lobby.gameState?.currentPhaseEndTime && showTimer ? <h2>{timeLeft}</h2> : null}
             </div>
             {lobby.players.map((player: Player) => {
               const playerScore = lobby.gameState.currentRound.results.find(

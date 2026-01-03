@@ -7,7 +7,9 @@ const socket = io(apiHost);
 
 export function useLobbyWebSocket(lobbyId: string | undefined) {
   const [lobby, setLobby] = useState<MultiLobby | undefined>();
-  const [timeLeft, setTimeLeft] = useState<number | null>(null);
+  const [timeLeft, setTimeLeft] = useState<number | null | undefined>(
+    lobby?.settings.roundTimeSeconds,
+  );
   const [isConnected, setIsConnected] = useState(socket.connected);
 
   useEffect(() => {
