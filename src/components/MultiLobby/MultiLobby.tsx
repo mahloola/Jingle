@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { match } from 'ts-pattern';
 import { useAuth } from '../../AuthContext';
 import { DEFAULT_PFP_URL } from '../../constants/defaults';
-import { confirmGuess, joinLobby, leaveLobby, placePin, startLobby } from '../../data/jingle-api';
+import { confirmGuess, joinLobby, leaveLobby, startLobby } from '../../data/jingle-api';
 import { useLobbyWebSocket } from '../../hooks/useLobbyWebSocket';
 import { ClickedPosition, MultiLobbyStatus, NavigationState, Player } from '../../types/jingle';
 import { assertLobbyAndUser } from '../../utils/assert';
@@ -102,7 +102,7 @@ export default function MultiplayerLobby() {
           .distance
       : 0;
 
-    placePin({ lobbyId: id, token, clickedPosition, distance });
+    socket.emit('place-pin', { lobbyId: id, currentUserId, clickedPosition, distance });
   };
 
   const handleConfirmGuess = async () => {

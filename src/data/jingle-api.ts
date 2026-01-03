@@ -1,5 +1,4 @@
 import {
-  ClickedPosition,
   DailyChallenge,
   LobbySettings,
   MultiGameState,
@@ -77,21 +76,6 @@ export async function leaveLobby({ lobbyId, token }: { lobbyId: string; token: s
 export async function startLobby({ lobbyId, token }: { lobbyId: string; token: string }) {
   if (!lobbyId) return;
   return await post(`/api/lobbies/${lobbyId}/start`, { lobbyId }, token);
-}
-
-export async function placePin({
-  lobbyId,
-  token,
-  clickedPosition,
-  distance,
-}: {
-  lobbyId: string;
-  token: string;
-  clickedPosition: ClickedPosition;
-  distance: number;
-}) {
-  if (!lobbyId) return;
-  return await post(`/api/lobbies/${lobbyId}/placePin`, { clickedPosition, distance }, token);
 }
 
 export async function confirmGuess({ lobbyId, token }: { lobbyId: string; token: string }) {
