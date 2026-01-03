@@ -108,6 +108,12 @@ export interface LobbySettings {
   undergroundSelected: boolean;
   surfaceSelected: boolean;
 }
+export interface LeaderboardEntry {
+  userId: string;
+  score: number;
+  rank: number; // Make rank optional in the type
+}
+
 export interface MultiRound {
   id: string;
   songName: string;
@@ -123,13 +129,13 @@ export interface MultiRound {
     userId: string;
     score: number;
   }>;
-  leaderboard: Array<{ userId: string; score: number; rank: number }>;
 }
 export interface MultiGameState {
   status: MultiLobbyStatus;
   currentRound: MultiRound;
   rounds: MultiRound[];
   currentPhaseEndTime: Date | null;
+  leaderboard: LeaderboardEntry[];
 }
 export enum MultiLobbyStatus {
   Waiting = 'Waiting',

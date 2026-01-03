@@ -6,7 +6,7 @@ import { useAuth } from '../../AuthContext';
 import { DEFAULT_PFP_URL } from '../../constants/defaults';
 import { confirmGuess, joinLobby, leaveLobby, startLobby } from '../../data/jingle-api';
 import { useLobbyWebSocket } from '../../hooks/useLobbyWebSocket';
-import { ClickedPosition, MultiLobbyStatus, NavigationState, Player } from '../../types/jingle';
+import { ClickedPosition, MultiLobbyStatus, NavigationState } from '../../types/jingle';
 import { assertLobbyAndUser } from '../../utils/assert';
 import { loadPreferencesFromBrowser, sanitizePreferences } from '../../utils/browserUtil';
 import { findNearestPolygonWhereSongPlays } from '../../utils/map-utils';
@@ -40,7 +40,7 @@ export default function MultiplayerLobby() {
   const { lobbyId } = useParams<{ lobbyId: string }>();
 
   // this is just to force the timer to show up instantly
-  const [showTimer, setShowTimer] = useState(false);
+  const [showTimer, setShowTimer] = useState(true);
 
   const { lobby, timeLeft, socket } = useLobbyWebSocket(lobbyId);
 
@@ -107,6 +107,7 @@ export default function MultiplayerLobby() {
       : 0;
 
     socket.emit('place-pin', { lobbyId: id, currentUserId, clickedPosition, distance });
+    socket.emit('confirm-pin', { lobbyId: id, currentUserId });
   };
 
   const handleConfirmGuess = async () => {
@@ -151,7 +152,23 @@ export default function MultiplayerLobby() {
   if (!lobby || !lobbyState) {
     return <div>Loading lobby data...</div>;
   }
+  const sortedPlayersWithData = lobby.players
+    .map((player) => {
+      const playerScore = lobby.gameState.currentRound.results.find(
+        (result) => result.userId === player.id,
+      )?.score;
+      const playerLbEntry = lobby.gameState.leaderboard?.find(
+        (lbEntry) => lbEntry.userId === player.id,
+      );
 
+      return {
+        player,
+        score: playerScore,
+        lbEntry: playerLbEntry,
+        rank: playerLbEntry?.rank || Infinity,
+      };
+    })
+    .sort((a, b) => a.rank - b.rank); // Sort by rank
   return (
     <>
       <div className='App-inner'>
@@ -172,68 +189,64 @@ export default function MultiplayerLobby() {
               </div>
               {lobby.gameState?.currentPhaseEndTime && showTimer ? <h2>{timeLeft}</h2> : null}
             </div>
-            {lobby.players.map((player: Player) => {
-              const playerScore = lobby.gameState.currentRound.results.find(
-                (result) => result.userId === player.id,
-              )?.score;
-              return (
-                <div
-                  key={player?.id}
-                  className={`osrs-frame ${styles.playerContainer}`}
-                >
-                  {lobbyState?.status === MultiLobbyStatus.Revealing ? (
-                    <div className={styles.playerContainerSimple}>
-                      {player?.avatarUrl ? (
-                        <img
-                          src={player?.avatarUrl}
-                          alt='player-picture'
-                          className={styles.playerPicture}
-                        />
-                      ) : (
-                        <img
-                          src={DEFAULT_PFP_URL}
-                          alt='player-picture'
-                          className={styles.playerPicture}
-                        />
-                      )}
-                      <h1
-                        className={styles.playerScore}
-                        style={{
-                          color: calcGradientColor({ val: playerScore ?? 0, min: -300, max: 1000 }),
-                        }}
-                      >
-                        {playerScore ? `+${playerScore}` : '-'}
-                      </h1>
-                    </div>
-                  ) : (
-                    <div className={styles.playerContainerDetails}>
-                      {/* <h3 className={styles.playerRank}>#1</h3> */}
-                      {player?.avatarUrl ? (
-                        <img
-                          src={player?.avatarUrl}
-                          alt='player-picture'
-                          className={styles.playerPicture}
-                        />
-                      ) : (
-                        <img
-                          src={DEFAULT_PFP_URL}
-                          alt='player-picture'
-                          className={styles.playerPicture}
-                        />
-                      )}
-                      <span className={styles.playerInfo}>
-                        {player?.username}
-                        <br />
-                        {lobby.gameState.status === MultiLobbyStatus.Revealing && playerScore
-                          ? playerScore
-                          : '---'}{' '}
-                        Points
-                      </span>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+            {sortedPlayersWithData.map(({ player, score, lbEntry }) => (
+              <div
+                key={player.id}
+                className={`osrs-frame ${styles.playerContainer}`}
+              >
+                {lobbyState?.status === MultiLobbyStatus.Revealing ? (
+                  <div className={styles.playerContainerSimple}>
+                    {player?.avatarUrl ? (
+                      <img
+                        src={player.avatarUrl}
+                        alt='player-picture'
+                        className={styles.playerPicture}
+                      />
+                    ) : (
+                      <img
+                        src={DEFAULT_PFP_URL}
+                        alt='player-picture'
+                        className={styles.playerPicture}
+                      />
+                    )}
+                    <h1
+                      className={styles.playerScore}
+                      style={{
+                        color: calcGradientColor({ val: score ?? 0, min: -300, max: 1000 }),
+                      }}
+                    >
+                      {score ? `+${score}` : '-'}
+                    </h1>
+                  </div>
+                ) : (
+                  <div className={styles.playerContainerDetails}>
+                    {/* Show leaderboard rank */}
+                    <h3 className={styles.playerRank}>#{lbEntry?.rank ?? '--'}</h3>
+                    {player?.avatarUrl ? (
+                      <img
+                        src={player.avatarUrl}
+                        alt='player-picture'
+                        className={styles.playerPicture}
+                      />
+                    ) : (
+                      <img
+                        src={DEFAULT_PFP_URL}
+                        alt='player-picture'
+                        className={styles.playerPicture}
+                      />
+                    )}
+                    <span className={styles.playerInfo}>
+                      {player.username}
+                      <br />
+                      {lobby.gameState.status === MultiLobbyStatus.Revealing && score
+                        ? score
+                        : lbEntry?.score ?? '---'}{' '}
+                      Points
+                    </span>
+                  </div>
+                )}
+              </div>
+            ))}
             <Button
               classes={'guess-btn osrs-frame'}
               label='Exit Lobby'

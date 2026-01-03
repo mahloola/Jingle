@@ -104,5 +104,6 @@
   text-align: left;
 }
 .playerRank {
+  min-width: 50px;
   margin: 0;
 }
