@@ -67,7 +67,17 @@
   gap: 10px;
   max-height: 500px;
   overflow-y: scroll;
-  text-shadow: 2px 2px 2px black;
+  text-shadow: 1px 1px 1px black;
+}
+
+.playerUsername {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-shadow: none;
+}
+.playerUsername svg {
+  color: var(--primary-green);
 }
 
 .lobbyInfo {

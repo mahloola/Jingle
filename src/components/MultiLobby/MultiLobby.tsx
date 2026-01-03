@@ -1,10 +1,11 @@
 import { User } from 'firebase/auth';
 import { RefObject, useEffect, useRef, useState } from 'react';
+import { FaCheck } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
 import { match } from 'ts-pattern';
 import { useAuth } from '../../AuthContext';
 import { DEFAULT_PFP_URL } from '../../constants/defaults';
-import { confirmGuess, joinLobby, leaveLobby, startLobby } from '../../data/jingle-api';
+import { joinLobby, leaveLobby, startLobby } from '../../data/jingle-api';
 import { useLobbyWebSocket } from '../../hooks/useLobbyWebSocket';
 import { ClickedPosition, MultiLobbyStatus, NavigationState } from '../../types/jingle';
 import { assertLobbyAndUser } from '../../utils/assert';
@@ -15,6 +16,7 @@ import { calcGradientColor } from '../../utils/string-utils';
 import AudioControlsMulti from '../AudioControlsMulti';
 import Footer from '../Footer';
 import MultiLobbyChat from '../MultiLobbyChat/MultiLobbyChat';
+import RoundResultMulti from '../RoundResultMulti';
 import RunescapeMapMultiWrapper from '../RunescapeMapMulti';
 import HistoryModalButton from '../side-menu/HistoryModalButton';
 import HomeButton from '../side-menu/HomeButton';
@@ -107,7 +109,6 @@ export default function MultiplayerLobby() {
       : 0;
 
     socket.emit('place-pin', { lobbyId: id, currentUserId, clickedPosition, distance });
-    socket.emit('confirm-pin', { lobbyId: id, currentUserId });
   };
 
   const handleConfirmGuess = async () => {
@@ -115,7 +116,7 @@ export default function MultiplayerLobby() {
       lobbyId,
       currentUser: currentUser ?? undefined,
     });
-    await confirmGuess({ lobbyId: id, token });
+    socket.emit('confirm-pin', { lobbyId: id, currentUserId });
     setGuessConfirmed(true);
   };
 
@@ -152,6 +153,7 @@ export default function MultiplayerLobby() {
   if (!lobby || !lobbyState) {
     return <div>Loading lobby data...</div>;
   }
+  const playersConfirmed = new Map<string, boolean>();
   const sortedPlayersWithData = lobby.players
     .map((player) => {
       const playerScore = lobby.gameState.currentRound.results.find(
@@ -160,6 +162,10 @@ export default function MultiplayerLobby() {
       const playerLbEntry = lobby.gameState.leaderboard?.find(
         (lbEntry) => lbEntry.userId === player.id,
       );
+      const playerPin = lobby.gameState.currentRound.pins.find((pin) => pin.userId === player.id);
+      const playerConfirmed = playerPin?.details?.confirmed == true;
+      console.log(lobby.gameState.currentRound.pins);
+      playersConfirmed.set(player.id, playerConfirmed ?? false);
 
       return {
         player,
@@ -169,6 +175,7 @@ export default function MultiplayerLobby() {
       };
     })
     .sort((a, b) => a.rank - b.rank); // Sort by rank
+
   return (
     <>
       <div className='App-inner'>
@@ -236,8 +243,9 @@ export default function MultiplayerLobby() {
                       />
                     )}
                     <span className={styles.playerInfo}>
-                      {player.username}
-                      <br />
+                      <span className={styles.playerUsername}>
+                        {player.username} {playersConfirmed.get(player.id) ? <FaCheck /> : null}
+                      </span>
                       {lobby.gameState.status === MultiLobbyStatus.Revealing && score
                         ? score
                         : lbEntry?.score ?? '---'}{' '}
@@ -321,6 +329,10 @@ export default function MultiplayerLobby() {
         className='above-map'
         ref={goBackButtonRef}
       ></div>
+      <RoundResultMulti
+        multiGameState={lobbyState}
+        userId={currentUserId}
+      />
     </>
   );
 }

@@ -78,11 +78,6 @@ export async function startLobby({ lobbyId, token }: { lobbyId: string; token: s
   return await post(`/api/lobbies/${lobbyId}/start`, { lobbyId }, token);
 }
 
-export async function confirmGuess({ lobbyId, token }: { lobbyId: string; token: string }) {
-  if (!lobbyId) return;
-  return await post(`/api/lobbies/${lobbyId}/confirmGuess`, { lobbyId }, token);
-}
-
 export async function getLobby(id: string | undefined) {
   return await get(`/api/lobbies/${id}`);
 }
