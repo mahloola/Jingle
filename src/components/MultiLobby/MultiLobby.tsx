@@ -3,6 +3,7 @@ import { RefObject, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { match } from 'ts-pattern';
 import { useAuth } from '../../AuthContext';
+import { DEFAULT_PFP_URL } from '../../constants/defaults';
 import { confirmGuess, joinLobby, leaveLobby, placePin, startLobby } from '../../data/jingle-api';
 import { useLobbyWebSocket } from '../../hooks/useLobbyWebSocket';
 import { ClickedPosition, MultiLobbyStatus, NavigationState, Player } from '../../types/jingle';
@@ -176,9 +177,7 @@ export default function MultiplayerLobby() {
                         />
                       ) : (
                         <img
-                          src={
-                            'https://i.pinimg.com/474x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg'
-                          }
+                          src={DEFAULT_PFP_URL}
                           alt='player-picture'
                           className={styles.playerPicture}
                         />
@@ -203,9 +202,7 @@ export default function MultiplayerLobby() {
                         />
                       ) : (
                         <img
-                          src={
-                            'https://i.pinimg.com/474x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg'
-                          }
+                          src={DEFAULT_PFP_URL}
                           alt='player-picture'
                           className={styles.playerPicture}
                         />

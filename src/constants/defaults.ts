@@ -44,4 +44,6 @@ export const DEFAULT_GAME_STATE: SoloGameState = {
   timeTaken: '',
 };
 
+export const DEFAULT_PFP_URL =
+  'https://i.pinimg.com/474x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg';
 export const MULTI_LOBBY_COUNT_LIMIT = 100;

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useSWR from 'swr';
 import { useAuth } from '../../../AuthContext';
-import { MULTI_LOBBY_COUNT_LIMIT } from '../../../constants/defaults';
+import { DEFAULT_PFP_URL, MULTI_LOBBY_COUNT_LIMIT } from '../../../constants/defaults';
 import { createLobby, getLobbies, joinLobby } from '../../../data/jingle-api';
 import { LobbySettings, MultiLobby } from '../../../types/jingle';
 import Navbar from '../../Navbar/Navbar';
@@ -64,7 +64,7 @@ const Multiplayer = () => {
 
   if (!lobbies || lobbies.length === 0 || lobbies == undefined) {
     return (
-      <div className={styles.multiplayerContainer}>
+      <div className={styles.multiplayerContainerEmpty}>
         {createLobbyModalOpen && (
           <CreateLobbyModal
             onClose={() => setCreateLobbyModalOpen(false)}
@@ -83,93 +83,90 @@ const Multiplayer = () => {
   }
 
   return (
-    <div className={styles.multiplayerContainer}>
-      <Navbar />
-      {createLobbyModalOpen && (
-        <CreateLobbyModal
-          onClose={() => setCreateLobbyModalOpen(false)}
-          onCreateLobby={onCreateLobby}
-        />
-      )}
-      <div className={styles.multiplayerTable}>
-        <div className={styles.tableHeader}>
-          <h1>Current Lobbies ({lobbies?.length})</h1>{' '}
-          <Button
-            label='Create Lobby'
-            disabled={(lobbies?.length ?? 0) >= MULTI_LOBBY_COUNT_LIMIT}
-            onClick={() => setCreateLobbyModalOpen(true)}
-            classes='multiplayerBtn'
+    <>
+      <Navbar />{' '}
+      <div className={styles.multiplayerContainer}>
+        {createLobbyModalOpen && (
+          <CreateLobbyModal
+            onClose={() => setCreateLobbyModalOpen(false)}
+            onCreateLobby={onCreateLobby}
           />
+        )}
+        <div className={`osrs-frame ${styles.multiplayerContainer}`}>
+          <div className={styles.header}>
+            {' '}
+            <h1 className={styles.title}>Current Lobbies ({lobbies?.length})</h1>{' '}
+            <Button
+              label='Create Lobby'
+              disabled={(lobbies?.length ?? 0) >= MULTI_LOBBY_COUNT_LIMIT}
+              onClick={() => setCreateLobbyModalOpen(true)}
+              classes='multiplayerBtn'
+            />
+          </div>
+
+          {lobbies?.map((lobby) => {
+            const lobbyOwner = lobby.players.find((player) => player.id === lobby.ownerId);
+            return (
+              <div
+                className={styles.lobbyContainer}
+                onClick={() => onJoinLobby(lobby.id)}
+              >
+                <img
+                  src={lobbyOwner?.avatarUrl ?? DEFAULT_PFP_URL}
+                  className={styles.ownerPfp}
+                />
+
+                <div className={styles.lobbyNameAndPlayerCount}>
+                  <h2 className={styles.lobbyName}>{lobby.name}</h2>
+                  <h4 className={styles.playerCount}>
+                    {lobby.players?.length === 1
+                      ? `${lobby.players?.length} Players`
+                      : `${lobby.players?.length} Players`}
+                  </h4>
+                </div>
+                {lobby.settings?.hardMode ? (
+                  <Chip
+                    size='medium'
+                    color='error'
+                    label={`Hard Mode`}
+                  />
+                ) : (
+                  <Chip
+                    size='medium'
+                    color='success'
+                    label={`Standard Mode`}
+                  />
+                )}
+                {lobby.settings?.undergroundSelected && lobby.settings?.surfaceSelected ? (
+                  <Chip
+                    size='medium'
+                    color='info'
+                    label={`Underground, Surface`}
+                  />
+                ) : lobby.settings?.undergroundSelected ? (
+                  <Chip
+                    size='medium'
+                    color='error'
+                    label={`Underground`}
+                  />
+                ) : (
+                  <Chip
+                    size='medium'
+                    color='success'
+                    label={`Surface`}
+                  />
+                )}
+                <Chip
+                  size='medium'
+                  color='success'
+                  label={Object.keys(lobby.settings?.regions).join(', ')}
+                />
+              </div>
+            );
+          })}
         </div>
-        <table className={`osrs-frame ${styles.multiLobbyTable}`}>
-          <thead>
-            <tr>
-              <th>Lobby Name</th>
-              <th>{null}</th>
-              <th>{null}</th>
-              <th>{null}</th>
-              <th>Regions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {lobbies?.map((lobby) => {
-              return (
-                <tr>
-                  <td>
-                    {lobby.name} &nbsp;&nbsp;
-                    <Button
-                      label={'Join'}
-                      onClick={() => onJoinLobby(lobby.id)}
-                      classes='multiplayerBtn'
-                    ></Button>
-                    {lobby.settings?.hardMode ? (
-                      <Chip
-                        size='medium'
-                        color='error'
-                        label={`Hard Mode`}
-                      />
-                    ) : (
-                      <Chip
-                        size='medium'
-                        color='success'
-                        label={`Regular Mode`}
-                      />
-                    )}
-                    {lobby.settings?.undergroundSelected && lobby.settings?.surfaceSelected ? (
-                      <Chip
-                        size='medium'
-                        color='info'
-                        label={`Underground, Surface`}
-                      />
-                    ) : lobby.settings?.undergroundSelected ? (
-                      <Chip
-                        size='medium'
-                        color='error'
-                        label={`Underground`}
-                      />
-                    ) : (
-                      <Chip
-                        size='medium'
-                        color='success'
-                        label={`Surface`}
-                      />
-                    )}
-                    <Chip
-                      size='medium'
-                      color='success'
-                      label={Object.keys(lobby.settings?.regions).join(', ')}
-                    />
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td style={{ display: 'flex', width: '250%' }}></td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
       </div>
-    </div>
+    </>
   );
 };
 
