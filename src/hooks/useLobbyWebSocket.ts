@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import { MultiLobby } from '../types/jingle';
 
-const socket = io('http://localhost:8080');
+const apiHost = import.meta.env.VITE_API_HOST;
+const socket = io(apiHost);
 
 export function useLobbyWebSocket(lobbyId: string | undefined) {
   const [lobby, setLobby] = useState<MultiLobby | undefined>();
@@ -10,34 +11,27 @@ export function useLobbyWebSocket(lobbyId: string | undefined) {
   const [isConnected, setIsConnected] = useState(socket.connected);
 
   useEffect(() => {
-    console.log('useEffect triggered, lobbyId:', lobbyId);
-
     if (!lobbyId) {
-      console.log('No lobbyId, skipping socket connection');
+      console.error('No lobbyId, skipping socket connection');
     }
 
     socket.emit('join-lobby', lobbyId);
-    console.log('Emitted join-lobby for:', lobbyId);
 
     const handleLobbyUpdate = (updatedLobby: MultiLobby) => {
-      console.log('lobby updated', updatedLobby);
       setLobby(updatedLobby);
     };
 
     const handleTimerUpdate = (data: any) => {
-      console.log('timer updated', data);
       if (data.lobbyId === lobbyId) {
         setTimeLeft(data.timeLeft);
       }
     };
 
     const handleConnect = () => {
-      console.log('Socket connected');
       setIsConnected(true);
     };
 
     const handleDisconnect = () => {
-      console.log('Socket disconnected');
       setIsConnected(false);
     };
 

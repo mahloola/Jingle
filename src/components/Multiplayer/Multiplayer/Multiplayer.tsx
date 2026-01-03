@@ -9,14 +9,13 @@ import { LobbySettings, MultiLobby } from '../../../types/jingle';
 import Navbar from '../../Navbar/Navbar';
 import { Button } from '../../ui-util/Button';
 import CreateLobbyModal from '../CreateLobbyModal';
-import Matchmaking from '../Matchmaking';
 import styles from './Multiplayer.module.css';
 
 const Multiplayer = () => {
   const { currentUser } = useAuth();
   const [createLobbyModalOpen, setCreateLobbyModalOpen] = useState(false);
   const { data: lobbies, mutate: mutateLobbies } = useSWR<MultiLobby[]>(`/api/lobbies`, getLobbies); // todo: only need to fetch x lobby
-  console.log('Current Lobbies: ', lobbies);
+
   const navigate = useNavigate();
 
   const onJoinLobby = async (lobbyId: string) => {
@@ -86,7 +85,6 @@ const Multiplayer = () => {
   return (
     <div className={styles.multiplayerContainer}>
       <Navbar />
-      <Matchmaking />
       {createLobbyModalOpen && (
         <CreateLobbyModal
           onClose={() => setCreateLobbyModalOpen(false)}
@@ -103,7 +101,7 @@ const Multiplayer = () => {
             classes='multiplayerBtn'
           />
         </div>
-        <table className={styles.multiLobbyTable}>
+        <table className={`osrs-frame ${styles.multiLobbyTable}`}>
           <thead>
             <tr>
               <th>Lobby Name</th>
@@ -124,32 +122,47 @@ const Multiplayer = () => {
                       onClick={() => onJoinLobby(lobby.id)}
                       classes='multiplayerBtn'
                     ></Button>
-                  </td>
-                  <td>
                     {lobby.settings?.hardMode ? (
                       <Chip
                         size='medium'
+                        color='error'
                         label={`Hard Mode`}
                       />
-                    ) : null}
-                  </td>
-                  <td>
-                    {lobby.settings?.undergroundSelected &&
-                    lobby.settings?.surfaceSelected ? null : lobby.settings?.undergroundSelected ? (
+                    ) : (
                       <Chip
                         size='medium'
+                        color='success'
+                        label={`Regular Mode`}
+                      />
+                    )}
+                    {lobby.settings?.undergroundSelected && lobby.settings?.surfaceSelected ? (
+                      <Chip
+                        size='medium'
+                        color='success'
+                        label={`Underground, Surface`}
+                      />
+                    ) : lobby.settings?.undergroundSelected ? (
+                      <Chip
+                        size='medium'
+                        color='error'
                         label={`Underground`}
                       />
                     ) : (
                       <Chip
                         size='medium'
+                        color='success'
                         label={`Surface`}
                       />
                     )}
+                    <Chip
+                      size='medium'
+                      color='success'
+                      label={Object.keys(lobby.settings?.regions).join(', ')}
+                    />
                   </td>
-                  <td style={{ display: 'flex', width: '250%' }}>
-                    {Object.keys(lobby.settings?.regions).join(', ')}
-                  </td>
+                  <td></td>
+                  <td></td>
+                  <td style={{ display: 'flex', width: '250%' }}></td>
                 </tr>
               );
             })}

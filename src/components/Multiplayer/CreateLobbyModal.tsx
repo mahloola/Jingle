@@ -51,7 +51,8 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
     });
   };
   const handlePreferencesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
+    const { name, checked, value, type } = e.target;
+
     if (name.startsWith('regions.')) {
       const region = name.split('.')[1] as Region;
       setLobbySettings((prev: LobbySettings) => ({
@@ -64,7 +65,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
     } else {
       setLobbySettings((prev: LobbySettings) => ({
         ...prev,
-        [name]: checked,
+        [name]: type === 'checkbox' ? checked : value,
       }));
     }
   };
@@ -105,7 +106,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
         <Tooltip id='round-time-tooltip' />
       </label>
       <input
-        type='text'
+        type='number'
         placeholder='Seconds per round'
         className='search-bar'
         value={lobbySettings.roundTimeSeconds}
@@ -125,7 +126,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
         <Tooltip id='round-interval-tooltip' />
       </label>
       <input
-        type='text'
+        type='number'
         placeholder='Seconds between rounds (interval)'
         className='search-bar'
         value={lobbySettings.roundIntervalSeconds}
@@ -143,7 +144,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
         type='text'
         placeholder='Leave empty for public lobbies...'
         className='search-bar'
-        value={lobbySettings.password ?? ''}
+        value={lobbySettings.password}
         name='lobbyPassword'
         onChange={(e) => handlePreferencesChange(e)}
         style={{ width: '100%', padding: '5px 10px', borderRadius: '10px', margin: '10px' }}

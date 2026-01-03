@@ -1,13 +1,13 @@
+import { User } from 'firebase/auth';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { match } from 'ts-pattern';
 import { useAuth } from '../../AuthContext';
-import { confirmGuess, leaveLobby, placePin, startLobby } from '../../data/jingle-api';
+import { confirmGuess, joinLobby, leaveLobby, placePin, startLobby } from '../../data/jingle-api';
 import { useLobbyWebSocket } from '../../hooks/useLobbyWebSocket';
 import { ClickedPosition, MultiLobbyStatus, NavigationState, Player } from '../../types/jingle';
 import { assertLobbyAndUser } from '../../utils/assert';
 import { loadPreferencesFromBrowser, sanitizePreferences } from '../../utils/browserUtil';
-import { SongService } from '../../utils/getRandomSong';
 import { findNearestPolygonWhereSongPlays } from '../../utils/map-utils';
 import { playSong } from '../../utils/playSong';
 import { calcGradientColor } from '../../utils/string-utils';
@@ -21,20 +21,29 @@ import StatsModalButton from '../side-menu/StatsModalButton';
 import { Button } from '../ui-util/Button';
 import styles from './MultiLobby.module.css';
 sanitizePreferences();
-const songService: SongService = SongService.Instance();
 
-// starting song list - put outside component so it doesn't re-construct with rerenders
+const enterUserIntoLobby = async (user: User, lobbyId: string) => {
+  const token = await user.getIdToken();
+  joinLobby({ lobbyId, token });
+};
+
+const removeUserFromLobby = async (user: User, lobbyId: string) => {
+  const token = await user.getIdToken();
+  leaveLobby({ lobbyId, token });
+};
 
 export default function MultiplayerLobby() {
-  const { lobbyId } = useParams<{ lobbyId: string }>();
-  console.log(`Lobby ID: ${lobbyId}`);
-  const { lobby, timeLeft, socket } = useLobbyWebSocket(lobbyId);
   const { currentUser } = useAuth();
   const currentUserId = currentUser?.uid;
+  const { lobbyId } = useParams<{ lobbyId: string }>();
 
-  const [score, setScore] = useState(0);
+  const { lobby, timeLeft, socket } = useLobbyWebSocket(lobbyId);
 
-  // this will be updated every 1 SECOND via polling
+  const userInLobby = lobby?.players?.find((player) => player.id === currentUserId);
+  if (!userInLobby && lobby?.settings.password !== '') {
+    if (currentUser && lobbyId) enterUserIntoLobby(currentUser, lobbyId);
+  }
+
   const lobbyState = lobby?.gameState;
 
   // this is for playing the song
