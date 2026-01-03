@@ -27,6 +27,11 @@ const enterUserIntoLobby = async (user: User, lobbyId: string) => {
   joinLobby({ lobbyId, token });
 };
 
+const removeUserFromLobby = async (user: User, lobbyId: string) => {
+  const token = await user.getIdToken();
+  leaveLobby({ lobbyId, token });
+};
+
 export default function MultiplayerLobby() {
   const { currentUser } = useAuth();
   const currentUserId = currentUser?.uid;

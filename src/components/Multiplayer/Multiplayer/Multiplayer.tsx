@@ -101,7 +101,7 @@ const Multiplayer = () => {
             classes='multiplayerBtn'
           />
         </div>
-        <table className={styles.multiLobbyTable}>
+        <table className={`osrs-frame ${styles.multiLobbyTable}`}>
           <thead>
             <tr>
               <th>Lobby Name</th>
@@ -122,32 +122,47 @@ const Multiplayer = () => {
                       onClick={() => onJoinLobby(lobby.id)}
                       classes='multiplayerBtn'
                     ></Button>
-                  </td>
-                  <td>
                     {lobby.settings?.hardMode ? (
                       <Chip
                         size='medium'
+                        color='error'
                         label={`Hard Mode`}
                       />
-                    ) : null}
-                  </td>
-                  <td>
-                    {lobby.settings?.undergroundSelected &&
-                    lobby.settings?.surfaceSelected ? null : lobby.settings?.undergroundSelected ? (
+                    ) : (
                       <Chip
                         size='medium'
+                        color='success'
+                        label={`Regular Mode`}
+                      />
+                    )}
+                    {lobby.settings?.undergroundSelected && lobby.settings?.surfaceSelected ? (
+                      <Chip
+                        size='medium'
+                        color='success'
+                        label={`Underground, Surface`}
+                      />
+                    ) : lobby.settings?.undergroundSelected ? (
+                      <Chip
+                        size='medium'
+                        color='error'
                         label={`Underground`}
                       />
                     ) : (
                       <Chip
                         size='medium'
+                        color='success'
                         label={`Surface`}
                       />
                     )}
+                    <Chip
+                      size='medium'
+                      color='success'
+                      label={Object.keys(lobby.settings?.regions).join(', ')}
+                    />
                   </td>
-                  <td style={{ display: 'flex', width: '250%' }}>
-                    {Object.keys(lobby.settings?.regions).join(', ')}
-                  </td>
+                  <td></td>
+                  <td></td>
+                  <td style={{ display: 'flex', width: '250%' }}></td>
                 </tr>
               );
             })}

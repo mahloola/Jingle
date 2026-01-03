@@ -10,9 +10,11 @@ import {
 } from '../data/jingle-api';
 import useGameLogic from '../hooks/useGameLogic';
 import {
+  ClickedPosition,
   DailyChallenge,
   GameSettings,
   GameStatus,
+  NavigationState,
   Page,
   SoloGameState,
   UserPreferences,
@@ -32,7 +34,7 @@ import AudioControls from './AudioControls';
 import Footer from './Footer';
 import GameOver from './GameOver';
 import RoundResult from './RoundResult';
-import RunescapeMap from './RunescapeMap';
+import RunescapeMapWrapper from './RunescapeMap';
 import HistoryModalButton from './side-menu/HistoryModalButton';
 import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
@@ -49,7 +51,13 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const currentPreferences = loadPreferencesFromBrowser();
   const goBackButtonRef = useRef<HTMLDivElement>(null);
   const [finalPercentile, setFinalPercentile] = useState<number | null>(null);
-
+  const [navigationState, setNavigationState] = useState<NavigationState>({
+    clickedPosition: {
+      xy: [1000, 1000],
+      mapId: 0,
+    },
+    navigationStack: [],
+  });
   // this is to prevent loading the game state from localStorage multiple times
   const [initialized, setInitialized] = useState(false);
   useEffect(() => setInitialized(true), []);
@@ -57,7 +65,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const initialGameState: SoloGameState = (() => {
     return loadGameStateFromBrowser(jingleNumber, dailyChallenge);
   })();
-  const jingle = useGameLogic(initialGameState);
+  const jingle = useGameLogic(initialGameState, navigationState);
   const gameState = jingle.gameState;
 
   const saveGameState = (gameState: SoloGameState) => {
@@ -77,6 +85,17 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleMapClick = (clickedPosition: ClickedPosition) => {
+    const newGameState = jingle.setClickedPosition(clickedPosition);
+    if (!currentPreferences.preferConfirmation) {
+      confirmGuess(newGameState); // confirm immediately
+    }
+    setNavigationState((prev) => ({
+      ...prev,
+      clickedPosition: clickedPosition,
+    }));
+  };
 
   const confirmGuess = (latestGameState?: SoloGameState) => {
     const gameState = jingle.confirmGuess(latestGameState);
@@ -172,7 +191,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
                   return button({
                     label: 'Confirm guess',
                     onClick: () => confirmGuess(),
-                    disabled: !gameState.clickedPosition,
+                    disabled: !navigationState.clickedPosition,
                   });
                 } else {
                   return <div className='osrs-frame guess-btn'>Place your pin on the map</div>;
@@ -213,13 +232,11 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
         </div>
       </div>
 
-      <RunescapeMap
+      <RunescapeMapWrapper
+        navigationState={navigationState}
         gameState={gameState}
         onMapClick={(clickedPosition) => {
-          const newGameState = jingle.setClickedPosition(clickedPosition);
-          if (!currentPreferences.preferConfirmation) {
-            confirmGuess(newGameState); // confirm immediately
-          }
+          handleMapClick(clickedPosition);
         }}
         GoBackButtonRef={goBackButtonRef as RefObject<HTMLElement>}
       />
