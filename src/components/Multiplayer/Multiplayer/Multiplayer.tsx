@@ -64,7 +64,7 @@ const Multiplayer = () => {
 
   if (!lobbies || lobbies.length === 0 || lobbies == undefined) {
     return (
-      <div className={styles.multiplayerContainer}>
+      <div className={styles.multiplayerContainerEmpty}>
         {createLobbyModalOpen && (
           <CreateLobbyModal
             onClose={() => setCreateLobbyModalOpen(false)}

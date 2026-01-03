@@ -64,6 +64,25 @@
   text-shadow: 1px 1px 2px black;
 }
 
+.multiplayerContainerEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgb(44, 44, 44);
+  color: var(--primary-yellow);
+  width: auto;
+  height: auto;
+  gap: 20px;
+  max-height: 100%;
+  padding: 40px;
+  background: transparent;
+
+  animation: fadeIn 1s;
+  text-shadow: 1px 1px 2px black;
+}
+
 .ownerPfp {
   height: 80px;
   width: auto;
