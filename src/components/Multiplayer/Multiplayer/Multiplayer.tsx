@@ -138,7 +138,7 @@ const Multiplayer = () => {
                     {lobby.settings?.undergroundSelected && lobby.settings?.surfaceSelected ? (
                       <Chip
                         size='medium'
-                        color='success'
+                        color='info'
                         label={`Underground, Surface`}
                       />
                     ) : lobby.settings?.undergroundSelected ? (
