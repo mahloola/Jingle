@@ -3,7 +3,7 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 0 20px;
   position: fixed;
-  top: 10px;
+  top: 20px;
   width: 70%;
   color: var(--primary-yellow) !important;
   z-index: 1000;
