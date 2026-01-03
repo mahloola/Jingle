@@ -14,6 +14,7 @@ import { playSong } from '../../utils/playSong';
 import { calcGradientColor } from '../../utils/string-utils';
 import AudioControlsMulti from '../AudioControlsMulti';
 import Footer from '../Footer';
+import MultiLobbyChat from '../MultiLobbyChat/MultiLobbyChat';
 import RunescapeMapMultiWrapper from '../RunescapeMapMulti';
 import HistoryModalButton from '../side-menu/HistoryModalButton';
 import HomeButton from '../side-menu/HomeButton';
@@ -154,6 +155,11 @@ export default function MultiplayerLobby() {
   return (
     <>
       <div className='App-inner'>
+        <MultiLobbyChat
+          socket={socket}
+          lobby={lobby}
+          currentUser={currentUser}
+        />
         <div className='ui-box'>
           <aside className={styles.playersContainer}>
             <div className={`osrs-frame ${styles.lobbyInfo}`}>

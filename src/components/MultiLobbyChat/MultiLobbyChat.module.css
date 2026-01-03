@@ -1,0 +1,174 @@
+/* Chat Container */
+.chatContainer {
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+  width: 320px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10000;
+
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.35);
+}
+
+.chatHeader h3 {
+  margin: 0;
+  color: var(--primary-yellow);
+  font-size: 18px;
+  text-shadow: 2px 2px 1px black;
+}
+
+.chatHeader svg {
+  margin-bottom: 4px;
+  color: #928270;
+  font-size: 0.9em !important;
+  margin-left: 8px;
+}
+.chatHeader svg:hover {
+  margin-bottom: 4px;
+  filter: drop-shadow(0 0 3px #ffffff);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.onlineCount {
+  background: var(--primary-yellow);
+  color: #000;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.chatClosed {
+  min-height: 0px !important;
+  max-height: 0px !important;
+  padding: 0px !important;
+  overflow: hidden; /* Important when height is 0 */
+}
+
+.chatMessages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  max-height: 500px;
+}
+
+.chatMessage {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: #2d2d2d;
+  border-radius: 6px;
+  border-left: 3px solid #ff981f;
+}
+
+.chatMessage.userMessage {
+  background: #1f2d3a;
+  border-left-color: #4a9eff;
+}
+
+.chatMessageHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.chatAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.chatUsername {
+  font-weight: bold;
+  font-size: 18px;
+  color: #ff981f;
+}
+
+.chatMessage.userMessage .chatUsername {
+  color: #4a9eff;
+}
+
+.chatTime {
+  margin-left: auto;
+  font-size: 15px;
+  color: #888;
+}
+
+.chatMessageText {
+  align-items: baseline;
+  text-align: start;
+  margin-left: 48px;
+  color: #ddd;
+  font-size: 18px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.chatInputContainer {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid #444;
+  gap: 8px;
+}
+
+.chatInput {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.chatInput:focus {
+  outline: none;
+  border-color: #ff981f;
+}
+
+.chatSendButton {
+  padding: 8px 16px;
+  background: var(--primary-yellow);
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chatSendButton:hover:not(:disabled) {
+  background: var(--primary-yellow);
+}
+
+.chatSendButton:disabled {
+  background: #666;
+  cursor: not-allowed;
+}
+
+/* Make sure players container doesn't overlap */
+.playersContainer {
+  left: 20px;
+  /* existing styles */
+}
