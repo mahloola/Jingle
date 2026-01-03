@@ -37,18 +37,6 @@ const MultiLobbyChat = ({
 
     const message = chatInput.trim();
 
-    // Optimistically add to local state
-    const optimisticMessage = {
-      id: `temp_${Date.now()}`,
-      userId: currentUser.uid,
-      username: currentUser.displayName || 'Anonymous',
-      avatarUrl: currentUser.photoURL || undefined,
-      message,
-      timestamp: Date.now(),
-    };
-
-    setChatMessages((prev) => [...prev, optimisticMessage]);
-
     // Send via WebSocket
     socket.emit('chat-message', {
       lobbyId,
@@ -113,9 +101,7 @@ const MultiLobbyChat = ({
           </div>
           <div
             ref={chatContainerRef}
-            className={
-              chatOpen ? `${styles.chatMessages}` : `${styles.chatMessages} ${styles.chatClosed}`
-            }
+            className={chatOpen ? `${styles.chatMessages}` : `${styles.chatMessages}`}
           >
             {chatMessages.map((msg) => {
               const isCurrentUser = msg.userId === currentUserId;
