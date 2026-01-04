@@ -101,7 +101,9 @@ const MultiLobbyChat = ({
           </div>
           <div
             ref={chatContainerRef}
-            className={chatOpen ? `${styles.chatMessages}` : `${styles.chatMessages}`}
+            className={
+              chatOpen ? `${styles.chatMessages}` : `${styles.chatMessages} ${styles.chatClosed}`
+            }
           >
             {chatMessages.map((msg) => {
               const isCurrentUser = msg.userId === currentUserId;
