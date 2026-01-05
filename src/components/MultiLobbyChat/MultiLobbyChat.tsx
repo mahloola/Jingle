@@ -1,10 +1,22 @@
 import { User } from 'firebase/auth';
+import {
+  RegExpMatcher,
+  TextCensor,
+  englishDataset,
+  englishRecommendedTransformers,
+} from 'obscenity';
 import { useEffect, useRef, useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import { Socket } from 'socket.io-client';
 import { DEFAULT_PFP_URL } from '../../constants/defaults';
 import { MultiLobby } from '../../types/jingle';
+
 import styles from './MultiLobbyChat.module.css';
+
+enum ProfanityFilterOptions {
+  on = 'on',
+  off = 'off',
+}
 const MultiLobbyChat = ({
   socket,
   lobby,
@@ -14,8 +26,33 @@ const MultiLobbyChat = ({
   lobby: MultiLobby;
   currentUser: User;
 }) => {
+  const profanityFilterPreference = localStorage.getItem('profanityFilter');
+  const [profanityFilterOn, setProfanityFilterOn] = useState(
+    profanityFilterPreference === undefined ||
+      profanityFilterPreference === ProfanityFilterOptions.on,
+  );
+  console.log('RERENDER', profanityFilterOn);
+
   const currentUserId = currentUser?.uid;
   const lobbyId = lobby?.id;
+
+  const handleProfanityFilterToggle = () => {
+    setProfanityFilterOn((prev) => {
+      if (prev === false) {
+        localStorage.setItem('profanityFilter', ProfanityFilterOptions.on);
+        return true;
+      } else {
+        localStorage.setItem('profanityFilter', ProfanityFilterOptions.off);
+        return false;
+      }
+    });
+  };
+
+  const matcher = new RegExpMatcher({
+    ...englishDataset.build(),
+    ...englishRecommendedTransformers,
+  });
+  const censor = new TextCensor();
 
   const [chatMessages, setChatMessages] = useState<
     Array<{
@@ -67,7 +104,12 @@ const MultiLobbyChat = ({
       message: string;
       timestamp: number;
     }) => {
-      console.log('received chat', data);
+      if (profanityFilterOn) {
+        const phrase = data.message;
+        const matches = matcher.getAllMatches(phrase);
+        const censoredText = censor.applyTo(phrase, matches);
+        data.message = censoredText;
+      }
       setChatMessages((prev) => [...prev, data]);
     };
 
@@ -76,7 +118,7 @@ const MultiLobbyChat = ({
     return () => {
       socket.off('chat-message', handleChatMessage);
     };
-  }, [socket, lobbyId]);
+  }, [socket, lobbyId, profanityFilterOn, censor, matcher]);
 
   const toggleChat = () => {
     setChatOpen((prev) => !prev);
@@ -97,7 +139,17 @@ const MultiLobbyChat = ({
                 className={chatOpen ? '' : 'rotated'}
               />
             </h3>
-            <span className={styles.onlineCount}>{lobby?.players?.length || 0} online</span>
+            <span>
+              <span
+                className={`${styles.profanityToggle} ${
+                  profanityFilterOn ? `${styles.profanityToggleOn}` : `${styles.profanityToggleOff}`
+                }`}
+                onClick={handleProfanityFilterToggle}
+              >
+                🤬
+              </span>
+              <span className={styles.onlineCount}>{lobby?.players?.length || 0} online</span>
+            </span>
           </div>
           <div
             ref={chatContainerRef}

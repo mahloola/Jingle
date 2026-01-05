@@ -21,7 +21,6 @@ const Navbar: React.FC = () => {
   const handleSignOut = async () => {
     try {
       await signOut(auth);
-      console.log('signed out');
       closeMenu();
     } catch (error) {
       console.error('Error signing out:', error);

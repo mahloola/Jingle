@@ -26,6 +26,29 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+.profanityToggle {
+  margin-right: 5px;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 10px;
+  min-width: 40px;
+  cursor: pointer;
+  transition: filter 0.3s, background 0.3s, text-decoration 0.3s;
+}
+
+.profanityToggleOn {
+  background: rgba(255, 255, 255, 0.7);
+  text-decoration: line-through;
+}
+
+.profanityToggleOff {
+  background: transparent;
+}
+
+.profanityToggle:hover {
+  filter: brightness(0.8);
+}
+
 .chatHeader h3 {
   margin: 0;
   color: var(--primary-yellow);
@@ -49,7 +72,7 @@
 .onlineCount {
   background: var(--primary-yellow);
   color: #000;
-  padding: 2px 8px;
+  padding: 5px 8px;
   border-radius: 10px;
   font-size: 16px;
 }
@@ -106,7 +129,6 @@
 }
 
 .chatUsername {
-  font-weight: bold;
   font-size: 18px;
   color: #ff981f;
 }
@@ -160,7 +182,6 @@
   color: #000;
   border: none;
   border-radius: 4px;
-  font-weight: bold;
   cursor: pointer;
   transition: background 0.2s;
 }

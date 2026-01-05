@@ -1,5 +1,4 @@
 import geojsondata from '../data/GeoJSON.ts';
-import { groupedLinks } from '../data/map-links.ts';
 import { sanitizeSongName } from '../utils/sanitizeSongName.ts';
 
 const borders = {
@@ -50,7 +49,6 @@ export const filterDungeonOnly = () => {
   return titles;
 };
 const filterRegions = () => {
-  console.log(groupedLinks);
   const features = geojsondata.features;
   const zeahFeatures = new Set();
   features.forEach((feature) => {
@@ -67,7 +65,6 @@ const filterRegions = () => {
       });
     });
   });
-  console.log(zeahFeatures);
 };
 
 function extractSongTitle(htmlString: any) {

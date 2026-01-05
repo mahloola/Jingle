@@ -198,7 +198,6 @@ function RunescapeMapMulti({
       {multiLobby.gameState.status === MultiLobbyStatus.Revealing &&
         multiLobby.gameState.currentRound.pins.map((pin) => {
           const player = multiLobby.players.find((player) => player.id === pin.userId);
-          console.log(player?.avatarUrl);
           return (
             <Marker
               key={player?.id}

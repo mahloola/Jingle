@@ -45,7 +45,6 @@ export function useLobbyWebSocket(lobbyId: string | undefined) {
 
     // cleanup on unmount or when lobbyId changes
     return () => {
-      console.log('Cleaning up socket for lobby:', lobbyId);
       socket.emit('leave-lobby', lobbyId);
       socket.off('connect', handleConnect);
       socket.off('disconnect', handleDisconnect);

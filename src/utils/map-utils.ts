@@ -148,7 +148,6 @@ export const findNearestPolygonWhereSongPlays = (
   const distance = correct
     ? 0
     : getTotalDistanceToPoly(sanitizedClickedPosition, nearestPolgonCoords, songMapId);
-  console.log('distance', distance);
   const featuresData = Array.from(allSongAnswerPolygons.entries()).map(([currMapId, polygons]) => {
     return {
       mapId: currMapId,

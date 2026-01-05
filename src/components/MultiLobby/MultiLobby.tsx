@@ -164,7 +164,6 @@ export default function MultiplayerLobby() {
       );
       const playerPin = lobby.gameState.currentRound.pins.find((pin) => pin.userId === player.id);
       const playerConfirmed = playerPin?.details?.confirmed == true;
-      console.log(lobby.gameState.currentRound.pins);
       playersConfirmed.set(player.id, playerConfirmed ?? false);
 
       return {
