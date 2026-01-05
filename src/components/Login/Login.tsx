@@ -7,7 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from '../../firebase/firebase';
-import styles from './Login.module.css'; // Using the same CSS module
+import styles from './Login.module.css'; // basically identical to register
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -29,11 +29,10 @@ export default function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/'); // Redirect to home after successful login
+      navigate('/');
     } catch (error: any) {
       let errorMessage = 'Login failed';
 
-      // Handle specific Firebase errors
       if (error.code === 'auth/invalid-email') {
         errorMessage = 'Invalid email address';
       } else if (error.code === 'auth/user-disabled') {
@@ -166,6 +165,14 @@ export default function Login() {
           Register here
         </button>
       </div>
+      <button
+        onClick={() => navigate('/')}
+        className={styles.homeButton}
+        type='button'
+        disabled={loading}
+      >
+        Go Back Home
+      </button>
     </div>
   );
 }

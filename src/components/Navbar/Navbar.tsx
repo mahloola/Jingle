@@ -60,34 +60,9 @@ const Navbar: React.FC = () => {
         {/* Navigation Links */}
         <div className={`${styles.navMenu} ${isMenuOpen ? styles.active : ''}`}>
           <ul className={styles.navList}>
-            <li className={styles.navItem}>
-              <a
-                href='/about'
-                onClick={closeMenu}
-              >
-                About
-              </a>
-            </li>
-            <li className={styles.navItem}>
-              <a
-                href='/donate'
-                onClick={closeMenu}
-              >
-                Donate
-              </a>
-            </li>
-
             {/* Conditional Auth Links for Mobile */}
             {userLoggedIn ? (
               <>
-                <li className={`${styles.navItem} ${styles.navItemMobile}`}>
-                  <button
-                    className={styles.profileBtn}
-                    onClick={handleProfileClick}
-                  >
-                    Profile
-                  </button>
-                </li>
                 <li className={`${styles.navItem} ${styles.navItemMobile}`}>
                   <button
                     className={styles.signOutBtn}
@@ -133,12 +108,6 @@ const Navbar: React.FC = () => {
               <span className={styles.welcomeText}>
                 Welcome, {currentUser?.displayName || currentUser?.email?.split('@')[0]}
               </span>
-              <button
-                className={styles.profileBtn}
-                onClick={handleProfileClick}
-              >
-                Profile
-              </button>
               <button
                 className={styles.signOutBtn}
                 onClick={handleSignOut}

@@ -9,12 +9,12 @@
   z-index: 1000;
   text-shadow: 1px 1px 2px black;
 
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .navbarContainer {
@@ -29,7 +29,7 @@
 
 /* Logo */
 .navbarLogo {
-  font-size: 2rem;
+  font-size: 1.7rem;
   text-decoration: none;
   z-index: 1001; /* Above hamburger menu */
 }
@@ -86,33 +86,35 @@
 }
 
 .signInBtn {
-  background: none;
-  border: 1px solid #007bff;
-  padding: 8px 20px;
+  background-color: #356fdc;
+  border: 1px solid #356fdc;
+  color: white;
+  padding: 6px 25px;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 .signInBtn:hover {
-  background-color: #007bff;
-  color: white;
+  filter: brightness(0.9);
 }
 
 .signUpBtn {
-  background-color: #007bff;
-  border: 1px solid #007bff;
+  background-color: #6c757d;
+  border: 1px solid #6c757d;
   color: white;
-  padding: 8px 20px;
+  padding: 6px 25px;
   border-radius: 4px;
-  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 .signUpBtn:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  filter: brightness(0.9);
 }
 
 /* Hide desktop nav items in desktop view */
@@ -281,6 +283,7 @@
 
 /* User welcome text */
 .welcomeText {
+  font-size: 1.2rem;
   color: var(--primary-yellow-dark);
   margin-right: 15px;
   white-space: nowrap;
@@ -289,35 +292,18 @@
   max-width: 150px;
 }
 
-/* Profile button */
-.profileBtn {
-  background-color: #6c757d;
-  border: 1px solid #6c757d;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 4px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-size: 0.9rem;
-}
-
-.profileBtn:hover {
-  background-color: #5a6268;
-  border-color: #545b62;
-}
-
 /* Sign out button */
 .signOutBtn {
   background-color: #dc3545;
   border: 1px solid #dc3545;
   color: white;
-  padding: 8px 15px;
+  padding: 6px 25px;
   border-radius: 4px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 .signOutBtn:hover {
