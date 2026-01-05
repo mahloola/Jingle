@@ -1,12 +1,16 @@
-.loginContainer {
+.registrationContainer {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  color: var(--primary-yellow);
   max-width: 400px;
+  min-width: 370px;
   margin: 50px auto;
   padding: 30px;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   background-color: rgb(218, 218, 218);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
   background: rgba(226, 226, 226, 0.3);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -15,12 +19,15 @@
   border: 1px solid rgba(0, 0, 0, 0.35);
 }
 
-.loginContainer h2 {
+.registrationContainer h2 {
   text-align: center;
-  margin-bottom: 25px;
-  color: #333;
 }
 
+.registrationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .errorMessage {
   background-color: #ffeaea;
   color: #d32f2f;
@@ -30,24 +37,14 @@
   border: 1px solid #ffcdd2;
 }
 
-.loginForm {
-  margin-bottom: 25px;
-}
-
-.formGroup {
-  margin-bottom: 20px;
-}
-
 .formGroup label {
   display: block;
-  margin-bottom: 6px;
-  font-weight: 500;
-  color: #555;
+  margin-bottom: 8px;
 }
 
 .formGroup input {
   width: 100%;
-  padding: 12px;
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
@@ -64,38 +61,36 @@
 .formGroup small {
   display: block;
   margin-top: 5px;
-  color: #666;
   font-size: 0.85rem;
 }
 
 .submitBtn {
   width: 100%;
   padding: 14px;
-  background-color: #007bff;
-  color: white;
+
+  background-color: white;
+  color: #555;
+  border: 1px solid #ddd;
+
   border: none;
   border-radius: 4px;
   font-size: 16px;
-  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 10px;
 }
 
 .submitBtn:hover:not(:disabled) {
-  background-color: #0056b3;
+  background-color: #c1c1c1;
 }
 
 .submitBtn:disabled {
-  background-color: #cccccc;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
 .divider {
   display: flex;
   align-items: center;
-  margin: 25px 0;
-  color: #777;
 }
 
 .divider::before,
@@ -117,7 +112,6 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
-  font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -128,7 +122,7 @@
 }
 
 .googleBtn:hover:not(:disabled) {
-  background-color: #f8f9fa;
+  background-color: #c1c1c1;
 }
 
 .googleBtn:disabled {
@@ -144,42 +138,25 @@
 .loginLink {
   text-align: center;
   margin-bottom: 20px;
-  color: #555;
 }
 
 .linkBtn {
   background: none;
   border: none;
-  color: #007bff;
+  color: white;
   cursor: pointer;
-  font-weight: 500;
   padding: 0;
-  text-decoration: underline;
+  transition: all 0.3s;
 }
 
 .linkBtn:hover {
-  color: #0056b3;
-}
-
-.terms {
-  font-size: 0.85rem;
-  color: #666;
-  text-align: center;
-  line-height: 1.5;
-}
-
-.terms a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.terms a:hover {
-  text-decoration: underline;
+  color: rgb(220, 220, 220);
+  transition: all 0.3s;
 }
 
 /* Responsive design */
 @media (max-width: 480px) {
-  .loginContainer {
+  .registrationContainer {
     margin: 20px;
     padding: 20px;
     border: none;
