@@ -196,65 +196,67 @@ export default function MultiplayerLobby() {
               </div>
               {lobby.gameState?.currentPhaseEndTime && showTimer ? <h2>{timeLeft}</h2> : null}
             </div>
-            {sortedPlayersWithData.map(({ player, score, lbEntry }) => (
-              <div
-                key={player.id}
-                className={`osrs-frame ${styles.playerContainer}`}
-              >
-                {lobbyState?.status === MultiLobbyStatus.Revealing ? (
-                  <div className={styles.playerContainerSimple}>
-                    {player?.avatarUrl ? (
-                      <img
-                        src={player.avatarUrl}
-                        alt='player-picture'
-                        className={styles.playerPicture}
-                      />
-                    ) : (
-                      <img
-                        src={DEFAULT_PFP_URL}
-                        alt='player-picture'
-                        className={styles.playerPicture}
-                      />
-                    )}
-                    <h1
-                      className={styles.playerScore}
-                      style={{
-                        color: calcGradientColor({ val: score ?? 0, min: -300, max: 1000 }),
-                      }}
-                    >
-                      {score ? `+${score}` : '-'}
-                    </h1>
-                  </div>
-                ) : (
-                  <div className={styles.playerContainerDetails}>
-                    {/* Show leaderboard rank */}
-                    <h3 className={styles.playerRank}>#{lbEntry?.rank ?? '--'}</h3>
-                    {player?.avatarUrl ? (
-                      <img
-                        src={player.avatarUrl}
-                        alt='player-picture'
-                        className={styles.playerPicture}
-                      />
-                    ) : (
-                      <img
-                        src={DEFAULT_PFP_URL}
-                        alt='player-picture'
-                        className={styles.playerPicture}
-                      />
-                    )}
-                    <span className={styles.playerInfo}>
-                      <span className={styles.playerUsername}>
-                        {player.username} {playersConfirmed.get(player.id) ? <FaCheck /> : null}
+            <div className={styles.playerList}>
+              {sortedPlayersWithData.map(({ player, score, lbEntry }) => (
+                <div
+                  key={player.id}
+                  className={`osrs-frame ${styles.playerContainer}`}
+                >
+                  {lobbyState?.status === MultiLobbyStatus.Revealing ? (
+                    <div className={styles.playerContainerSimple}>
+                      {player?.avatarUrl ? (
+                        <img
+                          src={player.avatarUrl}
+                          alt='player-picture'
+                          className={styles.playerPicture}
+                        />
+                      ) : (
+                        <img
+                          src={DEFAULT_PFP_URL}
+                          alt='player-picture'
+                          className={styles.playerPicture}
+                        />
+                      )}
+                      <h1
+                        className={styles.playerScore}
+                        style={{
+                          color: calcGradientColor({ val: score ?? 0, min: -300, max: 1000 }),
+                        }}
+                      >
+                        {score ? `+${score}` : '-'}
+                      </h1>
+                    </div>
+                  ) : (
+                    <div className={styles.playerContainerDetails}>
+                      {/* Show leaderboard rank */}
+                      <h3 className={styles.playerRank}>#{lbEntry?.rank ?? '--'}</h3>
+                      {player?.avatarUrl ? (
+                        <img
+                          src={player.avatarUrl}
+                          alt='player-picture'
+                          className={styles.playerPicture}
+                        />
+                      ) : (
+                        <img
+                          src={DEFAULT_PFP_URL}
+                          alt='player-picture'
+                          className={styles.playerPicture}
+                        />
+                      )}
+                      <span className={styles.playerInfo}>
+                        <span className={styles.playerUsername}>
+                          {player.username} {playersConfirmed.get(player.id) ? <FaCheck /> : null}
+                        </span>
+                        {lobby.gameState.status === MultiLobbyStatus.Revealing && score
+                          ? score
+                          : lbEntry?.score ?? '---'}{' '}
+                        Points
                       </span>
-                      {lobby.gameState.status === MultiLobbyStatus.Revealing && score
-                        ? score
-                        : lbEntry?.score ?? '---'}{' '}
-                      Points
-                    </span>
-                  </div>
-                )}
-              </div>
-            ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
             <Button
               classes={'guess-btn osrs-frame'}
               label='Exit Lobby'

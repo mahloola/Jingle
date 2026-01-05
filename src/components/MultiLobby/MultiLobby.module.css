@@ -54,20 +54,27 @@
 
 .playersContainer {
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 150px;
   transform: translate(-50%, -50%);
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
   width: 250px;
+
   gap: 10px;
-  max-height: 500px;
+  z-index: 99999;
+}
+
+.playerList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   overflow-y: scroll;
-  text-shadow: 1px 1px 1px black;
+  scrollbar-width: none;
+  flex: 1;
+  width: 100%;
+  max-height: 470px;
 }
 
 .playerUsername {
@@ -108,8 +115,11 @@
   width: 100%;
 }
 .playerPicture {
+  width: 50px;
   height: 50px;
+  object-fit: cover;
   border-radius: 20px;
+  flex-shrink: 0;
 }
 .playerInfo {
   text-align: left;
