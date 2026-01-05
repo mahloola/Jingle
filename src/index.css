@@ -8,6 +8,11 @@
   --primary-red-light: color-mix(in srgb, var(--primary-red) 90%, white 70%);
 }
 
+html {
+  /* MAKE SURE EVERYTHING IS 1 PAGE TALL */
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',

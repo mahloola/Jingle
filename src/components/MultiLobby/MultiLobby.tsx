@@ -245,7 +245,8 @@ export default function MultiplayerLobby() {
                       )}
                       <span className={styles.playerInfo}>
                         <span className={styles.playerUsername}>
-                          {player.username} {playersConfirmed.get(player.id) ? <FaCheck /> : null}
+                          {player.username} {player.id === lobby.ownerId ? '👑' : null}
+                          {playersConfirmed.get(player.id) ? <FaCheck /> : null}
                         </span>
                         {lobby.gameState.status === MultiLobbyStatus.Revealing && score
                           ? score
@@ -258,7 +259,7 @@ export default function MultiplayerLobby() {
               ))}
             </div>
             <Button
-              classes={'guess-btn osrs-frame'}
+              classes={`${styles.exitLobbyBtn} guess-btn osrs-frame`}
               label='Exit Lobby'
               onClick={handleExitLobby}
             />

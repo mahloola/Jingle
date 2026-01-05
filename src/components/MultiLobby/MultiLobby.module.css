@@ -19,7 +19,7 @@
 
 .playerContainerDetails {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 80px;
   padding: 10px;
@@ -54,13 +54,13 @@
 
 .playersContainer {
   position: absolute;
-  top: 45%;
+  top: 450px;
   left: 150px;
   transform: translate(-50%, -50%);
 
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 270px;
 
   gap: 10px;
   z-index: 99999;
@@ -74,7 +74,7 @@
   scrollbar-width: none;
   flex: 1;
   width: 100%;
-  max-height: 470px;
+  max-height: 450px;
 }
 
 .playerUsername {
@@ -107,7 +107,7 @@
 }
 .playerContainer {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 80px;
   padding: 10px;
@@ -127,4 +127,7 @@
 .playerRank {
   min-width: 50px;
   margin: 0;
+}
+.exitLobbyBtn {
+  min-width: 100%;
 }

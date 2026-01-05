@@ -7,8 +7,8 @@
   width: 60%;
   animation: fadeIn 1s;
   height: 90vh !important;
-  margin-top: 70px;
-  overflow-y: hidden;
+  margin-top: 100px;
+  overflow: hidden;
 }
 .jLetter {
   position: relative;
@@ -41,7 +41,7 @@
 .main-menu-image {
   position: absolute;
   z-index: -99999;
-  width: 70vw;
+  width: 80vw;
 }
 
 .main-menu-text {
@@ -50,6 +50,7 @@
   color: var(--primary-yellow);
   text-shadow: 5px 5px 10px black;
   pointer-events: none;
+  text-wrap: nowrap;
 
   position: relative;
   display: inline-block;
@@ -80,10 +81,11 @@
   filter: brightness(90%);
   text-shadow: 2px 2px 10px black;
   text-decoration: none;
+  transition: all 0.3s;
 }
 
 .main-menu-option:hover {
-  filter: brightness(100%);
+  filter: brightness(70%);
   cursor: pointer;
 }
 
@@ -122,6 +124,9 @@
 }
 
 @media screen and (max-width: 800px) {
+  .main-menu-container {
+    width: 80%;
+  }
   .main-menu-title-options {
     flex-direction: column;
   }
