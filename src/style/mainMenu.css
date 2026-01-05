@@ -8,6 +8,7 @@
   animation: fadeIn 1s;
   height: 90vh !important;
   margin-top: 70px;
+  overflow-y: hidden;
 }
 .jLetter {
   position: relative;

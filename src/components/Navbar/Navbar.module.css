@@ -10,7 +10,7 @@
   text-shadow: 1px 1px 2px black;
 
   background: rgba(255, 255, 255, 0.05);
-  border-radius: px;
+  border-radius: 8px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
@@ -176,21 +176,22 @@
   /* Mobile navigation menu */
   .navMenu {
     position: fixed;
-    top: 0;
-    right: -100%;
+    top: 80px;
+    right: -150%;
     width: 250px;
-    height: 100vh;
-    background-color: white;
+    height: auto;
+    background-color: rgba(255, 255, 255, 1);
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 80px;
+    border-radius: 5px;
     transition: right 0.3s ease-in-out;
     z-index: 1000;
   }
 
   .navMenu.active {
     right: 0;
+    transition: all 0.3s;
   }
 
   .navList {
@@ -239,8 +240,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.2);
     z-index: -1;
+    transition: all 0.3s;
   }
 }
 
