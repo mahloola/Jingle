@@ -75,6 +75,7 @@
   align-items: center;
   justify-content: space-between;
   text-shadow: none;
+  gap: 7px;
 }
 .playerUsername svg {
   color: var(--primary-green);
