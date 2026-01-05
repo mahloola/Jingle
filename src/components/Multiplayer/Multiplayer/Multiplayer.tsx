@@ -1,5 +1,5 @@
 import Chip from '@mui/material/Chip';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useSWR from 'swr';
 import { useAuth } from '../../../AuthContext';
@@ -11,13 +11,24 @@ import { Button } from '../../ui-util/Button';
 import CreateLobbyModal from '../CreateLobbyModal';
 import styles from './Multiplayer.module.css';
 
+// Pagination constants
+const LOBBIES_PER_PAGE = 4;
+
 const Multiplayer = () => {
   const { currentUser } = useAuth();
   const [createLobbyModalOpen, setCreateLobbyModalOpen] = useState(false);
   const [isCreatingLobby, setIsCreatingLobby] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const { data: lobbies, mutate: mutateLobbies } = useSWR<MultiLobby[]>(`/api/lobbies`, getLobbies); // todo: only need to fetch x lobby
 
   const navigate = useNavigate();
+
+  // Calculate pagination values
+  const totalLobbies = lobbies?.length || 0;
+  const totalPages = Math.ceil(totalLobbies / LOBBIES_PER_PAGE);
+  const startIndex = (currentPage - 1) * LOBBIES_PER_PAGE;
+  const endIndex = startIndex + LOBBIES_PER_PAGE;
+  const currentLobbies = lobbies?.slice(startIndex, endIndex) || [];
 
   const onJoinLobby = async (lobbyId: string) => {
     if (!currentUser) {
@@ -82,6 +93,13 @@ const Multiplayer = () => {
     return null;
   };
 
+  // Handle page changes
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Scroll to top when changing pages
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   if (!lobbies || lobbies.length === 0 || lobbies == undefined) {
     return (
       <div className={styles.multiplayerContainerEmpty}>
@@ -115,7 +133,7 @@ const Multiplayer = () => {
         <div className={`osrs-frame ${styles.multiplayerContainer}`}>
           <div className={styles.header}>
             {' '}
-            <h1 className={styles.title}>Current Lobbies ({lobbies?.length})</h1>{' '}
+            <h1 className={styles.title}>Current Lobbies ({totalLobbies})</h1>{' '}
             <Button
               label='Create Lobby'
               disabled={(lobbies?.length ?? 0) >= MULTI_LOBBY_COUNT_LIMIT}
@@ -124,12 +142,13 @@ const Multiplayer = () => {
             />
           </div>
 
-          {lobbies?.map((lobby) => {
+          {currentLobbies.map((lobby) => {
             const lobbyOwner = lobby.players.find((player) => player.id === lobby.ownerId);
             return (
               <div
                 className={styles.lobbyContainer}
                 onClick={() => onJoinLobby(lobby.id)}
+                key={lobby.id}
               >
                 <img
                   src={lobbyOwner?.avatarUrl ?? DEFAULT_PFP_URL}
@@ -140,7 +159,7 @@ const Multiplayer = () => {
                   <h2 className={styles.lobbyName}>{lobby.name}</h2>
                   <h4 className={styles.playerCount}>
                     {lobby.players?.length === 1
-                      ? `${lobby.players?.length} Players`
+                      ? `${lobby.players?.length} Player`
                       : `${lobby.players?.length} Players`}
                   </h4>
                 </div>
@@ -184,6 +203,65 @@ const Multiplayer = () => {
               </div>
             );
           })}
+
+          {/* pagination */}
+          {totalPages > 1 && (
+            <div className={styles.paginationContainer}>
+              <div className={styles.paginationInfo}>
+                Showing {startIndex + 1}-{Math.min(endIndex, totalLobbies)} of {totalLobbies}{' '}
+                lobbies
+              </div>
+
+              <div className={styles.paginationControls}>
+                <button
+                  className={`${styles.pageButton} ${currentPage === 1 ? styles.disabled : ''}`}
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                >
+                  ← Previous
+                </button>
+
+                <div className={styles.pageNumbers}>
+                  {Array.from({ length: totalPages }, (_, i) => i + 1)
+                    .filter((page) => {
+                      // Show first page, last page, current page, and pages around current
+                      if (page === 1 || page === totalPages) return true;
+                      if (page >= currentPage - 1 && page <= currentPage + 1) return true;
+                      return false;
+                    })
+                    .map((page, index, array) => {
+                      // Add ellipsis for skipped pages
+                      const prevPage = array[index - 1];
+                      const showEllipsis = prevPage && page - prevPage > 1;
+
+                      return (
+                        <React.Fragment key={page}>
+                          {showEllipsis && <span className={styles.ellipsis}>...</span>}
+                          <button
+                            className={`${styles.pageButton} ${
+                              currentPage === page ? styles.active : ''
+                            }`}
+                            onClick={() => handlePageChange(page)}
+                          >
+                            {page}
+                          </button>
+                        </React.Fragment>
+                      );
+                    })}
+                </div>
+
+                <button
+                  className={`${styles.pageButton} ${
+                    currentPage === totalPages ? styles.disabled : ''
+                  }`}
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                >
+                  Next →
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>

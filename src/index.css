@@ -4,6 +4,7 @@
   --primary-yellow-light: color-mix(in srgb, var(--primary-yellow) 90%, white 60%);
   --primary-green: #00ff00;
   --primary-red: #ff0000;
+  --primary-blue: #0288d1; /* mui chip color lol */
   --primary-red-light: color-mix(in srgb, var(--primary-red) 90%, white 70%);
 }
 
