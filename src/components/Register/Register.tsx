@@ -85,7 +85,7 @@ export default function Register() {
   };
 
   return (
-    <div className={styles.registrationContainer}>
+    <div className={`${styles.registrationContainer} osrs-frame`}>
       <h2 className={styles.title}>Create Account</h2>
 
       {error && (
@@ -102,30 +102,20 @@ export default function Register() {
         className={styles.registrationForm}
       >
         <div className={styles.formGroup}>
-          <label
-            htmlFor='displayName'
-            className={styles.label}
-          >
-            Display Name (Optional)
-          </label>
+          <label htmlFor='displayName'>Display Name</label>
           <input
             id='displayName'
             type='text'
             placeholder='What should we call you?'
             value={displayName}
+            required
             onChange={(e) => setDisplayName(e.target.value)}
-            maxLength={30}
-            className={styles.input}
+            maxLength={20}
           />
         </div>
 
         <div className={styles.formGroup}>
-          <label
-            htmlFor='email'
-            className={styles.label}
-          >
-            Email *
-          </label>
+          <label htmlFor='email'>Email</label>
           <input
             id='email'
             type='email'
@@ -134,17 +124,11 @@ export default function Register() {
             onChange={(e) => setEmail(e.target.value)}
             required
             autoComplete='email'
-            className={styles.input}
           />
         </div>
 
         <div className={styles.formGroup}>
-          <label
-            htmlFor='password'
-            className={styles.label}
-          >
-            Password *
-          </label>
+          <label htmlFor='password'>Password</label>
           <input
             id='password'
             type='password'
@@ -154,18 +138,11 @@ export default function Register() {
             required
             minLength={6}
             autoComplete='new-password'
-            className={styles.input}
           />
-          <small className={styles.hint}>Must be at least 6 characters</small>
         </div>
 
         <div className={styles.formGroup}>
-          <label
-            htmlFor='confirmPassword'
-            className={styles.label}
-          >
-            Confirm Password *
-          </label>
+          <label htmlFor='confirmPassword'>Confirm Password</label>
           <input
             id='confirmPassword'
             type='password'
@@ -174,7 +151,6 @@ export default function Register() {
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
             autoComplete='new-password'
-            className={styles.input}
           />
         </div>
 
@@ -193,7 +169,7 @@ export default function Register() {
 
       <button
         onClick={handleGoogleSignUp}
-        className={`${styles.googleBtn} ${loading ? styles.disabled : ''}`}
+        className={`${styles.submitBtn} ${loading ? styles.disabled : ''}`}
         disabled={loading}
         type='button'
       >
@@ -230,28 +206,6 @@ export default function Register() {
         >
           Log in here
         </button>
-      </div>
-
-      <div className={styles.terms}>
-        By creating an account, you agree to our{' '}
-        <a
-          href='/terms'
-          target='_blank'
-          rel='noopener noreferrer'
-          className={styles.termsLink}
-        >
-          Terms
-        </a>{' '}
-        and{' '}
-        <a
-          href='/privacy'
-          target='_blank'
-          rel='noopener noreferrer'
-          className={styles.termsLink}
-        >
-          Privacy Policy
-        </a>
-        .
       </div>
     </div>
   );

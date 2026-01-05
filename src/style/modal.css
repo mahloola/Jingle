@@ -163,7 +163,9 @@ th .history-entry-td {
 
 input[type='text'],
 input[type='number'],
-input[type='search'] {
+input[type='search'],
+input[type='password'],
+input[type='email'] {
   padding: 5px;
   padding-left: 5px;
   border-radius: 2px;

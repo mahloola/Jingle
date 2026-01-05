@@ -14,6 +14,7 @@ import styles from './Multiplayer.module.css';
 const Multiplayer = () => {
   const { currentUser } = useAuth();
   const [createLobbyModalOpen, setCreateLobbyModalOpen] = useState(false);
+  const [isCreatingLobby, setIsCreatingLobby] = useState(false);
   const { data: lobbies, mutate: mutateLobbies } = useSWR<MultiLobby[]>(`/api/lobbies`, getLobbies); // todo: only need to fetch x lobby
 
   const navigate = useNavigate();
@@ -43,22 +44,41 @@ const Multiplayer = () => {
       console.error('No user logged in');
       return;
     }
-    const token = await currentUser.getIdToken();
-    if ((lobbies?.length ?? 0) < MULTI_LOBBY_COUNT_LIMIT) {
-      const { lobby: newLobby } = await createLobby({
-        name: lobbyName,
-        settings: lobbySettings,
-        token,
-      });
-      // OPTIMISTIC UPDATE: immediately update UI
-      mutateLobbies([...(lobbies || []), newLobby], false);
 
-      mutateLobbies(); // re-fetch after
-      setCreateLobbyModalOpen(false);
-      navigate(`/multiplayer/${newLobby.id}`);
-    } else {
-      console.error('Lobby count exceeded! Please wait and try again later.');
+    // Prevent multiple simultaneous creations
+    if (isCreatingLobby) {
+      return;
     }
+
+    setIsCreatingLobby(true);
+
+    try {
+      const token = await currentUser.getIdToken();
+
+      if ((lobbies?.length ?? 0) < MULTI_LOBBY_COUNT_LIMIT) {
+        const { lobby: newLobby } = await createLobby({
+          name: lobbyName,
+          settings: lobbySettings,
+          token,
+        });
+
+        // OPTIMISTIC UPDATE: immediately update UI
+        mutateLobbies([...(lobbies || []), newLobby], false);
+
+        mutateLobbies(); // re-fetch after
+        setCreateLobbyModalOpen(false);
+        navigate(`/multiplayer/${newLobby.id}`);
+      } else {
+        console.error('Lobby count exceeded! Please wait and try again later.');
+        // You might want to show this error to the user
+      }
+    } catch (error) {
+      console.error('Failed to create lobby:', error);
+      // Handle error - show error message to user
+    } finally {
+      setIsCreatingLobby(false);
+    }
+
     return null;
   };
 
