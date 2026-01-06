@@ -28,6 +28,9 @@
   position: absolute;
 }
 
+.hidden {
+  visibility: hidden;
+}
 input[type='checkbox'] {
   accent-color: var(--primary-yellow);
   height: 1.1em;

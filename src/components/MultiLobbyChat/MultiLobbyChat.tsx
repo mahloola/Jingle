@@ -11,6 +11,7 @@ import { Socket } from 'socket.io-client';
 import { DEFAULT_PFP_URL } from '../../constants/defaults';
 import { MultiLobby } from '../../types/jingle';
 
+import { Tooltip } from 'react-tooltip';
 import styles from './MultiLobbyChat.module.css';
 
 enum ProfanityFilterOptions {
@@ -145,9 +146,12 @@ const MultiLobbyChat = ({
                   profanityFilterOn ? `${styles.profanityToggleOn}` : `${styles.profanityToggleOff}`
                 }`}
                 onClick={handleProfanityFilterToggle}
+                data-tooltip-id='round-time-tooltip'
+                data-tooltip-content={`Profanity filter ${profanityFilterOn ? 'on' : 'off'}`}
               >
                 🤬
               </span>
+              <Tooltip id='round-time-tooltip' />
               <span className={styles.onlineCount}>{lobby?.players?.length || 0} online</span>
             </span>
           </div>

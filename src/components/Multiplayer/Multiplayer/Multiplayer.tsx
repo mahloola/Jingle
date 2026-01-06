@@ -1,61 +1,114 @@
 import Chip from '@mui/material/Chip';
-import React, { useState } from 'react';
-import { FaLock } from 'react-icons/fa';
+import React, { useMemo, useState } from 'react';
+import { FaChevronDown, FaLock } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import useSWR from 'swr';
 import { useAuth } from '../../../AuthContext';
-import { DEFAULT_PFP_URL, MULTI_LOBBY_COUNT_LIMIT } from '../../../constants/defaults';
+import {
+  DEFAULT_LOBBY_FILTERS,
+  DEFAULT_PFP_URL,
+  MULTI_LOBBY_COUNT_LIMIT,
+} from '../../../constants/defaults';
 import { createLobby, getLobbies, joinLobby } from '../../../data/jingle-api';
-import { LobbySettings, MultiLobby } from '../../../types/jingle';
+import { LobbySettings, MultiLobby, YesNoAll } from '../../../types/jingle';
 import EnterPasswordModal from '../../EnterPasswordModal/EnterPasswordModal';
 import Navbar from '../../Navbar/Navbar';
 import { Button } from '../../ui-util/Button';
 import CreateLobbyModal from '../CreateLobbyModal';
 import styles from './Multiplayer.module.css';
 
-// Pagination constants
 const LOBBIES_PER_PAGE = 4;
-interface LobbyFilters {
-  privacy: boolean;
-}
 
 const Multiplayer = () => {
   const { currentUser } = useAuth();
   const [createLobbyModalOpen, setCreateLobbyModalOpen] = useState(false);
   const [isCreatingLobby, setIsCreatingLobby] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const { data: lobbies, mutate: mutateLobbies } = useSWR<MultiLobby[]>(`/api/lobbies`, getLobbies); // todo: only need to fetch x lobby
-  const [filters, setFilters] = useState({});
+  const { data: lobbies, mutate: mutateLobbies } = useSWR<MultiLobby[]>('/api/lobbies', getLobbies);
+  const [filters, setFilters] = useState(DEFAULT_LOBBY_FILTERS);
   const [activeJoinAttempt, setActiveJoinAttempt] = useState<{
     lobbyId: string;
     modalIsOpen: boolean;
   }>({ lobbyId: '', modalIsOpen: false });
   const [enteredPassword, setEnteredPassword] = useState('');
+  const [isSortedByOldest, setIsSortedByOldest] = useState(false);
   const navigate = useNavigate();
 
-  // Calculate pagination values
-  const totalLobbies = lobbies?.length || 0;
-  const totalPages = Math.ceil(totalLobbies / LOBBIES_PER_PAGE);
+  // 1. apply filters to ALL lobbies
+  const filteredLobbies = useMemo(() => {
+    if (!lobbies) return [];
+
+    return lobbies.filter((lobby) => {
+      if (filters.privateLobbies === YesNoAll.yes && !lobby.settings.hasPassword) return false;
+      if (filters.privateLobbies === YesNoAll.no && lobby.settings.hasPassword) return false;
+      return true;
+    });
+  }, [lobbies, filters]);
+
+  // 2. apply sorting to FILTERED lobbies
+  const sortedLobbies = useMemo(() => {
+    return [...filteredLobbies].sort((a, b) =>
+      isSortedByOldest
+        ? new Date(b.dateCreated).getTime() - new Date(a.dateCreated).getTime()
+        : new Date(a.dateCreated).getTime() - new Date(b.dateCreated).getTime(),
+    );
+  }, [filteredLobbies, isSortedByOldest]);
+
+  // 3. apply pagination to SORTED lobbies
+  const paginatedLobbies = useMemo(() => {
+    const startIndex = (currentPage - 1) * LOBBIES_PER_PAGE;
+    const endIndex = startIndex + LOBBIES_PER_PAGE;
+    return sortedLobbies.slice(startIndex, endIndex);
+  }, [sortedLobbies, currentPage]);
+
+  // 4. calculate totals based on FILTERED lobbies
+  const totalFilteredLobbies = filteredLobbies.length;
+  const totalPages = Math.ceil(totalFilteredLobbies / LOBBIES_PER_PAGE);
   const startIndex = (currentPage - 1) * LOBBIES_PER_PAGE;
-  const endIndex = startIndex + LOBBIES_PER_PAGE;
-  const currentLobbies = lobbies?.slice(startIndex, endIndex) || [];
+  const endIndex = Math.min(startIndex + LOBBIES_PER_PAGE, totalFilteredLobbies);
+
+  const handleChangePrivacy = () => {
+    setFilters((prev) => {
+      switch (prev.privateLobbies) {
+        case YesNoAll.all:
+          return { ...prev, privateLobbies: YesNoAll.no };
+        case YesNoAll.no:
+          return { ...prev, privateLobbies: YesNoAll.yes };
+        case YesNoAll.yes:
+          return { ...prev, privateLobbies: YesNoAll.all };
+        default:
+          return prev;
+      }
+    });
+    // reset to page 1 when filters change
+    setCurrentPage(1);
+  };
 
   const onClosePasswordModal = () => {
     setActiveJoinAttempt({
       lobbyId: '',
       modalIsOpen: false,
     });
+    setEnteredPassword(''); // reset password when closing modal
   };
+
   const onPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const password = e.target.value;
     setEnteredPassword(password);
   };
-  const handleSubmitPassword = async (password: string | undefined) => {
+
+  const handleSubmitPassword = async () => {
     const lobbyId = activeJoinAttempt.lobbyId;
-    if (!password || !lobbyId) {
+    if (!enteredPassword || !lobbyId) {
       return;
     }
-    const res = await onJoinLobby(lobbyId);
+    await onJoinLobby(lobbyId);
+  };
+
+  const handleSortLobbies = () => {
+    setIsSortedByOldest((prev) => !prev);
+    // reset to page 1 when sorting changes
+    setCurrentPage(1);
   };
 
   const onJoinLobby = async (lobbyId: string) => {
@@ -63,20 +116,18 @@ const Multiplayer = () => {
       console.error('No user logged in');
       return;
     }
-    let res;
+
     try {
       const token = await currentUser.getIdToken();
-      res = await joinLobby({ lobbyId, token, password: enteredPassword });
+      await joinLobby({ lobbyId, token, password: enteredPassword });
       navigate(`/multiplayer/${lobbyId}`);
     } catch (error) {
       if (error instanceof Error && 'response' in error) {
         const typedError = error as any;
         if (typedError.response?.status === 401) {
-          setActiveJoinAttempt((prev) => {
-            return {
-              lobbyId,
-              modalIsOpen: true,
-            };
+          setActiveJoinAttempt({
+            lobbyId,
+            modalIsOpen: true,
           });
         }
       }
@@ -98,7 +149,6 @@ const Multiplayer = () => {
       return;
     }
 
-    // Prevent multiple simultaneous creations
     if (isCreatingLobby) {
       return;
     }
@@ -116,19 +166,16 @@ const Multiplayer = () => {
           token,
         });
 
-        // OPTIMISTIC UPDATE: immediately update UI
+        // OPTIMISTIC UPDATE
         mutateLobbies([...(lobbies || []), newLobby], false);
-
         mutateLobbies(); // re-fetch after
         setCreateLobbyModalOpen(false);
         navigate(`/multiplayer/${newLobby.id}`);
       } else {
         console.error('Lobby count exceeded! Please wait and try again later.');
-        // You might want to show this error to the user
       }
     } catch (error) {
       console.error('Failed to create lobby:', error);
-      // Handle error - show error message to user
     } finally {
       setIsCreatingLobby(false);
     }
@@ -136,14 +183,12 @@ const Multiplayer = () => {
     return null;
   };
 
-  // Handle page changes
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    // Scroll to top when changing pages
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  if (!lobbies || lobbies.length === 0 || lobbies == undefined) {
+  if (!lobbies || lobbies.length === 0) {
     return (
       <div className={styles.multiplayerContainerEmpty}>
         {createLobbyModalOpen && (
@@ -165,13 +210,13 @@ const Multiplayer = () => {
 
   return (
     <>
-      <Navbar />{' '}
+      <Navbar />
       <EnterPasswordModal
         open={activeJoinAttempt.modalIsOpen}
         onClose={onClosePasswordModal}
         onPasswordChange={onPasswordChange}
         password={enteredPassword}
-        onSubmit={() => handleSubmitPassword(enteredPassword)}
+        onSubmit={handleSubmitPassword}
       />
       <div className={styles.multiplayerContainer}>
         {createLobbyModalOpen && (
@@ -182,8 +227,7 @@ const Multiplayer = () => {
         )}
         <div className={`osrs-frame ${styles.multiplayerContainer}`}>
           <div className={styles.header}>
-            {' '}
-            <h1 className={styles.title}>Current Lobbies ({totalLobbies})</h1>{' '}
+            <h1 className={styles.title}>Current Lobbies ({totalFilteredLobbies})</h1>
             <Button
               label='Create Lobby'
               disabled={(lobbies?.length ?? 0) >= MULTI_LOBBY_COUNT_LIMIT}
@@ -191,81 +235,119 @@ const Multiplayer = () => {
               classes='multiplayerBtn'
             />
           </div>
+          <div className={styles.filters}>
+            <button
+              onClick={handleSortLobbies}
+              className={styles.sortButton}
+            >
+              {isSortedByOldest ? 'Oldest' : 'Latest'}{' '}
+              <FaChevronDown className={isSortedByOldest ? 'rotated' : ''} />
+            </button>
+            <Chip
+              size='medium'
+              color={
+                filters.privateLobbies === YesNoAll.all
+                  ? 'info'
+                  : filters.privateLobbies === YesNoAll.no
+                  ? 'error'
+                  : 'success'
+              }
+              onClick={handleChangePrivacy}
+              label={
+                filters.privateLobbies === YesNoAll.all
+                  ? 'All Lobbies'
+                  : filters.privateLobbies === YesNoAll.no
+                  ? 'Public Only'
+                  : 'Private Only'
+              }
+              className={styles.chip}
+            />
+          </div>
 
-          {currentLobbies.map((lobby) => {
-            const lobbyOwner = lobby.players.find((player) => player.id === lobby.ownerId);
-            return (
-              <div
-                className={styles.lobbyContainer}
-                onClick={() => onJoinLobby(lobby.id)}
-                key={lobby.id}
-              >
-                <img
-                  src={lobbyOwner?.avatarUrl ?? DEFAULT_PFP_URL}
-                  className={styles.ownerPfp}
-                />
+          {paginatedLobbies.length > 0 ? (
+            paginatedLobbies.map((lobby) => {
+              const lobbyOwner = lobby.players.find((player) => player.id === lobby.ownerId);
+              return (
+                <div
+                  className={styles.lobbyContainer}
+                  onClick={() => onJoinLobby(lobby.id)}
+                  key={lobby.id}
+                >
+                  <img
+                    src={lobbyOwner?.avatarUrl ?? DEFAULT_PFP_URL}
+                    className={styles.ownerPfp}
+                    alt='Owner avatar'
+                  />
 
-                <div className={styles.lobbyNameAndPlayerCount}>
-                  <h2 className={styles.lobbyName}>{lobby.name}</h2>
-                  <h4 className={styles.playerCount}>
-                    {lobby.players?.length === 1
-                      ? `${lobby.players?.length} Player`
-                      : `${lobby.players?.length} Players`}
-                  </h4>
+                  <div className={styles.lobbyNameAndPlayerCount}>
+                    <h2 className={styles.lobbyName}>{lobby.name}</h2>
+                    <h4 className={styles.playerCount}>
+                      {lobby.players?.length === 1
+                        ? `${lobby.players?.length} Player`
+                        : `${lobby.players?.length} Players`}
+                    </h4>
+                  </div>
+                  {lobby.settings.hasPassword && (
+                    <span className={styles.lock}>
+                      <FaLock />
+                    </span>
+                  )}
+
+                  {lobby.settings?.hardMode ? (
+                    <Chip
+                      size='medium'
+                      color='error'
+                      label='Hard Mode'
+                      className={styles.chip}
+                    />
+                  ) : (
+                    <Chip
+                      size='medium'
+                      color='success'
+                      label='Standard Mode'
+                      className={styles.chip}
+                    />
+                  )}
+                  {lobby.settings?.undergroundSelected && lobby.settings?.surfaceSelected ? (
+                    <Chip
+                      size='medium'
+                      color='info'
+                      label='Underground, Surface'
+                      className={styles.chip}
+                    />
+                  ) : lobby.settings?.undergroundSelected ? (
+                    <Chip
+                      size='medium'
+                      color='error'
+                      label='Underground'
+                      className={styles.chip}
+                    />
+                  ) : (
+                    <Chip
+                      size='medium'
+                      color='success'
+                      label='Surface'
+                      className={styles.chip}
+                    />
+                  )}
+                  <Chip
+                    size='medium'
+                    color='success'
+                    label={Object.keys(lobby.settings?.regions).join(', ')}
+                    className={styles.chip}
+                  />
                 </div>
-                {lobby.settings.hasPassword && (
-                  <span className={styles.lock}>
-                    <FaLock />
-                  </span>
-                )}
+              );
+            })
+          ) : (
+            <h1 className={styles.noLobbiesMessage}>No lobbies match your filters!</h1>
+          )}
 
-                {lobby.settings?.hardMode ? (
-                  <Chip
-                    size='medium'
-                    color='error'
-                    label={`Hard Mode`}
-                  />
-                ) : (
-                  <Chip
-                    size='medium'
-                    color='success'
-                    label={`Standard Mode`}
-                  />
-                )}
-                {lobby.settings?.undergroundSelected && lobby.settings?.surfaceSelected ? (
-                  <Chip
-                    size='medium'
-                    color='info'
-                    label={`Underground, Surface`}
-                  />
-                ) : lobby.settings?.undergroundSelected ? (
-                  <Chip
-                    size='medium'
-                    color='error'
-                    label={`Underground`}
-                  />
-                ) : (
-                  <Chip
-                    size='medium'
-                    color='success'
-                    label={`Surface`}
-                  />
-                )}
-                <Chip
-                  size='medium'
-                  color='success'
-                  label={Object.keys(lobby.settings?.regions).join(', ')}
-                />
-              </div>
-            );
-          })}
-
-          {/* pagination */}
+          {/* Pagination */}
           {totalPages > 1 && (
             <div className={styles.paginationContainer}>
               <div className={styles.paginationInfo}>
-                Showing {startIndex + 1}-{Math.min(endIndex, totalLobbies)} of {totalLobbies}{' '}
-                lobbies
+                Showing {startIndex + 1}-{endIndex} of {totalFilteredLobbies} lobbies
               </div>
 
               <div className={styles.paginationControls}>
@@ -280,13 +362,11 @@ const Multiplayer = () => {
                 <div className={styles.pageNumbers}>
                   {Array.from({ length: totalPages }, (_, i) => i + 1)
                     .filter((page) => {
-                      // Show first page, last page, current page, and pages around current
                       if (page === 1 || page === totalPages) return true;
                       if (page >= currentPage - 1 && page <= currentPage + 1) return true;
                       return false;
                     })
                     .map((page, index, array) => {
-                      // Add ellipsis for skipped pages
                       const prevPage = array[index - 1];
                       const showEllipsis = prevPage && page - prevPage > 1;
 

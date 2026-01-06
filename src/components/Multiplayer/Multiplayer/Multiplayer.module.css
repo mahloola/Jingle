@@ -45,15 +45,20 @@
   align-items: center;
   gap: 20px;
 }
+.noLobbiesMessage {
+  margin: auto;
+}
 .multiplayerContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
 
   background: rgb(44, 44, 44);
   color: var(--primary-yellow);
-  width: auto;
+  width: 85%;
+  margin: 0 auto;
+  min-height: 600px;
   height: auto;
   gap: 20px;
   max-height: 100%;
@@ -162,9 +167,46 @@
   font-size: 20px;
   text-shadow: 2px 2px 2px black;
 }
-
+.sortButton {
+  text-shadow: 1px 1px 1px black;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--primary-yellow);
+  padding: 5px 15px;
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+.sortButton:hover {
+  filter: brightness(0.9);
+  transition: all 0.3s;
+}
+.sortButton svg {
+  color: var(--primary-yellow);
+  font-size: 0.9em !important;
+  margin-left: 5px;
+  transition: 0.2s;
+}
+.sortButton svg:hover {
+  filter: drop-shadow(0 0 3px #ffffff);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
 /* Responsive */
 @media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    width: 100%;
+  }
+  .chip {
+    visibility: hidden !important;
+  }
+  .multiplayerContainer {
+    width: 100%;
+  }
   .paginationControls {
     flex-direction: column;
     gap: 15px;

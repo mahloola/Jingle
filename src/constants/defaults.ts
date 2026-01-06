@@ -1,4 +1,11 @@
-import { GameStatus, LobbySettings, SoloGameState, UserPreferences } from '../types/jingle';
+import {
+  GameStatus,
+  LobbyFilters,
+  LobbySettings,
+  SoloGameState,
+  UserPreferences,
+  YesNoAll,
+} from '../types/jingle';
 
 export const MAX_MIN_HISTORY_COLORS: [number, number] = [4500, 0]; // completely arbitrary, imo 5000 would show too much red and discourage people
 export const CENTER_COORDINATES: [number, number] = [3222, 3218];
@@ -42,6 +49,10 @@ export const DEFAULT_GAME_STATE: SoloGameState = {
   scores: [],
   startTimeMs: Date.now(),
   timeTaken: '',
+};
+
+export const DEFAULT_LOBBY_FILTERS: LobbyFilters = {
+  privateLobbies: YesNoAll.all,
 };
 
 export const DEFAULT_PFP_URL =

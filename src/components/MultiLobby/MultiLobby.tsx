@@ -249,7 +249,7 @@ export default function MultiplayerLobby() {
                       )}
                       <span className={styles.playerInfo}>
                         <span className={styles.playerUsername}>
-                          {player.username} {player.id === lobby.ownerId ? '👑' : null}
+                          {player.username} {player.id === lobby.ownerId ? '🔑' : null}
                           {playersConfirmed.get(player.id) ? <FaCheck /> : null}
                         </span>
                         {lobby.gameState.status === MultiLobbyStatus.Revealing && score

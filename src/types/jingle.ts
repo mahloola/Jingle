@@ -155,9 +155,19 @@ export interface MultiLobby {
   settings: LobbySettings;
   players: Player[];
   gameState: MultiGameState;
+  dateCreated: Date;
 }
 export interface Player {
   id: string;
   username: string;
   avatarUrl: string;
+}
+
+export enum YesNoAll {
+  yes = 'yes',
+  no = 'no',
+  all = 'all',
+}
+export interface LobbyFilters {
+  privateLobbies: YesNoAll;
 }
