@@ -52,20 +52,30 @@ export async function getSong(songName: string) {
 }
 
 export async function createLobby({
-  name,
   settings,
+  name,
+  password,
   token,
 }: {
-  name: string;
   settings: LobbySettings;
+  name: string;
+  password?: string | undefined;
   token: string;
 }) {
-  return await post('/api/lobbies', { name, settings }, token);
+  return await post('/api/lobbies', { name, settings, password }, token);
 }
 
-export async function joinLobby({ lobbyId, token }: { lobbyId: string; token: string }) {
+export async function joinLobby({
+  lobbyId,
+  token,
+  password,
+}: {
+  lobbyId: string;
+  token: string;
+  password?: string;
+}) {
   if (!lobbyId) return;
-  return await post(`/api/lobbies/${lobbyId}/join`, { lobbyId }, token);
+  return await post(`/api/lobbies/${lobbyId}/join`, { lobbyId, password }, token);
 }
 
 export async function leaveLobby({ lobbyId, token }: { lobbyId: string; token: string }) {

@@ -16,17 +16,20 @@ import CustomRangeInput from '../ui-util/CustomRangeInput';
 
 interface CreateLobbyModalProps {
   onCreateLobby: ({
-    lobbyName,
     lobbySettings,
+    lobbyName,
+    lobbyPassword,
   }: {
-    lobbyName: string;
     lobbySettings: LobbySettings;
+    lobbyName: string;
+    lobbyPassword: string | undefined;
   }) => void;
   onClose: () => void;
 }
 
 const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onClose }) => {
   const [lobbyName, setLobbyName] = useState<string>('');
+  const [lobbyPassword, setLobbyPassword] = useState<string | undefined>('');
   const [lobbySettings, setLobbySettings] = useState<LobbySettings>(DEFAULT_LOBBY_SETTINGS);
   const [regionsOpen, setRegionsOpen] = useState(false);
   const toggleRegions = () => {
@@ -70,13 +73,31 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
     }
   };
 
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newPassword = e.target.value;
+
+    if (newPassword) {
+      setLobbyPassword(e.target.value);
+      setLobbySettings((prev: LobbySettings) => ({
+        ...prev,
+        hasPassword: true,
+      }));
+    } else {
+      setLobbyPassword(undefined);
+      setLobbySettings((prev: LobbySettings) => ({
+        ...prev,
+        hasPassword: false,
+      }));
+    }
+  };
+
   return (
     <Modal
       open={true}
       saveDisabled={disabled}
       primaryButtonText='Create'
       onClose={onClose}
-      onApplySettings={() => onCreateLobby({ lobbyName, lobbySettings })}
+      onApplySettings={() => onCreateLobby({ lobbySettings, lobbyName, lobbyPassword })}
     >
       <h2>Create Lobby</h2>
       <label
@@ -141,12 +162,12 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
         Password (optional){' '}
       </label>
       <input
-        type='text'
+        type='password'
         placeholder='Leave empty for public lobbies...'
         className='search-bar'
-        value={lobbySettings.password}
+        value={lobbyPassword}
         name='lobbyPassword'
-        onChange={(e) => handlePreferencesChange(e)}
+        onChange={(e) => handlePasswordChange(e)}
         style={{ width: '100%', padding: '5px 10px', borderRadius: '10px', margin: '10px' }}
       />
       <table className={'settings-table'}>

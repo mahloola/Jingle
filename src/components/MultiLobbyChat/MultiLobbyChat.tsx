@@ -17,6 +17,16 @@ enum ProfanityFilterOptions {
   on = 'on',
   off = 'off',
 }
+const filterProfanityFromWord = (msg: string) => {
+  const matcher = new RegExpMatcher({
+    ...englishDataset.build(),
+    ...englishRecommendedTransformers,
+  });
+  const censor = new TextCensor();
+  const matches = matcher.getAllMatches(msg);
+  const censoredText = censor.applyTo(msg, matches);
+  return censoredText;
+};
 const MultiLobbyChat = ({
   socket,
   lobby,
@@ -31,7 +41,6 @@ const MultiLobbyChat = ({
     profanityFilterPreference === undefined ||
       profanityFilterPreference === ProfanityFilterOptions.on,
   );
-  console.log('RERENDER', profanityFilterOn);
 
   const currentUserId = currentUser?.uid;
   const lobbyId = lobby?.id;
@@ -47,12 +56,6 @@ const MultiLobbyChat = ({
       }
     });
   };
-
-  const matcher = new RegExpMatcher({
-    ...englishDataset.build(),
-    ...englishRecommendedTransformers,
-  });
-  const censor = new TextCensor();
 
   const [chatMessages, setChatMessages] = useState<
     Array<{
@@ -105,10 +108,7 @@ const MultiLobbyChat = ({
       timestamp: number;
     }) => {
       if (profanityFilterOn) {
-        const phrase = data.message;
-        const matches = matcher.getAllMatches(phrase);
-        const censoredText = censor.applyTo(phrase, matches);
-        data.message = censoredText;
+        data.message = filterProfanityFromWord(data.message);
       }
       setChatMessages((prev) => [...prev, data]);
     };
@@ -118,7 +118,7 @@ const MultiLobbyChat = ({
     return () => {
       socket.off('chat-message', handleChatMessage);
     };
-  }, [socket, lobbyId, profanityFilterOn, censor, matcher]);
+  }, [socket, lobbyId, profanityFilterOn]);
 
   const toggleChat = () => {
     setChatOpen((prev) => !prev);

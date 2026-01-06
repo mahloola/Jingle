@@ -1,11 +1,13 @@
 import Chip from '@mui/material/Chip';
 import React, { useState } from 'react';
+import { FaLock } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import useSWR from 'swr';
 import { useAuth } from '../../../AuthContext';
 import { DEFAULT_PFP_URL, MULTI_LOBBY_COUNT_LIMIT } from '../../../constants/defaults';
 import { createLobby, getLobbies, joinLobby } from '../../../data/jingle-api';
 import { LobbySettings, MultiLobby } from '../../../types/jingle';
+import EnterPasswordModal from '../../EnterPasswordModal/EnterPasswordModal';
 import Navbar from '../../Navbar/Navbar';
 import { Button } from '../../ui-util/Button';
 import CreateLobbyModal from '../CreateLobbyModal';
@@ -13,6 +15,9 @@ import styles from './Multiplayer.module.css';
 
 // Pagination constants
 const LOBBIES_PER_PAGE = 4;
+interface LobbyFilters {
+  privacy: boolean;
+}
 
 const Multiplayer = () => {
   const { currentUser } = useAuth();
@@ -20,7 +25,12 @@ const Multiplayer = () => {
   const [isCreatingLobby, setIsCreatingLobby] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const { data: lobbies, mutate: mutateLobbies } = useSWR<MultiLobby[]>(`/api/lobbies`, getLobbies); // todo: only need to fetch x lobby
-
+  const [filters, setFilters] = useState({});
+  const [activeJoinAttempt, setActiveJoinAttempt] = useState<{
+    lobbyId: string;
+    modalIsOpen: boolean;
+  }>({ lobbyId: '', modalIsOpen: false });
+  const [enteredPassword, setEnteredPassword] = useState('');
   const navigate = useNavigate();
 
   // Calculate pagination values
@@ -30,16 +40,46 @@ const Multiplayer = () => {
   const endIndex = startIndex + LOBBIES_PER_PAGE;
   const currentLobbies = lobbies?.slice(startIndex, endIndex) || [];
 
+  const onClosePasswordModal = () => {
+    setActiveJoinAttempt({
+      lobbyId: '',
+      modalIsOpen: false,
+    });
+  };
+  const onPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const password = e.target.value;
+    setEnteredPassword(password);
+  };
+  const handleSubmitPassword = async (password: string | undefined) => {
+    const lobbyId = activeJoinAttempt.lobbyId;
+    if (!password || !lobbyId) {
+      return;
+    }
+    const res = await onJoinLobby(lobbyId);
+  };
+
   const onJoinLobby = async (lobbyId: string) => {
     if (!currentUser) {
       console.error('No user logged in');
       return;
     }
+    let res;
     try {
       const token = await currentUser.getIdToken();
-      await joinLobby({ lobbyId, token });
+      res = await joinLobby({ lobbyId, token, password: enteredPassword });
       navigate(`/multiplayer/${lobbyId}`);
     } catch (error) {
+      if (error instanceof Error && 'response' in error) {
+        const typedError = error as any;
+        if (typedError.response?.status === 401) {
+          setActiveJoinAttempt((prev) => {
+            return {
+              lobbyId,
+              modalIsOpen: true,
+            };
+          });
+        }
+      }
       console.error('Failed to join lobby:', error);
     }
   };
@@ -47,9 +87,11 @@ const Multiplayer = () => {
   const onCreateLobby = async ({
     lobbyName,
     lobbySettings,
+    lobbyPassword,
   }: {
     lobbyName: string;
     lobbySettings: LobbySettings;
+    lobbyPassword: string | undefined;
   }) => {
     if (!currentUser) {
       console.error('No user logged in');
@@ -70,6 +112,7 @@ const Multiplayer = () => {
         const { lobby: newLobby } = await createLobby({
           name: lobbyName,
           settings: lobbySettings,
+          password: lobbyPassword,
           token,
         });
 
@@ -123,6 +166,13 @@ const Multiplayer = () => {
   return (
     <>
       <Navbar />{' '}
+      <EnterPasswordModal
+        open={activeJoinAttempt.modalIsOpen}
+        onClose={onClosePasswordModal}
+        onPasswordChange={onPasswordChange}
+        password={enteredPassword}
+        onSubmit={() => handleSubmitPassword(enteredPassword)}
+      />
       <div className={styles.multiplayerContainer}>
         {createLobbyModalOpen && (
           <CreateLobbyModal
@@ -163,6 +213,12 @@ const Multiplayer = () => {
                       : `${lobby.players?.length} Players`}
                   </h4>
                 </div>
+                {lobby.settings.hasPassword && (
+                  <span className={styles.lock}>
+                    <FaLock />
+                  </span>
+                )}
+
                 {lobby.settings?.hardMode ? (
                   <Chip
                     size='medium'

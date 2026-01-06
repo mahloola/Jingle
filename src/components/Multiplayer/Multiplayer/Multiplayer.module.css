@@ -158,6 +158,11 @@
   color: #666;
 }
 
+.lock {
+  font-size: 20px;
+  text-shadow: 2px 2px 2px black;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .paginationControls {

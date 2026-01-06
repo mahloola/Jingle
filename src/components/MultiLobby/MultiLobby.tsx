@@ -40,15 +40,21 @@ export default function MultiplayerLobby() {
   const { currentUser } = useAuth();
   const currentUserId = currentUser?.uid;
   const { lobbyId } = useParams<{ lobbyId: string }>();
-
   // this is just to force the timer to show up instantly
   const [showTimer, setShowTimer] = useState(true);
 
   const { lobby, timeLeft, socket } = useLobbyWebSocket(lobbyId);
-
+  const navigate = useNavigate();
   const userInLobby = lobby?.players?.find((player) => player.id === currentUserId);
-  if (!userInLobby && lobby?.settings.password !== '') {
-    if (currentUser && lobbyId) enterUserIntoLobby(currentUser, lobbyId);
+
+  // if (!userInLobby && lobby?.settings.hasPassword === false) {
+  //   if (currentUser && lobbyId) enterUserIntoLobby(currentUser, lobbyId);
+  // } else {
+  //   navigate('/multiplayer');
+  // }
+
+  if (!userInLobby && currentUser && lobbyId) {
+    enterUserIntoLobby(currentUser, lobbyId);
   }
 
   const lobbyState = lobby?.gameState;
@@ -64,7 +70,6 @@ export default function MultiplayerLobby() {
     navigationStack: [],
   });
 
-  const navigate = useNavigate();
   // just for hard mode
   const currentPreferences = loadPreferencesFromBrowser();
 

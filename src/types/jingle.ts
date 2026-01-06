@@ -99,7 +99,7 @@ export interface Song {
 }
 
 export interface LobbySettings {
-  password: string;
+  hasPassword: boolean;
   roundTimeSeconds: number;
   roundIntervalSeconds: number;
   hardMode: boolean;

@@ -24,7 +24,7 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
   surfaceSelected: true,
 };
 export const DEFAULT_LOBBY_SETTINGS: LobbySettings = {
-  password: '',
+  hasPassword: false,
   roundTimeSeconds: 30,
   roundIntervalSeconds: 5,
   hardMode: DEFAULT_PREFERENCES.preferHardMode,
