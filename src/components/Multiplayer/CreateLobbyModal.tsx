@@ -112,6 +112,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
         className='search-bar'
         value={lobbyName}
         name='lobbyName'
+        maxLength={30}
         onChange={(e) => setLobbyName(e.target.value)}
         style={{ width: '100%', padding: '5px 10px', borderRadius: '10px', margin: '10px' }}
       />

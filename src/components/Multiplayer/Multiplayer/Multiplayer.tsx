@@ -333,7 +333,12 @@ const Multiplayer = () => {
                   <Chip
                     size='medium'
                     color='success'
-                    label={Object.keys(lobby.settings?.regions).join(', ')}
+                    label={(() => {
+                      const regionString = Object.keys(lobby.settings?.regions || {}).join(', ');
+                      return regionString.length > 60
+                        ? regionString.substring(0, 50) + '...'
+                        : regionString;
+                    })()}
                     className={styles.chip}
                   />
                 </div>
