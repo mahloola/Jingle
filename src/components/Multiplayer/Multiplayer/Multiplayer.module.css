@@ -10,6 +10,7 @@
 .lobbyContainer {
   display: flex;
   width: 100%;
+  max-height: 90px;
   padding: 12px;
   border-radius: 5px;
   gap: 30px;
@@ -22,6 +23,7 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(0, 0, 0, 0.35);
   transition: all 0.3s;
+  overflow: hidden;
 }
 .lobbyContainer:hover {
   filter: brightness(0.9);
@@ -36,6 +38,7 @@
   align-items: flex-start;
 }
 .playerCount {
+  margin: 0;
   font-size: 1rem;
 }
 .lobbyName {
@@ -62,8 +65,8 @@
   color: var(--primary-yellow);
   width: 85%;
   margin: 0 auto;
-  min-height: 600px;
   height: auto;
+  min-height: 740px;
   gap: 20px;
   max-height: 100%;
   padding: 40px;
@@ -93,7 +96,7 @@
 }
 
 .ownerPfp {
-  height: 80px;
+  height: 70px;
   width: auto;
   border-radius: 20px;
 }
@@ -200,7 +203,7 @@
   gap: 20px;
 }
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .header {
     flex-direction: column;
     width: 100%;
