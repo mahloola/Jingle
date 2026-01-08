@@ -101,6 +101,7 @@
   margin-bottom: 12px;
   padding: 8px 12px;
   background: #2d2d2d;
+  opacity: 0.8;
   border-radius: 6px;
   border-left: 3px solid #ff981f;
 }

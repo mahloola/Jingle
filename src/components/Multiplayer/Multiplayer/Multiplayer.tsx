@@ -16,6 +16,7 @@ import Navbar from '../../Navbar/Navbar';
 import { Button } from '../../ui-util/Button';
 import CreateLobbyModal from '../CreateLobbyModal';
 import styles from './Multiplayer.module.css';
+import { useIsMobile } from '../../../hooks/useIsMobile';
 
 const LOBBIES_PER_PAGE = 4;
 
@@ -34,6 +35,7 @@ const Multiplayer = () => {
   const [isSortedByOldest, setIsSortedByOldest] = useState(false);
   const navigate = useNavigate();
 
+  const isMobile = useIsMobile();
   // 1. apply filters to ALL lobbies
   const filteredLobbies = useMemo(() => {
     if (!lobbies) return [];
@@ -243,25 +245,26 @@ const Multiplayer = () => {
               {isSortedByOldest ? 'Oldest' : 'Latest'}{' '}
               <FaChevronDown className={isSortedByOldest ? 'rotated' : ''} />
             </button>
-            <Chip
+            {!isMobile && <Chip
               size='medium'
               color={
                 filters.privateLobbies === YesNoAll.all
                   ? 'info'
                   : filters.privateLobbies === YesNoAll.no
-                  ? 'error'
-                  : 'success'
+                    ? 'error'
+                    : 'success'
               }
               onClick={handleChangePrivacy}
               label={
                 filters.privateLobbies === YesNoAll.all
                   ? 'All Lobbies'
                   : filters.privateLobbies === YesNoAll.no
-                  ? 'Public Only'
-                  : 'Private Only'
+                    ? 'Public Only'
+                    : 'Private Only'
               }
               className={styles.chip}
-            />
+            />}
+
           </div>
 
           {paginatedLobbies.length > 0 ? (
@@ -379,9 +382,8 @@ const Multiplayer = () => {
                         <React.Fragment key={page}>
                           {showEllipsis && <span className={styles.ellipsis}>...</span>}
                           <button
-                            className={`${styles.pageButton} ${
-                              currentPage === page ? styles.active : ''
-                            }`}
+                            className={`${styles.pageButton} ${currentPage === page ? styles.active : ''
+                              }`}
                             onClick={() => handlePageChange(page)}
                           >
                             {page}
@@ -392,9 +394,8 @@ const Multiplayer = () => {
                 </div>
 
                 <button
-                  className={`${styles.pageButton} ${
-                    currentPage === totalPages ? styles.disabled : ''
-                  }`}
+                  className={`${styles.pageButton} ${currentPage === totalPages ? styles.disabled : ''
+                    }`}
                   onClick={() => handlePageChange(currentPage + 1)}
                   disabled={currentPage === totalPages}
                 >

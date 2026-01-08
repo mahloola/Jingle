@@ -66,7 +66,7 @@
   width: 85%;
   margin: 0 auto;
   height: auto;
-  min-height: 740px;
+  min-height: 75vh;
   gap: 20px;
   max-height: 100%;
   padding: 40px;
@@ -199,14 +199,18 @@
 }
 .filters {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
+  width: 100%;
 }
 /* Responsive */
 @media (max-width: 480px) {
   .header {
     flex-direction: column;
     width: 100%;
+  }
+  .filters {
+    justify-content: center;
   }
   .chip {
     visibility: hidden !important;

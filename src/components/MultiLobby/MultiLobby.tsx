@@ -24,6 +24,7 @@ import NewsModalButton from '../side-menu/NewsModalButton';
 import StatsModalButton from '../side-menu/StatsModalButton';
 import { Button } from '../ui-util/Button';
 import styles from './MultiLobby.module.css';
+import { useIsMobile } from '../../hooks/useIsMobile';
 sanitizePreferences();
 
 const enterUserIntoLobby = async (user: User, lobbyId: string) => {
@@ -31,22 +32,14 @@ const enterUserIntoLobby = async (user: User, lobbyId: string) => {
   joinLobby({ lobbyId, token });
 };
 
-const removeUserFromLobby = async (user: User, lobbyId: string) => {
-  const token = await user.getIdToken();
-  leaveLobby({ lobbyId, token });
-};
-
 export default function MultiplayerLobby() {
   const { currentUser } = useAuth();
   const currentUserId = currentUser?.uid;
   const { lobbyId } = useParams<{ lobbyId: string }>();
-  // this is just to force the timer to show up instantly
-  const [showTimer, setShowTimer] = useState(true);
-
-  const { lobby, timeLeft, socket } = useLobbyWebSocket(lobbyId);
+  const isMobile = useIsMobile();
+  const { lobby, timeLeft, socket } = useLobbyWebSocket(lobbyId, currentUserId);
   const navigate = useNavigate();
   const userInLobby = lobby?.players?.find((player) => player.id === currentUserId);
-
   // if (!userInLobby && lobby?.settings.hasPassword === false) {
   //   if (currentUser && lobbyId) enterUserIntoLobby(currentUser, lobbyId);
   // } else {
@@ -110,7 +103,7 @@ export default function MultiplayerLobby() {
 
     const distance = lobbyState?.currentRound?.songName
       ? findNearestPolygonWhereSongPlays(lobbyState?.currentRound?.songName, clickedPosition)
-          .distance
+        .distance
       : 0;
 
     socket.emit('place-pin', { lobbyId: id, currentUserId, clickedPosition, distance });
@@ -145,7 +138,6 @@ export default function MultiplayerLobby() {
     });
     try {
       await startLobby({ lobbyId: id, token });
-      setShowTimer(true);
     } catch (err) {
       console.error('Failed to start lobby: ', err);
     }
@@ -180,25 +172,35 @@ export default function MultiplayerLobby() {
     })
     .sort((a, b) => a.rank - b.rank); // Sort by rank
 
+  const lobbyName =
+    isMobile && lobby.name.length > 12
+      ? `${lobby.name.slice(0, 4)}..`
+      : `${lobby.name.slice(0, 14)}..`;
+
   return (
     <>
       <div className='App-inner'>
-        <MultiLobbyChat
+        {!isMobile && <MultiLobbyChat
           socket={socket}
           lobby={lobby}
           currentUser={currentUser}
-        />
+        />}
+
         <div className='ui-box'>
           <aside className={styles.playersContainer}>
             <div className={`osrs-frame ${styles.lobbyInfo}`}>
-              <h2>{lobby.name}</h2>
+              <h2>{lobbyName}</h2>
               {lobby.players?.length > 1 ? `${lobby.players?.length} Players` : null}
               <div className={styles.status}>
                 {lobby.gameState.status === MultiLobbyStatus.Revealing
                   ? 'Next song in...'
                   : lobby.gameState.status}
               </div>
-              {lobby.gameState?.currentPhaseEndTime && showTimer ? <h2>{timeLeft}</h2> : null}
+              {lobby.gameState?.currentPhaseEndTime &&
+                lobby.gameState.status !== MultiLobbyStatus.Waiting && (
+                  <h2>{timeLeft}</h2>
+                )}
+
             </div>
             <div className={styles.playerList}>
               {sortedPlayersWithData.map(({ player, score, lbEntry }) => (
@@ -206,21 +208,27 @@ export default function MultiplayerLobby() {
                   key={player.id}
                   className={`osrs-frame ${styles.playerContainer}`}
                 >
-                  {lobbyState?.status === MultiLobbyStatus.Revealing ? (
+                  {isMobile ? (
+                    /* MOBILE VERSION */
+                    <div className={styles.playerContainerMobile}>
+                      <span className={styles.playerRankMobile}>
+                        #{lbEntry?.rank ?? '--'}
+                      </span>
+                      <img
+                        src={player.avatarUrl || DEFAULT_PFP_URL}
+                        alt='player-picture'
+                        className={styles.playerPicture}
+                      />
+                      {playersConfirmed.get(player.id) ? <FaCheck /> : null}
+                    </div>
+                  ) : lobbyState?.status === MultiLobbyStatus.Revealing ? (
+                    /* DESKTOP REVEAL */
                     <div className={styles.playerContainerSimple}>
-                      {player?.avatarUrl ? (
-                        <img
-                          src={player.avatarUrl}
-                          alt='player-picture'
-                          className={styles.playerPicture}
-                        />
-                      ) : (
-                        <img
-                          src={DEFAULT_PFP_URL}
-                          alt='player-picture'
-                          className={styles.playerPicture}
-                        />
-                      )}
+                      <img
+                        src={player.avatarUrl || DEFAULT_PFP_URL}
+                        alt='player-picture'
+                        className={styles.playerPicture}
+                      />
                       <h1
                         className={styles.playerScore}
                         style={{
@@ -231,36 +239,26 @@ export default function MultiplayerLobby() {
                       </h1>
                     </div>
                   ) : (
+                    /* DESKTOP DETAILS */
                     <div className={styles.playerContainerDetails}>
-                      {/* Show leaderboard rank */}
                       <h3 className={styles.playerRank}>#{lbEntry?.rank ?? '--'}</h3>
-                      {player?.avatarUrl ? (
-                        <img
-                          src={player.avatarUrl}
-                          alt='player-picture'
-                          className={styles.playerPicture}
-                        />
-                      ) : (
-                        <img
-                          src={DEFAULT_PFP_URL}
-                          alt='player-picture'
-                          className={styles.playerPicture}
-                        />
-                      )}
+                      <img
+                        src={player.avatarUrl || DEFAULT_PFP_URL}
+                        alt='player-picture'
+                        className={styles.playerPicture}
+                      />
                       <span className={styles.playerInfo}>
                         <span className={styles.playerUsername}>
                           {player.username} {player.id === lobby.ownerId ? '🔑' : null}
                           {playersConfirmed.get(player.id) ? <FaCheck /> : null}
                         </span>
-                        {lobby.gameState.status === MultiLobbyStatus.Revealing && score
-                          ? score
-                          : lbEntry?.score ?? '---'}{' '}
-                        Points
+                        {lbEntry?.score ?? '---'} Points
                       </span>
                     </div>
                   )}
                 </div>
               ))}
+
             </div>
             <Button
               classes={`${styles.exitLobbyBtn} guess-btn osrs-frame`}

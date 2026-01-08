@@ -5,7 +5,7 @@ import { MultiLobby } from '../types/jingle';
 const apiHost = import.meta.env.VITE_API_HOST;
 const socket = io(apiHost);
 
-export function useLobbyWebSocket(lobbyId: string | undefined) {
+export function useLobbyWebSocket(lobbyId: string | undefined, userId: string | undefined) {
   const [lobby, setLobby] = useState<MultiLobby | undefined>();
   const [timeLeft, setTimeLeft] = useState<number | null | undefined>(
     lobby?.settings.roundTimeSeconds,
@@ -17,7 +17,7 @@ export function useLobbyWebSocket(lobbyId: string | undefined) {
       console.error('No lobbyId, skipping socket connection');
     }
 
-    socket.emit('join-lobby', lobbyId);
+    socket.emit('join-lobby', { lobbyId, userId });
 
     const handleLobbyUpdate = (updatedLobby: MultiLobby) => {
       setLobby(updatedLobby);
@@ -45,7 +45,6 @@ export function useLobbyWebSocket(lobbyId: string | undefined) {
 
     // cleanup on unmount or when lobbyId changes
     return () => {
-      socket.emit('leave-lobby', lobbyId);
       socket.off('connect', handleConnect);
       socket.off('disconnect', handleDisconnect);
       socket.off('lobby-update', handleLobbyUpdate);

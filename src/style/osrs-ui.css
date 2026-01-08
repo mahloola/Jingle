@@ -13,15 +13,18 @@
   &:hover:not(:disabled) {
     filter: brightness(1.2);
   }
+
   &:disabled {
     border-image-source: url('/assets/osrs_button_disabled.png');
     color: #6d6f4f;
     text-shadow: none;
   }
 }
+
 .multiplayerBtn {
   padding: 5px 20px;
 }
+
 .multiplayerBtnLarge {
   font-size: 1.5rem;
   padding: 10px 40px;
@@ -46,6 +49,7 @@ div.osrs-stone-btn {
   border-image-slice: 36 fill;
   border-image-repeat: repeat;
   border-image-width: 8px;
+  opacity: 0.96;
 }
 
 .osrs-frame-dark {
