@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaChevronDown, FaQuestionCircle } from 'react-icons/fa';
 import { Tooltip } from 'react-tooltip';
-import { DEFAULT_LOBBY_SETTINGS } from '../../constants/defaults';
+import { DEFAULT_LOBBY_SETTINGS, MAX_ROUND_TIME, MIN_REVEAL_TIME, MIN_ROUND_TIME } from '../../constants/defaults';
 import {
   Region,
   REGIONS,
@@ -53,7 +53,30 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
       };
     });
   };
-  const handlePreferencesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    const handleTimeBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    if (value === '') return;
+
+    let numericValue = Number(value);
+    if (Number.isNaN(numericValue)) return;
+
+    if (name === 'roundTimeSeconds') {
+      numericValue = Math.min(Math.max(MIN_ROUND_TIME, numericValue), MAX_ROUND_TIME);
+    }
+
+    if (name === 'roundIntervalSeconds') {
+      numericValue = Math.min(Math.max(MIN_REVEAL_TIME, numericValue), MAX_ROUND_TIME);
+    }
+
+    setLobbySettings((prev) => ({
+      ...prev,
+      [name]: numericValue,
+    }));
+  };
+
+  const handleSettingsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked, value, type } = e.target;
 
     if (name.startsWith('regions.')) {
@@ -65,12 +88,42 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
           [region]: checked,
         },
       }));
-    } else {
-      setLobbySettings((prev: LobbySettings) => ({
-        ...prev,
-        [name]: type === 'checkbox' ? checked : value,
-      }));
+      return;
     }
+
+    setLobbySettings((prev: LobbySettings) => {
+      if (type === 'checkbox') {
+        return {
+          ...prev,
+          [name]: checked,
+        };
+      }
+
+      if (type === 'number') {
+        // allow empty input temporarily
+        if (value === '') {
+          return {
+            ...prev,
+            [name]: value,
+          };
+        }
+
+        let numericValue = Number(value);
+
+        if (Number.isNaN(numericValue)) return prev;
+
+        return {
+          ...prev,
+          [name]: numericValue,
+        };
+      }
+
+      // default text inputs, etc
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
   };
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -129,12 +182,15 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
       </label>
       <input
         type='number'
-        placeholder='Seconds per round'
+        min={1}
+        step={1}
+        placeholder='Seconds per round (min 5)'
         className='search-bar'
         value={lobbySettings.roundTimeSeconds}
         name='roundTimeSeconds'
-        onChange={(e) => handlePreferencesChange(e)}
+        onChange={(e) => handleSettingsChange(e)}
         style={{ width: '100%', padding: '5px 10px', borderRadius: '10px', margin: '10px' }}
+        onBlur={handleTimeBlur}
       />
       <label
         htmlFor='roundIntervalSeconds'
@@ -149,12 +205,15 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
       </label>
       <input
         type='number'
-        placeholder='Seconds between rounds (interval)'
+        min={1}
+        step={1}
+        placeholder='Seconds between rounds (min 1)'
         className='search-bar'
         value={lobbySettings.roundIntervalSeconds}
         name='roundIntervalSeconds'
-        onChange={(e) => handlePreferencesChange(e)}
+        onChange={(e) => handleSettingsChange(e)}
         style={{ width: '100%', padding: '5px 10px', borderRadius: '10px', margin: '10px' }}
+        onBlur={handleTimeBlur}
       />
       <label
         htmlFor='lobbyPassword'
@@ -188,7 +247,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
                 name='hardMode'
                 defaultChecked={false}
                 onChange={(e) => {
-                  handlePreferencesChange(e);
+                  handleSettingsChange(e);
                 }}
               ></input>
             </td>
@@ -234,7 +293,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
                   name={`undergroundSelected`}
                   checked={lobbySettings.undergroundSelected}
                   onChange={(e) => {
-                    handlePreferencesChange(e);
+                    handleSettingsChange(e);
                   }}
                 ></input>
               </div>
@@ -253,7 +312,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
                   name={`surfaceSelected`}
                   checked={lobbySettings.surfaceSelected}
                   onChange={(e) => {
-                    handlePreferencesChange(e);
+                    handleSettingsChange(e);
                   }}
                 ></input>
               </div>
@@ -294,7 +353,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
                 name={`regions.${region}`}
                 checked={lobbySettings.regions[region as Region]}
                 onChange={(e) => {
-                  handlePreferencesChange(e);
+                  handleSettingsChange(e);
                 }}
               ></input>
             </div>

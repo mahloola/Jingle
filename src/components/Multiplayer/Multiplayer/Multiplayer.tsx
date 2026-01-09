@@ -208,21 +208,22 @@ const Multiplayer = () => {
 
   if (!lobbies || lobbies.length === 0) {
     return (
-      <div className={styles.multiplayerContainerEmpty}>
-        {createLobbyModalOpen && (
-          <CreateLobbyModal
-            onClose={() => setCreateLobbyModalOpen(false)}
-            onCreateLobby={onCreateLobby}
+      <>      <Navbar />
+        <div className={styles.multiplayerContainerEmpty}>
+          {createLobbyModalOpen && (
+            <CreateLobbyModal
+              onClose={() => setCreateLobbyModalOpen(false)}
+              onCreateLobby={onCreateLobby}
+            />
+          )}
+          <h1>No lobbies available. Create one!</h1>
+          <Button
+            label='Create Lobby'
+            disabled={(lobbies?.length ?? 0) >= MULTI_LOBBY_COUNT_LIMIT}
+            onClick={() => setCreateLobbyModalOpen(true)}
+            classes='multiplayerBtnLarge'
           />
-        )}
-        <h1>No lobbies available. Create one!</h1>
-        <Button
-          label='Create Lobby'
-          disabled={(lobbies?.length ?? 0) >= MULTI_LOBBY_COUNT_LIMIT}
-          onClick={() => setCreateLobbyModalOpen(true)}
-          classes='multiplayerBtnLarge'
-        />
-      </div>
+        </div></>
     );
   }
 

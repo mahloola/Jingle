@@ -35,13 +35,21 @@
 }
 
 .navbarLogo a {
+  display: flex;
+  align-items: center;
   color: var(--primary-yellow);
   text-decoration: none;
   transition: color 0.3s;
+  height: 40px;
+  width: 40px;
+  transition: all 0.3s;
 }
-
+.navbar img {
+  height: 30px;
+}
 .navbarLogo a:hover {
-  color: var(--primary-yellow-dark);
+  filter: brightness(0.7);
+  transition: all 0.3s;
 }
 
 /* Navigation Menu */

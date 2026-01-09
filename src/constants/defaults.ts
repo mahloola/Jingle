@@ -58,3 +58,6 @@ export const DEFAULT_LOBBY_FILTERS: LobbyFilters = {
 export const DEFAULT_PFP_URL =
   'https://i.pinimg.com/474x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg';
 export const MULTI_LOBBY_COUNT_LIMIT = 100;
+export const MIN_ROUND_TIME = 5;
+export const MIN_REVEAL_TIME = 1;
+export const MAX_ROUND_TIME = 600;

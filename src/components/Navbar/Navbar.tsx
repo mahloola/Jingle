@@ -41,7 +41,8 @@ const Navbar: React.FC = () => {
             href='/'
             onClick={closeMenu}
           >
-            Jingle
+            &nbsp;
+            <img src='/assets/lyre.png'/>
           </a>
         </div>
 
