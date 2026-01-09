@@ -17,12 +17,17 @@ import { Button } from '../../ui-util/Button';
 import CreateLobbyModal from '../CreateLobbyModal';
 import styles from './Multiplayer.module.css';
 import { useIsMobile } from '../../../hooks/useIsMobile';
+import Modal from '../../Modal';
+import { getCurrentUserLobby } from '../../../utils/jingle-utils';
 
 const LOBBIES_PER_PAGE = 4;
 
 const Multiplayer = () => {
   const { currentUser } = useAuth();
+
   const [createLobbyModalOpen, setCreateLobbyModalOpen] = useState(false);
+  const [inLobbyModalIsOpen, setInLobbyModalIsOpen] = useState(false);
+
   const [isCreatingLobby, setIsCreatingLobby] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const { data: lobbies, mutate: mutateLobbies } = useSWR<MultiLobby[]>('/api/lobbies', getLobbies);
@@ -35,7 +40,9 @@ const Multiplayer = () => {
   const [isSortedByOldest, setIsSortedByOldest] = useState(false);
   const navigate = useNavigate();
 
+  const userCurrentLobby: MultiLobby | null = getCurrentUserLobby({ userId: currentUser?.uid, lobbies });
   const isMobile = useIsMobile();
+
   // 1. apply filters to ALL lobbies
   const filteredLobbies = useMemo(() => {
     if (!lobbies) return [];
@@ -86,6 +93,13 @@ const Multiplayer = () => {
     setCurrentPage(1);
   };
 
+  const handleCreateLobby = () => {
+    if (userCurrentLobby) {
+      setInLobbyModalIsOpen(true);
+    } else {
+      setCreateLobbyModalOpen(true);
+    }
+  }
   const onClosePasswordModal = () => {
     setActiveJoinAttempt({
       lobbyId: '',
@@ -131,6 +145,8 @@ const Multiplayer = () => {
             lobbyId,
             modalIsOpen: true,
           });
+        } else if (typedError.response?.status === 409) {
+          setInLobbyModalIsOpen(true);
         }
       }
       console.error('Failed to join lobby:', error);
@@ -220,6 +236,7 @@ const Multiplayer = () => {
         password={enteredPassword}
         onSubmit={handleSubmitPassword}
       />
+      <Modal open={inLobbyModalIsOpen} onClose={() => setInLobbyModalIsOpen(false)}>You're already in a different lobby <span style={{ fontStyle: 'italic' }}>{userCurrentLobby?.name}.</span></Modal>
       <div className={styles.multiplayerContainer}>
         {createLobbyModalOpen && (
           <CreateLobbyModal
@@ -233,7 +250,7 @@ const Multiplayer = () => {
             <Button
               label='Create Lobby'
               disabled={(lobbies?.length ?? 0) >= MULTI_LOBBY_COUNT_LIMIT}
-              onClick={() => setCreateLobbyModalOpen(true)}
+              onClick={() => handleCreateLobby()}
               classes='multiplayerBtn'
             />
           </div>
@@ -251,8 +268,8 @@ const Multiplayer = () => {
                 filters.privateLobbies === YesNoAll.all
                   ? 'info'
                   : filters.privateLobbies === YesNoAll.no
-                    ? 'error'
-                    : 'success'
+                    ? 'success'
+                    : 'error'
               }
               onClick={handleChangePrivacy}
               label={

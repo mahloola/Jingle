@@ -1,5 +1,5 @@
 import { sum } from 'ramda';
-import { DailyChallenge, SoloGameState, Song } from '../types/jingle';
+import { DailyChallenge, MultiLobby, SoloGameState, Song } from '../types/jingle';
 
 export function getJingleNumber(dailyChallenge: Pick<DailyChallenge, 'date'>) {
   const dailyChallengeDate = dailyChallenge.date;
@@ -43,4 +43,16 @@ export function calculateSuccessRate(song: Song) {
     (totalGuesses + 1)
   ).toFixed(3);
   return Number(successRateAverage);
+}
+
+export const getCurrentUserLobby = ({ userId, lobbies }: {userId: string | undefined, lobbies: MultiLobby[] | undefined}) => {
+  if (!userId || !lobbies) return null;
+  for (const lobby of lobbies) {
+    for (const player of lobby.players) {
+      if (player.id === userId) {
+        return lobby;
+      }
+    }
+  }
+  return null;
 }

@@ -4,7 +4,7 @@ import '../style/modal.css';
 
 interface ModalProps {
   open: boolean;
-  primaryButtonText: string;
+  primaryButtonText?: string;
   onClose: () => void;
   children: React.ReactNode;
   onApplySettings?: () => void;
