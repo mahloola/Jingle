@@ -1,6 +1,6 @@
-// firebase.js
 import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
+import { getStorage } from 'firebase/storage';
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -21,9 +21,10 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
 const analytics = getAnalytics(app);
+export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
+export const storage = getStorage(app);
 
 export {
   analytics,

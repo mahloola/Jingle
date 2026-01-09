@@ -1,10 +1,13 @@
 .registrationContainer {
   display: flex;
-  gap: 20px;
+  gap: 1vh;
   flex-direction: column;
   color: var(--primary-yellow);
   max-width: 400px;
   min-width: 370px;
+  max-height: 90vh;
+  overflow-y: scroll;
+  scrollbar-width: thin;
   margin: 50px auto;
   padding: 30px;
   border: 1px solid #e0e0e0;
@@ -37,6 +40,14 @@
   border: 1px solid #ffcdd2;
 }
 
+.imagePreview {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 8px;
+}
+
 .formGroup label {
   display: block;
   margin-bottom: 8px;
@@ -66,7 +77,7 @@
 
 .submitBtn {
   width: 100%;
-  padding: 10px;
+  padding: 1vh;
 
   background-color: white;
   color: #555;
@@ -129,7 +140,7 @@
 
 .homeButton {
   width: 100%;
-  padding: 12px;
+  padding: 1vh;
   color: #ffffff;
   border-radius: 4px;
   font-size: 18px;

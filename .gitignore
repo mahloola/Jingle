@@ -7,7 +7,11 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-
+firebase.json
+firestore.indexes.json
+firestore.rules
+storage.rules
+.firebaserc
 
 public/rsmap-tiles/mapIdTiles
 osrs_map_full.png
