@@ -229,15 +229,12 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       ></div>
       <RoundResult gameState={gameState} />
       {gameState.status === GameStatus.GameOver &&
-        (finalPercentile !== null ? (
-          <GameOver
-            gameState={gameState}
-            dailyChallenge={dailyChallenge}
-            percentile={finalPercentile}
-          />
-        ) : (
-          <h1>Loading...</h1>
-        ))}
+        <GameOver
+          gameState={gameState}
+          dailyChallenge={dailyChallenge}
+          percentile={finalPercentile}
+        />
+      }
     </>
   );
 }

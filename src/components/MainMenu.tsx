@@ -31,8 +31,7 @@ export default function MainMenu({ dailyChallenge }: MainMenuProps) {
       />
 
       <h1 className={'main-menu-text'}>
-        J<span className={'santa-hat'} />
-        ingle
+        Jingle
       </h1>
 
       {/* Daily Jingle Option */}
