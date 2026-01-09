@@ -172,10 +172,12 @@ export default function MultiplayerLobby() {
     })
     .sort((a, b) => a.rank - b.rank); // Sort by rank
 
+  const maxLength = isMobile ? 4 : 12;
   const lobbyName =
-    isMobile && lobby.name.length > 12
-      ? `${lobby.name.slice(0, 4)}..`
-      : `${lobby.name.slice(0, 14)}..`;
+    lobby.name.length > maxLength
+      ? `${lobby.name.slice(0, maxLength)}..`
+      : lobby.name;
+
 
   return (
     <>
