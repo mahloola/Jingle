@@ -232,6 +232,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
       />
       <table className={'settings-table'}>
         <tbody>
+          {/* fix later
           <tr>
             <td>
               Hard Mode{' '}
@@ -251,7 +252,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
                 }}
               ></input>
             </td>
-          </tr>
+          </tr> */}
           <tr
             className='hard-mode-row'
             style={{

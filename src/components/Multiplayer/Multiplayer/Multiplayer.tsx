@@ -355,7 +355,11 @@ const Multiplayer = () => {
                     size='medium'
                     color='success'
                     label={(() => {
-                      const regionString = Object.keys(lobby.settings?.regions || {}).join(', ');
+                      const trueRegions = Object.fromEntries(
+                        Object.entries(lobby.settings?.regions || {})
+                          .filter(([, value]) => value === true)
+                      );
+                      const regionString = Object.keys(trueRegions).join(', ');
                       return regionString.length > 60
                         ? regionString.substring(0, 50) + '...'
                         : regionString;
