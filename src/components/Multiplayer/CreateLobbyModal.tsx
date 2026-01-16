@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { FaChevronDown, FaQuestionCircle } from 'react-icons/fa';
 import { Tooltip } from 'react-tooltip';
-import { DEFAULT_LOBBY_SETTINGS, MAX_ROUND_TIME, MIN_REVEAL_TIME, MIN_ROUND_TIME } from '../../constants/defaults';
+import {
+  DEFAULT_LOBBY_SETTINGS,
+  MAX_ROUND_TIME,
+  MIN_REVEAL_TIME,
+  MIN_ROUND_TIME,
+} from '../../constants/defaults';
 import {
   Region,
   REGIONS,
@@ -28,6 +33,7 @@ interface CreateLobbyModalProps {
 }
 
 const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onClose }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [lobbyName, setLobbyName] = useState<string>('');
   const [lobbyPassword, setLobbyPassword] = useState<string | undefined>('');
   const [lobbySettings, setLobbySettings] = useState<LobbySettings>(DEFAULT_LOBBY_SETTINGS);
@@ -54,7 +60,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
     });
   };
 
-    const handleTimeBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+  const handleTimeBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     if (value === '') return;
@@ -108,7 +114,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
           };
         }
 
-        let numericValue = Number(value);
+        const numericValue = Number(value);
 
         if (Number.isNaN(numericValue)) return prev;
 
@@ -144,13 +150,19 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
     }
   };
 
-  return (
+  return isLoading ? (
+    <h1>Loading...</h1>
+  ) : (
     <Modal
       open={true}
       saveDisabled={disabled}
       primaryButtonText='Create'
       onClose={onClose}
-      onApplySettings={() => onCreateLobby({ lobbySettings, lobbyName, lobbyPassword })}
+      onApplySettings={() => {
+        setIsLoading(true);
+        onCreateLobby({ lobbySettings, lobbyName, lobbyPassword });
+        setIsLoading(false);
+      }}
     >
       <h2>Create Lobby</h2>
       <label
