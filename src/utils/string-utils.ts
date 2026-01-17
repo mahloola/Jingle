@@ -1,3 +1,10 @@
+import {
+  RegExpMatcher,
+  TextCensor,
+  englishDataset,
+  englishRecommendedTransformers,
+} from 'obscenity';
+
 export const decodeHTML = (encodedString: string) => {
   const parser = new DOMParser();
   return parser.parseFromString(encodedString, 'text/html').body.textContent;
@@ -76,4 +83,25 @@ export const calcGradientColor = ({
   }
 
   return `rgb(${r}, ${g}, ${b})`;
+};
+
+export const filterProfanityFromWord = (msg: string) => {
+  const matcher = new RegExpMatcher({
+    ...englishDataset.build(),
+    ...englishRecommendedTransformers,
+  });
+  const censor = new TextCensor();
+  const matches = matcher.getAllMatches(msg);
+  const censoredText = censor.applyTo(msg, matches);
+  return censoredText;
+};
+
+export const checkProfanity = (msg: string) => {
+  const matcher = new RegExpMatcher({
+    ...englishDataset.build(),
+    ...englishRecommendedTransformers,
+  });
+  const matches = matcher.getAllMatches(msg);
+  console.log(!!matches.length);
+  return !!matches.length;
 };

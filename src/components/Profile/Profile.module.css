@@ -1,0 +1,141 @@
+.container {
+  color: var(--primary-yellow);
+  width: 370px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 50px;
+}
+.container p {
+  color: var(--primary-yellow-dark);
+}
+.registrationContainer {
+  display: flex;
+  gap: 1vh;
+  flex-direction: column;
+  color: var(--primary-yellow);
+  max-width: 400px;
+  min-width: 370px;
+  max-height: 90vh;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: rgb(218, 218, 218);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(226, 226, 226, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.registrationContainer h2 {
+  text-align: center;
+}
+
+.registrationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.errorMessage {
+  background-color: #ffeaea;
+  color: #d32f2f;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border: 1px solid #ffcdd2;
+}
+
+.imagePreview {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 8px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.formGroup small {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.85rem;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 1vh;
+
+  background-color: white;
+  color: #555;
+  border: 1px solid #ddd;
+
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background-color: #c1c1c1;
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.loginLink {
+  text-align: center;
+}
+
+.linkBtn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+.linkBtn:hover {
+  color: rgb(220, 220, 220);
+  transition: all 0.3s;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .registrationContainer {
+    margin: 20px;
+    padding: 20px;
+    border: none;
+    box-shadow: none;
+  }
+}

@@ -10,6 +10,7 @@ import MainMenu from './components/MainMenu';
 import MultiplayerLobby from './components/MultiLobby/MultiLobby';
 import Multiplayer from './components/Multiplayer/Multiplayer/Multiplayer';
 import Practice from './components/Practice';
+import Profile from './components/Profile/Profile';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Register from './components/Register/Register';
 import { getDailyChallenge, getLobbies } from './data/jingle-api';
@@ -72,6 +73,15 @@ function App() {
             element={
               <ProtectedRoute>
                 <MultiplayerLobby />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path='/profile'
+            element={
+              <ProtectedRoute>
+                <Profile />
               </ProtectedRoute>
             }
           />

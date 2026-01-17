@@ -6,6 +6,7 @@ import { match } from 'ts-pattern';
 import { useAuth } from '../../AuthContext';
 import { DEFAULT_PFP_URL } from '../../constants/defaults';
 import { joinLobby, leaveLobby, startLobby } from '../../data/jingle-api';
+import { useIsMobile } from '../../hooks/useIsMobile';
 import { useLobbyWebSocket } from '../../hooks/useLobbyWebSocket';
 import { ClickedPosition, MultiLobbyStatus, NavigationState } from '../../types/jingle';
 import { assertLobbyAndUser } from '../../utils/assert';
@@ -24,7 +25,6 @@ import NewsModalButton from '../side-menu/NewsModalButton';
 import StatsModalButton from '../side-menu/StatsModalButton';
 import { Button } from '../ui-util/Button';
 import styles from './MultiLobby.module.css';
-import { useIsMobile } from '../../hooks/useIsMobile';
 sanitizePreferences();
 
 const enterUserIntoLobby = async (user: User, lobbyId: string) => {
@@ -103,7 +103,7 @@ export default function MultiplayerLobby() {
 
     const distance = lobbyState?.currentRound?.songName
       ? findNearestPolygonWhereSongPlays(lobbyState?.currentRound?.songName, clickedPosition)
-        .distance
+          .distance
       : 0;
 
     socket.emit('place-pin', { lobbyId: id, currentUserId, clickedPosition, distance });
@@ -174,19 +174,18 @@ export default function MultiplayerLobby() {
 
   const maxLength = isMobile ? 4 : 12;
   const lobbyName =
-    lobby.name.length > maxLength
-      ? `${lobby.name.slice(0, maxLength)}..`
-      : lobby.name;
-
+    lobby.name.length > maxLength ? `${lobby.name.slice(0, maxLength)}..` : lobby.name;
 
   return (
     <>
       <div className='App-inner'>
-        {!isMobile && <MultiLobbyChat
-          socket={socket}
-          lobby={lobby}
-          currentUser={currentUser}
-        />}
+        {!isMobile && (
+          <MultiLobbyChat
+            socket={socket}
+            lobby={lobby}
+            currentUser={currentUser}
+          />
+        )}
 
         <div className='ui-box'>
           <aside className={styles.playersContainer}>
@@ -199,10 +198,7 @@ export default function MultiplayerLobby() {
                   : lobby.gameState.status}
               </div>
               {lobby.gameState?.currentPhaseEndTime &&
-                lobby.gameState.status !== MultiLobbyStatus.Waiting && (
-                  <h2>{timeLeft}</h2>
-                )}
-
+                lobby.gameState.status !== MultiLobbyStatus.Waiting && <h2>{timeLeft}</h2>}
             </div>
             <div className={styles.playerList}>
               {sortedPlayersWithData.map(({ player, score, lbEntry }) => (
@@ -213,9 +209,7 @@ export default function MultiplayerLobby() {
                   {isMobile ? (
                     /* MOBILE VERSION */
                     <div className={styles.playerContainerMobile}>
-                      <span className={styles.playerRankMobile}>
-                        #{lbEntry?.rank ?? '--'}
-                      </span>
+                      <span className={styles.playerRankMobile}>#{lbEntry?.rank ?? '--'}</span>
                       <img
                         src={player.avatarUrl || DEFAULT_PFP_URL}
                         alt='player-picture'
@@ -260,7 +254,6 @@ export default function MultiplayerLobby() {
                   )}
                 </div>
               ))}
-
             </div>
             <Button
               classes={`${styles.exitLobbyBtn} guess-btn osrs-frame`}

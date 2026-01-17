@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
             onClick={closeMenu}
           >
             &nbsp;
-            <img src='/assets/lyre.png'/>
+            <img src='/assets/lyre.png' />
           </a>
         </div>
 
@@ -108,6 +108,12 @@ const Navbar: React.FC = () => {
               <span className={styles.welcomeText}>
                 Welcome, {currentUser?.displayName || currentUser?.email?.split('@')[0]}
               </span>
+              <button
+                className={styles.profileBtn}
+                onClick={() => navigate('/profile')}
+              >
+                Profile
+              </button>
               <button
                 className={styles.signOutBtn}
                 onClick={handleSignOut}

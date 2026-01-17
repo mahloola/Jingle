@@ -1,10 +1,4 @@
 import { User } from 'firebase/auth';
-import {
-  RegExpMatcher,
-  TextCensor,
-  englishDataset,
-  englishRecommendedTransformers,
-} from 'obscenity';
 import { useEffect, useRef, useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import { Socket } from 'socket.io-client';
@@ -12,22 +6,14 @@ import { DEFAULT_PFP_URL } from '../../constants/defaults';
 import { MultiLobby } from '../../types/jingle';
 
 import { Tooltip } from 'react-tooltip';
+import { filterProfanityFromWord } from '../../utils/string-utils';
 import styles from './MultiLobbyChat.module.css';
 
 enum ProfanityFilterOptions {
   on = 'on',
   off = 'off',
 }
-const filterProfanityFromWord = (msg: string) => {
-  const matcher = new RegExpMatcher({
-    ...englishDataset.build(),
-    ...englishRecommendedTransformers,
-  });
-  const censor = new TextCensor();
-  const matches = matcher.getAllMatches(msg);
-  const censoredText = censor.applyTo(msg, matches);
-  return censoredText;
-};
+
 const MultiLobbyChat = ({
   socket,
   lobby,

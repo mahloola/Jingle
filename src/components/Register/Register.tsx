@@ -1,4 +1,5 @@
 import { updateProfile } from 'firebase/auth';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
@@ -9,8 +10,8 @@ import {
   signInWithPopup,
   storage,
 } from '../../firebase/firebase';
+import { checkProfanity } from '../../utils/string-utils';
 import styles from './Register.module.css';
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -24,7 +25,6 @@ export default function Register() {
 
   const [profileImage, setProfileImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-
 
   if (userLoggedIn) {
     navigate('/');
@@ -44,9 +44,12 @@ export default function Register() {
       return setError('Password must be at least 6 characters');
     }
 
+    if (checkProfanity(displayName)) {
+      return setError('Username cannot contain profanity.');
+    }
+
     try {
-      console.log('creating user')
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, email, password);
       setLoading(true);
 
       await auth.currentUser?.getIdToken(true);
@@ -163,11 +166,11 @@ export default function Register() {
             />
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="profileImage">Profile Picture (optional)</label>
+            <label htmlFor='profileImage'>Profile Picture (optional)</label>
             <input
-              id="profileImage"
-              type="file"
-              accept="image/*"
+              id='profileImage'
+              type='file'
+              accept='image/*'
               onChange={(e) => {
                 const file = e.target.files?.[0];
                 if (!file) return;
@@ -180,7 +183,7 @@ export default function Register() {
             {imagePreview && (
               <img
                 src={imagePreview}
-                alt="Profile preview"
+                alt=''
                 className={styles.imagePreview}
               />
             )}

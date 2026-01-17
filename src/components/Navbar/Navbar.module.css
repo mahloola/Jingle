@@ -150,7 +150,9 @@
   width: 100%;
   background-color: #333;
   border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
 }
 
 /* Mobile Styles (max-width: 719px) */
@@ -319,6 +321,24 @@
 .signOutBtn:hover {
   background-color: #c82333;
   border-color: #bd2130;
+  transition: all 0.3s;
+}
+.profileBtn {
+  background-color: #356adc;
+  border: 1px solid #4372da;
+  color: white;
+  padding: 6px 25px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.profileBtn:hover {
+  filter: brightness(0.8);
+  transition: all 0.3s;
 }
 
 /* Mobile-specific nav items */

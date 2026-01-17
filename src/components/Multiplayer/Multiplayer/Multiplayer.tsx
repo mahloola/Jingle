@@ -10,15 +10,15 @@ import {
   MULTI_LOBBY_COUNT_LIMIT,
 } from '../../../constants/defaults';
 import { createLobby, getLobbies, joinLobby } from '../../../data/jingle-api';
+import { useIsMobile } from '../../../hooks/useIsMobile';
 import { LobbySettings, MultiLobby, YesNoAll } from '../../../types/jingle';
+import { getCurrentUserLobby } from '../../../utils/jingle-utils';
 import EnterPasswordModal from '../../EnterPasswordModal/EnterPasswordModal';
+import Modal from '../../Modal';
 import Navbar from '../../Navbar/Navbar';
 import { Button } from '../../ui-util/Button';
 import CreateLobbyModal from '../CreateLobbyModal';
 import styles from './Multiplayer.module.css';
-import { useIsMobile } from '../../../hooks/useIsMobile';
-import Modal from '../../Modal';
-import { getCurrentUserLobby } from '../../../utils/jingle-utils';
 
 const LOBBIES_PER_PAGE = 4;
 
@@ -40,7 +40,10 @@ const Multiplayer = () => {
   const [isSortedByOldest, setIsSortedByOldest] = useState(false);
   const navigate = useNavigate();
 
-  const userCurrentLobby: MultiLobby | null = getCurrentUserLobby({ userId: currentUser?.uid, lobbies });
+  const userCurrentLobby: MultiLobby | null = getCurrentUserLobby({
+    userId: currentUser?.uid,
+    lobbies,
+  });
   const isMobile = useIsMobile();
 
   // 1. apply filters to ALL lobbies
@@ -99,7 +102,7 @@ const Multiplayer = () => {
     } else {
       setCreateLobbyModalOpen(true);
     }
-  }
+  };
   const onClosePasswordModal = () => {
     setActiveJoinAttempt({
       lobbyId: '',
@@ -208,7 +211,9 @@ const Multiplayer = () => {
 
   if (!lobbies || lobbies.length === 0) {
     return (
-      <>      <Navbar />
+      <>
+        {' '}
+        <Navbar />
         <div className={styles.multiplayerContainerEmpty}>
           {createLobbyModalOpen && (
             <CreateLobbyModal
@@ -223,7 +228,8 @@ const Multiplayer = () => {
             onClick={() => setCreateLobbyModalOpen(true)}
             classes='multiplayerBtnLarge'
           />
-        </div></>
+        </div>
+      </>
     );
   }
 
@@ -237,7 +243,13 @@ const Multiplayer = () => {
         password={enteredPassword}
         onSubmit={handleSubmitPassword}
       />
-      <Modal open={inLobbyModalIsOpen} onClose={() => setInLobbyModalIsOpen(false)}>You're already in a different lobby <span style={{ fontStyle: 'italic' }}>{userCurrentLobby?.name}.</span></Modal>
+      <Modal
+        open={inLobbyModalIsOpen}
+        onClose={() => setInLobbyModalIsOpen(false)}
+      >
+        You're already in a different lobby{' '}
+        <span style={{ fontStyle: 'italic' }}>{userCurrentLobby?.name}.</span>
+      </Modal>
       <div className={styles.multiplayerContainer}>
         {createLobbyModalOpen && (
           <CreateLobbyModal
@@ -263,26 +275,27 @@ const Multiplayer = () => {
               {isSortedByOldest ? 'Oldest' : 'Latest'}{' '}
               <FaChevronDown className={isSortedByOldest ? 'rotated' : ''} />
             </button>
-            {!isMobile && <Chip
-              size='medium'
-              color={
-                filters.privateLobbies === YesNoAll.all
-                  ? 'info'
-                  : filters.privateLobbies === YesNoAll.no
-                    ? 'success'
-                    : 'error'
-              }
-              onClick={handleChangePrivacy}
-              label={
-                filters.privateLobbies === YesNoAll.all
-                  ? 'All Lobbies'
-                  : filters.privateLobbies === YesNoAll.no
-                    ? 'Public Only'
-                    : 'Private Only'
-              }
-              className={styles.chip}
-            />}
-
+            {!isMobile && (
+              <Chip
+                size='medium'
+                color={
+                  filters.privateLobbies === YesNoAll.all
+                    ? 'info'
+                    : filters.privateLobbies === YesNoAll.no
+                      ? 'success'
+                      : 'error'
+                }
+                onClick={handleChangePrivacy}
+                label={
+                  filters.privateLobbies === YesNoAll.all
+                    ? 'All Lobbies'
+                    : filters.privateLobbies === YesNoAll.no
+                      ? 'Public Only'
+                      : 'Private Only'
+                }
+                className={styles.chip}
+              />
+            )}
           </div>
 
           {paginatedLobbies.length > 0 ? (
@@ -297,7 +310,7 @@ const Multiplayer = () => {
                   <img
                     src={lobbyOwner?.avatarUrl ?? DEFAULT_PFP_URL}
                     className={styles.ownerPfp}
-                    alt='Owner avatar'
+                    alt=''
                   />
 
                   <div className={styles.lobbyNameAndPlayerCount}>
@@ -356,8 +369,9 @@ const Multiplayer = () => {
                     color='success'
                     label={(() => {
                       const trueRegions = Object.fromEntries(
-                        Object.entries(lobby.settings?.regions || {})
-                          .filter(([, value]) => value === true)
+                        Object.entries(lobby.settings?.regions || {}).filter(
+                          ([, value]) => value === true,
+                        ),
                       );
                       const regionString = Object.keys(trueRegions).join(', ');
                       return regionString.length > 60
@@ -404,8 +418,9 @@ const Multiplayer = () => {
                         <React.Fragment key={page}>
                           {showEllipsis && <span className={styles.ellipsis}>...</span>}
                           <button
-                            className={`${styles.pageButton} ${currentPage === page ? styles.active : ''
-                              }`}
+                            className={`${styles.pageButton} ${
+                              currentPage === page ? styles.active : ''
+                            }`}
                             onClick={() => handlePageChange(page)}
                           >
                             {page}
@@ -416,8 +431,9 @@ const Multiplayer = () => {
                 </div>
 
                 <button
-                  className={`${styles.pageButton} ${currentPage === totalPages ? styles.disabled : ''
-                    }`}
+                  className={`${styles.pageButton} ${
+                    currentPage === totalPages ? styles.disabled : ''
+                  }`}
                   onClick={() => handlePageChange(currentPage + 1)}
                   disabled={currentPage === totalPages}
                 >
