@@ -8,7 +8,12 @@ import { DEFAULT_PFP_URL } from '../../constants/defaults';
 import { joinLobby, leaveLobby, startLobby } from '../../data/jingle-api';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { useLobbyWebSocket } from '../../hooks/useLobbyWebSocket';
-import { ClickedPosition, MultiLobbyStatus, NavigationState } from '../../types/jingle';
+import {
+  ClickedPosition,
+  LobbySettings,
+  MultiLobbyStatus,
+  NavigationState,
+} from '../../types/jingle';
 import { assertLobbyAndUser } from '../../utils/assert';
 import { loadPreferencesFromBrowser, sanitizePreferences } from '../../utils/browserUtil';
 import { findNearestPolygonWhereSongPlays } from '../../utils/map-utils';
@@ -17,6 +22,7 @@ import { calcGradientColor } from '../../utils/string-utils';
 import AudioControlsMulti from '../AudioControlsMulti';
 import Footer from '../Footer';
 import MultiLobbyChat from '../MultiLobbyChat/MultiLobbyChat';
+import MultiSettingsModal from '../MultiSettingsModal/MultiSettingsModal';
 import RoundResultMulti from '../RoundResultMulti';
 import RunescapeMapMultiWrapper from '../RunescapeMapMulti';
 import HistoryModalButton from '../side-menu/HistoryModalButton';
@@ -107,6 +113,16 @@ export default function MultiplayerLobby() {
       : 0;
 
     socket.emit('place-pin', { lobbyId: id, currentUserId, clickedPosition, distance });
+  };
+
+  const handleSettingsUpdate = async ({
+    newSettings,
+    newName,
+  }: {
+    newSettings: LobbySettings;
+    newName: string;
+  }) => {
+    socket.emit('update-lobby-settings', newSettings, newName, lobbyId);
   };
 
   const handleConfirmGuess = async () => {
@@ -266,6 +282,12 @@ export default function MultiplayerLobby() {
             <NewsModalButton />
             <StatsModalButton />
             <HistoryModalButton />
+            <MultiSettingsModal
+              onEditLobby={({ lobbySettings, lobbyName }) =>
+                handleSettingsUpdate({ newSettings: lobbySettings, newName: lobbyName })
+              }
+              lobby={lobby}
+            />
           </div>
 
           <div className='below-map'>
