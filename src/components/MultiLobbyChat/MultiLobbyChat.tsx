@@ -6,6 +6,7 @@ import { DEFAULT_PFP_URL } from '../../constants/defaults';
 import { MultiLobby } from '../../types/jingle';
 
 import { Tooltip } from 'react-tooltip';
+import { useIsMobile } from '../../hooks/useIsMobile';
 import { filterProfanityFromWord } from '../../utils/string-utils';
 import styles from './MultiLobbyChat.module.css';
 
@@ -25,10 +26,11 @@ const MultiLobbyChat = ({
 }) => {
   const profanityFilterPreference = localStorage.getItem('profanityFilter');
   const [profanityFilterOn, setProfanityFilterOn] = useState(
-    profanityFilterPreference === undefined ||
-      profanityFilterPreference === ProfanityFilterOptions.on,
+    profanityFilterPreference != null
+      ? profanityFilterPreference === ProfanityFilterOptions.on
+      : true, // Default when doesn't exist
   );
-
+  const isMobile = useIsMobile();
   const currentUserId = currentUser?.uid;
   const lobbyId = lobby?.id;
 
@@ -114,13 +116,10 @@ const MultiLobbyChat = ({
   return (
     <>
       <div>
-        {/* ... existing UI ... */}
-
-        {/* Add chat sidebar */}
         <aside className={styles.chatContainer}>
           <div className={`${styles.chatHeader}`}>
             <h3>
-              Lobby Chat
+              {!isMobile ? 'Lobby Chat' : 'Chat'}
               <FaChevronDown
                 onClick={toggleChat}
                 className={chatOpen ? '' : 'rotated'}
@@ -138,7 +137,9 @@ const MultiLobbyChat = ({
                 🤬
               </span>
               <Tooltip id='round-time-tooltip' />
-              <span className={styles.onlineCount}>{lobby?.players?.length || 0} online</span>
+              {!isMobile && (
+                <span className={styles.onlineCount}>{lobby?.players?.length || 0} online</span>
+              )}
             </span>
           </div>
           <div
@@ -155,26 +156,30 @@ const MultiLobbyChat = ({
                   className={`${styles.chatMessage} ${isCurrentUser ? styles.userMessage : ''}`}
                 >
                   <div className={styles.chatMessageHeader}>
-                    {msg.avatarUrl ? (
-                      <img
-                        src={msg.avatarUrl}
-                        alt={msg.username}
-                        className={styles.chatAvatar}
-                      />
-                    ) : (
-                      <img
-                        src={DEFAULT_PFP_URL}
-                        alt={msg.username}
-                        className={styles.chatAvatar}
-                      />
-                    )}
+                    {!isMobile &&
+                      (msg.avatarUrl ? (
+                        <img
+                          src={msg.avatarUrl}
+                          alt={msg.username}
+                          className={styles.chatAvatar}
+                        />
+                      ) : (
+                        <img
+                          src={DEFAULT_PFP_URL}
+                          alt={msg.username}
+                          className={styles.chatAvatar}
+                        />
+                      ))}
+
                     <span className={styles.chatUsername}>{msg.username}</span>
-                    <span className={styles.chatTime}>
-                      {new Date(msg.timestamp).toLocaleTimeString([], {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                      })}
-                    </span>
+                    {!isMobile && (
+                      <span className={styles.chatTime}>
+                        {new Date(msg.timestamp).toLocaleTimeString([], {
+                          hour: '2-digit',
+                          minute: '2-digit',
+                        })}
+                      </span>
+                    )}
                   </div>
                   <div className={styles.chatMessageText}>{msg.message}</div>
                 </div>

@@ -7,7 +7,7 @@
   gap: 10px;
   width: 100%;
 
-  animation: leftSwipeFade 1s;
+  animation: leftSwipeFade 0.8s;
   transition: all 0.3s;
 }
 
@@ -26,14 +26,14 @@
   gap: 10px;
   width: 100%;
 
-  animation: rightSwipeFade 1s;
+  animation: rightSwipeFade 0.8s;
   transition: all 0.3s;
 }
 
 @keyframes leftSwipeFade {
   0% {
     opacity: 0%;
-    transform: translateX(-30px);
+    transform: translateX(-50px);
   }
 
   100% {
@@ -45,7 +45,7 @@
 @keyframes rightSwipeFade {
   0% {
     opacity: 0%;
-    transform: translateX(30px);
+    transform: translateX(50px);
   }
 
   100% {
@@ -91,11 +91,14 @@
   scrollbar-width: none;
   flex: 1;
   width: 100%;
-  max-height: 430px;
+  max-height: 48vh;
+}
+
+.opacityGradient {
   -webkit-mask-image: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 92%,
+    rgba(255, 255, 255, 1) 94%,
     rgba(255, 255, 255, 0) 100%
   );
 }
@@ -142,10 +145,9 @@
 
 .playerPicture {
   width: 50px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 20px;
-  flex-shrink: 0;
+  height: 50px; /* Must set both width AND height */
+  border-radius: 50%; /* This creates a perfect circle */
+  object-fit: cover; /* Prevents image distortion */
 }
 
 .playerInfo {
@@ -170,7 +172,22 @@
   }
 
   .playerList {
-    max-height: 300px;
+    max-height: 30vh;
+  }
+
+  .playerPicture {
+    width: 40px;
+    height: auto;
+  }
+}
+
+@media (max-height: 720px) {
+  .playersContainer {
+    width: 100px;
+    left: -7px;
+    top: 50px;
+    height: 200px;
+    pointer-events: auto;
   }
 
   .playerPicture {

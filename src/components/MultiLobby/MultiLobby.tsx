@@ -195,13 +195,11 @@ export default function MultiplayerLobby() {
   return (
     <>
       <div className='App-inner'>
-        {!isMobile && (
-          <MultiLobbyChat
-            socket={socket}
-            lobby={lobby}
-            currentUser={currentUser}
-          />
-        )}
+        <MultiLobbyChat
+          socket={socket}
+          lobby={lobby}
+          currentUser={currentUser}
+        />
 
         <div className='ui-box'>
           <aside className={`${styles.playersContainer} ${styles.halfOpacityGradient}`}>
@@ -216,7 +214,9 @@ export default function MultiplayerLobby() {
               {lobby.gameState?.currentPhaseEndTime &&
                 lobby.gameState.status !== MultiLobbyStatus.Waiting && <h2>{timeLeft}</h2>}
             </div>
-            <div className={styles.playerList}>
+            <div
+              className={`${styles.playerList} ${lobby.players.length > 5 ? styles.opacityGradient : ''}`}
+            >
               {sortedPlayersWithData.map(({ player, score, lbEntry }) => (
                 <div
                   key={player.id}
@@ -334,7 +334,7 @@ export default function MultiplayerLobby() {
               gameState={lobbyState}
               multiGame={lobby}
             />
-            <Footer />
+            {!isMobile && <Footer />}
           </div>
         </div>
       </div>
