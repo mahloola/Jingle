@@ -120,6 +120,12 @@
   text-shadow: 2px 2px 2px black;
 }
 
+.lobbyRoundCount {
+  font-size: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.12);
+  padding: 10px 25px;
+  border-radius: 30px;
+}
 /* Pagination Styles */
 .paginationContainer {
   margin: 0 auto;
