@@ -282,12 +282,14 @@ export default function MultiplayerLobby() {
             <NewsModalButton />
             <StatsModalButton />
             <HistoryModalButton />
-            <MultiSettingsModal
-              onEditLobby={({ lobbySettings, lobbyName }) =>
-                handleSettingsUpdate({ newSettings: lobbySettings, newName: lobbyName })
-              }
-              lobby={lobby}
-            />
+            {currentUserId === lobby.ownerId && (
+              <MultiSettingsModal
+                onEditLobby={({ lobbySettings, lobbyName }) =>
+                  handleSettingsUpdate({ newSettings: lobbySettings, newName: lobbyName })
+                }
+                lobby={lobby}
+              />
+            )}
           </div>
 
           <div className='below-map'>
