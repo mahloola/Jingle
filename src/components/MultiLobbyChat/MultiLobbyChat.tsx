@@ -1,6 +1,6 @@
 import { User } from 'firebase/auth';
 import { useEffect, useRef, useState } from 'react';
-import { FaChevronDown } from 'react-icons/fa';
+import { FaChevronDown, FaQuestionCircle } from 'react-icons/fa';
 import { Socket } from 'socket.io-client';
 import { DEFAULT_PFP_URL } from '../../constants/defaults';
 import { MultiLobby } from '../../types/jingle';
@@ -124,7 +124,13 @@ const MultiLobbyChat = ({
                 onClick={toggleChat}
                 className={chatOpen ? '' : 'rotated'}
               />
+              <FaQuestionCircle
+                data-tooltip-id='privacy-tooltip'
+                data-tooltip-content='All chats are private and deleted'
+              />
+              <Tooltip id='privacy-tooltip' />
             </h3>
+
             <span>
               <span
                 className={`${styles.profanityToggle} ${
