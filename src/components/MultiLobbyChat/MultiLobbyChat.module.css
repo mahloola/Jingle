@@ -205,10 +205,21 @@
   /* existing styles */
 }
 
-@media (max-width: 480px), (max-height: 480px) {
+@media (max-width: 480px) {
   .chatContainer {
     bottom: 20px;
-    width: 20vw;
+    width: 40vw;
+    font-size: 10px !important;
+  }
+  .chatMessageText {
+    margin-left: 0px;
+  }
+}
+
+@media (max-height: 480px) {
+  .chatContainer {
+    bottom: 20px;
+    width: 25vw;
     font-size: 10px !important;
   }
   .chatMessageText {
