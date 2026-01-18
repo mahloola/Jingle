@@ -309,7 +309,7 @@ const Multiplayer = () => {
                 >
                   <div className={styles.lobbyOwnerInfo}>
                     <img
-                      src={lobbyOwner?.avatarUrl ?? DEFAULT_PFP_URL}
+                      src={lobbyOwner?.avatarUrl || DEFAULT_PFP_URL}
                       className={styles.ownerPfp}
                       alt=''
                     />
