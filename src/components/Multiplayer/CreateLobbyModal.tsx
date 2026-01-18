@@ -16,6 +16,7 @@ import {
 } from '../../constants/regions';
 import { LobbySettings } from '../../types/jingle';
 import { countSelectedSongs } from '../../utils/countSelectedSongs';
+import { checkProfanity } from '../../utils/string-utils';
 import Modal from '../Modal';
 import CustomRangeInput from '../ui-util/CustomRangeInput';
 
@@ -50,6 +51,14 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
     Object.values(lobbySettings.regions).every((enabled) => !enabled) ||
     (!lobbySettings.undergroundSelected && !lobbySettings.surfaceSelected) ||
     lobbyName == '';
+
+  const handleNameChange = (name: string) => {
+    if (checkProfanity(name)) {
+      return;
+    } else {
+      setLobbyName(name);
+    }
+  };
 
   const handleHardModeTimeChange = (value: number) => {
     setLobbySettings((prev) => {
@@ -178,7 +187,7 @@ const CreateLobbyModal: React.FC<CreateLobbyModalProps> = ({ onCreateLobby, onCl
         value={lobbyName}
         name='lobbyName'
         maxLength={30}
-        onChange={(e) => setLobbyName(e.target.value)}
+        onChange={(e) => handleNameChange(e.target.value)}
         style={{ width: '100%', padding: '5px 10px', borderRadius: '10px', margin: '10px' }}
       />
       <label

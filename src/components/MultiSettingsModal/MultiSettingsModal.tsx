@@ -17,6 +17,7 @@ import {
 } from '../../constants/regions';
 import { LobbySettings, MultiLobby } from '../../types/jingle';
 import { countSelectedSongs } from '../../utils/countSelectedSongs';
+import { checkProfanity } from '../../utils/string-utils';
 import Modal from '../Modal';
 import IconButton from '../side-menu/IconButton';
 import CustomRangeInput from '../ui-util/CustomRangeInput';
@@ -41,6 +42,7 @@ const MultiSettingsModal: React.FC<MultiSettingsModalProps> = ({ onEditLobby, lo
     lobby.settings ?? DEFAULT_LOBBY_SETTINGS,
   );
   const [regionsOpen, setRegionsOpen] = useState(false);
+
   const toggleRegions = () => {
     setRegionsOpen((prev) => !prev);
   };
@@ -61,6 +63,14 @@ const MultiSettingsModal: React.FC<MultiSettingsModalProps> = ({ onEditLobby, lo
         hardModeLength: value,
       };
     });
+  };
+
+  const handleNameChange = (name: string) => {
+    if (checkProfanity(name)) {
+      return;
+    } else {
+      setLobbyName(name);
+    }
   };
 
   const handleTimeBlur = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -187,7 +197,7 @@ const MultiSettingsModal: React.FC<MultiSettingsModalProps> = ({ onEditLobby, lo
           value={lobbyName}
           name='lobbyName'
           maxLength={30}
-          onChange={(e) => setLobbyName(e.target.value)}
+          onChange={(e) => handleNameChange(e.target.value)}
           style={{ width: '100%', padding: '5px 10px', borderRadius: '10px', margin: '10px' }}
         />
         <label
