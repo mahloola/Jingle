@@ -110,7 +110,7 @@ export const NESTED_GROUPS = [
   [MapIds.Prifddinas, MapIds.PrifddinasUnderground],
   [MapIds.RuinsOfCamdozaal, MapIds.LassarUndercity],
   [MapIds.MisthalinUnderground, MapIds.GuardiansOfTheRift, MapIds.TheScar],
-  [MapIds.MiscUnderground, MapIds.GhorrockDungeon, MapIds.GhorrockPrison],
+  [MapIds.NorthernOceanUnderground, MapIds.GhorrockDungeon, MapIds.GhorrockPrison],
   [MapIds.ArdoungeUnderground, MapIds.GoblinTemple],
   [MapIds.MisthalinUnderground, MapIds.GuthixianTemple],
   [MapIds.Zanaris, MapIds.CosmicAltar],

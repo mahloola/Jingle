@@ -840,6 +840,10 @@ export const groupedLinks: GroupedLinks = {
       end: { x: 2748, y: 8812, mapId: 47, name: 'Unquiet Ocean Underground' },
     },
     {
+      start: { x: 3272, y: 2463, mapId: 0, name: 'Gielinor Surface' },
+      end: { x: 3286, y: 8868, mapId: 47, name: 'Unquiet Ocean Underground' },
+    },
+    {
       start: { x: 2760, y: 3062, mapId: 0, name: 'Gielinor Surface' },
       end: { x: 2734, y: 9477, mapId: 46, name: 'Ardent Ocean Underground' },
     },
