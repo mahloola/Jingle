@@ -10,7 +10,6 @@ import { checkProfanity } from '../../utils/string-utils';
 
 const Profile = () => {
   const { currentUser } = useAuth();
-
   const [profileImage, setProfileImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(currentUser?.photoURL ?? null);
   const [confirmPassword, setConfirmPassword] = useState('');
