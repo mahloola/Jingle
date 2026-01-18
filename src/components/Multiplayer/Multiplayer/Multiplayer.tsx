@@ -382,6 +382,7 @@ const Multiplayer = () => {
                     })()}
                     className={styles.chip}
                   />
+                  <h2>⏱️{lobby?.gameState?.rounds?.length} rounds</h2>
                 </div>
               );
             })
