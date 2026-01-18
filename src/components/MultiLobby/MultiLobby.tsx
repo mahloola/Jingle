@@ -204,7 +204,7 @@ export default function MultiplayerLobby() {
         )}
 
         <div className='ui-box'>
-          <aside className={styles.playersContainer}>
+          <aside className={`${styles.playersContainer} ${styles.halfOpacityGradient}`}>
             <div className={`osrs-frame ${styles.lobbyInfo}`}>
               <h2>{lobbyName}</h2>
               {lobby.players?.length > 1 ? `${lobby.players?.length} Players` : null}

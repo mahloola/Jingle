@@ -32,8 +32,8 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
 };
 export const DEFAULT_LOBBY_SETTINGS: LobbySettings = {
   hasPassword: false,
-  roundTimeSeconds: 30,
-  roundIntervalSeconds: 5,
+  roundTimeSeconds: 45,
+  roundIntervalSeconds: 10,
   hardMode: DEFAULT_PREFERENCES.preferHardMode,
   hardModeLength: DEFAULT_PREFERENCES.hardModeLength,
   regions: DEFAULT_PREFERENCES.regions,

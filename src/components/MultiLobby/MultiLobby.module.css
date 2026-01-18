@@ -55,7 +55,6 @@
 }
 
 .playersContainer {
-  pointer-events: none;
   position: absolute;
   top: 100px;
   left: -7px;
@@ -68,7 +67,6 @@
   gap: 10px;
   z-index: 99999;
 }
-
 /* Compact mobile row */
 .playerContainerMobile {
   display: flex;
@@ -85,7 +83,6 @@
   text-align: center;
 }
 
-
 .playerList {
   display: flex;
   flex-direction: column;
@@ -95,6 +92,12 @@
   flex: 1;
   width: 100%;
   max-height: 430px;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 92%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .playerUsername {
@@ -134,11 +137,12 @@
   padding: 10px;
   gap: 10px;
   width: 100%;
+  pointer-events: none;
 }
 
 .playerPicture {
   width: 50px;
-  height: 50px;
+  height: auto;
   object-fit: cover;
   border-radius: 20px;
   flex-shrink: 0;
@@ -171,6 +175,6 @@
 
   .playerPicture {
     width: 40px;
-    height: 40px;
+    height: auto;
   }
 }

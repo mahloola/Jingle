@@ -65,7 +65,7 @@ const Profile = () => {
     <>
       <Navbar />
       <main className={`osrs-frame ${styles.container}`}>
-        <h1>{currentUser?.displayName ?? currentUser?.email}</h1>
+        <h1>{currentUser?.displayName ?? currentUser?.email?.slice(0, 16)}</h1>
         <p>Customize your profile here!</p>
         {error && (
           <div

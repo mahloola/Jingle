@@ -1,6 +1,6 @@
 // Navbar.tsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
 import { auth, signOut } from '../../firebase/firebase';
 import styles from './Navbar.module.css';
@@ -27,23 +27,15 @@ const Navbar: React.FC = () => {
     }
   };
 
-  const handleProfileClick = () => {
-    navigate('/profile');
-    closeMenu();
-  };
-
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
         {/* Logo */}
         <div className={styles.navbarLogo}>
-          <a
-            href='/'
-            onClick={closeMenu}
-          >
+          <Link to='/'>
             &nbsp;
             <img src='/assets/lyre.png' />
-          </a>
+          </Link>
         </div>
 
         {/* Hamburger Menu for Mobile */}
