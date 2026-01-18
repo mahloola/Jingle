@@ -307,12 +307,14 @@ const Multiplayer = () => {
                   onClick={() => onJoinLobby(lobby.id)}
                   key={lobby.id}
                 >
-                  <img
-                    src={lobbyOwner?.avatarUrl ?? DEFAULT_PFP_URL}
-                    className={styles.ownerPfp}
-                    alt=''
-                  />
-
+                  <div className={styles.lobbyOwnerInfo}>
+                    <img
+                      src={lobbyOwner?.avatarUrl ?? DEFAULT_PFP_URL}
+                      className={styles.ownerPfp}
+                      alt=''
+                    />
+                    {lobbyOwner?.username}
+                  </div>
                   <div className={styles.lobbyNameAndPlayerCount}>
                     <h2 className={styles.lobbyName}>{lobby.name}</h2>
                     <h4 className={styles.playerCount}>
