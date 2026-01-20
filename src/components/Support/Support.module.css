@@ -1,0 +1,59 @@
+.supportContainer {
+    margin-top: 300px;
+    height: auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.supportContainer > *:nth-child(even) {
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--primary-yellow);
+}
+.supportContainer > *:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.3);
+  color: black;
+}
+
+.supportSection {
+    width: 100%;
+    min-height: 200px;
+    padding: 50px 50px;
+}
+
+.premiumCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(100, 100, 100);
+    padding: 10px;
+    border-radius: 5px;
+    width: 20%;
+    transition: all 0.3s;
+    filter: brightness(0.8);
+}
+.premiumCard:hover {
+    filter: brightness(1.0);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.premiumCards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.usernameInputGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 400px;
+    margin: 0 auto;
+}

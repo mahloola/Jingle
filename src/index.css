@@ -10,7 +10,7 @@
 
 html {
   /* MAKE SURE EVERYTHING IS 1 PAGE TALL */
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {

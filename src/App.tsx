@@ -19,6 +19,7 @@ import './style/leaflet.css';
 import './style/osrs-ui.css';
 import './style/uiBox.css';
 import { getCurrentDateInBritain } from './utils/date-utils';
+import Support from './components/Support/Support';
 function App() {
   const { data: dailyChallenge } = useSWR(
     `/api/daily-challenges/${getCurrentDateInBritain()}`,
@@ -65,6 +66,13 @@ function App() {
               <ProtectedRoute>
                 <Multiplayer />
               </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path='/support'
+            element={
+              <Support />
             }
           />
 

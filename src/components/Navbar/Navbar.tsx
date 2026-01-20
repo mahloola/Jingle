@@ -32,7 +32,9 @@ const Navbar: React.FC = () => {
       <div className={styles.navbarContainer}>
         {/* Logo */}
         <div className={styles.navbarLogo}>
-          <Link to='/'>
+          <Link
+            to='/'
+          >
             &nbsp;
             <img src='/assets/lyre.png' />
           </Link>
@@ -52,6 +54,8 @@ const Navbar: React.FC = () => {
         {/* Navigation Links */}
         <div className={`${styles.navMenu} ${isMenuOpen ? styles.active : ''}`}>
           <ul className={styles.navList}>
+            <Link to='/support'>
+              <li className={styles.navItem}>Support</li></Link>
             {/* Conditional Auth Links for Mobile */}
             {userLoggedIn ? (
               <>
