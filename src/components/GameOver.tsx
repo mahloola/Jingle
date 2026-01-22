@@ -15,7 +15,7 @@ interface GameOverProps {
 export default function GameOver({ gameState, dailyChallenge, percentile }: GameOverProps) {
   const jingleNumber = getJingleNumber(dailyChallenge);
   const score = sum(gameState.scores);
-
+  const percentileSanitized = percentile === null ? 'N/A' : percentile === 0 ? 'First Place' : percentile.toFixed(1) + '%';
   return (
     <div className='result-screen-parent'>
       <div className='result-screen result-screen-results'>
@@ -30,7 +30,7 @@ export default function GameOver({ gameState, dailyChallenge, percentile }: Game
         </div>
         <div className='result-screen-data-row'>
           <div>Top%</div>
-          <div>{percentile ? percentile.toFixed(1) + '%' : 'First Place'}</div>
+          <div>{percentileSanitized}</div>
         </div>
         <div className='result-screen-data-row'>
           <div style={{ alignContent: 'center' }}>Next in</div>

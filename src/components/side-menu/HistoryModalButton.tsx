@@ -3,7 +3,7 @@ import { Fragment, useState } from 'react';
 import { FaChevronDown, FaQuestionCircle } from 'react-icons/fa';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
-import useSWR from 'swr';
+import useSWRImmutable from 'swr/immutable';
 import { ASSETS } from '../../constants/assets';
 import { MAX_MIN_HISTORY_COLORS } from '../../constants/defaults';
 import { getAverages } from '../../data/jingle-api';
@@ -16,7 +16,7 @@ const HistoryModalButton = () => {
   const [open, setOpen] = useState(false);
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const { data: averages } = useSWR(`/api/averages`, getAverages);
+  const { data: averages } = useSWRImmutable(open ? `/api/averages` : null, getAverages);
   const localStorageItems = { ...localStorage };
   const dailies = Object.entries(localStorageItems).filter(([key]) => key.includes('jingle-'));
   const dailiesAsObjects = dailies.map(([key, value]) => ({
