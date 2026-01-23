@@ -183,7 +183,7 @@ const MultiSettingsModal: React.FC<MultiSettingsModalProps> = ({ onEditLobby, lo
           setOpen(false);
         }}
       >
-        <h2>Create Lobby</h2>
+        <h2>Edit Lobby</h2>
         <label
           htmlFor='lobbyName'
           style={{ width: '100%' }}
