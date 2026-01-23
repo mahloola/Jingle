@@ -54,7 +54,11 @@ export default function MultiplayerLobby() {
   // }
 
   if (!userInLobby && currentUser && lobbyId) {
-    enterUserIntoLobby(currentUser, lobbyId);
+    if (lobby?.settings.hasPassword) {
+      navigate('/multiplayer');
+    } else {
+      enterUserIntoLobby(currentUser, lobbyId);
+    }
   }
 
   const lobbyState = lobby?.gameState;
