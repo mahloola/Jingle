@@ -188,7 +188,7 @@
     width: 100px;
     left: -7px;
     top: 50px;
-    height: 85vh;
+    height: auto;
     pointer-events: auto;
   }
 
