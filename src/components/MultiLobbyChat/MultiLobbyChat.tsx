@@ -57,7 +57,7 @@ const MultiLobbyChat = ({
     }>
   >([]);
 
-  const [chatOpen, setChatOpen] = useState(true);
+  const [chatOpen, setChatOpen] = useState(isMobile ? false : true);
   const [chatInput, setChatInput] = useState('');
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -211,6 +211,12 @@ const MultiLobbyChat = ({
               placeholder='Type a message...'
               className={styles.chatInput}
               maxLength={200}
+              style={{
+                fontSize: '16px',
+                transform: 'scale(1)',
+                transformOrigin: 'left top',
+              }}
+              inputMode='text'
             />
             <button
               onClick={handleSendChatMessage}

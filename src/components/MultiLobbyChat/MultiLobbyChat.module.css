@@ -200,8 +200,11 @@
   border: none !important;
   border-radius: 4px;
   color: #fff;
-  font-size: 14px;
   margin-bottom: 0px !important;
+
+  font-size: 16px;
+  min-height: 44px; /* Minimum touch target size */
+  line-height: 1.2;
 }
 
 .chatInput:focus {
@@ -243,6 +246,14 @@
   .chatMessageText {
     margin-left: 0px;
   }
+
+  .chatInput {
+    font-size: 16px !important;
+  }
+
+  .chatInput:focus {
+    font-size: 16px !important;
+  }
 }
 
 @media (max-height: 480px) {
@@ -253,5 +264,13 @@
   }
   .chatMessageText {
     margin-left: 0px;
+  }
+
+  .chatInput {
+    font-size: 16px !important;
+  }
+
+  .chatInput:focus {
+    font-size: 16px !important;
   }
 }
