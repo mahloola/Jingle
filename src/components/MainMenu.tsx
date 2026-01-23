@@ -34,12 +34,14 @@ export default function MainMenu({ dailyChallenge, multiLobbies }: MainMenuProps
           alt='Jingle'
         />
         <div className='main-menu-title-options'>
-          <h1 className={'main-menu-text'}>
+          {/* during christmas: */}
+          {/* <h1 className={'main-menu-text'}>
             <span className={'jLetter'}>
               J<span className={'santaHat'}></span>
             </span>
             ingle
-          </h1>
+          </h1> */}
+          <h1 className={'main-menu-text'}>Jingle</h1>
           {/* Daily Jingle Option */}
           <div className='main-menu-options'>
             <Link
