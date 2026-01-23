@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { sendFeedback } from '../../data/jingle-api';
+import { useIsMobile } from '../../hooks/useIsMobile';
 import '../../style/modal.css';
 import Modal from '../Modal';
 import { Button } from '../ui-util/Button';
@@ -8,6 +9,7 @@ export default function ReportModalButton() {
   const [open, setOpen] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [loading, setLoading] = useState(false);
+  const isMobile = useIsMobile();
   const closeModal = () => {
     setOpen(false);
   };
@@ -25,6 +27,10 @@ export default function ReportModalButton() {
       console.error('Could not submit feedback: ', err);
     }
   };
+
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <>

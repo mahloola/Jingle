@@ -116,13 +116,13 @@ const MultiLobbyChat = ({
   return (
     <>
       <div>
-        <aside className={styles.chatContainer}>
+        <aside className={isMobile ? `${styles.chatContainerMobile}` : `${styles.chatContainer}`}>
           <div className={`${styles.chatHeader}`}>
             <h3>
               {!isMobile ? 'Lobby Chat' : 'Chat'}
               <FaChevronDown
                 onClick={toggleChat}
-                className={chatOpen ? '' : 'rotated'}
+                className={`${chatOpen ? '' : 'rotated'} ${isMobile ? 'mobile-rotate' : ''}`}
               />
               <FaQuestionCircle
                 data-tooltip-id='privacy-tooltip'
@@ -193,7 +193,11 @@ const MultiLobbyChat = ({
             })}
           </div>
 
-          <div className={styles.chatInputContainer}>
+          <div
+            className={
+              chatOpen || !isMobile ? `${styles.chatInputContainer}` : `${styles.chatClosed}`
+            }
+          >
             <input
               type='text'
               value={chatInput}

@@ -204,5 +204,15 @@ input:focus {
 }
 
 .rotated {
-  transform: rotate(-180deg);
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .rotated {
+    transform: rotate(0deg);
+  }
+
+  .mobile-rotate:not(.rotated) {
+    transform: rotate(180deg);
+  }
 }
