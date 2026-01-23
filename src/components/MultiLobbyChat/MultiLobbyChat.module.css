@@ -21,10 +21,10 @@
 .chatContainerMobile {
   position: fixed;
   top: 0px;
-  left: 52%;
+  left: 53%;
   transform: translate(-50%, 0);
 
-  width: 240px;
+  width: 220px;
   height: auto;
   display: flex;
   flex-direction: column;

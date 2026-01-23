@@ -232,7 +232,7 @@ export default function MultiplayerLobby() {
                         alt='player-picture'
                         className={styles.playerPicture}
                       />
-                      {playersConfirmed.get(player.id) ? <FaCheck /> : null}
+                      {playersConfirmed.get(player.id) && !isMobile ? <FaCheck /> : null}
                     </div>
                   ) : lobbyState?.status === MultiLobbyStatus.Revealing ? (
                     /* DESKTOP REVEAL */

@@ -124,11 +124,15 @@ const MultiLobbyChat = ({
                 onClick={toggleChat}
                 className={`${chatOpen ? '' : 'rotated'} ${isMobile ? 'mobile-rotate' : ''}`}
               />
-              <FaQuestionCircle
-                data-tooltip-id='privacy-tooltip'
-                data-tooltip-content='All chats are private and deleted'
-              />
-              <Tooltip id='privacy-tooltip' />
+              {!isMobile && (
+                <>
+                  <FaQuestionCircle
+                    data-tooltip-id='privacy-tooltip'
+                    data-tooltip-content='All chats are private and deleted'
+                  />
+                  <Tooltip id='privacy-tooltip' />
+                </>
+              )}
             </h3>
 
             <span>

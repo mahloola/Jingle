@@ -35,3 +35,9 @@
     background-image: url(/assets/osrs_map_zoom_in.webp) !important;
   }
 }
+
+@media (max-width: 720px) {
+  .leaflet-control-zoom {
+    visibility: hidden !important;
+  }
+}
