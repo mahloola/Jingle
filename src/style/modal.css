@@ -195,6 +195,7 @@ input:focus {
 
 .modal-buttons-container {
   display: flex;
+  align-items: flex-end;
   flex-direction: column;
   position: fixed;
   top: 10px;

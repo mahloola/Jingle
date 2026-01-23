@@ -1,7 +1,14 @@
 import { FaDiscord, FaDonate, FaGithub } from 'react-icons/fa';
+import { useIsMobile } from '../hooks/useIsMobile';
 import '../style/footer.css';
 
 export default function Footer() {
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return null;
+  }
+
   return (
     <div className='osrs-frame footer'>
       <div>

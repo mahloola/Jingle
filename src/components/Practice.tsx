@@ -32,6 +32,7 @@ import HistoryModalButton from './side-menu/HistoryModalButton';
 import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
 import SettingsModalButton from './side-menu/PreferencesModalButton';
+import ReportModalButton from './side-menu/ReportModalButton';
 import StatsModalButton from './side-menu/StatsModalButton';
 import { Button } from './ui-util/Button';
 
@@ -43,7 +44,7 @@ const songService: SongService = SongService.Instance();
 export default function Practice() {
   const goBackButtonRef = useRef<HTMLDivElement>(null);
   const currentPreferences = loadPreferencesFromBrowser();
-
+  const [reportModalOpen, setReportModaLOpen] = useState(false);
   const [navigationState, setNavigationState] = useState<NavigationState>({
     clickedPosition: {
       xy: [1000, 1000],
@@ -135,7 +136,11 @@ export default function Practice() {
       <div className='App-inner'>
         <div className='ui-box'>
           <div className='modal-buttons-container'>
-            <HomeButton />
+            <span style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+              <ReportModalButton />
+              <HomeButton />
+            </span>
+
             <SettingsModalButton
               currentPreferences={currentPreferences}
               onApplyPreferences={(preferences: UserPreferences) => updatePreferences(preferences)}

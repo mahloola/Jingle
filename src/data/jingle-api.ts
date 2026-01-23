@@ -105,6 +105,10 @@ export async function getAverages() {
   return await get(`/api/averages`);
 }
 
+export async function sendFeedback(feedback: string) {
+  return await post(`/api/feedback`, { feedback });
+}
+
 export async function getSongList() {
   return await get<Song[]>('/api/songs');
 }

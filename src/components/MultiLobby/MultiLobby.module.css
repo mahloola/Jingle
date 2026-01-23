@@ -177,7 +177,9 @@
 
   .playerPicture {
     width: 40px;
-    height: auto;
+    height: 40px; /* Must set both width AND height */
+    border-radius: 50%; /* This creates a perfect circle */
+    object-fit: cover; /* Prevents image distortion */
   }
 }
 
@@ -192,6 +194,8 @@
 
   .playerPicture {
     width: 40px;
-    height: auto;
+    height: 40px; /* Must set both width AND height */
+    border-radius: 50%; /* This creates a perfect circle */
+    object-fit: cover; /* Prevents image distortion */
   }
 }

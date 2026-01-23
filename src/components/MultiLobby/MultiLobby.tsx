@@ -28,6 +28,7 @@ import RunescapeMapMultiWrapper from '../RunescapeMapMulti';
 import HistoryModalButton from '../side-menu/HistoryModalButton';
 import HomeButton from '../side-menu/HomeButton';
 import NewsModalButton from '../side-menu/NewsModalButton';
+import ReportModalButton from '../side-menu/ReportModalButton';
 import StatsModalButton from '../side-menu/StatsModalButton';
 import { Button } from '../ui-util/Button';
 import styles from './MultiLobby.module.css';
@@ -278,7 +279,10 @@ export default function MultiplayerLobby() {
             />
           </aside>
           <div className='modal-buttons-container'>
-            <HomeButton />
+            <span style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+              <ReportModalButton />
+              <HomeButton />
+            </span>
             <NewsModalButton />
             <StatsModalButton />
             <HistoryModalButton />

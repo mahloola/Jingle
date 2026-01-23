@@ -34,6 +34,37 @@
   padding: 0px 7%;
 }
 
+.report-btn {
+  height: 42px;
+  width: 100px;
+  @media (max-width: 768px) {
+    height: 38px;
+  }
+}
+.report-btn:hover {
+  filter: brightness(0.8);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.osrs-btn.icon-button {
+  position: relative;
+  width: 62px;
+  height: 42px;
+  z-index: 99999;
+  border-image-width: 14px;
+
+  padding: 6px;
+
+  img {
+    width: auto;
+    height: 100%;
+  }
+  &:hover {
+    transform: translate(-5px, 0px);
+  }
+}
+
 .custom-range-input {
   transition: all 0.3s ease-in-out;
   overflow: hidden;

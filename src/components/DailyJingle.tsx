@@ -39,6 +39,7 @@ import HistoryModalButton from './side-menu/HistoryModalButton';
 import HomeButton from './side-menu/HomeButton';
 import NewsModalButton from './side-menu/NewsModalButton';
 import SettingsModalButton from './side-menu/PreferencesModalButton';
+import ReportModalButton from './side-menu/ReportModalButton';
 import StatsModalButton from './side-menu/StatsModalButton';
 
 interface DailyJingleProps {
@@ -174,7 +175,10 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
       <div className='App-inner'>
         <div className='ui-box'>
           <div className='modal-buttons-container'>
-            <HomeButton />
+            <span style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+              <ReportModalButton />
+              <HomeButton />
+            </span>
             <SettingsModalButton
               currentPreferences={currentPreferences}
               onApplyPreferences={(preferences: UserPreferences) => updateGameSettings(preferences)}
@@ -245,13 +249,13 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
         ref={goBackButtonRef}
       ></div>
       <RoundResult gameState={gameState} />
-      {gameState.status === GameStatus.GameOver &&
+      {gameState.status === GameStatus.GameOver && (
         <GameOver
           gameState={gameState}
           dailyChallenge={dailyChallenge}
           percentile={finalPercentile}
         />
-      }
+      )}
     </>
   );
 }

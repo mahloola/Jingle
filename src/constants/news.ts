@@ -1,12 +1,27 @@
 export const NEWS_POSTS = [
   {
+    id: '5',
+    title: `MULTIPLAYER`,
+    date: 'Jan 23, 2026',
+    content: `
+          Multiplayer is done, pls go try it out
+                    <p>
+          It was a good way to spend my christmas</p>
+          More news:
+          <p>
+          - Added a feedback button at the top right<br/>
+          - Some new sailing tracks<br/>
+          - Join the Discord for events <a href='https://discord.gg/7sB8fyUS9W' style={{color: 'white'}}>(link)</a>
+          </p>
+        `,
+  },
+  {
     id: '4',
     title: `Making History`,
     date: 'Dec 4, 2025',
     content: `
           If you've ever wondered:
-          <p/>
-            <p>
+          <p>
           - What's the global average?
           <br />- How many dailies have I done?
           <br />- Can I check my old scores?
