@@ -160,13 +160,10 @@ export default function MultiplayerLobby() {
     }
   };
 
-  if (!lobbyId || !currentUser || !lobbyState) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (!lobby) {
+  if (!lobbyId || !currentUser || !lobbyState || !lobby) {
     return <h1>Lobby not found!</h1>;
   }
+
   const playersConfirmed = new Map<string, boolean>();
   const sortedPlayersWithData = lobby.players
     .map((player) => {
