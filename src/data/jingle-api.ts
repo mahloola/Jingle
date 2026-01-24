@@ -95,6 +95,19 @@ export async function leaveLobby({ lobbyId, token }: { lobbyId: string; token: s
   return await post(`/api/lobbies/${lobbyId}/leave`, { lobbyId }, token);
 }
 
+export async function kickPlayer({
+  lobbyId,
+  playerId,
+  token,
+}: {
+  lobbyId: string | undefined;
+  playerId: string | undefined;
+  token: string | undefined;
+}) {
+  if (!lobbyId || !playerId || !token) throw Error('Missing lobbyId/playerId/auth token');
+  return await post(`/api/lobbies/${lobbyId}/kick`, { lobbyId, playerId }, token);
+}
+
 export async function startLobby({ lobbyId, token }: { lobbyId: string; token: string }) {
   if (!lobbyId) return;
   return await post(`/api/lobbies/${lobbyId}/start`, { lobbyId }, token);

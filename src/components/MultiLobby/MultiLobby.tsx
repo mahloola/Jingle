@@ -1,11 +1,12 @@
 import { User } from 'firebase/auth';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
+import { FaCircleMinus } from 'react-icons/fa6';
 import { useNavigate, useParams } from 'react-router-dom';
 import { match } from 'ts-pattern';
 import { useAuth } from '../../AuthContext';
 import { DEFAULT_PFP_URL } from '../../constants/defaults';
-import { joinLobby, leaveLobby, startLobby } from '../../data/jingle-api';
+import { joinLobby, kickPlayer, leaveLobby, startLobby } from '../../data/jingle-api';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { useLobbyWebSocket } from '../../hooks/useLobbyWebSocket';
 import {
@@ -13,6 +14,7 @@ import {
   LobbySettings,
   MultiLobbyStatus,
   NavigationState,
+  Player,
 } from '../../types/jingle';
 import { assertLobbyAndUser } from '../../utils/assert';
 import { loadPreferencesFromBrowser, sanitizePreferences } from '../../utils/browserUtil';
@@ -21,6 +23,7 @@ import { playSong } from '../../utils/playSong';
 import { calcGradientColor } from '../../utils/string-utils';
 import AudioControlsMulti from '../AudioControlsMulti';
 import Footer from '../Footer';
+import Modal from '../Modal';
 import MultiLobbyChat from '../MultiLobbyChat/MultiLobbyChat';
 import MultiSettingsModal from '../MultiSettingsModal/MultiSettingsModal';
 import RoundResultMulti from '../RoundResultMulti';
@@ -47,6 +50,9 @@ export default function MultiplayerLobby() {
   const { lobby, timeLeft, socket } = useLobbyWebSocket(lobbyId, currentUserId);
   const navigate = useNavigate();
   const userInLobby = lobby?.players?.find((player) => player.id === currentUserId);
+
+  const [kickPlayerModalOpen, setKickPlayerModalOpen] = useState(false);
+  const [playerToKick, setPlayerToKick] = useState<Player | null>(null);
 
   const hardModeStartOffset = lobby?.gameState.currentRound.hardModeStartOffset;
   const hardModeEndOffset = lobby?.gameState.currentRound.hardModeEndOffset;
@@ -145,6 +151,21 @@ export default function MultiplayerLobby() {
     setGuessConfirmed(true);
   };
 
+  const handleKickPlayer = (player: Player) => {
+    setPlayerToKick(player);
+    setKickPlayerModalOpen(true);
+  };
+
+  const handleKickPlayerConfirm = async () => {
+    const token = await currentUser?.getIdToken();
+    try {
+      await kickPlayer({ lobbyId, playerId: playerToKick?.id, token });
+      setKickPlayerModalOpen(false);
+    } catch (err) {
+      console.error('Could not kick player from lobby: ', err);
+    }
+  };
+
   const handleExitLobby = async () => {
     const { lobbyId: id, token } = await assertLobbyAndUser({
       lobbyId: lobbyId,
@@ -202,6 +223,17 @@ export default function MultiplayerLobby() {
 
   return (
     <>
+      <Modal
+        open={kickPlayerModalOpen}
+        onClose={() => setKickPlayerModalOpen(false)}
+        onApplySettings={handleKickPlayerConfirm}
+        primaryButtonText='Yes'
+      >
+        <h4 style={{ margin: '20px', textAlign: 'center' }}>
+          Are you sure you want to kick{' '}
+          <span style={{ color: 'white' }}>{playerToKick?.username}</span>?
+        </h4>
+      </Modal>
       <div className='App-inner'>
         <MultiLobbyChat
           socket={socket}
@@ -257,6 +289,14 @@ export default function MultiplayerLobby() {
                       >
                         {score ? `+${score}` : '-'}
                       </h1>
+                      {currentUserId === lobby.ownerId && player.id !== currentUserId && (
+                        <div
+                          className={styles.kickPlayerIcon}
+                          onClick={() => handleKickPlayer(player)}
+                        >
+                          <FaCircleMinus />
+                        </div>
+                      )}
                     </div>
                   ) : (
                     /* DESKTOP DETAILS */
@@ -274,6 +314,14 @@ export default function MultiplayerLobby() {
                         </span>
                         {lbEntry?.score ?? '---'} Points
                       </span>
+                      {currentUserId === lobby.ownerId && player.id !== currentUserId && (
+                        <div
+                          className={styles.kickPlayerIcon}
+                          onClick={() => handleKickPlayer(player)}
+                        >
+                          <FaCircleMinus />
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
@@ -351,7 +399,6 @@ export default function MultiplayerLobby() {
           </div>
         </div>
       </div>
-
       <RunescapeMapMultiWrapper
         navigationState={navigationState}
         multiLobby={lobby}
