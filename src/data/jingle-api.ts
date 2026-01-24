@@ -65,6 +65,18 @@ export async function createLobby({
   return await post('/api/lobbies', { name, settings, password }, token);
 }
 
+export async function deleteLobby({
+  lobbyId,
+  userId,
+  token,
+}: {
+  lobbyId: string;
+  userId: string | undefined;
+  token: string | undefined;
+}) {
+  return await post(`/api/lobbies/${lobbyId}/delete`, { lobbyId, userId }, token);
+}
+
 export async function joinLobby({
   lobbyId,
   token,

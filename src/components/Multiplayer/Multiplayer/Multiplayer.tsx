@@ -9,7 +9,7 @@ import {
   DEFAULT_PFP_URL,
   MULTI_LOBBY_COUNT_LIMIT,
 } from '../../../constants/defaults';
-import { createLobby, getLobbies, joinLobby } from '../../../data/jingle-api';
+import { createLobby, deleteLobby, getLobbies, joinLobby } from '../../../data/jingle-api';
 import { useIsMobile } from '../../../hooks/useIsMobile';
 import { LobbySettings, MultiLobby, YesNoAll } from '../../../types/jingle';
 import { getCurrentUserLobby } from '../../../utils/jingle-utils';
@@ -19,7 +19,7 @@ import Navbar from '../../Navbar/Navbar';
 import { Button } from '../../ui-util/Button';
 import CreateLobbyModal from '../CreateLobbyModal';
 import styles from './Multiplayer.module.css';
-
+const adminUserId = import.meta.env.VITE_ADMIN_USER_ID;
 const LOBBIES_PER_PAGE = 4;
 
 const Multiplayer = () => {
@@ -27,6 +27,9 @@ const Multiplayer = () => {
 
   const [createLobbyModalOpen, setCreateLobbyModalOpen] = useState(false);
   const [inLobbyModalIsOpen, setInLobbyModalIsOpen] = useState(false);
+
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [lobbyIdToDelete, setLobbyIdToDelete] = useState('');
 
   const [isCreatingLobby, setIsCreatingLobby] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -128,6 +131,20 @@ const Multiplayer = () => {
     setIsSortedByOldest((prev) => !prev);
     // reset to page 1 when sorting changes
     setCurrentPage(1);
+  };
+
+  const handleDeleteLobby = (id: string) => {
+    setDeleteModalOpen(true);
+    setLobbyIdToDelete(id);
+  };
+
+  const handleConfirmDeleteLobby = async () => {
+    const token = await currentUser?.getIdToken();
+    try {
+      await deleteLobby({ lobbyId: lobbyIdToDelete, userId: currentUser?.uid, token });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const onJoinLobby = async (lobbyId: string) => {
@@ -250,6 +267,15 @@ const Multiplayer = () => {
         You're already in a different lobby{' '}
         <span style={{ fontStyle: 'italic' }}>{userCurrentLobby?.name}.</span>
       </Modal>
+      <Modal
+        open={deleteModalOpen}
+        onClose={() => setDeleteModalOpen(false)}
+        onApplySettings={handleConfirmDeleteLobby}
+        primaryButtonText='Yes'
+      >
+        Are you sure?
+        <span style={{ fontStyle: 'italic' }}>{userCurrentLobby?.name}.</span>
+      </Modal>
       <div className={styles.multiplayerContainer}>
         {createLobbyModalOpen && (
           <CreateLobbyModal
@@ -305,6 +331,11 @@ const Multiplayer = () => {
                 <div
                   className={styles.lobbyContainer}
                   onClick={() => onJoinLobby(lobby.id)}
+                  onContextMenu={(e) => {
+                    if (currentUser?.uid !== adminUserId) return;
+                    e.preventDefault();
+                    handleDeleteLobby(lobby.id);
+                  }}
                   key={lobby.id}
                 >
                   <div className={styles.lobbyOwnerInfo}>
@@ -328,7 +359,6 @@ const Multiplayer = () => {
                       <FaLock />
                     </span>
                   )}
-
                   {lobby.settings?.hardMode ? (
                     <Chip
                       size='medium'
