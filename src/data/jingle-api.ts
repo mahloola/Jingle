@@ -168,7 +168,10 @@ export async function postDailyChallengeResult(
   timeTakenMs: number,
 ): Promise<DailyChallengeResponse> {
   // Returns the percentile
-  return await post<DailyChallengeResponse>(`/api/daily-challenge/result`, { score, timeTakenMs });
+  return await post<DailyChallengeResponse>(`/api/daily-challenge/result`, {
+    result: score,
+    timeTaken: timeTakenMs,
+  });
 }
 
 export async function getStatistics() {
