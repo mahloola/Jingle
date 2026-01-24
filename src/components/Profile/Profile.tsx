@@ -44,7 +44,7 @@ const Profile = () => {
         photoURL,
       });
     } catch (error: any) {
-      console.log('error lol');
+      console.error('error registering lol');
       let errorMessage = 'Registration failed';
 
       // specific Firebase errors

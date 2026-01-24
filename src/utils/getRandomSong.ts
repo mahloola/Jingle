@@ -29,9 +29,14 @@ export class SongService {
     return this.songList;
   }
 
-  getSnippet = (audioRef: RefObject<HTMLAudioElement | null>, length: number) => {
+  getSnippet = (
+    audioRef: RefObject<HTMLAudioElement | null>,
+    length: number,
+    hardModeStartOffset?: number,
+    hardModeEndOffset?: number,
+  ) => {
     if (!this.snippet) {
-      this.generateSnippet(audioRef, length);
+      this.generateSnippet(audioRef, length, hardModeStartOffset, hardModeEndOffset);
     }
     return this.snippet;
   };
@@ -99,11 +104,22 @@ export class SongService {
     return songs[randomIndex];
   };
 
-  private generateSnippet = (audioRef: RefObject<HTMLAudioElement | null>, length: number) => {
+  private generateSnippet = (
+    audioRef: RefObject<HTMLAudioElement | null>,
+    length: number,
+    hardModeStartOffset?: number,
+    hardModeEndOffset?: number,
+  ) => {
     const audio = audioRef.current;
     if (!audio) return;
+    const generateFromServer = () => {
+      if (!hardModeStartOffset || !hardModeEndOffset)
+        throw Error('No offsets from server, generating snippet locally.');
+      this.snippet = [hardModeStartOffset, hardModeEndOffset];
+      return;
+    };
 
-    const generate = () => {
+    const generateFromMetadata = () => {
       const songDuration = audio.duration;
       const buffer = 10;
 
@@ -120,16 +136,19 @@ export class SongService {
       this.snippet = [start, end];
     };
 
-    if (audio.readyState >= 1) {
-      // Metadata is already loaded
-      generate();
-    } else {
-      // Wait for metadata
-      const onLoadedMetadata = () => {
-        audio.removeEventListener('loadedmetadata', onLoadedMetadata);
-        generate();
-      };
-      audio.addEventListener('loadedmetadata', onLoadedMetadata);
+    try {
+      generateFromServer();
+    } catch (err) {
+      if (audio.readyState >= 1) {
+        generateFromMetadata();
+      } else {
+        // Wait for metadata
+        const onLoadedMetadata = () => {
+          audio.removeEventListener('loadedmetadata', onLoadedMetadata);
+          generateFromMetadata();
+        };
+        audio.addEventListener('loadedmetadata', onLoadedMetadata);
+      }
     }
   };
 }

@@ -15,9 +15,12 @@ interface AudioControlsMultiProps {
 const AudioControlsMulti = forwardRef<HTMLAudioElement | null, AudioControlsMultiProps>(
   (props, ref) => {
     const gameSettings = props.multiGame.settings;
-    const answerRevealed =
-      props.gameState.status == MultiLobbyStatus.Revealing || MultiLobbyStatus.Playing;
+    const answerRevealed = props.gameState.status == MultiLobbyStatus.Revealing;
+
     const hardMode = gameSettings.hardMode == true;
+    const hardModeStartOffset = props.multiGame.gameState.currentRound.hardModeStartOffset ?? 0;
+    const hardModeEndOffset = props.multiGame.gameState.currentRound.hardModeEndOffset ?? 0;
+
     const showAudio = !hardMode || answerRevealed;
     const audioRef = ref as RefObject<HTMLAudioElement | null>;
 
@@ -61,11 +64,20 @@ const AudioControlsMulti = forwardRef<HTMLAudioElement | null, AudioControlsMult
             <SnippetPlayer
               audioRef={ref as RefObject<HTMLAudioElement | null>}
               snippetLength={gameSettings.hardModeLength}
+              hardModeStartOffset={hardModeStartOffset}
+              hardModeEndOffset={hardModeEndOffset}
             />
             <div className='reload-audio-container'>
               <FiRefreshCcw
                 className={'reload-audio-btn'}
-                onClick={() => playSnippet(audioRef, gameSettings.hardModeLength)}
+                onClick={() => {
+                  playSnippet(
+                    audioRef,
+                    gameSettings.hardModeLength,
+                    hardModeStartOffset,
+                    hardModeEndOffset,
+                  );
+                }}
                 data-tooltip-id={`reload-tooltip`}
                 data-tooltip-content={'Reload Audio'}
               />
@@ -81,13 +93,14 @@ const AudioControlsMulti = forwardRef<HTMLAudioElement | null, AudioControlsMult
 const SnippetPlayer = (props: {
   audioRef: RefObject<HTMLAudioElement | null>;
   snippetLength: number;
+  hardModeStartOffset: number | undefined;
+  hardModeEndOffset: number | undefined;
 }) => {
   const [isAudioReady, setIsAudioReady] = useState(false);
   const [isClipPlaying, setIsClipPlaying] = useState(false);
   const songService = SongService.Instance();
   const audio = props.audioRef.current;
 
-  //is audio ready
   useEffect(() => {
     const audio = props.audioRef.current;
     if (!audio) return;
@@ -126,9 +139,16 @@ const SnippetPlayer = (props: {
       className='osrs-btn'
       onClick={() => {
         if (!isAudioReady || isClipPlaying) {
+          console.log('Aborting..');
           return;
         }
-        playSnippet(props.audioRef, props.snippetLength);
+
+        playSnippet(
+          props.audioRef,
+          props.snippetLength,
+          props.hardModeStartOffset,
+          props.hardModeEndOffset,
+        );
       }}
       style={{
         display: 'flex',

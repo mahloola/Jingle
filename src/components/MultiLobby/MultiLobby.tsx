@@ -47,6 +47,10 @@ export default function MultiplayerLobby() {
   const { lobby, timeLeft, socket } = useLobbyWebSocket(lobbyId, currentUserId);
   const navigate = useNavigate();
   const userInLobby = lobby?.players?.find((player) => player.id === currentUserId);
+
+  const hardModeStartOffset = lobby?.gameState.currentRound.hardModeStartOffset;
+  const hardModeEndOffset = lobby?.gameState.currentRound.hardModeEndOffset;
+
   // if (!userInLobby && lobby?.settings.hasPassword === false) {
   //   if (currentUser && lobbyId) enterUserIntoLobby(currentUser, lobbyId);
   // } else {
@@ -90,6 +94,8 @@ export default function MultiplayerLobby() {
         songName,
         currentPreferences.preferOldAudio,
         lobby?.settings.hardMode ? lobby?.settings.hardModeLength : undefined,
+        hardModeStartOffset,
+        hardModeEndOffset,
       );
     }
     setGuessConfirmed(false);

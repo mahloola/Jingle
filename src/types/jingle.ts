@@ -129,6 +129,8 @@ export interface MultiRound {
     userId: string;
     score: number;
   }>;
+  hardModeStartOffset?: number;
+  hardModeEndOffset?: number;
 }
 export interface MultiGameState {
   status: MultiLobbyStatus;

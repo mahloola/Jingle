@@ -263,6 +263,26 @@ const MultiSettingsModal: React.FC<MultiSettingsModalProps> = ({ onEditLobby, lo
         /> */}
         <table className={'settings-table'}>
           <tbody>
+            <tr>
+              <td>
+                Hard Mode{' '}
+                <FaQuestionCircle
+                  data-tooltip-id='hard-mode-tooltip'
+                  data-tooltip-content='You only get a x-second snippet (customizable)'
+                />
+                <Tooltip id='hard-mode-tooltip' />
+              </td>
+              <td>
+                <input
+                  type='checkbox'
+                  name='hardMode'
+                  defaultChecked={false}
+                  onChange={(e) => {
+                    handleSettingsChange(e);
+                  }}
+                ></input>
+              </td>
+            </tr>
             <tr
               className='hard-mode-row'
               style={{
