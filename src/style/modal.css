@@ -99,6 +99,7 @@ th .history-entry-td {
   transition: all 0.3s ease-in-out;
   overflow: hidden;
   height: 70px !important;
+  border: none;
 }
 .hard-mode-row:not(:has(.custom-range-input.visible)) {
   max-height: 0;
