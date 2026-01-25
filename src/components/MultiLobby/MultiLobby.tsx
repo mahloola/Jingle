@@ -9,6 +9,7 @@ import { DEFAULT_PFP_URL } from '../../constants/defaults';
 import { joinLobby, kickPlayer, leaveLobby, startLobby } from '../../data/jingle-api';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { useLobbyWebSocket } from '../../hooks/useLobbyWebSocket';
+import { useMultiplayerStatistics } from '../../hooks/useMultiplayerStatistics';
 import {
   ClickedPosition,
   LobbySettings,
@@ -50,18 +51,11 @@ export default function MultiplayerLobby() {
   const { lobby, timeLeft, socket } = useLobbyWebSocket(lobbyId, currentUserId);
   const navigate = useNavigate();
   const userInLobby = lobby?.players?.find((player) => player.id === currentUserId);
-
   const [kickPlayerModalOpen, setKickPlayerModalOpen] = useState(false);
   const [playerToKick, setPlayerToKick] = useState<Player | null>(null);
 
   const hardModeStartOffset = lobby?.gameState.currentRound.hardModeStartOffset;
   const hardModeEndOffset = lobby?.gameState.currentRound.hardModeEndOffset;
-
-  // if (!userInLobby && lobby?.settings.hasPassword === false) {
-  //   if (currentUser && lobbyId) enterUserIntoLobby(currentUser, lobbyId);
-  // } else {
-  //   navigate('/multiplayer');
-  // }
 
   if (!userInLobby && currentUser && lobbyId) {
     if (lobby?.settings.hasPassword) {
@@ -72,6 +66,7 @@ export default function MultiplayerLobby() {
   }
 
   const lobbyState = lobby?.gameState;
+  useMultiplayerStatistics(lobbyState, currentUserId);
 
   // this is for playing the song
   const prevStatusRef = useRef(lobbyState?.status);

@@ -9,6 +9,7 @@ import {
   DEFAULT_PFP_URL,
   MULTI_LOBBY_COUNT_LIMIT,
 } from '../../../constants/defaults';
+import { REGIONS } from '../../../constants/regions';
 import { createLobby, deleteLobby, getLobbies, joinLobby } from '../../../data/jingle-api';
 import { useIsMobile } from '../../../hooks/useIsMobile';
 import { LobbySettings, MultiLobby, YesNoAll } from '../../../types/jingle';
@@ -273,8 +274,8 @@ const Multiplayer = () => {
         onApplySettings={handleConfirmDeleteLobby}
         primaryButtonText='Yes'
       >
-        Are you sure?
-        <span style={{ fontStyle: 'italic' }}>{userCurrentLobby?.name}.</span>
+        <h2>Delete lobby?</h2>
+        <h2 style={{ color: 'white' }}>{userCurrentLobby?.name}</h2>
       </Modal>
       <div className={styles.multiplayerContainer}>
         {createLobbyModalOpen && (
@@ -405,9 +406,18 @@ const Multiplayer = () => {
                           ([, value]) => value === true,
                         ),
                       );
+                      const selectedCount = Object.keys(trueRegions).length;
+
+                      // Get total number of regions - you need to import/define this
+                      const totalRegions = Object.keys(REGIONS || {}).length;
+
+                      if (selectedCount === totalRegions) {
+                        return 'All Regions';
+                      }
+
                       const regionString = Object.keys(trueRegions).join(', ');
-                      return regionString.length > 60
-                        ? regionString.substring(0, 50) + '...'
+                      return regionString.length > 45
+                        ? regionString.substring(0, 35) + '...'
                         : regionString;
                     })()}
                     className={styles.chip}
