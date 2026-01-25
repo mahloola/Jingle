@@ -39,8 +39,7 @@ export function useMultiplayerStatistics(
       const userResult = lobbyState.currentRound.results?.find(
         (result) => result.userId === currentUserId,
       );
-      const isCorrect = (userResult?.score ?? 0) > 0;
-
+      const isCorrect = userResult?.score === 1000;
       updateStatistics(songName, isCorrect);
     }
 
