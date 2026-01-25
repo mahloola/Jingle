@@ -63,6 +63,14 @@ const Navbar: React.FC = () => {
                     Sign Out
                   </button>
                 </li>
+                <li className={`${styles.navItem} ${styles.navItemMobile}`}>
+                  <button
+                    className={styles.profileBtn}
+                    onClick={() => navigate('/profile')}
+                  >
+                    Profile
+                  </button>
+                </li>
               </>
             ) : (
               <>
