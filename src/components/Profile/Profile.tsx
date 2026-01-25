@@ -5,6 +5,7 @@ import { useAuth } from '../../AuthContext';
 import Navbar from '../Navbar/Navbar';
 import styles from './Profile.module.css';
 
+import { useNavigate } from 'react-router-dom';
 import { auth, storage } from '../../firebase/firebase';
 import { checkProfanity } from '../../utils/string-utils';
 
@@ -17,6 +18,8 @@ const Profile = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { userLoggedIn } = useAuth();
+
+  const navigate = useNavigate();
 
   const handleRegistration = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -120,6 +123,14 @@ const Profile = () => {
             disabled={loading}
           >
             {loading ? 'Updating Profile...' : 'Update Profile'}
+          </button>
+          <button
+            onClick={() => navigate('/')}
+            className={styles.homeButton}
+            type='button'
+            disabled={loading}
+          >
+            Go Back Home
           </button>
         </form>
       </main>
