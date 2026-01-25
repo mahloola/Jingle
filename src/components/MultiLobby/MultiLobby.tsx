@@ -57,12 +57,8 @@ export default function MultiplayerLobby() {
   const hardModeStartOffset = lobby?.gameState.currentRound.hardModeStartOffset;
   const hardModeEndOffset = lobby?.gameState.currentRound.hardModeEndOffset;
 
-  if (!userInLobby && currentUser && lobbyId) {
-    if (lobby?.settings.hasPassword) {
-      navigate('/multiplayer');
-    } else {
-      enterUserIntoLobby(currentUser, lobbyId);
-    }
+  if (!userInLobby) {
+    navigate('/multiplayer');
   }
 
   const lobbyState = lobby?.gameState;
