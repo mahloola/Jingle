@@ -131,7 +131,7 @@
     flex-direction: column;
   }
   .main-menu-options {
-    gap: 30px;
+    gap: 20px;
   }
   .main-menu-option {
     font-size: 40px;
@@ -141,6 +141,6 @@
     font-size: 5vw;
   }
   .menu-statistics {
-    margin-top: 50px;
+    margin-top: 30px;
   }
 }
