@@ -68,14 +68,18 @@ export default function Practice() {
   const handleMapClick = (clickedPosition: ClickedPosition) => {
     const newGameState = jingle.setClickedPosition(clickedPosition);
     if (!currentPreferences.preferConfirmation) {
-      confirmGuess(newGameState); // confirm immediately
+      const updatedNavState = {
+        ...navigationState,
+        clickedPosition: clickedPosition,
+      };
+      confirmGuess(newGameState, updatedNavState);
     }
     setNavigationState((prev) => ({
       ...prev,
       clickedPosition: clickedPosition,
     }));
   };
-  const jingle = useGameLogic(initialGameState, navigationState);
+  const jingle = useGameLogic(initialGameState);
   const gameState = jingle.gameState;
 
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -91,9 +95,8 @@ export default function Practice() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const confirmGuess = (latestGameState?: SoloGameState) => {
-    const gameState = jingle.confirmGuess(latestGameState);
-
+  const confirmGuess = (latestGameState?: SoloGameState, updatedNavState?: NavigationState) => {
+    const gameState = jingle.confirmGuess(updatedNavState ?? navigationState, latestGameState);
     // update statistics
     incrementGlobalGuessCounter();
     const currentSong = gameState.songs[gameState.round];

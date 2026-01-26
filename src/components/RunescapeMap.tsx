@@ -101,14 +101,13 @@ function RunescapeMap({
   const { correctFeaturesData, correctMapId } = useMemo(() => {
     const song = gameState.songs[gameState.round];
     if (!map || !song || !navigationState.clickedPosition) return {};
-
     const { featuresData, mapId } = findNearestPolygonWhereSongPlays(
       song,
       navigationState.clickedPosition!,
     );
 
     return { correctFeaturesData: featuresData, correctMapId: mapId };
-  }, [map, gameState]);
+  }, [map, gameState, navigationState.clickedPosition]);
 
   const showCorrectPolygon =
     correctFeaturesData &&

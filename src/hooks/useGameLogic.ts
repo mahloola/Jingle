@@ -10,10 +10,7 @@ import {
 import { calculateTimeDifference } from '../utils/date-utils';
 import { calculateScoreFromPin } from '../utils/map-utils';
 
-export default function useGameLogic(
-  initialGameState: SoloGameState,
-  navigationState: NavigationState,
-) {
+export default function useGameLogic(initialGameState: SoloGameState) {
   const [gameState, setGameState] = useState<SoloGameState>(initialGameState);
 
   const setClickedPosition = (clickedPosition: ClickedPosition): SoloGameState => {
@@ -23,12 +20,14 @@ export default function useGameLogic(
   };
 
   // latestGameState is required when called immediately after setGuess
-  const confirmGuess = (latestGameState?: SoloGameState): SoloGameState => {
+  const confirmGuess = (
+    navigationState: NavigationState,
+    latestGameState?: SoloGameState,
+  ): SoloGameState => {
     const newGameState = latestGameState ?? gameState;
     if (navigationState?.clickedPosition === null) {
       throw new Error('clickedPosition cannot be null');
     }
-
     const song = newGameState.songs[newGameState.round];
     const score = calculateScoreFromPin({
       song,

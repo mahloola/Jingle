@@ -66,7 +66,7 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const initialGameState: SoloGameState = (() => {
     return loadGameStateFromBrowser(jingleNumber, dailyChallenge);
   })();
-  const jingle = useGameLogic(initialGameState, navigationState);
+  const jingle = useGameLogic(initialGameState);
   const gameState = jingle.gameState;
 
   const saveGameState = (gameState: SoloGameState) => {
@@ -90,7 +90,11 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
   const handleMapClick = (clickedPosition: ClickedPosition) => {
     const newGameState = jingle.setClickedPosition(clickedPosition);
     if (!currentPreferences.preferConfirmation) {
-      confirmGuess(newGameState); // confirm immediately
+      const updatedNavState = {
+        ...navigationState,
+        clickedPosition: clickedPosition,
+      };
+      confirmGuess(newGameState, updatedNavState);
     }
     setNavigationState((prev) => ({
       ...prev,
@@ -98,8 +102,8 @@ export default function DailyJingle({ dailyChallenge }: DailyJingleProps) {
     }));
   };
 
-  const confirmGuess = (latestGameState?: SoloGameState) => {
-    const gameState = jingle.confirmGuess(latestGameState);
+  const confirmGuess = (latestGameState?: SoloGameState, updatedNavState?: NavigationState) => {
+    const gameState = jingle.confirmGuess(updatedNavState ?? navigationState, latestGameState);
     saveGameState(gameState);
 
     // update statistics
