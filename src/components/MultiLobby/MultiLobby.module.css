@@ -69,8 +69,6 @@
 }
 
 .kickPlayerIcon {
-  position: absolute;
-  right: 25px;
   cursor: pointer !important;
   animation: fade 1.6s;
 }
