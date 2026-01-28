@@ -349,7 +349,10 @@ export default function MultiplayerLobby() {
                   classes={'guess-btn'}
                   label={guessConfirmed ? 'Confirmed' : 'Confirm Guess'}
                   onClick={handleConfirmGuess}
-                  disabled={guessConfirmed}
+                  disabled={
+                    guessConfirmed ||
+                    !lobby.gameState.currentRound.pins.find((pin) => pin.userId === currentUserId)
+                  }
                 />
               ))
               .with(MultiLobbyStatus.Revealing, () => (
