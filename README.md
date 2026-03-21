@@ -4,10 +4,11 @@
 
 [Jingle](https://jingle.rs) is a GeoGuessr-inspired music guessing game for Oldschool RuneScape - the goal is to drop a pin on the map at the location where the current OSRS song is played in-game.
 
-At the moment, there are two modes:
+There are three modes:
 
 - Practice Mode (unlimited)
 - Daily Jingle (a global daily challenge consisting of 5 songs)
+- Multiplayer
 
 The Daily Jingle resets at 00:00 in London, UK (GMT/BST)
 
